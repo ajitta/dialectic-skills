@@ -68,3 +68,5 @@ Plato used reductio dialectically (IEP cites *Republic* I, 338c–343a and *Parm
 - Nicholas Rescher, "Reductio ad Absurdum", *Internet Encyclopedia of Philosophy*. https://iep.utm.edu/reductio/
 - "Reductio ad absurdum", *Encyclopedia of Mathematics*. https://encyclopediaofmath.org/wiki/Reductio_ad_absurdum
 - "Reductio ad absurdum", Wikipedia (secondary, for the Madhyamaka note).
+- "Underdetermination of Scientific Theory", *Stanford Encyclopedia of Philosophy* (Duhem's and Quine's holism). https://plato.stanford.edu/entries/scientific-underdetermination/
+- W. V. O. Quine, "Two Dogmas of Empiricism" (1951), §6. https://www.ditext.com/quine/quine.html

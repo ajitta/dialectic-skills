@@ -23,7 +23,7 @@ All are stdlib-only. CI (`.github/workflows/check.yml`) runs them plus `claude p
 - The shipped package (`plugins/dia/`, `releases/dialectic-skills.zip`) is instructions only: Markdown, YAML, JSON. No scripts, hooks, binaries, MCP or LSP config (spec §7.1).
 - No Hangul outside `skills/<skill>/references/ko/` (spec §6). This covers SKILL.md, `agents/openai.yaml`, manifests and other references.
 - `plugins/dia/` and `releases/` are generated from `skills/` and `plugin-manifest.json`. Edit the source, then regenerate; never hand-edit generated output.
-- Changing any skill file requires a new plugin `version` in `plugin-manifest.json` and the skill's `metadata.version` (spec §12.1).
+- Changing any skill file requires a new plugin `version` in `plugin-manifest.json` and the skill's `metadata.version` (spec §12.1). Before the first install or release, a change may keep 0.1.0 (`docs/handoff.md`, State).
 - Text files use LF line endings (`.gitattributes`). On Windows, write files with LF explicitly.
 
 ## Working with the owner

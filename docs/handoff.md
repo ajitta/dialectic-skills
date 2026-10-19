@@ -17,18 +17,18 @@ State of the work and what is left, for the next agent session. Read `AGENTS.md`
 | # | Item | Who | Notes |
 |---|---|---|---|
 | 1 | P1: claude.ai upload of `releases/dialectic-skills.zip` (Customize › Plugins › Upload plugin). Pass: accepted; seven skills listed as `dia:dia-<x>` | owner runs, agent records | Before testing, the owner removes the old copies (spec §10): the synced skills `reductio`, `negative-dialectics`, `self-refine`, `recursive-refine`, `confirm-intent`, and the `socratic` plugin. Headless Claude Code showed all of them still active on the account. |
-| 2 | P2: Claude mobile, one natural-language prompt per skill | owner runs, agent records | Pass: the right skill loads and the reply is in the prompt's language. Suggest prompts from `docs/probes.md` P7, plus one each for intent, refine and iterate. For the explicit-only skills the prompt names the skill or uses its marker; for dia-intent also send the same request without the name and check that it does not load (spec §12.2). |
+| 2 | P2: Claude mobile, one natural-language prompt per skill | owner runs, agent records | Pass: the right skill loads and the reply is in the prompt's language. Suggest prompts from `docs/probes.md` P7, plus one each for intent, refine and iterate. For dia-intent the prompt names the skill and for dia-iterate it starts with `dia-iterate`; elenchus and brainstorm use the P7 prompts. For dia-intent also send the same request without the name and check that it does not load (spec §12.2). |
 | 3 | P4: ChatGPT desktop (Pro), local plugin install | owner runs, agent records | `default_prompt` now uses `$dia:dia-<x>` (spec D19, from P3). Record whether it resolves in ChatGPT desktop and whether the skills appear under `@`. If it does not resolve there, report it; do not change it back without the owner. |
 | 4 | P5: ChatGPT mobile (Pro) after P4 | owner runs, agent records | Pass or a documented plan limitation (O4) |
 | 5 | O1: resolved 2026-10-20, no `references/ko/` files in 1.0.0 (spec D17) | — | To add one later: L4 header (`Scope:`, `Source:`, `As of:`, `Use when:`), name the file and its read condition in SKILL.md (L5), run P9. `tools/package.py` enforces the header and the mention. |
 | 6 | O3: resolved 2026-10-20, MIT for all seven skills (spec D18) | — | — |
 | 7 | Acceptance and release | agent, after 1–4 | Set `version` to `1.0.0` in `plugin-manifest.json`, bump each skill's `metadata.version` as needed, run `tools/package.py`, push, wait for green CI. Then `git tag v1.0.0`, push the tag, and `gh release create v1.0.0 releases/dialectic-skills.zip`. Update the status lines in `docs/spec.md` and `docs/probes.md`. |
 | 8 | Codex GitHub marketplace route (`codex plugin marketplace add ajitta/dialectic-skills`) | agent, where Codex CLI is installed | P3 covered only a local path. The repository is private, so Codex needs git credentials for it. |
-| 9 | Research findings in `docs/research/` | agent | High findings and cross-cutting themes 1–4 applied 2026-10-20 (spec D19), still as 0.1.0. The remaining findings are listed, numbered, in `docs/research/README.md` § Not applied yet; settle them with the owner before P1. |
+| 9 | Research findings in `docs/research/` | agent | Applied 2026-10-20 in three batches (spec D19, D20, D21 after the diff reviews in `docs/research/review/diff/`), still as 0.1.0. What remains is in `docs/research/README.md` § Still open; settle it with the owner before P1. |
 
 Observations from P8 that were not acted on (n=1 each; see `docs/probes.md`). Re-test before changing anything:
 
-- In one run, dia-refine added an inline "(unverified; …)" note inside the revision.
+- In one run, dia-refine added an inline "(unverified; …)" note inside the revision. Addressed by spec D20 (marks go in ④ or the closing line); see the neutral-directory P8 re-run in `docs/probes.md`.
 - In one run, dia-refine replied in Korean to an English prompt. The host's Korean locale may be the cause.
 
 ## How probes were run (for re-runs)

@@ -14,20 +14,20 @@ Not tested: (other claims in the input, one line, if any)
 ## Premises
 - P1 [T] … — "quote"
 - P2 [L] … (law of logic or mathematics)
-- P3 [A] … — needed because …; evidence: verified this session | supplied by the user | single source | unverified recall
-- Key terms: X = …, Y = …
+- P3 [A] … — needed because …; evidence: verified this session (a tool ran) | supplied by the user | single source | unverified recall
+- Key terms: X = … [T "quote" | A], Y = … (a meaning a line substitutes gets its own P-line)
 
-## Derivation (assume T)
-1. T — assumption
+## Derivation (assume T; when proving, assume not-T)
+1. T (not-T when proving) — assumption
 2. … — from 1, P1, modus ponens
 3. …
 n. Q and not-Q — lines a and b
 
 ## Derivation (assume not-T)
-(only when the direction is "both"; same format, and its own contradiction and strength below)
+(only when the direction is "both": the not-T derivation, same format, and its own contradiction and strength below)
 
 ## Contradiction
-Lines a and b. Depends on: T, P1, P3 [A].
+Lines a and b. Depends on: T (or not-T), P1, P3 [A].
 Strength: internal | conditional | carried by added premises (if the last: "P3 [A] alone already entails not-T (T, when proving), so this only restates my assumption; the question is whether P3 is true.")
 (Direction "both": one Contradiction and Strength line per direction.)
 (If a direction found none, say so here.)

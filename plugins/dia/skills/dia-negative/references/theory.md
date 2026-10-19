@@ -30,7 +30,7 @@ Theodor W. Adorno (1903–1969) published *Negative Dialektik* in 1966 (SEP). Pl
 
 Adorno resisted summary. He wrote that philosophy cannot be given in a digest, and later scholars argue that negative dialectics is not a system, a standpoint, or a set of principles (SEP; Stopford 2012). This skill turns it into steps anyway, so be clear about what it keeps and what it changes:
 
-- **Kept:** immanent standards, determinate (not abstract) negation, attention to the remainder, no forced synthesis, attention to function.
+- **Kept:** judging by the target's own standards (internal critique; see §4), determinate (not abstract) negation, attention to the remainder, no forced synthesis, attention to function.
 - **Changed:** "contradiction" is narrowed to a checkable gap between what a claim says and what it delivers, and a finding must be strict. Adorno's own writing often works by rhetorical exaggeration and constellation instead of stepwise argument (SEP). The strictness rule is a choice made for this skill, so its findings can be checked and disputed.
 - **Changed:** the skill offers options and a recommendation. Adorno did not end in advice. The options here never include a synthesis without a stated remainder, which keeps the spirit of the original.
 
@@ -38,7 +38,7 @@ Adorno resisted summary. He wrote that philosophy cannot be given in a digest, a
 
 - **Performative contradiction (Habermas).** A critique that turns reason against itself seems to undercut its own standards; Habermas argued that Adorno was aware of this and that his critique lacks normative foundations (SEP). The skill's rule 1 answers this in practice by never using a standard the target does not hold, so it does not need a foundation of its own.
 - **No dynamic force (Rosen).** Michael Rosen argued that once Adorno rejects Hegel's positive determinate negation, his dialectic has no engine to move forward (Stopford 2012 summarizes and answers the claim). In this skill the movement comes from the user: each revision is a new claim that is examined again.
-- **Internal versus immanent critique (Jaeggi).** Internal critique holds the target's norms fixed and checks compliance; immanent critique can also change the norms themselves (SEP). The skill does internal critique by default (the stated standard) and becomes immanent when Step 5 exposes the operative function and the options include changing the standard.
+- **Internal versus immanent critique (Jaeggi, Stahl).** Internal critique holds the target's norms fixed and checks compliance; immanent critique also draws on norms implicit in a practice and can change the norms themselves (SEP *Adorno* §7.2; SEP *Critical Theory* §2.1; Stahl 2013). This skill does internal critique: its standard is what the target states. Step 5 and the options to change the practice or own the operative purpose point towards immanent critique, but the skill does not reconstruct implicit norms.
 
 ## 5. Relation to reductio (dia-reductio)
 
@@ -46,9 +46,11 @@ Reductio shows that a set of statements is logically inconsistent. Negative dial
 
 ## Sources
 
-- Lambert Zuidervaart et al., "Theodor W. Adorno", *Stanford Encyclopedia of Philosophy* (substantive revision 4 Nov 2024), sections 3 and 5. https://plato.stanford.edu/entries/adorno/
+- Lambert Zuidervaart et al., "Theodor W. Adorno", *Stanford Encyclopedia of Philosophy* (substantive revision 4 Nov 2024), sections 3, 5 and 7.2. https://plato.stanford.edu/entries/adorno/
 - "Critical theory, §6: Negative dialectics", *Routledge Encyclopedia of Philosophy* (1998). https://www.rep.routledge.com/articles/thematic/critical-theory/v-1/sections/negative-dialectics
 - Richard Stopford, *Adorno's Critique of Judgement: the recovery of negativity from the philosophies of Kant and Hegel*, PhD thesis, Durham University, 2012. https://etheses.durham.ac.uk/id/eprint/3650/
 - Kwon Hae-kyung, Negative dialectics as Adorno's "immanent critique": a comparison with Hegel in epistemology (Korean-language thesis), Sogang University. https://dcollection.sogang.ac.kr/dcollection/srch/srchDetail/000000065299
 - "Negative Dialectics", Wikipedia (secondary, for the preface quotation).
+- James Bohman et al., "Critical Theory (Frankfurt School)", *Stanford Encyclopedia of Philosophy* (2023), section 2.1. https://plato.stanford.edu/entries/critical-theory/
+- Titus Stahl, "What is Immanent Critique?", SSRN working paper, 2013. https://pure.rug.nl/ws/portalfiles/portal/35734818/SSRN_id2357957.pdf
 - Theodor W. Adorno, *Negative Dialectics*, trans. E. B. Ashton, New York: Seabury, 1973 (primary; page numbers as cited by the SEP).

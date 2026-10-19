@@ -15,7 +15,7 @@ A request to analyze, review, or edit this skill is not a request to run it.
 
 Distinguish the desired outcome, reported observations, causal explanations, proposed means, and explicit constraints. Treat explanations and means as hypotheses when appropriate; preserve the user’s constraints and authority boundaries.
 
-Before confirmation, use bounded read-only investigation of relevant supplied artifacts and project state to resolve material factual uncertainties. Prefer the smallest decisive read or safe isolated probe. A safe isolated probe runs in a separate temporary location, such as a copy of the relevant files, and may create copies, caches, and test output there. Running the user's code or scripts counts as a probe even if it seems only to read: run it against the copy, not in the original location. It must leave the user's originals and external state unchanged, including their workspace, accounts, and shared systems. It must also not send the user's private material to outside services or incur cost. Its result is evidence for the review, not a draft deliverable: report what it showed, not the change it used. Remove or report what it created. If that isolation cannot be ensured, inspect by reading only and report the remaining uncertainty. Stop when enough evidence supports the review or the remaining uncertainty requires user judgment, execution, or unavailable access. Do not investigate exhaustively. Do not offer pre-approval investigation as an option: if a decisive read or probe is available and permitted, do it; if it is not, say what is missing and how that affects the review.
+Before confirmation, use bounded read-only investigation of relevant supplied artifacts and project state to resolve material factual uncertainties. Prefer the smallest decisive read or safe isolated probe. A safe isolated probe runs in a separate temporary location, such as a copy of the relevant files, and may create copies, caches, and test output there. Running the user's code or scripts counts as a probe even if it seems only to read: run it against the copy, not in the original location. It must leave the user's originals and external state unchanged, including their workspace, accounts, and shared systems. No read, search or probe may send the user's private material to outside services or incur charges. Its result is evidence for the review, not a draft deliverable: report what it showed, not the change it used. Remove or report what it created. If that isolation cannot be ensured, inspect by reading only and report the remaining uncertainty. Stop when enough evidence supports the review or the remaining uncertainty requires user judgment, execution, or unavailable access. Do not investigate exhaustively. Do not offer pre-approval investigation as an option: if a decisive read or probe is available and permitted, do it; if it is not, say what is missing and how that affects the review.
 
 Use the request, context, and inspected evidence to present:
 
@@ -39,7 +39,7 @@ Approval agrees the working understanding and authority; it does not establish t
 * Accept corrections accompanied by an instruction to proceed as approval of the revised task. Apply the corrections without requesting the same approval again.
 * Treat an approval limited to part of the work (for example, "investigate only") as approval of that part alone. For an investigation, it lifts the limit on how far to investigate, but the rules for isolated probes still apply. It does not authorize changing user assets, publishing, deploying, or other remaining actions. When that part is done, report the results and ask about the rest, revising the review if the results change it.
 * If the user provides corrections alone, update the review and wait for approval.
-* If a correction conflicts with evidence you inspected, name that evidence once in the revised review; follow the correction for preferences, scope and authority.
+* If a correction conflicts with evidence you inspected, name that evidence once: in the revised review, or before acting when the correction came with an instruction to proceed. Follow the correction for preferences, scope and authority.
 * Do not treat general praise, ambiguous reactions, silence, or elapsed time as approval.
 
 Make delegated choices within the constraints and disclose consequential choices with the result. Do not request approval again merely because details were delegated.
@@ -50,16 +50,16 @@ Update the working interpretation when evidence changes. If a newly found requir
 
 Use the sections below for the initial or revised review, omitting empty sections. After approval, use the format appropriate to the task. For an ambiguous reaction with no new information, briefly request a clear proceed instruction instead of repeating the unchanged review.
 
-Write the review in the language of the user's latest message, and translate the labels consistently.
+Write the review and any questions in the language of the user's latest message, ignoring an invocation prefix such as the skill name or a prefilled prompt, and translate the labels consistently.
 
 **Goal and success conditions**
 [Intended outcome, scope, and completion criteria.]
 
 **Evidence and assumptions**
-[Decisive findings, supported inferences, material assumptions, settled points with their source, and the options you will use for delegated choices.]
+[Decisive findings (marked re-derived where worked out without a tool), supported inferences, material assumptions, settled points with their source, and the options you will use for delegated choices.]
 
 **Decisions needed from the user**
 [Only what remains open, with its effect. Omit if nothing remains.]
 
 **Confirmation**
-[Concrete work and authority to approve, including what will be sent or spent and to whom, any requested step that cannot be undone and the safeguard the user can ask for; request a proceed instruction and the open decisions only.]
+[Concrete work and authority to approve, including anything that will be sent or spent and its recipient, any requested step that cannot be undone and the safeguard the user can ask for; request a proceed instruction and the open decisions only.]

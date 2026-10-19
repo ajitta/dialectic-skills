@@ -51,7 +51,7 @@ Shapes, not scripts. Adapt each to the user's own words and the last answer, and
   - Christensen: "What job is this hired to do?"
   - Taleb: "What breaks first under stress, and do you gain or lose from volatility?"
   - Nygard: "What happens when this fails at 3 a.m.?"
-  - Hickey: "What's left after removing the accidental complexity?"
+  - Hickey: "What's left after removing the incidental complexity?"
   - Beck: "What's the first test that would tell you it works?"
 - **SCAMPER** (product or feature ideas, in Step 3 only): substitute, combine, adapt, modify, put to other use, eliminate, reverse. Ask about one letter at a time.
 - **Edges** (Step 3): cheapest version · most extreme version · do nothing.

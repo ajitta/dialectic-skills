@@ -43,7 +43,11 @@ The high findings and themes 1–4, in the form the reviews corrected:
 
 Items 1–8 of the former "Not applied yet" list, in the reviewed forms: dia-reductio M1, M2, F4, F5, F6; dia-iterate F4 (option b), F5, F11, M3, M4; dia-refine F3, F7, M5; dia-negative F5, F11, M1 (plus the template fallback, M3); dia-elenchus F8, F10, F13; dia-brainstorm M1, F2, F3, F4, F5; dia-intent M1, F3, M3.
 
+## Applied, third batch (spec D21, 2026-10-20)
+
+Every finding of the diff reviews of `7115d2a` (reports in [review/diff/](review/diff/)), including their nits, plus review M4 for dia-brainstorm (Hickey's "incidental complexity").
+
 ## Still open
 
 1. Probes: re-run P6–P8 from a neutral directory, since the original runs loaded this repository's `AGENTS.md` (theme 6); behavior probes for intent and for pushback. See `docs/probes.md` for what has been re-run.
-2. Low findings not listed above (for example reductio F10–F15, iterate F6, F8–F10, F12–F13, refine F5, F6, F8–F15, negative F2–F4, F7–F10, F12, elenchus F9, F11, F12, F14, brainstorm F6–F15, intent F1, F2, F4, F8–F11). Each document's section 7 and its review give the corrected form.
+2. Low findings not listed above (for example reductio F10–F15, iterate F6, F8–F10, F12–F13, refine F5, F6, F8–F15, negative F2–F4, F7–F10, F12, elenchus F9, F11, F12, F14, brainstorm F6–F15 and M2, M3, M5, M6, intent F1, F2, F4, F8–F11). Each document's section 7 and its review give the corrected form.

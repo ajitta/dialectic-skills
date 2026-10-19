@@ -61,8 +61,9 @@ These decisions were settled with the owner during the spec interview of 2026-10
 | D16 | No portable root `plugin.json` (O2): P3 showed Codex 0.162.1 installs the plugin from `.claude-plugin/` alone, and a root `plugin.json` does not change the skill names. |
 | D17 | No `references/ko/` files in 1.0.0 (O1). The mechanism (§6 L2–L5 and its build checks) stays, so a later minor version can add them; P9 is not applicable until then. (Owner, 2026-10-20.) |
 | D18 | All seven skills are licensed MIT (O3). (Owner, 2026-10-20.) |
-| D19 | Research fixes (`docs/research/`, independently reviewed in `docs/research/review/`) amend §5. They change behavior as follows. dia-elenchus: the "ideas born" record and the user-worded revision are labelled as this skill's own additions; a contradiction is shown as a conflict of the definition and the premises together; a step is withdrawn only when its defect can be named. dia-brainstorm: the departure from the Theaetetus midwife is labelled; a verdict changes under pushback only on a substantive answer. dia-reductio: [L] covers only laws of logic or mathematics, and an unstated definition is [A]; the empty result is "no contradiction found"; the evidence classes add "supplied by the user"; a disputed step is withdrawn only when its defect can be named. dia-negative: labelled internal critique (the narrow form of immanent critique); disputed findings are checked against Rule 2. dia-refine: each confirmed error carries its basis; "final version only" allows one closing line for what the user would otherwise not see. dia-iterate: regression and zero defects are redefined so that normal progress and unverifiable defects no longer stop the loop wrongly; own re-derivation is not verification here. dia-intent: values worked out without a tool are labelled re-derived; a correction that conflicts with inspected evidence is named once. All seven: `default_prompt` uses `$dia:dia-<x>` (P3). (Owner direction, 2026-10-20.) |
+| D19 | Research fixes (`docs/research/`, independently reviewed in `docs/research/review/`) amend §5. They change behavior as follows. dia-elenchus: the "ideas born" record and the user-worded revision are labelled as this skill's own additions; "examine statements, not the person" is labelled as narrower than Socrates' practice; a contradiction is shown as a conflict of the definition and the premises together; a step is withdrawn only when its defect can be named. dia-brainstorm: the departure from the Theaetetus midwife is labelled; a verdict changes under pushback only on a substantive answer. dia-reductio: [L] covers only laws of logic or mathematics, and an unstated definition is [A]; the empty result is "no contradiction found"; the evidence classes add "supplied by the user"; a disputed step is withdrawn only when its defect can be named; a self-examination does not invent a contradiction. dia-negative: labelled internal critique (narrower than Adorno's immanent critique); the evidence classes add "supplied by the user" and own recall is never "verified"; a self-examination neither defends the answer nor concedes a gap that fails Rule 2; disputed findings are checked, and a finding that survives is kept with a one-line reason. dia-refine: each confirmed error carries its basis; "final version only" allows one closing line for what the user would otherwise not see. dia-iterate: fewer passes than the previous round is no longer a regression, and a regression undoes only the offending edit; rounds whose defects are all unverifiable stop as "verification exhausted", not "zero defects"; own re-derivation is not verification here; `@dia-iterate` and a by-name invocation count. dia-intent: values worked out without a tool are labelled re-derived; a correction that conflicts with inspected evidence is named once. All seven: `default_prompt` uses `$dia:dia-<x>` (P3). (Owner direction, 2026-10-20.) |
 | D20 | The remaining reviewed research findings amend §5 further. dia-reductio: strength grades work in both directions, "both" records one contradiction per direction, not-Q must be the contradictory of Q, a worked example and a "Checked by" record line. dia-iterate: every checkable claim that bears on the result is a candidate, fixed values are locked on their confirming source, locks are shown, round-1 style edits are marked unverified, and a search snippet alone is a single source. dia-refine: unverified marks go in ④, sources sit next to changed sentences, added requirements may lengthen the revision. dia-negative: only fitting options, a no-findings path, template and record fallbacks, and a description that calls the purpose an inference. dia-elenchus: premises numbered from the visible answers, label criteria in SKILL.md, an irritation script. dia-brainstorm: a one-line thesis summary every ~4 probes, a synthesizing question before the verdict, a criteria prompt, options that differ in kind, SCAMPER only in Step 3. dia-intent: no private data out or cost before approval, the confirmation names what is sent or spent, an explicit reply language. (Owner direction, 2026-10-20.) |
+| D21 | Corrections from the diff reviews of the D19/D20 changes (independent, 2026-10-20): dia-reductio grades and the template work when proving, a "premise set inconsistent" result offers the premises of both derivations, key-term meanings and existence premises carry labels, and theory.md lists its Duhem–Quine sources; dia-iterate's description, step 4 and verification table state the round-1 exception consistently, an undone fix lists the defect it had fixed, and narrowed criteria narrow the candidate list; dia-refine's closing line covers unverified items that bear on the conclusion and file-target sources; dia-negative's label is "narrower than Adorno's immanent critique", theory.md says the same, user-supplied facts are not conditional, and the no-findings path carries through Step 7; dia-elenchus uses one ask ("Which would you change?"), keeps premise numbers stable, and labels the "ideas born" layer in the description; dia-brainstorm has one summary cadence, a fallback for "thesis after", and Hickey's own term; dia-intent's no-data-out rule covers reads and searches, and its language rule ignores an invocation prefix. |
 
 ## 4. Names and identifiers
 
@@ -105,7 +106,7 @@ Natural-language requests work on every surface and are the safe default on mobi
 
 ## 5. Skills
 
-All seven skills keep their reference behavior unless this section, D19 or D20 says otherwise. For every skill, the rebuild:
+All seven skills keep their reference behavior unless this section or D19–D21 say otherwise. For every skill, the rebuild:
 
 - renames the skill;
 - updates cross-references so that each description names the new skill names;
@@ -116,14 +117,14 @@ All seven skills keep their reference behavior unless this section, D19 or D20 s
 ### 5.1 dia-intent (from confirm-intent)
 
 - Purpose: before work starts, restate the goal, disclose material assumptions and list only the decisions the user must make. Then wait for approval.
-- Behavior: unchanged from the reference.
+- Behavior: the reference, amended by D19–D21.
 - Invocation: explicit only. Its own description already says "Use only when explicitly selected or invoked", so `allow_implicit_invocation: false`.
 - References: none at present. `references/ko/` is optional (§6).
 
 ### 5.2 dia-elenchus (from socratic-elenchus 1.3.1)
 
 - Purpose: Plato's elenchus. Ask "what is X?", collect agreed premises one question at a time, show contradictions, and treat each revision as the user's new idea. It usually ends in aporia and never gives advice.
-- Behavior: unchanged from the reference.
+- Behavior: the reference, amended by D19–D21.
 - Cross-reference: "use socratic-brainstorm" becomes "use dia-brainstorm".
 - Invocation: `allow_implicit_invocation: false`, as in the reference.
 - References carried over: `elenchus-patterns.md` and `record-template.md`.
@@ -131,7 +132,7 @@ All seven skills keep their reference behavior unless this section, D19 or D20 s
 ### 5.3 dia-brainstorm (from socratic-brainstorm 3.3.1)
 
 - Purpose: modern Socratic questioning, one question at a time. The user lists options, the skill adds up to three labeled ones, and the user converges by criteria. It ends with a verdict and a brief, and never implements anything.
-- Behavior: unchanged from the reference.
+- Behavior: the reference, amended by D19–D21.
 - Cross-reference: points to dia-elenchus.
 - Invocation: `allow_implicit_invocation: false`, as in the reference.
 - References carried over: `question-bank.md` and `brief-template.md`.
@@ -152,7 +153,7 @@ All seven skills keep their reference behavior unless this section, D19 or D20 s
 
 ### 5.5 dia-negative (from negative-dialectics)
 
-- Purpose: internal critique (the narrow form of immanent critique) adapted from Adorno, in one pass. The skill:
+- Purpose: internal critique (narrower than Adorno's immanent critique), adapted from Adorno, in one pass. The skill:
   - finds the target's own standard;
   - reports strict gaps with particular cases and "what escapes";
   - infers the operative purpose with a falsifier;
@@ -169,7 +170,7 @@ All seven skills keep their reference behavior unless this section, D19 or D20 s
 - Required changes:
   - Translate the whole skill to English. The reference is written in Korean (38 lines contain Hangul). The translation keeps every rule and its reason: candidate listing without a severity filter, verification limited to what tools allow, no subagent self-checks, the output layout ①–④, the "final only" mode, and the safeguards.
   - Invocation:
-    - Explicit: a message whose first token is `dia-refine`. Text after it is the review criteria, for example `dia-refine — check the numbers`. `/dia:dia-refine`, `$dia-refine` and `@dia-refine` also work.
+    - Explicit: a message whose first token is `dia-refine`. Text after it is the review criteria, for example `dia-refine — check the numbers`. `/dia:dia-refine`, `$dia:dia-refine`, `$dia-refine` (copied folder only) and `@dia-refine` also work.
     - Natural language, in English triggers plus "or the same in any language": for example "review your previous answer as a draft", "fix factual errors and logical leaps", "give me only the improved final version".
     - A passing mention of dia-refine in the middle of a sentence is not an invocation.
     - Multi-round requests belong to dia-iterate.
@@ -182,7 +183,7 @@ All seven skills keep their reference behavior unless this section, D19 or D20 s
 - Purpose: repeated review rounds, each gated by external verification. Each round names defects, assigns an external verification method, verifies, fixes only confirmed defects, locks verified items and logs the round. The loop stops on regression, zero defects, verification exhausted, fixed point, or the round cap (`--max N`, default 3).
 - Required changes:
   - Remove skill mode entirely: the "Skill mode" sections, `references/skill-loop.md`, and every mention of `cp -r`, `diff -u`, subagents, `evals/` and `package_skill`. Targets are the last output, a named draft, or a file the surface can read.
-  - Invocation: first word only. Activate only when the message starts with `dia-iterate`. If the marker is absent but the skill looks right, ask in one line for a message starting with `dia-iterate` and stop. Explicit `/dia:dia-iterate`, `$dia:dia-iterate`, `$dia-iterate` and `@dia-iterate` also count. `allow_implicit_invocation: false`, so on the Codex plugin route only `$dia:dia-iterate` reaches it (inferred from P3).
+  - Invocation: first word or explicit name only. Activate only when the message starts with `dia-iterate` or the skill is invoked explicitly by name. If the marker is absent but the skill looks right, ask in one line for a message starting with `dia-iterate`, or an explicit invocation of the skill by name, and stop. Explicit `/dia:dia-iterate`, `$dia:dia-iterate`, `$dia-iterate` and `@dia-iterate` also count. `allow_implicit_invocation: false`, so on the Codex plugin route only `$dia:dia-iterate` reaches it (inferred from P3).
   - Generalize tool names in `verification-sources.md`. "Context7 doc lookup" becomes "an official-documentation lookup tool (for example Context7) or a fetch of official docs".
   - Add an explicit tool-less rule: when no search, fetch or code tool is available, the only external evidence is the user's instructions and material the user supplies. Most defects are therefore unverifiable, and the loop usually stops after round 1 with the "verification exhausted" list. This is expected behavior, not a failure.
   - Keep the content-filter guardrails: a change-list output by default, no source quotations, one retry, then change the output shape.
@@ -205,7 +206,7 @@ All seven skills keep their reference behavior unless this section, D19 or D20 s
 
   Laws change, so the `As of` date is required. The skill must tell the user that date when it relies on the file.
 - L5. `SKILL.md` names each `references/ko/` file and the condition for reading it, for example: "If the claim turns on Korean law or a Korean institution, read `references/ko/<file>.md`". Otherwise the file is not read. This keeps the default context small.
-- L6. Replies follow the user's language, as all reference skills already require.
+- L6. Replies follow the user's language; every skill states this (dia-intent since D20).
 - L7. Removing Hangul from descriptions (5.4, 5.5, 5.6) may reduce routing accuracy for Korean prompts. P7 measures this. If routing drops below the baseline, fix the English trigger wording. Do not reintroduce Hangul.
 
 No skill ships `references/ko/` files in 1.0.0 (D17).
@@ -403,7 +404,7 @@ Each probe is run once (n=1) unless stated otherwise, and the result is recorded
 | # | Probe | Pass condition |
 |---|---|---|
 | P1 | claude.ai upload of `dialectic-skills.zip` | Accepted; seven skills listed as `dia:dia-<x>` |
-| P2 | Claude mobile app, one natural-language prompt per skill | The right skill loads; the reply is in the prompt's language. For the explicit-only skills (dia-intent, dia-elenchus, dia-brainstorm, dia-iterate) the prompt names the skill or uses its marker; for dia-intent also check that the same request without the name does not load it |
+| P2 | Claude mobile app, one natural-language prompt per skill | The right skill loads; the reply is in the prompt's language. For dia-intent the prompt names the skill, and for dia-iterate it starts with `dia-iterate` (a mid-sentence mention should produce the one-line request, not the loop); dia-elenchus and dia-brainstorm use the P7 prompts, which ask for the method by name in natural language. For dia-intent also check that the same request without the name does not load it |
 | P3 | Codex CLI plugin install, with only `.claude-plugin/plugin.json` | Plugin loads; `$dia:dia-<x>` resolves (the first run showed that plugin skills are namespaced; `$dia-<x>` applies only to a copied folder); `allow_implicit_invocation: false` holds for the four explicit-only skills. If this fails, add the root `plugin.json` (§7.4), re-run, and confirm that Claude Code still loads with both manifests present |
 | P4 | ChatGPT desktop (Pro), local plugin install | Skills appear under `@`; one prompt per skill routes correctly |
 | P5 | ChatGPT mobile (Pro) after P4 | Skills are usable; if not, record the plan limitation and test the Codex-cloud fallback |

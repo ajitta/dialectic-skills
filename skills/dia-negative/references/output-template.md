@@ -25,7 +25,7 @@ Not examined: (other claims, one line, if any)
 2. …
 
 ### Conditional findings
-(Rest on an unverified fact, one contested reading, or one branch of a case split. Same five lines, plus "Conditional on: …".)
+(Rest on a single-source or unverified fact, one contested reading, or one branch of a case split. Same five lines, plus "Conditional on: …".)
 
 (If none: "C holds against these particulars: …. A gap, if any, would most likely show up in ….")
 
@@ -46,7 +46,7 @@ Would be falsified by: …
 
 ## Recommendation
 Option X, because …
-Rests on: finding n (evidence class).
+Rests on: finding n (evidence class). (With no strict finding: the tested particulars.)
 Would change if: …
 The decision is yours.
 

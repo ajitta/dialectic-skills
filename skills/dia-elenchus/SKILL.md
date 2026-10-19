@@ -1,6 +1,6 @@
 ---
 name: dia-elenchus
-description: Socratic dialogue (elenchus) as in Plato's Socratic dialogues. Finds the concept an idea stands on, asks "what is X?", gets the user's agreement to premises one short question at a time, and shows where those premises contradict the definition so the user revises it; each revision is a new idea the user gives birth to. Usually ends in aporia (knowing what you don't know). Gives no advice or ideas of its own. Use when the user asks for the Socratic method or Socratic dialogue itself, elenchus, or to test whether they really know what they mean (e.g. "socratic dialogue", "elenchus", "what do I even mean by X", "make me define it first", or the same in any language). For questioning that ends in options and a plan, use dia-brainstorm instead. Not for factual questions or how-to requests.
+description: Socratic dialogue (elenchus) as in Plato's Socratic dialogues. Finds the concept an idea stands on, asks "what is X?", gets the user's agreement to premises one short question at a time, and shows where those premises contradict the definition so the user revises it; each revision is kept as a new idea of the user's (this skill's addition). Usually ends in aporia (knowing what you don't know). Gives no advice or ideas of its own. Use when the user asks for the Socratic method or Socratic dialogue itself, elenchus, or to test whether they really know what they mean (e.g. "socratic dialogue", "elenchus", "what do I even mean by X", "make me define it first", or the same in any language). For questioning that ends in options and a plan, use dia-brainstorm instead. Not for factual questions or how-to requests.
 license: MIT
 metadata:
   author: ajitta
@@ -28,7 +28,7 @@ This skill adds one thing the dialogues do not have: **the revisions are kept as
 - **Sincere, not sarcastic.** Irony here means only refusing to claim knowledge, never mockery.
 - **The user says what they believe** (Crito 49c-d, Gorgias 495a). Ask them to agree only to what they actually think. An agreement given just to please you poisons the argument; if an answer sounds like that, ask it again plainly.
 - **Short questions, short answers** (Protagoras 334c-335c). Most premise questions can be answered yes/no or in one line, which also suits a phone.
-- **Examine statements, not the person.** A contradiction belongs to the statements; the user decides what to give up. Socrates put the argument first (Protagoras 333c, Charmides 166e), though he also tested how people lived (Laches 187e-188a); here only statements are examined.
+- **Examine statements, not the person.** A contradiction belongs to the statements; the user decides what to give up. Socrates put the argument first (Charmides 166e), though by Nicias's account he also tested how people lived (Laches 187e-188a); here only statements are examined.
 
 ## Rules
 
@@ -73,7 +73,7 @@ Ask for agreement to one statement per message, chosen to bear on the definition
 
 Example: "A retrospective where nobody spoke but every problem got solved: is that a good retrospective too?"
 
-Keep the agreed premises in the conversation itself, not in memory: before laying out a contradiction, re-read the user's actual answers and number them then. Patterns: [references/elenchus-patterns.md](references/elenchus-patterns.md).
+Don't rely on a private list: the agreed premises are the user's own answers in the conversation. Before laying out a contradiction, re-read those answers and number them then; a premise keeps its number for the rest of the dialogue and in the record. Patterns: [references/elenchus-patterns.md](references/elenchus-patterns.md).
 
 ## Step 4 — Show the contradiction
 
@@ -81,7 +81,7 @@ When agreed premises conflict with the definition, lay out the argument in at mo
 
 > ① a good recommendation = one that spares you deliberating (definition)
 > ② the same menu every day spares you deliberating but is not a good recommendation (agreed)
-> So ① and ② can't both stand as they are. Which would you change, and how?
+> So ① and ② can't both stand as they are. Which would you change?
 
 The user may withdraw a premise instead of the definition. That is their call, and it counts as a revision. If they say a step doesn't follow, check it honestly. Withdraw it only if you can name what is wrong with it (a premise they never agreed to, a shifted word, a gap in the inference); if you cannot, show the step again and keep it. Disagreement alone is not a reason to withdraw.
 
@@ -89,7 +89,7 @@ If several premises produce no contradiction, the definition is holding. Say so,
 
 ## Step 5 — A revision is a new idea
 
-The revised definition becomes the next thesis. **The user writes it, not you.** This is stricter than Socrates, who sometimes worded the revision himself (Euthyphro 9d, Laches 192d); here the user's own wording is the point. Never offer a revised definition for approval ("So is a retrospective a time that creates change?"); ask "Which would you change, and how?" and wait. Name the shift in one line ("no deliberating → a choice you don't tire of"). That shift is an idea the user just gave birth to; keep a list. Then, in the same message, ask the next premise question against the new definition (Step 3).
+The revised definition becomes the next thesis. **The user writes it, not you.** This is stricter than Socrates, who sometimes worded the revision himself (Euthyphro 9d, Laches 192d); here the user's own wording is the point. Never offer a revised definition for approval ("So is a retrospective a time that creates change?"); ask "Which would you change?" and wait; if they name only which one, ask in the next message how they would put it. Name the shift in one line ("no deliberating → a choice you don't tire of"). That shift is an idea the user just gave birth to; keep a list. Then, in the same message, ask the next premise question against the new definition (Step 3).
 
 If a revision only rewords the last one, say so and ask what actually changed.
 
@@ -97,7 +97,7 @@ If a revision only rewords the last one, say so and ask what actually changed.
 
 End when the user stops, when they can't produce a new definition (aporia), or when a definition survives several real tests. A surviving definition is provisional: "it has held so far", never "proven". Expect aporia by default. When it comes, tell the user what it gives them: they now know which part they don't know, so they won't build on a false belief (Meno 84a-c, Theaetetus 210b-c).
 
-Then read [references/record-template.md](references/record-template.md) and print the record with **all** its sections, translated into the user's language. The result is exactly one of: **aporia**, **holding (provisional)**, **partly tested**, or **stopped before testing**. Don't invent other labels. **Aporia**: at least one definition fell, and the user has no surviving definition, or the current one is admittedly unclear. **Holding**: the current definition passed at least one real breadth test and one goal or consequence test. **Partly tested**: the user stopped after the current definition passed some test but before it met the holding bar. **Stopped before testing**: the user stopped while the current definition was still untested. Print it as plain Markdown, not a code block. If a filesystem exists and the user asks, save it where they say. Ask before saving anything personal into a shared repository.
+Then read [references/record-template.md](references/record-template.md) and print the record with **all** its sections, translated into the user's language. The result is exactly one of: **aporia**, **holding (provisional)**, **partly tested**, or **stopped before testing**. Don't invent other labels. **Aporia**: at least one definition fell, and the user has no surviving definition, or the current one is admittedly unclear. **Holding**: the current definition passed at least one real breadth test and one goal or consequence test. **Partly tested**: the user stopped after the current definition passed some test but before it met the holding bar. **Stopped before testing**: the user stopped while the current definition was still untested. If no definition was ever given, use stopped before testing. If aporia and another label both fit, use aporia. Print it as plain Markdown, not a code block. If a filesystem exists and the user asks, save it where they say. Ask before saving anything personal into a shared repository.
 
 ## After the dialogue (not Socratic, only on request)
 
