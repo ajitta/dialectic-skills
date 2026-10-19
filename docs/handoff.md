@@ -20,10 +20,11 @@ State of the work and what is left, for the next agent session. Read `AGENTS.md`
 | 2 | P2: Claude mobile, one natural-language prompt per skill | owner runs, agent records | Pass: the right skill loads and the reply is in the prompt's language. Suggest prompts from `docs/probes.md` P7, plus one each for intent, refine and iterate. |
 | 3 | P4: ChatGPT desktop (Pro), local plugin install | owner runs, agent records | Also record whether `default_prompt` in `agents/openai.yaml` (`Use $dia-<x> to …`) resolves. Codex CLI needs `$dia:dia-<x>` for plugin skills (P3). If the prompt does not resolve, propose changing `default_prompt` to `$dia:dia-<x>` and ask before changing it. |
 | 4 | P5: ChatGPT mobile (Pro) after P4 | owner runs, agent records | Pass or a documented plan limitation (O4) |
-| 5 | O1: which skills get `references/ko/` files, and their topics | decide with the owner in chat | Then write the files with the L4 header (`Scope:`, `Source:`, `As of:`, `Use when:`). Name each file and its read condition in that skill's SKILL.md (L5). Run P9. `tools/package.py` already enforces the header and the mention. |
-| 6 | O3: confirm MIT for all seven skills | owner | Adopted for 0.1.0 |
+| 5 | O1: resolved 2026-10-20, no `references/ko/` files in 1.0.0 (spec D17) | — | To add one later: L4 header (`Scope:`, `Source:`, `As of:`, `Use when:`), name the file and its read condition in SKILL.md (L5), run P9. `tools/package.py` enforces the header and the mention. |
+| 6 | O3: resolved 2026-10-20, MIT for all seven skills (spec D18) | — | — |
 | 7 | Acceptance and release | agent, after 1–4 | Set `version` to `1.0.0` in `plugin-manifest.json`, bump each skill's `metadata.version` as needed, run `tools/package.py`, push, wait for green CI. Then `git tag v1.0.0`, push the tag, and `gh release create v1.0.0 releases/dialectic-skills.zip`. Update the status lines in `docs/spec.md` and `docs/probes.md`. |
 | 8 | Codex GitHub marketplace route (`codex plugin marketplace add ajitta/dialectic-skills`) | agent, where Codex CLI is installed | P3 covered only a local path. The repository is private, so Codex needs git credentials for it. |
+| 9 | Apply the research findings in `docs/research/` | agent, after the independent review | Owner direction 2026-10-20: verify the research by an independent reviewer first, then apply the high findings and cross-cutting themes 1–4 (`docs/research/README.md`). Owner runs P1 only after these fixes, so 0.1.0 can still change without a bump until then. |
 
 Observations from P8 that were not acted on (n=1 each; see `docs/probes.md`). Re-test before changing anything:
 

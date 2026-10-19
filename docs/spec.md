@@ -59,6 +59,8 @@ These decisions were settled with the owner during the spec interview of 2026-10
 | D14 | The skills are independent, general-purpose plugin skills. Skill text names no other project and no product: the reference templates' superclaude next-step lines are removed, `metadata.source` points to this repository, and "Claude" in skill text becomes "you" or "the assistant". The `--target=claude` value keeps its name (§5.4, §5.5) and means the assistant's own earlier answer on every surface. (Owner direction during the build, 2026-10-20.) |
 | D15 | The zip stores its entries uncompressed. Deflate output differs between zlib builds (for example zlib-ng in some CPython builds), so a deflated zip is not byte-reproducible across machines (§12.1). |
 | D16 | No portable root `plugin.json` (O2): P3 showed Codex 0.162.1 installs the plugin from `.claude-plugin/` alone, and a root `plugin.json` does not change the skill names. |
+| D17 | No `references/ko/` files in 1.0.0 (O1). The mechanism (§6 L2–L5 and its build checks) stays, so a later minor version can add them; P9 is not applicable until then. (Owner, 2026-10-20.) |
+| D18 | All seven skills are licensed MIT (O3). (Owner, 2026-10-20.) |
 
 ## 4. Names and identifiers
 
@@ -204,7 +206,7 @@ All seven skills keep their reference behavior unless this section says otherwis
 - L6. Replies follow the user's language, as all reference skills already require.
 - L7. Removing Hangul from descriptions (5.4, 5.5, 5.6) may reduce routing accuracy for Korean prompts. P7 measures this. If routing drops below the baseline, fix the English trigger wording. Do not reintroduce Hangul.
 
-Which skills receive `references/ko/` files, and with what content, is open item O1.
+No skill ships `references/ko/` files in 1.0.0 (D17).
 
 ## 7. Package format and runtime constraints
 
@@ -240,7 +242,7 @@ Prerequisite: claude.ai requires "Code execution and file creation" to be enable
   - This is the owner's `superclaude/portable-skills/package.py` whitelist. That project found that claude.ai upload fails hard on Claude Code-only keys such as `disable-model-invocation`, `argument-hint` and `when_to_use` (single source: the owner's probe notes).
 - `name` matches the folder name. `description` is at most 1024 characters.
 - `metadata`: `author: ajitta`, `version`, `lineage`, `source`.
-- `license: MIT`. This is an assumption; see open item O3.
+- `license: MIT` (D18).
 - Body length guideline: at most 200 lines, the `superclaude` validator limit. Longer material goes in `references/`.
 
 ### 7.3 `agents/openai.yaml` (Codex / ChatGPT)
@@ -420,9 +422,9 @@ The plugin is accepted when:
 
 | # | Item | Needed by |
 |---|---|---|
-| O1 | Which skills get `references/ko/` files, and their topics (for example Korean statutes for dia-reductio or dia-negative) | Before P9 |
+| O1 | Resolved: no `references/ko/` files in 1.0.0 (D17) | — |
 | O2 | Resolved by P3: no portable root `plugin.json` (D16) | — |
-| O3 | License for all seven skills. MIT is adopted for 0.1.0, from the socratic skills; the other five carried no license field. Confirm before 1.0.0 | Before the first release |
+| O3 | Resolved: MIT for all seven skills (D18) | — |
 | O4 | ChatGPT mobile on Pro: supported route or documented limitation | Decided by P5 |
 | O5 | Plugin `version`: `0.1.0` until acceptance, then `1.0.0` | At acceptance |
 

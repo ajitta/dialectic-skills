@@ -23,7 +23,7 @@ Results of the probes in `docs/spec.md` §12.2. Each run is n=1 unless stated; a
 | P6 | First-word invocation | pass | done |
 | P7 | Routing baseline, n=2 | pass: no drop | done |
 | P8 | Tool-less run | pass after a fix to dia-refine | done |
-| P9 | `references/ko/` loading | not applicable until O1 adds a ko file | open |
+| P9 | `references/ko/` loading | not applicable: no ko files in 1.0.0 (spec D17) | n/a |
 
 ### P3: Codex CLI 0.162.1
 
