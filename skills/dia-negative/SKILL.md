@@ -69,7 +69,7 @@ If no strict gap appears, say that C holds against the particulars tested, list 
 
 ### Step 5: Function and purpose
 
-Say what the identification does: what it makes visible, what it hides, and what process it serves, or whose interests the pattern favors (as a function, not an intention). Contrast this **operative function** with the stated purpose from Step 2. Give the evidence (the inclusion and exclusion pattern from Step 4), mark it as an inference, and name the observation that would falsify it: one the user could actually make (a document, a practice, a case) that would show the stated purpose explains the pattern as well. A restatement of the stated purpose is not such an observation. If the findings do not support any reading beyond the stated purpose, say so.
+Say what the identification does: what it makes visible, what it hides, and what process it serves, or whose interests the pattern favors (as a function, not an intention). Contrast this **operative function** with the stated purpose from Step 2. Give the evidence (the inclusion and exclusion pattern from Step 4), mark it as an inference, and name the observation that would falsify it: one the user could actually make (a document, a practice, a case) that would show the stated purpose (or, with none stated, another cause you name) explains the pattern as well. A restatement of the stated purpose is not such an observation. If the findings do not support any reading beyond the stated purpose, say so.
 
 Optionally, set C beside two or three concepts it depends on (for example "merit" depends on "measurement") when that shows where the gap comes from. Skip it when it explains nothing.
 

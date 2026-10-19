@@ -4,13 +4,13 @@ Read this when the user asks about the method, or when you are unsure whether a 
 
 ## 1. Where it comes from
 
-Theodor W. Adorno (1903–1969) published *Negative Dialektik* in 1966 (SEP). Plato already used dialectic to reach something positive through negation, and Hegel's "negation of the negation" became the classic name for that move. Adorno's title deliberately breaks with that tradition: he wanted a dialectic freed from the affirmative result (Wikipedia, quoting the preface).
+Theodor W. Adorno (1903–1969) published *Negative Dialektik* in 1966 (SEP). Plato already used dialectic to reach something positive through negation, and Hegel's "negation of the negation" became the classic name for that move. Adorno's title deliberately breaks with that tradition: he wanted a dialectic freed from the affirmative result (ND, Preface).
 
 ## 2. Core ideas
 
 **Identity thinking.** Ordinary thought and science work by subsuming particulars under general concepts (REP). Adorno calls this identity thinking. Thought cannot do without it: to think is to identify (SEP).
 
-**The nonidentical.** Objects do not go into their concepts without leaving a remainder (ND 5). Adorno calls that remainder the nonidentical (*das Nichtidentische*). Philosophy has no direct access to it (SEP).
+**The nonidentical.** "Objects do not go into their concepts without leaving a remainder" (ND 5). Adorno calls that remainder the nonidentical (*das Nichtidentische*). Philosophy has no direct access to it (SEP).
 
 **Determinate negation.** Since the nonidentical cannot be grasped directly, thought reaches it only by criticizing false identifications. Such criticisms must be determinate negations: they point to specific contradictions between what a thought claims and what it actually delivers. Through them, what the concept misidentifies gets an indirect articulation (SEP). The term comes from Hegel, for whom a determinate negation is productive: it has definite content and grows out of a specific failure (SEP, section 3).
 
@@ -31,14 +31,14 @@ Theodor W. Adorno (1903–1969) published *Negative Dialektik* in 1966 (SEP). Pl
 Adorno resisted summary. He wrote that philosophy cannot be given in a digest (SEP), and later scholars argue that negative dialectics is not a system, a standpoint, or a set of principles (Stopford 2012). This skill turns it into steps anyway, so be clear about what it keeps and what it changes:
 
 - **Kept:** judging by the target's own standards (internal critique; see §4), determinate (not abstract) negation, attention to the remainder, no forced synthesis, attention to function.
-- **Changed:** "contradiction" is narrowed to a checkable gap between what a claim says and what it delivers, and a finding must be strict. Adorno did ask ideology critique for concrete proof, not mere mistrust (Positivist Dispute, p. 115). But he also held that thought has "an element of exaggeration" and founders when it tries to prove its literal correctness (*Minima Moralia* §82), and his texts often work by rhetorical means and constellation instead of stepwise argument (SEP §3, on Honneth's reading of *Dialectic of Enlightenment*; SEP §5). The strictness rule keeps the demand for proof and drops the exaggeration, a choice made for this skill so that its findings can be checked and disputed.
+- **Changed:** "contradiction" is narrowed to a checkable gap between what a claim says and what it delivers, and a finding must be strict. Adorno did ask ideology critique for concrete proof, not mere mistrust (Positivist Dispute, p. 115), and held that expression and stringency "need each other" (ND 18). But he also held that thought has "an element of exaggeration" and founders when it tries to prove its literal correctness (*Minima Moralia* §82); he placed the rhetorical element of dialectics on the side of content (ND 41, cited in SEP §2), and Honneth reads *Dialectic of Enlightenment* as using rhetorical means such as exaggeration (SEP §3). The strictness rule keeps the demand for proof and drops the exaggeration, a choice made for this skill so that its findings can be checked and disputed.
 - **Changed:** particulars are used as test cases (counterexamples). The models in ND's third part are extended interpretations of one subject matter, and the Preface says they are not examples; this skill does not attempt them.
 - **Changed:** the falsifier on the operative-function inference (rule 6, Step 5) is a falsifiability check in Popper's sense, a figure Adorno disputed ("Not all theorems are hypotheses", Positivist Dispute, p. 112). It is not Adorno's device; it is kept because an inference about what a claim does needs a check the user can run.
 - **Changed:** the skill offers options and a recommendation. Adorno did not end in advice. The options here never include a synthesis without a stated remainder, which keeps the spirit of the original.
 
 ## 4. Known objections
 
-- **Performative contradiction (Habermas).** A critique that turns reason against itself seems to undercut its own standards; Habermas argued that Adorno was aware of this and that his critique lacks normative foundations (SEP). The skill's rule 1 narrows this in practice by never using a standard the target does not hold. It does not remove it: the demand that a finding be strict (rule 2) is the skill's own norm, and Stahl counts a bare demand for consistency as the weak point of internal critique (Stahl 2013).
+- **Performative contradiction (Habermas).** A critique that turns reason against itself seems to undercut its own standards; Habermas argued that Adorno was aware of this and that his critique lacks normative foundations (SEP). The skill's rule 1 narrows this in practice by never using a standard the target does not hold. It does not remove it: the demand that a finding be strict (rule 2) is the skill's own norm. That demand also has a cost: Stahl writes that "a mere demand for consistency seems to only enable a very weak form of critique" (Stahl 2013).
 - **No dynamic force (Rosen).** Michael Rosen argued that once Adorno rejects Hegel's positive determinate negation, his dialectic has no engine to move forward (Stopford 2012 summarizes and answers the claim). In this skill the movement comes from the user: each revision is a new claim that is examined again.
 - **Internal versus immanent critique (Jaeggi, Stahl).** Internal critique holds the target's norms fixed and checks compliance; immanent critique also draws on norms implicit in a practice and can change the norms themselves (SEP *Adorno* §7.2; SEP *Critical Theory* §2.1; Stahl 2013). This skill does internal critique: its standard is what the target states. Step 5 and the options to change the practice or own the operative purpose point towards immanent critique, but the skill does not reconstruct implicit norms.
 
@@ -48,7 +48,7 @@ Reductio shows that a set of statements is logically inconsistent. Negative dial
 
 ## Sources
 
-- Lambert Zuidervaart et al., "Theodor W. Adorno", *Stanford Encyclopedia of Philosophy* (substantive revision 4 Nov 2024), sections 3, 5 and 7.2. https://plato.stanford.edu/entries/adorno/
+- Lambert Zuidervaart et al., "Theodor W. Adorno", *Stanford Encyclopedia of Philosophy* (substantive revision 4 Nov 2024), sections 2, 3, 5 and 7.2. https://plato.stanford.edu/entries/adorno/
 - "Critical theory, §6: Negative dialectics", *Routledge Encyclopedia of Philosophy* (1998). https://www.rep.routledge.com/articles/thematic/critical-theory/v-1/sections/negative-dialectics
 - Richard Stopford, *Adorno's Critique of Judgement: the recovery of negativity from the philosophies of Kant and Hegel*, PhD thesis, Durham University, 2012. https://etheses.durham.ac.uk/id/eprint/3650/
 - "Negative Dialectics", Wikipedia (secondary, for the preface quotation).

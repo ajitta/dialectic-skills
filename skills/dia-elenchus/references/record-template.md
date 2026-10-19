@@ -18,7 +18,7 @@ Lead with one plain line: the result, and the question the user takes away. Tran
 (withdrawn: <premise>, if any)
 
 ## Ideas born
-- <old> → <new>: <one line on what this opens>
+- <old> → <new>: <what the user said this opens, or "none stated">
 
 ## What we now know we don't know
 - <the part of X the user could not define>

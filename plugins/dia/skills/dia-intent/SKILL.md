@@ -13,7 +13,7 @@ A request to analyze, review, or edit this skill is not a request to run it.
 
 ## Before Starting
 
-Distinguish the desired outcome, reported observations, causal explanations, proposed means, and explicit constraints. Treat explanations and means as hypotheses when appropriate; preserve the user’s constraints and authority boundaries, quoting short exact constraints (such as a name, amount or date) in the user's words.
+Distinguish the desired outcome, reported observations, causal explanations, proposed means, and explicit constraints. Treat explanations and means as hypotheses when appropriate; preserve the user's constraints and authority boundaries, quoting short exact constraints (such as a name, amount or date) in the user's words and still checking them as item 2 says.
 
 Before confirmation, use bounded read-only investigation of relevant supplied artifacts and project state to resolve material factual uncertainties. Prefer the smallest decisive read or safe isolated probe.
 
@@ -41,7 +41,7 @@ If open decisions depend on each other (one answer would remove, add, or change 
 
 Include only material items and omit empty sections. Scale the review to the task; a few sentences may suffice.
 
-Until approval, present only this review and necessary questions. Do not implement the task, substantively draft its deliverable, change user assets, publish, send, purchase, or make external commitments. Judge inspection by its actual effects, not its tool name. Do not include a preliminary deliverable in the review; when the deliverable is itself a calculation or analysis, show only the calculations that decide its scope or the open decisions.
+Until approval, present only this review and necessary questions. Do not implement the task, substantively draft its deliverable, change user assets, publish, send, purchase, or make external commitments. Judge inspection by its actual effects, not its tool name. Do not include a preliminary deliverable in the review; when the deliverable is itself a calculation or analysis, show only the parts of it that decide its scope or a decision in the review.
 
 The original task request does not itself count as approval of this review.
 
@@ -51,7 +51,7 @@ Approval agrees the working understanding and authority; it does not establish t
 
 * Accept a clear instruction to proceed, regardless of its exact wording.
 * Accept corrections accompanied by an instruction to proceed as approval of the revised task. Apply the corrections without requesting the same approval again.
-* Treat an approval limited to part of the work (for example, "investigate only") as approval of that part alone. For an investigation, it lifts the limit on how far to investigate, but the rules for isolated probes still apply. It does not authorize changing user assets, publishing, deploying, or other remaining actions. When that part is done, report the results and ask about the rest, revising the review if the results change it.
+* Treat an approval limited to part of the work (for example, "investigate only") as approval of that part alone. For an investigation, it lifts the limit on how far to investigate, but the isolation rule and the rule against sending private material out or incurring charges still apply. It does not authorize changing user assets, publishing, deploying, or other remaining actions. When that part is done, report the results and ask about the rest, revising the review if the results change it.
 * If the user provides corrections alone, update the review and wait for approval.
 * If a correction conflicts with evidence you inspected, name that evidence once: in the revised review, or before acting when the correction came with an instruction to proceed. Follow the correction for preferences, scope and authority.
 * Do not treat general praise, ambiguous reactions, silence, or elapsed time as approval.

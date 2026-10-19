@@ -1,6 +1,6 @@
 # Brief template
 
-Lead with one plain line before the brief: the verdict and the next step. Fill every section from the user's answers only, and translate the section headers into the user's language. In chat, print the brief as plain Markdown, not inside a code block (code blocks scroll sideways on phones); the block below only shows the structure. Mark an empty section "none" rather than dropping it; if several are empty, list them on one line ("None: parking lot, criteria, options") so the reader still sees they were considered.
+Lead with one plain line before the brief: the verdict and the next step. Fill every section from the user's answers only, and translate the section headers into the user's language. In chat, print the brief as plain Markdown, not inside a code block (code blocks scroll sideways on phones); the block below only shows the structure. Mark an empty section "none" rather than dropping it; if several are empty, list them on one line ("None: parking lot, criteria, options", in the user's language) so the reader still sees they were considered.
 
 ```markdown
 # Brief: <short name>  ·  <YYYY-MM-DD, if known>

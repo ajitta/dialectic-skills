@@ -22,9 +22,9 @@ State of the work and what is left, for the next agent session. Read `AGENTS.md`
 | 4 | P5: ChatGPT mobile (Pro) after P4 | owner runs, agent records | Pass or a documented plan limitation (O4) |
 | 5 | O1: resolved 2026-10-20, no `references/ko/` files in 1.0.0 (spec D17) | — | To add one later: L4 header (`Scope:`, `Source:`, `As of:`, `Use when:`), name the file and its read condition in SKILL.md (L5), run P9. `tools/package.py` enforces the header and the mention. |
 | 6 | O3: resolved 2026-10-20, MIT for all seven skills (spec D18) | — | — |
-| 7 | Acceptance and release | agent, after 1–4 | Set `version` to `1.0.0` in `plugin-manifest.json`, bump each skill's `metadata.version` as needed, run `tools/package.py`, push, wait for green CI. Then `git tag v1.0.0`, push the tag, and `gh release create v1.0.0 releases/dialectic-skills.zip`. Update the status lines in `docs/spec.md` and `docs/probes.md`. |
+| 7 | Pre-release, acceptance and release | agent | Owner direction 2026-10-20 (spec O5): when development ends, release a 0.x pre-release first: set the 0.x `version`, run `tools/package.py`, push, wait for green CI, `git tag v0.x.y`, push the tag, `gh release create v0.x.y releases/dialectic-skills.zip --prerelease`. The owner then runs P1 and P2 on it (items 1–2). After they pass (and P4/P5 are recorded), set `version` to `1.0.0`, bump each skill's `metadata.version` as needed, regenerate, tag `v1.0.0` and create the release. Update the status lines in `docs/spec.md` and `docs/probes.md`. |
 | 8 | Codex GitHub marketplace route (`codex plugin marketplace add ajitta/dialectic-skills`) | agent, where Codex CLI is installed | P3 covered only a local path. The repository is private, so Codex needs git credentials for it. |
-| 9 | Research findings in `docs/research/` | agent | Applied 2026-10-20 in three batches (spec D19, D20, D21 after the diff reviews in `docs/research/review/diff/`), still as 0.1.0. What remains is in `docs/research/README.md` § Still open; settle it with the owner before P1. |
+| 9 | Research findings in `docs/research/` | agent | Applied 2026-10-20 in four batches (spec D19–D21, D23; D22 for the second-pass reviews), still as 0.1.0. What remains is in `docs/research/README.md` § Still open: owner questions and items that need a probe first. |
 
 Observations from P8 (n=1 each; see `docs/probes.md`):
 

@@ -47,7 +47,11 @@ Items 1–8 of the former "Not applied yet" list, in the reviewed forms: dia-red
 
 Every finding of the diff reviews of `7115d2a` (reports in [review/diff/](review/diff/)), including their nits, plus review M4 for dia-brainstorm (Hickey's "incidental complexity").
 
+## Applied, fourth batch (spec D23, 2026-10-20)
+
+The remaining low findings, in the reviewed forms, applied by one implementer per skill and checked by one diff reviewer per skill ([review/lowfix/](review/lowfix/)): dia-reductio F8, F10 (carried check), F11–F15, M5, M7; dia-iterate F6, F8–F10, F12, F13; dia-refine F5, F6, F8–F13, F15; dia-negative F2–F4, F9, F10 (b, d and the Preface citation), F12, M4–M7; dia-elenchus F4 (quickness move), F6, F7, F9, F11, F12, F14, M5, M6; dia-brainstorm F6–F8, F10–F13, M2, M3, M5; dia-intent F2, F4, F10, F11, M4–M6.
+
 ## Still open
 
 1. Probes: P6–P8, intent behavior and pushback were re-run from a neutral directory (`docs/probes.md`). Open: first-pass strictness of dia-negative findings (under a bare objection it now withdraws only named defects, but the withdrawn findings were weak to begin with); multi-turn probes for elenchus and brainstorm.
-2. Low findings not listed above (for example reductio F8 (the description says "consistent or true"), F11–F15, M5–M7 (F10's label is applied), iterate F6, F8–F10, F12–F13, refine F5, F6, F8–F15, negative F2–F4, F7–F10, F12, elenchus F9, F11, F12, F14, brainstorm F6–F15 and M2, M3, M5, M6, intent F1, F2, F4, F8–F11). Each document's section 7 and its review give the corrected form.
+2. Owner questions and items that need a probe first: dia-intent F1 (state why the hold is unconditional; research open question 1) and F8 (explicit invocation in words); dia-elenchus M4 ("during the dialogue" in the description; needs a P7 re-run); dia-negative F7 (Codex over-triggering; probe first) and F8 (dropped per the review); dia-brainstorm M6 (routing differs between surfaces) and F15 (probes); dia-reductio M6 (probe wording). `short_description` exceeds the 25–64 character guidance in six skills (intent review M5; only dia-intent is shortened).

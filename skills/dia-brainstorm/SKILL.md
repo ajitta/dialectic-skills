@@ -44,7 +44,7 @@ Ask for the idea in one or two sentences if they haven't given it that way. Then
 
 ## Step 2 — Probe
 
-Ask only what the user can answer from their own experience or knowledge. If the idea turns on a fact neither of you can check here, don't ask them to guess it; record it under open questions as something to find out.
+Ask only what the user can answer from their own experience or knowledge. If the idea turns on a fact the user can't answer from what they know, don't ask them to guess it; record it under open questions as something to find out.
 
 Choose each question from the six types. Usual order: clarify, then assumptions and evidence, then viewpoints and implications. Question the frame whenever it looks off. Probe ideas: [references/question-bank.md](references/question-bank.md).
 
@@ -76,7 +76,7 @@ Rhythm:
 
 ## Step 3 — Diverge
 
-Skip this step and Step 4 if the session was pure stress-testing and the user doesn't want options; go to Step 5.
+Skip this step and Step 4's questions if the session was pure stress-testing and the user doesn't want options; record any decision already made as Step 4 describes, then go to Step 5.
 
 1. Ask the user for their own options first: "Can you come up with three other ways to get this done? Wild ones are fine." Build on each one ("yes, and…") before judging any. When they stop, ask once "Any more, even odd ones?" before moving on.
 2. Push the edges once: the cheapest version, the most extreme version, the do-nothing option. If the user named what matters during probing, also ask once: "What option would win on <their criterion>, even if it loses elsewhere?"
@@ -86,7 +86,7 @@ Skip this step and Step 4 if the session was pure stress-testing and the user do
 
 Converge with questions, not a recommendation:
 
-1. "What matters most here?" Get 2-3 criteria in the user's words. Then ask once whether anything is missing, offering common kinds as examples (cost, time, risk, reversibility, people affected): pick any, or name your own. Keep at most three; if more come up, ask which three matter most.
+1. "What matters most here?" Get 2-3 criteria in the user's words, starting from any they already named. Then ask once whether anything is missing, offering common kinds as examples (cost, time, risk, reversibility, people affected): pick any, or name your own. Keep at most three; if more come up, ask which three matter most.
 2. Ask them to place the options against those criteria, or ask the one trade-off question that separates the top two.
 3. If the user explicitly asks for your pick, give one with a one-line reason, then ask what would make them choose differently.
 
@@ -102,7 +102,7 @@ Unless the user sent a stop signal, the depth is `quick`, or the idea was record
 
 If the user objects to the verdict, change it only if they add a substantive answer that meets the condition for a different verdict. Disappointment or insistence is not that answer; say so kindly and keep the verdict.
 
-Then print the brief using the template in [references/brief-template.md](references/brief-template.md): thesis before and after, decisions (confirmed or delegated), assumptions (validated, unvalidated, or risky), open questions, options considered, criteria, parking lot, what was not tested, and one next step. Build it only from the user's answers; invent nothing. In chat or on mobile, the brief lives in the message. If a filesystem is available and the user wants a file, save it where they say (default `notes/brainstorm/<slug>-YYYYMMDD.md`), read it back, and report the path. Ask before saving anything personal into a shared repository.
+Then print the brief using the template in [references/brief-template.md](references/brief-template.md): thesis before and after, decisions (confirmed or delegated), assumptions (validated, unvalidated, or risky), open questions, options considered, criteria, parking lot, what was not tested, and one next step. Build it only from the user's answers; invent nothing. In chat or on mobile, the brief lives in the message. If a filesystem is available and the user wants a file, save it where they say (default `notes/brainstorm/<slug>-YYYYMMDD.md`, or `<slug>.md` if the date isn't known), read it back, and report the path. Ask before saving anything personal into a shared repository.
 
 End with the next step and stop. Don't start building.
 

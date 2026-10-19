@@ -56,7 +56,7 @@ State the target and the thesis T in one sentence, with a quote. If the input co
   - both lead to contradiction → the premise set itself is inconsistent; the fault is in the premises, not T
   - neither does → no contradiction was found either way. That shows neither that the premises are consistent nor that they cannot decide T, only that this search found nothing; name the premise that would decide it
 
-Concluding T from a contradiction with not-T is indirect proof, which intuitionistic logic does not accept in general (it does when T is itself a negation); say so when it matters, above all for claims that something exists (see the theory reference).
+Concluding T because not-T led to a contradiction is indirect proof, which intuitionistic logic does not accept in general (it does when T is itself a negation); say so when it matters, above all for claims that something exists (see the theory reference).
 
 ### Step 3: List the premises
 
@@ -64,7 +64,7 @@ Number them P1, P2, … with labels [T], [L], [A]. A key term's meaning that the
 
 ### Step 4: Derive
 
-Numbered lines, each with its rule and the lines it uses. Stop at the first contradiction, unless one that depends on fewer [A] premises is also within reach; then report that one. Keep the chain as short as the logic allows. Before stating the contradiction, reread each line with the content words replaced by letters and confirm the rule still applies; the record says how the derivation was checked.
+Numbered lines, each with its rule and the lines it uses. Stop at the first contradiction, unless one that depends on fewer [A] premises is also within reach; then report that one, even if its chain is longer. Otherwise keep the chain as short as the logic allows. Before stating the contradiction, reread each line with the content words replaced by letters and confirm the rule still applies; the record says how the derivation was checked.
 
 ### Step 5: State the contradiction
 
@@ -74,7 +74,7 @@ Then grade its **strength**, and put the grade in the record. Below, *the assump
 
 - **internal:** the set is only the assumption plus [T] and [L] premises. When refuting, the target contradicts itself; when proving, the target's own premises entail T. This is the strongest result.
 - **conditional:** the set includes [A] premises, but they do not settle the matter alone.
-- **carried by added premises:** the [A] premises, without the assumption, already entail its negation (not-T when refuting, T when proving). Check this every time an [A] premise is in the set. If it holds, say plainly that the reductio only restates what you assumed, so the real question is whether those [A] premises are true. Make the options and the recommendation turn on them.
+- **carried by added premises:** the [A] premises, with any [L] premises but without the assumption, already entail its negation (not-T when refuting, T when proving). Check this every time an [A] premise is in the set, and show that short derivation or write "not found". If it holds, say plainly that the reductio only restates what you assumed, so the real question is whether those [A] premises are true. Make the options and the recommendation turn on them.
 
 When the direction is both, state and grade each contradiction separately, and the record gives one line per direction. For **premise set inconsistent**, one derivation's premises entail T and the other's entail not-T, so the premises of both derivations together (apart from T and not-T) cannot all hold. The options are the premises of either derivation, not T; a premise both derivations use breaks both at once, so name it if there is one.
 
@@ -116,7 +116,7 @@ Say so plainly. List the directions and premise sets you tried, write "no contra
 - **user:** follow the procedure as written.
 - **claude:** quote your earlier answer and examine it with the same strictness. Say in one line that this is a self-examination and not independent. If the answer turns out inconsistent, say so directly; do not defend it. Do not invent a contradiction to look self-critical either.
 - **text:** quote with location (paragraph or line). Attribute claims to the text, not to the author's motives.
-- **all:** run the procedure separately for each target present, in the order user, claude, text, then give one combined record with one entry per target on each line. Skip absent targets with one line.
+- **all:** run the procedure separately for each target present, in the order user, claude, text, then give one combined record whose lines carry one entry per target (History: one line per follow-up turn, naming its target). Skip absent targets with one line.
 
 ## Follow-up turns
 

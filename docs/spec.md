@@ -65,6 +65,7 @@ These decisions were settled with the owner during the spec interview of 2026-10
 | D20 | The remaining reviewed research findings amend §5 further. dia-reductio: strength grades work in both directions, "both" records one contradiction per direction, not-Q must be the contradictory of Q, a worked example and a "Checked by" record line. dia-iterate: every checkable claim that bears on the result is a candidate, fixed values are locked on their confirming source, locks are shown, round-1 style edits are marked unverified, and a search snippet alone is a single source. dia-refine: unverified marks go in ④, sources sit next to the sentence concerned in the revision, added requirements and necessary corrections may lengthen the revision. dia-negative: only fitting options, a no-findings path, template and record fallbacks, and a description that calls the purpose an inference. dia-elenchus: premises numbered from the visible answers, label criteria in SKILL.md, an irritation script. dia-brainstorm: a one-line thesis summary every ~4 probes, a synthesizing question before the verdict, a criteria prompt, options that differ in kind, SCAMPER only in Step 3. dia-intent: no private data out or cost before approval, the confirmation names what is sent or spent, an explicit reply language. (Owner direction, 2026-10-20.) |
 | D21 | Corrections from the diff reviews of the D19/D20 changes (independent, 2026-10-20): dia-reductio grades and the template work when proving, a "premise set inconsistent" result offers the premises of both derivations, key-term meanings and existence premises carry labels, and theory.md lists its Duhem–Quine sources; dia-iterate's description, step 4 and verification table state the round-1 exception consistently, an undone fix lists the defect it had fixed, and narrowed criteria narrow the candidate list; dia-refine's closing line covers unverified items that bear on the conclusion and file-target sources; dia-negative's label is "narrower than Adorno's immanent critique", theory.md says the same, user-supplied facts are not conditional, and the no-findings path carries through Step 7; dia-elenchus uses one ask ("Which would you change?"), keeps premise numbers stable, and labels the "ideas born" layer in the description; dia-brainstorm has one summary cadence, a fallback for "thesis after", and Hickey's own term; dia-intent's no-data-out rule covers reads and searches, and its language rule ignores an invocation prefix. Routing (L7): the dia-elenchus and dia-brainstorm descriptions say that a request for Socratic dialogue or the Socratic method goes to dia-elenchus unless the user asks to brainstorm or for options and a plan, after the Korean elenchus cell of P7 dropped from a neutral directory (`docs/probes.md`). |
 | D22 | Second-pass review corrections (2026-10-20; `docs/research/review/pass2/`): dia-iterate's "verification exhausted" means no defect named this round was confirmed and at least one was unverifiable, and confirmed defects left unfixed get their own line; dia-negative withdraws a disputed finding only when its defect can be named; dia-reductio's options work when proving and for an inconsistent premise set; dia-refine's closing line can carry file-target sources; dia-brainstorm's `deep` checkpoint replaces that turn's probe, and its Step 0 defers general "Socratic" requests to dia-elenchus; dia-elenchus keeps ① for the definition and numbers premises from ②; D19–D21 omissions noted by the reviews (dia-reductio's letter-substitution reread and own-scheme label; dia-refine's tag set and language fallback; dia-brainstorm's narrowed kind rule and standalone pacing cue; dia-iterate's description, round-1 split, undo listing and table rendering) are part of the record. |
+| D23 | Remaining low research findings, in the reviewed forms (2026-10-20; `docs/research/review/lowfix/` holds the implementers' accounts and the diff reviews). dia-reductio: the description asks whether a position "holds together or follows from its premises" (P7 re-run due); Step 4 prefers a contradiction that depends on fewer [A] premises; the "carried" check is shown or written "not found"; Step 2's note covers indirect proof in general (intuitionistically acceptable when T is a negation); Step 8 names the record fields as a template fallback; `all` gives one combined record; a pitfall names the tolerance premise of small-step chains; theory.md cites the *Apology* (27b–e) directly, drops Madhyamaka, and adds a hard-cases section with a one-line dialetheism note (kept; the owner may remove it). dia-iterate: a quotation confirmed to misstate its source may take the source's exact words in one sentence, otherwise only its location, never for set texts; content-filter claims are worded as observed risk; self-written tests are named in the log; confirmed defects are a lower bound; one line per round may replace the table on request; a fixed point lists its unfixed confirmed defects. dia-refine: re-derivation starts from the question or the user's data; the no-subagent rule gains a reason upstream did not give (an addition, not a translation); a bare claim that something is wrong is review criteria; creative work: a conflict with a stated purpose, audience, tone or constraint is a confirmed basis, and taste goes to the closing line; the body labels the skill as not the iterative Self-Refine loop and cites Huang et al. for the softened step-5 reason; the example is plain Markdown and shows a suspected correction. dia-negative: the falsifier is an observation the user can make (a restatement of the purpose does not count); narrowing C notes that it may only move the gap; the function is whose interests the pattern favors, not an intention; Rule 8 does not decide for the user; theory.md labels the falsifier as Popperian and corrects attributions and quotations. dia-elenchus: the scope shift from virtues and the departure from the Theaetetus midwife are labelled; irony is dropped explicitly and the no-answers stance is cited to Aristotle; the paraphrase flag is not a second question; a shift is named in the user's key words with no label of the assistant's; a user who repeats examples gets a model definition of something unrelated; host study-mode hints count as the question-type tour; a user who holds that the cases share no single feature ends in aporia. dia-brainstorm: ask only what the user can answer; a "did I assume something" confirmation; Step 4's questions are skipped with Step 3; one "any more" nudge and one criterion prompt; test cases versus replacement plans; full names for the expert lenses; one "None:" line for empty brief sections; the date only if known. dia-intent: short exact constraints are quoted in the user's words and still checked; an empty decision list is not padded; for an analysis deliverable the review shows only what decides scope or a decision; the confirmation names the limit for open-ended work; a direct follow-up uses the re-agreement rule; the long paragraphs are bulleted without wording changes; `short_description` is 60 characters. |
 
 ## 4. Names and identifiers
 
@@ -107,7 +108,7 @@ Natural-language requests work on every surface and are the safe default on mobi
 
 ## 5. Skills
 
-All seven skills keep their reference behavior unless this section or D19–D22 say otherwise. For every skill, the rebuild:
+All seven skills keep their reference behavior unless this section or D19–D23 say otherwise. For every skill, the rebuild:
 
 - renames the skill;
 - updates cross-references so that each description names the new skill names;
@@ -118,14 +119,14 @@ All seven skills keep their reference behavior unless this section or D19–D22 
 ### 5.1 dia-intent (from confirm-intent)
 
 - Purpose: before work starts, restate the goal, disclose material assumptions and list only the decisions the user must make. Then wait for approval.
-- Behavior: the reference, amended by D19–D22.
+- Behavior: the reference, amended by D19–D23.
 - Invocation: explicit only. Its own description already says "Use only when explicitly selected or invoked", so `allow_implicit_invocation: false`.
 - References: none at present. `references/ko/` is optional (§6).
 
 ### 5.2 dia-elenchus (from socratic-elenchus 1.3.1)
 
 - Purpose: Plato's elenchus. Ask "what is X?", collect agreed premises one question at a time, show contradictions, and treat each revision as the user's new idea. It usually ends in aporia and never gives advice.
-- Behavior: the reference, amended by D19–D22.
+- Behavior: the reference, amended by D19–D23.
 - Cross-reference: "use socratic-brainstorm" becomes "use dia-brainstorm".
 - Invocation: `allow_implicit_invocation: false`, as in the reference.
 - References carried over: `elenchus-patterns.md` and `record-template.md`.
@@ -133,7 +134,7 @@ All seven skills keep their reference behavior unless this section or D19–D22 
 ### 5.3 dia-brainstorm (from socratic-brainstorm 3.3.1)
 
 - Purpose: modern Socratic questioning, one question at a time. The user lists options, the skill adds up to three labeled ones, and the user converges by criteria. It ends with a verdict and a brief, and never implements anything.
-- Behavior: the reference, amended by D19–D22.
+- Behavior: the reference, amended by D19–D23.
 - Cross-reference: points to dia-elenchus.
 - Invocation: `allow_implicit_invocation: false`, as in the reference.
 - References carried over: `question-bank.md` and `brief-template.md`.
@@ -187,7 +188,7 @@ All seven skills keep their reference behavior unless this section or D19–D22 
   - Invocation: first word or explicit name only. Activate only when the message starts with `dia-iterate` or the skill is invoked explicitly by name. If the marker is absent but the skill looks right, ask in one line for a message starting with `dia-iterate`, or an explicit invocation of the skill by name, and stop. Explicit `/dia:dia-iterate`, `$dia:dia-iterate`, `$dia-iterate` and `@dia-iterate` also count. `allow_implicit_invocation: false`, so on the Codex plugin route only `$dia:dia-iterate` reaches it (inferred from P3).
   - Generalize tool names in `verification-sources.md`. "Context7 doc lookup" becomes "an official-documentation lookup tool (for example Context7) or a fetch of official docs".
   - Add an explicit tool-less rule: when no search, fetch or code tool is available, the only external evidence is the user's instructions and material the user supplies. Most defects are therefore unverifiable, and the loop usually stops after round 1 with the "verification exhausted" list. This is expected behavior, not a failure.
-  - Keep the content-filter guardrails: a change-list output by default, no source quotations, one retry, then change the output shape.
+  - Keep the content-filter guardrails: a change-list output by default, no source quotations except a misquotation corrected in one sentence (D23), one retry, then change the output shape.
 - Pointers: single-pass requests go to dia-refine.
 - References carried over: `verification-sources.md`.
 
@@ -430,7 +431,7 @@ The plugin is accepted when:
 | O2 | Resolved by P3: no portable root `plugin.json` (D16) | — |
 | O3 | Resolved: MIT for all seven skills (D18) | — |
 | O4 | ChatGPT mobile on Pro: supported route or documented limitation | Decided by P5 |
-| O5 | Plugin `version`: `0.1.0` until acceptance, then `1.0.0` | At acceptance |
+| O5 | Plugin `version`: `0.1.0` during development; first a 0.x pre-release (tag and GitHub pre-release), then P1 and P2 on that release, then `1.0.0` at acceptance (owner, 2026-10-20) | At acceptance |
 
 ## 14. Sources
 

@@ -43,7 +43,7 @@ In chat, render it as plain lines or a quote block, not a code block. The code b
 
 ## Noticing a birth
 
-When a revision moves the concept, name the move in one line: "<old> → <new>". Moves usually go one of these ways:
+When a revision moves the concept, name the move in one line, in the user's own key words: "<old> → <new>". Moves usually go one of these ways; the kinds help you notice a move, so don't print them:
 
 - from a means to an end ("fast recommendations" → "less time spent deciding")
 - from one person to another ("easy for me" → "easy for the team to pick together")
@@ -56,6 +56,6 @@ These moves go in the record under "Ideas born". A rewording that changes nothin
 - The user's last two definitions have each fallen, and they have no third.
 - The user says "I don't know" or "I'll have to think about it" about X itself, not about a detail.
 - Each new definition reintroduces a premise they already gave up.
-- After a definition has fallen, the user shows that the cases of X share no single feature. Don't force another definition; put "whether X has one defining feature at all" under "What we now know we don't know".
+- After a definition has fallen, the user holds that the cases of X share no single feature. Don't force another definition; put "whether X has one defining feature at all" under "What we now know we don't know".
 
 Name it gently: "It seems we've found out that we don't know what X is." Then go to the record.
