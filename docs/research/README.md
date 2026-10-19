@@ -49,5 +49,5 @@ Every finding of the diff reviews of `7115d2a` (reports in [review/diff/](review
 
 ## Still open
 
-1. Probes: P6–P8, intent behavior and pushback were re-run from a neutral directory (`docs/probes.md`). Open: whether dia-negative's withdrawals under a bare objection were real defects or yielding; multi-turn probes for elenchus and brainstorm.
+1. Probes: P6–P8, intent behavior and pushback were re-run from a neutral directory (`docs/probes.md`). Open: first-pass strictness of dia-negative findings (under a bare objection it now withdraws only named defects, but the withdrawn findings were weak to begin with); multi-turn probes for elenchus and brainstorm.
 2. Low findings not listed above (for example reductio F8 (the description says "consistent or true"), F11–F15, M5–M7 (F10's label is applied), iterate F6, F8–F10, F12–F13, refine F5, F6, F8–F15, negative F2–F4, F7–F10, F12, elenchus F9, F11, F12, F14, brainstorm F6–F15 and M2, M3, M5, M6, intent F1, F2, F4, F8–F11). Each document's section 7 and its review give the corrected form.
