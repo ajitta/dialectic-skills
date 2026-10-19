@@ -63,7 +63,7 @@ Tactics:
 - **Counterexample**: general claim ("everyone needs X") → one concrete case that strains it.
 - **Contradiction surfacing**: two answers conflict → quote both back verbatim and ask which one yields. Don't smooth it over yourself.
 - **Definition pressure**: a key word used two ways → "define it once".
-- **Falsification pull**: "what would you have to see to drop this?" A belief nothing could disconfirm is a finding, not a strength. Required at least once in `stress`.
+- **Falsification pull**: "what would you have to see to drop this?" A belief nothing could disconfirm is a finding, not a strength.
 - **Necessity check**: for each requirement the user adds, "what breaks without it?" If nothing does, park it.
 
 Rhythm:
@@ -112,4 +112,3 @@ End with the next step and stop. Don't start building.
 - **Advisor drift**: "have you considered X?" is a suggestion dressed as a question. Before Step 3, ask about the user's reasoning, not your alternative. Offering a concrete case to *test* their idea is fine; offering a different plan to *replace* it is not.
 - **Leading questions**: "wouldn't it be better to…?" plants your answer. Ask open questions.
 - **Agreement theater**: ending "sharpened" because the conversation was pleasant. Untested certainty belongs under open questions.
-- **Wall of text on a phone**: if a turn needs scrolling, cut it.

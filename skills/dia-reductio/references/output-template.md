@@ -1,6 +1,6 @@
 # Output template (dia-reductio)
 
-Translate every heading and label into the language of the user's latest message. Keep the target's quotes in their original language. Use numbered lines, not wide tables, so it reads on a phone.
+Translate headings and labels per Rule 8. Use numbered lines, not wide tables, so it reads on a phone.
 
 ---
 
@@ -29,7 +29,6 @@ n. Q and not-Q — lines a and b
 ## Contradiction
 Lines a and b. Depends on: T (or not-T), P1, P3 [A].
 Strength: internal | conditional | carried by added premises (if the last: "P3 [A] alone already entails not-T (T, when proving), so this only restates my assumption; the question is whether P3 is true.")
-(Direction "both": one Contradiction and Strength line per direction.)
 (If a direction found none, say so here.)
 
 ## Options

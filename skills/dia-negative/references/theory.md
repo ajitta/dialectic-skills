@@ -1,6 +1,6 @@
 # Negative dialectics: theory reference
 
-Read this when the user asks about the method, or when you are unsure whether a finding is strict or whether a standard is the target's own. Sources are listed at the end. Everything is paraphrased from them unless quoted; page references to *Negative Dialectics* (ND) are to the 1973 Ashton translation, and ND quotations use its wording.
+Sources are listed at the end. Everything is paraphrased from them unless quoted; page references to *Negative Dialectics* (ND) are to the 1973 Ashton translation, and ND quotations use its wording.
 
 ## 1. Where it comes from
 

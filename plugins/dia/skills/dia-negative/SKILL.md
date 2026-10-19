@@ -11,9 +11,9 @@ metadata:
 
 # Negative Dialectics
 
-To think is to identify: to put a particular thing under a concept. The thing never goes into its concept without a remainder. Critique works by pointing out specific contradictions between what a concept or claim says and what it actually delivers, using the claim's own standards, and it does not end in a reconciling synthesis.
+No concept captures its object without a remainder.
 
-This skill is a practical adaptation of Adorno's method, not Adorno's own procedure; he held that his philosophy could not be reduced to a set of steps. It runs internal critique: the standard is what the target itself states. Immanent critique, in Adorno and in later accounts such as Jaeggi's and Stahl's, goes further: it draws on norms a practice implies without stating them, and it can change those norms. This skill does not reconstruct such norms. Theory, sources and the limits of the adaptation are in [references/theory.md](references/theory.md). Read it when the user asks about the method or when you are unsure whether a finding is strict or whether a standard is the target's own. The output layout is in [references/output-template.md](references/output-template.md); read it before writing the first output. If you cannot open it, follow the order of Steps 1–8.
+This skill is a practical adaptation of Adorno's method, not Adorno's own procedure. It runs internal critique: the standard is what the target itself states. Immanent critique, in Adorno and in later accounts such as Jaeggi's and Stahl's, goes further: it draws on norms a practice implies without stating them, and it can change those norms. This skill does not reconstruct such norms. Theory, sources and the limits of the adaptation are in [references/theory.md](references/theory.md). Read it when the user asks about the method or when you are unsure whether a finding is strict or whether a standard is the target's own. The output layout is in [references/output-template.md](references/output-template.md); read it before writing the first output. If you cannot open it, follow the order of Steps 1–8.
 
 ## Parameters
 
@@ -32,7 +32,7 @@ If no flag is given, infer the target: a pasted text means `text`; "your answer"
 
 1. **The target's own standard only.** Judge the target only by its own claims, definitions, promises or stated goals. Quote where it commits to each standard you use. Never bring in an outside value the target does not hold ("this is unfair" when it never claimed fairness).
 2. **Strict gaps only.** A finding counts only when it has three parts: (a) the claim C in the target's own terms; (b) a particular case or consequence D; (c) a demonstration that, by C's own terms, D and C cannot both hold as stated. Vague tension, "it's reductive", "it feels incomplete", or an outcome that is merely undesirable are not findings.
-3. **One reading at a time.** Fix the reading of C before testing it. If C has several live readings, test the one the target most plausibly means, or test each separately under its own label. That C can be read two ways is not a finding by itself, because under one of the readings there may be no gap at all. Report the ambiguity in one line, and count a finding only where the gap is strict *within* a single reading. Likewise, when a finding's argument splits into cases, it counts only for the branches where the gap is strict; the other branches go into the conditional findings.
+3. **One reading at a time.** Fix the reading of C before testing it. If C has several live readings, test the one the target most plausibly means, or test each separately under its own label. Ambiguity alone is not a finding. Report the ambiguity in one line, and count a finding only where the gap is strict *within* a single reading. Likewise, when a finding's argument splits into cases, it counts only for the branches where the gap is strict; the other branches go into the conditional findings.
 4. **Where cases come from.** Take D from the target's own material first, then from logical or definitional cases, then from facts. Label every fact with its evidence class (verified this session / supplied by the user / single source / unverified recall; your own recall is never "verified"). A finding that rests on a fact that is single source or unverified recall, on one contested reading, or on one branch of a case split is **conditional**; a fact supplied by the user is not conditional, but is labelled "supplied by the user". List firm findings first, then conditional ones under their own label. A recommendation may not rest only on conditional findings unless it says so.
 5. **Determinate, not abstract, negation.** Each finding states exactly which part of C fails and what specific content C fails to capture. "It's more complex than that" negates nothing in particular and is not allowed.
 6. **Purpose is an inference with evidence.** When you say what function or purpose an identification serves, ground it in the pattern of what C includes and excludes, label it as an inference, and name the observation that would falsify it. For texts and for your own answers, speak about what the claim or text does, not about a person's hidden motives.
@@ -53,7 +53,7 @@ List what C commits to, C1 … Cn, each with a quote: what it promises, what it 
 
 ### Step 3: Gather particulars
 
-Collect the cases C claims to cover, from the target's material first. Check each against C1 … Cn.
+Collect the cases C claims to cover. Check each against C1 … Cn.
 
 ### Step 4: Findings (determinate negations)
 
@@ -95,9 +95,8 @@ Close with the record from the output template. Its status is exactly one of: **
 
 ## Targets
 
-- **user:** follow the procedure as written.
 - **claude:** quote your earlier answer and examine it with the same strictness. Say in one line that this is a self-examination and not independent. Do not defend the answer, and do not concede a gap that fails Rule 2.
-- **text:** quote with location. Treat the text's purpose statements as its standard. Describe what the text does, not what its author intended.
+- **text:** quote with location.
 - **all:** run the procedure separately for each target present, in the order user, claude, text, then give one combined record. Skip absent targets with one line.
 
 ## Follow-up turns
@@ -109,10 +108,7 @@ Close with the record from the output template. Its status is exactly one of: **
 
 ## Pitfalls
 
-- External critique: judging by a standard the target never adopted.
 - Abstract negation: "everything is socially constructed", "nothing captures reality".
-- Mind-reading: asserting a person's hidden motive instead of what the claim does.
-- Closure: ending with a neat synthesis that hides its own remainder.
 - Jargon: Adorno's vocabulary standing in for an argument.
 - Dismissal by default: if C holds against the particulars, say so.
 - Filling the template: an empty section is a result, not a gap to fill.

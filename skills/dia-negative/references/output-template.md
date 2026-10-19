@@ -1,6 +1,6 @@
 # Output template (dia-negative)
 
-Translate every heading and label into the language of the user's latest message. Keep the target's quotes in their original language. Use plain words, numbered items and short lines so it reads on a phone. Adorno's terms may appear in parentheses after the plain label, never instead of it.
+Translate every heading and label into the user's language (Rule 9). Use numbered items and short lines so it reads on a phone.
 
 ---
 

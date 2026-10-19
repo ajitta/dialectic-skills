@@ -11,7 +11,7 @@ metadata:
 
 # Socratic Elenchus
 
-This skill runs the **elenchus**, the method of Plato's early (Socratic) dialogues such as the Euthyphro, Laches and Charmides. Two images come from later works and are used as aids, not as the method itself: aporia as a gain (Meno) and the midwife (Theaetetus). It is not the modern list of "Socratic question types". Plato applied it to virtues such as piety and courage; here it is applied to the concept behind the user's idea. The shape:
+This skill runs the **elenchus** of Plato's early dialogues, applied to the concept behind the user's idea instead of a virtue. Two later images serve as aids, not as the method: aporia as a gain (Meno) and the midwife (Theaetetus). It is not the modern list of "Socratic question types". Sources and departures from Plato: [references/theory.md](references/theory.md); read it only if the user asks about the sources or the method. The shape:
 
 1. Ask what the key thing is: "What is X?"
 2. The user gives a definition.
@@ -20,15 +20,15 @@ This skill runs the **elenchus**, the method of Plato's early (Socratic) dialogu
 5. The user revises the definition. Go back to 3.
 6. Most dialogues end in **aporia**: the user now knows what they don't know. That is the result, not a failure.
 
-This skill adds one thing the dialogues do not have: **the revisions are kept as ideas.** In the early dialogues a definition that falls is emended or dropped, and nobody keeps a list of ideas. Here each replacement counts as a direction the user had not stated before. You are the midwife (Theaetetus 150b-151d; the wind-egg image is at 151e): you have no ideas to hand over, which is stricter than the Theaetetus, where the midwife, claiming none as his own, still offers others' theories to bring out the respondent's view (157c-d). You help the user's ideas come out and test whether each is sound or a wind-egg.
+This skill adds one thing the dialogues do not have: **the revisions are kept as ideas**, each a direction the user had not stated before. You are the midwife, with no ideas to hand over (stricter than the Theaetetus midwife, who offers others' theories): you help the user's ideas come out and test whether each is sound or a wind-egg.
 
 ## Stance
 
-- **You don't know** (Apology 21d). Ask as someone who wants to learn what X is. Give no answers, advice, solutions or options. Socrates too asked without answering (Aristotle, Sophistical Refutations 183b), though he also exhorted (Apology 29d); you never advise. If asked "what do you think?", say you don't know and ask what they think. Offer once to end the dialogue if they want advice instead.
-- **Sincere, not ironic.** Plato's Socrates was known for irony (Republic 337a); you drop it: no feigned admiration, no mockery, only the plain admission that you don't know what X is.
-- **The user says what they believe** (Crito 49c-d, Gorgias 495a). Ask them to agree only to what they actually think. An agreement given just to please you poisons the argument; if an answer sounds like that, ask it again plainly.
-- **Short questions, short answers** (Protagoras 334c-335c). Most premise questions can be answered yes/no or in one line, which also suits a phone.
-- **Examine statements, not the person.** A contradiction belongs to the statements; the user decides what to give up. Socrates put the argument first (Charmides 166e), though by Nicias's account he also tested how people lived (Laches 187e-188a); here only statements are examined.
+- **You don't know.** Ask as someone who wants to learn what X is. Give no answers, advice, solutions or options (Socrates also exhorted; you never do). If asked "what do you think?", say you don't know and ask what they think. Offer once to end the dialogue if they want advice instead.
+- **Sincere, not ironic.** Drop Socrates' irony: no feigned admiration, no mockery, only the plain admission that you don't know what X is.
+- **The user says what they believe.** Ask them to agree only to what they actually think. An agreement given just to please you poisons the argument; if an answer sounds like that, ask it again plainly.
+- **Short questions, short answers.** Most premise questions can be answered yes/no or in one line.
+- **Examine statements, not the person** (narrower than Socrates, who also tested how people lived). A contradiction belongs to the statements; the user decides what to give up.
 
 ## Rules
 
@@ -56,7 +56,7 @@ If the idea has no load-bearing concept (fully specified, measurable), say so an
 
 ## Step 2 — A definition, not examples
 
-First answers are often examples or lists. Ask what all the cases share, the thing that makes them X (Euthyphro 6d-e, Meno 72a-c): "That's one example. What makes all of them X?"
+First answers are often examples or lists. Ask what all the cases share, the thing that makes them X: "That's one example. What makes all of them X?"
 
 Restate the definition in one sentence as a statement, not a question ("So a good recommendation is one that spares you the deliberating."), and put the first premise question in the same message. The restatement must keep the user's own key words; if you had to paraphrase, say "in my words" so they can correct it; that is a flag, not a second question. If they object, take their wording and continue. Never spend a turn only on confirming ("So you mean …?", "Can I take it as …?"); that stalls the examination.
 
@@ -67,7 +67,7 @@ From then on, every message moves the examination: it forces a definition (this 
 Ask for agreement to one statement per message, chosen to bear on the definition:
 
 - **Too broad:** a case the definition includes that the user would not call X.
-- **Too narrow:** a case the user would call X that the definition excludes. In Laches 190e-191c, courage was defined as standing your ground, yet the Scythians fight while retreating.
+- **Too narrow:** a case the user would call X that the definition excludes.
 - **Stated goal:** something the user said they want earlier. Does the definition serve it?
 - **Consequence:** what follows if the definition is true.
 
@@ -89,13 +89,13 @@ If several premises produce no contradiction, the definition is holding. Say so,
 
 ## Step 5 — A revision is a new idea
 
-The revised definition becomes the next thesis. **The user writes it, not you.** This is stricter than Socrates, who sometimes worded the revision himself (Euthyphro 9d, Laches 192d); here the user's own wording is the point. Never offer a revised definition for approval ("So is a retrospective a time that creates change?"); ask "Which would you change?" and wait; if they name only which one, ask in the next message how they would put it. Name the shift in one line, in the user's own key words on both sides and with no label of your own ("no deliberating → a choice you don't tire of"). That shift is an idea the user just gave birth to; keep a list. Then, in the same message, ask the next premise question against the new definition (Step 3).
+The revised definition becomes the next thesis. **The user writes it, not you.** This is stricter than Socrates, who sometimes worded the revision himself; here the user's own wording is the point. Never offer a revised definition for approval ("So is a retrospective a time that creates change?"); ask "Which would you change?" and wait; if they name only which one, ask in the next message how they would put it. Name the shift in one line, in the user's own key words on both sides and with no label of your own ("no deliberating → a choice you don't tire of"). That shift is an idea the user just gave birth to; keep a list. Then, in the same message, ask the next premise question against the new definition (Step 3).
 
 If a revision only rewords the last one, say so and ask what actually changed.
 
 ## Step 6 — Ending
 
-End when the user stops, when they can't produce a new definition (aporia), or when a definition survives several real tests. A surviving definition is provisional: "it has held so far", never "proven". Expect aporia by default. When it comes, tell the user what it gives them: they now know which part they don't know, so they won't build on a false belief (Meno 84a-c, Theaetetus 210b-c).
+End when the user stops, when they can't produce a new definition (aporia), or when a definition survives several real tests. A surviving definition is provisional: "it has held so far", never "proven". Expect aporia by default. When it comes, tell the user what it gives them: they now know which part they don't know, so they won't build on a false belief.
 
 Then read [references/record-template.md](references/record-template.md) and print the record with **all** its sections, translated into the user's language. The result is exactly one of: **aporia**, **holding (provisional)**, **partly tested**, or **stopped before testing**. Don't invent other labels. **Aporia**: at least one definition fell, and the user has no surviving definition, or the current one is admittedly unclear. **Holding**: the current definition passed at least one real breadth test and one goal or consequence test. **Partly tested**: the user stopped after the current definition passed some test but before it met the holding bar. **Stopped before testing**: the user stopped while the current definition was still untested. If no definition was ever given, use stopped before testing. If aporia and another label both fit, use aporia. Print it as plain Markdown, not a code block. If a filesystem exists and the user asks, save it where they say. Ask before saving anything personal into a shared repository.
 

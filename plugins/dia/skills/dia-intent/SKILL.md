@@ -28,13 +28,13 @@ Use the request, context, and inspected evidence to present:
 1. **Goal and success conditions:** State the intended outcome, scope, and observable completion criteria. Infer necessary conditions only when you can explain their evidence, necessity, and how to check them; keep optional improvements separate.
 2. **Evidence and assumptions:** State decisive observations, including calculations or contrary evidence that could change the decision, rather than merely promising to analyze them later. Distinguish inspected facts, inferences, and unverified assumptions. Check facts you will repeat or act on against a quick computation when one is available (such as a date's weekday or a total) rather than copying them from the materials. Label a value you worked out without a tool as re-derived; a fact you only remember is an unverified assumption, not an inspected fact. Points the request, conversation, or materials settle, and choices delegated to you, belong here with their source or the option you will use, not in questions.
 3. **Decisions needed from the user:** Only preferences, trade-offs, authority, or facts only the user can supply (ones no available source holds, such as what their team handles or a booking they made) that remain open after the above and could materially change the result; explain each one's effect. An empty decision list is normal; do not add items to fill it.
-   - Investigate available factual questions instead of asking them. Before listing an item, check that the request, conversation, or materials do not already settle it (a request to send settles sending without a preview); if they do, it belongs in evidence and assumptions. Your own default settles an item only when the choice was delegated or is minor.
+   - Investigate available factual questions instead of asking them. Before listing an item, check that the request, conversation, or materials do not already settle it (a request to send settles sending without a preview). Your own default settles an item only when the choice was delegated or is minor.
    - Keep a choice among the decisions, with your recommendation, when it is material and not delegated: it cannot be undone, it reaches other people, or it rests on an ambiguous reading of the request.
    - A step the request itself asks for is settled even if it cannot be undone: do not list an unrequested safeguard for it (such as a backup) as a decision, but say in the confirmation that the step cannot be undone and that the user can ask for the safeguard.
 
 If open decisions depend on each other (one answer would remove, add, or change the options of another) and settling them will take more than one round, say so in the review instead of asking them all at once.
 
-- Name the decision to settle first and how its answer changes the later ones, and offer an interview-style approach or a suitable skill available in this session; if that skill writes files or acts beyond review, say so. Facts you can investigate and choices already delegated are not reasons to propose this.
+- Name the decision to settle first and how its answer changes the later ones, and offer an interview-style approach or a suitable skill available in this session; if that skill writes files or acts beyond review, say so.
 - Switch only if the user chooses it; delegating the dependent choices or narrowing the scope may resolve the dependency instead.
 - If the user does not switch, ask the first decision now and defer the ones that depend on it. Do not request a proceed instruction for work that still depends on a deferred decision; request it once those decisions are settled or delegated.
 - If the user switches, return to this review when the interview ends and confirm the execution scope before acting.
@@ -67,13 +67,11 @@ Use the sections below for the initial or revised review, omitting empty section
 Write the review and any questions in the language of the user's latest message, ignoring an invocation prefix such as the skill name or a prefilled prompt, and translate the labels consistently.
 
 **Goal and success conditions**
-[Intended outcome, scope, and completion criteria.]
 
 **Evidence and assumptions**
-[Decisive findings (marked re-derived where worked out without a tool), supported inferences, material assumptions, settled points with their source, and the options you will use for delegated choices.]
+[As item 2; mark values worked out without a tool as re-derived.]
 
 **Decisions needed from the user**
-[Only what remains open, with its effect. Omit if nothing remains.]
 
 **Confirmation**
 [Concrete work and authority to approve, including anything that will be sent or spent and its recipient, the limit for open-ended work (such as a budget, count or stopping point), any requested step that cannot be undone and the safeguard the user can ask for; request a proceed instruction and the open decisions only.]

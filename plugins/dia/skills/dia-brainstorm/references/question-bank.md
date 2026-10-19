@@ -54,7 +54,6 @@ Shapes, not scripts. Adapt each to the user's own words and the last answer, and
   - Rich Hickey: "What's left after removing the incidental complexity?"
   - Kent Beck: "What's the first test that would tell you it works?"
 - **SCAMPER** (product or feature ideas, in Step 3 only): substitute, combine, adapt, modify, put to other use, eliminate, reverse. Ask about one letter at a time.
-- **Edges** (Step 3): cheapest version · most extreme version · do nothing.
 
 ## When answers stop moving the thesis
 

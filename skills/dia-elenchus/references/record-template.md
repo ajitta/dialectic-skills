@@ -1,6 +1,6 @@
 # Record template
 
-Lead with one plain line: the result, and the question the user takes away. Translate the headers into the user's language. Print plain Markdown, not a code block (code blocks scroll sideways on phones). Use only what the user said or agreed to. Keep an empty section as "none" rather than dropping it.
+Lead with one plain line: the result, and the question the user takes away. Translate the headers into the user's language. Use only what the user said or agreed to. Keep an empty section as "none" rather than dropping it.
 
 ```markdown
 # Dialogue record: <the idea>  ·  <YYYY-MM-DD>
@@ -35,12 +35,6 @@ Lead with one plain line: the result, and the question the user takes away. Tran
 
 Rules:
 
-- **aporia**: at least one definition fell, and the user has no surviving definition, or the current one is admittedly unclear.
-- **holding**: the current definition passed at least one real breadth test and one goal or consequence test.
-- **partly tested**: the user stopped after the current definition passed some test but before it met the holding bar. Name the tests it passed.
-- **stopped before testing**: the user stopped while the current definition was still untested. Name which definitions fell before that.
-- If no definition was ever given, use stopped before testing.
-- If aporia and another label both fit, use aporia.
+- Result: use the criteria in SKILL.md Step 6. For partly tested, name the tests it passed; for stopped before testing, name which definitions fell before that.
 - Quote definitions verbatim when the user stated them in one message. Otherwise paraphrase without quotation marks.
 - If an empirical fact would settle part of X (counts, costs, who actually comes), put it under "To check": the fact, not a plan.
-- A later `dia-brainstorm` session can start from the ideas born. Mention it only if the user asks what's next.

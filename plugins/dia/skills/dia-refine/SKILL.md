@@ -11,14 +11,13 @@ metadata:
 
 # dia-refine
 
-Treat the last output as a draft, find its defects, and produce one integrated revision that fixes only the confirmed ones. This is a single-pass procedure, not the iterative Self-Refine loop (Madaan et al., 2023, arXiv:2303.17651). Change is not improvement in itself, and a request for review is not in itself a sign of error. The skill must work in a chat with no tools (mobile apps included), so verify only as far as the available tools allow and leave the rest marked unverified.
+Treat the last output as a draft, find its defects, and produce one integrated revision that fixes only the confirmed ones. This is a single-pass procedure, not the iterative Self-Refine loop (Madaan et al., 2023, arXiv:2303.17651). Change is not improvement in itself, and a request for review is not in itself a sign of error.
 
 ## Invocation
 
 - Explicit: the message starts with `dia-refine`. What follows is the review criteria, for example `dia-refine — check the numbers` or `dia-refine for tone`. `/dia:dia-refine`, `$dia:dia-refine`, `$dia-refine` and `@dia-refine` also count.
-- Natural language: "review your previous answer as a draft", "fix factual errors and logical leaps", "give me only the improved final version".
 - A task with no draft yet: "do this task the dia-refine way" means first write a candidate answer, check it once by the procedure below, and give only the final version. Show the review only if the user asks for it.
-- A dia-refine mentioned in passing in the middle of a sentence is not an invocation. Requests for several rounds belong to `dia-iterate`, not to this skill.
+- Requests for several rounds belong to `dia-iterate`, not to this skill.
 
 ## Target
 
@@ -64,7 +63,7 @@ Incidental: 2 notation fixes applied
 
 ## Safeguards
 
-- Being invoked is not a signal of error. It is a request for review, not an error report. Flipping a correct answer under pressure that has no specific grounds is the failure this procedure exists to prevent.
+- Being invoked is not a signal of error. Flipping a correct answer under pressure that has no specific grounds is the failure this procedure exists to prevent.
 - No over-correction. Do not read the request as "something must change".
 - Do not widen the scope during the review. Do not edit files outside the original scope, send anything externally or start new work, and do not invent sources, grounds, calculations or run results. If you find another problem worth fixing, keep it out of the revision and mention it in one line at the end.
 - Judge creative work by its purpose, audience, tone and constraints instead of by objective errors. A conflict with a purpose, audience, tone or constraint the user stated is a confirmed basis (the user's instructions); a matter of taste is not a defect: keep the draft's choice and, if it is worth raising, mention it in the one line at the end.

@@ -14,7 +14,7 @@ Rescher distinguishes three kinds of untenable result:
 
 Logicians and mathematicians usually mean the first. The other two are looser, attenuated uses (IEP).
 
-**This skill allows only the first.** A falsehood or an implausibility becomes usable only after its negation is written into the premise list as an explicit premise. Then the contradiction is strict again, and the user can see exactly which premise it depends on and reject it if they want.
+**This skill allows only the first** (SKILL.md Rule 1 says how a falsehood or implausibility is made strict).
 
 ## 2. The logical form
 
@@ -54,16 +54,7 @@ Both start from a supposition that conflicts with known facts. Reductio aims to 
 
 Plato used reductio dialectically (IEP cites *Republic* I, 338c–343a and *Parmenides* 128d). Socrates' defence in the *Apology* (27b–e) is a reductio on his accusers: they say he does not believe in gods yet believes in divine beings, and a divine being presupposes gods (Aristotle, *Rhetoric* II.23, uses the same argument). It is not a model of strictness: Socrates takes one premise from Meletus' silence ("your silence gives consent"). Kant's antinomies in the *Critique of Pure Reason* rest on reductio arguments (IEP).
 
-## 8. Failure modes to watch
-
-- **Loose absurdity:** a bad or unlikely outcome treated as a contradiction.
-- **Hidden premise:** the contradiction comes from something the target never said and the premise list did not include.
-- **Equivocation:** a term changes meaning between steps.
-- **Strawman:** a weak reading of the thesis is refuted.
-- **Slippery slope:** a chain of "would lead to" claims, each a causal prediction, presented as deduction.
-- **Over-claiming:** "the thesis is false" when only the set's inconsistency was shown.
-
-## 9. Hard cases
+## 8. Hard cases
 
 - **A local reductio is not an indirect proof.** Euclid's proof that there are infinitely many primes (*Elements* IX.20) is often retold as a proof by contradiction, but it is direct: from any finite list of primes it constructs another. Only one sub-step ("If possible, let it be so … which is absurd") is a reductio, a negation-introduction step (Joyce; Hardy and Woodgold).
 - **A premise that looks like mathematics can be false.** On one reconstruction, Zeno's argument that the parts of a body make it "so large as to be unlimited" assumes that an infinite sum of finite quantities must be infinite; some such sums are finite (SEP, "Zeno's Paradoxes"). A mathematical-sounding premise is [L] only if it is a theorem; otherwise it is [T] if the target stated it (quote it) and [A] if you supplied it, as Zeno's premise is on this reconstruction.

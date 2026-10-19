@@ -11,9 +11,9 @@ metadata:
 
 # Reductio ad Absurdum
 
-Assume the thesis, derive from it and the listed premises a statement and its negation, and show that the set cannot all be true. Then show the user which members of the set could go, recommend one, and let the user decide.
+Assume the thesis, derive from it and the listed premises a statement and its negation, and show that the set cannot all be true.
 
-Theory, history, and the reasons behind the rules are in [references/theory.md](references/theory.md). Read it when the user asks about the method, or when you are unsure whether a step is strict. The output layout is in [references/output-template.md](references/output-template.md); read it before writing the first output if you can open it (Step 8 names the record fields in case you cannot).
+Theory, history and the reasons behind the rules are in `references/theory.md`: read it when the user asks about the method (then answer briefly), or when you are unsure whether a step is strict. The output layout is in `references/output-template.md`; read it before writing the first output if you can open it (Step 8 names the record fields in case you cannot).
 
 ## Parameters
 
@@ -34,8 +34,8 @@ If no flag is given, infer the target: a pasted text means `text`; "your answer"
 2. **No hidden premises.** List every premise with a source label: **[T]** stated by the target (quote it), **[L]** a law of logic or mathematics, **[A]** added by you (an implicit premise the target seems to rely on, a definition the target did not state, or a fact). A definition is [T] only when the target states it (quote it); otherwise it is [A]. Give each [A] premise a one-line reason it is needed, and mark facts with their evidence class (verified this session (a tool ran) / supplied by the user / single source / unverified recall). Your own recall is never "verified". A contradiction that needs an [A] premise is conditional on it.
 3. **Every step names its rule.** Each derivation line cites the lines it uses and the rule (modus ponens, modus tollens, universal instantiation, substitution of a listed definition, conjunction, simplification, arithmetic, and so on). An empirical or causal claim is never a step; if the chain needs one, it goes into the premise list.
 4. **One sense per term.** Fix the meaning of each key term in the premise list. If the chain only works when a term shifts meaning, that is equivocation: report it instead of claiming a contradiction.
-5. **Charity first.** Test the strongest reasonable reading of the thesis. If two readings are live, test the stronger one and name the other in one line. Refuting a weaker reading is a strawman.
-6. **Logic shows inconsistency, not which member is false.** A contradiction shows only that the thesis and the premises cannot all be true together. Write "the thesis is false" (when proving, "the thesis follows") only when every other premise it depends on is [L]. Otherwise present the choice.
+5. **Charity first.** Test the strongest reasonable reading of the thesis. If two readings are live, test the stronger one and name the other in one line.
+6. **Logic shows inconsistency, not which member is false.** Write "the thesis is false" (when proving, "the thesis follows") only when every other premise it depends on is [L]. Otherwise present the choice.
 7. **The user decides.** Recommend one option and stop there. Do not continue as if the recommendation had been accepted.
 8. **Language follows the user.** Write the whole output in the language of the user's latest message, including headings, labels, and the fixed result and strength values. Quote the target in its original language. Logic labels ([T], [L], [A]) may stay as they are.
 9. **Whole chain in one response.** Lay out the complete argument at once; do not ask premise questions one at a time.
@@ -44,7 +44,7 @@ If no flag is given, infer the target: a pasted text means `text`; "your answer"
 
 ### Step 1: Fix the target and the thesis
 
-State the target and the thesis T in one sentence, with a quote. If the input contains several claims, pick the one the rest depend on and list the others in one line as not tested.
+State the target and the thesis T in one sentence, with a quote. If the input contains several claims, pick the one the rest depend on and list the others in one line as not tested. If the user only explores consequences, call it *per impossibile* reasoning and claim no refutation.
 
 ### Step 2: Choose the direction
 
@@ -60,7 +60,7 @@ Concluding T because not-T led to a contradiction is indirect proof, which intui
 
 ### Step 3: List the premises
 
-Number them P1, P2, … with labels [T], [L], [A]. A key term's meaning that the derivation relies on is a premise too: [T] if the target stated it (quote it), otherwise [A]. Keep the list to what the derivation uses.
+Number them P1, P2, … with labels [T], [L], [A]. A key term's meaning that the derivation relies on is a premise too: [T] if the target stated it (quote it), otherwise [A]. For a rule or practice, list its stated aim or another stated rule as a premise; its generalized application must contradict that. Keep the list to what the derivation uses.
 
 ### Step 4: Derive
 
@@ -68,11 +68,11 @@ Numbered lines, each with its rule and the lines it uses. Stop at the first cont
 
 ### Step 5: State the contradiction
 
-Name the two lines that contradict each other and the full set they depend on, e.g. "Lines 4 and 7: Q and not-Q. Depends on T, P1, P3 [A]."
+Name the two lines that contradict each other and the full set they depend on; mark each [A] member.
 
 Then grade its **strength**, and put the grade in the record. Below, *the assumption* is T when refuting and not-T when proving.
 
-- **internal:** the set is only the assumption plus [T] and [L] premises. When refuting, the target contradicts itself; when proving, the target's own premises entail T. This is the strongest result.
+- **internal:** the set is only the assumption plus [T] and [L] premises. When refuting, the target contradicts itself; when proving, the target's own premises entail T.
 - **conditional:** the set includes [A] premises, but they do not settle the matter alone.
 - **carried by added premises:** the [A] premises, with any [L] premises but without the assumption, already entail its negation (not-T when refuting, T when proving). Check this every time an [A] premise is in the set, and show that short derivation or write "not found". If it holds, say plainly that the reductio only restates what you assumed, so the real question is whether those [A] premises are true. Make the options and the recommendation turn on them.
 
@@ -113,7 +113,6 @@ Say so plainly. List the directions and premise sets you tried, write "no contra
 
 ## Targets
 
-- **user:** follow the procedure as written.
 - **claude:** quote your earlier answer and examine it with the same strictness. Say in one line that this is a self-examination and not independent. If the answer turns out inconsistent, say so directly; do not defend it. Do not invent a contradiction to look self-critical either.
 - **text:** quote with location (paragraph or line). Attribute claims to the text, not to the author's motives.
 - **all:** run the procedure separately for each target present, in the order user, claude, text, then give one combined record whose lines carry one entry per target (History: one line per follow-up turn, naming its target). Skip absent targets with one line.
@@ -123,7 +122,6 @@ Say so plainly. List the directions and premise sets you tried, write "no contra
 - **The user picks an option:** apply it (drop the premise, or adopt T′), rerun Steps 3 to 8 on the revised set, and add the decision to the record's history.
 - **The user disputes a step:** check it. Withdraw the step only if you can name its defect (a wrong rule, an unlisted premise, a shifted term); disagreement alone is not a defect. If the step holds, show it and its rule again and keep it. If the objection holds, withdraw the step and say whether the contradiction survives another way.
 - **The user rejects an [A] premise:** remove it and rerun.
-- **The user asks about the method:** answer from the theory reference, briefly.
 
 ## Pitfalls
 

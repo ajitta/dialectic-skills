@@ -1,6 +1,6 @@
 # Elenchus patterns
 
-Shapes, not scripts. Each one serves the current definition. Ask in the user's language.
+Shapes, not scripts. Each one serves the current definition.
 
 ## Forcing a definition
 
@@ -19,20 +19,16 @@ Shapes, not scripts. Each one serves the current definition. Ask in the user's l
 - **Too narrow:** "[clear case of X] falls outside the definition. Is it not X, then?"
 - **Goal check:** "Earlier you said you want [the user's stated goal]. Does this definition get you there?"
 - **Consequence:** "If X really is that, do you also accept [what follows]?"
-- **Hypothesis** (Meno 86e-87b), when "what is X" stalls: "Let's set aside what X is. If X were [condition], what would follow?"
+- **Hypothesis**, when "what is X" stalls: "Let's set aside what X is. If X were [condition], what would follow?"
 
-Number premises when you first lay them out, from the user's actual answers, and keep each number once given. ① is always the current definition. Agreed premises start at ② and continue across contradictions (a later one may be ① + ④ + ⑤). Use only those numbers in Step 4.
+① is always the current definition. Agreed premises start at ② and continue across contradictions (a later one may be ① + ④ + ⑤). Use only those numbers in Step 4.
 
 ## Laying out a contradiction (≤ 4 lines)
 
-```
-① <definition> (definition)
-② <agreed premise> (agreed)
-③ <agreed premise, if needed> (agreed)
-So ① and the premises above can't all stand together. Which would you change?
-```
-
-In chat, render it as plain lines or a quote block, not a code block. The code block above only shows the shape.
+> ① <definition> (definition)
+> ② <agreed premise> (agreed)
+> ③ <agreed premise, if needed> (agreed)
+> So ① and the premises above can't all stand together. Which would you change?
 
 ## When the user pushes back
 
@@ -43,13 +39,13 @@ In chat, render it as plain lines or a quote block, not a code block. The code b
 
 ## Noticing a birth
 
-When a revision moves the concept, name the move in one line, in the user's own key words: "<old> → <new>". Moves usually go one of these ways; the kinds help you notice a move, so don't print them:
+Moves usually go one of these ways; the kinds help you notice a move (Step 5), so don't print them:
 
 - from a means to an end ("fast recommendations" → "less time spent deciding")
 - from one person to another ("easy for me" → "easy for the team to pick together")
 - from a feature to a condition ("free" → "you can come with nothing prepared")
 
-These moves go in the record under "Ideas born". A rewording that changes nothing is not a birth; say so.
+These moves go in the record under "Ideas born".
 
 ## Signs of aporia
 

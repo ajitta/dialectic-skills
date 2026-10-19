@@ -1,6 +1,6 @@
 # Verification method assignment
 
-Which methods count as "external verification" for each type of content. One criterion governs: information or execution results that differ from what the model used while drafting. The same model judging again from the same grounds is not external verification, and no edit is made on that basis alone.
+Which methods count as "external verification" for each type of content. One criterion governs: information or execution results that differ from what the model used while drafting.
 
 | Content type | Accepted external method | When no method exists |
 |---|---|---|
@@ -18,7 +18,7 @@ Which methods count as "external verification" for each type of content. One cri
 
 ## Judgment log format
 
-One line per defect. Cut the draft-side span to a clause or less and do not quote the source's text. What is kept is the method (with URL), the verdict, and one value. Copying source sentences turns the log itself into a reproduction of an existing document and can trip the host's content filter.
+One line per defect, within the limits of SKILL.md step 3.
 
 ```
 [defect 3] "total 1,240" - method: code execution - result: confirmed (actual 1,280) - action: fixed
@@ -30,5 +30,4 @@ One line per defect. Cut the draft-side span to a clause or less and do not quot
 
 - Writing "confirmed" on the strength of one search snippet. Secondary coverage repeating a single origin is not independent confirmation. Open the primary source, or mark it "single source" if only the snippet was seen.
 - Editing because a different value came to mind than the draft's. When two recollections conflict, both are unverified.
-- Quoting a whole source paragraph as the grounds for a confirmation. A judgment needs the value and the URL, not the paragraph.
-- Softening a sentence by appending "needs checking" to an unverifiable item. Leave the text as it is and record it in the unverified list only. Changing the sentence is an edit too.
+- Softening a sentence by appending "needs checking" to an unverifiable item. Leave the text as it is and record it in the unverified list only.
