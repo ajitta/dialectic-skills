@@ -39,6 +39,8 @@ Rules:
 - **holding**: the current definition passed at least one real breadth test and one goal or consequence test.
 - **partly tested**: the user stopped after the current definition passed some test but before it met the holding bar. Name the tests it passed.
 - **stopped before testing**: the user stopped while the current definition was still untested. Name which definitions fell before that.
+- If no definition was ever given, use stopped before testing.
+- If aporia and another label both fit, use aporia.
 - Quote definitions verbatim when the user stated them in one message. Otherwise paraphrase without quotation marks.
 - If an empirical fact would settle part of X (counts, costs, who actually comes), put it under "To check": the fact, not a plan.
 - A later `dia-brainstorm` session can start from the ideas born. Mention it only if the user asks what's next.

@@ -20,7 +20,7 @@ Shapes, not scripts. Each one serves the current definition. Ask in the user's l
 - **Consequence:** "If X really is that, do you also accept [what follows]?"
 - **Hypothesis** (Meno 86e-87b), when "what is X" stalls: "Let's set aside what X is. If X were [condition], what would follow?"
 
-Number premises when you first lay them out, from the user's actual answers, and keep each number once given. Use only those numbers in Step 4.
+Number premises when you first lay them out, from the user's actual answers, and keep each number once given. ① is always the current definition. Agreed premises start at ② and continue across contradictions (a later one may be ① + ④ + ⑤). Use only those numbers in Step 4.
 
 ## Laying out a contradiction (≤ 4 lines)
 
@@ -28,7 +28,7 @@ Number premises when you first lay them out, from the user's actual answers, and
 ① <definition> (definition)
 ② <agreed premise> (agreed)
 ③ <agreed premise, if needed> (agreed)
-So ① and ② (or ①–③) can't all stand together. Which would you change?
+So ① and the premises above can't all stand together. Which would you change?
 ```
 
 In chat, render it as plain lines or a quote block, not a code block. The code block above only shows the shape.

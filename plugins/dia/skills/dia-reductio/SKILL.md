@@ -97,7 +97,7 @@ Lines 5 and 6: Q and not-Q. Depends on T, P1, P2. Strength: internal. Options: g
 
 ### Step 6: Lay out the options
 
-One option per member of that set that could be given up, T included (except when the result is premise set inconsistent). For each: what giving it up means, and what else has to go with it. Add a repair option where one exists: a narrowed thesis T′ that blocks the step that produced the contradiction. State T′ exactly and say whether it still does the job the original T was meant to do.
+One option per member of that set that could be given up. When refuting, T is one of them; when proving, giving up the assumption not-T means accepting T, so that option reads "accept T"; when the result is premise set inconsistent, neither T nor not-T is an option (see Step 5). For each: what giving it up means, and what else has to go with it. When refuting, add a repair option where one exists: a narrowed thesis T′ that blocks the step that produced the contradiction. State T′ exactly and say whether it still does the job the original T was meant to do.
 
 ### Step 7: Recommend
 

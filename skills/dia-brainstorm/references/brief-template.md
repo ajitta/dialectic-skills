@@ -9,7 +9,7 @@ Lead with one plain line before the brief: the verdict and the next step. Fill e
 
 ## Thesis
 - Before: <user's first statement, paraphrased>
-- After: <the user's restatement from Step 5, or the working thesis if none was asked; any tightening marked as yours; any live risky assumption written in as a condition, e.g. "…, piloted for one month first">
+- After: <the user's restatement from Step 5, or else the working thesis (the user's own statement if none was formed); any tightening marked as yours; any live risky assumption written in as a condition, e.g. "…, piloted for one month first">
 
 ## Decisions
 - <decision> (confirmed | delegated)

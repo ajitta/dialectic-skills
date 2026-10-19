@@ -5,7 +5,7 @@ Which methods count as "external verification" for each type of content. One cri
 | Content type | Accepted external method | When no method exists |
 |---|---|---|
 | Calculations, figures, totals, unit conversions | Recompute by running code | Unverifiable. Leave as drafted |
-| Code | Execution, tests, type checking, linter | Unverifiable without a run environment. In round 1 only, fix what is settled without running, such as syntax errors, marked "(style, not verified)" |
+| Code | Execution, tests, type checking, linter | Unverifiable without a run environment. In round 1 only, fix what is settled without running, such as syntax errors, marked "(not verified)" |
 | Library APIs, versions, config keys | An official-documentation lookup tool (for example Context7), or a fetch of official docs | Unverifiable |
 | Facts, dates, a person's current position, recent events | Web search, then fetch a primary source | Unverifiable |
 | Quotations, citations, paper titles and authors | Fetch the original, or open a bibliographic record (publisher, DOI or library catalogue page); a search snippet alone is a single source | Unverifiable. Exact titles and numbers in particular stay unverified however fluently they came to mind |

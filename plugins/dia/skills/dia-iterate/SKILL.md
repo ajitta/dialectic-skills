@@ -43,9 +43,9 @@ When no search, fetch or code tool is available, the only external evidence is t
 
 Stop if any one holds. Check in order.
 
-1. **Regression**: a locked item changed without new external evidence, a fix introduced a new confirmed defect, or a defect fixed in an earlier round came back. Undo the edit that caused it (or roll back to the previous round's result if the cause cannot be isolated) and stop. List any confirmed defect the undone edit had fixed as remaining. Fewer items passing verification than in the previous round is not a regression: locked items are not re-examined, so later rounds normally check less.
+1. **Regression**: a locked item changed without new external evidence, a fix introduced a new confirmed defect, or a defect fixed in an earlier round came back. Undo the edit that caused it (or roll back to the previous round's result if the cause cannot be isolated) and stop. List any confirmed defect the undone edit had fixed under "Confirmed but not fixed". Fewer items passing verification than in the previous round is not a regression: locked items are not re-examined, so later rounds normally check less.
 2. **Zero defects**: no defect was named, or every named defect was refuted. Stop.
-3. **Verification exhausted**: every remaining defect is unverifiable. Stop and hand the unverified list to the user, with one line per item naming what would make it checkable (survey figures, logs, a primary source). If the user supplies that material or a judgment, it becomes new external evidence and can reopen the loop.
+3. **Verification exhausted**: no defect named this round was confirmed, and at least one was unverifiable (any others were refuted). Stop and hand the unverified list to the user, with one line per item naming what would make it checkable (survey figures, logs, a primary source). If the user supplies that material or a judgment, it becomes new external evidence and can reopen the loop.
 4. **Fixed point**: the revision is materially identical to the previous round. Stop.
 5. **Round cap** reached. Stop, and say so if confirmed defects remain.
 
@@ -68,6 +68,7 @@ Write the output in the language of the user's latest message, headings included
 
 Locked: 3 items (total, date, author name)
 Stopped because: verification exhausted
+Confirmed but not fixed: none
 
 ## Unverified
 - (item and why)
@@ -80,7 +81,7 @@ Stopped because: verification exhausted
 ## Guardrails
 
 - Being invoked is not a report of an error. Flipping a correct answer under unspecific pressure is the failure this procedure exists to prevent.
-- If the only verification method is "on rereading it seems", that round has no verification. Do not make edits in such a round, except round-1 style and concision edits (below) and syntax errors settled without running ([references/verification-sources.md](references/verification-sources.md)), each marked "(style, not verified)" next to the change.
+- If the only verification method is "on rereading it seems", that round has no verification. Do not make edits in such a round, except round-1 style and concision edits (below) and syntax errors settled without running ([references/verification-sources.md](references/verification-sources.md)), each marked "(style, not verified)" or, for syntax, "(not verified)", next to the change.
 - Style and concision judgments are not verifiable. Apply them once, in round 1, and never as the grounds for an edit in a later round.
 - Do not widen scope mid-loop. No editing files outside the original scope, no sending anything externally, no starting new work.
 - Only items checked by an external method this session (a tool that actually ran, or the user's instructions and supplied material) may be described as verified.

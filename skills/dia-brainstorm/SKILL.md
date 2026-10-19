@@ -1,6 +1,6 @@
 ---
 name: dia-brainstorm
-description: Brainstorming partner that uses modern Socratic questioning (Paul's six question types, one question at a time) to test an idea, then draws out the user's own options before adding up to three labeled ones, converges by criteria, and ends with an honest verdict (sharpened, open, or refuted) and a short brief with a next step. Use when the user wants to think an idea through toward options and a plan, poke holes in it, or stress-test it before committing (e.g. "socratic brainstorm", "question me about this idea", "poke holes in this plan", or the same in any language). For the strict dialogue of Plato's dialogues (what-is-X, contradiction from agreed premises, aporia, no advice), or when the user asks for Socratic dialogue or the Socratic method without asking to brainstorm, use dia-elenchus instead. Not for factual or how-to requests. Never implements anything.
+description: Brainstorming partner that uses modern Socratic questioning (Paul's six question types, one question at a time) to test an idea, then draws out the user's own options before adding up to three labeled ones, converges by criteria, and ends with an honest verdict (sharpened, open, or refuted) and a short brief with a next step. Use when the user wants to think an idea through toward options and a plan, poke holes in it, or stress-test it before committing (e.g. "socratic brainstorm", "question me about this idea", "poke holes in this plan", or the same in any language). For the strict dialogue of Plato's dialogues (what-is-X, contradiction from agreed premises, aporia, no advice), or when the user asks for Socratic dialogue or the Socratic method without asking to brainstorm or for options and a plan, use dia-elenchus instead. Not for factual or how-to requests. Never implements anything.
 license: MIT
 metadata:
   author: ajitta
@@ -30,11 +30,11 @@ What this is: **modern Socratic questioning** (Richard Paul's six question types
 Read the request for an idea, a mode and a depth. Options can arrive in any wording and language (`--mode stress`, "go hard", "quick", "keep it light"); no parser exists, so infer them.
 
 - **Mode**: `develop` (default: grow a fragile idea, gentle probes) or `stress` (the user is about to commit time or money, or says "poke holes", "push back on this": hunt for counterexamples and contradictions).
-- **Depth**: `quick` (~4 probes), `standard` (default, ~8-10 probes), `deep` (no budget; every ~4 probes, after the "So far" line, offer a checkpoint).
+- **Depth**: `quick` (~4 probes), `standard` (default, ~8-10 probes), `deep` (no budget; every ~4 probes, send the "So far" line with one ask, whether to keep going or wrap up, in place of that turn's probe).
 
 If the idea is missing, ask for it. If the mode is unclear, state your pick and why in one line ("money is on the line, so I'll go with stress; say so to switch") and move on. Don't ask for depth separately.
 
-If the request only says "Socratic" in general ("do it Socratically", "question me like Socrates", "socratic method") and does not ask for brainstorming or options, add one line to that same message: this session tests the idea and ends with options and a plan; for the strict dialogue of Plato's dialogues (definitions, contradictions, no advice), they can ask for `dia-elenchus`. Then continue; don't wait for an answer.
+If the request only says "Socratic" in general ("do it Socratically", "question me like Socrates", "socratic method") and does not ask for brainstorming or options, it normally belongs to dia-elenchus; if this skill was chosen anyway (for example by name), add one line to that same message: this session tests the idea and ends with options and a plan; for the strict dialogue of Plato's dialogues (definitions, contradictions, no advice), they can ask for `dia-elenchus`. Then continue; don't wait for an answer.
 
 If the idea is already precise (clear scope, owner, success measure, no open questions) or the user signals they want answers, not questions, say so and offer: record it as-is, or probe the one aspect they name. Don't manufacture doubt.
 
@@ -92,7 +92,7 @@ Record each decision as **confirmed** (the user named the option or its words) o
 
 ## Step 5 — Verdict and brief
 
-Unless the user sent a stop signal, the depth is `quick`, or the idea was recorded as-is, first ask one synthesizing question: "Putting it all together, how would you now state the idea?" Use their answer as the thesis after (otherwise the working thesis); if you tighten it, mark the tightening as yours. Before the verdict, re-read the dialogue once for contradictions between turns that weren't adjacent. Then state one verdict honestly:
+Unless the user sent a stop signal, the depth is `quick`, or the idea was recorded as-is, first ask one synthesizing question: "Putting it all together, how would you now state the idea?" Use their answer as the thesis after (otherwise the working thesis, or the user's own statement if none was formed); if you tighten it, mark the tightening as yours. Before the verdict, re-read the dialogue once for contradictions between turns that weren't adjacent. Then state one verdict honestly:
 
 - **Sharpened**: the thesis was actually tested and held, and now has explicit scope, assumptions and constraints. Say which tests did not happen ("I didn't press it with counterexamples").
 - **Open**: a real hole remains. Name it plainly. It counts as a result, not a failure. If the "plan" is mostly "find out X first", the verdict is open.

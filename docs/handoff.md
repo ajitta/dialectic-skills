@@ -26,10 +26,10 @@ State of the work and what is left, for the next agent session. Read `AGENTS.md`
 | 8 | Codex GitHub marketplace route (`codex plugin marketplace add ajitta/dialectic-skills`) | agent, where Codex CLI is installed | P3 covered only a local path. The repository is private, so Codex needs git credentials for it. |
 | 9 | Research findings in `docs/research/` | agent | Applied 2026-10-20 in three batches (spec D19, D20, D21 after the diff reviews in `docs/research/review/diff/`), still as 0.1.0. What remains is in `docs/research/README.md` § Still open; settle it with the owner before P1. |
 
-Observations from P8 that were not acted on (n=1 each; see `docs/probes.md`). Re-test before changing anything:
+Observations from P8 (n=1 each; see `docs/probes.md`):
 
 - In one run, dia-refine added an inline "(unverified; …)" note inside the revision. Addressed by spec D20 (marks go in ④ or the closing line); see the neutral-directory P8 re-run in `docs/probes.md`.
-- In one run, dia-refine replied in Korean to an English prompt. The host's Korean locale may be the cause.
+- In one run, dia-refine replied in Korean to an English prompt. It did not reproduce from a neutral directory (3/3 English), so the repository's `AGENTS.md` ("reply in Korean") was the likely cause.
 
 ## How probes were run (for re-runs)
 

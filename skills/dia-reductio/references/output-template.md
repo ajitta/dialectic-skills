@@ -15,7 +15,7 @@ Not tested: (other claims in the input, one line, if any)
 - P1 [T] … — "quote"
 - P2 [L] … (law of logic or mathematics)
 - P3 [A] … — needed because …; evidence: verified this session (a tool ran) | supplied by the user | single source | unverified recall
-- Key terms: X = … [T "quote" | A], Y = … (a meaning a line substitutes gets its own P-line)
+- Key terms: X = … [T "quote" | A], Y = … (a meaning the derivation relies on gets its own P-line)
 
 ## Derivation (assume T; when proving, assume not-T)
 1. T (not-T when proving) — assumption
@@ -33,9 +33,9 @@ Strength: internal | conditional | carried by added premises (if the last: "P3 [
 (If a direction found none, say so here.)
 
 ## Options
-- A. Give up T → what that means; what else goes.
+- A. Give up T (when proving: accept T; omit when the result is premise set inconsistent) → what that means; what else goes.
 - B. Give up P3 → …
-- C. Narrow T to T′ = "…" → blocks step k; does T′ still do T's job? …
+- C. (refuting only) Narrow T to T′ = "…" → blocks step k; does T′ still do T's job? …
 
 ## Recommendation
 Option X, because …

@@ -52,5 +52,6 @@ Reductio shows that a set of statements is logically inconsistent. Negative dial
 - Kwon Hae-kyung, Negative dialectics as Adorno's "immanent critique": a comparison with Hegel in epistemology (Korean-language thesis), Sogang University. https://dcollection.sogang.ac.kr/dcollection/srch/srchDetail/000000065299
 - "Negative Dialectics", Wikipedia (secondary, for the preface quotation).
 - James Bohman et al., "Critical Theory (Frankfurt School)", *Stanford Encyclopedia of Philosophy* (2023), section 2.1. https://plato.stanford.edu/entries/critical-theory/
+- Rahel Jaeggi, *Critique of Forms of Life*, trans. Ciaran Cronin, Cambridge, MA: Harvard University Press, 2018 (cited for internal vs immanent critique by SEP *Adorno* §7.2).
 - Titus Stahl, "What is Immanent Critique?", SSRN working paper, 2013. https://pure.rug.nl/ws/portalfiles/portal/35734818/SSRN_id2357957.pdf
 - Theodor W. Adorno, *Negative Dialectics*, trans. E. B. Ashton, New York: Seabury, 1973 (primary; page numbers as cited by the SEP).
