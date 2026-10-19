@@ -1,6 +1,6 @@
 ---
 name: dia-reductio
-description: Strict reductio ad absurdum run in one pass. States the thesis, lists every premise with its source, derives a strict contradiction (Q and not-Q) line by line, then lays out which premises could be given up, recommends one, and leaves the decision to the user; ends with a record. Can test the user's claim, the assistant's own earlier answer, a pasted text, or all of them, chosen with --target. Use when the user asks for reductio, proof by contradiction, indirect proof, "assume it's true and show where it breaks", "find the contradiction", or wants to know whether a position is consistent or true, or the same in any language. For the gap between what a concept or plan claims and what it delivers, or the real purpose behind a claim, use dia-negative. For one-question-at-a-time definition dialogue, use dia-elenchus.
+description: Strict reductio ad absurdum run in one pass. States the thesis, lists every premise with its source, derives a strict contradiction (Q and not-Q) line by line, then lays out which premises could be given up, recommends one, and leaves the decision to the user; ends with a record. Can test the user's claim, the assistant's own earlier answer, a pasted text, or all of them, chosen with --target. Use when the user asks for reductio, proof by contradiction, indirect proof, "assume it's true and show where it breaks", "find the contradiction", or wants to know whether a position holds together or follows from its premises, or the same in any language. For the gap between what a concept or plan claims and what it delivers, or the real purpose behind a claim, use dia-negative. For one-question-at-a-time definition dialogue, use dia-elenchus.
 license: MIT
 metadata:
   author: ajitta
@@ -13,7 +13,7 @@ metadata:
 
 Assume the thesis, derive from it and the listed premises a statement and its negation, and show that the set cannot all be true. Then show the user which members of the set could go, recommend one, and let the user decide.
 
-Theory, history, and the reasons behind the rules are in [references/theory.md](references/theory.md). Read it when the user asks about the method, or when you are unsure whether a step is strict. The output layout is in [references/output-template.md](references/output-template.md); read it before writing the first output.
+Theory, history, and the reasons behind the rules are in [references/theory.md](references/theory.md). Read it when the user asks about the method, or when you are unsure whether a step is strict. The output layout is in [references/output-template.md](references/output-template.md); read it before writing the first output if you can open it (Step 8 names the record fields in case you cannot).
 
 ## Parameters
 
@@ -56,7 +56,7 @@ State the target and the thesis T in one sentence, with a quote. If the input co
   - both lead to contradiction → the premise set itself is inconsistent; the fault is in the premises, not T
   - neither does → no contradiction was found either way. That shows neither that the premises are consistent nor that they cannot decide T, only that this search found nothing; name the premise that would decide it
 
-For claims that something exists, an indirect proof shows existence only in classical logic; say so when it matters (see the theory reference).
+Concluding T from a contradiction with not-T is indirect proof, which intuitionistic logic does not accept in general (it does when T is itself a negation); say so when it matters, above all for claims that something exists (see the theory reference).
 
 ### Step 3: List the premises
 
@@ -64,7 +64,7 @@ Number them P1, P2, … with labels [T], [L], [A]. A key term's meaning that the
 
 ### Step 4: Derive
 
-Numbered lines, each with its rule and the lines it uses. Stop at the first contradiction. Keep the chain as short as the logic allows. Before stating the contradiction, reread each line with the content words replaced by letters and confirm the rule still applies; the record says how the derivation was checked.
+Numbered lines, each with its rule and the lines it uses. Stop at the first contradiction, unless one that depends on fewer [A] premises is also within reach; then report that one. Keep the chain as short as the logic allows. Before stating the contradiction, reread each line with the content words replaced by letters and confirm the rule still applies; the record says how the derivation was checked.
 
 ### Step 5: State the contradiction
 
@@ -105,7 +105,7 @@ Pick one option and give: the reason; the evidence class of the weakest premise 
 
 ### Step 8: Record
 
-Close with the record from the output template. Its result is exactly one of: **untenable on these premises**, **follows from these premises**, **premise set inconsistent**, **no contradiction found**, **stopped**.
+Close with the record from the output template: target and thesis, result, what the contradiction depends on, strength, how it was checked, options and the recommended one, decision, history. Its result is exactly one of: **untenable on these premises**, **follows from these premises**, **premise set inconsistent**, **no contradiction found**, **stopped**.
 
 ### When no contradiction appears
 
@@ -116,7 +116,7 @@ Say so plainly. List the directions and premise sets you tried, write "no contra
 - **user:** follow the procedure as written.
 - **claude:** quote your earlier answer and examine it with the same strictness. Say in one line that this is a self-examination and not independent. If the answer turns out inconsistent, say so directly; do not defend it. Do not invent a contradiction to look self-critical either.
 - **text:** quote with location (paragraph or line). Attribute claims to the text, not to the author's motives.
-- **all:** run the procedure separately for each target present, in the order user, claude, text, then give one combined record. Skip absent targets with one line.
+- **all:** run the procedure separately for each target present, in the order user, claude, text, then give one combined record with one entry per target on each line. Skip absent targets with one line.
 
 ## Follow-up turns
 
@@ -129,6 +129,7 @@ Say so plainly. List the directions and premise sets you tried, write "no contra
 
 - Loose absurdity: "then society would collapse" is a prediction, not a contradiction.
 - A slippery slope presented as a deduction: each "would lead to" is a causal premise and must be listed as one.
+- A chain of small steps over a vague term ("one more grain does not make a heap"): each step may be valid, and the tolerance premise is the usual weak point. List it as a premise and offer it as an option.
 - A strawman from testing the weak reading.
 - Treating "no contradiction found" as "true" or as "consistent".
 - Quoting words the target did not say, or tidying a quote. If you paraphrase, drop the quotation marks.

@@ -40,9 +40,11 @@ If the idea is already precise (clear scope, owner, success measure, no open que
 
 ## Step 1 — Thesis
 
-Ask for the idea in one or two sentences if they haven't given it that way. Then **steelman** it: restate the strongest honest version, mark what you assumed versus what they said, and ask "Is that right?". Don't probe an unconfirmed restatement. Re-confirm after a correction. Keep this restatement as the *working thesis* and update it whenever an answer changes it.
+Ask for the idea in one or two sentences if they haven't given it that way. Then **steelman** it: restate the strongest honest version, mark what you assumed versus what they said, and ask "Is that right, or did I assume something you didn't mean?". Don't probe an unconfirmed restatement. Re-confirm after a correction. Keep this restatement as the *working thesis* and update it whenever an answer changes it.
 
 ## Step 2 — Probe
+
+Ask only what the user can answer from their own experience or knowledge. If the idea turns on a fact neither of you can check here, don't ask them to guess it; record it under open questions as something to find out.
 
 Choose each question from the six types. Usual order: clarify, then assumptions and evidence, then viewpoints and implications. Question the frame whenever it looks off. Probe ideas: [references/question-bank.md](references/question-bank.md).
 
@@ -74,10 +76,10 @@ Rhythm:
 
 ## Step 3 — Diverge
 
-Skip this step if the session was pure stress-testing and the user doesn't want options.
+Skip this step and Step 4 if the session was pure stress-testing and the user doesn't want options; go to Step 5.
 
-1. Ask the user for their own options first: "Can you come up with three other ways to get this done? Wild ones are fine." Build on each one ("yes, and…") before judging any.
-2. Push the edges once: the cheapest version, the most extreme version, the do-nothing option.
+1. Ask the user for their own options first: "Can you come up with three other ways to get this done? Wild ones are fine." Build on each one ("yes, and…") before judging any. When they stop, ask once "Any more, even odd ones?" before moving on.
+2. Push the edges once: the cheapest version, the most extreme version, the do-nothing option. If the user named what matters during probing, also ask once: "What option would win on <their criterion>, even if it loses elsewhere?"
 3. Only then add **at most 3** options of your own, labeled as yours ("My ideas:"), each a single line. Each must differ in kind from every option already listed and from each other (a different mechanism or owner, not a bigger, smaller or tweaked version); if you can't find one that does, add fewer. Number every option so far; this one message may run past the line limit, so keep each option to one short line.
 
 ## Step 4 — Converge
@@ -107,7 +109,7 @@ End with the next step and stop. Don't start building.
 ## Pitfalls
 
 - **Interview drift**: asking a fixed list ("users? budget? timeline?") regardless of answers. Each question must come from the last answer.
-- **Advisor drift**: "have you considered X?" is a suggestion dressed as a question. Before Step 3, ask about the user's reasoning, not your alternative.
+- **Advisor drift**: "have you considered X?" is a suggestion dressed as a question. Before Step 3, ask about the user's reasoning, not your alternative. Offering a concrete case to *test* their idea is fine; offering a different plan to *replace* it is not.
 - **Leading questions**: "wouldn't it be better to…?" plants your answer. Ask open questions.
 - **Agreement theater**: ending "sharpened" because the conversation was pleasant. Untested certainty belongs under open questions.
 - **Wall of text on a phone**: if a turn needs scrolling, cut it.

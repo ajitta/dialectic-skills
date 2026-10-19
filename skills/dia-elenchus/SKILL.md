@@ -11,7 +11,7 @@ metadata:
 
 # Socratic Elenchus
 
-This skill runs the **elenchus**, the method of Plato's early (Socratic) dialogues such as the Euthyphro, Laches and Charmides. Two images come from later works and are used as aids, not as the method itself: aporia as a gain (Meno) and the midwife (Theaetetus). It is not the modern list of "Socratic question types". The shape:
+This skill runs the **elenchus**, the method of Plato's early (Socratic) dialogues such as the Euthyphro, Laches and Charmides. Two images come from later works and are used as aids, not as the method itself: aporia as a gain (Meno) and the midwife (Theaetetus). It is not the modern list of "Socratic question types". Plato applied it to virtues such as piety and courage; here it is applied to the concept behind the user's idea. The shape:
 
 1. Ask what the key thing is: "What is X?"
 2. The user gives a definition.
@@ -20,7 +20,7 @@ This skill runs the **elenchus**, the method of Plato's early (Socratic) dialogu
 5. The user revises the definition. Go back to 3.
 6. Most dialogues end in **aporia**: the user now knows what they don't know. That is the result, not a failure.
 
-This skill adds one thing the dialogues do not have: **the revisions are kept as ideas.** In the early dialogues a definition that falls is emended or dropped, and nobody keeps a list of ideas. Here each replacement counts as a direction the user had not stated before. You are the midwife (Theaetetus 150b-151d; the wind-egg image is at 151e): you have no ideas to hand over. You help the user's ideas come out and test whether each is sound or a wind-egg.
+This skill adds one thing the dialogues do not have: **the revisions are kept as ideas.** In the early dialogues a definition that falls is emended or dropped, and nobody keeps a list of ideas. Here each replacement counts as a direction the user had not stated before. You are the midwife (Theaetetus 150b-151d; the wind-egg image is at 151e): you have no ideas to hand over, which is stricter than the Theaetetus, where the midwife also offers theories to test (157c-d). You help the user's ideas come out and test whether each is sound or a wind-egg.
 
 ## Stance
 
@@ -58,7 +58,7 @@ If the idea has no load-bearing concept (fully specified, measurable), say so an
 
 First answers are often examples or lists. Ask what all the cases share, the thing that makes them X (Euthyphro 6d-e, Meno 72a-c): "That's one example. What makes all of them X?"
 
-Restate the definition in one sentence as a statement, not a question ("So a good recommendation is one that spares you the deliberating."), and put the first premise question in the same message. The restatement must keep the user's own key words; if you had to paraphrase, say "in my words" so they can correct it. If they object, take their wording and continue. Never spend a turn only on confirming ("So you mean …?", "Can I take it as …?"); that stalls the examination.
+Restate the definition in one sentence as a statement, not a question ("So a good recommendation is one that spares you the deliberating."), and put the first premise question in the same message. The restatement must keep the user's own key words; if you had to paraphrase, say "in my words" so they can correct it; that is a flag, not a second question. If they object, take their wording and continue. Never spend a turn only on confirming ("So you mean …?", "Can I take it as …?"); that stalls the examination.
 
 From then on, every message moves the examination: it forces a definition (this step), asks a premise question (Step 3), lays out a contradiction (Step 4), or answers a pushback ([references/elenchus-patterns.md](references/elenchus-patterns.md)).
 
@@ -89,7 +89,7 @@ If several premises produce no contradiction, the definition is holding. Say so,
 
 ## Step 5 — A revision is a new idea
 
-The revised definition becomes the next thesis. **The user writes it, not you.** This is stricter than Socrates, who sometimes worded the revision himself (Euthyphro 9d, Laches 192d); here the user's own wording is the point. Never offer a revised definition for approval ("So is a retrospective a time that creates change?"); ask "Which would you change?" and wait; if they name only which one, ask in the next message how they would put it. Name the shift in one line ("no deliberating → a choice you don't tire of"). That shift is an idea the user just gave birth to; keep a list. Then, in the same message, ask the next premise question against the new definition (Step 3).
+The revised definition becomes the next thesis. **The user writes it, not you.** This is stricter than Socrates, who sometimes worded the revision himself (Euthyphro 9d, Laches 192d); here the user's own wording is the point. Never offer a revised definition for approval ("So is a retrospective a time that creates change?"); ask "Which would you change?" and wait; if they name only which one, ask in the next message how they would put it. Name the shift in one line, in the user's own words on both sides and with no label of your own ("no deliberating → a choice you don't tire of"). That shift is an idea the user just gave birth to; keep a list. Then, in the same message, ask the next premise question against the new definition (Step 3).
 
 If a revision only rewords the last one, say so and ask what actually changed.
 
@@ -105,7 +105,7 @@ If the user then asks for options or advice, say plainly that the Socratic part 
 
 ## Pitfalls
 
-- **Question-type tour.** Rotating clarification, assumption and evidence questions is modern Socratic questioning, not this method. Every question must test the current definition or collect a premise toward a contradiction.
+- **Question-type tour.** Rotating clarification, assumption and evidence questions is modern Socratic questioning, not this method, and so are the hints and evidence questions of an app's own study or learning mode. Every question must test the current definition or collect a premise toward a contradiction.
 - **Advisor drift.** "Have you considered …?" plants your idea in the form of a question.
 - **Trick premises.** If the user agrees only because of how it was worded, the refutation is void.
 - **Declaring the user wrong.** You show that statements conflict; the user decides what to give up.

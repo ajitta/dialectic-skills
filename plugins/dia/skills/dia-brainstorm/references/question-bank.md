@@ -47,15 +47,15 @@ Shapes, not scripts. Adapt each to the user's own words and the last answer, and
 
 - **Premortem** (risky or irreversible bets): "It's a year later and this failed. What's the most likely story?"
 - **Expert lens**, asked as a question in that person's spirit:
-  - Drucker: "Who is the customer, and what do they consider value?"
-  - Christensen: "What job is this hired to do?"
-  - Taleb: "What breaks first under stress, and do you gain or lose from volatility?"
-  - Nygard: "What happens when this fails at 3 a.m.?"
-  - Hickey: "What's left after removing the incidental complexity?"
-  - Beck: "What's the first test that would tell you it works?"
+  - Peter Drucker: "Who is the customer, and what do they consider value?"
+  - Clayton Christensen: "What job is this hired to do?"
+  - Nassim Taleb: "What breaks first under stress, and do you gain or lose from volatility?"
+  - Michael Nygard: "What happens when this fails at 3 a.m.?"
+  - Rich Hickey: "What's left after removing the incidental complexity?"
+  - Kent Beck: "What's the first test that would tell you it works?"
 - **SCAMPER** (product or feature ideas, in Step 3 only): substitute, combine, adapt, modify, put to other use, eliminate, reverse. Ask about one letter at a time.
 - **Edges** (Step 3): cheapest version · most extreme version · do nothing.
 
 ## When answers stop moving the thesis
 
-Switch along this ring: clarification → assumptions → evidence → viewpoints → implications → the question itself. After two dry switches, say "I think we've hit the edge of what questioning can show right now" and move to Step 3 or 5.
+Switch along this ring: clarification → assumptions → evidence → viewpoints → implications → the question itself. After two dry switches, say "I think we've hit the edge of what questioning can show right now" and move to Step 3.

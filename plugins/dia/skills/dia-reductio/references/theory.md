@@ -23,7 +23,7 @@ From the set {assumption + already accepted premises} derive a contradiction, th
 Two directions:
 
 - **Refutation:** assume A, derive a contradiction, conclude not-A. This is valid in classical and intuitionistic logic alike.
-- **Indirect proof:** assume not-A, derive a contradiction, conclude A. This is valid in classical logic but not in intuitionistic logic (Encyclopedia of Mathematics). The intuitionist objection bites hardest on existence claims: refuting "nothing is F" does not, for them, show that something is F unless an instance is produced (IEP).
+- **Indirect proof:** assume not-A, derive a contradiction, conclude A. This is valid in classical logic but not in intuitionistic logic (Encyclopedia of Mathematics), where reductio proves only negative statements because not-not-A does not imply A in general (SEP, "Intuitionistic Logic"); it does when A is itself a negation. The intuitionist objection bites hardest on existence claims: refuting "nothing is F" does not, for them, show that something is F unless an instance is produced (IEP).
 
 So when the skill proves T by refuting not-T, especially when T says something exists, note that the conclusion relies on classical logic.
 
@@ -52,7 +52,7 @@ Both start from a supposition that conflicts with known facts. Reductio aims to 
 
 ## 7. History in dialogue
 
-Plato used reductio dialectically (IEP cites *Republic* I, 338c–343a and *Parmenides* 128d). Socrates' defence in the *Apology* is a reductio on his accusers: they say he does not believe in gods yet believes in divine beings, and a divine being presupposes gods (IEP, comparing Aristotle, *Rhetoric* II.23). Kant's antinomies in the *Critique of Pure Reason* rest on reductio arguments (IEP). Madhyamaka Buddhist philosophy uses consequence arguments (*prasaṅga*) against essentialist positions (Wikipedia, secondary).
+Plato used reductio dialectically (IEP cites *Republic* I, 338c–343a and *Parmenides* 128d). Socrates' defence in the *Apology* (27b–e) is a reductio on his accusers: they say he does not believe in gods yet believes in divine beings, and a divine being presupposes gods (Aristotle, *Rhetoric* II.23, uses the same argument). It is not a model of strictness: Socrates takes one premise from Meletus' silence ("your silence gives consent"). Kant's antinomies in the *Critique of Pure Reason* rest on reductio arguments (IEP).
 
 ## 8. Failure modes to watch
 
@@ -63,10 +63,21 @@ Plato used reductio dialectically (IEP cites *Republic* I, 338c–343a and *Parm
 - **Slippery slope:** a chain of "would lead to" claims, each a causal prediction, presented as deduction.
 - **Over-claiming:** "the thesis is false" when only the set's inconsistency was shown.
 
+## 9. Hard cases
+
+- **A local reductio is not an indirect proof.** Euclid's proof that there are infinitely many primes (*Elements* IX.20) is often retold as a proof by contradiction, but it is direct: from any finite list of primes it constructs another. Only one sub-step ("if possible, let it be so … which is absurd") is a reductio, a negation-introduction step (Joyce; Hardy and Woodgold).
+- **A premise that looks like mathematics can be false.** On one reconstruction, Zeno's argument that the parts of a body make it "so large as to be unlimited" assumes that an infinite sum of finite quantities must be infinite; some such sums are finite (SEP, "Zeno's Paradoxes"). A mathematical-sounding premise is [L] only if it is a theorem; otherwise it is [A].
+- **Paradoxes.** For a paradox such as the Liar, the classical result is "premise set inconsistent". Dialetheists hold that some such contradictions are true, and paraconsistent logics keep a contradiction from implying everything (SEP); this skill holds classical logic fixed.
+
 ## Sources
 
 - Nicholas Rescher, "Reductio ad Absurdum", *Internet Encyclopedia of Philosophy*. https://iep.utm.edu/reductio/
 - "Reductio ad absurdum", *Encyclopedia of Mathematics*. https://encyclopediaofmath.org/wiki/Reductio_ad_absurdum
-- "Reductio ad absurdum", Wikipedia (secondary, for the Madhyamaka note).
 - "Underdetermination of Scientific Theory", *Stanford Encyclopedia of Philosophy* (Duhem's and Quine's holism). https://plato.stanford.edu/entries/scientific-underdetermination/
 - W. V. O. Quine, "Two Dogmas of Empiricism" (1951), §6. https://www.ditext.com/quine/quine.html
+- "Intuitionistic Logic", *Stanford Encyclopedia of Philosophy*. https://plato.stanford.edu/entries/logic-intuitionistic/
+- Plato, *Apology*, tr. B. Jowett (Project Gutenberg). https://www.gutenberg.org/files/1656/1656-h/1656-h.htm
+- Euclid, *Elements* IX.20, tr. and commentary D. E. Joyce. https://mathcs.clarku.edu/~djoyce/java/elements/bookIX/propIX20.html
+- M. Hardy and C. Woodgold, "Prime Simplicity", *Mathematical Intelligencer* 31 (2009). https://link.springer.com/article/10.1007/s00283-009-9064-8
+- "Zeno's Paradoxes", *Stanford Encyclopedia of Philosophy*. https://plato.stanford.edu/entries/paradox-zeno/
+- "Dialetheism" and "Paraconsistent Logic", *Stanford Encyclopedia of Philosophy*. https://plato.stanford.edu/entries/dialetheism/ ; https://plato.stanford.edu/entries/logic-paraconsistent/

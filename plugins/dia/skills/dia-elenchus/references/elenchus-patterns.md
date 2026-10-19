@@ -11,6 +11,7 @@ Shapes, not scripts. Each one serves the current definition. Ask in the user's l
 | A synonym ("a good recommendation is a decent one") | "How would you tell that it's 'decent'?" |
 | "Depends" / "it varies" | "Across those situations, is there anything they share that makes you call it X?" |
 | A refusal ("we don't need a definition") | "Then how would you tell whether what you're building is X or not?" |
+| Examples again after you asked once | A one-line definition of something unrelated to X, for the form only (Laches 192b: quickness is the power of getting a great deal done in a little time), then: "Can you say what X is in that form?" |
 
 ## Premise questions (one per message, yes/no friendly)
 
@@ -55,5 +56,6 @@ These moves go in the record under "Ideas born". A rewording that changes nothin
 - The user's last two definitions have each fallen, and they have no third.
 - The user says "I don't know" or "I'll have to think about it" about X itself, not about a detail.
 - Each new definition reintroduces a premise they already gave up.
+- After a definition has fallen, the user shows that the cases of X share no single feature. Don't force another definition; put "whether X has one defining feature at all" under "What we now know we don't know".
 
 Name it gently: "It seems we've found out that we don't know what X is." Then go to the record.

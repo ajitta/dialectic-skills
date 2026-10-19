@@ -37,7 +37,7 @@ If no flag is given, infer the target: a pasted text means `text`; "your answer"
 5. **Determinate, not abstract, negation.** Each finding states exactly which part of C fails and what specific content C fails to capture. "It's more complex than that" negates nothing in particular and is not allowed.
 6. **Purpose is an inference with evidence.** When you say what function or purpose an identification serves, ground it in the pattern of what C includes and excludes, label it as an inference, and name the observation that would falsify it. For texts and for your own answers, speak about what the claim or text does, not about a person's hidden motives.
 7. **No forced synthesis.** Do not end with a new master definition that claims to settle everything. A revised claim may be offered as an option, and it must state its own remainder: what it still does not capture.
-8. **The user decides.** Recommend one option and stop there.
+8. **The user decides.** Recommend one option and do not decide for the user.
 9. **Language follows the user.** Write the whole output in the language of the user's latest message, including headings, labels, and the fixed status values. Quote the target in its original language. Use plain words; put Adorno's terms in parentheses at most.
 10. **Whole analysis in one response.** Do not ask questions one at a time.
 
@@ -69,7 +69,7 @@ If no strict gap appears, say that C holds against the particulars tested, list 
 
 ### Step 5: Function and purpose
 
-Say what the identification does: what it makes visible, what it hides, and whose aim or what process it serves. Contrast this **operative function** with the stated purpose from Step 2. Give the evidence (the inclusion and exclusion pattern from Step 4), mark it as an inference, and name the observation that would falsify it. If the findings do not support any reading beyond the stated purpose, say so.
+Say what the identification does: what it makes visible, what it hides, and what process it serves, or whose interests the pattern favors (as a function, not an intention). Contrast this **operative function** with the stated purpose from Step 2. Give the evidence (the inclusion and exclusion pattern from Step 4), mark it as an inference, and name the observation that would falsify it: one the user could actually make (a document, a practice, a case) that would show the stated purpose explains the pattern as well. A restatement of the stated purpose is not such an observation. If the findings do not support any reading beyond the stated purpose, say so.
 
 Optionally, set C beside two or three concepts it depends on (for example "merit" depends on "measurement") when that shows where the gap comes from. Skip it when it explains nothing.
 
@@ -77,7 +77,7 @@ Optionally, set C beside two or three concepts it depends on (for example "merit
 
 Offer the responses that fit, each with what it keeps and what remainder it leaves:
 
-- narrow C to the scope where it holds (state C′ exactly)
+- narrow C to the scope where it holds (state C′ exactly; if the gap comes from how the practice works rather than from how C is worded, say that narrowing moves the gap rather than closing it)
 - keep C and state the remainder openly
 - change the practice so that what is delivered meets what is claimed
 - withdraw C, or replace the stated purpose with the operative one and own it

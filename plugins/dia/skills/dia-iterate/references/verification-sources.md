@@ -5,7 +5,7 @@ Which methods count as "external verification" for each type of content. One cri
 | Content type | Accepted external method | When no method exists |
 |---|---|---|
 | Calculations, figures, totals, unit conversions | Recompute by running code | Unverifiable. Leave as drafted |
-| Code | Execution, tests, type checking, linter | Unverifiable without a run environment. In round 1 only, fix what is settled without running, such as syntax errors, marked "(not verified)" |
+| Code | Execution, tests, type checking, linter. Tests you write yourself share your blind spots: prefer existing or user-supplied tests, and say in the log which kind ran | Unverifiable without a run environment. In round 1 only, fix what is settled without running, such as syntax errors, marked "(not verified)" |
 | Library APIs, versions, config keys | An official-documentation lookup tool (for example Context7), or a fetch of official docs | Unverifiable |
 | Facts, dates, a person's current position, recent events | Web search, then fetch a primary source | Unverifiable |
 | Quotations, citations, paper titles and authors | Fetch the original, or open a bibliographic record (publisher, DOI or library catalogue page); a search snippet alone is a single source | Unverifiable. Exact titles and numbers in particular stay unverified however fluently they came to mind |
@@ -18,7 +18,7 @@ Which methods count as "external verification" for each type of content. One cri
 
 ## Judgment log format
 
-One line per defect. Cut the draft-side span to a clause or less and do not quote the source's text. What is kept is the method (with URL), the verdict, and one value. Copying source sentences turns the log itself into a reproduction of an existing document and trips the content filter.
+One line per defect. Cut the draft-side span to a clause or less and do not quote the source's text. What is kept is the method (with URL), the verdict, and one value. Copying source sentences turns the log itself into a reproduction of an existing document and can trip the host's content filter.
 
 ```
 [defect 3] "total 1,240" - method: code execution - result: confirmed (actual 1,280) - action: fixed
