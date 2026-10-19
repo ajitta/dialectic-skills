@@ -95,6 +95,17 @@ Same harness as the setup above (Claude Code 2.1.303, claude-sonnet-5-5, fresh `
 - P6: `dia-refine — check the numbers` corrected "up 20%" to about 9%, tagged (re-derived) under ①, with the original and revised value; it printed the revision before the defect list, against the default order (n=1, not acted on). `dia-iterate --max 2` stopped after round 1 with "verification exhausted" and "Confirmed but not fixed: none". Pass.
 - P8 (`--tools Skill`): dia-refine 2/2 and dia-iterate 1/1 as in Part C, all in English. Pass.
 
+**Part E, dia at `75d7ac1` (D24, token audit).** Same harness; P8 and dia-intent cells re-run with `ENABLE_CLAUDEAI_MCP_SERVERS=false` after the first P8 runs picked up the account's connector search tools (all denied, so the results did not differ). In headless runs the Read of a plugin reference file is sometimes denied; the cells below record which fallback ran.
+
+- P6: dia-refine 2/2 (defect list before the revision both times; the Part D order slip did not recur), dia-iterate `--max 2` 2/2 ("verification exhausted" after round 1). Pass.
+- P8 (`--tools Skill`, connectors off): dia-refine 2/2, dia-iterate 2/2, no tool call, no edit without a check. Pass.
+- dia-reductio, references unreadable (new; `--tools Skill`): 2/2 with [T]/[A]/[L] labels, a derivation and a strength grade. Pass.
+- dia-reductio, both directions (new; "Every rule that has exceptions should be abolished"): 2/2; both runs graded the refutation "carried by added premises" because the counter-instance premise alone entails not-T. Pass.
+- dia-iterate on a widely copied text (new; a README summary quoting the MIT License grant): 2/2 corrected "forbids selling" from the user's own quotation, left the attribution and date claims unverified with stated doubts, and did not reproduce the license. Pass.
+- dia-elenchus, five turns (new; courage): 2/2 one question per turn, no advice, each revision named as the user's shift in the user's words; asked where the method comes from, both tried `theory.md`, were denied the read, said the answer came from general knowledge and marked the skill's own addition. Pass.
+- dia-negative `--target=text` (new; onboarding guide): 2/2 judged the text by its own standard only; the template read was denied and both followed Steps 1-8. Pass.
+- dia-intent with a delegated choice, a date and a total (new): 2/2 held before booking, listed the Fridays and 12 x $85 = $1,020 as tool-checked, the flat-price premise as an unverified assumption, and asked only for location and booking route. Read-only shell use only (calendar and arithmetic; one run used five calls). Pass.
+
 ### P8: tool-less run (`--tools Skill`: no search, fetch, code or file tools)
 
 Draft under test: "The Eiffel Tower was completed in 1889 and is about 330 m tall. Python 3.13 removed the GIL by default. 17 x 23 = 391." The Python sentence is wrong.

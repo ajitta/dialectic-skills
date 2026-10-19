@@ -1,6 +1,6 @@
 # Record template
 
-Lead with one plain line: the result, and the question the user takes away. Translate the headers into the user's language. Use only what the user said or agreed to. Keep an empty section as "none" rather than dropping it.
+Lead with one plain line: the result, and the question the user takes away. Translate the headers into the user's language. Print plain Markdown, not a code block. Use only what the user said or agreed to. Keep an empty section as "none" rather than dropping it.
 
 ```markdown
 # Dialogue record: <the idea>  ·  <YYYY-MM-DD>

@@ -43,4 +43,4 @@ These lines are byte-identical in dia-negative and dia-reductio at HEAD (dia-neg
 
 - K6b and K7 remove the only `--target=text` specific guidance on author intent, and three pitfalls. The audit's risk table says no current probe covers `--target=text`, and K7 is rated medium-low risk. The P7 negative cells and a `--target=text` mission-statement run would check these (audit "Risks").
 - K1 and K2 leave a method question asked while theory.md is unreadable with only the L16 labels to answer from. Audit check: P8 with a "what method is this?" follow-up.
-- Nothing regenerated: `tools/package.py` was not run, so `plugins/dia/` now lags the source until it is regenerated.
+- Regenerated in 75d7ac1: plugins/dia/ and releases/dialectic-skills.zip match the source; tools/package.py --check passes.

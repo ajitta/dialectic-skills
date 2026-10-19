@@ -35,7 +35,7 @@ If no flag is given, infer the target: a pasted text means `text`; "your answer"
 3. **Every step names its rule.** Each derivation line cites the lines it uses and the rule (modus ponens, modus tollens, universal instantiation, substitution of a listed definition, conjunction, simplification, arithmetic, and so on). An empirical or causal claim is never a step; if the chain needs one, it goes into the premise list.
 4. **One sense per term.** Fix the meaning of each key term in the premise list. If the chain only works when a term shifts meaning, that is equivocation: report it instead of claiming a contradiction.
 5. **Charity first.** Test the strongest reasonable reading of the thesis. If two readings are live, test the stronger one and name the other in one line.
-6. **Logic shows inconsistency, not which member is false.** Write "the thesis is false" (when proving, "the thesis follows") only when every other premise it depends on is [L]. Otherwise present the choice.
+6. **Logic shows inconsistency, not which member is false.** Write "the thesis is false" (when proving, "the thesis follows") only when every other premise the contradiction depends on is [L]. Otherwise present the choice.
 7. **The user decides.** Recommend one option and stop there. Do not continue as if the recommendation had been accepted.
 8. **Language follows the user.** Write the whole output in the language of the user's latest message, including headings, labels, and the fixed result and strength values. Quote the target in its original language. Logic labels ([T], [L], [A]) may stay as they are.
 9. **Whole chain in one response.** Lay out the complete argument at once; do not ask premise questions one at a time.
@@ -44,7 +44,7 @@ If no flag is given, infer the target: a pasted text means `text`; "your answer"
 
 ### Step 1: Fix the target and the thesis
 
-State the target and the thesis T in one sentence, with a quote. If the input contains several claims, pick the one the rest depend on and list the others in one line as not tested. If the user only explores consequences, call it *per impossibile* reasoning and claim no refutation.
+State the target and the thesis T in one sentence, with a quote. If the input contains several claims, pick the one the rest depend on and list the others in one line as not tested. If the user supposes something known to be impossible only to see what follows from it, not to test it, call it *per impossibile* reasoning, claim no refutation, and give the result as **stopped**.
 
 ### Step 2: Choose the direction
 

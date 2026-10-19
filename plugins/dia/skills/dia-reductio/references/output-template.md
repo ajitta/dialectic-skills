@@ -1,6 +1,6 @@
 # Output template (dia-reductio)
 
-Translate headings and labels per Rule 8. Use numbered lines, not wide tables, so it reads on a phone.
+Translate headings and labels per SKILL.md Rule 8. Use numbered lines, not wide tables, so it reads on a phone.
 
 ---
 
