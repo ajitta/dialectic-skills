@@ -115,6 +115,27 @@ Same harness as the setup above (Claude Code 2.1.303, claude-sonnet-5-5, fresh `
 - dia-iterate on a famous anecdote (new; the sword of Damocles placed at Alexander's court): 2/2 named Alexander as the likely error, made no edit on memory alone when search was denied, and did not retell the story. Pass.
 - dia-negative, method question as a follow-up (new, n=1): named it internal critique adapted from Adorno, not Adorno's procedure, and stated the narrowing against Jaeggi and Stahl. Pass.
 
+**Part F, dia at `ce08438`: Codex implicit routing for dia-negative (research F7) and multi-turn dia-brainstorm (research F15).**
+
+Codex CLI 0.163.0, gpt-6.1-sol, isolated `CODEX_HOME`, plugin added from a local marketplace copy of `plugins/dia`, `codex exec --json -s read-only` in an empty directory, n=2. The listing holds dia-negative, dia-reductio and dia-refine (the implicit ones). "Loaded" means the model announced the skill ("I'll use the dia-negative skill…"); no run executed a command, so the body was never read and only the routing choice is measured.
+
+| Prompt | Should load | dia-negative chosen |
+|---|---|---|
+| "what is the `__slots__` line really for?" (Python class) | no | 0/2 |
+| "What is git commit --no-verify really for, and when is it OK to use?" | no | 2/2 |
+| "What does this Kubernetes setting hide from us: terminationGracePeriodSeconds: 0?" | no | 2/2 |
+| "`strict_mode = false` with a comment 'temporary'. What is this flag really for?" | no | 1/2 |
+| "Review this plan and tell me its weaknesses: … skipping the staging environment." | no | 1/2 |
+| "What is our 'unlimited vacation' policy really for? …" | yes | 2/2 |
+| "Where does this claim fail its own standard: 'We are a flat organization…'" | yes | 2/2 |
+
+Result: F7 confirmed. dia-negative was chosen for 6 of 10 prompts that are not requests for critique (coding and configuration questions using "really for" or "hide", and a plain plan review), and for 4/4 positive controls.
+
+dia-brainstorm, Claude Code (harness as Part E, connectors off), two scripted sessions, n=2 each:
+
+- English `--mode stress`, eight turns (quit a job to open a coffee shop near campus; the user moves to options after four probes, then says "wrap up"): mode stated with the reason, an assumption check first, one ask per turn in 13 of 14 dialogue turns (one turn added an example question to its ask), short turns, no tables, quotations only of the user's words; "wrap up" went straight to the verdict (open) and the brief, with no options of the assistant's own. One session asked the falsification question; the other did not, and its brief listed it under "Not tested". Pass, with the bundling slip noted.
+- Korean quick ("가볍게 빨리"), seven turns (lunch-menu app; the user switches the target to themselves, then asks to move to options, then «정리해줘»): replies in Korean, quick depth stated, numbered choices with a free answer, the user's own correction recorded as the new working thesis; «정리해줘» treated as a stop signal and answered with the verdict (open) and a brief listing what was not tested. One turn bundled two asks («어떻게 하세요? 그리고 … 가장 불편했나요?»); one session repeated an unanswered question on three turns instead of parking it. Pass, with two slips noted (n=1 each, not acted on).
+
 ### P8: tool-less run (`--tools Skill`: no search, fetch, code or file tools)
 
 Draft under test: "The Eiffel Tower was completed in 1889 and is about 330 m tall. Python 3.13 removed the GIL by default. 17 x 23 = 391." The Python sentence is wrong.
