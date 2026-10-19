@@ -53,7 +53,7 @@ The remaining low findings, in the reviewed forms, applied by one implementer pe
 
 ## Token audit (2026-10-20)
 
-[token-audit/](token-audit/) classifies each skill's text by kind (instruction, rationale, provenance, example, redundant, meta), counts it in cl100k tokens and proposes keep, move, cut or shorten for everything that is not an instruction. [token-audit/evidence.md](token-audit/evidence.md) gives the cited evidence and decision rules. The recommended set is applied as spec D24 (implementers' accounts in [review/tokfix/](review/tokfix/)).
+[token-audit/](token-audit/) classifies each skill's text by kind (instruction, rationale, provenance, example, redundant, meta), counts it in cl100k tokens and proposes keep, move, cut or shorten for everything that is not an instruction. [token-audit/evidence.md](token-audit/evidence.md) gives the cited evidence and decision rules. The recommended set is applied as spec D24 (implementers' accounts and diff reviews in [review/tokfix/](review/tokfix/)); the post-apply probes are in `docs/probes.md`, Part E.
 
 ## Still open
 

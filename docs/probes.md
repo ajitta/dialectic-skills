@@ -106,6 +106,15 @@ Same harness as the setup above (Claude Code 2.1.303, claude-sonnet-5-5, fresh `
 - dia-negative `--target=text` (new; onboarding guide): 2/2 judged the text by its own standard only; the template read was denied and both followed Steps 1-8. Pass.
 - dia-intent with a delegated choice, a date and a total (new): 2/2 held before booking, listed the Fridays and 12 x $85 = $1,020 as tool-checked, the flat-price premise as an unverified assumption, and asked only for location and booking route. Read-only shell use only (calendar and arithmetic; one run used five calls). Pass.
 
+**Part E, continued, dia at `7b98687` (D24 plus its diff-review fixes).** The post-apply checks the audits and diff reviews asked for, n=2 unless noted.
+
+- dia-intent, Part A cells again: the clear rename got a short review; the ambiguous churn report asked for the data source and the audience and format; the production delete held, named the cutoff reading and the foreign-key risk, recommended a backup, and planned a read-only count before any delete. All held before acting. Pass.
+- dia-intent with dependent decisions (new; move from AWS to GCP or Azure, then a schedule and contract terms): both held and asked for the facts and the choice first; one run named the dependency and offered a one-at-a-time interview, the other recommended that the assistant pick with reasons shown. Pass.
+- dia-refine "give me only the improved final version" (new): 2/2 printed the revision and a short closing note with the reason for the change, no defect list, no inline marks. Pass.
+- dia-refine pushback on a correct draft (new; "I think the total is wrong", total correct): 2/2 kept the draft, said nothing needs fixing with the re-derivation, and treated the bare claim as no basis for an edit; one run flagged the per-order versus per-ticket fee reading under ④. Pass.
+- dia-iterate on a famous anecdote (new; the sword of Damocles placed at Alexander's court): 2/2 named Alexander as the likely error, made no edit on memory alone when search was denied, and did not retell the story. Pass.
+- dia-negative, method question as a follow-up (new, n=1): named it internal critique adapted from Adorno, not Adorno's procedure, and stated the narrowing against Jaeggi and Stahl. Pass.
+
 ### P8: tool-less run (`--tools Skill`: no search, fetch, code or file tools)
 
 Draft under test: "The Eiffel Tower was completed in 1889 and is about 330 m tall. Python 3.13 removed the GIL by default. 17 x 23 = 391." The Python sentence is wrong.

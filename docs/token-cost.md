@@ -42,6 +42,10 @@ What the measured runs actually read (main tree, one turn of each skill): dia-re
 
 Billed cost of a whole headless run of three or four turns (sonnet; most of it is the ~19k Claude Code base context, cached): $0.05–0.13.
 
+## After the token audit (D24)
+
+SKILL.md files total 17,487 cl100k after D24 (from 18,466 at D23, −979, −5.3%); per skill: dia-iterate −295, dia-elenchus −254, dia-negative −174, dia-refine −93, dia-intent −74, dia-reductio −63 (it gained two rules moved from theory.md), dia-brainstorm −26. References grow from 9,019 to 9,557 because dia-elenchus gains `theory.md` (1,156, read only when the user asks about sources or the method). Descriptions are unchanged. The diff-review fixes that followed add a few tokens. Details: `docs/research/token-audit/`.
+
 ## Against the old skills
 
 - Always-on: +59 tokens (+3.5%) for the same seven methods.
