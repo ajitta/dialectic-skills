@@ -24,11 +24,12 @@ Not tested: (other claims in the input, one line, if any)
 n. Q and not-Q — lines a and b
 
 ## Derivation (assume not-T)
-(only when the direction is "both"; same format)
+(only when the direction is "both"; same format, and its own contradiction and strength below)
 
 ## Contradiction
 Lines a and b. Depends on: T, P1, P3 [A].
-Strength: internal | conditional | carried by added premises (if the last: "P3 [A] alone already entails not-T, so this only restates my assumption; the question is whether P3 is true.")
+Strength: internal | conditional | carried by added premises (if the last: "P3 [A] alone already entails not-T (T, when proving), so this only restates my assumption; the question is whether P3 is true.")
+(Direction "both": one Contradiction and Strength line per direction.)
 (If a direction found none, say so here.)
 
 ## Options
@@ -45,8 +46,9 @@ The decision is yours.
 ## Record
 - Target / thesis:
 - Result: untenable on these premises | follows from these premises | premise set inconsistent | no contradiction found | stopped
-- Contradiction depends on:
-- Strength: internal | conditional (P…) | carried by added premises (P…)
+- Contradiction depends on: (one line per direction when both)
+- Strength: internal | conditional (P…) | carried by added premises (P…) (one per direction when both)
+- Checked by: rereading only | a tool (name it)
 - Options: A, B, C — recommended: X
 - Decision: pending | the user chose …
 - History: (one line per follow-up turn)

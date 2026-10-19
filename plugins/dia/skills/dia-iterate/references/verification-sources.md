@@ -8,7 +8,7 @@ Which methods count as "external verification" for each type of content. One cri
 | Code | Execution, tests, type checking, linter | Unverifiable without a run environment. Fix only what is settled without running, such as syntax errors |
 | Library APIs, versions, config keys | An official-documentation lookup tool (for example Context7), or a fetch of official docs | Unverifiable |
 | Facts, dates, a person's current position, recent events | Web search, then fetch a primary source | Unverifiable |
-| Quotations, citations, paper titles and authors | Fetch the original, or bibliographic data in search results | Unverifiable. Exact titles and numbers in particular stay unverified however fluently they came to mind |
+| Quotations, citations, paper titles and authors | Fetch the original, or open a bibliographic record (publisher, DOI or library catalogue page); a search snippet alone is a single source | Unverifiable. Exact titles and numbers in particular stay unverified however fluently they came to mind |
 | Statements about the user's system, code, or situation | Compare against files, logs, and user statements in the conversation | Unverifiable if there is nothing to compare against |
 | Missing requirements | Compare against the user's latest instructions | The instructions are themselves external evidence, so almost always possible |
 | Logical leaps | Build a counterexample as concrete input and check it by calculation or execution | A counterexample that cannot be run is weak verification. Apply once, in round 1, and never as grounds in a later round |

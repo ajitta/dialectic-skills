@@ -1,6 +1,6 @@
 ---
 name: dia-negative
-description: Internal critique (the narrow form of immanent critique) adapted from Adorno's negative dialectics, run in one pass. Takes a claim, concept, plan or policy; states its own standard; shows strictly, with particular cases, where what it claims and what it delivers come apart; names what it leaves out and what purpose it actually serves; then offers options with a recommendation, leaves the decision to the user, and ends with a record, without forcing a synthesis. Tests the user's claim, the assistant's own earlier answer, a pasted text, or all, via --target. Use when the user asks for negative dialectics, immanent critique, "what does this concept hide", "what is this really for", "where does this fail its own standard", or wants the real purpose behind a stated goal exposed, or the same in any language. For checking whether a thesis is logically consistent, use dia-reductio. For one-question-at-a-time definition dialogue, use dia-elenchus.
+description: Internal critique (the narrow form of immanent critique) adapted from Adorno's negative dialectics, run in one pass. Takes a claim, concept, plan or policy; states its own standard; shows strictly, with particular cases, where what it claims and what it delivers come apart; names what it leaves out and infers, as a checkable inference, what it actually does; then offers options with a recommendation, leaves the decision to the user, and ends with a record, without forcing a synthesis. Tests the user's claim, the assistant's own earlier answer, a pasted text, or all, via --target. Use when the user asks for negative dialectics, immanent critique, "what does this concept hide", "what is this really for", "where does this fail its own standard", or wants the real purpose behind a stated goal examined, or the same in any language. For checking whether a thesis is logically consistent, use dia-reductio. For one-question-at-a-time definition dialogue, use dia-elenchus.
 license: MIT
 metadata:
   author: ajitta
@@ -13,7 +13,7 @@ metadata:
 
 To think is to identify: to put a particular thing under a concept. The thing never goes into its concept without a remainder. Critique works by pointing out specific contradictions between what a concept or claim says and what it actually delivers, using the claim's own standards, and it does not end in a reconciling synthesis.
 
-This skill is a practical adaptation of Adorno's method, not Adorno's own procedure; he held that his philosophy could not be reduced to a set of steps. It runs internal critique: the standard is what the target itself states. Fuller immanent critique, in Adorno and in later accounts such as Jaeggi's and Stahl's, also reconstructs norms a practice implies without stating them; this skill does not do that. Theory, sources and the limits of the adaptation are in [references/theory.md](references/theory.md). Read it when the user asks about the method or when you are unsure whether a finding is strict or whether a standard is the target's own. The output layout is in [references/output-template.md](references/output-template.md); read it before writing the first output.
+This skill is a practical adaptation of Adorno's method, not Adorno's own procedure; he held that his philosophy could not be reduced to a set of steps. It runs internal critique: the standard is what the target itself states. Fuller immanent critique, in Adorno and in later accounts such as Jaeggi's and Stahl's, also reconstructs norms a practice implies without stating them; this skill does not do that. Theory, sources and the limits of the adaptation are in [references/theory.md](references/theory.md). Read it when the user asks about the method or when you are unsure whether a finding is strict or whether a standard is the target's own. The output layout is in [references/output-template.md](references/output-template.md); read it before writing the first output. If you cannot open it, follow the order of Steps 1–8.
 
 ## Parameters
 
@@ -83,13 +83,15 @@ Offer the responses that fit, each with what it keeps and what remainder it leav
 - withdraw C, or replace the stated purpose with the operative one and own it
 - keep the tension open and examine a particular case further
 
+If no strict gap was found, the options are keeping C as it is or examining the most likely gap next; do not invent others.
+
 ### Step 7: Recommend
 
 Pick one option and give: the reason; the evidence class of the weakest finding it rests on; the observation that would change the recommendation. End with a sentence that the decision is the user's.
 
 ### Step 8: Record
 
-Close with the record from the output template. Its status is exactly one of: **open** (gaps found; by design nothing is closed), **holding against the tested particulars**, **stopped**.
+Close with the record from the output template. Its status is exactly one of: **open** (gaps found; by design nothing is closed), **holding against the tested particulars**, **stopped**. If the template cannot be read, the record is: target and C; stated purpose; findings (n firm, m conditional); remainder; operative function; options and recommendation; decision; status; history.
 
 ## Targets
 
@@ -113,3 +115,4 @@ Close with the record from the output template. Its status is exactly one of: **
 - Closure: ending with a neat synthesis that hides its own remainder.
 - Jargon: Adorno's vocabulary standing in for an argument.
 - Dismissal by default: if C holds against the particulars, say so.
+- Filling the template: an empty section is a result, not a gap to fill.

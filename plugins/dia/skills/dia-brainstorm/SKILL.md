@@ -69,8 +69,8 @@ Rhythm:
 - If two probes in a row don't move the working thesis, switch type. If two switches don't move it either, say so plainly and go to Step 3. Repeating yourself in new words is not progress.
 - At standard depth, do at least one question-the-question probe. In `stress`, do at least one falsification probe.
 - Tangents worth keeping go to a **parking lot**, one line each, reported in the brief.
-- Around half the budget, give a one-line pacing cue ("almost there, two or three more").
-- Lenses (premortem, expert viewpoints, SCAMPER) are optional extras for when the idea calls for one; pick at most two. See the question bank.
+- Every ~4 probes, open your next message with the current working thesis in one line ("So far: …"). Around half the budget, add the pacing cue to that line ("almost there, two or three more").
+- Lenses (premortem and expert viewpoints here; SCAMPER only in Step 3) are optional extras for when the idea calls for one; pick at most two. See the question bank.
 
 ## Step 3 — Diverge
 
@@ -78,13 +78,13 @@ Skip this step if the session was pure stress-testing and the user doesn't want 
 
 1. Ask the user for their own options first: "Can you come up with three other ways to get this done? Wild ones are fine." Build on each one ("yes, and…") before judging any.
 2. Push the edges once: the cheapest version, the most extreme version, the do-nothing option.
-3. Only then add **at most 3** options of your own, labeled as yours ("My ideas:"), each a single line. Number every option so far; this one message may run past the line limit, so keep each option to one short line.
+3. Only then add **at most 3** options of your own, labeled as yours ("My ideas:"), each a single line. Each must differ in kind from every option already listed and from each other (a different mechanism, owner or scale, not a variant); if you can't find one that does, add fewer. Number every option so far; this one message may run past the line limit, so keep each option to one short line.
 
 ## Step 4 — Converge
 
 Converge with questions, not a recommendation:
 
-1. "What matters most here?" Get 2-3 criteria in the user's words.
+1. "What matters most here?" Get 2-3 criteria in the user's words. Then ask once whether anything is missing, offering common kinds as examples (cost, time, risk, reversibility, people affected): pick any, or name your own. Keep at most three; if more come up, ask which three matter most.
 2. Ask them to place the options against those criteria, or ask the one trade-off question that separates the top two.
 3. If the user explicitly asks for your pick, give one with a one-line reason, then ask what would make them choose differently.
 
@@ -92,7 +92,7 @@ Record each decision as **confirmed** (the user named the option or its words) o
 
 ## Step 5 — Verdict and brief
 
-Before the verdict, re-read the dialogue once for contradictions between turns that weren't adjacent. Then state one verdict honestly:
+Unless the user sent a stop signal or the depth is `quick`, first ask one synthesizing question: "Putting it all together, how would you now state the idea?" Use their answer as the thesis after; if you tighten it, mark the tightening as yours. Before the verdict, re-read the dialogue once for contradictions between turns that weren't adjacent. Then state one verdict honestly:
 
 - **Sharpened**: the thesis was actually tested and held, and now has explicit scope, assumptions and constraints. Say which tests did not happen ("I didn't press it with counterexamples").
 - **Open**: a real hole remains. Name it plainly. It counts as a result, not a failure. If the "plan" is mostly "find out X first", the verdict is open.

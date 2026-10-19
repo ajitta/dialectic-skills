@@ -39,16 +39,11 @@ The high findings and themes 1–4, in the form the reviews corrected:
 - dia-iterate F1, F3: regression is a changed lock without new evidence, a new confirmed defect from a fix, or a returning defect; zero defects is none named or all refuted. The example round summary now agrees with the rules.
 - dia-intent 7: no text change; the P2 wording for explicit-only skills is fixed in spec §12.2.
 
-## Not applied yet
+## Applied, second batch (spec D20, 2026-10-20)
 
-Numbered for decisions. Each follows the review's corrected form.
+Items 1–8 of the former "Not applied yet" list, in the reviewed forms: dia-reductio M1, M2, F4, F5, F6; dia-iterate F4 (option b), F5, F11, M3, M4; dia-refine F3, F7, M5; dia-negative F5, F11, M1 (plus the template fallback, M3); dia-elenchus F8, F10, F13; dia-brainstorm M1, F2, F3, F4, F5; dia-intent M1, F3, M3.
 
-1. dia-reductio: strength grades and the "carried" test are written for the refute direction only; the prove direction mis-grades (review M1). The "both" direction has no rule for recording two contradictions (M2).
-2. dia-reductio: contraries need the premise that rules out both being true (F4, corrected); keep the rule list open-ended and add arithmetic (F5); add the corrected ~12-line worked example (F6).
-3. dia-iterate: label the round-1 style exception (F4 option b); scope candidates to claims that bear on the conclusion (F5); search snippets vs citations (M3); re-check a fixed span before locking it (M4); a locks line under the round table (F11).
-4. dia-refine: where the "unverified" mark and sources go, decided together with upstream's sources-in-revision rule (F3); exempt added requirements from the length rule (F7); language fallback for a bare `dia-refine` message (M5).
-5. dia-negative: list only the options that fit, plus a no-findings variant (F5, with Rule 8 and Step 7); record fallback including History (F11); the description promises a "real purpose" the body treats as an inference (M1).
-6. dia-elenchus: frustration script without the anecdote (F10); copy the result-label criteria into SKILL.md verbatim (F13); number premises from the visible transcript (F8).
-7. dia-brainstorm: SCAMPER only in Step 3, stated in SKILL.md (M1); one summary cadence (F2); a synthesizing question before the verdict (F3, keep the risky-assumption clause); criteria prompt as examples (F4); options differ in kind (F5).
-8. dia-intent: pre-approval investigation must not send private material out or incur cost (M1); the confirmation says what is sent or spent and to whom (F3); explicit reply-language rule (M3).
-9. Probes: re-run P6–P8 from a neutral directory, since the original runs loaded this repository's `AGENTS.md` (theme 6; the dia-negative P7 cells and the Korean "immanent critique" cell were re-run that way after D19, see `docs/probes.md`); behavior probes for intent and for pushback.
+## Still open
+
+1. Probes: re-run P6–P8 from a neutral directory, since the original runs loaded this repository's `AGENTS.md` (theme 6); behavior probes for intent and for pushback. See `docs/probes.md` for what has been re-run.
+2. Low findings not listed above (for example reductio F10–F15, iterate F6, F8–F10, F12–F13, refine F5, F6, F8–F15, negative F2–F4, F7–F10, F12, elenchus F9, F11, F12, F14, brainstorm F6–F15, intent F1, F2, F4, F8–F11). Each document's section 7 and its review give the corrected form.

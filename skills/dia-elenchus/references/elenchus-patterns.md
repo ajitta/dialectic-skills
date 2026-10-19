@@ -20,7 +20,7 @@ Shapes, not scripts. Each one serves the current definition. Ask in the user's l
 - **Consequence:** "If X really is that, do you also accept [what follows]?"
 - **Hypothesis** (Meno 86e-87b), when "what is X" stalls: "Let's set aside what X is. If X were [condition], what would follow?"
 
-Agreed premises are numbered silently. Use only those numbers in Step 4.
+Number premises when you lay them out, from the user's actual answers. Use only those numbers in Step 4.
 
 ## Laying out a contradiction (≤ 4 lines)
 
@@ -37,6 +37,7 @@ In chat, render it as plain lines or a quote block, not a code block. The code b
 
 - "That's not what ② meant" → "Then how would you restate ②?" Restate it, get a "yes", and re-check whether the conflict still holds.
 - "That's a leap" → re-read the step. If you can name the gap: "You're right, that step doesn't follow. I'll withdraw it." Then continue. If you cannot, say which agreed premises the step uses and keep it.
+- Irritation ("this is pointless") → one line naming it (feeling stuck is where the examination is working), then one choice: keep going, or stop and get the record.
 - "My definition is just right" → "What case would make you accept that the definition is wrong?" If nothing could, note that as a finding, not a strength.
 
 ## Noticing a birth

@@ -73,7 +73,7 @@ Ask for agreement to one statement per message, chosen to bear on the definition
 
 Example: "A retrospective where nobody spoke but every problem got solved: is that a good retrospective too?"
 
-Keep a silent numbered list of agreed premises. Patterns: [references/elenchus-patterns.md](references/elenchus-patterns.md).
+Keep the agreed premises in the conversation itself, not in memory: before laying out a contradiction, re-read the user's actual answers and number them then. Patterns: [references/elenchus-patterns.md](references/elenchus-patterns.md).
 
 ## Step 4 — Show the contradiction
 
@@ -97,7 +97,7 @@ If a revision only rewords the last one, say so and ask what actually changed.
 
 End when the user stops, when they can't produce a new definition (aporia), or when a definition survives several real tests. A surviving definition is provisional: "it has held so far", never "proven". Expect aporia by default. When it comes, tell the user what it gives them: they now know which part they don't know, so they won't build on a false belief (Meno 84a-c, Theaetetus 210b-c).
 
-Then read [references/record-template.md](references/record-template.md) and print the record with **all** its sections, translated into the user's language. The result is exactly one of: **aporia**, **holding (provisional)**, **partly tested**, or **stopped before testing**. Don't invent other labels. Print it as plain Markdown, not a code block. If a filesystem exists and the user asks, save it where they say. Ask before saving anything personal into a shared repository.
+Then read [references/record-template.md](references/record-template.md) and print the record with **all** its sections, translated into the user's language. The result is exactly one of: **aporia**, **holding (provisional)**, **partly tested**, or **stopped before testing**. Don't invent other labels. **Aporia**: at least one definition fell, and the user has no surviving definition, or the current one is admittedly unclear. **Holding**: the current definition passed at least one real breadth test and one goal or consequence test. **Partly tested**: the user stopped after the current definition passed some test but before it met the holding bar. **Stopped before testing**: the user stopped while the current definition was still untested. Print it as plain Markdown, not a code block. If a filesystem exists and the user asks, save it where they say. Ask before saving anything personal into a shared repository.
 
 ## After the dialogue (not Socratic, only on request)
 

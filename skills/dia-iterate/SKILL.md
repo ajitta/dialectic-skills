@@ -28,12 +28,12 @@ The last output, a named draft, or a file you can read. Text, code and computed 
 
 ## One round
 
-1. **Name the defects.** Use the user's criteria if given; otherwise check in this order: factual error, logical leap, missing requirement, needless repetition or padding. Point to the specific span for each defect.
+1. **Name the defects.** Use the user's criteria if given; otherwise check in this order: factual error, logical leap, missing requirement, needless repetition or padding. Point to the specific span for each defect. List every checkable claim that bears on the user's conclusion or next action (a number, date, name, version, quotation, API or stated requirement) as a candidate, whether or not it looks wrong.
 2. **Assign a verification method.** Decide, per defect, which external method will settle it. Follow [references/verification-sources.md](references/verification-sources.md) for methods by content type. A defect with no external method available is classed "unverifiable". The model rereading and judging again is not an external method.
 3. **Run the verification.** Each result is one of three: confirmed (the defect is real), refuted (the draft was right), unverifiable. Source text pulled in by search or fetch is used for the judgment only, never copied into the judgment log, the round log or the final version. What is kept is the URL, the verdict, and one value (a number, date or name). Cut the quoted draft span to a clause or less. If output overlaps an existing document sentence by sentence, the content filter blocks the whole response and the round's work is lost with it.
 4. **Fix.** Change only confirmed defects, choosing the smallest edit. Replace wrong values, dates and names with the verified ones. Delete outright any comparison, quotation or assertion confirmed to be groundless. Do not hedge ("may be") and do not rewrite: hedging leaves a false claim standing, and rewriting inserts new unverified claims. Rewrite only when the user asks for it. Leave refuted items as drafted; leave unverifiable items untouched and list them as unverified.
-5. **Lock.** Items that passed verification this round (refuted draft content, and content re-confirmed after a fix) go into a locked set. Later rounds do not change locked items unless new external evidence appears. Without this lock, correct content drifts as rounds accumulate.
-6. **Log the round.** Record the round number, the number of defects named, the counts of confirmed / refuted / unverifiable, the verification methods used, what changed, and what remains unverified. This feeds the summary in the final output.
+5. **Lock.** Items that passed verification this round (refuted draft content, and values fixed from a confirming source) go into a locked set. Later rounds do not change locked items unless new external evidence appears. Without this lock, correct content drifts as rounds accumulate.
+6. **Log the round.** Record the round number, the number of defects named, the counts of confirmed / refuted / unverifiable, the verification methods used, what changed, what was locked, and what remains unverified. This feeds the summary in the final output.
 
 ## Without tools
 
@@ -65,6 +65,7 @@ Write the output in the language of the user's latest message, headings included
 |---|---|---|---|---|---|---|
 | 1 | 4 | 2 | 1 | 1 | code execution, web search | fixed total, fixed date |
 | 2 | 1 | 0 | 0 | 1 | - | none |
+Locked: 3 items (total, date, author name)
 Stopped because: verification exhausted
 
 ## Unverified
@@ -78,7 +79,7 @@ Stopped because: verification exhausted
 ## Guardrails
 
 - Being invoked is not a report of an error. Flipping a correct answer under unspecific pressure is the failure this procedure exists to prevent.
-- If the only verification method is "on rereading it seems", that round has no verification. Do not make edits in such a round.
+- If the only verification method is "on rereading it seems", that round has no verification. Do not make edits in such a round, except the round-1 style, concision and syntax edits below, which the change list marks "(style, not verified)".
 - Style and concision judgments are not verifiable. Apply them once, in round 1, and never as the grounds for an edit in a later round.
 - Do not widen scope mid-loop. No editing files outside the original scope, no sending anything externally, no starting new work.
 - Only items checked by an external method this session (a tool that actually ran, or the user's instructions and supplied material) may be described as verified.
