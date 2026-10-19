@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# Agent local/runtime state (Claude Code, Codex, Hermes)
+CLAUDE.local.md
+.claude/settings.local.json
+.claude/agent-memory*/
+.claude/projects/
+.codex/
+/.hermes/
+/.agents/
+
+# Secrets
+.env
+.env.*
+
+# OS / editors
+.DS_Store
+Thumbs.db
+Desktop.ini
+.vscode/
+.idea/
+
+# Upstream snapshot zip (unpacked into upstream/installed/; spec §11)
+dialectic-skills-upstream.zip
