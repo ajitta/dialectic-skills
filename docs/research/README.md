@@ -51,6 +51,10 @@ Every finding of the diff reviews of `7115d2a` (reports in [review/diff/](review
 
 The remaining low findings, in the reviewed forms, applied by one implementer per skill and checked by one diff reviewer per skill ([review/lowfix/](review/lowfix/)): dia-reductio F8, F10 (carried check), F11–F15, M5, M7; dia-iterate F6, F8–F10, F12, F13; dia-refine F5, F6, F8–F13, F15; dia-negative F2–F4, F9, F10 (b, d and the Preface citation), F12, M4–M7; dia-elenchus F4 (quickness move), F6, F7, F9, F11, F12, F14, M5, M6; dia-brainstorm F6–F8, F10–F13, M2, M3, M5; dia-intent F2, F4, F10, F11, M4–M6.
 
+## Token audit (2026-10-20)
+
+[token-audit/](token-audit/) classifies each skill's text by kind (instruction, rationale, provenance, example, redundant, meta), counts it in cl100k tokens and proposes keep, move, cut or shorten for everything that is not an instruction. [token-audit/evidence.md](token-audit/evidence.md) gives the cited evidence and decision rules. Nothing in it has been applied yet.
+
 ## Still open
 
 1. Probes: P6–P8, intent behavior and pushback were re-run from a neutral directory (`docs/probes.md`). Open: first-pass strictness of dia-negative findings (under a bare objection it now withdraws only named defects, but the withdrawn findings were weak to begin with); multi-turn probes for elenchus and brainstorm.
