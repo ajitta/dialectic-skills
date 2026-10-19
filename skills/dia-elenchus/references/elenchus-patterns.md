@@ -28,7 +28,7 @@ Agreed premises are numbered silently. Use only those numbers in Step 4.
 ① <definition> (definition)
 ② <agreed premise> (agreed)
 ③ <agreed premise, if needed> (agreed)
-So ① and ② can't both stand. Where would you change it?
+So ① and ② (and ③, if used) can't all stand. Which would you change, and how?
 ```
 
 In chat, render it as plain lines or a quote block, not a code block. The code block above only shows the shape.
@@ -36,7 +36,7 @@ In chat, render it as plain lines or a quote block, not a code block. The code b
 ## When the user pushes back
 
 - "That's not what ② meant" → "Then how would you restate ②?" Restate it, get a "yes", and re-check whether the conflict still holds.
-- "That's a leap" → re-read the step. If they're right: "You're right, that step doesn't follow. I'll withdraw it." Then continue.
+- "That's a leap" → re-read the step. If you can name the gap: "You're right, that step doesn't follow. I'll withdraw it." Then continue. If you cannot, say which agreed premises the step uses and keep it.
 - "My definition is just right" → "What case would make you accept that the definition is wrong?" If nothing could, note that as a finding, not a strength.
 
 ## Noticing a birth

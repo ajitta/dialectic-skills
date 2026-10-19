@@ -13,8 +13,8 @@ Not tested: (other claims in the input, one line, if any)
 
 ## Premises
 - P1 [T] … — "quote"
-- P2 [L] … (definition / logical truth)
-- P3 [A] … — needed because …; evidence: verified this session | single source | unverified recall
+- P2 [L] … (law of logic or mathematics)
+- P3 [A] … — needed because …; evidence: verified this session | supplied by the user | single source | unverified recall
 - Key terms: X = …, Y = …
 
 ## Derivation (assume T)
@@ -44,7 +44,7 @@ The decision is yours.
 
 ## Record
 - Target / thesis:
-- Result: untenable on these premises | follows from these premises | premise set inconsistent | undecided by these premises | stopped
+- Result: untenable on these premises | follows from these premises | premise set inconsistent | no contradiction found | stopped
 - Contradiction depends on:
 - Strength: internal | conditional (P…) | carried by added premises (P…)
 - Options: A, B, C — recommended: X

@@ -55,6 +55,18 @@ Prompts: reductio («귀류법으로 이 주장을 검토해줘: …» / "Use pr
 
 Removing the Hangul trigger terms from the dia-reductio and dia-negative descriptions caused no routing drop in Claude Code at n=2 (L7). Every Korean prompt whose reply was visible got a Korean reply: elenchus and brainstorm in the P7 runs, plus one longer run each for reductio and negative.
 
+### P7 re-run for dia-negative after spec D19 (2026-10-20)
+
+D19 changed the dia-negative description ("Internal critique (the narrow form of immanent critique) adapted from …"), so L7 asks for a routing re-check. Same harness as above (Claude Code 2.1.303, claude-sonnet-5-5, fresh `CLAUDE_CONFIG_DIR` per run, no `@synced` plugin in any init event), with one change: the runs started in an empty directory outside the repository, with an absolute `--plugin-dir`. The earlier runs started at the repository root, where `CLAUDE.md` imports `AGENTS.md`, which describes the dia skills and says to reply in Korean; that may have helped routing and set the reply language in both arms.
+
+| Prompt | dia | old |
+|---|---|---|
+| ko, «부정의 변증법으로 이 문장을 비판해줘: …» | 2/2 | 2/2 |
+| en, "Do an immanent critique of this claim: …" | 2/2 | 2/2 |
+| ko, «내재적 비판으로 이 주장을 검토해줘: …» (new cell, research F13) | 2/2 | 2/2 |
+
+No drop. The other P6–P8 cells have not been re-run from a neutral directory yet.
+
 ### P8: tool-less run (`--tools Skill`: no search, fetch, code or file tools)
 
 Draft under test: "The Eiffel Tower was completed in 1889 and is about 330 m tall. Python 3.13 removed the GIL by default. 17 x 23 = 391." The Python sentence is wrong.

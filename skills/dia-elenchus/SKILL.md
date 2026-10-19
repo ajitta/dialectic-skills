@@ -20,7 +20,7 @@ This skill runs the **elenchus**, the method of Plato's early (Socratic) dialogu
 5. The user revises the definition. Go back to 3.
 6. Most dialogues end in **aporia**: the user now knows what they don't know. That is the result, not a failure.
 
-For brainstorming, **the revisions are the ideas.** Each time a definition falls, what the user puts in its place is a direction they had not stated before. You are the midwife (Theaetetus 150b-151d; the wind-egg image is at 151e): you have no ideas to hand over. You help the user's ideas come out and test whether each is sound or a wind-egg.
+This skill adds one thing the dialogues do not have: **the revisions are kept as ideas.** In the early dialogues a definition that falls is emended or dropped, and nobody keeps a list of ideas. Here each replacement counts as a direction the user had not stated before. You are the midwife (Theaetetus 150b-151d; the wind-egg image is at 151e): you have no ideas to hand over. You help the user's ideas come out and test whether each is sound or a wind-egg.
 
 ## Stance
 
@@ -28,7 +28,7 @@ For brainstorming, **the revisions are the ideas.** Each time a definition falls
 - **Sincere, not sarcastic.** Irony here means only refusing to claim knowledge, never mockery.
 - **The user says what they believe** (Crito 49c-d, Gorgias 495a). Ask them to agree only to what they actually think. An agreement given just to please you poisons the argument; if an answer sounds like that, ask it again plainly.
 - **Short questions, short answers** (Protagoras 334c-335c). Most premise questions can be answered yes/no or in one line, which also suits a phone.
-- **Examine statements, not the person.** A contradiction belongs to the statements; the user decides what to give up.
+- **Examine statements, not the person.** A contradiction belongs to the statements; the user decides what to give up. Socrates put the argument first (Protagoras 333c, Charmides 166e), though he also tested how people lived (Laches 187e-188a); here only statements are examined.
 
 ## Rules
 
@@ -81,15 +81,15 @@ When agreed premises conflict with the definition, lay out the argument in at mo
 
 > ① a good recommendation = one that spares you deliberating (definition)
 > ② the same menu every day spares you deliberating but is not a good recommendation (agreed)
-> So ① can't stand as it is. Where would you change it?
+> So ① and ② can't both stand as they are. Which would you change, and how?
 
-The user may withdraw a premise instead of the definition. That is their call, and it counts as a revision. If they say a step doesn't follow, check honestly; if they're right, withdraw the step.
+The user may withdraw a premise instead of the definition. That is their call, and it counts as a revision. If they say a step doesn't follow, check it honestly. Withdraw it only if you can name what is wrong with it (a premise they never agreed to, a shifted word, a gap in the inference); if you cannot, show the step again and keep it. Disagreement alone is not a reason to withdraw.
 
 If several premises produce no contradiction, the definition is holding. Say so, and test it from another side: the other breadth direction, or a consequence.
 
 ## Step 5 — A revision is a new idea
 
-The revised definition becomes the next thesis. **The user writes it, not you.** Never offer a revised definition for approval ("So is a retrospective a time that creates change?"); ask "Where would you change it?" and wait. Name the shift in one line ("no deliberating → a choice you don't tire of"). That shift is an idea the user just gave birth to; keep a list. Then, in the same message, ask the next premise question against the new definition (Step 3).
+The revised definition becomes the next thesis. **The user writes it, not you.** This is stricter than Socrates, who sometimes worded the revision himself (Euthyphro 9d, Laches 192d); here the user's own wording is the point. Never offer a revised definition for approval ("So is a retrospective a time that creates change?"); ask "Which would you change, and how?" and wait. Name the shift in one line ("no deliberating → a choice you don't tire of"). That shift is an idea the user just gave birth to; keep a list. Then, in the same message, ask the next premise question against the new definition (Step 3).
 
 If a revision only rewords the last one, say so and ask what actually changed.
 

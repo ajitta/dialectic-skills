@@ -1,7 +1,7 @@
 interface:
   display_name: "Dia: Confirm Intent"
   short_description: "Restate the goal, disclose assumptions and list open decisions before work starts"
-  default_prompt: "Use $dia-intent to confirm the goal and open decisions before you start on this task: "
+  default_prompt: "Use $dia:dia-intent to confirm the goal and open decisions before you start on this task: "
 
 policy:
   allow_implicit_invocation: false

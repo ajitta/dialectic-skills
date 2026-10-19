@@ -59,7 +59,7 @@ class TestSource(unittest.TestCase):
             self.assertEqual(fm["description"], data["description"], s.name)
             oy = yaml.safe_load((s / "agents" / "openai.yaml").read_text(encoding="utf-8"))
             self.assertEqual(oy["policy"]["allow_implicit_invocation"], pkg.EXPECTED_IMPLICIT[s.name])
-            self.assertTrue(oy["interface"]["default_prompt"].startswith(f"Use ${s.name} "))
+            self.assertTrue(oy["interface"]["default_prompt"].startswith(f"Use $dia:{s.name} "))
 
 
 class TestRules(unittest.TestCase):

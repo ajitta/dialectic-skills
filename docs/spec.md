@@ -61,6 +61,7 @@ These decisions were settled with the owner during the spec interview of 2026-10
 | D16 | No portable root `plugin.json` (O2): P3 showed Codex 0.162.1 installs the plugin from `.claude-plugin/` alone, and a root `plugin.json` does not change the skill names. |
 | D17 | No `references/ko/` files in 1.0.0 (O1). The mechanism (§6 L2–L5 and its build checks) stays, so a later minor version can add them; P9 is not applicable until then. (Owner, 2026-10-20.) |
 | D18 | All seven skills are licensed MIT (O3). (Owner, 2026-10-20.) |
+| D19 | Research fixes (`docs/research/`, independently reviewed in `docs/research/review/`) amend §5. They change behavior as follows. dia-elenchus: the "ideas born" record and the user-worded revision are labelled as this skill's own additions; a contradiction is shown as a conflict of the definition and the premises together; a step is withdrawn only when its defect can be named. dia-brainstorm: the departure from the Theaetetus midwife is labelled; a verdict changes under pushback only on a substantive answer. dia-reductio: [L] covers only laws of logic or mathematics, and an unstated definition is [A]; the empty result is "no contradiction found"; the evidence classes add "supplied by the user"; a disputed step is withdrawn only when its defect can be named. dia-negative: labelled internal critique (the narrow form of immanent critique); disputed findings are checked against Rule 2. dia-refine: each confirmed error carries its basis; "final version only" allows one closing line for what the user would otherwise not see. dia-iterate: regression and zero defects are redefined so that normal progress and unverifiable defects no longer stop the loop wrongly; own re-derivation is not verification here. dia-intent: values worked out without a tool are labelled re-derived; a correction that conflicts with inspected evidence is named once. All seven: `default_prompt` uses `$dia:dia-<x>` (P3). (Owner direction, 2026-10-20.) |
 
 ## 4. Names and identifiers
 
@@ -85,7 +86,7 @@ The plugin `name` is the only field that sets the namespace. `displayName` is sh
 | `dia-reductio` | reductio (installed copy) | `/dia:dia-reductio` | `$dia:dia-reductio` / `@dia-reductio` |
 | `dia-negative` | negative-dialectics (installed copy) | `/dia:dia-negative` | `$dia:dia-negative` / `@dia-negative` |
 | `dia-refine` | self-refine (installed copy) | `/dia:dia-refine` or a message starting `dia-refine` | `$dia:dia-refine` / `@dia-refine` or a message starting `dia-refine` |
-| `dia-iterate` | recursive-refine, output mode only (installed copy) | a message starting `dia-iterate`, or `/dia:dia-iterate` | a message starting `dia-iterate`, or `$dia:dia-iterate` |
+| `dia-iterate` | recursive-refine, output mode only (installed copy) | a message starting `dia-iterate`, or `/dia:dia-iterate` | `$dia:dia-iterate` / `@dia-iterate`; a message starting `dia-iterate` cannot load it on the Codex plugin route, because the skill is hidden from implicit use (inferred from P3) |
 
 Naming rules:
 
@@ -103,7 +104,7 @@ Natural-language requests work on every surface and are the safe default on mobi
 
 ## 5. Skills
 
-All seven skills keep their reference behavior unless this section says otherwise. For every skill, the rebuild:
+All seven skills keep their reference behavior unless this section or D19 says otherwise. For every skill, the rebuild:
 
 - renames the skill;
 - updates cross-references so that each description names the new skill names;
@@ -150,7 +151,7 @@ All seven skills keep their reference behavior unless this section says otherwis
 
 ### 5.5 dia-negative (from negative-dialectics)
 
-- Purpose: immanent critique adapted from Adorno, in one pass. The skill:
+- Purpose: internal critique (the narrow form of immanent critique) adapted from Adorno, in one pass. The skill:
   - finds the target's own standard;
   - reports strict gaps with particular cases and "what escapes";
   - infers the operative purpose with a falsifier;
@@ -180,7 +181,7 @@ All seven skills keep their reference behavior unless this section says otherwis
 - Purpose: repeated review rounds, each gated by external verification. Each round names defects, assigns an external verification method, verifies, fixes only confirmed defects, locks verified items and logs the round. The loop stops on regression, zero defects, verification exhausted, fixed point, or the round cap (`--max N`, default 3).
 - Required changes:
   - Remove skill mode entirely: the "Skill mode" sections, `references/skill-loop.md`, and every mention of `cp -r`, `diff -u`, subagents, `evals/` and `package_skill`. Targets are the last output, a named draft, or a file the surface can read.
-  - Invocation: first word only. Activate only when the message starts with `dia-iterate`. If the marker is absent but the skill looks right, ask in one line for a message starting with `dia-iterate` and stop. Explicit `/dia:dia-iterate` and `$dia-iterate` also count. `allow_implicit_invocation: false`.
+  - Invocation: first word only. Activate only when the message starts with `dia-iterate`. If the marker is absent but the skill looks right, ask in one line for a message starting with `dia-iterate` and stop. Explicit `/dia:dia-iterate`, `$dia:dia-iterate`, `$dia-iterate` and `@dia-iterate` also count. `allow_implicit_invocation: false`, so on the Codex plugin route only `$dia:dia-iterate` reaches it (inferred from P3).
   - Generalize tool names in `verification-sources.md`. "Context7 doc lookup" becomes "an official-documentation lookup tool (for example Context7) or a fetch of official docs".
   - Add an explicit tool-less rule: when no search, fetch or code tool is available, the only external evidence is the user's instructions and material the user supplies. Most defects are therefore unverifiable, and the loop usually stops after round 1 with the "verification exhausted" list. This is expected behavior, not a failure.
   - Keep the content-filter guardrails: a change-list output by default, no source quotations, one retry, then change the output shape.
@@ -253,7 +254,7 @@ One per skill:
 interface:
   display_name: "<Display Name>"
   short_description: "<one line>"
-  default_prompt: "Use $dia-<x> to <action>: "
+  default_prompt: "Use $dia:dia-<x> to <action>: "
 policy:
   allow_implicit_invocation: <true|false>
 ```
@@ -401,8 +402,8 @@ Each probe is run once (n=1) unless stated otherwise, and the result is recorded
 | # | Probe | Pass condition |
 |---|---|---|
 | P1 | claude.ai upload of `dialectic-skills.zip` | Accepted; seven skills listed as `dia:dia-<x>` |
-| P2 | Claude mobile app, one natural-language prompt per skill | The right skill loads; the reply is in the prompt's language |
-| P3 | Codex CLI plugin install, with only `.claude-plugin/plugin.json` | Plugin loads; `$dia-<x>` resolves; `allow_implicit_invocation: false` holds for the four explicit-only skills. If this fails, add the root `plugin.json` (§7.4), re-run, and confirm that Claude Code still loads with both manifests present |
+| P2 | Claude mobile app, one natural-language prompt per skill | The right skill loads; the reply is in the prompt's language. For the explicit-only skills (dia-intent, dia-elenchus, dia-brainstorm, dia-iterate) the prompt names the skill or uses its marker; for dia-intent also check that the same request without the name does not load it |
+| P3 | Codex CLI plugin install, with only `.claude-plugin/plugin.json` | Plugin loads; `$dia:dia-<x>` resolves (the first run showed that plugin skills are namespaced; `$dia-<x>` applies only to a copied folder); `allow_implicit_invocation: false` holds for the four explicit-only skills. If this fails, add the root `plugin.json` (§7.4), re-run, and confirm that Claude Code still loads with both manifests present |
 | P4 | ChatGPT desktop (Pro), local plugin install | Skills appear under `@`; one prompt per skill routes correctly |
 | P5 | ChatGPT mobile (Pro) after P4 | Skills are usable; if not, record the plan limitation and test the Codex-cloud fallback |
 | P6 | First-word invocation | `dia-refine — check numbers` runs one pass; `dia-iterate` runs the loop; "please refine this paragraph" does not trigger either; a sentence mentioning dia-refine in the middle does not trigger it |

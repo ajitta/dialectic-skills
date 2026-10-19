@@ -11,15 +11,15 @@ metadata:
 
 # dia-iterate
 
-dia-refine run over several rounds, with every round requiring a signal from outside the model. Huang et al. (ICLR 2024, arXiv:2310.01798) found that revising repeatedly on self-judgment alone brings no gain on reasoning tasks and often makes them worse. So here a "round" is the unit "verify, then fix only what was confirmed", not "reread and rewrite". When verification methods run out, the loop ends. The quality of the verification signal caps how much improvement is possible; more rounds do not lift that cap.
+A multi-round relative of dia-refine with a stricter basis: every round needs a signal from outside the model, and your own re-derivation does not count as one, because a loop that feeds on its own judgment amplifies its own errors. The shape of a round, verify with an outside source and then correct, follows CRITIC (Gou et al., arXiv:2305.11738) loosely; it is not the Self-Refine loop. Huang et al. (ICLR 2024, arXiv:2310.01798) found that revising repeatedly on self-judgment alone brings no gain on reasoning tasks and often makes them worse. So here a "round" is the unit "verify, then fix only what was confirmed", not "reread and rewrite". When verification methods run out, the loop ends. The quality of the verification signal caps how much improvement is possible; more rounds do not lift that cap.
 
 A call may carry the target (the last output, a named draft, or a file you can read), a round cap (`--max N`, default 3), and review criteria.
 
 ## Invocation
 
-- Activate only when `dia-iterate` is the first word of the message, or on an explicit invocation by name (`/dia:dia-iterate`, `$dia:dia-iterate`, `$dia-iterate`). Target, `--max N` and criteria may follow it.
+- Activate only when `dia-iterate` is the first word of the message, or on an explicit invocation by name (`/dia:dia-iterate`, `$dia:dia-iterate`, `$dia-iterate`, `@dia-iterate`). Target, `--max N` and criteria may follow it.
 - Without that marker, do not activate. Natural-language requests that mean the same thing do not count either. Answer the request without the skill, or use dia-refine if one pass is enough.
-- If the marker is absent but this skill looks right, do not run the loop: ask in one line for a message beginning with `dia-iterate`, then stop. Running the loop without an explicit request for iteration is overkill.
+- If the marker is absent but this skill looks right, do not run the loop: ask in one line for a message beginning with `dia-iterate`, or an explicit invocation of the skill by name, then stop. Running the loop without an explicit request for iteration is overkill.
 - Input with a topic but no target ("dia-iterate on the sword of Damocles") ends with one question and no draft. Ask whether to fix the last output or whether the user will supply a draft. This is a verification loop, not a writing tool. If the model drafts first, the loop's target becomes the model's own guesswork; and for widely copied set texts (fables, proverbs, anecdotes about famous people) that draft will overlap existing documents sentence by sentence and trip the content filter.
 
 ## Choosing the target
@@ -43,8 +43,8 @@ When no search, fetch or code tool is available, the only external evidence is t
 
 Stop if any one holds. Check in order.
 
-1. **Regression**: a locked item changed, or fewer items passed verification than in the previous round. Roll back to the previous round's result and stop.
-2. **Zero defects**: nothing was confirmed. Stop.
+1. **Regression**: a locked item changed without new external evidence, a fix introduced a new confirmed defect, or a defect fixed in an earlier round came back. Undo the edit that caused it (or roll back to the previous round's result if the cause cannot be isolated) and stop. Fewer items passing verification than in the previous round is not a regression: locked items are not re-examined, so later rounds normally check less.
+2. **Zero defects**: no defect was named, or every named defect was refuted. Stop.
 3. **Verification exhausted**: every remaining defect is unverifiable. Stop and hand the unverified list to the user, with one line per item naming what would make it checkable (survey figures, logs, a primary source). If the user supplies that material or a judgment, it becomes new external evidence and can reopen the loop.
 4. **Fixed point**: the revision is materially identical to the previous round. Stop.
 5. **Round cap** reached. Stop, and say so if confirmed defects remain.

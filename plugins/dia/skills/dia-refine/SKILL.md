@@ -36,8 +36,8 @@ The last output, or another target the user names (a draft, a file, a specific a
 
 Write the output in the language of the user's latest message, labels included.
 
-- Default: **defect list, then revision**. The defect list has four parts: ① confirmed errors ② missing requirements ③ correct content kept ④ remaining uncertainty. List individually only the items that change the user's conclusion or next action; group incidental fixes such as notation or style into one line. The list is a verdict on the draft, not a record of your thinking.
-- On a "final version only" request: give only the revision. Do not show the review or a change log.
+- Default: **defect list, then revision**. The defect list has four parts: ① confirmed errors ② missing requirements ③ correct content kept ④ remaining uncertainty. Tag each ① item with its basis: (tool), (user's material) or (re-derived). List individually only the items that change the user's conclusion or next action; group incidental fixes such as notation or style into one line. The list is a verdict on the draft, not a record of your thinking.
+- On a "final version only" request: give only the revision. Do not show the review or a change log. One closing line may follow, and only if needed, naming what the user would otherwise not see: a single-right-answer result your own re-derivation changed (original and revised value, and the premise), a suspected error left as drafted and unverified, or a problem outside the scope (see Safeguards). For "do this task the dia-refine way" there was no draft the user saw, so there is no original value to show.
 - If nothing needs fixing, say so and give the reason. Do not make edits just to have something to show.
 - When your own re-derivation, not a tool, changes a single-right-answer result (a calculation, the output of a code run), present the original and the revision side by side and state the premise the change rests on. Do not declare the revision better on your own judgment alone.
 - For verified items, give the source near the sentence concerned. Mark a source sentence copied word for word as a quotation; otherwise put it in your own words.
@@ -48,7 +48,8 @@ Example defect list:
 
 ```
 ① Confirmed errors
-- "released March 2024" → May 2024 per the official release notes (source: link)
+- "released March 2024" → May 2024 per the official release notes (tool; source: link)
+- "total 1,240" → 1,420 (re-derived: 620 + 800; the draft added 620 + 620)
 ② Missing requirements
 - The requested list of CSV column names is missing
 ③ Content kept

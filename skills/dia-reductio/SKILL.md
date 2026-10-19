@@ -31,7 +31,7 @@ If no flag is given, infer the target: a pasted text means `text`; "your answer"
 ## Hard rules
 
 1. **Strict contradiction only.** The absurdity must be a formal contradiction: some statement Q and its negation not-Q, both derived from the thesis plus the listed premises. A consequence that is only false, implausible, ridiculous or undesirable does not count. It becomes usable only after its negation is written into the premise list, and then the contradiction depends on that premise and says so.
-2. **No hidden premises.** List every premise with a source label: **[T]** stated by the target (quote it), **[L]** a logical or definitional truth, **[A]** added by you (an implicit premise the target seems to rely on, or a fact). Give each [A] premise a one-line reason it is needed, and mark facts with their evidence class (verified this session / single source / unverified recall). A contradiction that needs an [A] premise is conditional on it.
+2. **No hidden premises.** List every premise with a source label: **[T]** stated by the target (quote it), **[L]** a law of logic or mathematics, **[A]** added by you (an implicit premise the target seems to rely on, a definition the target did not state, or a fact). A definition is [T] only when the target states it (quote it); otherwise it is [A]. Give each [A] premise a one-line reason it is needed, and mark facts with their evidence class (verified this session / supplied by the user / single source / unverified recall). Your own recall is never "verified". A contradiction that needs an [A] premise is conditional on it.
 3. **Every step names its rule.** Each derivation line cites the lines it uses and the rule (modus ponens, modus tollens, universal instantiation, substitution of a definition, conjunction, and so on). An empirical or causal claim is never a step; if the chain needs one, it goes into the premise list.
 4. **One sense per term.** Fix the meaning of each key term in the premise list. If the chain only works when a term shifts meaning, that is equivocation: report it instead of claiming a contradiction.
 5. **Charity first.** Test the strongest reasonable reading of the thesis. If two readings are live, test the stronger one and name the other in one line. Refuting a weaker reading is a strawman.
@@ -54,7 +54,7 @@ State the target and the thesis T in one sentence, with a quote. If the input co
   - only T leads to contradiction → T is untenable on these premises
   - only not-T leads to contradiction → T follows from these premises
   - both lead to contradiction → the premise set itself is inconsistent; the fault is in the premises, not T
-  - neither does → these premises do not decide T; name the premise that would
+  - neither does → no contradiction was found either way. That shows neither that the premises are consistent nor that they cannot decide T, only that this search found nothing; name the premise that would decide it
 
 For claims that something exists, an indirect proof shows existence only in classical logic; say so when it matters (see the theory reference).
 
@@ -86,23 +86,23 @@ Pick one option and give: the reason; the evidence class of the weakest premise 
 
 ### Step 8: Record
 
-Close with the record from the output template. Its result is exactly one of: **untenable on these premises**, **follows from these premises**, **premise set inconsistent**, **undecided by these premises**, **stopped**.
+Close with the record from the output template. Its result is exactly one of: **untenable on these premises**, **follows from these premises**, **premise set inconsistent**, **no contradiction found**, **stopped**.
 
 ### When no contradiction appears
 
-Say so plainly. List the directions and premise sets you tried, write "consistent with these premises, which does not show it is true", and name the premise that would decide it. Never build a contradiction from a loose consequence to have something to show.
+Say so plainly. List the directions and premise sets you tried, write "no contradiction found with these premises; this does not show they are consistent, or that the thesis is true", and name the premise that would decide it. Never build a contradiction from a loose consequence to have something to show.
 
 ## Targets
 
 - **user:** follow the procedure as written.
-- **claude:** quote your earlier answer and examine it with the same strictness. Say in one line that this is a self-examination and not independent. If the answer turns out inconsistent, say so directly; do not defend it.
+- **claude:** quote your earlier answer and examine it with the same strictness. Say in one line that this is a self-examination and not independent. If the answer turns out inconsistent, say so directly; do not defend it. Do not invent a contradiction to look self-critical either.
 - **text:** quote with location (paragraph or line). Attribute claims to the text, not to the author's motives.
 - **all:** run the procedure separately for each target present, in the order user, claude, text, then give one combined record. Skip absent targets with one line.
 
 ## Follow-up turns
 
 - **The user picks an option:** apply it (drop the premise, or adopt T′), rerun Steps 3 to 8 on the revised set, and add the decision to the record's history.
-- **The user disputes a step:** check it. If the objection holds, withdraw the step and say whether the contradiction survives another way.
+- **The user disputes a step:** check it. Withdraw the step only if you can name its defect (a wrong rule, an unlisted premise, a shifted term); disagreement alone is not a defect. If the step holds, show it and its rule again and keep it. If the objection holds, withdraw the step and say whether the contradiction survives another way.
 - **The user rejects an [A] premise:** remove it and rerun.
 - **The user asks about the method:** answer from the theory reference, briefly.
 

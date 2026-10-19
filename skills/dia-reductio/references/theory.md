@@ -29,7 +29,7 @@ So when the skill proves T by refuting not-T, especially when T says something e
 
 ## 3. Which premise goes
 
-When a set of statements is collectively inconsistent, the reductio shows only that they cannot all hold together (IEP, section on "doctrinal annihilation"). Logic alone does not say which member is false. Choosing which to give up is a further judgment about which premises are best supported. That is why the skill presents options and a recommendation instead of a verdict, unless every other premise is a logical or definitional truth.
+When a set of statements is collectively inconsistent, the reductio shows that they cannot all hold together (IEP, section on "doctrinal annihilation"). Which member to give up is not settled by logic alone; that point comes from Duhem and Quine, not from the IEP entry, and this skill holds classical logic itself fixed. Choosing which to give up is a further judgment about which premises are best supported. That is why the skill presents options and a recommendation instead of a verdict, unless every other premise is a law of logic or mathematics.
 
 ## 4. What reductio can be applied to
 
