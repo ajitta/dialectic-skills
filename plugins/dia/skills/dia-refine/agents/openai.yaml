@@ -1,0 +1,7 @@
+interface:
+  display_name: "Dia: Refine"
+  short_description: "One review pass over the last answer or a draft; fixes only confirmed defects"
+  default_prompt: "Use $dia-refine to review the previous answer as a draft: "
+
+policy:
+  allow_implicit_invocation: true

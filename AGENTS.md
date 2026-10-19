@@ -4,17 +4,27 @@ Guidance for coding agents (Codex, Hermes Agent, Claude Code) in this repository
 
 ## What this repo is
 
-`dialectic-skills` packages seven reasoning-and-review skills as one plugin named `dia`, for Claude Code, Codex, Claude/ChatGPT desktop and the mobile apps. `docs/spec.md` is the authority for names, layout, package rules and acceptance. Its status is "Draft for owner approval": do not start building `skills/`, `plugins/` or `tools/` until the owner approves it.
+`dialectic-skills` packages seven reasoning-and-review skills as one plugin named `dia`. The skills are general-purpose and independent of any other project: they must run unchanged on Claude (web, desktop, mobile, Claude Code), Codex and ChatGPT, including chats with no tools. `docs/spec.md` is the authority for names, layout, package rules and acceptance; surface probe results are in `docs/probes.md`.
+
+## Commands
+
+```bash
+python tools/package.py            # validate, then regenerate plugins/dia/ and releases/dialectic-skills.zip
+python tools/package.py --check    # validate; fail if the committed output lags the source
+python -m unittest discover -s tests -v
+```
+
+All are stdlib-only. CI (`.github/workflows/check.yml`) runs them plus `claude plugin validate --strict`.
 
 ## Rules
 
+- Skill text stays assistant-neutral: write "you" or "the assistant", not a product name, and make every tool use conditional ("if a search tool is available"). No references to other projects or their commands.
 - `upstream/` is read-only reference material (spec §11). Never edit it; its SHA-256 values in `upstream/README.md` must stay valid. It is never shipped.
-- The shipped package (`plugins/dia/`, `releases/dialectic-skills.zip`) is instructions only: Markdown, YAML, JSON. No scripts, hooks, binaries, MCP or LSP config (spec §7.1). Developer scripts live in `tools/` and `tests/` only.
+- The shipped package (`plugins/dia/`, `releases/dialectic-skills.zip`) is instructions only: Markdown, YAML, JSON. No scripts, hooks, binaries, MCP or LSP config (spec §7.1).
 - No Hangul outside `skills/<skill>/references/ko/` (spec §6). This covers SKILL.md, `agents/openai.yaml`, manifests and other references.
 - `plugins/dia/` and `releases/` are generated from `skills/` and `plugin-manifest.json`. Edit the source, then regenerate; never hand-edit generated output.
-- Changing any skill file requires a plugin `version` bump (spec §12.1).
+- Changing any skill file requires a new plugin `version` in `plugin-manifest.json` and the skill's `metadata.version` (spec §12.1).
 - Text files use LF line endings (`.gitattributes`). On Windows, write files with LF explicitly.
-- Python tooling runs through `uv run`.
 
 ## Working with the owner
 

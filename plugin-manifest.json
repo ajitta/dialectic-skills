@@ -1,0 +1,14 @@
+{
+  "name": "dia",
+  "displayName": "Dialectic Skills",
+  "version": "0.1.0",
+  "description": "Seven reasoning-and-review skills that run on any assistant, with or without tools: dia-intent confirms the goal before work, dia-elenchus and dia-brainstorm question an idea Socratically, dia-reductio tests a claim by strict contradiction, dia-negative critiques a claim by its own standard, dia-refine reviews an answer once, and dia-iterate runs verification-gated review rounds.",
+  "author": {
+    "name": "ajitta",
+    "url": "https://github.com/ajitta"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/ajitta/dialectic-skills",
+  "repository": "https://github.com/ajitta/dialectic-skills",
+  "keywords": ["reasoning", "critique", "socratic", "reductio", "review", "skills"]
+}

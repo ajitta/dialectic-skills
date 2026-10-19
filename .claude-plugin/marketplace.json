@@ -1,0 +1,17 @@
+{
+  "$schema": "https://code.claude.com/schemas/marketplace.json",
+  "name": "dialectic-skills",
+  "description": "Marketplace for the dia plugin: seven instruction-only reasoning-and-review skills.",
+  "owner": {
+    "name": "ajitta",
+    "url": "https://github.com/ajitta"
+  },
+  "plugins": [
+    {
+      "name": "dia",
+      "source": "./plugins/dia",
+      "description": "Seven reasoning-and-review skills: intent confirmation, Socratic elenchus and brainstorming, reductio ad absurdum, negative dialectics, single-pass refine and verification-gated iteration.",
+      "category": "productivity"
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+interface:
+  display_name: "Dia: Iterate"
+  short_description: "Repeated review rounds, each gated by external verification; stops when verification runs out"
+  default_prompt: "Use $dia-iterate to run verified review rounds on the previous answer: "
+
+policy:
+  allow_implicit_invocation: false
