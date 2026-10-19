@@ -25,9 +25,9 @@ Shapes, not scripts. Each one serves the current definition.
 
 ## Laying out a contradiction (≤ 4 lines)
 
-> ① <definition> (definition)
-> ② <agreed premise> (agreed)
-> ③ <agreed premise, if needed> (agreed)
+> ① [definition] (definition)
+> ② [agreed premise] (agreed)
+> ③ [agreed premise, if needed] (agreed)
 > So ① and the premises above can't all stand together. Which would you change?
 
 ## When the user pushes back
