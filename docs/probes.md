@@ -20,9 +20,9 @@ Results of the probes in `docs/spec.md` §12.2. Each run is n=1 unless stated; a
 | P3 | Codex CLI plugin install | pass, with a naming finding (below) | done |
 | P4 | ChatGPT desktop (Pro) local plugin install | not run (owner) | open |
 | P5 | ChatGPT mobile (Pro) | not run (owner) | open |
-| P6 | First-word invocation | pass; re-run from a neutral directory at `7115d2a` and at `f676e42`: pass | done |
-| P7 | Routing baseline, n=2 | pass at the repository root; from a neutral directory the Korean elenchus cell dropped, fixed by English wording; pass at `f676e42` (see below) | done |
-| P8 | Tool-less run | pass after a fix to dia-refine; re-run from a neutral directory at `7115d2a` and at `f676e42`: pass | done |
+| P6 | First-word invocation | pass; re-run from a neutral directory at `7115d2a`, `f676e42` and `6882022`: pass | done |
+| P7 | Routing baseline, n=2 | pass at the repository root; from a neutral directory the Korean elenchus cell dropped, fixed by English wording; pass at `f676e42`, reductio re-run at `6882022` after D23 (see below) | done |
+| P8 | Tool-less run | pass after a fix to dia-refine; re-run from a neutral directory at `7115d2a`, `f676e42` and `6882022`: pass | done |
 | P9 | `references/ko/` loading | not applicable: no ko files in 1.0.0 (spec D17) | n/a |
 
 ### P3: Codex CLI 0.162.1
@@ -87,6 +87,13 @@ Same harness as the setup above (Claude Code 2.1.303, claude-sonnet-5-5, fresh `
 - P6: same four prompts as Part A, same outcomes; dia-iterate's round summary now carries "Confirmed but not fixed: none". Pass.
 - P8: dia-refine 3/3 and dia-iterate 2/2 as in Part A, all in English; dia-iterate stopped after round 1 with "verification exhausted". Pass.
 - dia-negative pushback, after the D22 rule (withdraw only a nameable defect): both runs withdrew finding 1 and named the defect (run 1: an abstract negation true of every concept, Rule 5; run 2: an empirical claim about raters presented as a logical case), rechecked the others one by one, and kept at least one firm finding. The withdrawals now name a defect, and the named defects look real; in both runs finding 1 was weak to begin with. First-pass strictness of dia-negative findings is the case to watch.
+
+**Part D, dia at `6882022` (D23).**
+
+- P7, dia-reductio after the D23 description change ("holds together or follows from its premises"): Korean «귀류법으로 이 주장을 검토해줘: …» 4/4, English "Use proof by contradiction on this claim: …" 4/4.
+- Negative routing cell (new): "Is it true that the Great Wall of China is visible from space with the naked eye?" loaded no skill, dia 0/3 and old 0/3.
+- P6: `dia-refine — check the numbers` corrected "up 20%" to about 9%, tagged (re-derived) under ①, with the original and revised value; it printed the revision before the defect list, against the default order (n=1, not acted on). `dia-iterate --max 2` stopped after round 1 with "verification exhausted" and "Confirmed but not fixed: none". Pass.
+- P8 (`--tools Skill`): dia-refine 2/2 and dia-iterate 1/1 as in Part C, all in English. Pass.
 
 ### P8: tool-less run (`--tools Skill`: no search, fetch, code or file tools)
 

@@ -1,6 +1,6 @@
 # Token cost
 
-Measured 2026-10-20. Two trees: `main` at `1b3f139` (D22 text) and the `lowfix` batch (`b430a97`, the remaining low research findings). The old skills (`upstream/`) are the baseline.
+Measured 2026-10-20. Two trees: `main` at `1b3f139` (D22 text) and the D23 batch (`6882022`, the remaining low research findings after their diff review), called "D23" below. The old skills (`upstream/`) are the baseline.
 
 ## Method
 
@@ -18,25 +18,25 @@ Measured 2026-10-20. Two trees: `main` at `1b3f139` (D22 text) and the `lowfix` 
 
 | | Claude Code (measured) | Codex (o200k, measured listing) |
 |---|---|---|
-| dia, 7 skills | **1,749** | **597** (3 skills; the 4 explicit-only skills are not listed) |
+| dia, 7 skills (measured at `1b3f139`) | **1,749** | **597** (3 skills; the 4 explicit-only skills are not listed) |
 | old skills, 7 | 1,690 | — |
 
-The seven descriptions are 1,146 cl100k tokens in total (`main`), 1,149 after `lowfix` (only the dia-reductio description changed, +3). The longest are dia-elenchus (226), dia-negative (216) and dia-brainstorm (203).
+The seven descriptions are 1,146 cl100k tokens in total (`main`), 1,149 after D23 (only the dia-reductio description changed, +3). The longest are dia-elenchus (226), dia-negative (216) and dia-brainstorm (203).
 
 ## Per invocation (when a skill loads)
 
 The skill's SKILL.md is injected in full. References load only if the model reads them.
 
-| Skill | SKILL.md cl100k, main → lowfix | ≈ Claude (×1.5), lowfix | References cl100k, lowfix | Worst case cl100k (all files), lowfix | Old skill SKILL.md cl100k |
+| Skill | SKILL.md cl100k, main → D23 | ≈ Claude (×1.5), D23 | References cl100k, D23 | Worst case cl100k (all files), D23 | Old skill SKILL.md cl100k |
 |---|---|---|---|---|---|
-| dia-intent | 1,762 → 1,873 | 2,810 | 0 | 1,873 | 1,562 |
-| dia-refine | 1,920 → 2,105 | 3,160 | 0 | 2,105 | 2,629 (Korean text) |
-| dia-iterate | 2,457 → 2,656 | 3,980 | 890 | 3,546 | 2,152 |
-| dia-negative | 2,593 → 2,679 | 4,020 | 2,699 | 5,378 | 2,195 |
-| dia-brainstorm | 2,788 → 2,927 | 4,390 | 1,184 | 4,111 | 2,437 |
-| dia-elenchus | 2,823 → 2,917 | 4,380 | 1,515 | 4,432 | 2,477 |
-| dia-reductio | 2,947 → 3,097 | 4,650 | 2,581 | 5,678 | 2,161 |
-| **Total** | 17,290 → 18,254 | | 7,870 → 8,869 | | |
+| dia-intent | 1,762 → 1,896 | 2,840 | 0 | 1,896 | 1,562 |
+| dia-refine | 1,920 → 2,129 | 3,190 | 0 | 2,129 | 2,629 (Korean text) |
+| dia-iterate | 2,457 → 2,659 | 3,990 | 890 | 3,549 | 2,152 |
+| dia-negative | 2,593 → 2,691 | 4,040 | 2,740 | 5,431 | 2,195 |
+| dia-brainstorm | 2,788 → 2,963 | 4,440 | 1,190 | 4,153 | 2,437 |
+| dia-elenchus | 2,823 → 2,992 | 4,490 | 1,542 | 4,534 | 2,477 |
+| dia-reductio | 2,947 → 3,136 | 4,700 | 2,657 | 5,793 | 2,161 |
+| **Total** | 17,290 → 18,466 | | 7,870 → 9,019 | | |
 
 What the measured runs actually read (main tree, one turn of each skill): dia-reductio and dia-negative read `output-template.md` (about 1,170 Claude tokens as returned by Read, line numbers included) and not `theory.md`; the other skills read no reference in their first turn. So a typical first turn is SKILL.md plus at most one template, and `theory.md` loads only when the method is asked about or a step is in doubt.
 
@@ -46,7 +46,7 @@ Billed cost of a whole headless run of three or four turns (sonnet; most of it i
 
 - Always-on: +59 tokens (+3.5%) for the same seven methods.
 - Per invocation, SKILL.md (cl100k, `main`): +13% to +18% for five skills, +36% for dia-reductio (worked example, prove-direction rules), and −27% for dia-refine (its old text was Korean, which costs more cl100k tokens for the same content).
-- The `lowfix` batch adds about 960 tokens across the seven SKILL.md files (+5.6%) and about 1,000 across the references (+12.7%, mostly dia-reductio's and dia-negative's `theory.md`).
+- The D23 batch adds about 1,180 tokens across the seven SKILL.md files (+6.8%) and about 1,150 across the references (+14.6%, mostly dia-reductio's and dia-negative's `theory.md`).
 
 ## Not measured
 
