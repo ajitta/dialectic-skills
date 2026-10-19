@@ -2,10 +2,10 @@
 
 | | |
 |---|---|
-| Status | Draft for owner approval |
+| Status | Approved by the owner on 2026-10-20; built as plugin version 0.1.0. Probe results: `docs/probes.md` |
 | Date | 2026-10-20 |
 | Owner | ajitta |
-| Repository (planned) | `ajitta/dialectic-skills` (to be created by the owner) |
+| Repository | `ajitta/dialectic-skills` (private) |
 | Scope of this document | What to build and how to verify it. Building it is a separate step. |
 
 ## 1. Summary
@@ -56,6 +56,9 @@ These decisions were settled with the owner during the spec interview of 2026-10
 | D11 | This spec is written in English and lives at `docs/spec.md`. |
 | D12 | The upstream snapshot zip is produced only after the owner approves this spec. |
 | D13 | The repository-root folder for imported source material is named `upstream/`, so it is not confused with each skill's shipped `references/`. |
+| D14 | The skills are independent, general-purpose plugin skills. Skill text names no other project and no product: the reference templates' superclaude next-step lines are removed, `metadata.source` points to this repository, and "Claude" in skill text becomes "you" or "the assistant". The `--target=claude` value keeps its name (§5.4, §5.5) and means the assistant's own earlier answer on every surface. (Owner direction during the build, 2026-10-20.) |
+| D15 | The zip stores its entries uncompressed. Deflate output differs between zlib builds (for example zlib-ng in some CPython builds), so a deflated zip is not byte-reproducible across machines (§12.1). |
+| D16 | No portable root `plugin.json` (O2): P3 showed Codex 0.162.1 installs the plugin from `.claude-plugin/` alone, and a root `plugin.json` does not change the skill names. |
 
 ## 4. Names and identifiers
 
@@ -74,13 +77,13 @@ The plugin `name` is the only field that sets the namespace. `displayName` is sh
 
 | New skill | Rebuilt from (reference version) | Claude invocation | Codex / ChatGPT invocation |
 |---|---|---|---|
-| `dia-intent` | confirm-intent (installed copy, no version field) | `/dia:dia-intent` | `$dia-intent` / `@dia-intent` |
-| `dia-elenchus` | socratic-elenchus 1.3.1 (`superclaude@stable`) | `/dia:dia-elenchus` | `$dia-elenchus` / `@dia-elenchus` |
-| `dia-brainstorm` | socratic-brainstorm 3.3.1 (`superclaude@stable`) | `/dia:dia-brainstorm` | `$dia-brainstorm` / `@dia-brainstorm` |
-| `dia-reductio` | reductio (installed copy) | `/dia:dia-reductio` | `$dia-reductio` / `@dia-reductio` |
-| `dia-negative` | negative-dialectics (installed copy) | `/dia:dia-negative` | `$dia-negative` / `@dia-negative` |
-| `dia-refine` | self-refine (installed copy) | `/dia:dia-refine` or a message starting `dia-refine` | `$dia-refine` / `@dia-refine` or a message starting `dia-refine` |
-| `dia-iterate` | recursive-refine, output mode only (installed copy) | a message starting `dia-iterate`, or `/dia:dia-iterate` | a message starting `dia-iterate`, or `$dia-iterate` |
+| `dia-intent` | confirm-intent (installed copy, no version field) | `/dia:dia-intent` | `$dia:dia-intent` / `@dia-intent` |
+| `dia-elenchus` | socratic-elenchus 1.3.1 (`superclaude@stable`) | `/dia:dia-elenchus` | `$dia:dia-elenchus` / `@dia-elenchus` |
+| `dia-brainstorm` | socratic-brainstorm 3.3.1 (`superclaude@stable`) | `/dia:dia-brainstorm` | `$dia:dia-brainstorm` / `@dia-brainstorm` |
+| `dia-reductio` | reductio (installed copy) | `/dia:dia-reductio` | `$dia:dia-reductio` / `@dia-reductio` |
+| `dia-negative` | negative-dialectics (installed copy) | `/dia:dia-negative` | `$dia:dia-negative` / `@dia-negative` |
+| `dia-refine` | self-refine (installed copy) | `/dia:dia-refine` or a message starting `dia-refine` | `$dia:dia-refine` / `@dia-refine` or a message starting `dia-refine` |
+| `dia-iterate` | recursive-refine, output mode only (installed copy) | a message starting `dia-iterate`, or `/dia:dia-iterate` | a message starting `dia-iterate`, or `$dia:dia-iterate` |
 
 Naming rules:
 
@@ -91,6 +94,7 @@ On namespacing outside Claude:
 
 - Codex and ChatGPT invoke skills by `$name` or `/skills` in Codex and by `@` in ChatGPT, or implicitly by description.
 - Their documentation does not say whether plugin skills get a namespace. Two skills with the same name are not merged; both appear in selectors ([Build skills](https://learn.chatgpt.com/docs/build-skills)).
+- P3 (Codex CLI 0.162.1, n=1) showed that Codex does namespace plugin skills: the plugin route lists them as `dia:dia-<x>`, `$dia:dia-<x>` resolves and `$dia-<x>` does not. `$dia-<x>` is the name only when the skill folder is copied to `~/.agents/skills/`. The Codex column above gives the plugin form.
 - The `dia-` prefix inside each name is what keeps the names unique there. In Claude the names appear doubled (`dia:dia-refine`). This is accepted (D9).
 
 Natural-language requests work on every surface and are the safe default on mobile. That is the owner's own finding in `superclaude/portable-skills/README.md`, a single source.
@@ -327,7 +331,7 @@ Each route has a status:
 | Claude mobile (iOS/Android) | Install once via web or desktop; it reaches the mobile app through the account. The upload screen is not in the mobile app. | Natural language (the safe default on mobile per the owner's notes) | owner-probed |
 | claude.ai marketplace | Customize › Plugins › Add marketplace `ajitta/dialectic-skills`, then add `dia` from Discover | as above | untested (marked "not yet confirmed" in the owner's notes) |
 | Claude Code | `/plugin marketplace add ajitta/dialectic-skills`, then `/plugin install dia@dialectic-skills`; or account sync after a claude.ai upload | `/dia:dia-<x>`, natural language, first word for refine and iterate | documented (namespacing) / owner-probed (sync) |
-| Codex CLI / IDE | Plugin install from the marketplace or a local path; fallback: copy `skills/dia-<x>` to `~/.agents/skills/` | `$dia-<x>`, `/skills`, implicit per §7.3 | discovery paths documented; plugin route untested |
+| Codex CLI / IDE | `codex plugin marketplace add <path or owner/repo>`, then `codex plugin add dia@dialectic-skills`; fallback: copy `skills/dia-<x>` to `~/.agents/skills/` | `$dia:dia-<x>` (plugin) or `$dia-<x>` (copied folder), `/skills`, implicit per §7.3 | local-path plugin route probed (P3); GitHub route untested |
 | ChatGPT desktop | Local plugin install (reads `.claude-plugin/marketplace.json`); fallback: `~/.agents/skills/` through Codex | `@dia-<x>`, implicit | documented in general; untested on Pro |
 | ChatGPT mobile | Plugin-bundled skills are documented to work in ChatGPT on web, desktop and mobile; fallback: Codex cloud tasks on a repository that commits `.agents/skills/dia-<x>/` | `@dia-<x>`, natural language | untested: personal Skills are documented for Business, Enterprise, Healthcare and Edu, and plugin availability "depends on plan", so Pro is unconfirmed |
 
@@ -383,7 +387,7 @@ Note: the installed copies of reductio, negative-dialectics, self-refine, recurs
 - No skill name is a prefix of another (§4).
 - Hangul boundary (L1, L2).
 - Forbidden paths and files in the shipped output (§7.1), and no `upstream/` path.
-- `plugins/dia/` and `releases/dialectic-skills.zip` match the source byte for byte. Reproducible zip: fixed timestamps, modes and `create_system`, and LF line endings, as in `superclaude`.
+- `plugins/dia/` and `releases/dialectic-skills.zip` match the source byte for byte. Reproducible zip: fixed timestamps, modes and `create_system`, LF line endings, and stored entries (D15).
 - Version rule: changed skill files under an unchanged plugin `version` fail. This is the `plugin-release.json` digest rule carried over from `superclaude`. Claude Code updates an installed plugin only when its version changes.
 - Cross-references: every skill name mentioned in a description exists.
 - `claude plugin validate --strict plugins/dia` passes.
@@ -417,10 +421,10 @@ The plugin is accepted when:
 | # | Item | Needed by |
 |---|---|---|
 | O1 | Which skills get `references/ko/` files, and their topics (for example Korean statutes for dia-reductio or dia-negative) | Before P9 |
-| O2 | Whether to ship the portable root `plugin.json` | Decided by P3 |
-| O3 | License for all seven skills. MIT is assumed, from the socratic skills; the other five carry no license field | Before the first release |
+| O2 | Resolved by P3: no portable root `plugin.json` (D16) | — |
+| O3 | License for all seven skills. MIT is adopted for 0.1.0, from the socratic skills; the other five carried no license field. Confirm before 1.0.0 | Before the first release |
 | O4 | ChatGPT mobile on Pro: supported route or documented limitation | Decided by P5 |
-| O5 | Initial plugin `version` (proposed `0.1.0` until acceptance, then `1.0.0`) | Before the first release |
+| O5 | Plugin `version`: `0.1.0` until acceptance, then `1.0.0` | At acceptance |
 
 ## 14. Sources
 

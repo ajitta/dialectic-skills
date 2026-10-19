@@ -28,3 +28,4 @@ Desktop.ini
 
 # Upstream snapshot zip (unpacked into upstream/installed/; spec §11)
 dialectic-skills-upstream.zip
+/.serena/

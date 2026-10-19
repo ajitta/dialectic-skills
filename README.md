@@ -23,7 +23,7 @@ The repository is private: marketplace routes need GitHub access to it. The zip 
 | claude.ai web / Claude desktop | Download [`releases/dialectic-skills.zip`](releases/dialectic-skills.zip), then Customize › **Plugins** › Upload plugin. Not Customize › Skills: that screen rejects a zip with a plugin manifest. Requires "Code execution and file creation" to be enabled, even though no skill runs code. | `/dia:dia-<x>` or in words |
 | Claude mobile | Install once through web or desktop; it reaches the app through the account. | in words |
 | Claude Code | `/plugin marketplace add ajitta/dialectic-skills`, then `/plugin install dia@dialectic-skills` | `/dia:dia-<x>`, in words, first word for `dia-refine` and `dia-iterate` |
-| Codex CLI / IDE | `codex plugin marketplace add ajitta/dialectic-skills`, then `codex plugin add dia`; fallback: copy `skills/dia-<x>` to `~/.agents/skills/` | `$dia-<x>`, `/skills` |
+| Codex CLI / IDE | `codex plugin marketplace add ajitta/dialectic-skills` (or a local clone's path), then `codex plugin add dia@dialectic-skills`; fallback: copy `skills/dia-<x>` to `~/.agents/skills/` | `$dia:dia-<x>` for the plugin, `$dia-<x>` for a copied folder; `/skills` |
 | ChatGPT desktop | Local plugin install from this repository (it reads `.claude-plugin/marketplace.json`); fallback: `~/.agents/skills/` | `@dia-<x>` |
 | ChatGPT mobile | Plugin skills, where the plan allows; fallback: Codex cloud tasks on a repository that commits `.agents/skills/dia-<x>/` | `@dia-<x>`, in words |
 

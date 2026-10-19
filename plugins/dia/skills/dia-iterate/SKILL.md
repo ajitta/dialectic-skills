@@ -1,6 +1,6 @@
 ---
 name: dia-iterate
-description: Improve an output through repeated rounds gated by external verification. Each round fixes only defects that a verification method confirmed, and the loop stops on a regression, zero confirmed defects, verification exhausted, a fixed point, or the round cap. Use only when the user's message begins with dia-iterate, or when the skill is invoked explicitly as /dia:dia-iterate or $dia-iterate. Without that marker do not activate, however close the request sounds; send single-pass review requests to dia-refine.
+description: Improve an output through repeated rounds gated by external verification. Each round fixes only defects that a verification method confirmed, and the loop stops on a regression, zero confirmed defects, verification exhausted, a fixed point, or the round cap. Use only when the user's message begins with dia-iterate, or when the skill is invoked explicitly by name (for example /dia:dia-iterate, $dia:dia-iterate or $dia-iterate). Without that marker do not activate, however close the request sounds; send single-pass review requests to dia-refine.
 license: MIT
 metadata:
   author: ajitta
@@ -17,7 +17,7 @@ A call may carry the target (the last output, a named draft, or a file you can r
 
 ## Invocation
 
-- Activate only when `dia-iterate` is the first word of the message, or on an explicit `/dia:dia-iterate` or `$dia-iterate`. Target, `--max N` and criteria may follow it.
+- Activate only when `dia-iterate` is the first word of the message, or on an explicit invocation by name (`/dia:dia-iterate`, `$dia:dia-iterate`, `$dia-iterate`). Target, `--max N` and criteria may follow it.
 - Without that marker, do not activate. Natural-language requests that mean the same thing do not count either. Answer the request without the skill, or use dia-refine if one pass is enough.
 - If the marker is absent but this skill looks right, do not run the loop: ask in one line for a message beginning with `dia-iterate`, then stop. Running the loop without an explicit request for iteration is overkill.
 - Input with a topic but no target ("dia-iterate on the sword of Damocles") ends with one question and no draft. Ask whether to fix the last output or whether the user will supply a draft. This is a verification loop, not a writing tool. If the model drafts first, the loop's target becomes the model's own guesswork; and for widely copied set texts (fables, proverbs, anecdotes about famous people) that draft will overlap existing documents sentence by sentence and trip the content filter.
