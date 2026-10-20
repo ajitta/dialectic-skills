@@ -91,12 +91,12 @@ codex plugin add dia@dialectic-skills
 
 ### ChatGPT desktop (with Codex) and mobile
 
-Codex is part of the ChatGPT desktop app. In the app:
+There are two ways to install, and only the first reaches the mobile app:
 
-1. **Add the marketplace** from a GitHub repository (`ajitta/dialectic-skills`), a Git URL (`https://github.com/ajitta/dialectic-skills.git`) or a local folder (a clone of this repository).
-2. **Add the plugin.** Select `dia` in that marketplace's plugin list and install it. Adding the marketplace alone installs nothing.
+1. **Upload the zip (desktop and mobile).** Download [`dialectic-skills-openai.zip`](https://github.com/ajitta/dialectic-skills/releases/latest/download/dialectic-skills-openai.zip) from the latest release, then use the plugin zip upload in the ChatGPT desktop app. The plugin is saved to your account, so it also appears on ChatGPT web and mobile. This zip carries the ChatGPT listing (descriptions, starter prompts, logo). An upload does not update itself; upload each new release again.
+2. **Add the marketplace (this computer only).** Codex is part of the ChatGPT desktop app. Add a marketplace from a GitHub repository (`ajitta/dialectic-skills`), a Git URL (`https://github.com/ajitta/dialectic-skills.git`) or a local folder (a clone of this repository), then select `dia` in its plugin list and install it. This installs into the desktop app's local Codex folder and is not saved to your account, so the plugin does not appear on mobile or the web.
 
-The skills are then available in Codex, and in ChatGPT on desktop, web and mobile where your plan allows plugins; the owner has run them on a Pro plan on desktop and mobile. On Business and Enterprise workspaces, an admin can also add the plugin for the whole workspace (upload the zip or import the GitHub marketplace).
+Use one route only; with both, every skill appears twice. The owner has run the skills on a Pro plan. On Business and Enterprise workspaces, an admin can also add the plugin for the whole workspace (upload the zip or import the GitHub marketplace).
 
 ### Windows
 
@@ -366,6 +366,7 @@ dia-iterate --max 2 check the dates and facts in this paragraph: "The first iPho
 
 - **`Repository not found` when adding the marketplace.** Check the spelling: `ajitta/dialectic-skills` (dialectic, not dialectric). The repository is public and needs no GitHub login.
 - **No dia skills under `/` on Claude mobile.** Expected: the mobile menu does not list plugin skills. Ask in words or start the message with the skill name.
+- **dia is on ChatGPT desktop but not on mobile.** It was installed by adding the marketplace, which stays on that computer. Remove it and upload `dialectic-skills-openai.zip` instead (see ChatGPT desktop and mobile).
 - **Every skill appears twice.** The plugin is installed through two routes (for example `dia@dialectic-skills` and `dia@ajitta`, or an upload and a marketplace). Remove one.
 - **Skills section missing or greyed out on claude.ai.** Turn on Settings › Capabilities › Code execution and file creation.
 - **`dia-intent` is not found.** It was renamed `dia-confirm` in 1.1.0.

@@ -91,12 +91,12 @@ codex plugin add dia@dialectic-skills
 
 ### ChatGPT 데스크톱(Codex 포함)과 모바일
 
-Codex는 ChatGPT 데스크톱 앱에 포함되어 있습니다. 앱에서 다음과 같이 설치합니다.
+설치 방법은 두 가지이고, 모바일 앱까지 닿는 것은 첫 번째뿐입니다.
 
-1. **마켓플레이스 추가:** GitHub 저장소(`ajitta/dialectic-skills`), Git URL(`https://github.com/ajitta/dialectic-skills.git`), 로컬 폴더(이 저장소를 클론한 폴더) 중 하나로 추가합니다.
-2. **플러그인 추가:** 그 마켓플레이스의 플러그인 목록에서 `dia`를 선택해 설치합니다. 마켓플레이스 추가만으로는 아무것도 설치되지 않습니다.
+1. **zip 업로드(데스크톱과 모바일):** 최신 릴리스에서 [`dialectic-skills-openai.zip`](https://github.com/ajitta/dialectic-skills/releases/latest/download/dialectic-skills-openai.zip)을 내려받은 뒤, ChatGPT 데스크톱 앱의 플러그인 zip 업로드로 올립니다. 플러그인이 계정에 저장되므로 ChatGPT 웹과 모바일에도 나타납니다. 이 zip에는 ChatGPT용 목록 정보(설명, 시작 프롬프트, 로고)가 들어 있습니다. 업로드한 플러그인은 스스로 업데이트되지 않으므로, 새 릴리스가 나올 때마다 다시 올려야 합니다.
+2. **마켓플레이스 추가(이 컴퓨터에서만):** Codex는 ChatGPT 데스크톱 앱에 포함되어 있습니다. GitHub 저장소(`ajitta/dialectic-skills`), Git URL(`https://github.com/ajitta/dialectic-skills.git`), 로컬 폴더(이 저장소를 클론한 폴더) 중 하나로 마켓플레이스를 추가하고, 그 플러그인 목록에서 `dia`를 선택해 설치합니다. 데스크톱 앱의 로컬 Codex 폴더에 설치될 뿐 계정에 저장되지 않으므로, 모바일과 웹에는 나타나지 않습니다.
 
-그러면 Codex에서, 그리고 요금제가 플러그인을 허용하는 경우 데스크톱·웹·모바일의 ChatGPT에서 스킬을 쓸 수 있습니다. 저장소 소유자는 Pro 요금제에서 데스크톱과 모바일로 실행해 보았습니다. Business와 Enterprise 워크스페이스에서는 관리자가 워크스페이스 전체에 플러그인을 추가할 수도 있습니다(zip 업로드 또는 GitHub 마켓플레이스 가져오기).
+한 가지 방법만 쓰세요. 둘 다 쓰면 모든 스킬이 두 번씩 나타납니다. 저장소 소유자는 Pro 요금제에서 스킬을 실행해 보았습니다. Business와 Enterprise 워크스페이스에서는 관리자가 워크스페이스 전체에 플러그인을 추가할 수도 있습니다(zip 업로드 또는 GitHub 마켓플레이스 가져오기).
 
 ### Windows
 
@@ -366,6 +366,7 @@ dia-iterate --max 2 이 문단의 날짜와 사실을 확인해 주세요: "최�
 
 - **마켓플레이스를 추가할 때 `Repository not found`가 나타납니다.** 철자를 확인합니다: `ajitta/dialectic-skills`(dialectric이 아니라 dialectic). 저장소는 공개되어 있으며 GitHub 로그인이 필요하지 않습니다.
 - **Claude 모바일의 `/`에 dia 스킬이 없습니다.** 정상입니다. 모바일 메뉴에는 플러그인 스킬이 표시되지 않습니다. 말로 요청하거나 메시지를 스킬 이름으로 시작합니다.
+- **ChatGPT 데스크톱에는 dia가 있는데 모바일에는 없습니다.** 마켓플레이스 추가로 설치한 것이라 그 컴퓨터에만 있습니다. 지우고 `dialectic-skills-openai.zip`을 업로드하세요(ChatGPT 데스크톱과 모바일 참고).
 - **모든 스킬이 두 번씩 나타납니다.** 플러그인이 두 경로로 설치된 것입니다(예: `dia@dialectic-skills`와 `dia@ajitta`, 또는 업로드와 마켓플레이스). 하나를 제거합니다.
 - **claude.ai에 Skills 섹션이 없거나 비활성화되어 있습니다.** Settings › Capabilities › Code execution and file creation을 켭니다.
 - **`dia-intent`를 찾을 수 없습니다.** 1.1.0에서 `dia-confirm`으로 이름이 바뀌었습니다.

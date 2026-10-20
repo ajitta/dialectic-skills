@@ -91,12 +91,12 @@ codex plugin add dia@dialectic-skills
 
 ### ChatGPT デスクトップ（Codex を含む）とモバイル
 
-Codex は ChatGPT デスクトップアプリに含まれています。アプリで次のようにインストールします：
+インストール方法は 2 つあり、モバイルアプリまで届くのは 1 つ目だけです：
 
-1. **マーケットプレイスを追加：** GitHub リポジトリ（`ajitta/dialectic-skills`）、Git URL（`https://github.com/ajitta/dialectic-skills.git`）、ローカルフォルダー（このリポジトリのクローン）のいずれかで追加します。
-2. **プラグインを追加：** そのマーケットプレイスのプラグイン一覧で `dia` を選んでインストールします。マーケットプレイスを追加しただけでは何もインストールされません。
+1. **zip をアップロード（デスクトップとモバイル）：** 最新リリースから [`dialectic-skills-openai.zip`](https://github.com/ajitta/dialectic-skills/releases/latest/download/dialectic-skills-openai.zip) をダウンロードし、ChatGPT デスクトップアプリのプラグイン zip アップロードで追加します。プラグインはアカウントに保存されるため、ChatGPT の Web 版とモバイル版にも表示されます。この zip には ChatGPT 用の掲載情報（説明、スタータープロンプト、ロゴ）が入っています。アップロードしたものは自動では更新されないため、新しいリリースのたびにアップロードし直してください。
+2. **マーケットプレイスを追加（このコンピューターのみ）：** Codex は ChatGPT デスクトップアプリに含まれています。GitHub リポジトリ（`ajitta/dialectic-skills`）、Git URL（`https://github.com/ajitta/dialectic-skills.git`）、ローカルフォルダー（このリポジトリのクローン）のいずれかでマーケットプレイスを追加し、そのプラグイン一覧で `dia` を選んでインストールします。デスクトップアプリのローカルな Codex フォルダーにインストールされるだけでアカウントには保存されないため、モバイル版や Web 版には表示されません。
 
-これで Codex で、またプランがプラグインを許可していればデスクトップ・Web・モバイルの ChatGPT でスキルを使えます。作者は Pro プランのデスクトップとモバイルで動かしています。Business と Enterprise のワークスペースでは、管理者がワークスペース全体にプラグインを追加することもできます（zip のアップロード、または GitHub マーケットプレイスのインポート）。
+使う方法は 1 つだけにしてください。両方使うと、すべてのスキルが 2 回ずつ表示されます。作者は Pro プランでスキルを動かしています。Business と Enterprise のワークスペースでは、管理者がワークスペース全体にプラグインを追加することもできます（zip のアップロード、または GitHub マーケットプレイスのインポート）。
 
 ### Windows
 
@@ -366,6 +366,7 @@ dia-iterate --max 2 この段落の日付と事実を確認して：「初代 iP
 
 - **マーケットプレイスの追加時に `Repository not found` が出る。** 綴りを確認してください：`ajitta/dialectic-skills`（dialectric ではなく dialectic）。リポジトリは公開されており、GitHub へのログインは不要です。
 - **Claude モバイルの `/` に dia のスキルが表示されない。** 想定どおりの動作です。モバイルのメニューにはプラグインのスキルが表示されません。言葉で依頼するか、メッセージをスキル名で始めてください。
+- **ChatGPT デスクトップには dia があるのにモバイルにはない。** マーケットプレイスの追加でインストールしたため、そのコンピューターにしかありません。削除して、代わりに `dialectic-skills-openai.zip` をアップロードしてください（ChatGPT デスクトップとモバイルを参照）。
 - **すべてのスキルが 2 つずつ表示される。** プラグインが 2 つの経路でインストールされています（たとえば `dia@dialectic-skills` と `dia@ajitta`、またはアップロードとマーケットプレイス）。どちらかを削除してください。
 - **claude.ai で Skills セクションがない、またはグレー表示になっている。** Settings › Capabilities › Code execution and file creation をオンにしてください。
 - **`dia-intent` が見つからない。** 1.1.0 で `dia-confirm` に名前が変わりました。

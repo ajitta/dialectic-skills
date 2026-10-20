@@ -41,6 +41,7 @@ Results of the probes in `docs/spec.md` §12.2. Each run is n=1 unless stated; a
 ### P4 and P5: ChatGPT desktop and mobile (owner, 2026-10-20, `v0.1.0`)
 
 - The owner reported that the skills run on ChatGPT desktop and on ChatGPT mobile (Pro). The install route used, whether the skills appear under `@`, and per-prompt results were not reported. O4 is therefore resolved as a supported route on Pro, not a plan limitation.
+- Install route matters for mobile (owner, 2026-10-20, 1.1.1): adding the GitHub marketplace in the ChatGPT desktop app (Codex) makes `dia` visible on that desktop only, not on ChatGPT mobile; uploading the plugin zip in the desktop app makes it appear on mobile too. The marketplace route installs into the desktop's local Codex folder (on the build VM, `codex plugin marketplace add` writes only under `CODEX_HOME`), while an upload is saved to the account. README now recommends `dialectic-skills-openai.zip` for ChatGPT.
 - Not recorded: whether `default_prompt` (`Use $dia:dia-<x> …`, spec D19) resolves in ChatGPT, and whether Codex's unrun-tool claim (handoff item 10) recurs there.
 
 ### P3: Codex CLI 0.162.1
