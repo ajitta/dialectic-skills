@@ -117,7 +117,7 @@ Business와 Enterprise 워크스페이스에서는 관리자가 워크스페이�
 | 환경 | 문법 | 예시 |
 |---|---|---|
 | claude.ai, Claude 데스크톱, Claude Code | `/dia:dia-<x>` | `/dia:dia-reductio` |
-| Claude 모바일 | `/dia-<x>`를 끝까지 입력(`/` 메뉴에는 표시되지 않음) | `/dia-brainstorm` |
+| Claude 모바일 | `/dia-<x>` 또는 `/dia:dia-<x>`를 끝까지 입력(`/` 메뉴에는 표시되지 않음) | `/dia-brainstorm`, `/dia:dia-brainstorm` |
 | Codex (플러그인) | `$dia:dia-<x>` 뒤에 공백 | `$dia:dia-confirm 백업 스크립트 작성해줘` |
 | Codex (복사한 폴더) | `$dia-<x>` | `$dia-refine` |
 | ChatGPT | `@` 입력 후 스킬 선택 | `@dia-negative` |

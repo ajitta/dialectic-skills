@@ -117,7 +117,7 @@ codex plugin add dia@dialectic-skills
 | 平台 | 语法 | 示例 |
 |---|---|---|
 | claude.ai、Claude 桌面版、Claude Code | `/dia:dia-<x>` | `/dia:dia-reductio` |
-| Claude 移动版 | 完整输入 `/dia-<x>`（`/` 菜单中不会列出） | `/dia-brainstorm` |
+| Claude 移动版 | 完整输入 `/dia-<x>` 或 `/dia:dia-<x>`（`/` 菜单中不会列出） | `/dia-brainstorm`、`/dia:dia-brainstorm` |
 | Codex（插件） | `$dia:dia-<x>` 后接一个空格 | `$dia:dia-confirm 写一个备份脚本` |
 | Codex（复制的文件夹） | `$dia-<x>` | `$dia-refine` |
 | ChatGPT | 输入 `@` 后选择技能 | `@dia-negative` |

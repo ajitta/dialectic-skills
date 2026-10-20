@@ -117,7 +117,7 @@ Business と Enterprise のワークスペースでは、管理者がワーク�
 | 環境 | 構文 | 例 |
 |---|---|---|
 | claude.ai、Claude デスクトップ、Claude Code | `/dia:dia-<x>` | `/dia:dia-reductio` |
-| Claude モバイル | `/dia-<x>` を最後まで入力（`/` メニューには表示されない） | `/dia-brainstorm` |
+| Claude モバイル | `/dia-<x>` または `/dia:dia-<x>` を最後まで入力（`/` メニューには表示されない） | `/dia-brainstorm`、`/dia:dia-brainstorm` |
 | Codex（プラグイン） | `$dia:dia-<x>` の後にスペース | `$dia:dia-confirm バックアップスクリプトを書いて` |
 | Codex（コピーしたフォルダー） | `$dia-<x>` | `$dia-refine` |
 | ChatGPT | `@` を入力してスキルを選ぶ | `@dia-negative` |

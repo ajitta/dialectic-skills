@@ -117,7 +117,7 @@ There are three ways, and every surface supports at least one of them:
 | Surface | Syntax | Example |
 |---|---|---|
 | claude.ai, Claude desktop, Claude Code | `/dia:dia-<x>` | `/dia:dia-reductio` |
-| Claude mobile | `/dia-<x>` typed in full (the `/` menu does not list it) | `/dia-brainstorm` |
+| Claude mobile | `/dia-<x>` or `/dia:dia-<x>` typed in full (the `/` menu does not list it) | `/dia-brainstorm`, `/dia:dia-brainstorm` |
 | Codex (plugin) | `$dia:dia-<x>` followed by a space | `$dia:dia-confirm write a backup script` |
 | Codex (copied folder) | `$dia-<x>` | `$dia-refine` |
 | ChatGPT | `@` then pick the skill | `@dia-negative` |
