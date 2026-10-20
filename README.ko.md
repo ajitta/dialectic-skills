@@ -2,6 +2,8 @@
 
 [English](README.md) | **한국어** | [日本語](README.ja.md) | [简体中文](README.zh-CN.md)
 
+웹사이트: [ajitta.github.io/dialectic-skills](https://ajitta.github.io/dialectic-skills/)
+
 추론과 검토를 위한 스킬 일곱 개를 하나의 플러그인에 담았습니다. Agent Skills를 불러오는 모든 어시스턴트, 즉 Claude(웹, 데스크톱, 모바일, Claude Code), Codex, ChatGPT에서 수정 없이 실행되도록 작성했습니다. 패키지는 지침(Markdown, YAML, JSON)으로만 이루어져 있으므로 도구가 없는 채팅에서도 모든 스킬이 작동합니다. 스킬 파일은 영어로 작성되어 있으며, 각 스킬은 사용자가 쓴 메시지의 언어로 답합니다.
 
 | 스킬 | 하는 일 | 시작 방식 |

@@ -2,6 +2,8 @@
 
 [English](README.md) | [한국어](README.ko.md) | **日本語** | [简体中文](README.zh-CN.md)
 
+ウェブサイト: [ajitta.github.io/dialectic-skills](https://ajitta.github.io/dialectic-skills/)
+
 推論とレビューのための 7 つのスキルを 1 つのプラグインにまとめたものです。Agent Skills を読み込めるアシスタントであれば、Claude（Web、デスクトップ、モバイル、Claude Code）、Codex、ChatGPT のいずれでも変更なしで動作するように書かれています。パッケージは指示文のみ（Markdown、YAML、JSON）で構成されているため、ツールのないチャットでもすべてのスキルが動作します。スキルファイルは英語で書かれていますが、各スキルはあなたのメッセージと同じ言語で応答します。
 
 | スキル | 内容 | 起動方法 |

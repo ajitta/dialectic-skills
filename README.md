@@ -2,6 +2,8 @@
 
 **English** | [한국어](README.ko.md) | [日本語](README.ja.md) | [简体中文](README.zh-CN.md)
 
+Website: [ajitta.github.io/dialectic-skills](https://ajitta.github.io/dialectic-skills/)
+
 Seven reasoning-and-review skills in one plugin, written to run unchanged on any assistant that loads Agent Skills: Claude (web, desktop, mobile, Claude Code), Codex and ChatGPT. The package is instructions only (Markdown, YAML, JSON), so every skill also works in a chat with no tools. Skill files are in English; each skill replies in the language of your message.
 
 | Skill | What it does | How it starts |
