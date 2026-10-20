@@ -79,25 +79,24 @@ claude.ai 또는 Claude 데스크톱: Customize › Plugins › Add › Add mark
 - claude.ai에서 추가한 플러그인은 같은 계정으로 로그인하면 Claude Code에도 동기화됩니다. 명령줄에서 다시 설치하지 마십시오.
 - 카탈로그를 통해 설치하려면: `/plugin marketplace add ajitta/claude-plugins`를 실행한 뒤 `/plugin install dia@ajitta`를 실행합니다. 코드는 같고 설치 이름만 다릅니다.
 
-### Codex 앱, CLI, IDE
+### Codex CLI와 IDE
 
 ```
 codex plugin marketplace add ajitta/dialectic-skills
 codex plugin add dia@dialectic-skills
 ```
 
-- Codex 앱(데스크톱): 먼저 GitHub 저장소(`ajitta/dialectic-skills`), Git URL(`https://github.com/ajitta/dialectic-skills.git`), 로컬 폴더(이 저장소를 클론한 폴더) 중 하나로 플러그인 마켓플레이스를 추가하고, 그 마켓플레이스의 플러그인 목록에서 `dia`를 선택해 설치합니다. 마켓플레이스 추가만으로는 아무것도 설치되지 않습니다. 위의 CLI 명령도 같은 일을 합니다.
 - 업데이트: `codex plugin marketplace upgrade`로 마켓플레이스를 갱신하고, `codex plugin list`로 설치된 버전을 확인합니다.
 - 플러그인 없이 쓰려면: `skills/dia-<x>/` 폴더를 `~/.agents/skills/`에 복사합니다. 이렇게 복사한 스킬의 이름은 `$dia:dia-<x>`가 아니라 `$dia-<x>`입니다.
 
-### ChatGPT 데스크톱과 모바일
+### ChatGPT 데스크톱(Codex 포함)과 모바일
 
-저장소 소유자는 Pro 요금제에서 ChatGPT 데스크톱과 모바일로 스킬을 실행해 보았습니다. 정확한 설치 경로는 요금제와 워크스페이스에 따라 다릅니다.
+Codex는 ChatGPT 데스크톱 앱에 포함되어 있습니다. 앱에서 다음과 같이 설치합니다.
 
-- ChatGPT 데스크톱 앱의 Codex나 Codex 앱을 통해 설치합니다(위의 Codex 마켓플레이스 경로). 또는
-- Business 및 Enterprise 워크스페이스에서는 워크스페이스의 플러그인 관리 기능을 통해 설치합니다(zip 업로드 또는 GitHub 마켓플레이스 가져오기).
+1. **마켓플레이스 추가:** GitHub 저장소(`ajitta/dialectic-skills`), Git URL(`https://github.com/ajitta/dialectic-skills.git`), 로컬 폴더(이 저장소를 클론한 폴더) 중 하나로 추가합니다.
+2. **플러그인 추가:** 그 마켓플레이스의 플러그인 목록에서 `dia`를 선택해 설치합니다. 마켓플레이스 추가만으로는 아무것도 설치되지 않습니다.
 
-그러면 요금제가 플러그인을 허용하는 범위에서, 플러그인에 포함된 스킬을 데스크톱, 웹, 모바일의 ChatGPT에서 사용할 수 있습니다.
+그러면 Codex에서, 그리고 요금제가 플러그인을 허용하는 경우 데스크톱·웹·모바일의 ChatGPT에서 스킬을 쓸 수 있습니다. 저장소 소유자는 Pro 요금제에서 데스크톱과 모바일로 실행해 보았습니다. Business와 Enterprise 워크스페이스에서는 관리자가 워크스페이스 전체에 플러그인을 추가할 수도 있습니다(zip 업로드 또는 GitHub 마켓플레이스 가져오기).
 
 ### Windows
 
