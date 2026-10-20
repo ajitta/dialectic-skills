@@ -48,8 +48,6 @@ claude.ai 또는 Claude 데스크톱: Customize › Plugins › Add › Add mark
 
 ## 설치
 
-계정이나 기기마다 한 가지 경로로만 설치합니다. 두 경로(예: 이 저장소와 [ajitta/claude-plugins](https://github.com/ajitta/claude-plugins) 카탈로그)로 설치하면 모든 스킬이 두 번씩 나타납니다.
-
 ### claude.ai 웹과 Claude 데스크톱
 
 1. Settings › Capabilities에서 **Code execution and file creation**을 켭니다. dia 스킬은 코드를 실행하지 않지만, 스킬 기능 자체에 이 설정이 필요합니다.

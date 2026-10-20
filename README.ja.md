@@ -48,8 +48,6 @@ claude.ai または Claude デスクトップ：Customize › Plugins › Add �
 
 ## インストール
 
-インストール経路は、アカウントまたはマシンごとに 1 つにしてください。2 つの経路（たとえばこのリポジトリと [ajitta/claude-plugins](https://github.com/ajitta/claude-plugins) カタログ）を使うと、すべてのスキルが 2 重に入ります。
-
 ### claude.ai Web 版と Claude デスクトップ
 
 1. Settings › Capabilities で **Code execution and file creation** をオンにします。dia のスキルはコードを実行しませんが、スキル機能そのものにこの設定が必要です。

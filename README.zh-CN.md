@@ -48,8 +48,6 @@ claude.ai 或 Claude 桌面版：Customize › Plugins › Add › Add marketpla
 
 ## 安装
 
-每个账号或每台机器只通过一种途径安装。若通过两种途径安装（例如本仓库和 [ajitta/claude-plugins](https://github.com/ajitta/claude-plugins) 目录），每个技能都会出现两次。
-
 ### claude.ai 网页版与 Claude 桌面版
 
 1. Settings › Capabilities：打开 **Code execution and file creation**。技能依赖此项，尽管没有任何 dia 技能会运行代码。

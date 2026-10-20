@@ -48,8 +48,6 @@ Then try: `Use proof by contradiction on this claim: remote work always raises p
 
 ## Install
 
-Install through one route per account or machine. Two routes (for example this repository and the [ajitta/claude-plugins](https://github.com/ajitta/claude-plugins) catalog) give you every skill twice.
-
 ### claude.ai web and Claude desktop
 
 1. Settings › Capabilities: turn on **Code execution and file creation**. Skills need it, even though no dia skill runs code.
