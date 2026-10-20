@@ -1,0 +1,58 @@
+name: Release
+
+# Push an annotated tag vX.Y.Z (X.Y.Z = plugin-manifest.json version) and this workflow
+# checks the committed build and attaches both zips to the GitHub release:
+#   releases/dialectic-skills.zip         Claude (claude.ai upload) and any Agent Skills host
+#   releases/dialectic-skills-openai.zip  ChatGPT / OpenAI directory upload (spec D32)
+# A tag vX.Y.Z-<suffix> makes a pre-release. The release notes are the tag's message.
+# If the release already exists, the assets are replaced.
+
+on:
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - name: Validate skills and committed output
+        run: python tools/package.py --check
+      - name: Unit tests
+        run: |
+          python -m pip install --quiet pyyaml
+          python -m unittest discover -s tests
+      - name: Tag matches the plugin version in both zips
+        run: |
+          tag="${GITHUB_REF_NAME}"
+          version="$(python -c 'import json; print(json.load(open("plugin-manifest.json"))["version"])')"
+          case "$tag" in
+            "v$version"|"v$version"-*) ;;
+            *) echo "::error::tag $tag does not match plugin version $version"; exit 1 ;;
+          esac
+          for pair in "dialectic-skills.zip dia/.claude-plugin/plugin.json" "dialectic-skills-openai.zip dia/.codex-plugin/plugin.json"; do
+            set -- $pair
+            got="$(unzip -p "releases/$1" "$2" | python -c 'import json,sys; print(json.load(sys.stdin)["version"])')"
+            [ "$got" = "$version" ] || { echo "::error::releases/$1 carries $got, expected $version"; exit 1; }
+          done
+      - name: Create or update the release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          tag="${GITHUB_REF_NAME}"
+          assets="releases/dialectic-skills.zip releases/dialectic-skills-openai.zip"
+          if gh release view "$tag" >/dev/null 2>&1; then
+            gh release upload "$tag" $assets --clobber
+          else
+            case "$tag" in *-*) pre="--prerelease" ;; *) pre="--latest" ;; esac
+            gh release create "$tag" $assets --verify-tag --notes-from-tag --title "dia ${tag#v}" $pre
+          fi
+          gh release view "$tag" --json assets --jq '.assets[] | "\(.name) \(.size)"'
