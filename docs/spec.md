@@ -73,6 +73,7 @@ These decisions were settled with the owner during the spec interview of 2026-10
 | D28 | Several skills in one prompt (probes Part K). dia-elenchus and dia-brainstorm: when both are named, the definition dialogue comes first, the first message says so, and brainstorming starts when the user asks or the dialogue ends; never interleaved. dia-refine and dia-iterate: when both are named, they run as separate passes with separate outputs, and a re-derivation from the refine pass never counts as verification in an iterate round. Output length for several analyses at once is left to the P1/P2 phone checks. Owner ruling 2026-10-20; still 0.1.0. |
 | D29 | `short_description` in every `agents/openai.yaml` is 25–64 characters, the OpenAI skill UI guidance (openai/skills `openai_yaml.md`; research intent review M5, now repo-wide). `tools/package.py` enforces the range. The field is UI-only: Codex shows the model the SKILL.md `description`, not `short_description` (`codex debug prompt-input`, 2026-10-20), so routing is unchanged and no probe was needed. |
 | D30 | `dia-intent` is renamed `dia-confirm` in plugin 1.1.0 (owner, 2026-10-20). Reason: SuperClaude's `/sc:intent` also captures intent before work, but records it as a committed `00-intent.md`; this skill shows the goal, assumptions and open decisions and holds until the user approves, and the new name states that hold. It also continues the lineage name `confirm-intent`. The rename breaks invocation by the old name; released as a minor version because the owner was the only user and the repository was still private. `tools/package.py` rejects `dia-intent` outside `metadata.lineage`. Decision rows and research documents dated before D30 keep the old name as a historical record. `dia-brainstorm` keeps its name despite `/sc:brainstorm` (owner, same day): both brainstorm, and dropping the Socratic cue from a name has hurt routing before (probes Part B). |
+| D31 | The README is written in English and translated into Korean, Japanese and Simplified Chinese (`README.ko.md`, `README.ja.md`, `README.zh-CN.md`; owner, 2026-10-20). Each file starts with the same language switcher. The translations are repository files, not shipped, so the shipped-package language rules (§6) do not apply to them; they are an exception to D11 for the README only. A test keeps them in step with `README.md`: same heading levels, tables, link targets and code-block count, command blocks byte-identical, and every in-page anchor resolves. Example prompts are translated so each file shows requests in its own language. |
 
 ## 4. Names and identifiers
 
@@ -115,7 +116,7 @@ Natural-language requests work on every surface and are the safe default on mobi
 
 ## 5. Skills
 
-All seven skills keep their reference behavior unless this section or D19–D30 say otherwise. For every skill, the rebuild:
+All seven skills keep their reference behavior unless this section or D19–D31 say otherwise. For every skill, the rebuild:
 
 - renames the skill;
 - updates cross-references so that each description names the new skill names;
@@ -126,14 +127,14 @@ All seven skills keep their reference behavior unless this section or D19–D30 
 ### 5.1 dia-confirm (from confirm-intent; `dia-intent` until 1.0.0, D30)
 
 - Purpose: before work starts, restate the goal, disclose material assumptions and list only the decisions the user must make. Then wait for approval.
-- Behavior: the reference, amended by D19–D30.
+- Behavior: the reference, amended by D19–D31.
 - Invocation: explicit only. Its own description already says "Use only when explicitly selected or invoked", so `allow_implicit_invocation: false`.
 - References: none at present. `references/ko/` is optional (§6).
 
 ### 5.2 dia-elenchus (from socratic-elenchus 1.3.1)
 
 - Purpose: Plato's elenchus. Ask "what is X?", collect agreed premises one question at a time, show contradictions, and treat each revision as the user's new idea. It usually ends in aporia and never gives advice.
-- Behavior: the reference, amended by D19–D30.
+- Behavior: the reference, amended by D19–D31.
 - Cross-reference: "use socratic-brainstorm" becomes "use dia-brainstorm".
 - Invocation: `allow_implicit_invocation: false`, as in the reference.
 - References carried over: `elenchus-patterns.md` and `record-template.md`; `theory.md` added (D24) for the dialogue loci and sources, read only when the user asks about the sources or the method.
@@ -141,7 +142,7 @@ All seven skills keep their reference behavior unless this section or D19–D30 
 ### 5.3 dia-brainstorm (from socratic-brainstorm 3.3.1)
 
 - Purpose: modern Socratic questioning, one question at a time. The user lists options, the skill adds up to three labeled ones, and the user converges by criteria. It ends with a verdict and a brief, and never implements anything.
-- Behavior: the reference, amended by D19–D30.
+- Behavior: the reference, amended by D19–D31.
 - Cross-reference: points to dia-elenchus.
 - Invocation: `allow_implicit_invocation: false`, as in the reference.
 - References carried over: `question-bank.md` and `brief-template.md`.

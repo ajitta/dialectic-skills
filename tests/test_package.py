@@ -7,6 +7,7 @@ from __future__ import annotations
 
 import importlib.util
 import io
+import re
 import unittest
 import zipfile
 from pathlib import Path
@@ -124,3 +125,62 @@ class TestZip(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class TestReadmeTranslations(unittest.TestCase):
+    """README.<lang>.md files mirror README.md's structure (spec D31)."""
+
+    LANGS = ("ko", "ja", "zh-CN")
+    VERBATIM_PREFIXES = ("/plugin", "codex ", "python ", "skills/")
+
+    @staticmethod
+    def _parse(text):
+        heads, blocks, tables, links = [], [], 0, set()
+        in_code, buf = False, []
+        for line in text.split("\n"):
+            if line.startswith("```"):
+                if in_code:
+                    blocks.append("\n".join(buf))
+                    buf = []
+                in_code = not in_code
+                continue
+            if in_code:
+                buf.append(line)
+                continue
+            m = re.match(r"^(#{1,6}) ", line)
+            if m:
+                heads.append(len(m.group(1)))
+            if re.match(r"^\|[-|: ]+\|$", line):
+                tables += 1
+            links |= {u for u in re.findall(r"\]\(([^)#][^)]*)\)", line) if not re.match(r"README(\.[\w-]+)?\.md$", u)}
+        return heads, blocks, tables, links
+
+    @staticmethod
+    def _slug(heading):
+        s = heading.strip().lower()
+        s = re.sub(r"[^\w\- ]", "", s)
+        return s.replace(" ", "-")
+
+    def test_translations_mirror_english(self):
+        en = (ROOT / "README.md").read_text(encoding="utf-8")
+        en_heads, en_blocks, en_tables, en_links = self._parse(en)
+        for lang in self.LANGS:
+            path = ROOT / f"README.{lang}.md"
+            self.assertTrue(path.is_file(), path)
+            text = path.read_text(encoding="utf-8")
+            self.assertNotIn("\r", text, path)
+            heads, blocks, tables, links = self._parse(text)
+            self.assertEqual(heads, en_heads, f"{path.name}: heading levels differ")
+            self.assertEqual(len(blocks), len(en_blocks), f"{path.name}: code block count")
+            self.assertEqual(tables, en_tables, f"{path.name}: table count")
+            self.assertEqual(links, en_links, f"{path.name}: link targets differ")
+            for a, b in zip(en_blocks, blocks):
+                if a.startswith(self.VERBATIM_PREFIXES):
+                    self.assertEqual(a, b, f"{path.name}: command block changed")
+            switcher = text.split("\n")[2]
+            for target in ("README.md", "README.ko.md", "README.ja.md", "README.zh-CN.md"):
+                if not target.endswith(f".{lang}.md"):
+                    self.assertIn(f"]({target})", switcher, f"{path.name}: switcher misses {target}")
+            anchors = {self._slug(h) for h in re.findall(r"^#{2,6} (.+)$", text, re.M)}
+            for anchor in re.findall(r"\]\(#([^)]+)\)", text):
+                self.assertIn(anchor, anchors, f"{path.name}: dead anchor #{anchor}")
