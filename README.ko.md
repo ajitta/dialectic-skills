@@ -225,10 +225,14 @@ dia-iterate --max 2 직전 답변의 날짜와 수치를 확인해 주세요
 ```
 skills/dia-<x>/                 source: plain skills (SKILL.md, references/, agents/openai.yaml)
 plugin-manifest.json            source for .claude-plugin/plugin.json
+packaging/plugin-README.md      source for plugins/dia/README.md
+packaging/openai/               OpenAI directory listing fields and images
 plugin-release.json             content digest for the current version (not shipped)
 .claude-plugin/marketplace.json marketplace "dialectic-skills" -> ./plugins/dia
 plugins/dia/                    generated, shipped
 releases/dialectic-skills.zip   generated, shipped (top-level folder dia/)
+releases/dialectic-skills-openai.zip
+                                generated, OpenAI directory upload
 tools/package.py                validate and build (developer-only)
 tests/                          developer-only
 upstream/                       material the skills were rebuilt from; never shipped

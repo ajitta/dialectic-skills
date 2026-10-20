@@ -74,6 +74,7 @@ These decisions were settled with the owner during the spec interview of 2026-10
 | D29 | `short_description` in every `agents/openai.yaml` is 25–64 characters, the OpenAI skill UI guidance (openai/skills `openai_yaml.md`; research intent review M5, now repo-wide). `tools/package.py` enforces the range. The field is UI-only: Codex shows the model the SKILL.md `description`, not `short_description` (`codex debug prompt-input`, 2026-10-20), so routing is unchanged and no probe was needed. |
 | D30 | `dia-intent` is renamed `dia-confirm` in plugin 1.1.0 (owner, 2026-10-20). Reason: SuperClaude's `/sc:intent` also captures intent before work, but records it as a committed `00-intent.md`; this skill shows the goal, assumptions and open decisions and holds until the user approves, and the new name states that hold. It also continues the lineage name `confirm-intent`. The rename breaks invocation by the old name; released as a minor version because the owner was the only user and the repository was still private. `tools/package.py` rejects `dia-intent` outside `metadata.lineage`. Decision rows and research documents dated before D30 keep the old name as a historical record. `dia-brainstorm` keeps its name despite `/sc:brainstorm` (owner, same day): both brainstorm, and dropping the Socratic cue from a name has hurt routing before (probes Part B). |
 | D31 | The README is written in English and translated into Korean, Japanese and Simplified Chinese (`README.ko.md`, `README.ja.md`, `README.zh-CN.md`; owner, 2026-10-20). Each file starts with the same language switcher. The translations are repository files, not shipped, so the shipped-package language rules (§6) do not apply to them; they are an exception to D11 for the README only. A test keeps them in step with `README.md`: same heading levels, tables, link targets and code-block count, command blocks byte-identical, and every in-page anchor resolves. Example prompts are translated so each file shows requests in its own language. |
+| D32 | Directory listings, prepared in 1.1.1 (owner, 2026-10-20; requirements in `docs/directory-submission.md`). (1) The plugin folder ships a `README.md` generated from `packaging/plugin-README.md`, because the Anthropic directory blocks a plugin folder without a README of at least 40 words; it states that the plugin runs, sends and fetches nothing itself. (2) The OpenAI directory upload is a separate generated zip, `releases/dialectic-skills-openai.zip`: the same files with `.codex-plugin/plugin.json` (the manifest plus the `interface` listing fields from `packaging/openai/interface.json`) in place of `.claude-plugin/`, and two square SVG images under `assets/` for `interface.logo` and `interface.composerIcon`. Images exist only in that zip, so the marketplace payload stays Markdown, YAML and JSON (§7.1). `tools/package.py` checks the README length and the OpenAI final-submission limits, and the listing files count toward the version digest. The logo is a draft for the owner to replace if wanted. |
 
 ## 4. Names and identifiers
 
@@ -116,7 +117,7 @@ Natural-language requests work on every surface and are the safe default on mobi
 
 ## 5. Skills
 
-All seven skills keep their reference behavior unless this section or D19–D31 say otherwise. For every skill, the rebuild:
+All seven skills keep their reference behavior unless this section or D19–D32 say otherwise. For every skill, the rebuild:
 
 - renames the skill;
 - updates cross-references so that each description names the new skill names;
@@ -127,14 +128,14 @@ All seven skills keep their reference behavior unless this section or D19–D31 
 ### 5.1 dia-confirm (from confirm-intent; `dia-intent` until 1.0.0, D30)
 
 - Purpose: before work starts, restate the goal, disclose material assumptions and list only the decisions the user must make. Then wait for approval.
-- Behavior: the reference, amended by D19–D31.
+- Behavior: the reference, amended by D19–D32.
 - Invocation: explicit only. Its own description already says "Use only when explicitly selected or invoked", so `allow_implicit_invocation: false`.
 - References: none at present. `references/ko/` is optional (§6).
 
 ### 5.2 dia-elenchus (from socratic-elenchus 1.3.1)
 
 - Purpose: Plato's elenchus. Ask "what is X?", collect agreed premises one question at a time, show contradictions, and treat each revision as the user's new idea. It usually ends in aporia and never gives advice.
-- Behavior: the reference, amended by D19–D31.
+- Behavior: the reference, amended by D19–D32.
 - Cross-reference: "use socratic-brainstorm" becomes "use dia-brainstorm".
 - Invocation: `allow_implicit_invocation: false`, as in the reference.
 - References carried over: `elenchus-patterns.md` and `record-template.md`; `theory.md` added (D24) for the dialogue loci and sources, read only when the user asks about the sources or the method.
@@ -142,7 +143,7 @@ All seven skills keep their reference behavior unless this section or D19–D31 
 ### 5.3 dia-brainstorm (from socratic-brainstorm 3.3.1)
 
 - Purpose: modern Socratic questioning, one question at a time. The user lists options, the skill adds up to three labeled ones, and the user converges by criteria. It ends with a verdict and a brief, and never implements anything.
-- Behavior: the reference, amended by D19–D31.
+- Behavior: the reference, amended by D19–D32.
 - Cross-reference: points to dia-elenchus.
 - Invocation: `allow_implicit_invocation: false`, as in the reference.
 - References carried over: `question-bank.md` and `brief-template.md`.
@@ -229,6 +230,7 @@ No skill ships `references/ko/` files in 1.0.0 (D17).
 The shipped package (`plugins/dia/` and `releases/dialectic-skills.zip`) contains only:
 
 - `.claude-plugin/plugin.json`, plus an OpenAI manifest only if P3 shows it is needed (§7.4);
+- `README.md`, generated from `packaging/plugin-README.md` (D32);
 - `skills/<skill>/SKILL.md`;
 - `skills/<skill>/references/**/*.md`;
 - `skills/<skill>/agents/openai.yaml`.

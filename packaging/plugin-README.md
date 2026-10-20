@@ -1,0 +1,21 @@
+# Dialectic Skills (`dia`)
+
+Seven reasoning-and-review skills for Claude, Codex and ChatGPT. Each skill is a set of written instructions that the assistant follows when you ask for it by name or describe the task.
+
+- `dia-confirm`: before work starts, restates the goal, discloses assumptions, lists the decisions you must make, and waits for your approval.
+- `dia-elenchus`: Plato's elenchus. Asks what you mean by a key idea, one question at a time, and shows where your own premises contradict each other. Gives no advice.
+- `dia-brainstorm`: Socratic questions one at a time, then options, a comparison by your criteria, a verdict and a brief.
+- `dia-reductio`: strict reductio ad absurdum. Lists every premise with its source and derives a contradiction line by line.
+- `dia-negative`: internal critique. Holds a claim to its own standard and shows where it falls short, with cases.
+- `dia-refine`: one review pass over an answer or draft. Fixes only defects with a confirmed basis.
+- `dia-iterate`: repeated review rounds, each gated by an external check, with a round cap.
+
+## What the plugin does and does not do
+
+The plugin contains only Markdown, YAML and JSON files. It has no scripts, hooks, MCP servers or binaries, and it does not run, send or fetch anything by itself. It does not read or store personal data. Some skills tell the assistant to use a search or code tool if one is already available in your session, to check a fact or a calculation; without such a tool, the skills work from the conversation alone and mark what they could not verify.
+
+## More
+
+Installation for every surface, examples for each skill and troubleshooting: https://github.com/ajitta/dialectic-skills
+
+License: MIT

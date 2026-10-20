@@ -7,8 +7,13 @@ only into the generated output (docs/spec.md §7.5):
 
     plugins/dia/                       marketplaces point here (committed)
       .claude-plugin/plugin.json       from plugin-manifest.json
+      README.md                        from packaging/plugin-README.md (directory listings need it)
       skills/<skill>/...               copied from skills/
     releases/dialectic-skills.zip      the same under one top-level dia/ folder (committed)
+    releases/dialectic-skills-openai.zip
+                                       OpenAI directory upload (spec D32): the same files, but
+                                       .codex-plugin/plugin.json (manifest + packaging/openai/
+                                       interface.json) instead of .claude-plugin/, plus assets/
 
 The zip is byte-reproducible on every OS: fixed timestamps, modes and create_system,
 LF line endings, and entries stored without compression (deflate output differs between
@@ -39,6 +44,17 @@ SKILLS = ROOT / "skills"
 PLUGINS = ROOT / "plugins"
 DIST = ROOT / "releases"
 ZIP_NAME = "dialectic-skills.zip"
+OPENAI_ZIP_NAME = "dialectic-skills-openai.zip"
+PACKAGING = ROOT / "packaging"
+PLUGIN_README = PACKAGING / "plugin-README.md"
+OPENAI_DIR = PACKAGING / "openai"
+README_MIN_WORDS = 40  # Anthropic directory: README of at least 40 words outside code blocks
+# OpenAI directory final-submission limits (developers.openai.com/plugins/deploy/submission-errors)
+OPENAI_CATEGORIES = {
+    "Productivity", "Creativity", "Developer Tools", "Business & Operations", "Data & Analytics",
+    "Communication", "Education & Research", "Security", "Finance", "Healthcare", "Travel",
+    "Entertainment", "Other",
+}
 MANIFEST = ROOT / "plugin-manifest.json"
 MARKETPLACE = ROOT / ".claude-plugin" / "marketplace.json"
 RELEASE = ROOT / "plugin-release.json"
@@ -229,6 +245,81 @@ def validate_marketplace() -> list[str]:
     return [f".claude-plugin/marketplace.json: {e}" for e in errors]
 
 
+def validate_plugin_readme(files: dict[str, bytes]) -> list[str]:
+    text = files.get("README.md", b"").decode("utf-8")
+    words = len(re.sub(r"```.*?```", "", text, flags=re.S).split())
+    if words < README_MIN_WORDS:
+        return [f"packaging/plugin-README.md: {words} words outside code blocks, need {README_MIN_WORDS} (Anthropic directory)"]
+    return []
+
+
+def _one_line(s: object) -> bool:
+    return isinstance(s, str) and s.strip() != "" and "\n" not in s and "\r" not in s
+
+
+def validate_openai_interface(interface: dict, assets: dict[str, bytes]) -> list[str]:
+    """The OpenAI directory's final-submission rules for interface fields and images."""
+    e = []
+    if not (_one_line(interface.get("displayName")) and len(interface["displayName"]) <= 30):
+        e.append("displayName: one line, at most 30 characters")
+    if not (_one_line(interface.get("shortDescription")) and len(interface["shortDescription"]) <= 30):
+        e.append("shortDescription: one line, at most 30 characters")
+    long = interface.get("longDescription")
+    if not (isinstance(long, str) and long.strip() and len(long) <= 4000):
+        e.append("longDescription: required, at most 4,000 characters")
+    if not (_one_line(interface.get("developerName")) and len(interface["developerName"]) <= 80):
+        e.append("developerName: one line, at most 80 characters")
+    if interface.get("category") not in OPENAI_CATEGORIES:
+        e.append(f"category must be one of {sorted(OPENAI_CATEGORIES)}")
+    caps = interface.get("capabilities", [])
+    if len(caps) > 20 or not all(_one_line(c) and len(c) <= 120 for c in caps):
+        e.append("capabilities: at most 20, each one line and at most 120 characters")
+    prompts = interface.get("defaultPrompt", [])
+    if isinstance(prompts, str):
+        prompts = [prompts]
+    if len(prompts) > 3 or len(set(prompts)) != len(prompts) or not all(
+        _one_line(p) and len(p) <= 128 and "@" not in p for p in prompts
+    ):
+        e.append("defaultPrompt: at most 3 unique one-line prompts of at most 128 characters, no @mention")
+    for key in ("websiteURL", "supportURL", "privacyPolicyURL", "termsOfServiceURL"):
+        if key in interface and not (isinstance(interface[key], str) and interface[key].startswith("https://") and len(interface[key]) <= 1024):
+            e.append(f"{key}: an https:// URL of at most 1,024 characters")
+    for key in ("logo", "composerIcon"):
+        path = interface.get(key, "")
+        if not (isinstance(path, str) and path.startswith("./assets/") and path.endswith(".svg")):
+            e.append(f"{key}: must be ./assets/<name>.svg")
+            continue
+        data = assets.get(path[2:])
+        if data is None:
+            e.append(f"{key}: {path} not found in packaging/openai/")
+            continue
+        m = re.search(r'<svg\b[^>]*\bviewBox="0 0 (\d+(?:\.\d+)?) (\d+(?:\.\d+)?)"', data.decode("utf-8"))
+        if not m or m.group(1) != m.group(2) or float(m.group(1)) < 48 or float(m.group(1)) > 4096:
+            e.append(f"{key}: SVG needs a square numeric viewBox between 48 and 4,096")
+    return [f"packaging/openai/interface.json: {x}" for x in e]
+
+
+def openai_parts() -> tuple[dict, dict[str, bytes]]:
+    interface = json.loads(OPENAI_DIR.joinpath("interface.json").read_text(encoding="utf-8"))
+    assets = {
+        f"assets/{f.name}": _normalized(f) for f in sorted((OPENAI_DIR / "assets").glob("*")) if f.is_file()
+    }
+    return interface, assets
+
+
+def openai_files(files: dict[str, bytes]) -> dict[str, bytes]:
+    """The OpenAI directory upload: Codex manifest with interface, plus image assets (spec D32)."""
+    interface, assets = openai_parts()
+    manifest = json.loads(MANIFEST.read_text(encoding="utf-8"))
+    manifest.pop("displayName", None)  # interface.displayName carries it in the Codex manifest
+    manifest["skills"] = "./skills/"
+    manifest["interface"] = interface
+    out = {k: v for k, v in files.items() if not k.startswith(".claude-plugin/")}
+    out[".codex-plugin/plugin.json"] = (json.dumps(manifest, indent=2, ensure_ascii=False) + "\n").encode()
+    out.update(assets)
+    return out
+
+
 def shipped_violations(files: dict[str, bytes]) -> list[str]:
     """Forbidden paths, non-text files, Hangul outside references/ko/ (spec §7.1, §6)."""
     errors = []
@@ -281,7 +372,7 @@ def _normalized(path: Path) -> bytes:
 
 def plugin_files(skills: list[Path]) -> dict[str, bytes]:
     """Keys are paths relative to the plugin folder."""
-    files = {".claude-plugin/plugin.json": _normalized(MANIFEST)}
+    files = {".claude-plugin/plugin.json": _normalized(MANIFEST), "README.md": _normalized(PLUGIN_README)}
     for skill_dir in skills:
         for f in sorted(skill_dir.rglob("*")):
             if f.is_file() and "__pycache__" not in f.parts and f.name != ".DS_Store":
@@ -307,9 +398,15 @@ def zip_bytes(files: dict[str, bytes]) -> bytes:
 
 
 def content_digest(files: dict[str, bytes]) -> str:
-    """sha256 over the plugin files minus the manifest, so a version bump alone leaves it unchanged."""
+    """sha256 over the plugin files minus the manifest, plus the OpenAI listing and assets,
+    so a version bump alone leaves it unchanged and any shipped change needs one."""
     h = hashlib.sha256()
-    for rel, data in sorted(files.items()):
+    extra = {}
+    if OPENAI_DIR.is_dir():
+        interface, assets = openai_parts()
+        extra = {"openai:interface.json": json.dumps(interface, sort_keys=True).encode()}
+        extra.update({f"openai:{k}": v for k, v in assets.items()})
+    for rel, data in sorted({**files, **extra}.items()):
         if rel != ".claude-plugin/plugin.json":
             h.update(rel.encode() + b"\0" + data + b"\0")
     return h.hexdigest()
@@ -356,6 +453,9 @@ def check_generated(files: dict[str, bytes]) -> list[str]:
     zpath = DIST / ZIP_NAME
     if not zpath.is_file() or zpath.read_bytes() != zip_bytes(files):
         errors.append(f"releases/{ZIP_NAME} lags the source: run tools/package.py")
+    opath = DIST / OPENAI_ZIP_NAME
+    if not opath.is_file() or opath.read_bytes() != zip_bytes(openai_files(files)):
+        errors.append(f"releases/{OPENAI_ZIP_NAME} lags the source: run tools/package.py")
     return errors
 
 
@@ -370,6 +470,7 @@ def write_outputs(files: dict[str, bytes]) -> None:
         dest.write_bytes(data)
     DIST.mkdir(parents=True, exist_ok=True)
     (DIST / ZIP_NAME).write_bytes(zip_bytes(files))
+    (DIST / OPENAI_ZIP_NAME).write_bytes(zip_bytes(openai_files(files)))
 
 
 def collect_errors(skills: list[Path], files: dict[str, bytes]) -> list[str]:
@@ -381,6 +482,9 @@ def collect_errors(skills: list[Path], files: dict[str, bytes]) -> list[str]:
         + validate_names(names)
         + shipped_violations(files)
         + crossref_violations(files, names)
+        + validate_plugin_readme(files)
+        + validate_openai_interface(*openai_parts())
+        + [f"openai zip: {e}" for e in shipped_violations({k: v for k, v in openai_files(files).items() if not k.startswith("assets/")})]
     )
 
 
@@ -402,7 +506,7 @@ def main(argv: list[str]) -> int:
         print("ok", s.name)
     if not check_only:
         write_outputs(files)
-        print(f"-> plugins/{plugin_name()}/ + releases/{ZIP_NAME}")
+        print(f"-> plugins/{plugin_name()}/ + releases/{ZIP_NAME} + releases/{OPENAI_ZIP_NAME}")
     return 0
 
 

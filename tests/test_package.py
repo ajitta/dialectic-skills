@@ -184,3 +184,36 @@ class TestReadmeTranslations(unittest.TestCase):
             anchors = {self._slug(h) for h in re.findall(r"^#{2,6} (.+)$", text, re.M)}
             for anchor in re.findall(r"\]\(#([^)]+)\)", text):
                 self.assertIn(anchor, anchors, f"{path.name}: dead anchor #{anchor}")
+
+
+class TestDirectoryPackages(unittest.TestCase):
+    """Directory listing requirements (spec D32, docs/directory-submission.md)."""
+
+    def setUp(self):
+        self.files = pkg.plugin_files(pkg.skill_dirs())
+
+    def test_plugin_readme_shipped(self):
+        self.assertIn("README.md", self.files)
+        self.assertEqual(pkg.validate_plugin_readme(self.files), [])
+        self.assertTrue(pkg.validate_plugin_readme({"README.md": b"too short"}))
+
+    def test_openai_zip_layout(self):
+        names = zipfile.ZipFile(ROOT / "releases" / pkg.OPENAI_ZIP_NAME).namelist()
+        self.assertEqual({n.split("/")[0] for n in names}, {"dia"})
+        self.assertIn("dia/.codex-plugin/plugin.json", names)
+        self.assertFalse([n for n in names if n.startswith("dia/.claude-plugin/")])
+        self.assertIn("dia/assets/logo.svg", names)
+        self.assertIn("dia/assets/icon.svg", names)
+        self.assertEqual(
+            sorted(n for n in names if "/skills/" in n),
+            sorted(f"dia/{k}" for k in self.files if k.startswith("skills/")),
+        )
+
+    def test_openai_interface_rules(self):
+        interface, assets = pkg.openai_parts()
+        self.assertEqual(pkg.validate_openai_interface(interface, assets), [])
+        bad = dict(interface, shortDescription="x" * 31, category="Games", defaultPrompt=["a", "b", "c", "d"])
+        errs = pkg.validate_openai_interface(bad, assets)
+        for field in ("shortDescription", "category", "defaultPrompt"):
+            self.assertTrue(any(field in e for e in errs), (field, errs))
+        self.assertTrue(pkg.validate_openai_interface(dict(interface, logo="./assets/missing.svg"), assets))

@@ -1,0 +1,25 @@
+{
+  "displayName": "Dialectic Skills",
+  "shortDescription": "Reasoning and review skills",
+  "longDescription": "Seven reasoning-and-review skills that run in any chat, with or without tools.\n\n- dia-confirm: restates the goal, discloses assumptions and lists the decisions you must make, then waits for your approval before work starts.\n- dia-elenchus: Plato's elenchus. Asks what you mean by a key idea, one question at a time, and shows where your own premises contradict each other.\n- dia-brainstorm: Socratic questions one at a time, then options, a comparison by your criteria, a verdict and a brief.\n- dia-reductio: strict reductio ad absurdum, with every premise listed and the contradiction derived line by line.\n- dia-negative: internal critique that holds a claim to its own standard and shows where it falls short.\n- dia-refine: one review pass over an answer or draft that fixes only confirmed defects.\n- dia-iterate: repeated review rounds, each gated by an external check.\n\nThe skills are instructions only: they run no code and send no data. Each skill replies in the language you write in.",
+  "developerName": "ajitta",
+  "category": "Productivity",
+  "capabilities": [
+    "Confirm the goal, assumptions and open decisions before work starts",
+    "Run a Socratic definition dialogue (elenchus) one question at a time",
+    "Brainstorm by Socratic questions, then compare options and give a verdict",
+    "Test a claim by strict reductio ad absurdum",
+    "Critique a claim by its own standard (internal critique)",
+    "Review an answer or draft once and fix confirmed defects",
+    "Run verification-gated review rounds with a round cap"
+  ],
+  "defaultPrompt": [
+    "Use proof by contradiction on this claim: remote work always raises productivity.",
+    "Do an immanent critique of this claim: our company is flat, so anyone can speak up freely.",
+    "Socratic brainstorm with me: I need a weekend side-project idea."
+  ],
+  "websiteURL": "https://github.com/ajitta/dialectic-skills",
+  "supportURL": "https://github.com/ajitta/dialectic-skills/issues",
+  "logo": "./assets/logo.svg",
+  "composerIcon": "./assets/icon.svg"
+}

@@ -4,7 +4,7 @@ State of the work and what is left, for the next agent session. Read `AGENTS.md`
 
 ## State (2026-10-20)
 
-- Plugin `dia` **1.1.0** renames `dia-intent` to `dia-confirm` (spec D30, 2026-10-20). 1.0.0 (`v1.0.0`) was released after acceptance (spec §12.3); the pre-release `v0.1.0` is what the owner probed, and 1.0.0 differs from it only in the version number. Every skill change needs a new plugin `version` and the skill's `metadata.version`. Older docs (probes, research, reviews) use the name `dia-intent`; it is the same skill.
+- Plugin `dia` **1.1.1** (2026-10-20) adds the directory packaging (spec D32); 1.1.0 renamed `dia-intent` to `dia-confirm` (spec D30). 1.0.0 (`v1.0.0`) was released after acceptance (spec §12.3); the pre-release `v0.1.0` is what the owner probed, and 1.0.0 differs from it only in the version number. Every skill change needs a new plugin `version` and the skill's `metadata.version`. Older docs (probes, research, reviews) use the name `dia-intent`; it is the same skill.
 - The repository `ajitta/dialectic-skills` is public since 2026-10-20 (owner decision; secrets scan of the full history was clean, and all `upstream/` material is the owner's own work).
 - CI (`.github/workflows/check.yml`) runs on every push to `main` and on pull requests. It runs `tools/package.py --check`, the unit tests, and `claude plugin validate --strict` for the plugin and the marketplace. It is green.
 - Skill text reflects spec D19–D29 (research findings, token audit, data-not-instructions rule, dia-refine suspected corrections, several-skills-in-one-prompt rules, `short_description` length). Every batch was diff-reviewed or probed; results are in `docs/probes.md` Parts A–K, `docs/token-cost.md` and `docs/skill-effect.md`.
@@ -28,7 +28,7 @@ State of the work and what is left, for the next agent session. Read `AGENTS.md`
 | 10 | Codex claims a code check it did not run | owner watches in ChatGPT use | Probes Part K: with dia-refine + dia-iterate, Codex labelled the 20% fix "(tool: JavaScript execution)" with no execution event in its log, 3/3. Both skills already forbid this; check whether it recurs in the Codex app or ChatGPT. |
 | 11 | dia-refine by plain request on Claude Code: known limit | — | Probes Part J: a request without the name loaded dia-refine 1/9, before and after D27; by name it loads every time. Kept as a known limit (owner rulings 2026-10-20, confirmed after 1.0.0). |
 | 12 | Long output when several analysis skills run at once: kept as is | owner reports if it bothers on a phone | Probes Part K: dia-reductio + dia-negative gave 8.6k–9.4k characters on Claude Code. Owner ruling 2026-10-20 after 1.0.0: no length limit now; add one in a 1.0.x if it proves uncomfortable on a phone. |
-| 13 | Directory listings (Anthropic, OpenAI) | owner decides, then agent + owner | Requirements and gaps: `docs/directory-submission.md`. Anthropic blocks on a missing plugin-folder README; OpenAI needs a verified identity, `interface` listing fields and two square images. |
+| 13 | Directory listings (Anthropic, OpenAI) | owner submits later | Package side done in 1.1.1 (spec D32): plugin-folder README, `releases/dialectic-skills-openai.zip` with listing fields and draft logo. Owner steps: `docs/directory-submission.md` § Owner steps. |
 
 Observations from P8 (n=1 each; see `docs/probes.md`):
 
