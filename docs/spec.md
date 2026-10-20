@@ -2,7 +2,7 @@
 
 | | |
 |---|---|
-| Status | Approved by the owner on 2026-10-20; pre-release 0.1.0, accepted (§12.3) and released as 1.0.0 on 2026-10-20. Probe results: `docs/probes.md` |
+| Status | Approved by the owner on 2026-10-20; pre-release 0.1.0, accepted (§12.3) and released as 1.0.0 on 2026-10-20; 1.1.0 renames dia-intent to dia-confirm (D30). Probe results: `docs/probes.md` |
 | Date | 2026-10-20 |
 | Owner | ajitta |
 | Repository | `ajitta/dialectic-skills` (private) |
@@ -72,6 +72,7 @@ These decisions were settled with the owner during the spec interview of 2026-10
 | D27 | After the skill-effect eval (`docs/skill-effect.md`): dia-refine lost every pair because its revision kept claims it believed false ("unverified items stay as drafted", from upstream). Now a factual claim it could not check but believes wrong goes into the revision as the suspected correction, marked "(suspected, unverified)" (in "final version only" mode, no mark; the closing line names it), and is still listed under ④; quotations, names the user chose and the user's own figures are never changed this way. The description says the revision "marks suspected ones" (P7 re-run). dia-iterate keeps its rule that own re-derivation is not verification, and on a "verification exhausted" stop with re-derivable items points to one dia-refine pass. Departure from upstream self-refine; owner ruling 2026-10-20; still 0.1.0. |
 | D28 | Several skills in one prompt (probes Part K). dia-elenchus and dia-brainstorm: when both are named, the definition dialogue comes first, the first message says so, and brainstorming starts when the user asks or the dialogue ends; never interleaved. dia-refine and dia-iterate: when both are named, they run as separate passes with separate outputs, and a re-derivation from the refine pass never counts as verification in an iterate round. Output length for several analyses at once is left to the P1/P2 phone checks. Owner ruling 2026-10-20; still 0.1.0. |
 | D29 | `short_description` in every `agents/openai.yaml` is 25–64 characters, the OpenAI skill UI guidance (openai/skills `openai_yaml.md`; research intent review M5, now repo-wide). `tools/package.py` enforces the range. The field is UI-only: Codex shows the model the SKILL.md `description`, not `short_description` (`codex debug prompt-input`, 2026-10-20), so routing is unchanged and no probe was needed. |
+| D30 | `dia-intent` is renamed `dia-confirm` in plugin 1.1.0 (owner, 2026-10-20). Reason: SuperClaude's `/sc:intent` also captures intent before work, but records it as a committed `00-intent.md`; this skill shows the goal, assumptions and open decisions and holds until the user approves, and the new name states that hold. It also continues the lineage name `confirm-intent`. The rename breaks invocation by the old name; released as a minor version because the owner was the only user and the repository was still private. `tools/package.py` rejects `dia-intent` outside `metadata.lineage`. Decision rows and research documents dated before D30 keep the old name as a historical record. `dia-brainstorm` keeps its name despite `/sc:brainstorm` (owner, same day): both brainstorm, and dropping the Socratic cue from a name has hurt routing before (probes Part B). |
 
 ## 4. Names and identifiers
 
@@ -90,7 +91,7 @@ The plugin `name` is the only field that sets the namespace. `displayName` is sh
 
 | New skill | Rebuilt from (reference version) | Claude invocation | Codex / ChatGPT invocation |
 |---|---|---|---|
-| `dia-intent` | confirm-intent (installed copy, no version field) | `/dia:dia-intent` | `$dia:dia-intent` / `@dia-intent` |
+| `dia-confirm` (named `dia-intent` until 1.0.0, D30) | confirm-intent (installed copy, no version field) | `/dia:dia-confirm` | `$dia:dia-confirm` / `@dia-confirm` |
 | `dia-elenchus` | socratic-elenchus 1.3.1 (`superclaude@stable`) | `/dia:dia-elenchus` | `$dia:dia-elenchus` / `@dia-elenchus` |
 | `dia-brainstorm` | socratic-brainstorm 3.3.1 (`superclaude@stable`) | `/dia:dia-brainstorm` | `$dia:dia-brainstorm` / `@dia-brainstorm` |
 | `dia-reductio` | reductio (installed copy) | `/dia:dia-reductio` | `$dia:dia-reductio` / `@dia-reductio` |
@@ -114,7 +115,7 @@ Natural-language requests work on every surface and are the safe default on mobi
 
 ## 5. Skills
 
-All seven skills keep their reference behavior unless this section or D19–D29 say otherwise. For every skill, the rebuild:
+All seven skills keep their reference behavior unless this section or D19–D30 say otherwise. For every skill, the rebuild:
 
 - renames the skill;
 - updates cross-references so that each description names the new skill names;
@@ -122,17 +123,17 @@ All seven skills keep their reference behavior unless this section or D19–D29 
 - adds `agents/openai.yaml` (§7.3);
 - sets `metadata.version` to `1.0.0` and records `metadata.lineage` as `<old name> <old version>`.
 
-### 5.1 dia-intent (from confirm-intent)
+### 5.1 dia-confirm (from confirm-intent; `dia-intent` until 1.0.0, D30)
 
 - Purpose: before work starts, restate the goal, disclose material assumptions and list only the decisions the user must make. Then wait for approval.
-- Behavior: the reference, amended by D19–D29.
+- Behavior: the reference, amended by D19–D30.
 - Invocation: explicit only. Its own description already says "Use only when explicitly selected or invoked", so `allow_implicit_invocation: false`.
 - References: none at present. `references/ko/` is optional (§6).
 
 ### 5.2 dia-elenchus (from socratic-elenchus 1.3.1)
 
 - Purpose: Plato's elenchus. Ask "what is X?", collect agreed premises one question at a time, show contradictions, and treat each revision as the user's new idea. It usually ends in aporia and never gives advice.
-- Behavior: the reference, amended by D19–D29.
+- Behavior: the reference, amended by D19–D30.
 - Cross-reference: "use socratic-brainstorm" becomes "use dia-brainstorm".
 - Invocation: `allow_implicit_invocation: false`, as in the reference.
 - References carried over: `elenchus-patterns.md` and `record-template.md`; `theory.md` added (D24) for the dialogue loci and sources, read only when the user asks about the sources or the method.
@@ -140,7 +141,7 @@ All seven skills keep their reference behavior unless this section or D19–D29 
 ### 5.3 dia-brainstorm (from socratic-brainstorm 3.3.1)
 
 - Purpose: modern Socratic questioning, one question at a time. The user lists options, the skill adds up to three labeled ones, and the user converges by criteria. It ends with a verdict and a brief, and never implements anything.
-- Behavior: the reference, amended by D19–D29.
+- Behavior: the reference, amended by D19–D30.
 - Cross-reference: points to dia-elenchus.
 - Invocation: `allow_implicit_invocation: false`, as in the reference.
 - References carried over: `question-bank.md` and `brief-template.md`.
@@ -215,7 +216,7 @@ All seven skills keep their reference behavior unless this section or D19–D29 
 
   Laws change, so the `As of` date is required. The skill must tell the user that date when it relies on the file.
 - L5. `SKILL.md` names each `references/ko/` file and the condition for reading it, for example: "If the claim turns on Korean law or a Korean institution, read `references/ko/<file>.md`". Otherwise the file is not read. This keeps the default context small.
-- L6. Replies follow the user's language; every skill states this (dia-intent since D20).
+- L6. Replies follow the user's language; every skill states this (dia-confirm, as dia-intent, since D20).
 - L7. Removing Hangul from descriptions (5.4, 5.5, 5.6) may reduce routing accuracy for Korean prompts. P7 measures this. If routing drops below the baseline, fix the English trigger wording. Do not reintroduce Hangul.
 
 No skill ships `references/ko/` files in 1.0.0 (D17).
@@ -272,7 +273,7 @@ policy:
 
 | Skill | `allow_implicit_invocation` | Reason |
 |---|---|---|
-| dia-intent | false | Its description says explicit only |
+| dia-confirm | false | Its description says explicit only |
 | dia-elenchus | false | Same as the reference |
 | dia-brainstorm | false | Same as the reference |
 | dia-reductio | true | Same as the reference (no yaml, default true) |
@@ -413,7 +414,7 @@ Each probe is run once (n=1) unless stated otherwise, and the result is recorded
 | # | Probe | Pass condition |
 |---|---|---|
 | P1 | claude.ai upload of `dialectic-skills.zip` | Accepted; seven skills listed as `dia:dia-<x>` |
-| P2 | Claude mobile app, one natural-language prompt per skill | The right skill loads; the reply is in the prompt's language. For dia-intent the prompt names the skill, and for dia-iterate it starts with `dia-iterate` (a mid-sentence mention should produce the one-line request, not the loop); dia-elenchus and dia-brainstorm use the P7 prompts, which ask for the method by name in natural language. For dia-intent also check that the same request without the name does not load it |
+| P2 | Claude mobile app, one natural-language prompt per skill | The right skill loads; the reply is in the prompt's language. For dia-confirm the prompt names the skill, and for dia-iterate it starts with `dia-iterate` (a mid-sentence mention should produce the one-line request, not the loop); dia-elenchus and dia-brainstorm use the P7 prompts, which ask for the method by name in natural language. For dia-intent also check that the same request without the name does not load it |
 | P3 | Codex CLI plugin install, with only `.claude-plugin/plugin.json` | Plugin loads; `$dia:dia-<x>` resolves (the first run showed that plugin skills are namespaced; `$dia-<x>` applies only to a copied folder); `allow_implicit_invocation: false` holds for the four explicit-only skills. If this fails, add the root `plugin.json` (§7.4), re-run, and confirm that Claude Code still loads with both manifests present |
 | P4 | ChatGPT desktop (Pro), local plugin install | Skills appear under `@`; one prompt per skill routes correctly |
 | P5 | ChatGPT mobile (Pro) after P4 | Skills are usable; if not, record the plan limitation and test the Codex-cloud fallback |

@@ -1,11 +1,11 @@
 ---
-name: dia-intent
+name: dia-confirm
 description: Restate the user's goal, disclose material assumptions, and identify unresolved factors before starting work. Use only when explicitly selected or invoked for a task. Apply to that task and its direct follow-ups; do not carry it into unrelated tasks unless invoked again.
 license: MIT
 metadata:
   author: ajitta
-  version: "1.0.0"
-  lineage: "confirm-intent (installed copy, unversioned)"
+  version: "1.1.0"
+  lineage: "confirm-intent (installed copy, unversioned); named dia-intent until plugin 1.0.0"
   source: "https://github.com/ajitta/dialectic-skills"
 ---
 

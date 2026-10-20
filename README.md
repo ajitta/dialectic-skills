@@ -4,7 +4,7 @@ Seven reasoning-and-review skills in one plugin, written to run unchanged on any
 
 | Skill | What it does | Invocation policy |
 |---|---|---|
-| `dia-intent` | Before work starts: restate the goal, disclose material assumptions, list only the decisions the user must make, then wait for approval. | explicit only |
+| `dia-confirm` | Before work starts: restate the goal, disclose material assumptions, list only the decisions the user must make, then wait for approval. | explicit only |
 | `dia-elenchus` | Plato's elenchus: "what is X?", premises agreed one question at a time, contradictions shown, each revision is the user's new idea. Usually ends in aporia; gives no advice. | explicit only |
 | `dia-brainstorm` | Modern Socratic questioning one question at a time, then the user's options plus up to three labeled ones, convergence by criteria, a verdict and a brief. Never implements. | explicit only |
 | `dia-reductio` | Strict reductio ad absurdum in one pass: labeled premises, a Q and not-Q derivation with a rule per line, graded strength, options and a record. `--target=user\|claude\|text\|all`. | implicit allowed |
@@ -32,6 +32,8 @@ Asking in words works on every surface and is the safe default on mobile. Which 
 ### Moving from the old skills
 
 Remove the old copies first; otherwise each method loads twice under two names. On claude.ai: Customize › Skills — remove `reductio`, `negative-dialectics`, `self-refine`, `recursive-refine`, `confirm-intent`; Customize › Plugins — remove `socratic`. In Claude Code: `/plugin uninstall socratic@ajitta-socratic` and remove copies under `~/.claude/skills/`. For Codex / ChatGPT desktop: remove old copies under `~/.agents/skills/`.
+
+From 1.0.0 to 1.1.0: `dia-intent` is renamed `dia-confirm` (spec D30). Invoke it by the new name (`/dia:dia-confirm`, `$dia:dia-confirm`). On claude.ai, remove the 1.0.0 plugin and upload the 1.1.0 zip; Claude Code and Codex marketplace installs pick it up on update.
 
 ## Repository layout
 

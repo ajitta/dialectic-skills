@@ -196,6 +196,18 @@ dia-brainstorm, Claude Code (harness as Part E, connectors off), two scripted se
 - dia-elenchus + dia-brainstorm, and the reversed order (dia-brainstorm + dia-elenchus): Claude 6/6 and Codex 6/6 started the definition dialogue and said in the first message that brainstorming follows on request or when the dialogue ends; no run dropped dia-brainstorm silently (Part K: 1/2 had).
 - dia-refine + dia-iterate: Claude 3/3 gave two separate passes and said first that no check had run (shell and search denied). Codex 3/3 gave two separate passes. A re-run that logged every event showed real web searches (`web_search` items that opened the Python 3.13 What's New page), so the GIL fix's "(tool: … documentation)" basis is sound; but each run also labelled the 20% fix "(tool: JavaScript execution)", "(tool: calculation)" or "(code execution)", and no execution event appears in its log. Unless Codex runs code server-side without logging it, that is a claimed check that did not run, against both skills' rules. Recorded as a Codex-side finding; the skills already forbid it, and no wording change was made.
 
+**Part L, rename to dia-confirm (spec D30), 1.1.0 payload, 2026-10-20.** Claude Code (Part E harness, sonnet, `--tools Skill`, fresh `CLAUDE_CONFIG_DIR` per run, neutral directory, no `@synced` plugin in any init event); Codex CLI 0.163.0 (isolated `CODEX_HOME`, local marketplace copy, gpt-6.1-sol). Runner and transcripts: `~/work/dia-review/rename-confirm/` on the build VM.
+
+| Cell | Engine | dia-confirm loaded | Pass |
+|---|---|---|---|
+| «dia-confirm 먼저 확인해줘: 사진 파일을 날짜별로 이름 바꾸는 스크립트 만들어줘.» | Claude | 3/3, Korean review, holds for approval | yes |
+| "dia-confirm: I want a script that renames all my photos by date." | Claude | 3/3, English review | yes |
+| the same Korean request without the name | Claude | 0/3 (answered directly) | yes |
+| "Write a script that renames all my photos by date." | Claude | 0/3 (one run called an unrelated `run` skill) | yes |
+| «dia-intent 먼저 확인해줘: …» (old name) | Claude | 0/2; both replies said `dia-intent` is not listed, named `dia:dia-confirm` as the closest, and ran the review by hand | informative |
+| `$dia:dia-confirm` + the Korean request | Codex | 2/2, Korean review | yes |
+| model-visible listing | Codex | dia-negative, dia-reductio, dia-refine only (dia-confirm is explicit-only) | yes |
+
 ### P8: tool-less run (`--tools Skill`: no search, fetch, code or file tools)
 
 Draft under test: "The Eiffel Tower was completed in 1889 and is about 330 m tall. Python 3.13 removed the GIL by default. 17 x 23 = 391." The Python sentence is wrong.

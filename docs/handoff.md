@@ -4,7 +4,7 @@ State of the work and what is left, for the next agent session. Read `AGENTS.md`
 
 ## State (2026-10-20)
 
-- Plugin `dia` **1.0.0** is released (`v1.0.0`, GitHub release with `dialectic-skills.zip`, 2026-10-20) after acceptance (spec §12.3). The pre-release `v0.1.0` is what the owner probed; 1.0.0 differs from it only in the version number. Every skill change now needs a new plugin `version` and the skill's `metadata.version`.
+- Plugin `dia` **1.1.0** renames `dia-intent` to `dia-confirm` (spec D30, 2026-10-20). 1.0.0 (`v1.0.0`) was released after acceptance (spec §12.3); the pre-release `v0.1.0` is what the owner probed, and 1.0.0 differs from it only in the version number. Every skill change needs a new plugin `version` and the skill's `metadata.version`. Older docs (probes, research, reviews) use the name `dia-intent`; it is the same skill.
 - CI (`.github/workflows/check.yml`) runs on every push to `main` and on pull requests. It runs `tools/package.py --check`, the unit tests, and `claude plugin validate --strict` for the plugin and the marketplace. It is green.
 - Skill text reflects spec D19–D29 (research findings, token audit, data-not-instructions rule, dia-refine suspected corrections, several-skills-in-one-prompt rules, `short_description` length). Every batch was diff-reviewed or probed; results are in `docs/probes.md` Parts A–K, `docs/token-cost.md` and `docs/skill-effect.md`.
 - Spec §12.3 acceptance:
