@@ -57,7 +57,7 @@ The remaining low findings, in the reviewed forms, applied by one implementer pe
 
 ## XML tags (2026-10-20)
 
-[xml-tags/evidence.md](xml-tags/evidence.md) checks the claim that XML tags help separate instructions, material and examples, against vendor docs and format studies, and ends with decision rules. [xml-tags/audit.md](xml-tags/audit.md) goes through the seven skills for places where a delimiter would help or hurt and proposes a probe plan. Baseline probe: `docs/probes.md` Part H. Nothing applied yet.
+[xml-tags/evidence.md](xml-tags/evidence.md) checks the claim that XML tags help separate instructions, material and examples, against vendor docs and format studies, and ends with decision rules. [xml-tags/audit.md](xml-tags/audit.md) goes through the seven skills for places where a delimiter would help or hurt and proposes a probe plan. Baseline probe: `docs/probes.md` Part H. Applied as spec D26 (no XML tags; a plain data-not-instructions rule in five skills), checked in Part I.
 
 ## Still open
 
