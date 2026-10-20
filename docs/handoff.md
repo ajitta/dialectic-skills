@@ -28,6 +28,7 @@ State of the work and what is left, for the next agent session. Read `AGENTS.md`
 | 10 | Codex claims a code check it did not run | owner watches in ChatGPT use | Probes Part K: with dia-refine + dia-iterate, Codex labelled the 20% fix "(tool: JavaScript execution)" with no execution event in its log, 3/3. Both skills already forbid this; check whether it recurs in the Codex app or ChatGPT. |
 | 11 | dia-refine by plain request on Claude Code: known limit | — | Probes Part J: a request without the name loaded dia-refine 1/9, before and after D27; by name it loads every time. Kept as a known limit (owner rulings 2026-10-20, confirmed after 1.0.0). |
 | 12 | Long output when several analysis skills run at once: kept as is | owner reports if it bothers on a phone | Probes Part K: dia-reductio + dia-negative gave 8.6k–9.4k characters on Claude Code. Owner ruling 2026-10-20 after 1.0.0: no length limit now; add one in a 1.0.x if it proves uncomfortable on a phone. |
+| 13 | Directory listings (Anthropic, OpenAI) | owner decides, then agent + owner | Requirements and gaps: `docs/directory-submission.md`. Anthropic blocks on a missing plugin-folder README; OpenAI needs a verified identity, `interface` listing fields and two square images. |
 
 Observations from P8 (n=1 each; see `docs/probes.md`):
 
