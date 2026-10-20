@@ -42,11 +42,13 @@ codex plugin marketplace add ajitta/dialectic-skills
 codex plugin add dia@dialectic-skills
 ```
 
-claude.ai 或 Claude 桌面版：Customize › Plugins › Add › Add marketplace，输入 `ajitta/dialectic-skills`，然后选择 Discover › `dia` › Add。详细步骤见下文。
+claude.ai（网页版）：Customize › Plugins › Add › Add marketplace，输入 `ajitta/dialectic-skills`，然后选择 Discover › `dia` › Add。这样网页版和移动应用都能使用。详细步骤见下文。
 
 然后试试：`对这个论断用反证法：远程办公总能提高生产力。`
 
 ## 安装
+
+**在哪里安装，决定了 dia 出现在哪里。** 在网页版（claude.ai、chatgpt.com）安装会保存到你的账号，并出现在网页版和移动应用中。在桌面应用（Claude 桌面版、ChatGPT 桌面应用中的 Codex）安装则只留在那台电脑上。想在所有地方使用，请在网页版安装一次，并在你使用的每个桌面应用中各安装一次；作者就是这样使用的。
 
 ### claude.ai 网页版与 Claude 桌面版
 
@@ -63,9 +65,11 @@ claude.ai 或 Claude 桌面版：Customize › Plugins › Add › Add marketpla
 
 也可以不走第 2、3 步，直接上传插件：在 Customize › Plugins › Add › Upload plugin 上传最新发布版中的 [`dialectic-skills.zip`](https://github.com/ajitta/dialectic-skills/releases/latest/download/dialectic-skills.zip)。请使用 Customize › Plugins，而不是 Customize › Skills：Skills 页面会拒绝带有插件清单的 zip。上传的插件不会自动更新；每个新版本都需重新上传。
 
+**Claude 桌面版：** 虽然是同样的 Customize › Plugins 页面，但只会安装到那台电脑上。作者测试发现，在 Claude 桌面版添加的插件没有出现在移动应用中，在 claude.ai 添加的插件也没有出现在 Claude 桌面版中。两者都用的话，请分别安装。
+
 ### Claude 移动版（iOS、Android）
 
-无需安装步骤。在 claude.ai 或 Claude 桌面版添加的插件属于你的账号，会自动同步到移动应用。移动版的 `/` 菜单不会列出插件技能；请用文字描述请求，或在消息中写出技能名称。
+无需安装步骤。在 claude.ai（网页版）添加的插件会保存到你的账号，并自动出现在移动应用中；在 Claude 桌面版添加的则不会。移动版的 `/` 菜单不会列出插件技能；请用自然语言提出请求，或在消息中写上技能名称。
 
 ### Claude Code
 
@@ -91,12 +95,12 @@ codex plugin add dia@dialectic-skills
 
 ### ChatGPT 桌面版（含 Codex）与移动版
 
-有两种安装方式，只有第一种能同步到移动应用：
+有两种途径。网页版和移动版用第一种，桌面应用用第二种；作者两种都在用：
 
-1. **上传 zip（桌面版和移动版）：** 从最新发布版下载 [`dialectic-skills-openai.zip`](https://github.com/ajitta/dialectic-skills/releases/latest/download/dialectic-skills-openai.zip)，然后在 ChatGPT 桌面应用中通过插件 zip 上传添加。插件会保存到你的账号，因此也会出现在 ChatGPT 网页版和移动版中。这个 zip 包含 ChatGPT 用的展示信息（描述、起始提示词、图标）。上传的插件不会自动更新；每个新版本都需重新上传。
-2. **添加 marketplace（仅限本机）：** Codex 已包含在 ChatGPT 桌面应用中。通过 GitHub 仓库（`ajitta/dialectic-skills`）、Git URL（`https://github.com/ajitta/dialectic-skills.git`）或本地文件夹（本仓库的克隆）添加 marketplace，再在其插件列表中选择 `dia` 并安装。这只会安装到桌面应用本地的 Codex 文件夹，不会保存到账号，因此不会出现在移动版或网页版中。
+1. **在网页版上传 zip（网页版和移动版）：** 从最新发布版下载 [`dialectic-skills-openai.zip`](https://github.com/ajitta/dialectic-skills/releases/latest/download/dialectic-skills-openai.zip)，在 chatgpt.com 通过插件 zip 上传添加。插件会保存到你的账号，因此会出现在 ChatGPT 网页版和移动版中。这个 zip 包含 ChatGPT 用的展示信息（描述、起始提示词、图标）。上传的插件不会自动更新；每个新版本都需重新上传。
+2. **在桌面应用中添加 marketplace（仅限本机）：** Codex 已包含在 ChatGPT 桌面应用中。通过 GitHub 仓库（`ajitta/dialectic-skills`）、Git URL（`https://github.com/ajitta/dialectic-skills.git`）或本地文件夹（本仓库的克隆）添加 marketplace，再在其插件列表中选择 `dia` 并安装。这只会安装到桌面应用本地的 Codex 文件夹，不会保存到账号，因此不会出现在移动版或网页版中。更新通过 marketplace 获取。
 
-只用一种方式即可；两种都用的话，每个技能都会出现两次。作者已在 Pro 套餐下运行过这些技能。在 Business 和 Enterprise 工作区中，管理员还可以为整个工作区添加该插件（上传 zip 或导入 GitHub marketplace）。
+在 Business 和 Enterprise 工作区中，管理员还可以为整个工作区添加该插件（上传 zip 或导入 GitHub marketplace）。
 
 ### Windows
 
@@ -366,7 +370,7 @@ dia-iterate --max 2 核查这段话里的日期和事实："第一代 iPhone 于
 
 - **添加 marketplace 时出现 `Repository not found`。** 检查拼写：`ajitta/dialectic-skills`（是 dialectic，不是 dialectric）。该仓库是公开的，无需登录 GitHub。
 - **Claude 移动版的 `/` 下没有 dia 技能。** 这是预期行为：移动版菜单不会列出插件技能。请用文字描述请求，或以技能名称开头发送消息。
-- **ChatGPT 桌面版有 dia，移动版却没有。** 这是通过添加 marketplace 安装的，只存在于那台电脑上。请删除它，改为上传 `dialectic-skills-openai.zip`（见 ChatGPT 桌面版与移动版）。
+- **dia 在一台设备上能用，在另一台上不能用。** 在桌面应用安装的只留在那台电脑上；在网页版安装的会保存到账号，并同步到移动应用。请在网页版安装一次（供网页版和移动版使用），并在你使用的每个桌面应用中各安装一次（见“安装”）。
 - **每个技能都出现了两次。** 插件通过两种途径安装了（例如 `dia@dialectic-skills` 和 `dia@ajitta`，或一次上传加一次 marketplace）。删除其中一个。
 - **claude.ai 上的 Skills 部分缺失或显示为灰色。** 打开 Settings › Capabilities › Code execution and file creation。
 - **找不到 `dia-intent`。** 它已在 1.1.0 中更名为 `dia-confirm`。

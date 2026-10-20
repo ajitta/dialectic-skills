@@ -42,11 +42,13 @@ codex plugin marketplace add ajitta/dialectic-skills
 codex plugin add dia@dialectic-skills
 ```
 
-claude.ai or Claude desktop: Customize › Plugins › Add › Add marketplace with `ajitta/dialectic-skills`, then Discover › `dia` › Add. Step by step below.
+claude.ai (web): Customize › Plugins › Add › Add marketplace with `ajitta/dialectic-skills`, then Discover › `dia` › Add. This reaches the web and the mobile app. Step by step below.
 
 Then try: `Use proof by contradiction on this claim: remote work always raises productivity.`
 
 ## Install
+
+**Where you install decides where dia shows up.** An install made on the web (claude.ai, chatgpt.com) is saved to your account and appears on the web and in the mobile app. An install made in a desktop app (Claude desktop, Codex in the ChatGPT desktop app) stays on that computer. To use dia everywhere, install it once on the web and once in each desktop app you use; the owner runs it this way.
 
 ### claude.ai web and Claude desktop
 
@@ -63,9 +65,11 @@ Then try: `Use proof by contradiction on this claim: remote work always raises p
 
 Instead of steps 2 and 3 you can upload the plugin: Customize › Plugins › Add › Upload plugin with [`dialectic-skills.zip`](https://github.com/ajitta/dialectic-skills/releases/latest/download/dialectic-skills.zip) from the latest release. Use Customize › Plugins, not Customize › Skills: the Skills screen rejects a zip that carries a plugin manifest. An upload does not update itself; upload each new release again.
 
+**Claude desktop:** the same Customize › Plugins screens install dia on that computer only. In the owner's tests, a plugin added in Claude desktop did not reach the mobile app, and one added on claude.ai did not appear in Claude desktop. If you use both, install in both places.
+
 ### Claude mobile (iOS, Android)
 
-There is no install step. A plugin added on claude.ai or Claude desktop belongs to your account and reaches the mobile app by itself. The mobile `/` menu does not list plugin skills; ask in words or name the skill in your message.
+There is no install step. A plugin added on claude.ai (the web) is saved to your account and reaches the mobile app by itself; one added in Claude desktop does not. The mobile `/` menu does not list plugin skills; ask in words or name the skill in your message.
 
 ### Claude Code
 
@@ -91,12 +95,12 @@ codex plugin add dia@dialectic-skills
 
 ### ChatGPT desktop (with Codex) and mobile
 
-There are two ways to install, and only the first reaches the mobile app:
+There are two routes. Use the first for the web and mobile, the second for the desktop app; the owner uses both.
 
-1. **Upload the zip (desktop and mobile).** Download [`dialectic-skills-openai.zip`](https://github.com/ajitta/dialectic-skills/releases/latest/download/dialectic-skills-openai.zip) from the latest release, then use the plugin zip upload in the ChatGPT desktop app. The plugin is saved to your account, so it also appears on ChatGPT web and mobile. This zip carries the ChatGPT listing (descriptions, starter prompts, logo). An upload does not update itself; upload each new release again.
-2. **Add the marketplace (this computer only).** Codex is part of the ChatGPT desktop app. Add a marketplace from a GitHub repository (`ajitta/dialectic-skills`), a Git URL (`https://github.com/ajitta/dialectic-skills.git`) or a local folder (a clone of this repository), then select `dia` in its plugin list and install it. This installs into the desktop app's local Codex folder and is not saved to your account, so the plugin does not appear on mobile or the web.
+1. **Upload the zip on the web (web and mobile).** Download [`dialectic-skills-openai.zip`](https://github.com/ajitta/dialectic-skills/releases/latest/download/dialectic-skills-openai.zip) from the latest release and upload it on chatgpt.com with the plugin zip upload. The plugin is saved to your account, so it appears on ChatGPT web and mobile. This zip carries the ChatGPT listing (descriptions, starter prompts, logo). An upload does not update itself; upload each new release again.
+2. **Add the marketplace in the desktop app (this computer only).** Codex is part of the ChatGPT desktop app. Add a marketplace from a GitHub repository (`ajitta/dialectic-skills`), a Git URL (`https://github.com/ajitta/dialectic-skills.git`) or a local folder (a clone of this repository), then select `dia` in its plugin list and install it. This installs into the desktop app's local Codex folder and is not saved to your account, so it does not appear on mobile or the web. Updates arrive through the marketplace.
 
-Use one route only; with both, every skill appears twice. The owner has run the skills on a Pro plan. On Business and Enterprise workspaces, an admin can also add the plugin for the whole workspace (upload the zip or import the GitHub marketplace).
+On Business and Enterprise workspaces, an admin can also add the plugin for the whole workspace (upload the zip or import the GitHub marketplace).
 
 ### Windows
 
@@ -366,7 +370,7 @@ dia-iterate --max 2 check the dates and facts in this paragraph: "The first iPho
 
 - **`Repository not found` when adding the marketplace.** Check the spelling: `ajitta/dialectic-skills` (dialectic, not dialectric). The repository is public and needs no GitHub login.
 - **No dia skills under `/` on Claude mobile.** Expected: the mobile menu does not list plugin skills. Ask in words or start the message with the skill name.
-- **dia is on ChatGPT desktop but not on mobile.** It was installed by adding the marketplace, which stays on that computer. Remove it and upload `dialectic-skills-openai.zip` instead (see ChatGPT desktop and mobile).
+- **dia works on one device but not on another.** Desktop installs stay on that computer; web installs are saved to your account and reach the mobile app. Install on the web for the web and mobile, and in each desktop app you use (see Install).
 - **Every skill appears twice.** The plugin is installed through two routes (for example `dia@dialectic-skills` and `dia@ajitta`, or an upload and a marketplace). Remove one.
 - **Skills section missing or greyed out on claude.ai.** Turn on Settings › Capabilities › Code execution and file creation.
 - **`dia-intent` is not found.** It was renamed `dia-confirm` in 1.1.0.

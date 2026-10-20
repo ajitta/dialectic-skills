@@ -42,11 +42,13 @@ codex plugin marketplace add ajitta/dialectic-skills
 codex plugin add dia@dialectic-skills
 ```
 
-claude.ai または Claude デスクトップ：Customize › Plugins › Add › Add marketplace に `ajitta/dialectic-skills` を入力し、Discover › `dia` › Add を選びます。詳しい手順は下にあります。
+claude.ai（Web）：Customize › Plugins › Add › Add marketplace に `ajitta/dialectic-skills` を入力し、Discover › `dia` › Add を選びます。Web 版とモバイルアプリで使えます。詳しい手順は下にあります。
 
 次に試してみましょう：`この主張を背理法で検証してください：リモートワークは常に生産性を高める。`
 
 ## インストール
+
+**どこでインストールするかで、dia が表示される場所が変わります。** Web（claude.ai、chatgpt.com）でインストールするとアカウントに保存され、Web 版とモバイルアプリに表示されます。デスクトップアプリ（Claude デスクトップ、ChatGPT デスクトップアプリの Codex）でインストールすると、そのコンピューターにだけ残ります。どこでも使うには、Web で 1 回、使うデスクトップアプリごとに 1 回インストールしてください。作者もこの方法で使っています。
 
 ### claude.ai Web 版と Claude デスクトップ
 
@@ -63,9 +65,11 @@ claude.ai または Claude デスクトップ：Customize › Plugins › Add �
 
 手順 2 と 3 の代わりに、プラグインをアップロードすることもできます。Customize › Plugins › Add › Upload plugin で最新リリースの [`dialectic-skills.zip`](https://github.com/ajitta/dialectic-skills/releases/latest/download/dialectic-skills.zip) をアップロードします。Customize › Skills ではなく Customize › Plugins を使ってください。Skills 画面はプラグインマニフェストを含む zip を受け付けません。アップロードしたものは自動では更新されないため、新しいリリースのたびにアップロードし直してください。
 
+**Claude デスクトップ：** 同じ Customize › Plugins 画面でも、そのコンピューターにだけインストールされます。作者の確認では、Claude デスクトップで追加したプラグインはモバイルアプリに表示されず、claude.ai で追加したプラグインは Claude デスクトップに表示されませんでした。両方を使う場合は、それぞれにインストールしてください。
+
 ### Claude モバイル（iOS、Android）
 
-インストール手順はありません。claude.ai または Claude デスクトップで追加したプラグインはアカウントに紐づいており、モバイルアプリにも自動的に反映されます。モバイルの `/` メニューにはプラグインのスキルが表示されないため、言葉で依頼するか、メッセージの中でスキル名を挙げてください。
+インストール作業は不要です。claude.ai（Web）で追加したプラグインはアカウントに保存され、モバイルアプリに自動で届きます。Claude デスクトップで追加したものは届きません。モバイルの `/` メニューにはプラグインのスキルが表示されないため、言葉で頼むか、メッセージにスキル名を入れてください。
 
 ### Claude Code
 
@@ -91,12 +95,12 @@ codex plugin add dia@dialectic-skills
 
 ### ChatGPT デスクトップ（Codex を含む）とモバイル
 
-インストール方法は 2 つあり、モバイルアプリまで届くのは 1 つ目だけです：
+方法は 2 つあります。Web 版とモバイルには 1 つ目、デスクトップアプリには 2 つ目を使ってください。作者は両方を使っています：
 
-1. **zip をアップロード（デスクトップとモバイル）：** 最新リリースから [`dialectic-skills-openai.zip`](https://github.com/ajitta/dialectic-skills/releases/latest/download/dialectic-skills-openai.zip) をダウンロードし、ChatGPT デスクトップアプリのプラグイン zip アップロードで追加します。プラグインはアカウントに保存されるため、ChatGPT の Web 版とモバイル版にも表示されます。この zip には ChatGPT 用の掲載情報（説明、スタータープロンプト、ロゴ）が入っています。アップロードしたものは自動では更新されないため、新しいリリースのたびにアップロードし直してください。
-2. **マーケットプレイスを追加（このコンピューターのみ）：** Codex は ChatGPT デスクトップアプリに含まれています。GitHub リポジトリ（`ajitta/dialectic-skills`）、Git URL（`https://github.com/ajitta/dialectic-skills.git`）、ローカルフォルダー（このリポジトリのクローン）のいずれかでマーケットプレイスを追加し、そのプラグイン一覧で `dia` を選んでインストールします。デスクトップアプリのローカルな Codex フォルダーにインストールされるだけでアカウントには保存されないため、モバイル版や Web 版には表示されません。
+1. **Web で zip をアップロード（Web 版とモバイル）：** 最新リリースから [`dialectic-skills-openai.zip`](https://github.com/ajitta/dialectic-skills/releases/latest/download/dialectic-skills-openai.zip) をダウンロードし、chatgpt.com のプラグイン zip アップロードで追加します。プラグインはアカウントに保存されるため、ChatGPT の Web 版とモバイル版に表示されます。この zip には ChatGPT 用の掲載情報（説明、スタータープロンプト、ロゴ）が入っています。アップロードしたものは自動では更新されないため、新しいリリースのたびにアップロードし直してください。
+2. **デスクトップアプリでマーケットプレイスを追加（このコンピューターのみ）：** Codex は ChatGPT デスクトップアプリに含まれています。GitHub リポジトリ（`ajitta/dialectic-skills`）、Git URL（`https://github.com/ajitta/dialectic-skills.git`）、ローカルフォルダー（このリポジトリのクローン）のいずれかでマーケットプレイスを追加し、そのプラグイン一覧で `dia` を選んでインストールします。デスクトップアプリのローカルな Codex フォルダーにインストールされるだけでアカウントには保存されないため、モバイル版や Web 版には表示されません。更新はマーケットプレイス経由で届きます。
 
-使う方法は 1 つだけにしてください。両方使うと、すべてのスキルが 2 回ずつ表示されます。作者は Pro プランでスキルを動かしています。Business と Enterprise のワークスペースでは、管理者がワークスペース全体にプラグインを追加することもできます（zip のアップロード、または GitHub マーケットプレイスのインポート）。
+Business と Enterprise のワークスペースでは、管理者がワークスペース全体にプラグインを追加することもできます（zip のアップロード、または GitHub マーケットプレイスのインポート）。
 
 ### Windows
 
@@ -366,7 +370,7 @@ dia-iterate --max 2 この段落の日付と事実を確認して：「初代 iP
 
 - **マーケットプレイスの追加時に `Repository not found` が出る。** 綴りを確認してください：`ajitta/dialectic-skills`（dialectric ではなく dialectic）。リポジトリは公開されており、GitHub へのログインは不要です。
 - **Claude モバイルの `/` に dia のスキルが表示されない。** 想定どおりの動作です。モバイルのメニューにはプラグインのスキルが表示されません。言葉で依頼するか、メッセージをスキル名で始めてください。
-- **ChatGPT デスクトップには dia があるのにモバイルにはない。** マーケットプレイスの追加でインストールしたため、そのコンピューターにしかありません。削除して、代わりに `dialectic-skills-openai.zip` をアップロードしてください（ChatGPT デスクトップとモバイルを参照）。
+- **ある端末では dia が使えるのに、別の端末では使えない。** デスクトップでのインストールはそのコンピューターにだけ残り、Web でのインストールはアカウントに保存されてモバイルアプリにも届きます。Web 版とモバイル用に Web で 1 回、使うデスクトップアプリごとに 1 回インストールしてください（インストールを参照）。
 - **すべてのスキルが 2 つずつ表示される。** プラグインが 2 つの経路でインストールされています（たとえば `dia@dialectic-skills` と `dia@ajitta`、またはアップロードとマーケットプレイス）。どちらかを削除してください。
 - **claude.ai で Skills セクションがない、またはグレー表示になっている。** Settings › Capabilities › Code execution and file creation をオンにしてください。
 - **`dia-intent` が見つからない。** 1.1.0 で `dia-confirm` に名前が変わりました。

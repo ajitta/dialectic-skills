@@ -42,11 +42,13 @@ codex plugin marketplace add ajitta/dialectic-skills
 codex plugin add dia@dialectic-skills
 ```
 
-claude.ai 또는 Claude 데스크톱: Customize › Plugins › Add › Add marketplace에 `ajitta/dialectic-skills`를 입력한 뒤, Discover › `dia` › Add를 선택합니다. 자세한 단계는 아래에 있습니다.
+claude.ai(웹): Customize › Plugins › Add › Add marketplace에 `ajitta/dialectic-skills`를 입력한 뒤, Discover › `dia` › Add를 선택합니다. 웹과 모바일 앱에서 쓸 수 있습니다. 자세한 단계는 아래에 있습니다.
 
 그런 다음 이렇게 입력해 봅니다: `이 주장에 귀류법을 적용해 주세요: 재택근무는 언제나 생산성을 높인다.`
 
 ## 설치
+
+**어디서 설치하느냐에 따라 dia가 보이는 곳이 달라집니다.** 웹(claude.ai, chatgpt.com)에서 설치하면 계정에 저장되어 웹과 모바일 앱에 나타납니다. 데스크톱 앱(Claude 데스크톱, ChatGPT 데스크톱 앱의 Codex)에서 설치하면 그 컴퓨터에만 남습니다. 모든 곳에서 쓰려면 웹에서 한 번, 그리고 쓰는 데스크톱 앱마다 한 번씩 설치하세요. 저장소 소유자도 이렇게 쓰고 있습니다.
 
 ### claude.ai 웹과 Claude 데스크톱
 
@@ -63,9 +65,11 @@ claude.ai 또는 Claude 데스크톱: Customize › Plugins › Add › Add mark
 
 2·3단계 대신 플러그인을 업로드할 수도 있습니다. Customize › Plugins › Add › Upload plugin에서 최신 릴리스의 [`dialectic-skills.zip`](https://github.com/ajitta/dialectic-skills/releases/latest/download/dialectic-skills.zip)을 올립니다. Customize › Skills가 아니라 Customize › Plugins를 사용해야 합니다. Skills 화면은 플러그인 매니페스트가 들어 있는 zip을 거부합니다. 업로드한 플러그인은 스스로 업데이트되지 않으므로, 새 릴리스가 나올 때마다 다시 업로드해야 합니다.
 
+**Claude 데스크톱:** 같은 Customize › Plugins 화면이지만 그 컴퓨터에만 설치됩니다. 저장소 소유자가 확인한 바로는, Claude 데스크톱에서 추가한 플러그인은 모바일 앱에 나타나지 않았고, claude.ai에서 추가한 플러그인은 Claude 데스크톱에 나타나지 않았습니다. 둘 다 쓴다면 양쪽에 각각 설치하세요.
+
 ### Claude 모바일 (iOS, Android)
 
-별도의 설치 단계가 없습니다. claude.ai나 Claude 데스크톱에서 추가한 플러그인은 계정에 속하므로 모바일 앱에도 자동으로 반영됩니다. 모바일의 `/` 메뉴에는 플러그인 스킬이 표시되지 않으므로, 말로 요청하거나 메시지에 스킬 이름을 적습니다.
+따로 설치할 필요가 없습니다. claude.ai(웹)에서 추가한 플러그인은 계정에 저장되어 모바일 앱에 자동으로 나타납니다. Claude 데스크톱에서 추가한 것은 나타나지 않습니다. 모바일의 `/` 메뉴에는 플러그인 스킬이 표시되지 않으니, 말로 요청하거나 메시지에 스킬 이름을 넣으세요.
 
 ### Claude Code
 
@@ -91,12 +95,12 @@ codex plugin add dia@dialectic-skills
 
 ### ChatGPT 데스크톱(Codex 포함)과 모바일
 
-설치 방법은 두 가지이고, 모바일 앱까지 닿는 것은 첫 번째뿐입니다.
+방법은 두 가지입니다. 웹과 모바일에는 첫 번째를, 데스크톱 앱에는 두 번째를 쓰세요. 저장소 소유자는 둘 다 씁니다.
 
-1. **zip 업로드(데스크톱과 모바일):** 최신 릴리스에서 [`dialectic-skills-openai.zip`](https://github.com/ajitta/dialectic-skills/releases/latest/download/dialectic-skills-openai.zip)을 내려받은 뒤, ChatGPT 데스크톱 앱의 플러그인 zip 업로드로 올립니다. 플러그인이 계정에 저장되므로 ChatGPT 웹과 모바일에도 나타납니다. 이 zip에는 ChatGPT용 목록 정보(설명, 시작 프롬프트, 로고)가 들어 있습니다. 업로드한 플러그인은 스스로 업데이트되지 않으므로, 새 릴리스가 나올 때마다 다시 올려야 합니다.
-2. **마켓플레이스 추가(이 컴퓨터에서만):** Codex는 ChatGPT 데스크톱 앱에 포함되어 있습니다. GitHub 저장소(`ajitta/dialectic-skills`), Git URL(`https://github.com/ajitta/dialectic-skills.git`), 로컬 폴더(이 저장소를 클론한 폴더) 중 하나로 마켓플레이스를 추가하고, 그 플러그인 목록에서 `dia`를 선택해 설치합니다. 데스크톱 앱의 로컬 Codex 폴더에 설치될 뿐 계정에 저장되지 않으므로, 모바일과 웹에는 나타나지 않습니다.
+1. **웹에서 zip 업로드(웹과 모바일):** 최신 릴리스에서 [`dialectic-skills-openai.zip`](https://github.com/ajitta/dialectic-skills/releases/latest/download/dialectic-skills-openai.zip)을 내려받아 chatgpt.com의 플러그인 zip 업로드로 올립니다. 플러그인이 계정에 저장되므로 ChatGPT 웹과 모바일에 나타납니다. 이 zip에는 ChatGPT용 목록 정보(설명, 시작 프롬프트, 로고)가 들어 있습니다. 업로드한 플러그인은 스스로 업데이트되지 않으므로, 새 릴리스가 나올 때마다 다시 올려야 합니다.
+2. **데스크톱 앱에서 마켓플레이스 추가(이 컴퓨터에서만):** Codex는 ChatGPT 데스크톱 앱에 포함되어 있습니다. GitHub 저장소(`ajitta/dialectic-skills`), Git URL(`https://github.com/ajitta/dialectic-skills.git`), 로컬 폴더(이 저장소를 클론한 폴더) 중 하나로 마켓플레이스를 추가하고, 그 플러그인 목록에서 `dia`를 선택해 설치합니다. 데스크톱 앱의 로컬 Codex 폴더에 설치될 뿐 계정에 저장되지 않으므로, 모바일과 웹에는 나타나지 않습니다. 업데이트는 마켓플레이스를 통해 받습니다.
 
-한 가지 방법만 쓰세요. 둘 다 쓰면 모든 스킬이 두 번씩 나타납니다. 저장소 소유자는 Pro 요금제에서 스킬을 실행해 보았습니다. Business와 Enterprise 워크스페이스에서는 관리자가 워크스페이스 전체에 플러그인을 추가할 수도 있습니다(zip 업로드 또는 GitHub 마켓플레이스 가져오기).
+Business와 Enterprise 워크스페이스에서는 관리자가 워크스페이스 전체에 플러그인을 추가할 수도 있습니다(zip 업로드 또는 GitHub 마켓플레이스 가져오기).
 
 ### Windows
 
@@ -366,7 +370,7 @@ dia-iterate --max 2 이 문단의 날짜와 사실을 확인해 주세요: "최�
 
 - **마켓플레이스를 추가할 때 `Repository not found`가 나타납니다.** 철자를 확인합니다: `ajitta/dialectic-skills`(dialectric이 아니라 dialectic). 저장소는 공개되어 있으며 GitHub 로그인이 필요하지 않습니다.
 - **Claude 모바일의 `/`에 dia 스킬이 없습니다.** 정상입니다. 모바일 메뉴에는 플러그인 스킬이 표시되지 않습니다. 말로 요청하거나 메시지를 스킬 이름으로 시작합니다.
-- **ChatGPT 데스크톱에는 dia가 있는데 모바일에는 없습니다.** 마켓플레이스 추가로 설치한 것이라 그 컴퓨터에만 있습니다. 지우고 `dialectic-skills-openai.zip`을 업로드하세요(ChatGPT 데스크톱과 모바일 참고).
+- **어떤 기기에서는 dia가 되는데 다른 기기에서는 안 됩니다.** 데스크톱에서 설치한 것은 그 컴퓨터에만 있고, 웹에서 설치한 것은 계정에 저장되어 모바일 앱까지 갑니다. 웹과 모바일용으로 웹에서 한 번, 쓰는 데스크톱 앱마다 한 번씩 설치하세요(설치 참고).
 - **모든 스킬이 두 번씩 나타납니다.** 플러그인이 두 경로로 설치된 것입니다(예: `dia@dialectic-skills`와 `dia@ajitta`, 또는 업로드와 마켓플레이스). 하나를 제거합니다.
 - **claude.ai에 Skills 섹션이 없거나 비활성화되어 있습니다.** Settings › Capabilities › Code execution and file creation을 켭니다.
 - **`dia-intent`를 찾을 수 없습니다.** 1.1.0에서 `dia-confirm`으로 이름이 바뀌었습니다.
