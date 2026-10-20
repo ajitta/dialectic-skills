@@ -17,7 +17,7 @@ Treat the last output as a draft, find its defects, and produce one integrated r
 
 - Explicit: the message starts with `dia-refine`. What follows is the review criteria, for example `dia-refine — check the numbers` or `dia-refine for tone`. `/dia:dia-refine`, `$dia:dia-refine`, `$dia-refine` and `@dia-refine` also count.
 - A task with no draft yet: "do this task the dia-refine way" means first write a candidate answer, check it once by the procedure below, and give only the final version. Show the review only if the user asks for it.
-- Requests for several rounds belong to `dia-iterate`, not to this skill.
+- Requests for several rounds belong to `dia-iterate`, not to this skill. If dia-iterate is named in the same request, run the two as separate passes with separate outputs and keep their bases apart: a re-derivation in this pass is not verification for an iterate round.
 
 ## Target
 

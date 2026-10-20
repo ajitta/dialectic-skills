@@ -52,6 +52,8 @@ Name your pick in one line and ask one question, always in the form "What is X?"
 
 If the request only says "Socratic" in general ("do it Socratically", "question me like Socrates", "socratic method") and does not name the dialogue or elenchus, add one line to that first message: this is the strict dialogue (definitions and contradictions, no advice); for questioning that ends in options and a plan, they can ask for `dia-brainstorm`. Then continue.
 
+If dia-brainstorm is named in the same request, say in this first message that the dialogue comes first and that brainstorming follows when the user asks for it or the dialogue ends. Never interleave the two.
+
 If the idea has no load-bearing concept (fully specified, measurable), say so and stop. Don't fake an examination.
 
 ## Step 2 — A definition, not examples

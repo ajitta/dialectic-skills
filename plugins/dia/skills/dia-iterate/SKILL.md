@@ -19,6 +19,7 @@ A multi-round relative of dia-refine with a stricter basis: every round needs a 
 - Without that marker, do not activate. Natural-language requests that mean the same thing do not count either. Answer the request without the skill, or use dia-refine if one pass is enough.
 - If the marker is absent but this skill looks right, do not run the loop: ask in one line for a message beginning with `dia-iterate`, or an explicit invocation of the skill by name, then stop.
 - Input with a topic but no target ("dia-iterate on the sword of Damocles") ends with one question and no draft. Ask whether to fix the last output or whether the user will supply a draft. Do not draft one yourself: the loop would then only check your own guesswork.
+- If dia-refine is named in the same request, run this loop and the refine pass separately, each with its own output. Your own re-derivation still never counts as verification in a round, even if the refine pass used it.
 
 ## Choosing the target
 
