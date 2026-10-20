@@ -6,6 +6,7 @@ State of the work and what is left, for the next agent session. Read `AGENTS.md`
 
 - Plugin `dia` **0.1.0** is built and on `main`. It is not released: there is no tag and no GitHub release, and the owner has installed it nowhere yet. While that holds, a skill change may keep 0.1.0: delete `plugin-release.json`, then run `python3 tools/package.py`. After the first install or release, every skill change needs a version bump.
 - CI (`.github/workflows/check.yml`) runs on every push to `main` and on pull requests. It runs `tools/package.py --check`, the unit tests, and `claude plugin validate --strict` for the plugin and the marketplace. It is green.
+- Skill text reflects spec D19–D28 (research findings, token audit, data-not-instructions rule, dia-refine suspected corrections, several-skills-in-one-prompt rules). Every batch was diff-reviewed or probed; results are in `docs/probes.md` Parts A–K, `docs/token-cost.md` and `docs/skill-effect.md`.
 - Spec §12.3 acceptance:
   - 12.1 passes.
   - P3, P6, P7 and P8 pass.
@@ -24,7 +25,10 @@ State of the work and what is left, for the next agent session. Read `AGENTS.md`
 | 6 | O3: resolved 2026-10-20, MIT for all seven skills (spec D18) | — | — |
 | 7 | Pre-release, acceptance and release | agent | Owner direction 2026-10-20 (spec O5): when development ends, release a 0.x pre-release first: set the 0.x `version`, run `tools/package.py`, push, wait for green CI, `git tag v0.x.y`, push the tag, `gh release create v0.x.y releases/dialectic-skills.zip --prerelease`. The owner then runs P1 and P2 on it (items 1–2). After they pass (and P4/P5 are recorded), set `version` to `1.0.0`, bump each skill's `metadata.version` as needed, regenerate, tag `v1.0.0` and create the release. Update the status lines in `docs/spec.md` and `docs/probes.md`. |
 | 8 | Codex GitHub marketplace route (`codex plugin marketplace add ajitta/dialectic-skills`) | agent, where Codex CLI is installed | P3 covered only a local path. The repository is private, so Codex needs git credentials for it. |
-| 9 | Research findings in `docs/research/` | agent | Applied 2026-10-20 in four batches (spec D19–D21, D23; D22 for the second-pass reviews), still as 0.1.0. What remains is in `docs/research/README.md` § Still open: owner questions and items that need a probe first. |
+| 9 | Research findings in `docs/research/` | agent | Applied 2026-10-20 (spec D19–D25), still as 0.1.0. What remains is in `docs/research/README.md` § Still open: owner-deferred items (dia-intent F1, F8; dia-elenchus M4) and probe-wording items. |
+| 10 | Codex claims a code check it did not run | owner watches in P4/P5 | Probes Part K: with dia-refine + dia-iterate, Codex labelled the 20% fix "(tool: JavaScript execution)" with no execution event in its log, 3/3. Both skills already forbid this; check whether it recurs in the Codex app or ChatGPT. |
+| 11 | dia-refine by plain request on Claude Code | owner decides | Probes Part J: a request without the name loaded dia-refine 1/9, before and after D27; by name it loads every time. Left as a known limit (owner ruling: hold). |
+| 12 | Long output when several analysis skills run at once | owner judges in P1/P2 | Probes Part K: dia-reductio + dia-negative gave 8.6k–9.4k characters on Claude Code. Owner ruling 2026-10-20: decide on a phone, not now. |
 
 Observations from P8 (n=1 each; see `docs/probes.md`):
 
@@ -39,12 +43,18 @@ Observations from P8 (n=1 each; see `docs/probes.md`):
   - Discard any run whose `system/init` event lists a plugin with an `@synced` source.
   - Read which skill loaded from the `Skill` tool_use input.
   - Tool-less runs use `--tools Skill`.
+  - Set `ENABLE_CLAUDEAI_MCP_SERVERS=false`: the account's claude.ai connectors otherwise load into isolated sessions, add a varying number of tools, and even appear in `--tools Skill` runs.
+  - Action-holding cells need `--max-turns` 12 or more; hitting the cap returns an empty result.
   - Delete the credential copies afterwards.
 - **Baseline arm:** a plugin directory with `.claude-plugin/plugin.json` (`{"name": "old", ...}`) and `skills/` copied from `upstream/installed/*` and `upstream/superclaude-stable-47f791b/socratic-*`.
 - **Codex CLI:** use an isolated `CODEX_HOME`.
   - `codex plugin marketplace add <path>`, then `codex plugin add dia@dialectic-skills`.
   - `codex debug prompt-input "hi"` shows the model-visible skill list and needs no model call.
   - Explicit invocation needs a real `codex exec` run, which needs a copy of `auth.json`; delete the copy afterwards.
+  - `$dia:dia-<x>` must be followed by a space, not a colon; `$dia:dia-intent:` does not resolve.
+  - On the OCI build VM the Codex sandbox (bwrap) cannot start, so no shell command runs under `-s read-only` or `workspace-write`; cells that need file access ran with `--dangerously-bypass-approvals-and-sandbox` in a scratch directory.
+  - Log every `item.*` event type: Codex's web search arrives as `web_search` items, not `command_execution`.
+- **Skill-effect eval:** harnesses and raw runs are on the build VM under `~/work/dia-review/eval/` and `eval2/` (`run.py`, `sim.py` for the adaptive respondent, `judge.py`); the method is in `docs/skill-effect.md`.
 
 ## Environment notes
 
