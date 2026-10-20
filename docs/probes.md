@@ -29,6 +29,7 @@ Results of the probes in `docs/spec.md` §12.2. Each run is n=1 unless stated; a
 
 - The owner uploaded `releases/dialectic-skills.zip` through Customize › Plugins › Upload plugin; it was accepted and listed seven skills.
 - Cross-check through the account sync on the build VM: the synced manifest lists `dia` (marketplace "My Uploads", one generation), and the synced `dia/` tree is byte-identical to `plugins/dia/` at `944c459` (`diff -r`). That commit is tagged `v0.1.0` and published as a GitHub pre-release.
+- 1.1.0 (2026-10-20): the owner replaced the upload with the claude.ai marketplace route (Customize › Plugins › Add marketplace `ajitta/dialectic-skills`, then add `dia`). The synced manifest now lists `dia` from marketplace `dialectic-skills` only (the "My Uploads" entry is gone), and the synced tree is byte-identical to `plugins/dia/` at 1.1.0, with `dia-confirm` and no `dia-intent`.
 - Migration (spec §10): `socratic` is no longer in the synced plugin manifest, and none of `reductio`, `negative-dialectics`, `self-refine`, `recursive-refine` or `confirm-intent` is among the synced skills.
 
 ### P2: Claude mobile (owner, 2026-10-20, `v0.1.0`)

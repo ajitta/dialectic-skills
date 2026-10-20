@@ -29,6 +29,8 @@ The repository is private: marketplace routes need GitHub access to it. The zip 
 
 Asking in words works on every surface and is the safe default on mobile. Which routes are verified is tracked in [docs/probes.md](docs/probes.md).
 
+On claude.ai you can also use Customize › Plugins › Add marketplace with `ajitta/dialectic-skills`, then add `dia` from the list. `dia` is also listed in the catalog [ajitta/claude-plugins](https://github.com/ajitta/claude-plugins) (`/plugin install dia@ajitta`); install through one route only, or every skill loads twice.
+
 ### Moving from the old skills
 
 Remove the old copies first; otherwise each method loads twice under two names. On claude.ai: Customize › Skills — remove `reductio`, `negative-dialectics`, `self-refine`, `recursive-refine`, `confirm-intent`; Customize › Plugins — remove `socratic`. In Claude Code: `/plugin uninstall socratic@ajitta-socratic` and remove copies under `~/.claude/skills/`. For Codex / ChatGPT desktop: remove old copies under `~/.agents/skills/`.
