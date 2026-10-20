@@ -342,7 +342,7 @@ pre { margin: 0; white-space: pre-wrap; overflow-wrap: anywhere; line-height: 1.
   .plate__text > .lead { order: 2; margin-top: -0.75rem; }
   .plate__pic, .plate--flip .plate__pic { order: 3; margin-block: 1rem; }
   .plate__text > :not(.plate__name):not(.lead) { order: 4; }
-  .plate .plate__text > .talk, .plate .plate__text > .output { order: 5; }
+  .plate .plate__text > .talk, .plate .plate__text > .output, .plate .plate__text > .output__legend { order: 5; }
   .plate__text > :not(p) { max-width: 42rem; }
   .plate__pic { position: relative; top: 0; padding-inline: 0; width: min(64%, 30rem); }
   .plate--flip .plate__pic { justify-self: end; }

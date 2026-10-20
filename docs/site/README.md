@@ -6,3 +6,4 @@ The project page in `site/` (published to https://ajitta.github.io/dialectic-ski
 - Working files of both skills (`.taste-skill/`, `.impeccable/`) are not committed.
 - Gates to keep green after a change: taste-skill `lint.mjs site` and `inspect.mjs site/index.html` (0 FAIL), and `impeccable detect` on `site/` and on the served page (0 findings).
 - `site/` is not part of the plugin package: no Hangul there either (spec §6); picture credits are in the page footer and `site/assets/img/credits.json`.
+- Keep the `google-site-verification` meta tag in `site/index.html`: Google Search Console verifies the property with it. `site/sitemap.xml` lists the page; update `lastmod` on a content change.

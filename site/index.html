@@ -86,7 +86,7 @@
     <div class="facts">
       <p class="fact" data-reveal style="--i:1"><strong class="fact__title">Instructions only.</strong> The package is Markdown, YAML and JSON, with no scripts, so every skill also works in a chat with no tools. You need no background in philosophy to use it.</p>
       <p class="fact" data-reveal style="--i:2"><strong class="fact__title">In your language.</strong> Skill files are in English; each skill replies in the language of your message. Every prompt on this page works in any language.</p>
-      <p class="fact" data-reveal style="--i:3"><strong class="fact__title">One plugin, everywhere.</strong> The same seven skills run unchanged on Claude (web, desktop, mobile, Claude Code), Codex and ChatGPT. Free under the MIT License.</p>
+      <p class="fact" data-reveal style="--i:3"><strong class="fact__title">One plugin, everywhere.</strong> The same seven skills are written to run unchanged on Claude (web, desktop, mobile, Claude Code), Codex and ChatGPT. Free under the MIT License.</p>
     </div>
   </div>
 </section>
@@ -170,7 +170,7 @@
         <li class="talk__turn is-assistant"><b>Assistant</b> <span>I don’t know what makes a good teacher, so I’ll test your definition. Suppose a teacher gives the students the exam questions and answers the day before, and they all score high. Is that a good teacher?</span></li>
         <li class="talk__turn is-you"><b>You</b> <span>No, that’s basically cheating. Maybe a good teacher is one whose students get high scores <i>because they actually learned the material</i>.</span></li>
         <li class="talk__turn is-gap"><span></span><i>…five more cases later…</i></li>
-        <li class="talk__turn is-you"><b>You</b> <span>That contradicts what I said earlier. I’m stuck. Where does that leave me?</span></li>
+        <li class="talk__turn is-you"><b>You</b> <span>They could have, they just chose not to, so by my new idea that teacher isn’t good. That contradicts what I said earlier. I’m stuck. Where does that leave me?</span></li>
         <li class="talk__turn is-assistant"><b>Assistant</b> <span>You’ve reached aporia, and that’s a result, not a failure.</span></li>
       </ol>
       <p class="plate__actions" data-reveal style="--i:7"><button class="button button--ink" type="button" data-copy="Socratic dialogue please. I think a good teacher is one whose students get high test scores.">Copy the prompt</button> <a class="button button--tone" href="https://github.com/ajitta/dialectic-skills#dia-elenchus-find-out-what-you-really-mean">Full guide</a></p>
@@ -202,7 +202,7 @@
         <li class="talk__turn is-you"><b>You</b> <span>Right. About 8 hours each weekend, roughly $300 a month, no more than $200 to start.</span></li>
         <li class="talk__turn is-assistant"><b>Assistant</b> <span>Eight hours a weekend is about 32 hours a month, so $300 comes to about $9 an hour. What do you already know how to do that someone would plausibly pay for?</span></li>
         <li class="talk__turn is-you"><b>You</b> <span>I’m good at photography and own a decent camera. Maybe photos for small local shops.</span></li>
-        <li class="talk__turn is-gap"><span></span><i>…options, criteria…</i></li>
+        <li class="talk__turn is-gap"><span></span><i>…more questions, options, criteria…</i></li>
         <li class="talk__turn is-assistant"><b>Assistant</b> <span>Verdict: open. … Next step: this week, post in two neighborhood groups offering 3–4 park slots, and track bookings, price paid and editing minutes per client.</span></li>
       </ol>
       <p class="plate__actions" data-reveal style="--i:7"><button class="button button--ink" type="button" data-copy="Socratic brainstorm with me, keep it quick: I want to earn some extra money on weekends.">Copy the prompt</button> <a class="button button--tone" href="https://github.com/ajitta/dialectic-skills#dia-brainstorm-grow-a-rough-idea-then-decide">Full guide</a></p>
@@ -232,8 +232,9 @@
       <dl class="output" aria-label="What you get, shortened" data-reveal style="--i:6">
         <dt>Premises</dt><dd>P1 [A] “right” means “true”; P2 [A] customer C1 says the coat was bought here and customer C2 says it was not, about the same coat; P3 [L] if not-p is true, p is not true.</dd>
         <dt>Contradiction</dt><dd>lines 4 and 6. Strength: it rests on added premises P1 and P2, which are ordinary facts, not logic.</dd>
-        <dt>Recommendation</dt><dd>the repaired claim: “a customer’s good-faith complaint deserves a fair hearing and, where the business can, a remedy.” The decision is yours.</dd>
+        <dt>Recommendation</dt><dd>the repaired claim: “a customer’s good-faith complaint deserves a fair hearing and, where the business can, a remedy,” because it keeps what the slogan is for. The decision is yours.</dd>
       </dl>
+      <p class="small output__legend" data-reveal style="--i:6">[T] stated by the claim, [L] a rule of logic, [A] added by the assistant. A contradiction that needs an [A] premise is only as strong as that premise.</p>
       <p class="plate__actions" data-reveal style="--i:7"><button class="button button--ink" type="button" data-copy="Use proof by contradiction on this claim: the customer is always right.">Copy the prompt</button> <a class="button button--tone" href="https://github.com/ajitta/dialectic-skills#dia-reductio-check-whether-a-claim-holds-together">Full guide</a></p>
     </div>
   </article>
@@ -252,7 +253,7 @@
     <div class="plate__text">
       <h3 class="head plate__name mask" data-reveal style="--i:1"><span>dia-negative</span></h3>
       <p class="lead" data-reveal style="--i:2">Hold a claim to its own standard.</p>
-      <p data-reveal style="--i:3">Judge a claim by its own words, not by your values: take what it promises and look for real cases where it doesn’t deliver, then ask what it actually does, as a guess you could check. Named after Adorno’s “negative dialectics”: his immanent critique judges a thing by the standard it sets for itself. This is a narrower, practical version of it, called internal critique.</p>
+      <p data-reveal style="--i:3">Judge a claim by its own words, not by your values: take what it promises and look for real cases where it doesn’t deliver, then ask what it actually does, as a guess you could check. Named after Adorno’s “negative dialectics”. His immanent critique also draws on norms a practice implies without stating them; this skill does the narrower part, called internal critique: it holds a claim to the standard the claim itself states.</p>
       <p class="start" data-reveal style="--i:4"><span class="start__how">Starts by name, or in words.</span> <span class="start__line">Start it with <code class="start__code">/dia:dia-negative</code></span> <span class="start__note"></span></p>
       <div class="try" data-reveal style="--i:5">
         <p class="try__label">Try this prompt</p>
@@ -310,7 +311,7 @@
     <div class="plate__text">
       <h3 class="head plate__name mask" data-reveal style="--i:1"><span>dia-iterate</span></h3>
       <p class="lead" data-reveal style="--i:2">Check and fix in rounds.</p>
-      <p data-reveal style="--i:3">Like <code>dia-refine</code>, but in rounds, and every fix needs outside evidence: a search, a tool run or a source you supplied. Facts that pass are locked so later rounds can’t undo them. It stops by itself on zero defects, when it can’t verify anything more, or at the round limit (<code>--max N</code>, default 3).</p>
+      <p data-reveal style="--i:3">Like <code>dia-refine</code>, but in rounds, and every fix needs outside evidence: a search, a tool run or a source you supplied. Facts that pass are locked so later rounds can’t undo them. It stops by itself on zero defects, when a round makes things worse, when nothing changes any more, when it can’t verify anything more, or at the round limit (<code>--max N</code>, default 3).</p>
       <p class="start" data-reveal style="--i:4"><span class="start__how">Starts only when <code>dia-iterate</code> is the first word, or by name.</span> <span class="start__line">Start it with <code class="start__code">/dia:dia-iterate</code></span> <span class="start__note"></span></p>
       <div class="try" data-reveal style="--i:5">
         <p class="try__label">Try this prompt</p>
@@ -450,7 +451,8 @@
       <ul class="rows">
         <li data-reveal style="--i:0"><span class="dot"></span><span class="rows__name">What is examined: your claim, the assistant’s answer, a pasted text, or all</span><span class="rows__value"><code>--target=user|claude|text|all</code></span></li>
         <li data-reveal style="--i:1"><span class="dot"></span><span class="rows__name">Round cap for <code>dia-iterate</code>, default 3</span><span class="rows__value"><code>--max N</code></span></li>
-        <li data-reveal style="--i:2"><span class="dot"></span><span class="rows__name">Mode and depth for <code>dia-brainstorm</code></span><span class="rows__value"><code>stress</code> <code>quick</code> <code>deep</code></span></li>
+        <li data-reveal style="--i:2"><span class="dot"></span><span class="rows__name">Mode and depth for <code>dia-brainstorm</code>: <code>develop</code> (default) or <code>stress</code>; <code>quick</code>, <code>standard</code> (default) or <code>deep</code></span><span class="rows__value"><code>stress</code> <code>quick</code> <code>deep</code></span></li>
+        <li data-reveal style="--i:3"><span class="dot"></span><span class="rows__name">Criteria for <code>dia-refine</code> and <code>dia-iterate</code>: anything after the name</span><span class="rows__value"><code>dia-refine for tone</code></span></li>
       </ul>
       <p class="invoke__note" data-reveal>On Codex, <code>dia-confirm</code>, <code>dia-elenchus</code>, <code>dia-brainstorm</code> and <code>dia-iterate</code> never start on their own; select them with <code>$dia:dia-&lt;x&gt;</code>. <code>--target</code> applies to <code>dia-reductio</code> and <code>dia-negative</code>.</p>
     </div>
@@ -473,7 +475,7 @@
   <div class="wrap faq__grid">
     <div class="faq__head">
       <h2 class="head mask" id="faq-title" data-reveal><span>Questions</span></h2>
-      <p data-reveal style="--i:1">Using several skills together, and the problems people run into first. The rest is in <a class="link-plain" href="https://github.com/ajitta/dialectic-skills#troubleshooting">Troubleshooting on GitHub</a>.</p>
+      <p data-reveal style="--i:1">Using several skills together, and common problems. The rest is in <a class="link-plain" href="https://github.com/ajitta/dialectic-skills#troubleshooting">Troubleshooting on GitHub</a>.</p>
     </div>
     <div class="faq__list">
       <details class="tile" name="faq" data-reveal style="--i:0">

@@ -141,7 +141,12 @@
     button.dataset.label = label;
     button.textContent = ok ? 'Copied' : 'Selected: copy it';
     if (!ok) selectText(source);
-    if (status) status.textContent = ok ? 'Copied to the clipboard.' : 'Could not copy. The text is selected; copy it with Ctrl+C or Command+C.';
+    if (status) {
+      // Clear first so a repeated message is announced again.
+      status.textContent = '';
+      const msg = ok ? 'Copied to the clipboard.' : 'Could not copy. The text is selected; copy it with Ctrl+C or Command+C.';
+      setTimeout(() => { status.textContent = msg; }, 60);
+    }
     clearTimeout(button._t);
     button._t = setTimeout(() => { button.textContent = label; }, ok ? 1600 : 4000);
   };
