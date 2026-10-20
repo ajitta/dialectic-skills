@@ -4,10 +4,10 @@
 
   /* ---------- where do you use it? ---------- */
   const SURFACES = [
-    { key: 'claude', label: 'claude.ai' },
     { key: 'code', label: 'Claude Code' },
-    { key: 'mobile', label: 'Claude mobile' },
     { key: 'codex', label: 'Codex' },
+    { key: 'claude', label: 'claude.ai / desktop' },
+    { key: 'mobile', label: 'Claude mobile' },
     { key: 'chatgpt', label: 'ChatGPT' },
   ];
   const startLine = (surface, skill, codex) => {
@@ -42,14 +42,38 @@
       group.append(b);
     });
   });
+  // On narrow screens the same choice is a native select.
+  const pickers = [...document.querySelectorAll('.switch__select')];
+  pickers.forEach((sel) => {
+    SURFACES.forEach((s) => sel.append(new Option(s.label, s.key)));
+    sel.addEventListener('change', () => choose(sel.value, true));
+  });
 
   const plates = [...document.querySelectorAll('.plate[data-skill]')];
+  // The prompt to try, as README writes it. On Codex, the skills that never start on their own are
+  // selected with $dia:dia-<x> followed by a space, so the prompt shown and copied says so.
+  plates.forEach((plate) => {
+    const code = plate.querySelector('.try code');
+    if (code) plate.dataset.prompt = code.textContent;
+  });
+  const promptFor = (surface, plate) => {
+    const text = plate.dataset.prompt || '';
+    const skill = plate.dataset.skill;
+    if (surface !== 'codex' || plate.dataset.codex !== 'select') return text;
+    return `$dia:${skill} ` + (text.startsWith(skill + ' ') ? text.slice(skill.length + 1) : text);
+  };
   const stages = [...document.querySelectorAll('.stage[data-surface]')];
   const stageFor = { claude: 'claude', code: 'code', mobile: 'mobile', codex: 'codex', chatgpt: 'chatgpt' };
 
   function render(animate) {
     document.querySelectorAll('.surface').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.surface === current)));
+    pickers.forEach((sel) => { sel.value = current; });
     plates.forEach((plate) => {
+      const prompt = promptFor(current, plate);
+      const tryCode = plate.querySelector('.try code');
+      const copyButton = plate.querySelector('[data-copy]');
+      if (tryCode && tryCode.textContent !== prompt) tryCode.textContent = prompt;
+      if (copyButton) copyButton.dataset.copy = prompt;
       const { code, note } = startLine(current, plate.dataset.skill, plate.dataset.codex);
       const el = plate.querySelector('.start__code');
       const noteEl = plate.querySelector('.start__note');
@@ -101,12 +125,25 @@
       return ok;
     }
   };
-  const flash = (button, ok) => {
+  const status = document.getElementById('copy-status');
+  const selectText = (el) => {
+    if (!el) return;
+    const range = document.createRange();
+    range.selectNodeContents(el);
+    const sel = getSelection();
+    sel.removeAllRanges();
+    sel.addRange(range);
+  };
+  // Success flashes on the button and is announced; on failure the text is left selected, so the
+  // visitor can copy it with the keyboard or the system menu.
+  const flash = (button, ok, source) => {
     const label = button.dataset.label || button.textContent;
     button.dataset.label = label;
-    button.textContent = ok ? 'Copied' : 'Select and copy';
+    button.textContent = ok ? 'Copied' : 'Selected: copy it';
+    if (!ok) selectText(source);
+    if (status) status.textContent = ok ? 'Copied to the clipboard.' : 'Could not copy. The text is selected; copy it with Ctrl+C or Command+C.';
     clearTimeout(button._t);
-    button._t = setTimeout(() => { button.textContent = label; }, 1600);
+    button._t = setTimeout(() => { button.textContent = label; }, ok ? 1600 : 4000);
   };
   document.querySelectorAll('.code').forEach((box) => {
     const code = box.querySelector('code');
@@ -116,11 +153,12 @@
     b.className = 'copy';
     b.textContent = 'Copy';
     b.setAttribute('aria-label', `Copy: ${code.textContent}`);
-    b.addEventListener('click', async () => flash(b, await copyText(code.textContent)));
+    b.addEventListener('click', async () => flash(b, await copyText(code.textContent), code));
     box.append(b);
   });
   document.querySelectorAll('[data-copy]').forEach((b) => {
-    b.addEventListener('click', async () => flash(b, await copyText(b.dataset.copy)));
+    const source = b.closest('.plate')?.querySelector('.try code');
+    b.addEventListener('click', async () => flash(b, await copyText(b.dataset.copy), source));
   });
 
   /* ---------- reveals, once ---------- */
@@ -146,20 +184,26 @@
     reveals.forEach((el) => el.classList.add('is-in'));
   }
 
-  /* ---------- the film plays only in view, never under reduced motion ---------- */
+  /* ---------- the film plays only in view, never under reduced motion, and can be paused ---------- */
   const calm = matchMedia('(prefers-reduced-motion: reduce)');
   const clips = [...document.querySelectorAll('video[autoplay]')];
   const inView = new Set();
+  let held = false; // the visitor paused the film, or reduced motion asks for stillness
+  const toggle = document.querySelector('.film__toggle');
+  const label = () => { if (toggle) toggle.textContent = held ? 'Play the film' : 'Pause the film'; };
   const sync = (v) => {
-    if (calm.matches) return;
+    if (held) { v.pause(); return; }
     if (inView.has(v)) v.play().catch(() => {}); else v.pause();
   };
   const settle = () => {
-    for (const v of clips) {
-      if (calm.matches) { v.removeAttribute('autoplay'); v.pause(); }
-      else sync(v);
-    }
+    if (calm.matches) { held = true; clips.forEach((v) => v.removeAttribute('autoplay')); }
+    clips.forEach(sync);
+    label();
   };
+  if (toggle && clips.length) {
+    toggle.hidden = false;
+    toggle.addEventListener('click', () => { held = !held; clips.forEach(sync); label(); });
+  }
   if ('IntersectionObserver' in window) {
     const watch = new IntersectionObserver((entries) => {
       for (const e of entries) { if (e.isIntersecting) inView.add(e.target); else inView.delete(e.target); sync(e.target); }

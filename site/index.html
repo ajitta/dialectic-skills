@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- impeccable-disable cramped-padding: false positive. The static scan cannot resolve the clamp() padding on .intro and .invoke and their .wrap child; rendered URL scans measure 56px or more of inset and still check this rule. -->
 <title>Dialectic Skills (dia): seven reasoning-and-review skills for Claude, Codex and ChatGPT</title>
 <meta name="description" content="dia is one plugin of seven reasoning-and-review skills: confirm the task, Socratic dialogue and brainstorm, proof by contradiction, internal critique, one review pass and verified review rounds. Instructions only; runs on Claude, Codex and ChatGPT, also in chats with no tools.">
 <link rel="canonical" href="https://ajitta.github.io/dialectic-skills/">
@@ -48,7 +49,7 @@
       <span class="line" aria-hidden="true"><span data-line style="--i:0">Dialectic</span></span>
       <span class="line" aria-hidden="true"><span data-line style="--i:1">skills</span></span>
     </h1>
-    <p class="lead hero__lead" data-load style="--d:420ms">Seven reasoning-and-review skills in one plugin, for Claude (web, desktop, mobile, Claude&nbsp;Code), Codex and ChatGPT.</p>
+    <p class="lead hero__lead" data-load style="--d:420ms">Seven reasoning-and-review skills that make your assistant question an idea, test a claim or review a draft, step by step. One plugin for Claude (web, desktop, mobile, Claude&nbsp;Code), Codex and ChatGPT.</p>
     <p class="hero__actions" data-load style="--d:500ms">
       <a class="button" href="#install">Install dia</a>
       <a class="link link--plain" href="#skills">See the seven skills</a>
@@ -75,24 +76,15 @@
       The Socratic question
       <img class="thumb" src="assets/img/socrates-herm.jpg" width="1400" height="2122" alt="" loading="lazy" decoding="async" style="object-position:50% 22%">,
       the proof by contradiction
-      <img class="thumb" src="assets/img/euclid-1482.jpg" width="1170" height="1434" alt="" loading="lazy" decoding="async" style="object-position:84% 46%">,
+      <img class="thumb" src="assets/img/euclid-1482.jpg" width="816" height="1000" alt="" loading="lazy" decoding="async" style="object-position:84% 46%">,
       the critique on its own terms
-      <img class="thumb" src="assets/img/diogenes-lantern.jpg" width="1200" height="1468" alt="" loading="lazy" decoding="async" style="object-position:48% 36%">:
+      <img class="thumb" src="assets/img/diogenes-lantern.jpg" width="818" height="1000" alt="" loading="lazy" decoding="async" style="object-position:48% 36%">:
       old ways of thinking, turned into routines your assistant follows step by step.
     </p>
     <div class="facts">
-      <div class="fact" data-reveal style="--i:1">
-        <h3 class="lead fact__title">Instructions only</h3>
-        <p>The package is Markdown, YAML and JSON, with no scripts, so every skill also works in a chat with no tools. You need no background in philosophy to use it.</p>
-      </div>
-      <div class="fact" data-reveal style="--i:2">
-        <h3 class="lead fact__title">In your language</h3>
-        <p>Skill files are in English; each skill replies in the language of your message. Every prompt on this page works in any language.</p>
-      </div>
-      <div class="fact" data-reveal style="--i:3">
-        <h3 class="lead fact__title">One plugin, everywhere</h3>
-        <p>The same seven skills run unchanged on Claude (web, desktop, mobile, Claude Code), Codex and ChatGPT. Free under the MIT License.</p>
-      </div>
+      <p class="fact" data-reveal style="--i:1"><strong class="fact__title">Instructions only.</strong> The package is Markdown, YAML and JSON, with no scripts, so every skill also works in a chat with no tools. You need no background in philosophy to use it.</p>
+      <p class="fact" data-reveal style="--i:2"><strong class="fact__title">In your language.</strong> Skill files are in English; each skill replies in the language of your message. Every prompt on this page works in any language.</p>
+      <p class="fact" data-reveal style="--i:3"><strong class="fact__title">One plugin, everywhere.</strong> The same seven skills run unchanged on Claude (web, desktop, mobile, Claude Code), Codex and ChatGPT. Free under the MIT License.</p>
     </div>
   </div>
 </section>
@@ -101,7 +93,7 @@
   <div class="wrap skills__head">
     <div class="skills__intro">
       <h2 class="head mask" id="skills-title" data-reveal><span>Seven skills</span></h2>
-      <p data-reveal style="--i:1">Each is a way of thinking people have used for a long time, turned into a routine the assistant follows. Pick one by what you want to do. The sessions shown are real runs from the project’s README, shortened; the wording you get will differ from run to run.</p>
+      <p data-reveal style="--i:1">Each is a way of thinking people have used for a long time, turned into a routine the assistant follows. Pick one by what you want to do. The sessions are from the project’s README, run on Claude Code with this plugin and shortened; in the two dialogues the user’s replies came from a simulated user. The wording you get will differ from run to run.</p>
     </div>
     <ul class="wants" aria-label="Pick a skill by what you want to do">
       <li data-reveal style="--i:0"><a href="#dia-confirm"><span class="dot"></span><span class="wants__goal">Make sure the assistant understood the task before it starts</span><code>dia-confirm</code></a></li>
@@ -114,19 +106,27 @@
     </ul>
   </div>
 
+  <div class="switch">
+    <div class="switch__in">
+      <span class="switch__label" id="switch-label">Where do you use it?</span>
+      <div class="surfaces" role="group" aria-labelledby="switch-label"></div>
+      <label class="switch__pick"><span>Use on</span> <select class="switch__select" aria-describedby="switch-label"></select></label>
+      <a class="button button--small switch__go" href="#install">Install<span class="switch__more">&nbsp;dia</span></a>
+    </div>
+  </div>
+
   <!-- dia-confirm -->
   <article class="plate field-sand" id="dia-confirm" data-skill="dia-confirm" data-codex="select">
     <figure class="plate__pic pair pair--diag" data-reveal>
       <div class="pair__art">
         <span class="pair__b"></span>
-      <img class="pair__a" src="assets/img/alcibiades-socrates.jpg" width="1600" height="1214" loading="lazy" decoding="async" style="object-position:72% 40%"
+      <img class="pair__a" src="assets/img/alcibiades-socrates.jpg" width="1200" height="910" loading="lazy" decoding="async" style="object-position:72% 40%"
            alt="Painting: Socrates, seated in a blue cloak, talks with the young Alcibiades, who stands in armour and listens">
       <svg class="pair__lens" viewBox="0 0 2.7071 2.7071" aria-hidden="true"><path d="M1.966 0.7412A1 1 0 0 1 0.7412 1.966A1 1 0 0 1 1.966 0.7412Z"/></svg>
       </div>
       <figcaption class="small">François-André Vincent, Alcibiades Being Taught by Socrates, 1776.</figcaption>
     </figure>
     <div class="plate__text">
-      <div class="surfaces" role="group" aria-label="Where do you use it?" data-reveal style="--i:0"></div>
       <h3 class="head plate__name mask" data-reveal style="--i:1"><span>dia-confirm</span></h3>
       <p class="lead" data-reveal style="--i:2">Agree on the task before work starts.</p>
       <p data-reveal style="--i:3">Like a good contractor walking you through the job: here is what I’ll build, here is what I’m assuming, here is what only you can decide. Then it waits for your go-ahead instead of guessing.</p>
@@ -148,14 +148,13 @@
     <figure class="plate__pic pair pair--diag pair--flip" data-reveal>
       <div class="pair__art">
         <span class="pair__b"></span>
-      <img class="pair__a" src="assets/img/death-of-socrates.jpg" width="1800" height="1198" loading="lazy" decoding="async" style="object-position:53% 40%;--lift:1.45"
+      <img class="pair__a" src="assets/img/death-of-socrates.jpg" width="1200" height="798" loading="lazy" decoding="async" style="object-position:53% 40%;--lift:1.45"
            alt="Painting: Socrates sits up on his bed, one hand raised as he talks, the other reaching for the cup, his friends grieving around him">
       <svg class="pair__lens" viewBox="0 0 2.7071 2.7071" aria-hidden="true"><path d="M1.966 0.7412A1 1 0 0 1 0.7412 1.966A1 1 0 0 1 1.966 0.7412Z" transform="matrix(-1 0 0 1 2.7071 0)"/></svg>
       </div>
       <figcaption class="small">Jacques-Louis David, The Death of Socrates, 1787.</figcaption>
     </figure>
     <div class="plate__text">
-      <div class="surfaces" role="group" aria-label="Where do you use it?" data-reveal style="--i:0"></div>
       <h3 class="head plate__name mask" data-reveal style="--i:1"><span>dia-elenchus</span></h3>
       <p class="lead" data-reveal style="--i:2">Find out what you really mean.</p>
       <p data-reveal style="--i:3">The method Socrates uses in Plato’s dialogues. You say what you think something is; the assistant asks about one concrete case at a time until your own answers pull against your definition. Often you end up stuck, in <i>aporia</i>, and that is a result: you now know exactly which part you don’t know. It gives no advice during the dialogue.</p>
@@ -179,14 +178,13 @@
     <figure class="plate__pic pair pair--diag" data-reveal>
       <div class="pair__art">
         <span class="pair__b"></span>
-      <img class="pair__a" src="assets/img/school-of-athens-group.jpg" width="1200" height="1592" loading="lazy" decoding="async" style="object-position:50% 62%"
+      <img class="pair__a" src="assets/img/school-of-athens-group.jpg" width="904" height="1200" loading="lazy" decoding="async" style="object-position:50% 62%"
            alt="Engraving: a group of philosophers crowd around a seated man writing on a tablet, under classical arches">
       <svg class="pair__lens" viewBox="0 0 2.7071 2.7071" aria-hidden="true"><path d="M1.966 0.7412A1 1 0 0 1 0.7412 1.966A1 1 0 0 1 1.966 0.7412Z"/></svg>
       </div>
       <figcaption class="small">Agostino Veneziano, The Group, from Raphael’s School of Athens, 1523.</figcaption>
     </figure>
     <div class="plate__text">
-      <div class="surfaces" role="group" aria-label="Where do you use it?" data-reveal style="--i:0"></div>
       <h3 class="head plate__name mask" data-reveal style="--i:1"><span>dia-brainstorm</span></h3>
       <p class="lead" data-reveal style="--i:2">Grow a rough idea, then decide.</p>
       <p data-reveal style="--i:3">A coach who asks good questions, one at a time, before handing you options. Then you list options, it adds up to three of its own, you choose what matters, and it ends with a verdict and a short brief you can act on. It never builds the thing.</p>
@@ -195,7 +193,8 @@
         <pre><code>Socratic brainstorm with me, keep it quick: I want to earn some extra money on weekends.</code></pre>
       </div>
       <ol class="talk" aria-label="A real session, shortened" data-reveal style="--i:6">
-        <li class="talk__turn is-you"><b>You</b> <span>About 8 hours each weekend, roughly $300 a month, no more than $200 to start.</span></li>
+        <li class="talk__turn is-assistant"><b>Assistant</b> <span>Quick mode, about 4 questions. Your idea is to earn some extra money on weekends, alongside your current job. Is that right, or did I assume something you didn’t mean?</span></li>
+        <li class="talk__turn is-you"><b>You</b> <span>Right. About 8 hours each weekend, roughly $300 a month, no more than $200 to start.</span></li>
         <li class="talk__turn is-assistant"><b>Assistant</b> <span>Eight hours a weekend is about 32 hours a month, so $300 comes to about $9 an hour. What do you already know how to do that someone would plausibly pay for?</span></li>
         <li class="talk__turn is-you"><b>You</b> <span>I’m good at photography and own a decent camera. Maybe photos for small local shops.</span></li>
         <li class="talk__turn is-gap"><span></span><i>…options, criteria…</i></li>
@@ -210,14 +209,13 @@
     <figure class="plate__pic pair pair--diag pair--flip" data-reveal>
       <div class="pair__art">
         <span class="pair__b"></span>
-      <img class="pair__a" src="assets/img/euclid-1482.jpg" width="1170" height="1434" loading="lazy" decoding="async" style="object-position:70% 52%"
+      <img class="pair__a" src="assets/img/euclid-1482.jpg" width="816" height="1000" loading="lazy" decoding="async" style="object-position:70% 52%"
            alt="Printed page with a decorated border: the opening of Euclid’s Elements, with small diagrams of lines, circles and triangles in the margin">
       <svg class="pair__lens" viewBox="0 0 2.7071 2.7071" aria-hidden="true"><path d="M1.966 0.7412A1 1 0 0 1 0.7412 1.966A1 1 0 0 1 1.966 0.7412Z" transform="matrix(-1 0 0 1 2.7071 0)"/></svg>
       </div>
       <figcaption class="small">Euclid’s Elements, first page of the first printed edition. Erhard Ratdolt, Venice, 1482.</figcaption>
     </figure>
     <div class="plate__text">
-      <div class="surfaces" role="group" aria-label="Where do you use it?" data-reveal style="--i:0"></div>
       <h3 class="head plate__name mask" data-reveal style="--i:1"><span>dia-reductio</span></h3>
       <p class="lead" data-reveal style="--i:2">Check whether a claim holds together.</p>
       <p data-reveal style="--i:3">Reductio ad absurdum, or proof by contradiction: take a claim at its word, follow it step by step, and see whether it leads to two statements that can’t both be true. The assistant lists every premise, marks the ones it added itself, and leaves the choice of what to give up to you.</p>
@@ -239,14 +237,13 @@
     <figure class="plate__pic pair pair--diag" data-reveal>
       <div class="pair__art">
         <span class="pair__b"></span>
-      <img class="pair__a" src="assets/img/diogenes-lantern.jpg" width="1200" height="1468" loading="lazy" decoding="async" style="object-position:46% 44%"
+      <img class="pair__a" src="assets/img/diogenes-lantern.jpg" width="818" height="1000" loading="lazy" decoding="async" style="object-position:46% 44%"
            alt="Engraved portrait of Diogenes, a bearded man in a rough cloak, holding up a lit lantern">
       <svg class="pair__lens" viewBox="0 0 2.7071 2.7071" aria-hidden="true"><path d="M1.966 0.7412A1 1 0 0 1 0.7412 1.966A1 1 0 0 1 1.966 0.7412Z"/></svg>
       </div>
       <figcaption class="small">Diogenes holding a lantern, print after Jusepe de Ribera, 1750–69.</figcaption>
     </figure>
     <div class="plate__text">
-      <div class="surfaces" role="group" aria-label="Where do you use it?" data-reveal style="--i:0"></div>
       <h3 class="head plate__name mask" data-reveal style="--i:1"><span>dia-negative</span></h3>
       <p class="lead" data-reveal style="--i:2">Hold a claim to its own standard.</p>
       <p data-reveal style="--i:3">Judge a claim by its own words, not by your values: take what it promises and look for real cases where it doesn’t deliver, then ask what it actually does, as a guess you could check. Named after Adorno’s “negative dialectics”; this is a narrower, practical version called internal critique.</p>
@@ -268,14 +265,13 @@
     <figure class="plate__pic pair pair--diag pair--flip" data-reveal>
       <div class="pair__art">
         <span class="pair__b"></span>
-      <img class="pair__a" src="assets/img/clarke-plato-euthyphro.jpg" width="1200" height="1828" loading="lazy" decoding="async" style="object-position:62% 14%"
+      <img class="pair__a" src="assets/img/clarke-plato-euthyphro.jpg" width="788" height="1200" loading="lazy" decoding="async" style="object-position:62% 14%"
            alt="Manuscript page in Greek minuscule, with notes in a second hand in the margin">
       <svg class="pair__lens" viewBox="0 0 2.7071 2.7071" aria-hidden="true"><path d="M1.966 0.7412A1 1 0 0 1 0.7412 1.966A1 1 0 0 1 1.966 0.7412Z" transform="matrix(-1 0 0 1 2.7071 0)"/></svg>
       </div>
       <figcaption class="small">Opening of Plato’s Euthyphro in the Clarke Plato, a manuscript copied in 895. Bodleian Library, Oxford.</figcaption>
     </figure>
     <div class="plate__text">
-      <div class="surfaces" role="group" aria-label="Where do you use it?" data-reveal style="--i:0"></div>
       <h3 class="head plate__name mask" data-reveal style="--i:1"><span>dia-refine</span></h3>
       <p class="lead" data-reveal style="--i:2">One careful review of an answer or a draft.</p>
       <p data-reveal style="--i:3">A careful editor’s single pass: factual errors, logical leaps, missing requirements, repetition. It fixes only the errors it could confirm; the ones it suspects but couldn’t confirm are listed separately with the likely correction, so nothing changes silently.</p>
@@ -297,14 +293,13 @@
     <figure class="plate__pic pair pair--diag" data-reveal>
       <div class="pair__art">
         <span class="pair__b"></span>
-      <img class="pair__a" src="assets/img/nova-reperta-printing.jpg" width="1600" height="1222" loading="lazy" decoding="async" style="object-position:40% 46%"
+      <img class="pair__a" src="assets/img/nova-reperta-printing.jpg" width="1200" height="916" loading="lazy" decoding="async" style="object-position:40% 46%"
            alt="Engraving of a printing workshop: compositors setting type, a press being pulled, printed sheets hung up to dry">
       <svg class="pair__lens" viewBox="0 0 2.7071 2.7071" aria-hidden="true"><path d="M1.966 0.7412A1 1 0 0 1 0.7412 1.966A1 1 0 0 1 1.966 0.7412Z"/></svg>
       </div>
       <figcaption class="small">Jan Collaert I, The Invention of Book Printing, from Nova Reperta, about 1600.</figcaption>
     </figure>
     <div class="plate__text">
-      <div class="surfaces" role="group" aria-label="Where do you use it?" data-reveal style="--i:0"></div>
       <h3 class="head plate__name mask" data-reveal style="--i:1"><span>dia-iterate</span></h3>
       <p class="lead" data-reveal style="--i:2">Check and fix in rounds.</p>
       <p data-reveal style="--i:3">Like <code>dia-refine</code>, but in rounds, and every fix needs outside evidence: a search, a tool run or a source you supplied. Facts that pass are locked so later rounds can’t undo them. It stops by itself on zero defects, when it can’t verify anything more, or at the round limit (<code>--max N</code>, default 3).</p>
@@ -330,7 +325,7 @@
     </div>
 
     <div class="stages" data-reveal style="--i:2">
-      <section class="stage" data-surface="code" style="--stage:var(--blue-1);--stage-ink:#f2f2f2">
+      <section class="stage" data-surface="code" style="--stage:var(--blue-1);--stage-ink:var(--paper)">
         <h3 class="stage__name"><button type="button" class="stage__btn" aria-expanded="true" aria-controls="stage-code"><span>Claude Code</span></button></h3>
         <div class="stage__body" id="stage-code">
           <ol class="steps">
@@ -348,7 +343,7 @@
         </div>
       </section>
 
-      <section class="stage" data-surface="codex" style="--stage:var(--blue-2);--stage-ink:#f2f2f2">
+      <section class="stage" data-surface="codex" style="--stage:var(--blue-2);--stage-ink:var(--paper)">
         <h3 class="stage__name"><button type="button" class="stage__btn" aria-expanded="true" aria-controls="stage-codex"><span>Codex CLI and IDE</span></button></h3>
         <div class="stage__body" id="stage-codex">
           <ol class="steps">
@@ -364,14 +359,14 @@
         </div>
       </section>
 
-      <section class="stage" data-surface="claude" style="--stage:var(--blue-3);--stage-ink:#f2f2f2">
+      <section class="stage" data-surface="claude" style="--stage:var(--blue-3);--stage-ink:var(--paper)">
         <h3 class="stage__name"><button type="button" class="stage__btn" aria-expanded="true" aria-controls="stage-claude"><span>claude.ai and Claude desktop</span></button></h3>
         <div class="stage__body" id="stage-claude">
           <ol class="steps">
             <li>Settings › Capabilities: turn on <strong>Code execution and file creation</strong>. Skills need it, even though no dia skill runs code.</li>
             <li><strong>Add the marketplace.</strong> Customize › Plugins › Add › Add marketplace, and enter:
               <div class="code"><pre><code>ajitta/dialectic-skills</code></pre></div>
-              Copy the name rather than typing it: a misspelling such as <code>dialectric</code> fails with “Repository not found”. The Git URL <code>https://github.com/ajitta/dialectic-skills.git</code> works too.</li>
+              Copy the name rather than typing it: a misspelling such as <code>dialectric</code> fails with “Repository not found”. The Git URL <code>https://<wbr>github.com/<wbr>ajitta/<wbr><span class="nobr">dialectic-skills.git</span></code> works too.</li>
             <li><strong>Add the plugin.</strong> Adding the marketplace installs nothing yet. In Customize › Plugins, open Discover, select <code>dia</code> (Dialectic Skills), and select Add.</li>
             <li><strong>Check.</strong> Type <code>/dia</code> in the message box. Seven entries, <code>dia:dia-brainstorm</code> to <code>dia:dia-refine</code>, should appear. Updates arrive through the marketplace.</li>
           </ol>
@@ -382,7 +377,7 @@
         </div>
       </section>
 
-      <section class="stage" data-surface="mobile" style="--stage:var(--blue-4);--stage-ink:#0a0a0a">
+      <section class="stage" data-surface="mobile" style="--stage:var(--blue-4);--stage-ink:var(--ink)">
         <h3 class="stage__name"><button type="button" class="stage__btn" aria-expanded="true" aria-controls="stage-mobile"><span>Claude mobile</span></button></h3>
         <div class="stage__body" id="stage-mobile">
           <ol class="steps">
@@ -394,14 +389,14 @@
         </div>
       </section>
 
-      <section class="stage" data-surface="chatgpt" style="--stage:var(--blue-5);--stage-ink:#0a0a0a">
+      <section class="stage" data-surface="chatgpt" style="--stage:var(--blue-5);--stage-ink:var(--ink)">
         <h3 class="stage__name"><button type="button" class="stage__btn" aria-expanded="true" aria-controls="stage-chatgpt"><span>ChatGPT desktop and mobile</span></button></h3>
         <div class="stage__body" id="stage-chatgpt">
           <ol class="steps">
             <li><strong>Web and mobile: upload the zip.</strong> Download <a class="link-plain" href="https://github.com/ajitta/dialectic-skills/releases/latest/download/dialectic-skills-openai.zip">dialectic-skills-openai.zip</a> from the latest release and upload it on chatgpt.com with the plugin zip upload. It is saved to your account, so it appears on ChatGPT web and mobile. Upload each new release again.</li>
             <li><strong>Desktop app: add the marketplace</strong> (this computer only). Codex is part of the ChatGPT desktop app. Add a marketplace from the GitHub repository
               <div class="code"><pre><code>ajitta/dialectic-skills</code></pre></div>
-              or the Git URL <code>https://github.com/ajitta/dialectic-skills.git</code>, then select <code>dia</code> in its plugin list and install it. Updates arrive through the marketplace.</li>
+              or the Git URL <code>https://<wbr>github.com/<wbr>ajitta/<wbr><span class="nobr">dialectic-skills.git</span></code>, then select <code>dia</code> in its plugin list and install it. Updates arrive through the marketplace.</li>
           </ol>
           <ul class="notes">
             <li>On Business and Enterprise workspaces, an admin can also add the plugin for the whole workspace.</li>
@@ -460,7 +455,7 @@
       </video>
       <svg class="pair__lens" viewBox="0 0 3 2" aria-hidden="true"><path d="M1.5 0.134A1 1 0 0 1 1.5 1.866A1 1 0 0 1 1.5 0.134Z"/></svg>
       </div>
-      <figcaption class="small">Visitors at the Parthenon, Athens, from the film <i>Acropolis</i>, 1921.</figcaption>
+      <figcaption class="small film__caption"><button class="film__toggle" type="button" hidden>Pause the film</button> <span>Visitors at the Parthenon, Athens, from the film <i>Acropolis</i>, 1921.</span></figcaption>
     </figure>
   </div>
 </section>
@@ -541,11 +536,12 @@
     </div>
     <div class="footer__last">
       <p>Dialectic Skills by <a class="link-plain" href="https://github.com/ajitta">ajitta</a>, released under the MIT License.</p>
-      <a class="button button--small" href="https://github.com/ajitta/dialectic-skills/releases/latest">Latest release</a>
+      <a class="button button--small" href="#install">Install dia</a>
     </div>
   </div>
 </footer>
 
+<p class="sr-only" id="copy-status" role="status" aria-live="polite"></p>
 <script src="assets/site.js" defer></script>
 </body>
 </html>
