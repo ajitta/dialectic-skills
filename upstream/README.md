@@ -22,6 +22,7 @@ Material the dialectic-skills are rebuilt from (see `docs/spec.md` §11). Never 
 
 Notes:
 
+- Authorship: every item here is the owner's own work (ajitta). The `installed/` copies were written by the owner on their claude.ai account; the superclaude items come from the owner's MIT repository `ajitta/superclaude` (owner statement, 2026-10-20). This note is the only edit to `upstream/` and changes no hashed item.
 - The installed copies were byte-identical to the copies the claude.ai session mounted under `/mnt/skills/plugins/` on 2026-10-20 (checked with `diff -rq`, except confirm-intent, which exists only in the synced folder).
 - The superclaude `socratic-*` versions here are newer than the copies installed in the account (3.3.0 / 1.3.0); the spec rebuilds from these.
 - `recursive-refine/references/skill-loop.md` documents the skill-folder mode that `dia-iterate` drops (spec §5.7). It is kept here for reference only.

@@ -392,7 +392,7 @@ Steps:
 3. Write `upstream/README.md` with one row per item: name, origin, version or commit, date taken, SHA-256 of the folder contents.
 4. Add `upstream/` to the packaging exclude list, and add a test that fails if any shipped file path starts with `upstream/`.
 
-Note: the installed copies of reductio, negative-dialectics, self-refine, recursive-refine and confirm-intent carry no `license` or version field. Their provenance row records "installed copy, unversioned".
+Note: the installed copies of reductio, negative-dialectics, self-refine, recursive-refine and confirm-intent carry no `license` or version field. Their provenance row records "installed copy, unversioned". All `upstream/` material is the owner's own work (ajitta): the installed copies were written by the owner on their claude.ai account, and the superclaude items come from the owner's MIT repository (owner statement, 2026-10-20).
 
 ## 12. Verification and acceptance
 
