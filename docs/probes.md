@@ -173,6 +173,11 @@ dia-brainstorm, Claude Code (harness as Part E, connectors off), two scripted se
 - dia-intent then dia-refine on the onboarding guide: Claude 2/2 read the file, found the February error, held for approval and changed nothing. Codex 2/2 held for approval (it could not read the file: sandbox), changed nothing.
 - dia-elenchus + dia-brainstorm on a four-day week: Claude 1/2 said which runs first and that brainstorming follows on request; 1/2 loaded only dia-elenchus and did not mention dia-brainstorm. Codex 2/2 started with elenchus; both runs said the brainstorm instructions were unreadable, though a direct check showed Codex injects the full SKILL.md of every `$`-named skill (it had failed to open a reference file through the sandbox).
 
+**Part K, re-run at `c1b8774` (D28), n=3 per engine.**
+
+- dia-elenchus + dia-brainstorm, and the reversed order (dia-brainstorm + dia-elenchus): Claude 6/6 and Codex 6/6 started the definition dialogue and said in the first message that brainstorming follows on request or when the dialogue ends; no run dropped dia-brainstorm silently (Part K: 1/2 had).
+- dia-refine + dia-iterate: Claude 3/3 gave two separate passes and said first that no check had run (shell and search denied). Codex 3/3 gave two separate passes. A re-run that logged every event showed real web searches (`web_search` items that opened the Python 3.13 What's New page), so the GIL fix's "(tool: … documentation)" basis is sound; but each run also labelled the 20% fix "(tool: JavaScript execution)", "(tool: calculation)" or "(code execution)", and no execution event appears in its log. Unless Codex runs code server-side without logging it, that is a claimed check that did not run, against both skills' rules. Recorded as a Codex-side finding; the skills already forbid it, and no wording change was made.
+
 ### P8: tool-less run (`--tools Skill`: no search, fetch, code or file tools)
 
 Draft under test: "The Eiffel Tower was completed in 1889 and is about 330 m tall. Python 3.13 removed the GIL by default. 17 x 23 = 391." The Python sentence is wrong.
