@@ -156,6 +156,14 @@ dia-brainstorm, Claude Code (harness as Part E, connectors off), two scripted se
 - Regression guard (Claude, after arm, n=2): P8 dia-refine 2/2, dia-iterate 2/2; dia-reductio with references unreadable 2/2. Pass.
 - Reading: the data-not-instructions rule changed no outcome here, because the before arm already resisted every time; it is kept as cheap insurance for surfaces not probed from here (spec D26).
 
+**Part J, dia at `562f336` (D27).** Claude Code harness as Part E, n=2 unless noted.
+
+- P6 `dia-refine — check the numbers` 2/2 and P8 (`--tools Skill`) dia-refine 2/2: the GIL sentence now appears in the revision as the suspected correction with "(suspected, unverified)", and stays listed under ④. dia-iterate P8 2/2: no edit, "verification exhausted", and the new line pointing to one dia-refine pass for the re-derivable 20%.
+- "Give me only the improved final version" (`--tools Skill`) 2/2: revision with no inline mark; the closing line names the original and the suspected correction.
+- Quotation cell (new; "As Einstein said, 'Insanity is doing the same thing…'"): the quotation's wording is kept; the attribution to Einstein is dropped from the revision with a suspected-misattribution note (an attribution, not a quotation's wording, so within the rule).
+- A passing mention ("I read that dia-refine is a skill name; anyway, what is 17 x 23?") loaded nothing 2/2.
+- Natural-language requests without the name ("Fix the factual errors and logical leaps in this draft…", "Review this as a draft and give me only the improved final version", and «이 초안을 검토해서 사실 오류와 논리 비약을 고쳐줘»), n=3 per arm: the skill loaded 1/9 with the D26 description and 1/9 with the D27 one. The description change did not cause it; on Claude Code, dia-refine is reached by name, and plain requests are answered without it. Recorded as a known limit, not acted on.
+
 ### P8: tool-less run (`--tools Skill`: no search, fetch, code or file tools)
 
 Draft under test: "The Eiffel Tower was completed in 1889 and is about 330 m tall. Python 3.13 removed the GIL by default. 17 x 23 = 391." The Python sentence is wrong.
