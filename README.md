@@ -19,7 +19,7 @@ Seven reasoning-and-review skills in one plugin, written to run unchanged on any
 - [Quick start](#quick-start)
 - [Install](#install)
 - [How to invoke](#how-to-invoke)
-- [Examples](#examples)
+- [Skill guide with examples](#skill-guide-with-examples)
 - [Using several skills together](#using-several-skills-together)
 - [Troubleshooting](#troubleshooting)
 - [Repository layout](#repository-layout)
@@ -102,11 +102,6 @@ The skills are then available in Codex, and in ChatGPT on desktop, web and mobil
 
 All routes above work on Windows. The skills contain no scripts, so no Python or shell setup is needed.
 
-### Moving from earlier versions
-
-- **From 1.0.0:** `dia-intent` is now `dia-confirm` (1.1.0). Call it by the new name. A marketplace install picks the change up on update; an uploaded zip must be removed and the new one uploaded.
-- **From the owner's earlier standalone skills:** remove the old copies first, or each method loads twice under two names. On claude.ai: Customize › Skills, remove `reductio`, `negative-dialectics`, `self-refine`, `recursive-refine` and `confirm-intent`; Customize › Plugins, remove `socratic`. In Claude Code: `/plugin uninstall socratic@ajitta-socratic`, and remove copies under `~/.claude/skills/`. For Codex and ChatGPT desktop: remove old copies under `~/.agents/skills/`.
-
 ## How to invoke
 
 There are three ways, and every surface supports at least one of them:
@@ -133,72 +128,232 @@ Options can be written as flags or in plain words, in any language:
 - Mode and depth (`dia-brainstorm`): `develop` (default) or `stress` ("poke holes"), and `quick`, `standard` (default) or `deep`.
 - Criteria (`dia-refine`, `dia-iterate`): anything after the name, for example `dia-refine — check the numbers` or `dia-refine for tone`.
 
-## Examples
+## Skill guide with examples
 
-The prompts below are in English; the same requests work in any language, and the reply follows the language you write in. Output descriptions are shortened.
+You don't need any background in philosophy to use these skills. Each one is a way of thinking that people have used for a long time, turned into a routine the assistant follows step by step. Below, each skill gets a plain-language explanation, a prompt to try, and a real session, shortened.
+
+The sessions were run on Claude Code (Sonnet) with this plugin, and the user replies in the two dialogue examples came from a simulated user, not a scripted one. The wording you get will differ from run to run. Every prompt works in any language, and the assistant replies in the language you write in.
+
+**Pick a skill by what you want to do**
+
+| You want to… | Use |
+|---|---|
+| make sure the assistant understood the task before it starts | `dia-confirm` |
+| find out what you really mean by a word or an idea | `dia-elenchus` |
+| turn a rough idea into options and a plan | `dia-brainstorm` |
+| check whether a claim holds together | `dia-reductio` |
+| see whether a slogan, policy or promise lives up to its own words | `dia-negative` |
+| fix the mistakes in an answer or a draft, once | `dia-refine` |
+| fact-check something thoroughly, round by round | `dia-iterate` |
 
 ### dia-confirm: agree on the task before work starts
 
-```
-dia-confirm Write a script that renames all my photos by date.
-```
+**In plain words.** Before a contractor starts work, a good one walks you through the job: here is what I'll build, here is what I'm assuming, here is what only you can decide. `dia-confirm` makes the assistant do that, and then wait for your go-ahead instead of guessing.
 
-You get four short sections and no work yet:
+**Use it when** a request is short but the result depends on things only you know: a speech, a plan, a script, an email to someone important. **Skip it** for quick questions with one obvious answer.
 
-- **Goal and success conditions:** what will be built and how you can tell it is done.
-- **Evidence and assumptions:** what the assistant checked and what it assumed (for example, that the date comes from the photo's metadata).
-- **Decisions needed from the user:** only what you must decide (operating system, subfolders, which date to use).
-- **Confirmation:** what to reply to proceed.
-
-Reply with your answers and "proceed". Corrections plus "proceed" count as approval of the corrected task; corrections alone get a revised review. The skill applies to that task and its direct follow-ups only.
-
-### dia-elenchus: test what you mean by a word
+**Try:**
 
 ```
-Socratic dialogue please, make me define it first. I want to build a lunch-menu recommendation app.
+dia-confirm Write a short speech for my brother's wedding.
 ```
 
-The assistant asks one short question per message, for example what a "good recommendation" is. It argues only from what you agreed to, and when two of your statements cannot both stand it shows them side by side and asks which you would change. It gives no advice during the dialogue. It ends when you stop, when you run out of definitions (aporia), or when a definition survives several tests, and then prints a record with the result: aporia, holding (provisional), partly tested, or stopped before testing.
+**What a session looks like** (shortened):
 
-### dia-brainstorm: grow an idea by questions, then decide
+> **Assistant:**
+> **Goal and success conditions:** a short wedding speech about your brother, ready to read aloud, about 1–2 minutes, warm, with a toast.
+> **Evidence and assumptions:** nothing tells me about your brother or the couple. I'm assuming he's the groom, the tone is warm with light humor, and it's in English.
+> **Decisions needed from the user:** 1. names; 2. one or two real details, such as a shared memory; 3. tone; 4. anything to avoid. Without these I'd have to write a generic speech with placeholders.
+> **Confirmation:** reply "proceed" with your answers, or tell me to use a generic template.
+>
+> **You:** My brother is Minho, marrying Sara; I'm the best man. He taught me to ride a bike, even though he's younger. Warm, one light joke, about 3 minutes. proceed
+>
+> **Assistant:** Here's your speech, about 400 words… *(the speech follows, built around the bike story)* …Notes: I invented small details of the story; change any that don't match what really happened.
+
+**Tips**
+
+- Answer only the questions you care about and add "proceed". Corrections plus "proceed" count as approval of the corrected task.
+- "Looks good", silence or a thumbs-up do not count as approval; the assistant keeps waiting.
+- It covers that one task and its direct follow-ups. Start a new task with `dia-confirm` again if you want the same check.
+
+### dia-elenchus: find out what you really mean
+
+**In plain words.** This is the method Socrates uses in Plato's dialogues. You say what you think something is ("a good teacher is…"). The assistant doesn't argue back or give its own view. It asks about one concrete case at a time, and each case is chosen so that your own answers start to pull against your definition. You then fix the definition in your own words. Often you end up stuck, and the Greek word for that is **aporia**. Being stuck is a result here, not a failure: you now know exactly which part you don't know, so you won't build on a wrong assumption.
+
+**Use it when** you rely on a word that feels obvious but drives real decisions: a good teacher, a fair split, a successful project, a healthy relationship. **Not for** getting advice; it gives none during the dialogue.
+
+**Try:**
 
 ```
-Socratic brainstorm with me: I need a weekend side-project idea. Keep it quick.
+Socratic dialogue please. I think a good teacher is one whose students get high test scores.
 ```
 
-One question per message while the idea is probed (about 4 questions for `quick`, 8–10 for `standard`). Then your own options plus up to three labeled suggestions, a comparison by the criteria you set, a verdict, and an optional brief. It never writes code or acts. Say "stop" or "wrap up" at any point to jump to the verdict.
+**What a session looks like** (real run, shortened):
 
-### dia-reductio: find a contradiction
+> **Assistant:** I don't know what makes a good teacher, so I'll test your definition. Suppose a teacher gives the students the exam questions and answers the day before, and they all score high. Is that a good teacher?
+>
+> **You:** No, that's basically cheating. Maybe a good teacher is one whose students get high scores *because they actually learned the material*.
+>
+> **Assistant:** Your wording has shifted from "high test scores" to "high scores because they actually learned the material." Now take a teacher whose students really did learn, but the test was badly made, so the scores came out low. Is that a good teacher?
+>
+> **You:** Yes, the bad test is the test's fault. So scores aren't really what makes a teacher good.
+>
+> **Assistant:** … Take a class where every student learned everything, but entirely on their own, from a book and a private tutor. The teacher contributed nothing. Is that a good teacher?
+>
+> **You:** No. So a good teacher is one whose teaching actually helps the students learn.
+>
+> *…three more cases: a teacher whose students skip class, two equally clear teachers with different classes, a teacher who tries everything and nothing works…*
+>
+> **Assistant:** Earlier you called the teacher with the skipping students still good. Were those students "reasonably able to take part"?
+>
+> **You:** They could have, they just chose not to, so by my new idea that teacher isn't good. That contradicts what I said earlier. I'm stuck. Where does that leave me?
+>
+> **Assistant:** You've reached aporia, and that's a result, not a failure. Whether a good teacher is defined by what the students end up learning or by what the teacher does is still open for you… *(then a record: how your definition changed, the premises you agreed to, what you now know you don't know, and a question to take away; result: aporia)*
+
+**Tips**
+
+- Short, honest answers work best. "I'm not sure" is a fine answer.
+- When it points out a "shift", it is only showing you how your wording changed. You decide what to keep.
+- Say "stop" at any time to get the record. If you then want suggestions, ask; the assistant will say the Socratic part is over and label its ideas as its own.
+
+### dia-brainstorm: grow a rough idea, then decide
+
+**In plain words.** A coach who asks you good questions before handing you options. First it asks one question at a time to pin down what you want and what you know (Socratic questioning). Then you list options, it adds a few of its own, you choose what matters, and it ends with a verdict and a short brief you can act on. Unlike `dia-elenchus`, it does give suggestions, after the questions.
+
+**Use it when** you have a goal but no plan yet: a side income, a career move, a small project, a trip. **Not for** building the thing; it never writes code or acts.
+
+**Try:**
 
 ```
-Use proof by contradiction on this claim: remote work always raises productivity.
+Socratic brainstorm with me, keep it quick: I want to earn some extra money on weekends.
 ```
 
-One response with the whole chain: the thesis; every premise labeled by source ([T] stated by the target, [L] a law of logic or mathematics, [A] added by the assistant, such as an unstated assumption, definition or fact); numbered derivation lines that each name their rule; the contradiction Q and not-Q with its strength; the premises you could give up; one recommendation; and a record. The assistant does not decide for you. To test its own previous answer: `--target=claude`, or "check your last answer by contradiction".
+**What a session looks like** (real run, shortened):
+
+> **Assistant:** Quick mode, about 4 questions. Your idea is to earn some extra money on weekends, alongside your current job. Is that right, or did I assume something you didn't mean?
+>
+> **You:** Right. About 8 hours each weekend, roughly $300 a month, no more than $200 to start.
+>
+> **Assistant:** Eight hours a weekend is about 32 hours a month, so $300 comes to about $9 an hour. What do you already know how to do that someone would plausibly pay for?
+>
+> **You:** I'm good at photography and own a decent camera. Maybe photos for small local shops.
+>
+> **Assistant:** Compliments are a good sign, but nobody has paid you yet, so the biggest unknown is whether a shop would… Suppose you approach shops over the next few weekends. What would you have to see to decide this isn't working?
+>
+> **You:** If I pitch about 10 shops over three weekends and none say yes to even a cheap trial shoot, I'd call it not working.
+>
+> *…you add more options (prints at weekend markets, stock photos, headshots, a "pet photo morning"); the assistant adds its own (second shooter at weddings, a beginner photo walk, do nothing); you pick three criteria: low startup cost, about $300 without much unpaid editing, and enjoying the work…*
+>
+> **Assistant:** **Verdict: open.** The idea held up where I tested it, but the central assumption, that someone will pay you for these photos, hasn't been tested yet… **Next step:** this week, post in two neighborhood groups offering 3–4 park slots, and track bookings, price paid and editing minutes per client.
+
+**Tips**
+
+- Say how hard it should push: "keep it quick", "go deep", or "poke holes" for a tougher stress test.
+- Say "wrap up" at any point to jump to the verdict and the brief.
+- A verdict of "open" means the key assumption still needs a real-world test, and the brief says which one.
+
+### dia-reductio: check whether a claim holds together
+
+**In plain words.** Reductio ad absurdum, or proof by contradiction: take a claim at its word, follow it step by step, and see whether it leads to two statements that can't both be true. If it does, something in the starting point has to give. The assistant lists every premise it used, marks which ones it added itself, and leaves the choice of what to give up to you.
+
+**Use it when** you hear a confident rule with "always", "never" or "everyone" in it, or want to test your own position before you defend it. **Not for** deciding whether an idea is wise overall; it only tests consistency.
+
+**Try:**
+
+```
+Use proof by contradiction on this claim: the customer is always right.
+```
+
+**What you get** (real run, shortened):
+
+> **Reading tested:** "right" means true, so whatever a customer says is correct.
+> **Premises:** P1 [A] "right" means "true"; P2 [A] customer C1 says the coat was bought here and customer C2 says it was not, about the same coat; P3 [L] if not-p is true, p is not true.
+> **Derivation:** 1. every customer's assertion is true (the claim). … 4. p is true. … 6. p is not true.
+> **Contradiction:** lines 4 and 6. **Strength:** it rests on added premises P1 and P2, which are ordinary facts, not logic.
+> **Options:** give up "always"; give "right" another meaning; deny that customers ever disagree; or repair the claim: "a customer's good-faith complaint deserves a fair hearing and, where the business can, a remedy."
+> **Recommendation:** the repaired claim, because it keeps what the slogan is for. The decision is yours.
+
+The labels mean: **[T]** stated by the claim, **[L]** a rule of logic, **[A]** added by the assistant. A contradiction that needs an [A] premise is only as strong as that premise, and the assistant says so.
+
+**Tips**
+
+- To test the assistant's own previous answer, write "check your last answer by contradiction" or add `--target=claude`.
+- If you think an [A] premise is wrong, say so; the assistant removes it and runs the argument again. Picking one of the options works the same way.
 
 ### dia-negative: hold a claim to its own standard
 
-```
-Do an immanent critique of this claim: our company is flat, so anyone can speak up freely.
-```
+**In plain words.** Instead of judging a claim by your values, judge it by its own words. Take what it promises ("anyone can raise a problem at any time") and look for real cases where it doesn't deliver. Then ask what the claim actually does in practice, as a guess you could check. The name comes from the philosopher Adorno's "negative dialectics"; this skill uses a narrower, practical version of his idea, called internal critique.
 
-The claim's own standard, quoted; findings where what it claims and what it delivers come apart, each with a particular case; what the claim leaves out; what it actually does, stated as an inference you can check, with an observation that would prove it wrong; then options, one recommendation, and a record. It does not force a new master definition. For what code, a command or a setting does, or for a general review, ask normally instead.
+**Use it when** a slogan, policy, mission statement or plan sounds good and you want to see what it leaves out. **Not for** explaining what code, a command or a setting does, or for a general review.
 
-### dia-refine: one review pass
+**Try:**
 
 ```
-dia-refine check the facts: Mount Everest is the second-highest mountain, so it gets the most climbers.
+Do an immanent critique of this claim: "We have an open-door policy, so anyone in the company can raise a problem with management at any time."
 ```
 
-A defect list in four parts (① confirmed errors, ② missing requirements, ③ correct content kept, ④ remaining uncertainty), then one revised version. Only defects with a confirmed basis are fixed: a tool that ran, your instructions or material, or the assistant's own re-derivation. Suspected errors it could not confirm are listed under ④ with the suspected correction instead of being changed silently. Without a draft, "do this task the dia-refine way" writes an answer, checks it once, and shows only the final version.
+**What you get** (real run, shortened):
 
-### dia-iterate: several rounds, each checked
+> **Its own standard:** "anyone" (no exceptions), "at any time" (no time limit), "raise a problem with management" (it reaches management), and "so" (the policy alone is enough).
+> **F1. "Anyone" fails for problems about management.** If your problem is with your manager, the open door opens onto the person you are complaining about, and the policy names no second path. *What escapes:* the problems least likely to be raised.
+> **F2. "At any time" fails against real working hours.** A night-shift or remote worker can't raise it *with* a manager at 3 a.m.
+> **F3. The "so" overreaches.** A policy grants permission; whether people can speak also depends on what happens afterwards, such as no response or retaliation.
+> **What it actually does (an inference):** it moves the blame for silence onto whoever didn't walk through the door. *What would prove this wrong:* a record of complaints about managers raised through the policy and acted on.
+> **Options:** narrow the claim; change the practice (a second channel, after-hours reporting, a no-retaliation commitment); keep it and say its limits openly; withdraw it; test it on one real case. **Recommendation:** change the practice. The decision is yours.
+
+**Tips**
+
+- Findings marked conditional depend on facts about your situation, so tell the assistant those facts. If you say a standard isn't really the claim's, it drops the findings that used it and runs again.
+- It recommends an option but never picks one for you.
+
+### dia-refine: one careful review of an answer or a draft
+
+**In plain words.** A careful editor's single pass. The assistant lists what is wrong, checks each item, and fixes only the errors it could confirm. Errors it suspects but couldn't confirm are listed separately with the likely correction, so nothing changes silently.
+
+**Use it when** you have a draft, or the assistant's last answer, and want factual errors, logic gaps and missing pieces fixed once. Start the message with `dia-refine`, then say what to focus on, if anything.
+
+**Try:**
 
 ```
-dia-iterate --max 2 check the dates and figures in your last answer
+dia-refine check the facts: The Great Wall of China is the only man-made structure visible from the Moon with the naked eye, and it was built entirely during the Ming dynasty.
 ```
 
-Each round names defects, settles each one by an external check (search, a tool run, a source you supplied), fixes only the confirmed ones and locks what passed. The loop stops on regression, when no defects remain, when verification runs out, at a fixed point, or at the round cap, and reports the changes, a round summary and anything left unverified. In a chat with no tools it stops after round 1 with the list of items it could not verify. A mid-sentence mention of `dia-iterate` does not start the loop; the assistant asks for a message that starts with the name.
+**What you get** (real run with web search, shortened):
+
+> **① Confirmed errors:** "visible from the Moon" is false (checked by search): from about 384,000 km no single man-made structure can be seen, and astronauts have said the wall can't be seen unaided from space. "Built entirely during the Ming dynasty" is false: walls were joined under the Qin around 220 BC, and other dynasties added sections.
+> **② Missing requirements:** none.
+> **③ Correct content kept:** the Ming built most of the stone wall seen today.
+> **④ Remaining uncertainty:** exact Qin and Han dates vary by source; only secondary sources were checked.
+> **Revised statement:** The Great Wall of China is not visible from the Moon with the naked eye, and no single man-made structure is. It was not built entirely under the Ming… *(sources listed)*
+
+**Tips**
+
+- Without a search tool, the assistant can still fix logic and arithmetic it re-derives, and puts unchecked facts under ④.
+- "Do this task the dia-refine way" makes it write an answer, review it once and show only the final version.
+
+### dia-iterate: check and fix in rounds
+
+**In plain words.** Like `dia-refine`, but in rounds, and every fix needs outside evidence: a search, a tool run or a source you supplied. Facts that pass a check are locked so later rounds can't undo them. The loop stops by itself when nothing is left to fix, when it can't verify anything more, or at the round limit.
+
+**Use it when** accuracy matters more than speed, for example facts and dates you are about to publish. Start the message with `dia-iterate`; it never starts from a plain request.
+
+**Try:**
+
+```
+dia-iterate --max 2 check the dates and facts in this paragraph: "The first iPhone went on sale in 2008, and the App Store opened the same day with 500 apps."
+```
+
+**What you get** (real run with web search, shortened):
+
+> **Changes:** "went on sale in 2008" → "2007" (on sale June 29, 2007). "the App Store opened the same day" → "about a year later, in July 2008".
+> **Round summary:** round 1: 3 claims checked, 2 confirmed wrong, 1 correct, by web search. Locked: the iPhone date, the App Store date, about 500 apps at launch. Stopped because no defects remained, so round 2 was not needed.
+> **Unverified:** the exact launch app count (sources say 500 to 552) and whether the App Store opened on July 10 or 11, 2008.
+> **Corrected paragraph:** "The first iPhone went on sale in 2007, and the App Store opened about a year later, in July 2008, with 500 apps."
+
+**Tips**
+
+- `--max N` sets the round limit (default 3).
+- In a chat with no search or tools, it stops after round 1 and lists what it couldn't verify instead of guessing.
 
 ## Using several skills together
 
