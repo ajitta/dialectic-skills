@@ -47,6 +47,7 @@ tests/                          developer-only
 upstream/                       material the skills were rebuilt from; never shipped
 docs/spec.md                    specification
 docs/token-cost.md              measured token cost per skill
+docs/skill-effect.md            each skill against no skill, blind-judged
 ```
 
 ## Develop
