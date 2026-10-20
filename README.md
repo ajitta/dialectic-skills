@@ -74,13 +74,14 @@ There is no install step. A plugin added on claude.ai or Claude desktop belongs 
 - A plugin you added on claude.ai also syncs into Claude Code when you sign in with the same account. Do not install it a second time from the command line.
 - Through the catalog instead: `/plugin marketplace add ajitta/claude-plugins`, then `/plugin install dia@ajitta`. Same code, different install name.
 
-### Codex CLI and IDE
+### Codex app, CLI and IDE
 
 ```
 codex plugin marketplace add ajitta/dialectic-skills
 codex plugin add dia@dialectic-skills
 ```
 
+- Codex app (desktop): add a plugin marketplace from a GitHub repository (`ajitta/dialectic-skills`), a Git URL (`https://github.com/ajitta/dialectic-skills.git`) or a local folder (a clone of this repository), then install `dia` from it. The CLI commands above do the same.
 - Update: `codex plugin marketplace upgrade` refreshes the marketplace; `codex plugin list` shows the installed version.
 - Without the plugin: copy `skills/dia-<x>/` folders into `~/.agents/skills/`. Skills copied this way are named `$dia-<x>` instead of `$dia:dia-<x>`.
 
@@ -88,7 +89,7 @@ codex plugin add dia@dialectic-skills
 
 On a Pro plan the owner has run the skills on ChatGPT desktop and mobile. The exact install route depends on your plan and workspace:
 
-- through Codex in the ChatGPT desktop app (the Codex marketplace route above), or
+- through Codex in the ChatGPT desktop app or the Codex app (the Codex marketplace routes above), or
 - on Business and Enterprise workspaces, through the workspace's plugin admin (upload the zip or import the GitHub marketplace).
 
 Skills bundled in a plugin are then available in ChatGPT on desktop, web and mobile, where your plan allows plugins.

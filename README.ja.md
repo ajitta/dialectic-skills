@@ -74,13 +74,14 @@ claude.ai：Customize › Plugins › Add › Add marketplace を開き、`ajitt
 - claude.ai で追加したプラグインは、同じアカウントでサインインすると Claude Code にも同期されます。コマンドラインから重ねてインストールしないでください。
 - カタログ経由でインストールする場合：`/plugin marketplace add ajitta/claude-plugins` を実行してから `/plugin install dia@ajitta`。コードは同じで、インストール名だけが異なります。
 
-### Codex CLI と IDE
+### Codex アプリ、CLI と IDE
 
 ```
 codex plugin marketplace add ajitta/dialectic-skills
 codex plugin add dia@dialectic-skills
 ```
 
+- Codex アプリ（デスクトップ）：GitHub リポジトリ（`ajitta/dialectic-skills`）、Git URL（`https://github.com/ajitta/dialectic-skills.git`）、ローカルフォルダー（このリポジトリのクローン）のいずれかでプラグインマーケットプレイスを追加し、そこから `dia` をインストールします。上の CLI コマンドでも同じことができます。
 - 更新：`codex plugin marketplace upgrade` でマーケットプレイスを更新し、`codex plugin list` でインストール済みのバージョンを確認できます。
 - プラグインを使わない場合：`skills/dia-<x>/` フォルダーを `~/.agents/skills/` にコピーします。この方法でコピーしたスキルの名前は、`$dia:dia-<x>` ではなく `$dia-<x>` になります。
 
@@ -88,7 +89,7 @@ codex plugin add dia@dialectic-skills
 
 Pro プランでは、作者が ChatGPT のデスクトップ版とモバイル版でスキルを動かしています。具体的なインストール経路は、プランとワークスペースによって異なります：
 
-- ChatGPT デスクトップアプリ内の Codex 経由（上記の Codex マーケットプレイスの経路）、または
+- ChatGPT デスクトップアプリ内の Codex または Codex アプリ経由（上記の Codex マーケットプレイスの経路）、または
 - Business および Enterprise ワークスペースでは、ワークスペースのプラグイン管理から（zip をアップロードするか、GitHub のマーケットプレイスをインポート）。
 
 プランでプラグインが使える場合、プラグインに含まれるスキルはデスクトップ、Web、モバイルの ChatGPT で利用できるようになります。

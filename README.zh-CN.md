@@ -74,13 +74,14 @@ claude.ai：Customize › Plugins › Add › Add marketplace，输入 `ajitta/d
 - 在 claude.ai 添加的插件，用同一账号登录 Claude Code 时也会同步过来。不要再从命令行重复安装。
 - 也可以通过目录安装：`/plugin marketplace add ajitta/claude-plugins`，然后 `/plugin install dia@ajitta`。代码相同，安装名称不同。
 
-### Codex CLI 与 IDE
+### Codex 应用、CLI 与 IDE
 
 ```
 codex plugin marketplace add ajitta/dialectic-skills
 codex plugin add dia@dialectic-skills
 ```
 
+- Codex 应用（桌面版）：通过 GitHub 仓库（`ajitta/dialectic-skills`）、Git URL（`https://github.com/ajitta/dialectic-skills.git`）或本地文件夹（本仓库的克隆）添加插件 marketplace，然后从中安装 `dia`。上面的 CLI 命令效果相同。
 - 更新：`codex plugin marketplace upgrade` 刷新 marketplace；`codex plugin list` 显示已安装的版本。
 - 不使用插件：将 `skills/dia-<x>/` 文件夹复制到 `~/.agents/skills/`。以这种方式复制的技能名为 `$dia-<x>`，而不是 `$dia:dia-<x>`。
 
@@ -88,7 +89,7 @@ codex plugin add dia@dialectic-skills
 
 作者已在 Pro 套餐下于 ChatGPT 桌面版和移动版上运行过这些技能。具体安装途径取决于你的套餐和工作区：
 
-- 通过 ChatGPT 桌面应用中的 Codex（即上文的 Codex marketplace 途径），或
+- 通过 ChatGPT 桌面应用中的 Codex 或 Codex 应用（即上文的 Codex marketplace 途径），或
 - 在 Business 和 Enterprise 工作区中，通过工作区的插件管理功能（上传 zip 或导入 GitHub marketplace）。
 
 之后，在你的套餐允许使用插件的情况下，插件中打包的技能可在桌面版、网页版和移动版 ChatGPT 中使用。
