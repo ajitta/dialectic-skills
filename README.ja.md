@@ -42,7 +42,7 @@ codex plugin marketplace add ajitta/dialectic-skills
 codex plugin add dia@dialectic-skills
 ```
 
-claude.ai：Customize › Plugins › Add › Add marketplace を開き、`ajitta/dialectic-skills` を入力してから、一覧から `dia` を追加します。
+claude.ai または Claude デスクトップ：Customize › Plugins › Add › Add marketplace に `ajitta/dialectic-skills` を入力し、Discover › `dia` › Add を選びます。詳しい手順は下にあります。
 
 次に試してみましょう：`この主張を背理法で検証してください：リモートワークは常に生産性を高める。`
 
@@ -53,10 +53,17 @@ claude.ai：Customize › Plugins › Add › Add marketplace を開き、`ajitt
 ### claude.ai Web 版と Claude デスクトップ
 
 1. Settings › Capabilities で **Code execution and file creation** をオンにします。dia のスキルはコードを実行しませんが、スキル機能そのものにこの設定が必要です。
-2. Customize › Plugins › Add を開き、次のどちらかを行います：
-   - **Add marketplace** で `ajitta/dialectic-skills` を指定し、一覧から `dia` を追加します。`ajitta/dialectic-skills` の代わりに Git URL `https://github.com/ajitta/dialectic-skills.git` を入力することもでき、Claude デスクトップではローカルフォルダー（このリポジトリのクローン）も指定できます。マーケットプレイスを追加しただけでは何もインストールされないため、2 つ目の手順が必要です。更新はマーケットプレイス経由で届きます（Check for updates、または Sync automatically）。
-   - **Upload plugin** で最新リリースの [`dialectic-skills.zip`](https://github.com/ajitta/dialectic-skills/releases/latest/download/dialectic-skills.zip) をアップロードします。Customize › Skills ではなく Customize › Plugins を使ってください。Skills 画面はプラグインマニフェストを含む zip を受け付けません。アップロードしたものは自動では更新されないため、新しいリリースのたびにアップロードし直してください。
-3. 確認：メッセージ欄に `/dia` と入力します。`dia:dia-brainstorm` から `dia:dia-refine` までの 7 項目が表示されるはずです。
+2. **マーケットプレイスを追加。** Customize › Plugins › Add › Add marketplace を開き、次を入力します：
+
+   ```
+   ajitta/dialectic-skills
+   ```
+
+   Git URL `https://github.com/ajitta/dialectic-skills.git` でもよく、Claude デスクトップではローカルフォルダー（このリポジトリのクローン）も指定できます。手入力せずにコピーして貼り付けてください。`dialectric` のような綴り間違いは「Repository not found」で失敗します。
+3. **プラグインを追加。** マーケットプレイスを追加しただけでは、まだ何もインストールされません。Customize › Plugins で Discover を開き、`dia`（Dialectic Skills）を選んで Add を押します。
+4. **確認。** メッセージ欄に `/dia` と入力します。`dia:dia-brainstorm` から `dia:dia-refine` までの 7 項目が表示されるはずです。更新はマーケットプレイス経由で届きます（Check for updates、または Sync automatically）。
+
+手順 2 と 3 の代わりに、プラグインをアップロードすることもできます。Customize › Plugins › Add › Upload plugin で最新リリースの [`dialectic-skills.zip`](https://github.com/ajitta/dialectic-skills/releases/latest/download/dialectic-skills.zip) をアップロードします。Customize › Skills ではなく Customize › Plugins を使ってください。Skills 画面はプラグインマニフェストを含む zip を受け付けません。アップロードしたものは自動では更新されないため、新しいリリースのたびにアップロードし直してください。
 
 ### Claude モバイル（iOS、Android）
 
@@ -81,7 +88,7 @@ codex plugin marketplace add ajitta/dialectic-skills
 codex plugin add dia@dialectic-skills
 ```
 
-- Codex アプリ（デスクトップ）：GitHub リポジトリ（`ajitta/dialectic-skills`）、Git URL（`https://github.com/ajitta/dialectic-skills.git`）、ローカルフォルダー（このリポジトリのクローン）のいずれかでプラグインマーケットプレイスを追加し、そこから `dia` をインストールします。上の CLI コマンドでも同じことができます。
+- Codex アプリ（デスクトップ）：まず GitHub リポジトリ（`ajitta/dialectic-skills`）、Git URL（`https://github.com/ajitta/dialectic-skills.git`）、ローカルフォルダー（このリポジトリのクローン）のいずれかでプラグインマーケットプレイスを追加し、そのマーケットプレイスのプラグイン一覧で `dia` を選んでインストールします。マーケットプレイスを追加しただけでは何もインストールされません。上の CLI コマンドでも同じことができます。
 - 更新：`codex plugin marketplace upgrade` でマーケットプレイスを更新し、`codex plugin list` でインストール済みのバージョンを確認できます。
 - プラグインを使わない場合：`skills/dia-<x>/` フォルダーを `~/.agents/skills/` にコピーします。この方法でコピーしたスキルの名前は、`$dia:dia-<x>` ではなく `$dia-<x>` になります。
 

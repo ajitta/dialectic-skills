@@ -42,7 +42,7 @@ codex plugin marketplace add ajitta/dialectic-skills
 codex plugin add dia@dialectic-skills
 ```
 
-claude.ai：Customize › Plugins › Add › Add marketplace，输入 `ajitta/dialectic-skills`，然后从列表中添加 `dia`。
+claude.ai 或 Claude 桌面版：Customize › Plugins › Add › Add marketplace，输入 `ajitta/dialectic-skills`，然后选择 Discover › `dia` › Add。详细步骤见下文。
 
 然后试试：`对这个论断用反证法：远程办公总能提高生产力。`
 
@@ -53,10 +53,17 @@ claude.ai：Customize › Plugins › Add › Add marketplace，输入 `ajitta/d
 ### claude.ai 网页版与 Claude 桌面版
 
 1. Settings › Capabilities：打开 **Code execution and file creation**。技能依赖此项，尽管没有任何 dia 技能会运行代码。
-2. Customize › Plugins › Add，然后任选其一：
-   - **Add marketplace**，输入 `ajitta/dialectic-skills`，然后从列表中添加 `dia`。也可以用 Git URL `https://github.com/ajitta/dialectic-skills.git` 代替 `ajitta/dialectic-skills`，Claude 桌面版还可以指定本地文件夹（本仓库的克隆）。只添加 marketplace 不会安装任何东西；第二步不可省略。更新通过 marketplace 获取（Check for updates，或 Sync automatically）。
-   - **Upload plugin**，上传最新发布版中的 [`dialectic-skills.zip`](https://github.com/ajitta/dialectic-skills/releases/latest/download/dialectic-skills.zip)。请使用 Customize › Plugins，而不是 Customize › Skills：Skills 页面会拒绝带有插件清单的 zip。上传的插件不会自动更新；每个新版本都需重新上传。
-3. 检查：在消息框中输入 `/dia`，应出现从 `dia:dia-brainstorm` 到 `dia:dia-refine` 共七项。
+2. **添加 marketplace。** 打开 Customize › Plugins › Add › Add marketplace，输入：
+
+   ```
+   ajitta/dialectic-skills
+   ```
+
+   也可以输入 Git URL `https://github.com/ajitta/dialectic-skills.git`，Claude 桌面版还可以指定本地文件夹（本仓库的克隆）。请复制粘贴而不要手动输入：像 `dialectric` 这样的拼写错误会以 "Repository not found" 失败。
+3. **添加插件。** 只添加 marketplace 还不会安装任何东西。在 Customize › Plugins 中打开 Discover，选择 `dia`（Dialectic Skills），然后选择 Add。
+4. **检查。** 在消息框中输入 `/dia`，应出现从 `dia:dia-brainstorm` 到 `dia:dia-refine` 共七项。更新通过 marketplace 获取（Check for updates，或 Sync automatically）。
+
+也可以不走第 2、3 步，直接上传插件：在 Customize › Plugins › Add › Upload plugin 上传最新发布版中的 [`dialectic-skills.zip`](https://github.com/ajitta/dialectic-skills/releases/latest/download/dialectic-skills.zip)。请使用 Customize › Plugins，而不是 Customize › Skills：Skills 页面会拒绝带有插件清单的 zip。上传的插件不会自动更新；每个新版本都需重新上传。
 
 ### Claude 移动版（iOS、Android）
 
@@ -81,7 +88,7 @@ codex plugin marketplace add ajitta/dialectic-skills
 codex plugin add dia@dialectic-skills
 ```
 
-- Codex 应用（桌面版）：通过 GitHub 仓库（`ajitta/dialectic-skills`）、Git URL（`https://github.com/ajitta/dialectic-skills.git`）或本地文件夹（本仓库的克隆）添加插件 marketplace，然后从中安装 `dia`。上面的 CLI 命令效果相同。
+- Codex 应用（桌面版）：先通过 GitHub 仓库（`ajitta/dialectic-skills`）、Git URL（`https://github.com/ajitta/dialectic-skills.git`）或本地文件夹（本仓库的克隆）添加插件 marketplace，再在该 marketplace 的插件列表中选择 `dia` 并安装。只添加 marketplace 不会安装任何东西。上面的 CLI 命令效果相同。
 - 更新：`codex plugin marketplace upgrade` 刷新 marketplace；`codex plugin list` 显示已安装的版本。
 - 不使用插件：将 `skills/dia-<x>/` 文件夹复制到 `~/.agents/skills/`。以这种方式复制的技能名为 `$dia-<x>`，而不是 `$dia:dia-<x>`。
 

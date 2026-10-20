@@ -42,7 +42,7 @@ codex plugin marketplace add ajitta/dialectic-skills
 codex plugin add dia@dialectic-skills
 ```
 
-claude.ai: Customize › Plugins › Add › Add marketplace, enter `ajitta/dialectic-skills`, then add `dia` from the list.
+claude.ai or Claude desktop: Customize › Plugins › Add › Add marketplace with `ajitta/dialectic-skills`, then Discover › `dia` › Add. Step by step below.
 
 Then try: `Use proof by contradiction on this claim: remote work always raises productivity.`
 
@@ -53,10 +53,17 @@ Install through one route per account or machine. Two routes (for example this r
 ### claude.ai web and Claude desktop
 
 1. Settings › Capabilities: turn on **Code execution and file creation**. Skills need it, even though no dia skill runs code.
-2. Customize › Plugins › Add, then either:
-   - **Add marketplace** with `ajitta/dialectic-skills`, then add `dia` from the list. Instead of `ajitta/dialectic-skills` you can enter the Git URL `https://github.com/ajitta/dialectic-skills.git`, and Claude desktop also accepts a local folder (a clone of this repository). Adding the marketplace alone installs nothing; the second step is needed. Updates arrive through the marketplace (Check for updates, or Sync automatically).
-   - **Upload plugin** with [`dialectic-skills.zip`](https://github.com/ajitta/dialectic-skills/releases/latest/download/dialectic-skills.zip) from the latest release. Use Customize › Plugins, not Customize › Skills: the Skills screen rejects a zip that carries a plugin manifest. An upload does not update itself; upload each new release again.
-3. Check: type `/dia` in the message box. Seven entries, `dia:dia-brainstorm` to `dia:dia-refine`, should appear.
+2. **Add the marketplace.** Customize › Plugins › Add › Add marketplace, and enter:
+
+   ```
+   ajitta/dialectic-skills
+   ```
+
+   The Git URL `https://github.com/ajitta/dialectic-skills.git` works too, and Claude desktop also accepts a local folder (a clone of this repository). Copy the name rather than typing it: a misspelling such as `dialectric` fails with "Repository not found".
+3. **Add the plugin.** Adding the marketplace installs nothing yet. In Customize › Plugins, open Discover, select `dia` (Dialectic Skills), and select Add.
+4. **Check.** Type `/dia` in the message box. Seven entries, `dia:dia-brainstorm` to `dia:dia-refine`, should appear. Updates arrive through the marketplace (Check for updates, or Sync automatically).
+
+Instead of steps 2 and 3 you can upload the plugin: Customize › Plugins › Add › Upload plugin with [`dialectic-skills.zip`](https://github.com/ajitta/dialectic-skills/releases/latest/download/dialectic-skills.zip) from the latest release. Use Customize › Plugins, not Customize › Skills: the Skills screen rejects a zip that carries a plugin manifest. An upload does not update itself; upload each new release again.
 
 ### Claude mobile (iOS, Android)
 
@@ -81,7 +88,7 @@ codex plugin marketplace add ajitta/dialectic-skills
 codex plugin add dia@dialectic-skills
 ```
 
-- Codex app (desktop): add a plugin marketplace from a GitHub repository (`ajitta/dialectic-skills`), a Git URL (`https://github.com/ajitta/dialectic-skills.git`) or a local folder (a clone of this repository), then install `dia` from it. The CLI commands above do the same.
+- Codex app (desktop): first add a plugin marketplace from a GitHub repository (`ajitta/dialectic-skills`), a Git URL (`https://github.com/ajitta/dialectic-skills.git`) or a local folder (a clone of this repository); then select `dia` in that marketplace's plugin list and install it. Adding the marketplace alone installs nothing. The CLI commands above do the same.
 - Update: `codex plugin marketplace upgrade` refreshes the marketplace; `codex plugin list` shows the installed version.
 - Without the plugin: copy `skills/dia-<x>/` folders into `~/.agents/skills/`. Skills copied this way are named `$dia-<x>` instead of `$dia:dia-<x>`.
 

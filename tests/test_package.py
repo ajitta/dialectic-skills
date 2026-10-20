@@ -131,16 +131,16 @@ class TestReadmeTranslations(unittest.TestCase):
     """README.<lang>.md files mirror README.md's structure (spec D31)."""
 
     LANGS = ("ko", "ja", "zh-CN")
-    VERBATIM_PREFIXES = ("/plugin", "codex ", "python ", "skills/")
+    VERBATIM_PREFIXES = ("/plugin", "codex ", "python ", "skills/", "ajitta/")
 
     @staticmethod
     def _parse(text):
         heads, blocks, tables, links = [], [], 0, set()
         in_code, buf = False, []
         for line in text.split("\n"):
-            if line.startswith("```"):
+            if line.lstrip().startswith("```"):
                 if in_code:
-                    blocks.append("\n".join(buf))
+                    blocks.append("\n".join(buf).strip())
                     buf = []
                 in_code = not in_code
                 continue
