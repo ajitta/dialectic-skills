@@ -2,11 +2,14 @@
 
 State of the work and what is left, for the next agent session. Read `AGENTS.md` and `docs/spec.md` first; probe evidence is in `docs/probes.md`.
 
-## State (2026-10-20)
+## State (2026-10-20, end of session)
 
 - Plugin `dia` **1.1.1** (2026-10-20) adds the directory packaging (spec D32); 1.1.0 renamed `dia-intent` to `dia-confirm` (spec D30). 1.0.0 (`v1.0.0`) was released after acceptance (spec §12.3); the pre-release `v0.1.0` is what the owner probed, and 1.0.0 differs from it only in the version number. Every skill change needs a new plugin `version` and the skill's `metadata.version`. Older docs (probes, research, reviews) use the name `dia-intent`; it is the same skill.
 - The repository `ajitta/dialectic-skills` is public since 2026-10-20 (owner decision; secrets scan of the full history was clean, and all `upstream/` material is the owner's own work).
 - CI (`.github/workflows/check.yml`) runs on every push to `main` and on pull requests. It runs `tools/package.py --check`, the unit tests, and `claude plugin validate --strict` for the plugin and the marketplace. It is green.
+- Releases are by tag: `.github/workflows/release.yml` attaches both zips to the release for a `vX.Y.Z` tag (item 7). The latest release is `v1.1.1`.
+- README is in four languages (`README.md`, `.ko`, `.ja`, `.zh-CN`; spec D31). Change all four in one commit; `TestReadmeTranslations` checks their structure. It has the install routes per surface, a skill guide with worked examples (raw runs: `~/work/dia-review/readme-examples/` on the build VM) and troubleshooting.
+- Also listed in the catalog `ajitta/claude-plugins` as `dia@ajitta` (git-subdir `plugins/dia`, unpinned, so no catalog change per release).
 - Skill text reflects spec D19–D29 (research findings, token audit, data-not-instructions rule, dia-refine suspected corrections, several-skills-in-one-prompt rules, `short_description` length). Every batch was diff-reviewed or probed; results are in `docs/probes.md` Parts A–K, `docs/token-cost.md` and `docs/skill-effect.md`.
 - Spec §12.3 acceptance:
   - 12.1 passes.
@@ -29,11 +32,23 @@ State of the work and what is left, for the next agent session. Read `AGENTS.md`
 | 11 | dia-refine by plain request on Claude Code: known limit | — | Probes Part J: a request without the name loaded dia-refine 1/9, before and after D27; by name it loads every time. Kept as a known limit (owner rulings 2026-10-20, confirmed after 1.0.0). |
 | 12 | Long output when several analysis skills run at once: kept as is | owner reports if it bothers on a phone | Probes Part K: dia-reductio + dia-negative gave 8.6k–9.4k characters on Claude Code. Owner ruling 2026-10-20 after 1.0.0: no length limit now; add one in a 1.0.x if it proves uncomfortable on a phone. |
 | 13 | Directory listings (Anthropic, OpenAI) | owner submits later | Package side done in 1.1.1 (spec D32): plugin-folder README, `releases/dialectic-skills-openai.zip` with listing fields and draft logo. Owner steps: `docs/directory-submission.md` § Owner steps. |
+| 14 | Owner housekeeping | owner | (a) Switch claude.ai from the uploaded zip to Add marketplace so it updates by itself. (b) Tell the agent the exact name of ChatGPT's plugin zip upload menu; README says "the plugin zip upload". (c) Native read of README.ja.md and README.zh-CN.md wording (structure is test-checked; wording was agent-translated and not read by a native speaker). |
 
 Observations from P8 (n=1 each; see `docs/probes.md`):
 
 - In one run, dia-refine added an inline "(unverified; …)" note inside the revision. Addressed by spec D20 (marks go in ④ or the closing line); see the neutral-directory P8 re-run in `docs/probes.md`.
 - In one run, dia-refine replied in Korean to an English prompt. It did not reproduce from a neutral directory (3/3 English), so the repository's `AGENTS.md` ("reply in Korean") was the likely cause.
+
+## Install surfaces: what the owner observed (2026-10-20)
+
+Where an install is made decides where `dia` shows up. README § Install says this; raw notes are in `docs/probes.md` P2, P4/P5.
+
+- **Web installs are saved to the account** and reach that account's web and mobile apps: claude.ai (Add marketplace or zip upload) and chatgpt.com (zip upload; chatgpt.com has no marketplace menu).
+- **Desktop installs stay on that computer:** Claude desktop (Customize › Plugins) and Codex in the ChatGPT desktop app (GitHub repository, Git URL or local folder). A plugin added in Claude desktop did not reach Claude mobile, and one added on claude.ai did not appear in Claude desktop.
+- **Owner's working setup:** both desktop apps from the GitHub marketplace; claude.ai and chatgpt.com with an uploaded zip. Everything works.
+- **Uploaded zips do not update.** Re-upload on each release; recommended to the owner: switch claude.ai to Add marketplace (account-wide and auto-updating). chatgpt.com stays on `dialectic-skills-openai.zip` until the OpenAI directory listing (item 13).
+- **Claude mobile invocation:** the `/` menu does not list plugin skills, but `/dia-brainstorm`, `/dia:dia-brainstorm` and a message starting with `dia-brainstorm` all start the skill.
+- The owner's personal Claude organization is the one the build VM's Claude Code syncs (`~/.claude/plugins/synced/`); its manifest shows which `dia` the account holds.
 
 ## How probes were run (for re-runs)
 
