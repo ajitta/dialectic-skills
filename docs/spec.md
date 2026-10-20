@@ -69,6 +69,7 @@ These decisions were settled with the owner during the spec interview of 2026-10
 | D24 | Token audit, recommended set (2026-10-20; `docs/research/token-audit/`). Each skill's text was classified by kind and counted; restated rules, duplicated pitfalls and design defences were cut or shortened, labels were shortened in place and kept, worked examples, template fields and no-reference fallbacks were kept. dia-elenchus moves its dialogue loci and scholarly notes, including D23's Aristotle citation for the no-answers stance, to a new `references/theory.md` (read on request) and keeps the labels in the body. dia-reductio adds one-line rules for rules or practices and for *per impossibile* reasoning (an impossible supposition, result **stopped**) to the body, from theory.md §4 and §6 (owner ruling 2026-10-20, outside the recommended set; theory.md keeps its text). dia-refine's natural-language triggers and passing-mention rule live in the description only, and its intro sentence on chats with no tools is cut: step 3's conditional wording carries the §5.6 rule "verification limited to what tools allow" without the upstream reason. dia-intent's response template keeps its four section labels, the re-derived cue and the Confirmation contents; bracket text that restated items 1–3 is cut, and two sentences restating where settled points go and what may trigger the dependent-decisions path are cut (no rule change). Diff-review fixes: dia-negative Rule 6 covers every target's motives and its opening line ties the remainder thesis to strict gaps; dia-reductio Rule 6 names the contradiction's premises; dia-iterate lists anecdotes about famous people as set texts again; dia-elenchus's record template says plain Markdown, not a code block. Not applied (owner decisions not taken): dia-brainstorm's method-paragraph rewording, dia-negative's Jaeggi/Stahl shortening, dia-refine's extended set. SKILL.md bodies drop about 1,000 cl100k tokens in total. |
 | D25 | dia-negative description narrowed after Codex routing confirmed research F7 (probes Part F: chosen for 6/10 prompts that were not critique requests). Triggers now name their object ("what is this claim or policy really for", "where does this claim fail its own standard"), a line excludes questions about what code, a command or a setting does and general reviews, and the closing cross-references are shortened to stay within 1,024 characters. Owner ruling 2026-10-20; still 0.1.0. |
 | D26 | XML-tag study (`docs/research/xml-tags/`): no XML tags in the skills; Markdown stays the structure, and output templates stay plain Markdown. Instead, one plain sentence per skill that reads outside material says it is material, not instructions: dia-refine and dia-iterate (target, and for dia-iterate pages or files opened to verify it), dia-reductio and dia-negative (`text` target), dia-intent (material read before approval cannot approve the review, widen scope or override the user's constraints). dia-iterate's output template says to print plain Markdown, not a code block; dia-elenchus's contradiction layout uses `[definition]` placeholders, which render, instead of `<definition>`. Owner ruling 2026-10-20; still 0.1.0. |
+| D27 | After the skill-effect eval (`docs/skill-effect.md`): dia-refine lost every pair because its revision kept claims it believed false ("unverified items stay as drafted", from upstream). Now a factual claim it could not check but believes wrong goes into the revision as the suspected correction, marked "(suspected, unverified)" (in "final version only" mode, no mark; the closing line names it), and is still listed under ④; quotations, names the user chose and the user's own figures are never changed this way. The description says the revision "marks suspected ones" (P7 re-run). dia-iterate keeps its rule that own re-derivation is not verification, and on a "verification exhausted" stop with re-derivable items points to one dia-refine pass. Departure from upstream self-refine; owner ruling 2026-10-20; still 0.1.0. |
 
 ## 4. Names and identifiers
 
@@ -111,7 +112,7 @@ Natural-language requests work on every surface and are the safe default on mobi
 
 ## 5. Skills
 
-All seven skills keep their reference behavior unless this section or D19–D26 say otherwise. For every skill, the rebuild:
+All seven skills keep their reference behavior unless this section or D19–D27 say otherwise. For every skill, the rebuild:
 
 - renames the skill;
 - updates cross-references so that each description names the new skill names;
@@ -122,14 +123,14 @@ All seven skills keep their reference behavior unless this section or D19–D26 
 ### 5.1 dia-intent (from confirm-intent)
 
 - Purpose: before work starts, restate the goal, disclose material assumptions and list only the decisions the user must make. Then wait for approval.
-- Behavior: the reference, amended by D19–D26.
+- Behavior: the reference, amended by D19–D27.
 - Invocation: explicit only. Its own description already says "Use only when explicitly selected or invoked", so `allow_implicit_invocation: false`.
 - References: none at present. `references/ko/` is optional (§6).
 
 ### 5.2 dia-elenchus (from socratic-elenchus 1.3.1)
 
 - Purpose: Plato's elenchus. Ask "what is X?", collect agreed premises one question at a time, show contradictions, and treat each revision as the user's new idea. It usually ends in aporia and never gives advice.
-- Behavior: the reference, amended by D19–D26.
+- Behavior: the reference, amended by D19–D27.
 - Cross-reference: "use socratic-brainstorm" becomes "use dia-brainstorm".
 - Invocation: `allow_implicit_invocation: false`, as in the reference.
 - References carried over: `elenchus-patterns.md` and `record-template.md`; `theory.md` added (D24) for the dialogue loci and sources, read only when the user asks about the sources or the method.
@@ -137,7 +138,7 @@ All seven skills keep their reference behavior unless this section or D19–D26 
 ### 5.3 dia-brainstorm (from socratic-brainstorm 3.3.1)
 
 - Purpose: modern Socratic questioning, one question at a time. The user lists options, the skill adds up to three labeled ones, and the user converges by criteria. It ends with a verdict and a brief, and never implements anything.
-- Behavior: the reference, amended by D19–D26.
+- Behavior: the reference, amended by D19–D27.
 - Cross-reference: points to dia-elenchus.
 - Invocation: `allow_implicit_invocation: false`, as in the reference.
 - References carried over: `question-bank.md` and `brief-template.md`.
