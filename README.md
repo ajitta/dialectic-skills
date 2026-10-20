@@ -54,7 +54,7 @@ Install through one route per account or machine. Two routes (for example this r
 
 1. Settings › Capabilities: turn on **Code execution and file creation**. Skills need it, even though no dia skill runs code.
 2. Customize › Plugins › Add, then either:
-   - **Add marketplace** with `ajitta/dialectic-skills`, then add `dia` from the list. Adding the marketplace alone installs nothing; the second step is needed. Updates arrive through the marketplace (Check for updates, or Sync automatically).
+   - **Add marketplace** with `ajitta/dialectic-skills`, then add `dia` from the list. Instead of `ajitta/dialectic-skills` you can enter the Git URL `https://github.com/ajitta/dialectic-skills.git`, and Claude desktop also accepts a local folder (a clone of this repository). Adding the marketplace alone installs nothing; the second step is needed. Updates arrive through the marketplace (Check for updates, or Sync automatically).
    - **Upload plugin** with [`dialectic-skills.zip`](https://github.com/ajitta/dialectic-skills/releases/latest/download/dialectic-skills.zip) from the latest release. Use Customize › Plugins, not Customize › Skills: the Skills screen rejects a zip that carries a plugin manifest. An upload does not update itself; upload each new release again.
 3. Check: type `/dia` in the message box. Seven entries, `dia:dia-brainstorm` to `dia:dia-refine`, should appear.
 

@@ -54,7 +54,7 @@ claude.ai: Customize › Plugins › Add › Add marketplace에서 `ajitta/diale
 
 1. Settings › Capabilities에서 **Code execution and file creation**을 켭니다. dia 스킬은 코드를 실행하지 않지만, 스킬 기능 자체에 이 설정이 필요합니다.
 2. Customize › Plugins › Add로 이동한 뒤, 다음 중 하나를 선택합니다.
-   - **Add marketplace**에 `ajitta/dialectic-skills`를 입력하고, 목록에서 `dia`를 추가합니다. 마켓플레이스를 추가하는 것만으로는 아무것도 설치되지 않으므로 두 번째 단계가 필요합니다. 업데이트는 마켓플레이스를 통해 받습니다(Check for updates 또는 Sync automatically).
+   - **Add marketplace**에 `ajitta/dialectic-skills`를 입력하고, 목록에서 `dia`를 추가합니다. `ajitta/dialectic-skills` 대신 Git URL `https://github.com/ajitta/dialectic-skills.git`을 넣어도 되고, Claude 데스크톱에서는 로컬 폴더(이 저장소를 클론한 폴더)도 지정할 수 있습니다. 마켓플레이스를 추가하는 것만으로는 아무것도 설치되지 않으므로 두 번째 단계가 필요합니다. 업데이트는 마켓플레이스를 통해 받습니다(Check for updates 또는 Sync automatically).
    - **Upload plugin**으로 최신 릴리스의 [`dialectic-skills.zip`](https://github.com/ajitta/dialectic-skills/releases/latest/download/dialectic-skills.zip)을 올립니다. Customize › Skills가 아니라 Customize › Plugins를 사용해야 합니다. Skills 화면은 플러그인 매니페스트가 들어 있는 zip을 거부합니다. 업로드한 플러그인은 스스로 업데이트되지 않으므로, 새 릴리스가 나올 때마다 다시 업로드해야 합니다.
 3. 확인: 메시지 입력창에 `/dia`를 입력합니다. `dia:dia-brainstorm`부터 `dia:dia-refine`까지 일곱 개 항목이 나타나야 합니다.
 

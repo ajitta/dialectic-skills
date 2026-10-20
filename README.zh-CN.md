@@ -54,7 +54,7 @@ claude.ai：Customize › Plugins › Add › Add marketplace，输入 `ajitta/d
 
 1. Settings › Capabilities：打开 **Code execution and file creation**。技能依赖此项，尽管没有任何 dia 技能会运行代码。
 2. Customize › Plugins › Add，然后任选其一：
-   - **Add marketplace**，输入 `ajitta/dialectic-skills`，然后从列表中添加 `dia`。只添加 marketplace 不会安装任何东西；第二步不可省略。更新通过 marketplace 获取（Check for updates，或 Sync automatically）。
+   - **Add marketplace**，输入 `ajitta/dialectic-skills`，然后从列表中添加 `dia`。也可以用 Git URL `https://github.com/ajitta/dialectic-skills.git` 代替 `ajitta/dialectic-skills`，Claude 桌面版还可以指定本地文件夹（本仓库的克隆）。只添加 marketplace 不会安装任何东西；第二步不可省略。更新通过 marketplace 获取（Check for updates，或 Sync automatically）。
    - **Upload plugin**，上传最新发布版中的 [`dialectic-skills.zip`](https://github.com/ajitta/dialectic-skills/releases/latest/download/dialectic-skills.zip)。请使用 Customize › Plugins，而不是 Customize › Skills：Skills 页面会拒绝带有插件清单的 zip。上传的插件不会自动更新；每个新版本都需重新上传。
 3. 检查：在消息框中输入 `/dia`，应出现从 `dia:dia-brainstorm` 到 `dia:dia-refine` 共七项。
 

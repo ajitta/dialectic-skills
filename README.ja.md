@@ -54,7 +54,7 @@ claude.ai：Customize › Plugins › Add › Add marketplace を開き、`ajitt
 
 1. Settings › Capabilities で **Code execution and file creation** をオンにします。dia のスキルはコードを実行しませんが、スキル機能そのものにこの設定が必要です。
 2. Customize › Plugins › Add を開き、次のどちらかを行います：
-   - **Add marketplace** で `ajitta/dialectic-skills` を指定し、一覧から `dia` を追加します。マーケットプレイスを追加しただけでは何もインストールされないため、2 つ目の手順が必要です。更新はマーケットプレイス経由で届きます（Check for updates、または Sync automatically）。
+   - **Add marketplace** で `ajitta/dialectic-skills` を指定し、一覧から `dia` を追加します。`ajitta/dialectic-skills` の代わりに Git URL `https://github.com/ajitta/dialectic-skills.git` を入力することもでき、Claude デスクトップではローカルフォルダー（このリポジトリのクローン）も指定できます。マーケットプレイスを追加しただけでは何もインストールされないため、2 つ目の手順が必要です。更新はマーケットプレイス経由で届きます（Check for updates、または Sync automatically）。
    - **Upload plugin** で最新リリースの [`dialectic-skills.zip`](https://github.com/ajitta/dialectic-skills/releases/latest/download/dialectic-skills.zip) をアップロードします。Customize › Skills ではなく Customize › Plugins を使ってください。Skills 画面はプラグインマニフェストを含む zip を受け付けません。アップロードしたものは自動では更新されないため、新しいリリースのたびにアップロードし直してください。
 3. 確認：メッセージ欄に `/dia` と入力します。`dia:dia-brainstorm` から `dia:dia-refine` までの 7 項目が表示されるはずです。
 
