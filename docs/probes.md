@@ -35,6 +35,7 @@ Results of the probes in `docs/spec.md` §12.2. Each run is n=1 unless stated; a
 ### P2: Claude mobile (owner, 2026-10-20, `v0.1.0`)
 
 - 2026-10-20: after the P1 upload, the skills are listed and work on claude.ai web and Claude desktop, but typing `/` in the Claude mobile app does not list them. This matches the routes table (spec §9, README): on mobile the skills are invoked in words, not from the `/` menu. It is not a P2 failure by itself; P2 passes or fails on whether a natural-language prompt loads the right skill.
+- 2026-10-20 (1.1.x): typing the full name `/dia-brainstorm` in the Claude mobile app starts the skill even though the `/` menu does not list it (owner). README's invocation table lists this.
 - Prompt 1, «귀류법으로 이 주장을 검토해줘: 재택근무는 생산성을 항상 높인다.»: the app showed `dia:dia-reductio` loading. Reply language and length not yet reported.
 - Owner's summary after the remaining prompts: the skills work well on mobile; the only gap is that `/` does not list them. Per-prompt results were not reported separately, and no problem with reply length was raised (handoff item 12).
 

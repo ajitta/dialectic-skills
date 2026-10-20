@@ -69,7 +69,7 @@ claude.ai（网页版）：Customize › Plugins › Add › Add marketplace，�
 
 ### Claude 移动版（iOS、Android）
 
-无需安装步骤。在 claude.ai（网页版）添加的插件会保存到你的账号，并自动出现在移动应用中；在 Claude 桌面版添加的则不会。移动版的 `/` 菜单不会列出插件技能；请用自然语言提出请求，或在消息中写上技能名称。
+无需安装步骤。在 claude.ai（网页版）添加的插件会保存到你的账号，并自动出现在移动应用中；在 Claude 桌面版添加的则不会。移动版的 `/` 菜单不会列出插件技能，但完整输入名称仍可启动技能，例如 `/dia-brainstorm`。也可以用自然语言提出请求，或以技能名称开头发送消息。
 
 ### Claude Code
 
@@ -117,6 +117,7 @@ codex plugin add dia@dialectic-skills
 | 平台 | 语法 | 示例 |
 |---|---|---|
 | claude.ai、Claude 桌面版、Claude Code | `/dia:dia-<x>` | `/dia:dia-reductio` |
+| Claude 移动版 | 完整输入 `/dia-<x>`（`/` 菜单中不会列出） | `/dia-brainstorm` |
 | Codex（插件） | `$dia:dia-<x>` 后接一个空格 | `$dia:dia-confirm 写一个备份脚本` |
 | Codex（复制的文件夹） | `$dia-<x>` | `$dia-refine` |
 | ChatGPT | 输入 `@` 后选择技能 | `@dia-negative` |
@@ -369,7 +370,7 @@ dia-iterate --max 2 核查这段话里的日期和事实："第一代 iPhone 于
 ## 故障排除
 
 - **添加 marketplace 时出现 `Repository not found`。** 检查拼写：`ajitta/dialectic-skills`（是 dialectic，不是 dialectric）。该仓库是公开的，无需登录 GitHub。
-- **Claude 移动版的 `/` 下没有 dia 技能。** 这是预期行为：移动版菜单不会列出插件技能。请用文字描述请求，或以技能名称开头发送消息。
+- **Claude 移动版的 `/` 下没有 dia 技能。** 这是预期行为：移动版菜单不会列出插件技能。请完整输入名称（例如 `/dia-brainstorm`）、用文字描述请求，或以技能名称开头发送消息。
 - **dia 在一台设备上能用，在另一台上不能用。** 在桌面应用安装的只留在那台电脑上；在网页版安装的会保存到账号，并同步到移动应用。请在网页版安装一次（供网页版和移动版使用），并在你使用的每个桌面应用中各安装一次（见“安装”）。
 - **每个技能都出现了两次。** 插件通过两种途径安装了（例如 `dia@dialectic-skills` 和 `dia@ajitta`，或一次上传加一次 marketplace）。删除其中一个。
 - **claude.ai 上的 Skills 部分缺失或显示为灰色。** 打开 Settings › Capabilities › Code execution and file creation。

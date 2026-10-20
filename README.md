@@ -69,7 +69,7 @@ Instead of steps 2 and 3 you can upload the plugin: Customize › Plugins › Ad
 
 ### Claude mobile (iOS, Android)
 
-There is no install step. A plugin added on claude.ai (the web) is saved to your account and reaches the mobile app by itself; one added in Claude desktop does not. The mobile `/` menu does not list plugin skills; ask in words or name the skill in your message.
+There is no install step. A plugin added on claude.ai (the web) is saved to your account and reaches the mobile app by itself; one added in Claude desktop does not. The mobile `/` menu does not list plugin skills, but typing the full name still starts one, for example `/dia-brainstorm`. You can also ask in words or start the message with the skill name.
 
 ### Claude Code
 
@@ -117,6 +117,7 @@ There are three ways, and every surface supports at least one of them:
 | Surface | Syntax | Example |
 |---|---|---|
 | claude.ai, Claude desktop, Claude Code | `/dia:dia-<x>` | `/dia:dia-reductio` |
+| Claude mobile | `/dia-<x>` typed in full (the `/` menu does not list it) | `/dia-brainstorm` |
 | Codex (plugin) | `$dia:dia-<x>` followed by a space | `$dia:dia-confirm write a backup script` |
 | Codex (copied folder) | `$dia-<x>` | `$dia-refine` |
 | ChatGPT | `@` then pick the skill | `@dia-negative` |
@@ -369,7 +370,7 @@ dia-iterate --max 2 check the dates and facts in this paragraph: "The first iPho
 ## Troubleshooting
 
 - **`Repository not found` when adding the marketplace.** Check the spelling: `ajitta/dialectic-skills` (dialectic, not dialectric). The repository is public and needs no GitHub login.
-- **No dia skills under `/` on Claude mobile.** Expected: the mobile menu does not list plugin skills. Ask in words or start the message with the skill name.
+- **No dia skills under `/` on Claude mobile.** Expected: the mobile menu does not list plugin skills. Type the full name (such as `/dia-brainstorm`), ask in words, or start the message with the skill name.
 - **dia works on one device but not on another.** Desktop installs stay on that computer; web installs are saved to your account and reach the mobile app. Install on the web for the web and mobile, and in each desktop app you use (see Install).
 - **Every skill appears twice.** The plugin is installed through two routes (for example `dia@dialectic-skills` and `dia@ajitta`, or an upload and a marketplace). Remove one.
 - **Skills section missing or greyed out on claude.ai.** Turn on Settings › Capabilities › Code execution and file creation.

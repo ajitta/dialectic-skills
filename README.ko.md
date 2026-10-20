@@ -69,7 +69,7 @@ claude.ai(웹): Customize › Plugins › Add › Add marketplace에 `ajitta/dia
 
 ### Claude 모바일 (iOS, Android)
 
-따로 설치할 필요가 없습니다. claude.ai(웹)에서 추가한 플러그인은 계정에 저장되어 모바일 앱에 자동으로 나타납니다. Claude 데스크톱에서 추가한 것은 나타나지 않습니다. 모바일의 `/` 메뉴에는 플러그인 스킬이 표시되지 않으니, 말로 요청하거나 메시지에 스킬 이름을 넣으세요.
+따로 설치할 필요가 없습니다. claude.ai(웹)에서 추가한 플러그인은 계정에 저장되어 모바일 앱에 자동으로 나타납니다. Claude 데스크톱에서 추가한 것은 나타나지 않습니다. 모바일의 `/` 메뉴에는 플러그인 스킬이 표시되지 않지만, 이름을 끝까지 입력하면 스킬이 실행됩니다. 예: `/dia-brainstorm`. 말로 요청하거나 메시지를 스킬 이름으로 시작해도 됩니다.
 
 ### Claude Code
 
@@ -117,6 +117,7 @@ Business와 Enterprise 워크스페이스에서는 관리자가 워크스페이�
 | 환경 | 문법 | 예시 |
 |---|---|---|
 | claude.ai, Claude 데스크톱, Claude Code | `/dia:dia-<x>` | `/dia:dia-reductio` |
+| Claude 모바일 | `/dia-<x>`를 끝까지 입력(`/` 메뉴에는 표시되지 않음) | `/dia-brainstorm` |
 | Codex (플러그인) | `$dia:dia-<x>` 뒤에 공백 | `$dia:dia-confirm 백업 스크립트 작성해줘` |
 | Codex (복사한 폴더) | `$dia-<x>` | `$dia-refine` |
 | ChatGPT | `@` 입력 후 스킬 선택 | `@dia-negative` |
@@ -369,7 +370,7 @@ dia-iterate --max 2 이 문단의 날짜와 사실을 확인해 주세요: "최�
 ## 문제 해결
 
 - **마켓플레이스를 추가할 때 `Repository not found`가 나타납니다.** 철자를 확인합니다: `ajitta/dialectic-skills`(dialectric이 아니라 dialectic). 저장소는 공개되어 있으며 GitHub 로그인이 필요하지 않습니다.
-- **Claude 모바일의 `/`에 dia 스킬이 없습니다.** 정상입니다. 모바일 메뉴에는 플러그인 스킬이 표시되지 않습니다. 말로 요청하거나 메시지를 스킬 이름으로 시작합니다.
+- **Claude 모바일의 `/`에 dia 스킬이 없습니다.** 정상입니다. 모바일 메뉴에는 플러그인 스킬이 표시되지 않습니다. 이름을 끝까지 입력하거나(예: `/dia-brainstorm`), 말로 요청하거나, 메시지를 스킬 이름으로 시작합니다.
 - **어떤 기기에서는 dia가 되는데 다른 기기에서는 안 됩니다.** 데스크톱에서 설치한 것은 그 컴퓨터에만 있고, 웹에서 설치한 것은 계정에 저장되어 모바일 앱까지 갑니다. 웹과 모바일용으로 웹에서 한 번, 쓰는 데스크톱 앱마다 한 번씩 설치하세요(설치 참고).
 - **모든 스킬이 두 번씩 나타납니다.** 플러그인이 두 경로로 설치된 것입니다(예: `dia@dialectic-skills`와 `dia@ajitta`, 또는 업로드와 마켓플레이스). 하나를 제거합니다.
 - **claude.ai에 Skills 섹션이 없거나 비활성화되어 있습니다.** Settings › Capabilities › Code execution and file creation을 켭니다.
