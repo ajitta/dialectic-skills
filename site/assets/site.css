@@ -209,6 +209,10 @@ strong { font-weight: 600; }
 pre { margin: 0; white-space: pre-wrap; overflow-wrap: anywhere; line-height: 1.5; }
 .try pre { padding: 1.1rem 1.4rem; border-radius: var(--radius); background: var(--tone); font-family: var(--font-text); font-size: 1em; line-height: 1.45; }
 .try code { font-family: inherit; }
+.try__label { font-family: var(--font-display); font-weight: 700; margin-bottom: 0.4rem; }
+.skip { position: absolute; left: var(--margin); top: 0.75rem; z-index: 100; padding: 0.7rem 1.2rem; border-radius: 999px; background: var(--ink); color: var(--paper); font-family: var(--font-display); font-weight: 700; transform: translateY(-200%); }
+.skip:focus { transform: none; }
+#main:focus { outline: none; }
 
 .talk { display: grid; gap: 0.9rem; }
 .talk__turn { display: grid; grid-template-columns: 7.5rem minmax(0, 1fr); column-gap: 1rem; }
@@ -338,6 +342,7 @@ pre { margin: 0; white-space: pre-wrap; overflow-wrap: anywhere; line-height: 1.
   .plate__text > .lead { order: 2; margin-top: -0.75rem; }
   .plate__pic, .plate--flip .plate__pic { order: 3; margin-block: 1rem; }
   .plate__text > :not(.plate__name):not(.lead) { order: 4; }
+  .plate .plate__text > .talk, .plate .plate__text > .output { order: 5; }
   .plate__text > :not(p) { max-width: 42rem; }
   .plate__pic { position: relative; top: 0; padding-inline: 0; width: min(64%, 30rem); }
   .plate--flip .plate__pic { justify-self: end; }

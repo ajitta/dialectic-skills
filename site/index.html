@@ -30,6 +30,7 @@
 <script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
+<a class="skip" href="#main">Skip to content</a>
 
 <header class="hero" id="top">
   <nav class="nav" aria-label="Main">
@@ -67,7 +68,7 @@
   </figure>
 </header>
 
-<main>
+<main id="main" tabindex="-1">
 
 <section class="intro field-sand" aria-labelledby="intro-title">
   <div class="wrap">
@@ -132,6 +133,7 @@
       <p data-reveal style="--i:3">Like a good contractor walking you through the job: here is what I’ll build, here is what I’m assuming, here is what only you can decide. Then it waits for your go-ahead instead of guessing.</p>
       <p class="start" data-reveal style="--i:4"><span class="start__how">Starts by name only.</span> <span class="start__line">Start it with <code class="start__code">/dia:dia-confirm</code></span> <span class="start__note"></span></p>
       <div class="try" data-reveal style="--i:5">
+        <p class="try__label">Try this prompt</p>
         <pre><code>dia-confirm Write a short speech for my brother’s wedding.</code></pre>
       </div>
       <ol class="talk" aria-label="A session, shortened" data-reveal style="--i:6">
@@ -160,6 +162,7 @@
       <p data-reveal style="--i:3">The method Socrates uses in Plato’s dialogues. You say what you think something is; the assistant asks about one concrete case at a time until your own answers pull against your definition. Often you end up stuck, in <i>aporia</i>, and that is a result: you now know exactly which part you don’t know. It gives no advice during the dialogue.</p>
       <p class="start" data-reveal style="--i:4"><span class="start__how">Starts by name, or when you ask for a Socratic dialogue.</span> <span class="start__line">Start it with <code class="start__code">/dia:dia-elenchus</code></span> <span class="start__note"></span></p>
       <div class="try" data-reveal style="--i:5">
+        <p class="try__label">Try this prompt</p>
         <pre><code>Socratic dialogue please. I think a good teacher is one whose students get high test scores.</code></pre>
       </div>
       <ol class="talk" aria-label="A real session, shortened" data-reveal style="--i:6">
@@ -190,6 +193,7 @@
       <p data-reveal style="--i:3">A coach who asks good questions, one at a time, before handing you options. Then you list options, it adds up to three of its own, you choose what matters, and it ends with a verdict and a short brief you can act on. It never builds the thing.</p>
       <p class="start" data-reveal style="--i:4"><span class="start__how">Starts by name, or when you ask for a Socratic brainstorm.</span> <span class="start__line">Start it with <code class="start__code">/dia:dia-brainstorm</code></span> <span class="start__note"></span></p>
       <div class="try" data-reveal style="--i:5">
+        <p class="try__label">Try this prompt</p>
         <pre><code>Socratic brainstorm with me, keep it quick: I want to earn some extra money on weekends.</code></pre>
       </div>
       <ol class="talk" aria-label="A real session, shortened" data-reveal style="--i:6">
@@ -221,6 +225,7 @@
       <p data-reveal style="--i:3">Reductio ad absurdum, or proof by contradiction: take a claim at its word, follow it step by step, and see whether it leads to two statements that can’t both be true. The assistant lists every premise, marks the ones it added itself, and leaves the choice of what to give up to you.</p>
       <p class="start" data-reveal style="--i:4"><span class="start__how">Starts by name, or in words.</span> <span class="start__line">Start it with <code class="start__code">/dia:dia-reductio</code></span> <span class="start__note"></span></p>
       <div class="try" data-reveal style="--i:5">
+        <p class="try__label">Try this prompt</p>
         <pre><code>Use proof by contradiction on this claim: the customer is always right.</code></pre>
       </div>
       <dl class="output" aria-label="What you get, shortened" data-reveal style="--i:6">
@@ -246,9 +251,10 @@
     <div class="plate__text">
       <h3 class="head plate__name mask" data-reveal style="--i:1"><span>dia-negative</span></h3>
       <p class="lead" data-reveal style="--i:2">Hold a claim to its own standard.</p>
-      <p data-reveal style="--i:3">Judge a claim by its own words, not by your values: take what it promises and look for real cases where it doesn’t deliver, then ask what it actually does, as a guess you could check. Named after Adorno’s “negative dialectics”; this is a narrower, practical version called internal critique.</p>
+      <p data-reveal style="--i:3">Judge a claim by its own words, not by your values: take what it promises and look for real cases where it doesn’t deliver, then ask what it actually does, as a guess you could check. Named after Adorno’s “negative dialectics”: his immanent critique judges a thing by the standard it sets for itself. This is a narrower, practical version of it, called internal critique.</p>
       <p class="start" data-reveal style="--i:4"><span class="start__how">Starts by name, or in words.</span> <span class="start__line">Start it with <code class="start__code">/dia:dia-negative</code></span> <span class="start__note"></span></p>
       <div class="try" data-reveal style="--i:5">
+        <p class="try__label">Try this prompt</p>
         <pre><code>Do an immanent critique of this claim: "We have an open-door policy, so anyone in the company can raise a problem with management at any time."</code></pre>
       </div>
       <dl class="output" aria-label="What you get, shortened" data-reveal style="--i:6">
@@ -277,6 +283,7 @@
       <p data-reveal style="--i:3">A careful editor’s single pass: factual errors, logical leaps, missing requirements, repetition. It fixes only the errors it could confirm; the ones it suspects but couldn’t confirm are listed separately with the likely correction, so nothing changes silently.</p>
       <p class="start" data-reveal style="--i:4"><span class="start__how">Starts when <code>dia-refine</code> is the first word, or by name.</span> <span class="start__line">Start it with <code class="start__code">/dia:dia-refine</code></span> <span class="start__note"></span></p>
       <div class="try" data-reveal style="--i:5">
+        <p class="try__label">Try this prompt</p>
         <pre><code>dia-refine check the facts: The Great Wall of China is the only man-made structure visible from the Moon with the naked eye, and it was built entirely during the Ming dynasty.</code></pre>
       </div>
       <dl class="output" aria-label="What you get, with web search, shortened" data-reveal style="--i:6">
@@ -305,6 +312,7 @@
       <p data-reveal style="--i:3">Like <code>dia-refine</code>, but in rounds, and every fix needs outside evidence: a search, a tool run or a source you supplied. Facts that pass are locked so later rounds can’t undo them. It stops by itself on zero defects, when it can’t verify anything more, or at the round limit (<code>--max N</code>, default 3).</p>
       <p class="start" data-reveal style="--i:4"><span class="start__how">Starts only when <code>dia-iterate</code> is the first word, or by name.</span> <span class="start__line">Start it with <code class="start__code">/dia:dia-iterate</code></span> <span class="start__note"></span></p>
       <div class="try" data-reveal style="--i:5">
+        <p class="try__label">Try this prompt</p>
         <pre><code>dia-iterate --max 2 check the dates and facts in this paragraph: "The first iPhone went on sale in 2008, and the App Store opened the same day with 500 apps."</code></pre>
       </div>
       <dl class="output" aria-label="What you get, with web search, shortened" data-reveal style="--i:6">
