@@ -164,6 +164,15 @@ dia-brainstorm, Claude Code (harness as Part E, connectors off), two scripted se
 - A passing mention ("I read that dia-refine is a skill name; anyway, what is 17 x 23?") loaded nothing 2/2.
 - Natural-language requests without the name ("Fix the factual errors and logical leaps in this draft…", "Review this as a draft and give me only the improved final version", and «이 초안을 검토해서 사실 오류와 논리 비약을 고쳐줘»), n=3 per arm: the skill loaded 1/9 with the D26 description and 1/9 with the D27 one. The description change did not cause it; on Claude Code, dia-refine is reached by name, and plain requests are answered without it. Recorded as a known limit, not acted on.
 
+**Part K, dia at `0161cf2`: several skills named in one prompt.** Claude Code (Part E harness, `--allowedTools Skill,Read,Glob`) and Codex (Part F harness, `$dia:` names), n=2 per engine. A scratch `docs/onboarding.md` held two planted errors (a mentor "in week 3"; payroll on "the 30th of every month, including February").
+
+- dia-reductio + dia-negative on a meritocracy claim: Claude loaded both 2/2 and gave two labelled parts, each in its own format and record, then one closing paragraph reading them together (8.6k–9.4k characters). Codex 2/2 gave both analyses in shorter form (4.9k–5.2k).
+- Three skills (dia-reductio, dia-negative, dia-refine): Claude loaded all three 2/2 and kept three sections, the refine section reviewing the claim text (6.4k–6.7k characters). Codex 2/2 did the two analyses and then used dia-refine to check its own analysis, not the text.
+- Korean natural language, «귀류법이랑 부정의 변증법 두 가지로 동시에 이 주장을 검토해줘»: Claude loaded both 2/2 and answered in Korean; Codex 2/2 answered in Korean with both methods.
+- dia-refine + dia-iterate on one draft: Claude 2/2 ran them as separate passes (iterate stopped with "verification exhausted"; refine then fixed 20% by re-derivation and marked the GIL correction). Codex 2/2 merged them into one output with a defect list and a round table; one run labelled the 20% fix "(tool: code execution)" although no command ran in that session (the sandbox cannot start here), against both skills' rule never to claim a check that did not run.
+- dia-intent then dia-refine on the onboarding guide: Claude 2/2 read the file, found the February error, held for approval and changed nothing. Codex 2/2 held for approval (it could not read the file: sandbox), changed nothing.
+- dia-elenchus + dia-brainstorm on a four-day week: Claude 1/2 said which runs first and that brainstorming follows on request; 1/2 loaded only dia-elenchus and did not mention dia-brainstorm. Codex 2/2 started with elenchus; both runs said the brainstorm instructions were unreadable, though a direct check showed Codex injects the full SKILL.md of every `$`-named skill (it had failed to open a reference file through the sandbox).
+
 ### P8: tool-less run (`--tools Skill`: no search, fetch, code or file tools)
 
 Draft under test: "The Eiffel Tower was completed in 1889 and is about 330 m tall. Python 3.13 removed the GIL by default. 17 x 23 = 391." The Python sentence is wrong.
