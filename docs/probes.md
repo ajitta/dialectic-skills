@@ -15,7 +15,7 @@ Results of the probes in `docs/spec.md` §12.2. Each run is n=1 unless stated; a
 
 | # | Probe | Result | Status |
 |---|---|---|---|
-| P1 | claude.ai upload of `dialectic-skills.zip` | not run (owner) | open |
+| P1 | claude.ai upload of `dialectic-skills.zip` | pass (owner, 2026-10-20, at `944c459`, tagged `v0.1.0`) | done |
 | P2 | Claude mobile, one natural-language prompt per skill | not run (owner) | open |
 | P3 | Codex CLI plugin install | pass, with a naming finding (below) | done |
 | P4 | ChatGPT desktop (Pro) local plugin install | not run (owner) | open |
@@ -24,6 +24,12 @@ Results of the probes in `docs/spec.md` §12.2. Each run is n=1 unless stated; a
 | P7 | Routing baseline, n=2 | pass at the repository root; from a neutral directory the Korean elenchus cell dropped, fixed by English wording; pass at `f676e42`, reductio re-run at `6882022` after D23 (see below) | done |
 | P8 | Tool-less run | pass after a fix to dia-refine; re-run from a neutral directory at `7115d2a`, `f676e42` and `6882022`: pass | done |
 | P9 | `references/ko/` loading | not applicable: no ko files in 1.0.0 (spec D17) | n/a |
+
+### P1: claude.ai upload (owner, 2026-10-20)
+
+- The owner uploaded `releases/dialectic-skills.zip` through Customize › Plugins › Upload plugin; it was accepted and listed seven skills.
+- Cross-check through the account sync on the build VM: the synced manifest lists `dia` (marketplace "My Uploads", one generation), and the synced `dia/` tree is byte-identical to `plugins/dia/` at `944c459` (`diff -r`). That commit is tagged `v0.1.0` and published as a GitHub pre-release.
+- Migration (spec §10): `socratic` is no longer in the synced plugin manifest, and none of `reductio`, `negative-dialectics`, `self-refine`, `recursive-refine` or `confirm-intent` is among the synced skills.
 
 ### P3: Codex CLI 0.162.1
 
