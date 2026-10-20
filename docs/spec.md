@@ -2,7 +2,7 @@
 
 | | |
 |---|---|
-| Status | Approved by the owner on 2026-10-20; built as plugin version 0.1.0. Probe results: `docs/probes.md` |
+| Status | Approved by the owner on 2026-10-20; pre-release 0.1.0, accepted (§12.3) and released as 1.0.0 on 2026-10-20. Probe results: `docs/probes.md` |
 | Date | 2026-10-20 |
 | Owner | ajitta |
 | Repository | `ajitta/dialectic-skills` (private) |
@@ -341,13 +341,13 @@ Each route has a status:
 
 | Surface | Install route | Invocation | Status |
 |---|---|---|---|
-| claude.ai web / Claude desktop | Customize › Plugins › Upload plugin with `dialectic-skills.zip`. Not Customize › Skills, which rejects a zip that carries a plugin manifest. | `/dia:dia-<x>` or natural language | owner-probed |
-| Claude mobile (iOS/Android) | Install once via web or desktop; it reaches the mobile app through the account. The upload screen is not in the mobile app. | Natural language (the safe default on mobile per the owner's notes) | owner-probed |
+| claude.ai web / Claude desktop | Customize › Plugins › Upload plugin with `dialectic-skills.zip`. Not Customize › Skills, which rejects a zip that carries a plugin manifest. | `/dia:dia-<x>` or natural language | owner-probed for `dia` (P1) |
+| Claude mobile (iOS/Android) | Install once via web or desktop; it reaches the mobile app through the account. The upload screen is not in the mobile app. | Natural language; the mobile `/` menu does not list plugin skills (P2) | owner-probed for `dia` (P2) |
 | claude.ai marketplace | Customize › Plugins › Add marketplace `ajitta/dialectic-skills`, then add `dia` from Discover | as above | untested (marked "not yet confirmed" in the owner's notes) |
 | Claude Code | `/plugin marketplace add ajitta/dialectic-skills`, then `/plugin install dia@dialectic-skills`; or account sync after a claude.ai upload | `/dia:dia-<x>`, natural language, first word for refine and iterate | documented (namespacing) / owner-probed (sync) |
 | Codex CLI / IDE | `codex plugin marketplace add <path or owner/repo>`, then `codex plugin add dia@dialectic-skills`; fallback: copy `skills/dia-<x>` to `~/.agents/skills/` | `$dia:dia-<x>` (plugin) or `$dia-<x>` (copied folder), `/skills`, implicit per §7.3 | local-path plugin route probed (P3); GitHub route untested |
-| ChatGPT desktop | Local plugin install (reads `.claude-plugin/marketplace.json`); fallback: `~/.agents/skills/` through Codex | `@dia-<x>`, implicit | documented in general; untested on Pro |
-| ChatGPT mobile | Plugin-bundled skills are documented to work in ChatGPT on web, desktop and mobile; fallback: Codex cloud tasks on a repository that commits `.agents/skills/dia-<x>/` | `@dia-<x>`, natural language | untested: personal Skills are documented for Business, Enterprise, Healthcare and Edu, and plugin availability "depends on plan", so Pro is unconfirmed |
+| ChatGPT desktop | Local plugin install (reads `.claude-plugin/marketplace.json`); fallback: `~/.agents/skills/` through Codex | `@dia-<x>`, implicit | owner-probed: runs on Pro (P4/P5, 2026-10-20); route not recorded |
+| ChatGPT mobile | Plugin-bundled skills are documented to work in ChatGPT on web, desktop and mobile; fallback: Codex cloud tasks on a repository that commits `.agents/skills/dia-<x>/` | `@dia-<x>`, natural language | owner-probed: runs on Pro (P4/P5, 2026-10-20); route not recorded |
 
 Sources for the ChatGPT rows: [Build skills](https://learn.chatgpt.com/docs/build-skills), [OpenAI Help — Plugins](https://help-lb.openai.com/en/articles/20001256), [OpenAI Help — Skills in ChatGPT](https://help.openai.com/en/articles/20001066-skills-in-chatgpt).
 
@@ -437,8 +437,8 @@ The plugin is accepted when:
 | O1 | Resolved: no `references/ko/` files in 1.0.0 (D17) | — |
 | O2 | Resolved by P3: no portable root `plugin.json` (D16) | — |
 | O3 | Resolved: MIT for all seven skills (D18) | — |
-| O4 | ChatGPT mobile on Pro: supported route or documented limitation | Decided by P5 |
-| O5 | Plugin `version`: `0.1.0` during development; first a 0.x pre-release (tag and GitHub pre-release), then P1 and P2 on that release, then `1.0.0` at acceptance (owner, 2026-10-20) | At acceptance |
+| O4 | Resolved by P5: ChatGPT mobile works on Pro (owner, 2026-10-20) | — |
+| O5 | Plugin `version`: `0.1.0` during development; first a 0.x pre-release (tag and GitHub pre-release), then P1 and P2 on that release, then `1.0.0` at acceptance (owner, 2026-10-20). Done: `v0.1.0` pre-release, P1/P2/P4/P5 on it, `v1.0.0` released 2026-10-20 | — |
 
 ## 14. Sources
 

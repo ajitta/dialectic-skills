@@ -4,13 +4,12 @@ State of the work and what is left, for the next agent session. Read `AGENTS.md`
 
 ## State (2026-10-20)
 
-- Plugin `dia` **0.1.0** is tagged `v0.1.0` and published as a GitHub pre-release (spec O5). The owner installed it on claude.ai on 2026-10-20 (P1 pass), so the no-bump window is closed: every skill change now needs a new plugin `version` and the skill's `metadata.version`.
+- Plugin `dia` **1.0.0** is released (`v1.0.0`, GitHub release with `dialectic-skills.zip`, 2026-10-20) after acceptance (spec §12.3). The pre-release `v0.1.0` is what the owner probed; 1.0.0 differs from it only in the version number. Every skill change now needs a new plugin `version` and the skill's `metadata.version`.
 - CI (`.github/workflows/check.yml`) runs on every push to `main` and on pull requests. It runs `tools/package.py --check`, the unit tests, and `claude plugin validate --strict` for the plugin and the marketplace. It is green.
 - Skill text reflects spec D19–D29 (research findings, token audit, data-not-instructions rule, dia-refine suspected corrections, several-skills-in-one-prompt rules, `short_description` length). Every batch was diff-reviewed or probed; results are in `docs/probes.md` Parts A–K, `docs/token-cost.md` and `docs/skill-effect.md`.
 - Spec §12.3 acceptance:
   - 12.1 passes.
-  - P1, P2, P3, P6, P7 and P8 pass.
-  - P4 and P5 need recorded results, pass or documented limitation; they are owner-run.
+  - P1–P8 pass (P4 and P5 by owner report); P9 is not applicable. The plugin is accepted.
 
 ## Remaining work
 
@@ -18,11 +17,11 @@ State of the work and what is left, for the next agent session. Read `AGENTS.md`
 |---|---|---|---|
 | 1 | P1: claude.ai upload: passed 2026-10-20 | — | Accepted with seven skills; the synced copy matches `v0.1.0` byte for byte and the old copies are gone (probes P1). |
 | 2 | P2: Claude mobile: passed 2026-10-20 | — | The skills load from natural-language prompts; the mobile `/` menu does not list them, which matches the documented mobile route (in words). Probes P2. |
-| 3 | P4: ChatGPT desktop (Pro), local plugin install | owner runs, agent records | `default_prompt` now uses `$dia:dia-<x>` (spec D19, from P3). Record whether it resolves in ChatGPT desktop and whether the skills appear under `@`. If it does not resolve there, report it; do not change it back without the owner. |
-| 4 | P5: ChatGPT mobile (Pro) after P4 | owner runs, agent records | Pass or a documented plan limitation (O4) |
+| 3 | P4: ChatGPT desktop (Pro): passed 2026-10-20 (owner report) | — | Route, `@` listing and `default_prompt` resolution were not reported (probes P4/P5). |
+| 4 | P5: ChatGPT mobile (Pro): passed 2026-10-20 (owner report) | — | O4 resolved as supported. |
 | 5 | O1: resolved 2026-10-20, no `references/ko/` files in 1.0.0 (spec D17) | — | To add one later: L4 header (`Scope:`, `Source:`, `As of:`, `Use when:`), name the file and its read condition in SKILL.md (L5), run P9. `tools/package.py` enforces the header and the mention. |
 | 6 | O3: resolved 2026-10-20, MIT for all seven skills (spec D18) | — | — |
-| 7 | Acceptance and 1.0.0 release | agent | The 0.x pre-release is done: `v0.1.0` (GitHub pre-release with `dialectic-skills.zip`). P2 passed; after P4/P5 are recorded, set `version` to `1.0.0`, bump each changed skill's `metadata.version`, run `tools/package.py`, push, wait for green CI, tag `v1.0.0`, and `gh release create v1.0.0 releases/dialectic-skills.zip`. Update the status lines in `docs/spec.md` and `docs/probes.md`. |
+| 7 | Pre-release, acceptance and release: done 2026-10-20 | — | `v0.1.0` pre-release, P1/P2/P4/P5 on it, `v1.0.0` released. Next skill change: bump `version` (1.0.x / 1.x) and the skill's `metadata.version`, run `tools/package.py`, push, wait for green CI, tag, `gh release create`. |
 | 8 | Codex GitHub marketplace route: resolved 2026-10-20 | — | `codex plugin marketplace add ajitta/dialectic-skills` works with git credentials for the private repository and fails without them (probes P3). If the repository is made public, re-check without credentials. |
 | 9 | Research findings in `docs/research/` | agent | Applied 2026-10-20 (spec D19–D25, D29), still as 0.1.0. What remains is in `docs/research/README.md` § Still open: owner-deferred items (dia-intent F1, F8; dia-elenchus M4) and probe-wording items. |
 | 10 | Codex claims a code check it did not run | owner watches in P4/P5 | Probes Part K: with dia-refine + dia-iterate, Codex labelled the 20% fix "(tool: JavaScript execution)" with no execution event in its log, 3/3. Both skills already forbid this; check whether it recurs in the Codex app or ChatGPT. |

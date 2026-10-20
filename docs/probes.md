@@ -18,8 +18,8 @@ Results of the probes in `docs/spec.md` §12.2. Each run is n=1 unless stated; a
 | P1 | claude.ai upload of `dialectic-skills.zip` | pass (owner, 2026-10-20, at `944c459`, tagged `v0.1.0`) | done |
 | P2 | Claude mobile, one natural-language prompt per skill | pass (owner, 2026-10-20, `v0.1.0`); the `/` menu does not list the skills (below) | done |
 | P3 | Codex CLI plugin install | pass, with a naming finding (below) | done |
-| P4 | ChatGPT desktop (Pro) local plugin install | not run (owner) | open |
-| P5 | ChatGPT mobile (Pro) | not run (owner) | open |
+| P4 | ChatGPT desktop (Pro) local plugin install | pass (owner report, 2026-10-20, `v0.1.0`) | done |
+| P5 | ChatGPT mobile (Pro) | pass (owner report, 2026-10-20, `v0.1.0`) | done |
 | P6 | First-word invocation | pass; re-run from a neutral directory at `7115d2a`, `f676e42` and `6882022`: pass | done |
 | P7 | Routing baseline, n=2 | pass at the repository root; from a neutral directory the Korean elenchus cell dropped, fixed by English wording; pass at `f676e42`, reductio re-run at `6882022` after D23 (see below) | done |
 | P8 | Tool-less run | pass after a fix to dia-refine; re-run from a neutral directory at `7115d2a`, `f676e42` and `6882022`: pass | done |
@@ -36,6 +36,11 @@ Results of the probes in `docs/spec.md` §12.2. Each run is n=1 unless stated; a
 - 2026-10-20: after the P1 upload, the skills are listed and work on claude.ai web and Claude desktop, but typing `/` in the Claude mobile app does not list them. This matches the routes table (spec §9, README): on mobile the skills are invoked in words, not from the `/` menu. It is not a P2 failure by itself; P2 passes or fails on whether a natural-language prompt loads the right skill.
 - Prompt 1, «귀류법으로 이 주장을 검토해줘: 재택근무는 생산성을 항상 높인다.»: the app showed `dia:dia-reductio` loading. Reply language and length not yet reported.
 - Owner's summary after the remaining prompts: the skills work well on mobile; the only gap is that `/` does not list them. Per-prompt results were not reported separately, and no problem with reply length was raised (handoff item 12).
+
+### P4 and P5: ChatGPT desktop and mobile (owner, 2026-10-20, `v0.1.0`)
+
+- The owner reported that the skills run on ChatGPT desktop and on ChatGPT mobile (Pro). The install route used, whether the skills appear under `@`, and per-prompt results were not reported. O4 is therefore resolved as a supported route on Pro, not a plan limitation.
+- Not recorded: whether `default_prompt` (`Use $dia:dia-<x> …`, spec D19) resolves in ChatGPT, and whether Codex's unrun-tool claim (handoff item 10) recurs there.
 
 ### P3: Codex CLI 0.162.1
 
