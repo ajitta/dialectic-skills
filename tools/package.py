@@ -48,6 +48,7 @@ REQUIRED_META = ("author", "version", "lineage", "source")
 NAME_RE = re.compile(r"^[a-z0-9]+(-[a-z0-9]+)*$")
 SKILL_PREFIX = "dia-"
 MAX_BODY_LINES = 200
+SHORT_DESC_MIN, SHORT_DESC_MAX = 25, 64  # interface.short_description, openai/skills openai_yaml.md
 # A source folder stays a plain skill (spec §7.5).
 FORBIDDEN_SOURCE_DIRS = ("skills", "bin", ".claude-plugin", ".codex-plugin")
 # The shipped package is instructions only (spec §7.1).
@@ -109,6 +110,14 @@ def skill_dirs() -> list[Path]:
     return sorted(p for p in SKILLS.iterdir() if (p / "SKILL.md").is_file())
 
 
+def openai_short_description(skill_dir: Path) -> str | None:
+    path = skill_dir / "agents" / "openai.yaml"
+    if not path.is_file():
+        return None
+    m = re.search(r'^\s*short_description:\s*"([^"]*)"\s*$', path.read_text(encoding="utf-8"), re.M)
+    return None if m is None else m.group(1)
+
+
 def openai_policy(skill_dir: Path) -> bool | None:
     path = skill_dir / "agents" / "openai.yaml"
     if not path.is_file():
@@ -162,6 +171,9 @@ def validate_skill(skill_dir: Path) -> list[str]:
         errors.append("agents/openai.yaml missing or has no policy.allow_implicit_invocation")
     elif name in EXPECTED_IMPLICIT and policy != EXPECTED_IMPLICIT[name]:
         errors.append(f"allow_implicit_invocation is {policy}, spec §7.3 says {EXPECTED_IMPLICIT[name]}")
+    short = openai_short_description(skill_dir)
+    if short is None or not SHORT_DESC_MIN <= len(short) <= SHORT_DESC_MAX:
+        errors.append(f"agents/openai.yaml short_description must be {SHORT_DESC_MIN}-{SHORT_DESC_MAX} chars (OpenAI UI guidance)")
     for ko in sorted((skill_dir / "references" / "ko").glob("*.md")):
         head = ko.read_text(encoding="utf-8").replace("\r\n", "\n").split("\n")[:4]
         if tuple(line.split(":")[0] + ":" for line in head) != KO_HEADER:

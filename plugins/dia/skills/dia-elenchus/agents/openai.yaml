@@ -1,6 +1,6 @@
 interface:
   display_name: "Dia: Elenchus"
-  short_description: "Plato-style elenchus: define the key idea, test it with your own premises, revise until aporia"
+  short_description: "Plato-style elenchus: your definition, tested by your premises"
   default_prompt: "Use $dia:dia-elenchus to examine this idea: "
 
 policy:

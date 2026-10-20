@@ -63,6 +63,15 @@ class TestSource(unittest.TestCase):
 
 
 class TestRules(unittest.TestCase):
+    def test_short_description_length(self):
+        import shutil, tempfile
+        with tempfile.TemporaryDirectory() as d:
+            s = Path(d) / "dia-refine"
+            shutil.copytree(ROOT / "skills" / "dia-refine", s)
+            y = s / "agents" / "openai.yaml"
+            y.write_text(y.read_text(encoding="utf-8").replace('short_description: "', 'short_description: "' + "x" * 64, 1), encoding="utf-8", newline="\n")
+            self.assertTrue(any("short_description" in e for e in pkg.validate_skill(s)))
+
     def test_prefix_rule(self):
         errs = pkg.validate_names(["dia-refine", "dia-refine-loop"])
         self.assertTrue(any("prefix" in e for e in errs))

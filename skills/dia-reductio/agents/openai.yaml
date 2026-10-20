@@ -1,6 +1,6 @@
 interface:
   display_name: "Dia: Reductio"
-  short_description: "Strict reductio ad absurdum: listed premises, a Q and not-Q derivation, options and a record"
+  short_description: "Strict reductio ad absurdum: listed premises to Q and not-Q"
   default_prompt: "Use $dia:dia-reductio to test this claim by reductio: "
 
 policy:

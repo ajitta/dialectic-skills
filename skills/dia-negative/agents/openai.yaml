@@ -1,6 +1,6 @@
 interface:
   display_name: "Dia: Negative Dialectics"
-  short_description: "Internal critique: where a claim fails its own standard, what escapes it, what it is for"
+  short_description: "Internal critique: where a claim fails its own standard"
   default_prompt: "Use $dia:dia-negative to critique this claim by its own standard: "
 
 policy:
