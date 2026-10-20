@@ -14,6 +14,8 @@ python tools/package.py --check    # validate; fail if the committed output lags
 python -m unittest discover -s tests -v
 ```
 
+Release: after the version bump is on `main` with green CI, push an annotated tag `vX.Y.Z`; `.github/workflows/release.yml` attaches both zips to the GitHub release.
+
 All are stdlib-only. CI (`.github/workflows/check.yml`) runs them plus `claude plugin validate --strict`.
 
 ## Rules
