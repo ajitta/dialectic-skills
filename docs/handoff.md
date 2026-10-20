@@ -9,8 +9,7 @@ State of the work and what is left, for the next agent session. Read `AGENTS.md`
 - Skill text reflects spec D19–D29 (research findings, token audit, data-not-instructions rule, dia-refine suspected corrections, several-skills-in-one-prompt rules, `short_description` length). Every batch was diff-reviewed or probed; results are in `docs/probes.md` Parts A–K, `docs/token-cost.md` and `docs/skill-effect.md`.
 - Spec §12.3 acceptance:
   - 12.1 passes.
-  - P1, P3, P6, P7 and P8 pass.
-  - P2 is still open; it is owner-run.
+  - P1, P2, P3, P6, P7 and P8 pass.
   - P4 and P5 need recorded results, pass or documented limitation; they are owner-run.
 
 ## Remaining work
@@ -18,17 +17,17 @@ State of the work and what is left, for the next agent session. Read `AGENTS.md`
 | # | Item | Who | Notes |
 |---|---|---|---|
 | 1 | P1: claude.ai upload: passed 2026-10-20 | — | Accepted with seven skills; the synced copy matches `v0.1.0` byte for byte and the old copies are gone (probes P1). |
-| 2 | P2: Claude mobile, one natural-language prompt per skill (next) | owner runs, agent records | Pass: the right skill loads and the reply is in the prompt's language. Suggest prompts from `docs/probes.md` P7, plus one each for intent, refine and iterate. For dia-intent the prompt names the skill and for dia-iterate it starts with `dia-iterate`; elenchus and brainstorm use the P7 prompts. For dia-intent also send the same request without the name and check that it does not load (spec §12.2). |
+| 2 | P2: Claude mobile: passed 2026-10-20 | — | The skills load from natural-language prompts; the mobile `/` menu does not list them, which matches the documented mobile route (in words). Probes P2. |
 | 3 | P4: ChatGPT desktop (Pro), local plugin install | owner runs, agent records | `default_prompt` now uses `$dia:dia-<x>` (spec D19, from P3). Record whether it resolves in ChatGPT desktop and whether the skills appear under `@`. If it does not resolve there, report it; do not change it back without the owner. |
 | 4 | P5: ChatGPT mobile (Pro) after P4 | owner runs, agent records | Pass or a documented plan limitation (O4) |
 | 5 | O1: resolved 2026-10-20, no `references/ko/` files in 1.0.0 (spec D17) | — | To add one later: L4 header (`Scope:`, `Source:`, `As of:`, `Use when:`), name the file and its read condition in SKILL.md (L5), run P9. `tools/package.py` enforces the header and the mention. |
 | 6 | O3: resolved 2026-10-20, MIT for all seven skills (spec D18) | — | — |
-| 7 | Acceptance and 1.0.0 release | agent | The 0.x pre-release is done: `v0.1.0` (GitHub pre-release with `dialectic-skills.zip`). After P2 passes (and P4/P5 are recorded), set `version` to `1.0.0`, bump each changed skill's `metadata.version`, run `tools/package.py`, push, wait for green CI, tag `v1.0.0`, and `gh release create v1.0.0 releases/dialectic-skills.zip`. Update the status lines in `docs/spec.md` and `docs/probes.md`. |
+| 7 | Acceptance and 1.0.0 release | agent | The 0.x pre-release is done: `v0.1.0` (GitHub pre-release with `dialectic-skills.zip`). P2 passed; after P4/P5 are recorded, set `version` to `1.0.0`, bump each changed skill's `metadata.version`, run `tools/package.py`, push, wait for green CI, tag `v1.0.0`, and `gh release create v1.0.0 releases/dialectic-skills.zip`. Update the status lines in `docs/spec.md` and `docs/probes.md`. |
 | 8 | Codex GitHub marketplace route: resolved 2026-10-20 | — | `codex plugin marketplace add ajitta/dialectic-skills` works with git credentials for the private repository and fails without them (probes P3). If the repository is made public, re-check without credentials. |
 | 9 | Research findings in `docs/research/` | agent | Applied 2026-10-20 (spec D19–D25, D29), still as 0.1.0. What remains is in `docs/research/README.md` § Still open: owner-deferred items (dia-intent F1, F8; dia-elenchus M4) and probe-wording items. |
 | 10 | Codex claims a code check it did not run | owner watches in P4/P5 | Probes Part K: with dia-refine + dia-iterate, Codex labelled the 20% fix "(tool: JavaScript execution)" with no execution event in its log, 3/3. Both skills already forbid this; check whether it recurs in the Codex app or ChatGPT. |
 | 11 | dia-refine by plain request on Claude Code | owner decides | Probes Part J: a request without the name loaded dia-refine 1/9, before and after D27; by name it loads every time. Left as a known limit (owner ruling: hold). |
-| 12 | Long output when several analysis skills run at once | owner judges in P1/P2 | Probes Part K: dia-reductio + dia-negative gave 8.6k–9.4k characters on Claude Code. Owner ruling 2026-10-20: decide on a phone, not now. |
+| 12 | Long output when several analysis skills run at once | owner judges in P1/P2 | Probes Part K: dia-reductio + dia-negative gave 8.6k–9.4k characters on Claude Code. Owner ruling 2026-10-20: decide on a phone, not now. P2 (2026-10-20): the owner raised no length problem on mobile. |
 
 Observations from P8 (n=1 each; see `docs/probes.md`):
 
