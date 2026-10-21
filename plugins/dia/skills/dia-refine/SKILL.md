@@ -1,6 +1,6 @@
 ---
 name: dia-refine
-description: Review the previous answer or a named draft once for factual errors, logical leaps, missing requirements and needless repetition, and return one integrated revision that fixes defects whose basis was confirmed and marks suspected ones. Use when the message starts with dia-refine, or when the user asks to review or recheck the previous answer or a draft, fix its factual errors and logical leaps, or give only the improved final version, or the same in any language. A passing mention of dia-refine mid-sentence is not an invocation. Not for repeated verification rounds (dia-iterate).
+description: Review the previous answer or a named draft once for factual errors, logical leaps, missing requirements and needless repetition, and return one integrated revision that fixes defects whose basis was confirmed and marks suspected ones. Use when the message starts with dia-refine, or when the user asks to review or recheck the previous answer or a draft, treat it as a draft, fix its factual errors and logical leaps, or give only the improved final version, or the same in any language. A passing mention of dia-refine mid-sentence is not an invocation. Not for repeated verification rounds (dia-iterate).
 license: MIT
 metadata:
   author: ajitta
