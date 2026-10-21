@@ -11,6 +11,8 @@ metadata:
 
 A request to analyze, review, or edit this skill is not a request to run it.
 
+Run this review when the message starts with `dia-confirm`, the skill was selected or invoked by name, or the user explicitly asks you to confirm the goal, assumptions or open decisions before starting. Otherwise do the task without this skill and do not hold it for approval.
+
 ## Before Starting
 
 Distinguish the desired outcome, reported observations, causal explanations, proposed means, and explicit constraints. Treat explanations and means as hypotheses when appropriate; preserve the user's constraints and authority boundaries, quoting short exact constraints (such as a name, amount or date) in the user's words and still checking them as item 2 says.

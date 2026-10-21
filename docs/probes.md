@@ -214,7 +214,7 @@ dia-brainstorm, Claude Code (harness as Part E, connectors off), two scripted se
 | `$dia:dia-confirm` + the Korean request | Codex | 2/2, Korean review | yes |
 | model-visible listing | Codex | dia-negative, dia-reductio, dia-refine only (dia-confirm is explicit-only) | yes |
 
-**Part M, D33: `allow_implicit_invocation: true` for all seven skills, 1.1.1 (base) vs 1.2.0 (var), 2026-10-21.** Codex CLI 0.163.0, gpt-6.1-sol, one isolated `CODEX_HOME` per arm with the plugin added from a frozen local marketplace copy, `codex exec --json --ephemeral` in an empty scratch directory with the sandbox bypassed (bwrap cannot start on the build VM), so the model can read skill files. "Loaded" means the run read `dia-<x>/SKILL.md`; "direct" means its first command was a `cat` of the path from the skill list, "search" means it first searched the disk (`rg --files`) for the name. Claude Code (Part E harness, sonnet, `--tools Skill`, fresh `CLAUDE_CONFIG_DIR`, neutral directory, no `@synced` plugin in any init event) covers the changed dia-confirm description. Runner and transcripts: `~/work/dia-review/implicit-2026-10-21/` on the build VM.
+**Part M, D33: `allow_implicit_invocation: true` for all seven skills, 1.1.1 (base) vs 1.2.0 (var), 2026-10-21.** Codex CLI 0.163.0, gpt-6.1-sol, one isolated `CODEX_HOME` per arm with the plugin added from a frozen local marketplace copy, `codex exec --json --ephemeral` in an empty scratch directory with the sandbox bypassed (bwrap cannot start on the build VM), so the model can read skill files. "Loaded" means the run read `dia-<x>/SKILL.md`; "direct" means its first command was a `cat` of the path from the skill list, "search" means it first searched the disk (`rg --files`) for the name. Claude Code (Part E harness, sonnet, `--tools Skill`, fresh `CLAUDE_CONFIG_DIR`, neutral directory, no `@synced` plugin in any init event) covers the changed dia-confirm description. User-level `~/.agents/skills` (firecrawl, 34 skills) was listed in both arms, and after `auth.json` was copied in Codex synced the account's uploaded dia 1.1.1 to disk (not listed; one base run found it by search; its skills are byte-identical to base); neither changes a count. Runner and transcripts: `~/work/dia-review/implicit-2026-10-21/` on the build VM.
 
 | Cell | Should load | Codex 1.1.1 | Codex 1.2.0 |
 |---|---|---|---|
@@ -244,8 +244,9 @@ dia-brainstorm, Claude Code (harness as Part E, connectors off), two scripted se
 Reading:
 
 - At 1.1.1 every Codex load of the four skills came from the model searching the disk for the name. ChatGPT web and mobile have no shell, so there the first word had no route at all; that is the owner's mobile complaint. At 1.2.0 each load reads the path from the skill list directly.
-- The only off-design load is dia-confirm on Codex for a request that asks for its exact steps in words (2/3); Claude did not load it (0/3). The reply is what the user asked for, so it is recorded, not fixed. No plain task, coding or how-to prompt loaded any of the four (0/21), nor did the passing mention (0/3).
-- Observation (n=1, not caused by this change): a dia-brainstorm first message on Codex was a confirm-only turn ("이렇게 이해하면 맞아?").
+- The only off-design load in these cells is dia-confirm on Codex for a request that asks for its exact steps in words (2/3); Claude did not load it (0/3). The reply is what the user asked for, so it is recorded, not fixed. No plain task, coding or how-to prompt loaded any of the four (0/21), nor did the passing mention (0/3).
+- Independent reviewer cell (n=2): a coding request, "Brainstorm some approaches for rate-limiting a public REST API … pick one", loaded dia-brainstorm 1/2; the model then answered directly. This is the same routing Claude has always had for this description. Two coding requests that ask to check or plan first loaded no dia-confirm (0/4).
+- Every dia-brainstorm first reply was the Step 1 steelman confirmation turn, as designed.
 - Not run from here: ChatGPT web and mobile (owner, handoff item 15).
 
 ### P8: tool-less run (`--tools Skill`: no search, fetch, code or file tools)

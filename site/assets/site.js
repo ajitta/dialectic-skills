@@ -16,8 +16,8 @@
       case 'mobile': return { code: `/${skill}`, note: 'Type it in full: the / menu on mobile does not list plugin skills.' };
       case 'codex': return {
         code: `$dia:${skill}`,
-        note: codex === 'select'
-          ? 'Follow it with a space and your request. On Codex this skill never starts on its own; select it this way.'
+        note: codex === 'name'
+          ? 'Follow it with a space and your request, or start the message with the skill name. This skill does not start from a plain request.'
           : 'Follow it with a space and your request. On Codex it may also start when your request matches it.',
       };
       case 'chatgpt': return { code: `@${skill}`, note: 'Type @, then pick the skill.' };
@@ -50,18 +50,13 @@
   });
 
   const plates = [...document.querySelectorAll('.plate[data-skill]')];
-  // The prompt to try, as README writes it. On Codex, the skills that never start on their own are
-  // selected with $dia:dia-<x> followed by a space, so the prompt shown and copied says so.
+  // The prompt to try, as README writes it. Since 1.2.0 every prompt works unchanged on Codex too:
+  // the dia-confirm and dia-iterate prompts start with the skill name, which Codex now resolves.
   plates.forEach((plate) => {
     const code = plate.querySelector('.try code');
     if (code) plate.dataset.prompt = code.textContent;
   });
-  const promptFor = (surface, plate) => {
-    const text = plate.dataset.prompt || '';
-    const skill = plate.dataset.skill;
-    if (surface !== 'codex' || plate.dataset.codex !== 'select') return text;
-    return `$dia:${skill} ` + (text.startsWith(skill + ' ') ? text.slice(skill.length + 1) : text);
-  };
+  const promptFor = (surface, plate) => plate.dataset.prompt || '';
   const stages = [...document.querySelectorAll('.stage[data-surface]')];
   const stageFor = { claude: 'claude', code: 'code', mobile: 'mobile', codex: 'codex', chatgpt: 'chatgpt' };
 

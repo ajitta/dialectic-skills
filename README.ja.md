@@ -113,7 +113,7 @@ Business と Enterprise のワークスペースでは、管理者がワーク�
 方法は 3 つあり、どの環境でも少なくとも 1 つは使えます：
 
 1. **言葉で依頼する。** 手法を指定して頼みます：「〜を背理法で検証して」「〜を内在的批判して」「ソクラテス式の対話をお願いします」。すべての環境で使え、モバイルではこれが無難な既定の方法です。`dia-reductio`、`dia-negative`、`dia-elenchus`、`dia-brainstorm` で使えます。
-2. **メッセージ内で名前を指定する。** メッセージをスキル名で始めます：`dia-confirm …`、`dia-refine …`、`dia-iterate …`。1.2.0 以降は Codex と ChatGPT でも `$` や `@` なしでこの方法が使えるため、スマートフォンではこれが最も手早い方法です。`dia-refine` と `dia-iterate` は、この方法か明示的な選択で起動することを想定しています。`dia-iterate` は通常の依頼からは決して起動せず、Claude Code では「この草稿を直して」のような通常の依頼で `dia-refine` が読み込まれることはまれです。
+2. **メッセージ内で名前を指定する。** メッセージをスキル名で始めます：`dia-confirm …`、`dia-refine …`、`dia-iterate …`。1.2.0 以降は Codex でも `$` なしでこの方法が使え（実測）、ChatGPT でも `@` なしで使える見込みです（オーナー確認待ち）。そうなればスマートフォンではこれが最も手早い方法です。`dia-refine` と `dia-iterate` は、この方法か明示的な選択で起動することを想定しています。`dia-iterate` は通常の依頼からは決して起動せず、Claude Code では「この草稿を直して」のような通常の依頼で `dia-refine` が読み込まれることはまれです。
 3. **明示的に選択する。** 書き方は環境ごとに異なります：
 
 | 環境 | 構文 | 例 |
@@ -124,7 +124,7 @@ Business と Enterprise のワークスペースでは、管理者がワーク�
 | Codex（コピーしたフォルダー） | `$dia-<x>` | `$dia-refine` |
 | ChatGPT | `@` を入力してスキルを選ぶ | `@dia-negative` |
 
-1.2.0 以降、Codex と ChatGPT でも Claude と同じく、すべてのスキルがモデルから見えます。`dia-reductio`、`dia-negative`、`dia-elenchus`、`dia-brainstorm`、`dia-refine` は依頼内容が合致すれば自動で起動することがあり、`dia-confirm` と `dia-iterate` はメッセージを名前で始めたときか、明示的に選択したとき（`$dia:dia-<x>`、`@`）にだけ起動する設計です。ただし Codex では、「まず目標を整理して、決めるべきことを挙げて」のように `dia-confirm` の手順をそのまま言葉で頼むと、このスキルが読み込まれることもあります。
+1.2.0 以降、Codex（実測）と、同じ設定により ChatGPT でも、Claude と同じくすべてのスキルがモデルから見えます。`dia-reductio`、`dia-negative`、`dia-elenchus`、`dia-brainstorm`、`dia-refine` は依頼内容が合致すれば自動で起動することがあり、`dia-confirm` と `dia-iterate` はメッセージを名前で始めたときか、明示的に選択したとき（`$dia:dia-<x>`、`@`）にだけ起動する設計です。ただし Codex では、「まず目標を整理して、決めるべきことを挙げて」のように `dia-confirm` の手順をそのまま言葉で頼むと、このスキルが読み込まれることもあります。
 
 ### オプション
 

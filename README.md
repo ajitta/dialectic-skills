@@ -113,7 +113,7 @@ All routes above work on Windows. The skills contain no scripts, so no Python or
 There are three ways, and every surface supports at least one of them:
 
 1. **In words.** Ask for the method: "use proof by contradiction on…", "do an immanent critique of…", "Socratic dialogue please…". This works on every surface and is the safe default on mobile. It works for `dia-reductio`, `dia-negative`, `dia-elenchus` and `dia-brainstorm`.
-2. **By name in the message.** Start the message with the skill name: `dia-confirm …`, `dia-refine …`, `dia-iterate …`. Since 1.2.0 this also works on Codex and ChatGPT without `$` or `@`, which makes it the quickest route on a phone. `dia-refine` and `dia-iterate` are meant to start this way or by an explicit selection: `dia-iterate` never starts from a plain request, and on Claude Code a plain "fix this draft" request rarely loads `dia-refine`.
+2. **By name in the message.** Start the message with the skill name: `dia-confirm …`, `dia-refine …`, `dia-iterate …`. Since 1.2.0 this also works on Codex without `$` (probed) and is expected to work on ChatGPT without `@` (owner check pending), which would make it the quickest route on a phone. `dia-refine` and `dia-iterate` are meant to start this way or by an explicit selection: `dia-iterate` never starts from a plain request, and on Claude Code a plain "fix this draft" request rarely loads `dia-refine`.
 3. **Explicit selection**, written differently on each surface:
 
 | Surface | Syntax | Example |
@@ -124,7 +124,7 @@ There are three ways, and every surface supports at least one of them:
 | Codex (copied folder) | `$dia-<x>` | `$dia-refine` |
 | ChatGPT | `@` then pick the skill | `@dia-negative` |
 
-Since 1.2.0 every skill is visible to the model on Codex and ChatGPT, as on Claude. `dia-reductio`, `dia-negative`, `dia-elenchus`, `dia-brainstorm` and `dia-refine` may start when your request matches them; `dia-confirm` and `dia-iterate` are meant to start only when the message begins with their name or when you select them (`$dia:dia-<x>`, `@`). On Codex, a request that spells out `dia-confirm`'s steps ("restate my goal and list the open decisions first") can also load it.
+Since 1.2.0 every skill is visible to the model on Codex (probed) and, by the same setting, on ChatGPT, as on Claude. `dia-reductio`, `dia-negative`, `dia-elenchus`, `dia-brainstorm` and `dia-refine` may start when your request matches them; `dia-confirm` and `dia-iterate` are meant to start only when the message begins with their name or when you select them (`$dia:dia-<x>`, `@`). On Codex, a request that spells out `dia-confirm`'s steps ("restate my goal and list the open decisions first") can also load it.
 
 ### Options
 

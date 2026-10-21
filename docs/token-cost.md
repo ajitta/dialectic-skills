@@ -19,7 +19,7 @@ Measured 2026-10-20. Two trees: `main` at `1b3f139` (D22 text) and the D23 batch
 | | Claude Code (measured) | Codex (o200k, measured listing) |
 |---|---|---|
 | dia, 7 skills (measured at `1b3f139`) | **1,749** | **597** (3 skills; the 4 explicit-only skills are not listed) |
-| dia 1.2.0, 7 skills (2026-10-21, D33) | not re-measured; the dia-confirm description grew by 38 cl100k tokens (51 → 89) | **1,343** (7 skills; 610 for the 3 listed at 1.1.1) |
+| dia 1.2.0, 7 skills (2026-10-21, D33) | not re-measured; the dia-confirm description grew by 38 cl100k tokens (51 → 89) | **1,342** (7 skills; 610 for the 3 listed at 1.1.1) |
 | old skills, 7 | 1,690 | — |
 
 The seven descriptions are 1,146 cl100k tokens in total (`main`), 1,149 after D23 (only the dia-reductio description changed, +3). The longest are dia-elenchus (226), dia-negative (216) and dia-brainstorm (203).
