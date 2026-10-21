@@ -252,7 +252,7 @@ Reading:
 - Final wording (`c34a1ec`), n=2 per cell, `out4/`: Codex «dia-confirm 먼저 확인해줘: …» 2/2 review and hold; the steps-in-words request loaded dia-confirm 1/2 and, as the body now allows for an explicit request to confirm first, gave the review and held; the English photo-script request 0/2. Claude «dia-confirm 먼저 확인해줘: …» 2/2, the English photo-script request 0/2.
 - Not run from here: ChatGPT web and mobile (owner, handoff item 15).
 
-**Part N, a bare noun phrase loads dia-brainstorm on ChatGPT mobile (owner, 1.2.0), 2026-10-21.** Same harnesses as Part M (Codex CLI 0.163.0 gpt-6.1-sol, sandbox bypassed; Claude Code sonnet `--tools Skill`, fresh config, neutral directory), n=3 per cell. Arms: 1.2.0 (`c34a1ec`, skill files as released) and a candidate whose dia-brainstorm description excludes requests to make or write something and whose Step 0 says to do such a task without the skill if loaded by mistake. Transcripts: `out-repro/` and `out-fix/`.
+**Part N, a bare noun phrase loads dia-brainstorm on ChatGPT mobile (owner, 1.2.0), 2026-10-21.** Same harnesses as Part M (Codex CLI 0.163.0 gpt-6.1-sol, sandbox bypassed; Claude Code sonnet `--tools Skill`, fresh config, neutral directory), n=3 per cell. Arms: 1.2.0 (`c34a1ec`, skill files as released) and a candidate (`0caa83f`, released as 1.2.1, spec D34) whose dia-brainstorm description excludes requests to make or write something and whose Step 0 says to do such a task without the skill if loaded by mistake. Transcripts: `out-repro/` and `out-fix/`.
 
 | Cell | Should load | Codex 1.2.0 | Codex candidate | Claude 1.2.0 | Claude candidate |
 |---|---|---|---|---|---|

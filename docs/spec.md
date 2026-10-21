@@ -76,6 +76,7 @@ These decisions were settled with the owner during the spec interview of 2026-10
 | D31 | The README is written in English and translated into Korean, Japanese and Simplified Chinese (`README.ko.md`, `README.ja.md`, `README.zh-CN.md`; owner, 2026-10-20). Each file starts with the same language switcher. The translations are repository files, not shipped, so the shipped-package language rules (§6) do not apply to them; they are an exception to D11 for the README only. A test keeps them in step with `README.md`: same heading levels, tables, link targets and code-block count, command blocks byte-identical, and every in-page anchor resolves. Example prompts are translated so each file shows requests in its own language. |
 | D32 | Directory listings, prepared in 1.1.1 (owner, 2026-10-20; requirements in `docs/directory-submission.md`). (1) The plugin folder ships a `README.md` generated from `packaging/plugin-README.md`, because the Anthropic directory blocks a plugin folder without a README of at least 40 words; it states that the plugin runs, sends and fetches nothing itself. (2) The OpenAI directory upload is a separate generated zip, `releases/dialectic-skills-openai.zip`: the same files with `.codex-plugin/plugin.json` (the manifest plus the `interface` listing fields from `packaging/openai/interface.json`) in place of `.claude-plugin/`, and two square SVG images under `assets/` for `interface.logo` and `interface.composerIcon`. Images exist only in that zip, so the marketplace payload stays Markdown, YAML and JSON (§7.1). `tools/package.py` checks the README length and the OpenAI final-submission limits, and the listing files count toward the version digest. The logo is a draft for the owner to replace if wanted. |
 | D33 | All seven skills set `allow_implicit_invocation: true` in plugin 1.2.0 (owner, 2026-10-21). Reason: on ChatGPT mobile the four explicit-only skills (dia-confirm, dia-elenchus, dia-brainstorm, dia-iterate) could be reached only through the `@` picker, because `false` drops a skill from the model-visible list (probed on Codex, P3 and Part M; on ChatGPT mobile observed by the owner before and after the change, P5 1.2.0), so a message starting with the skill's name did nothing; on Claude the same message works (P2), and Claude already routed dia-elenchus and dia-brainstorm from natural language (P7). Now dia-elenchus and dia-brainstorm route as on Claude, and dia-confirm and dia-iterate are gated by wording: dia-iterate by its existing description and body marker rule, dia-confirm by a description that names the first word and says a request that only sounds like it is not an invocation, plus a body sentence for a load without the marker (run the review only on an explicit request to confirm first; otherwise do the task without holding it; added after the independent review). Probes Part M (Codex, base 1.1.1 vs 1.2.0; Claude for the dia-confirm description). Cost: the Codex/ChatGPT always-on listing grows from 610 to 1,342 o200k tokens (Codex measured; ChatGPT's own list was not measurable from here). This reverses the upstream `04-design.md` D2 choice for Codex only; `disable-model-invocation` stays unused (§7.2). |
+| D34 | dia-brainstorm 1.1.1, plugin 1.2.1 (owner, 2026-10-21). After D33, ChatGPT mobile loaded dia-brainstorm for a plain task written as a bare noun phrase («사진 파일을 날짜별로 이름 바꾸는 스크립트»). The description now says the skill is for a user who asks to think an idea through with questions, poke holes in it or stress-test it, and is not for a request to make or write something (a script, code, a text), even one that names an idea; Step 0 says that if the skill was loaded for such a request anyway, do the task without it. The ChatGPT case did not reproduce on Codex or Claude; the change kept every positive routing cell on both (probes Part N). |
 
 ## 4. Names and identifiers
 
@@ -118,7 +119,7 @@ Natural-language requests work on every surface and are the safe default on mobi
 
 ## 5. Skills
 
-All seven skills keep their reference behavior unless this section or D19–D33 say otherwise. For every skill, the rebuild:
+All seven skills keep their reference behavior unless this section or D19–D34 say otherwise. For every skill, the rebuild:
 
 - renames the skill;
 - updates cross-references so that each description names the new skill names;
@@ -129,14 +130,14 @@ All seven skills keep their reference behavior unless this section or D19–D33 
 ### 5.1 dia-confirm (from confirm-intent; `dia-intent` until 1.0.0, D30)
 
 - Purpose: before work starts, restate the goal, disclose material assumptions and list only the decisions the user must make. Then wait for approval.
-- Behavior: the reference, amended by D19–D33.
+- Behavior: the reference, amended by D19–D34.
 - Invocation: first word or explicit name. The description says "Use only when the message starts with dia-confirm, or when the skill is explicitly selected or invoked by name". `allow_implicit_invocation: true` since 1.2.0 (D33), so the first word works on Codex (probed, Part M) and on ChatGPT mobile (owner, P5 1.2.0). A body sentence backs the description up: if the skill loads without the marker, it runs the review only when the user explicitly asked to confirm the goal, assumptions or open decisions first, and otherwise does the task without holding it for approval.
 - References: none at present. `references/ko/` is optional (§6).
 
 ### 5.2 dia-elenchus (from socratic-elenchus 1.3.1)
 
 - Purpose: Plato's elenchus. Ask "what is X?", collect agreed premises one question at a time, show contradictions, and treat each revision as the user's new idea. It usually ends in aporia and never gives advice.
-- Behavior: the reference, amended by D19–D33.
+- Behavior: the reference, amended by D19–D34.
 - Cross-reference: "use socratic-brainstorm" becomes "use dia-brainstorm".
 - Invocation: natural language or name, as on Claude. `allow_implicit_invocation: true` since 1.2.0 (D33; the reference had false).
 - References carried over: `elenchus-patterns.md` and `record-template.md`; `theory.md` added (D24) for the dialogue loci and sources, read only when the user asks about the sources or the method.
@@ -144,7 +145,7 @@ All seven skills keep their reference behavior unless this section or D19–D33 
 ### 5.3 dia-brainstorm (from socratic-brainstorm 3.3.1)
 
 - Purpose: modern Socratic questioning, one question at a time. The user lists options, the skill adds up to three labeled ones, and the user converges by criteria. It ends with a verdict and a brief, and never implements anything.
-- Behavior: the reference, amended by D19–D33.
+- Behavior: the reference, amended by D19–D34.
 - Cross-reference: points to dia-elenchus.
 - Invocation: natural language or name, as on Claude. `allow_implicit_invocation: true` since 1.2.0 (D33; the reference had false).
 - References carried over: `question-bank.md` and `brief-template.md`.
