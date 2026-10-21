@@ -1,0 +1,206 @@
+# Candidate: dia-commit ("commit first, then compare"), plus two rejected items
+
+Scope: the external agent's proposal `dia-commit` (the user states an answer and reasons first; the assistant then answers and questions the points where the two diverge), its three cited studies, and the two items it rejected: "consider the opposite" as one dia-refine rule, and "learning by teaching". Checked 2026-10-21 against `main` at `becc4b3`. Agent-written; claims without a source carry `[unverified]`.
+
+Criteria, per the owner: (1) fidelity and an honest label; (2) fit for a human–AI chat, where one model is the assistant and the user is the other party; (3) the product constraints (no tools needed, instructions only, assistant-neutral English, description under 1,024 characters, no routing stolen from siblings).
+
+## 1. Claim check (primary sources)
+
+### 1.1 Bastani et al., "Generative AI without guardrails can harm learning" (PNAS 122(26), 2025; SSRN 4895486)
+
+I read the full PNAS text[1] and the SSRN abstract page[2]. The two abstracts are the same.
+
+| Claim in the proposal | Verdict | What the source says |
+|---|---|---|
+| Field experiment, ~1,000 high-school students | **confirmed** | "nearly a thousand high school math students" at one high school in Turkey, Fall 2023; four 90-minute sessions in about fifty classes; 2,848 student-session observations.[1] |
+| Unrestricted GPT-4 raised practice scores 48% | **confirmed, wording partly** | GPT Base raised practice grades by 0.137 (out of 1) over a control mean of 0.284, i.e. 48%; GPT Tutor raised them by 0.361, i.e. 127%.[1] GPT Base was not literally unrestricted: it had a system prompt holding the current problem and telling GPT-4 to act as a tutor and help solve it. The authors call it a ChatGPT-like interface and "unfettered access".[1] |
+| Students then scored 17% lower than no-AI students on an exam without AI | **confirmed** | On the closed-book exam, GPT Base was 0.054 below control (control mean 0.321), "statistically significantly worse … by 17%".[1] The 17% is relative to the control mean, not percentage points. |
+| Comparison base | **confirmed** (the proposal does not state it) | The control arm worked the same practice problems with course books and notes and no devices. All arms had the same lecture and exam, and teachers did not interact with students during practice or the exam.[1] |
+| A tutor version with learning safeguards mostly prevented the loss | **confirmed** | GPT Tutor's exam effect was −0.004, "statistically indistinguishable" from control. "Largely mitigated", but "we still do not observe a positive effect".[1] |
+| The safeguards are unknown (the agent could not find them) | **now resolved** | Two prompt-level safeguards: (a) the prompt tells GPT-4 to give hints without giving the answer; (b) the prompt carries teacher-written, problem-specific material: one or more correct solutions, common student mistakes, and the feedback to give for each.[1] Two part-time teachers wrote these inputs. GPT Tutor also showed suggested prompts in its interface, and students in both GPT arms watched a short video on prompts that aid learning.[1] |
+
+Two further points bear on dia-commit:
+
+- The authors attribute the harm to students using GPT Base as a "crutch" (asking for and copying answers). GPT Base's own error rate does not explain it: GPT Base answered correctly only 51% of the time.[1]
+- In the GPT Tutor arm, "Attempted Answers" and "Ask for help" were the dominant message types. Students could check their own attempts against a tutor that knew the solution.[1] So the closest thing to commit-first in this study came from what students chose to do, not from the design.
+
+What Bastani does not show is just as important. It tests hints-not-answers backed by the correct solution, and it never tests "commit first". It is evidence that an answer-on-demand assistant can harm learning; it is not evidence for dia-commit's mechanism. Its safeguards were system-prompt text, the same medium as a skill, but the teacher-supplied solutions and mistake lists have no counterpart in a general-purpose skill.
+
+### 1.2 Danry et al., "Don't Just Tell Me, Ask Me" (CHI '23)
+
+I read the full text in MIT DSpace.[4]
+
+| Claim | Verdict | Source |
+|---|---|---|
+| N=204, CHI | **confirmed** | 204 analysed (234 enrolled, from Prolific). The introduction says "210 participants", an inconsistency inside the paper.[4] |
+| When the AI asked questions instead of explaining, people found logical flaws more accurately | **confirmed, with limits** | On invalid statements, weighted discernment was 62.5 for questioning, 55.0 for causal explanation and 46.9 for control, and questioning beat explanation (p = .009). Raw accuracy was 67% vs 57% vs 44%. On valid statements the two AI conditions did not differ (74.7 vs 78.2, p = .126).[4] |
+
+Limits:
+
+- The AI was "always correct".
+- Each item got one templated question ("If [premise] does it follow that [claim]?"), generated by GPT-3 and checked by hand.
+- The only fallacy tested was hasty generalization, and outcomes were measured in the same session.[4]
+- The question appeared before the participant judged the statement. Danry therefore supports the "ask, don't tell" half of dia-commit, not the "user commits first" half.
+
+### 1.3 Buçinca, Malaya & Gajos, "To Trust or to Think" (PACM HCI 5 CSCW1, 2021)
+
+I read the full text on arXiv.[3]
+
+| Claim | Verdict | Source |
+|---|---|---|
+| N=199 | **confirmed** | 199 MTurk participants retained of 260; simulated AI with 75% accuracy; one nutrition task (replace the highest-carb ingredient).[3] |
+| One of three cognitive forcing designs was "decide yourself first, then see the AI" (Update) | **confirmed** | In the Update condition participants made an initial decision unaided, then saw the AI's suggestion and could update it. The other two designs were On demand and Wait.[3] |
+| Significant only for reduced reliance on wrong AI suggestions, in one task; the overall overreliance difference was not significant | **partly** | There was only one task. The significant overreliance reduction was in one sub-decision, carb-source detection (0.48 CFF vs 0.64 simple XAI). For the overall decision, overreliance was not significant (0.26 vs 0.30). Correct decisions on wrong-AI items rose significantly in both measures (0.09 vs 0.03; 0.27 vs 0.08).[3] The proposal also misses a key limit: all tests pooled the three forcing designs, and "there were no significant differences among conditions within either category". Nothing is shown for Update alone.[3] |
+| The most effective designs were rated lowest | **confirmed (abstract wording)** | The abstract says that people "assigned the least favorable subjective ratings to the designs that reduced the overreliance the most". The body shows this at category level and through correlations (preference and trust correlate negatively with performance on wrong-AI items).[3] |
+| The effect was larger for people high in need for cognition | **confirmed** | The gains "held mostly for people with high NFC"; high-NFC participants also trusted and preferred the forcing designs less.[3] |
+| (not claimed) | — | Hypothesis H1b failed: forcing designs did not improve overall team performance, and on wrong-AI items they stayed below the no-AI baseline (0.09 vs 0.18).[3] |
+
+### 1.4 The rejected items
+
+| Claim | Verdict | Source |
+|---|---|---|
+| Lord, Lepper & Preston 1984: "consider the opposite" beat "be fair" at reducing bias | **confirmed (abstract only)** | Two experiments (150 undergraduates, per the PsycNet record), on biased assimilation and on biased hypothesis testing. Considering the opposite, whether instructed or induced by the materials, "had greater corrective effect" than instructions to be fair and unbiased.[8][9][7] I did not reach the full text, so effect sizes are **unverifiable** here. |
+| A 2025 LLM paper (arXiv 2507.10124) only demonstrates cases | **confirmed** | Hills, single author: "could you be wrong?" was put to ChatGPT-4o after its answer on three kinds of case. Each case was run more than 10 times with "qualitatively consistent" results. There is no quantitative evaluation and no human outcome.[10][6] |
+| BEA 2025 "LLM Protégés": students who found the AI's errors gained 0.72 on a 6-point scale; preliminary | **figure confirmed, framing partly** | +0.72 points (14%) on the Swiss 1–6 scale, relative to non-participants (p < 0.022, CI 0.11–1.34); with the pilot added, +0.60.[5] The proposal omits that only **5 of 75** students were in the "LLM Solved" group. Enrollment was self-selected, grading was not blind, and conversations were not logged. The authors say it "still requires a more rigorous validation".[5] |
+
+## 2. dia-commit as a skill
+
+### 2.1 Honest label: not a classical method
+
+dia-commit is not a named dialectical or classical method, and no ancient source stands behind it. Its parts come from four research lines:
+
+- **Cognitive forcing in AI-assisted decisions.** The Update design[3], and the "answer first, then see the AI, then answer again" two-stage format used in human–LLM reliance studies.[11] Buçinca traces cognitive forcing to medical decision-making research.[3]
+- **The generation effect.** Self-generated items are remembered better than items read.[16]
+- **Retrieval practice / pretesting.** Even unsuccessful attempts made before seeing the answer improve later learning.[17]
+- **Predict–observe–explain**, the closest named teaching routine.[unverified]
+
+A suitable label sentence: *"A commit-then-compare routine from cognitive-forcing research on AI-assisted decisions and from the generation and pretesting effects in learning research; not a classical dialectical method."*
+
+### 2.2 Roles and shape in a human–AI chat
+
+- **User:** attempts the answer and gives reasons, and later judges the divergences.
+- **Assistant:** withholds its answer until the user commits, then answers independently and questions the points of difference.
+
+The routine is multi-turn: at least ask → commit → answer-and-compare. It collapses to one pass when the first message already contains the user's answer and reasons. It needs from the user a question they can attempt from their own knowledge. Pure lookups (a date, an API name) gain nothing from it, and asking the user to guess them only adds friction. dia-brainstorm already applies the same rule to its probes.
+
+### 2.3 AI-specific risks and how the structure meets them
+
+| Risk | Effect of commit-first | Evidence |
+|---|---|---|
+| User over-relies on the AI's answer | **Countered, partly.** The user forms a view before seeing the AI's answer, which is the design that reduced overreliance in Buçinca (pooled) and is the baseline of later LLM studies. | [3][11] |
+| Sycophancy: the model conforms to the user's stated view | **Worsened.** In every study cited, the AI's advice was fixed in advance (a simulated AI in [3]; pre-generated GPT-4o advice in [11]), so it could not bend toward the participant's answer. In a chat, the one model reads the user's answer before writing its own. Assistants trained on human feedback tend to match the user's stated beliefs.[15] The repo's own research records flip rates under "are you sure?" pressure (docs/research/dia-refine.md §3.6). | [3][11][15] |
+| Yielding under pushback in the divergence phase | **Risk present.** Needs the repo-wide rule that a step is withdrawn only when its defect can be named (D19, theme 2). | repo |
+| Inventing premises or reasons the user never gave | **Risk present.** "Your reasoning assumes X" can plant X. Needs the elenchus/brainstorm "quote only real words" rule. | repo |
+| One model playing both sides | Not applicable: the user is the other side, which is this design's strength over debate-style candidates. | — |
+| Enforcement | **Weak.** Studies enforced the order through the interface. In a chat the user can say "just tell me", or open a new chat. A skill can only decline politely once and must then honour a stop. | [3][11] |
+
+### 2.4 Can an instruction reproduce interface-level effects? LLM-era evidence
+
+There is no study of a chat instruction alone saying "answer first, then I'll answer". The nearest evidence:
+
+- **Bo, Wan & Anderson (CHI '25), N=400.** Two-stage answering was the frame for every condition. The authors chose it because one-stage designs "can lead to artificially high over-reliance rates", but they asserted this rather than testing it. Of the interventions layered on top, "Implicit Answer" (hints, no stated answer) "induced better self-reliance" at a significant time cost.[11]
+- **Kazemitabaar et al. (IUI '25).**
+  - Study 1 (N=82): "Lead-and-Reveal", where the AI asks for each step before showing the code, gave the highest unassisted post-test score (58.3 vs 31.5 baseline), but p = .058 and the study was underpowered.
+  - Study 2 (N=42): no significant performance difference. Lead-and-Reveal better aligned perceived with actual ability (r = .26) and took 1.82× longer than baseline.[12]
+- **Kumar et al. (CHI '25), 1,100 participants.** A coach-like LLM that guides without answering did *worse* on the later unassisted convergent-thinking test than no-AI (mean difference −10.6, p = .005).[13] Guidance alone is no guarantee.
+- **Kosmyna et al. (preprint).** Only 18 people completed session 4. Those who wrote unaided first and then used an LLM showed higher recall and wider activation than the original LLM group.[14] This is suggestive only.
+- **Bastani.** The guardrail that worked was prompt text, but it was backed by teacher-written solutions.[1]
+
+Assessment: plausible but untested. Ordering and "ask, don't tell" help in interfaces that fix the order and the AI's answer. A skill fixes neither, and it introduces the sycophancy channel.
+
+### 2.5 Overlap and routing
+
+- **dia-confirm** (the external agent's fallback, "make it an option of dia-confirm"). **Poor fit.** dia-confirm restates goal, assumptions and open decisions before *work* and holds for approval. Its "decisions" are preferences and authority, not attempts at an answer, and its approval semantics would not carry over. Folding the two would blur both, and dia-confirm is explicit-only (D33), so the option would be invisible.
+- **dia-elenchus.** Opposite stance: elenchus never gives an answer ("Gives no advice or ideas of its own"), while dia-commit's step 3 is the assistant's answer. There is no routing clash if dia-commit has no "Socratic" trigger.
+- **dia-brainstorm.** Its Step 3 already asks for "their own options first" before adding labelled ones. Generation-first is already present for ideas. dia-commit differs only for questions that have an answer.
+- **dia-refine.** **The real routing risk.** "Check my answer" or "here is my solution, review it" is a user-named draft, and the dia-refine description covers "a named draft". Natural-language triggers for dia-commit would take that traffic.
+- **Mitigation.** Explicit-only (first word `dia-commit`, or by name), as dia-confirm and dia-iterate are, with no natural-language trigger phrases. Cost: discoverability. Uptake depends on the user knowing the name.
+
+### 2.6 Friction
+
+Every source shows a cost:
+
+- Buçinca: lowest ratings for the most effective designs; benefits concentrated in high-NFC users.[3]
+- Bo: extra time for Implicit Answer.[11]
+- Kazemitabaar: 1.82× time.[12]
+
+Because the skill is explicit-only, friction falls only on users who asked for it. That is the right place for it, and the external agent's "users keep wanting to skip it" fallback mostly dissolves.
+
+## 3. The two rejected items
+
+### 3.1 "Consider the opposite" as one rule line in dia-refine
+
+- **Roles in chat:** the assistant considers the opposite of *its own* draft. The user is not involved.
+- **Evidence:** Lord et al. tested humans weighing evidence on social issues and testing personality hypotheses.[8] The only LLM evidence is case demonstrations.[10]
+- **Where it would go:** step 2 of dia-refine (skills/dia-refine/SKILL.md, Procedure, "List every defect candidate"). Step 2 already ends "Include the premises the draft rests on as candidates." A consider-the-opposite line would extend that sentence, e.g. "and, for the draft's main conclusion, what would have to be true for the opposite to hold". It fits the scope only as a *candidate generator* for "logical leaps".
+- **Conflict:** step 4 and the Safeguards ("Being invoked is not a signal of error", "No over-correction") forbid treating self-generated doubt as a basis. The repo's research shows LLMs flip under "are you sure?" (§3.6 of dia-refine.md), and "could you be wrong?" is that prompt.
+- **Verdict:** **SKIP now.** Step 2's premise rule already covers most of it. Revisit only if a probe shows dia-refine missing counter-cases that a consider-the-opposite candidate would have caught. Even then, add it as candidate-only, never as a change basis.
+
+### 3.2 Learning by teaching (LLM Protégés)
+
+- **Roles in chat:** the user teaches; the assistant plays a student with a planted misconception (the study's system prompt forced "O(n)" for every algorithm).[5]
+- **Risks:** the assistant must deliberately assert falsehoods. That conflicts with dia-refine's rule against handing the user a sentence it believes false (D27), and with the plugin's honesty stance generally. Unsuccessful participants "assumed that LLM-based chatbots knew the course material better than them", which is the over-reliance problem in another form.[5]
+- **Fit:** a learning-of-course-material method, not reasoning review. The evidence is 5 self-selected students.[5]
+- **Verdict:** **SKIP**. I agree with "off-topic, hold".
+
+## 4. Recommendation
+
+| Candidate | Verdict | Fidelity / label | Fit for AI chat | One-line reason |
+|---|---|---|---|---|
+| dia-commit as a new skill | **ADD, explicit-only, probe-gated** | Not classical; honest HCI/learning-science label (2.1) | **medium** | No sibling withholds the assistant's answer until the user commits. It works without tools. Over-reliance is countered by ordering; sycophancy is the open risk and needs a probe. |
+| dia-commit as an option of dia-confirm | **SKIP** | — | low | Different purpose (task scope vs. attempting an answer); hidden behind an explicit-only skill. |
+| dia-commit folded into dia-brainstorm | **SKIP** | — | medium | Generation-first already exists there for ideas; questions with an answer are out of its scope. |
+| "Consider the opposite" line in dia-refine | **SKIP now** (candidate-only line if a probe shows need) | Lord 1984 is human-only; LLM evidence is demonstrations | low–medium | Self-generated doubt in a self-review invites flips; step 2 already lists premises. |
+| Learning by teaching | **SKIP** | Protégé effect; evidence n=5 | low | Requires the assistant to assert falsehoods; off the plugin's topic. |
+
+Ranking by fidelity and chat fit together: dia-commit (explicit-only) > consider-the-opposite (candidate-only) > learning by teaching.
+
+### Sketch: dia-commit
+
+- **Label sentence:** as in 2.1, in the body. The description says what it does, not where it comes from.
+- **Description (draft, ~420 chars):** "Commit-then-compare: before the assistant answers a question the user can attempt, the user states their own answer and reasons; the assistant then gives its own answer, derived independently, and asks about each point where the two diverge, one question at a time. Use only when the message starts with dia-commit or the skill is invoked by name. For a review of a draft or answer the user already wrote, use dia-refine."
+- **Steps:**
+  1. If the message already holds the user's answer and reasons, go to step 3. Otherwise ask once, in one short message, for their answer and their main reason; a confidence word is optional. Give no hint, option list or leading question. If the question is a pure lookup the user cannot attempt, say so in one line and answer it normally.
+  2. Wait. If the user declines ("just tell me"), answer at once: the skip is the user's call.
+  3. Give the assistant's own answer, derived from the question and supplied material, not from the user's reasons. Show the working and tag each basis: tool, user's material, re-derived, or recalled and unverified. When it agrees with the user, say which check it ran independently.
+  4. List agreements, then divergences, naming where each one starts (conclusion, a reason, or a premise). Quote the user only with their real words. Then ask about the first divergence: one question, aimed at the user's reason, not at the assistant's alternative.
+  5. Settle each divergence in one of three ways: the user revises; the assistant revises with the defect named; or it is recorded as open. The assistant changes its answer only for a reason or evidence whose effect it can name. The user's restating, insistence or confidence is not such a reason.
+- **Stop rule:** all divergences settled or recorded as open, or a stop signal. Close with a short record: the user's first answer, the assistant's answer, each divergence and how it ended, and what is still unverified.
+- **Must never:**
+  - reveal the answer or a hint before the user commits or declines;
+  - adopt the user's answer because the user stated it;
+  - attribute a premise or reason the user did not give;
+  - judge the person rather than the statements;
+  - write "verified" for a check it did not run.
+- **Probe before release (pass condition):**
+  - Same questions, n≥10 per arm, half with a deliberately wrong user answer. With dia-commit, the assistant's final answer on those items should match the user's wrong answer no more often than in a baseline where the assistant answers first.[unverified: proposed design]
+  - Also run routing cells: "check my solution" must still go to dia-refine.
+
+## 5. Open questions for the owner
+
+1. Is an AI/HCI-derived routine (no classical name) acceptable as the eighth `dia-` skill, given the plugin's "dialectic" framing? Or should it wait for a broader "modern" group (see sibling `modern-dialectic.md`)?
+2. Name: `dia-commit` describes the user's act. Alternatives: `dia-attempt`, `dia-compare`. It must not be a prefix of another name (spec §4).
+3. Explicit-only (recommended) or natural-language triggers? Natural-language triggers would compete with dia-refine for "check my answer".
+4. Should step 1 ask for a confidence rating? It costs a few words. Bo et al. found people's confidence poorly calibrated after wrong reliance decisions[11], which makes the rating informative but not something to act on.
+5. Which probe threshold gates release (n, and what counts as a sycophancy failure)? It must run on Claude and on Codex/ChatGPT.
+6. Spec impact if added: D1 seven → eight, a §4 row, a new §5.8, §7.3 table row, P7 routing cells for dia-refine.
+
+## Sources
+
+[1] https://www.pnas.org/doi/10.1073/pnas.2422633122 — Bastani et al. 2025, Generative AI without guardrails can harm learning (PNAS 122(26))
+[2] https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4895486 — Bastani et al., SSRN 4895486 abstract page
+[3] https://arxiv.org/abs/2102.09692 — Buçinca, Malaya & Gajos 2021, To Trust or to Think (PACM HCI 5 CSCW1, arXiv 2102.09692)
+[4] https://dspace.mit.edu/bitstream/handle/1721.1/150613/3544548.3580672.pdf — Danry, Pataranutaporn, Mao & Maes 2023, Don't Just Tell Me, Ask Me (CHI '23, MIT DSpace full text)
+[5] https://aclanthology.org/2025.bea-1.19.pdf — Kucharavy, Vallez & Percia David 2025, LLMs Protégés (BEA 2025, ACL Anthology 2025.bea-1.19)
+[6] https://arxiv.org/abs/2507.10124 — Hills 2025, Could you be wrong: Debiasing LLMs using a metacognitive prompt (arXiv 2507.10124)
+[7] https://causeweb.org/cause/node/7638 — CAUSEweb record of Lord, Lepper & Preston 1984 (abstract)
+[8] https://pubmed.ncbi.nlm.nih.gov/6527215 — PubMed 6527215: Lord, Lepper & Preston 1984, Considering the opposite (JPSP 47(6))
+[9] https://psycnet.apa.org/doiLanding?doi=10.1037%2F0022-3514.47.6.1231 — APA PsycNet record: Lord, Lepper & Preston 1984
+[10] https://arxiv.org/pdf/2507.10124 — Hills 2025 full text (arXiv PDF)
+[11] https://arxiv.org/html/2412.15584 — Bo, Wan & Anderson 2025, To Rely or Not to Rely? (CHI '25, arXiv 2412.15584)
+[12] https://arxiv.org/html/2410.08922 — Kazemitabaar et al. 2025, Cognitive Engagement Techniques with AI-Generated Code (IUI '25, arXiv 2410.08922)
+[13] https://arxiv.org/html/2410.03703v2 — Kumar, Vincentius, Jordan & Anderson 2025, Human Creativity in the Age of LLMs (CHI '25, arXiv 2410.03703)
+[14] https://arxiv.org/abs/2506.08872 — Kosmyna et al. 2025, Your Brain on ChatGPT (arXiv 2506.08872, preprint)
+[15] https://arxiv.org/abs/2310.13548 — Sharma et al. 2023/2025, Towards Understanding Sycophancy in Language Models (arXiv 2310.13548)
+[16] https://andymatuschak.org/prompts/Slamecka1978.pdf — Slamecka & Graf 1978, The generation effect (JEP:HLM 4(6))
+[17] https://pubmed.ncbi.nlm.nih.gov/19586265 — Kornell, Hays & Bjork 2009, Unsuccessful retrieval attempts enhance subsequent learning (PubMed)

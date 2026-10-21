@@ -59,6 +59,10 @@ The remaining low findings, in the reviewed forms, applied by one implementer pe
 
 [xml-tags/evidence.md](xml-tags/evidence.md) checks the claim that XML tags help separate instructions, material and examples, against vendor docs and format studies, and ends with decision rules. [xml-tags/audit.md](xml-tags/audit.md) goes through the seven skills for places where a delimiter would help or hurt and proposes a probe plan. Baseline probe: `docs/probes.md` Part H. Applied as spec D26 (no XML tags; a plain data-not-instructions rule in five skills), checked in Part I.
 
+## Candidate methods for new skills (2026-10-21)
+
+Research into further dialogue and reasoning methods, weighed by fit for human-AI chat and fidelity, with a claim-by-claim check of an external proposal: [candidates/](candidates/README.md). Proposals only; not yet independently reviewed.
+
 ## Still open
 
 1. Probes: P6–P8, intent behavior and pushback were re-run from a neutral directory (`docs/probes.md`). Open: first-pass strictness of dia-negative findings (under a bare objection it now withdraws only named defects, but the withdrawn findings were weak to begin with); multi-turn probes for elenchus and brainstorm.
