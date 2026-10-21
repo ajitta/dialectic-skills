@@ -275,6 +275,51 @@ Reading:
 - Step 0's new sentence was not exercised by these cells (no negative loaded dia-brainstorm). The independent review forced a load by putting SKILL.md in the system prompt on Claude sonnet: for the Korean and English noun phrases the 1.2.1 body wrote the script 6/6, the 1.2.0 body 1/6 (it ran Steps 0-1 otherwise). Its six borderline prompts ("brainstorm a script idea with me", "poke holes in my plan to write a script", think-it-through requests) loaded dia-brainstorm on 1.2.1 as on 1.2.0, n=2 per engine; "Write a script … ask me questions first if anything is unclear" loaded nothing.
 - Claude 1.2.0 loaded dia-confirm once for the English noun phrase; that run wrote the script without holding for approval, the first observed use of dia-confirm's body gate for a load without the marker. Other skills seen in Claude runs (`run`, `update-config`) are Claude Code built-ins, not dia.
 
+**Part O, three new skills on branch `next` (spec D35), 2026-10-21.** Same harnesses as Part M: Claude Code (sonnet, `--tools Skill`, fresh `CLAUDE_CONFIG_DIR`, neutral directory, connectors off, no `@synced` plugin in any init event) and Codex CLI (gpt-6.1-sol, isolated `CODEX_HOME`, local marketplace copy; "loaded" = the run read `dia-<x>/SKILL.md`). Arms: base = `main` at `eb7ab54` (1.2.1), var = `b30344d` (first implementation), var2 = `283f6fa` (after the diff-review fixes, the build that ships). Runner and transcripts: `~/work/dia-review/new-skills-2026-10-21/` (`out/`, `out2/`) on the build VM. The Codex listing showed all ten skills in var and var2.
+
+Prompts from the design notes, abbreviated; counts are runs that loaded the expected skill (Claude n=3, Codex n=2 on var and var2; base Claude n=2, Codex n=1).
+
+| Cell | Should load | Claude base | Claude var | Claude var2 | Codex base | Codex var | Codex var2 |
+|---|---|---|---|---|---|---|---|
+| "Our churn dropped after we added onboarding emails … How well do my reasons support that?" | dia-warrant | 0/2 | 3/3 | 3/3 | 0/1 | 2/2 | 2/2 |
+| «전문가가 그렇다고 했으니까 맞는 거잖아. 이 근거가 …» | dia-warrant | 0/2 | 3/3 | 3/3 | 0/1 | 2/2 | 2/2 |
+| "What is the unstated warrant in this op-ed paragraph?" + op-ed | dia-warrant | 0/2 | 2/3 | 3/3 | 0/1 | 2/2 | 2/2 |
+| «툴민 모형으로 내 논증을 하나씩 질문하면서 같이 세워줘.» | dia-warrant | 0/2 | 3/3 | 3/3 | 0/1 | 2/2 | 2/2 |
+| «대부분의 스타트업은 시리즈 A 이후 5년을 버틴다는 내 주장, 근거가 얼마나 탄탄해?» | dia-warrant | 0/2 | 0/3 | 0/3 | 0/1 | 2/2 | 2/2 |
+| "Most users prefer dark mode, based on our survey. How well do my reasons support that?" | dia-warrant | 0/2 | 3/3 | 3/3 | 0/1 | 2/2 | 2/2 |
+| four dia-conjecture cells (pure-function memoization, «테스트가 모두 통과한 커밋은 언제나 …», «모든 정규화 기법은 …», "Every team that adopts microservices ships slower") | dia-conjecture | 0/8 | 12/12 | 12/12 | 0/4 | 8/8 | 8/8 |
+| four dia-counterplan cells (four-day week ×2, «자체 물류센터», «외주로 가기로 했어») | dia-counterplan | 0/8 | 12/12 | 12/12 | 0/4 | 8/8 (one run also read dia-brainstorm) | 8/8 |
+| twelve sibling cells (brainstorm ×5, elenchus ×2, negative, reductio ×2, refine, deductive check) | the sibling | 22/24 | 33/36 | 33/36 | 11/12 | 24/24 | 24/24 |
+| «이 결론이 전제에서 연역적으로 엄밀하게 따라 나오는지 …» (inside the row above) | dia-reductio | 0/2 | 0/3 | 0/3 | 0/1 | 2/2 | 2/2 |
+| five no-skill cells (fasting fact, "Play devil's advocate: is intermittent fasting actually healthy?", code, go-to-market plan, photo script) | none | 10/10 | 15/15 | 15/15 | 5/5 | 8/10 | 10/10 |
+
+The two Codex var misses in the last row were the claim-level devil's-advocate prompt loading dia-counterplan (2/2; the skill then answered directly). The var2 description ("Not for a devil's advocate on a claim or question") cleared it (0/2). The only sibling misses are the deductive-check cell, which no Claude arm loads (base 0/2 too); no sibling cell moved to a new skill in any arm.
+
+Boundary cells added after the diff review (var2 and base only):
+
+| Cell | Expected | Claude base | Claude var2 | Codex base | Codex var2 |
+|---|---|---|---|---|---|
+| "Is this an appeal to authority fallacy? 'My doctor says it …'" | dia-warrant | none 2/2 | none 3/3 | none | none 2/2 |
+| "Poke holes in my argument that remote work will work for us because it worked at Acme." | dia-warrant | dia-brainstorm 2/2 | dia-brainstorm 3/3 | none | warrant 1, brainstorm 1 |
+| "What hidden assumptions is my case for the four-day week resting on? …" | dia-warrant | none 2/2 | none 3/3 | none | dia-warrant 2/2 |
+| "Poke holes in my claim that every microservice should own its own database." | dia-conjecture | brainstorm 1/2 | brainstorm 1/3, none 2/3 | none | conjecture 1, brainstorm 2 |
+| "My definition: a game is any activity done for fun. Give me counterexamples." | dia-elenchus (owner may choose conjecture) | none 2/2 | none 3/3 | none | dia-conjecture 2/2 |
+| "Our policy says every refund is approved within 24 hours. Find counterexamples." | dia-negative | none 2/2 | dia-conjecture 2/3 | none | dia-conjecture 1/2 |
+| "Here is my proof that every even perfect number ends in 6 or 8 … Does it follow?" | dia-reductio | none 2/2 | none 3/3 | none | none 2/2 |
+| "How well does my argument support the claim that all our users churn after a price rise? …" | dia-warrant | none 2/2 | dia-warrant 1/3 | none | none 2/2 |
+| "Our team rule: never deploy on Fridays. Does it hold in every case?" | not dia-conjecture | 2/2 | 2/3 (one dia-conjecture) | 1/1 | 2/2 |
+| "Does my conclusion follow from my premises? …" (invalid syllogism) | dia-reductio | none 2/2 | none 3/3 | none | none 2/2 |
+| "Check the reasoning in your last answer: …" | informative | none 2/2 | none 3/3 | none | none 2/2 |
+| "Assume every prime is odd and show where it breaks." | dia-reductio | 2/2 | 3/3 | none | none 2/2 |
+
+Reading:
+
+- Every positive cell for the three new skills loads its skill on both engines except the Korean startup-survival claim on Claude (0/3; a bare factual claim with no stated reasons, answered directly; Codex 2/2). The design note did not widen the description for it.
+- No regression on the siblings: base and var2 agree on every sibling and no-skill cell.
+- The boundary cells mostly show Claude answering a short check directly with no skill, in both arms (fallacy question, proofs, the invalid syllogism, "check your last answer"); that is pre-existing behaviour, not caused by the new descriptions.
+- Two leaks into dia-conjecture remain: a factual universal stated as a policy ("every refund is approved within 24 hours", Claude 2/3, Codex 1/2) and one run of the Friday deployment rule (Claude 1/3). The refund cell reads as a universal claim about what is the case, so loading dia-conjecture is defensible; Step 0 sends a policy to adopt elsewhere. Recorded, not fixed: all three descriptions are within 10 characters of the cap.
+- "Poke holes in my argument …" goes to dia-brainstorm on Claude in both arms; that is brainstorm's own trigger phrase.
+
 ### P8: tool-less run (`--tools Skill`: no search, fetch, code or file tools)
 
 Draft under test: "The Eiffel Tower was completed in 1889 and is about 330 m tall. Python 3.13 removed the GIL by default. 17 x 23 = 391." The Python sentence is wrong.
