@@ -108,3 +108,22 @@ Source: `review/pass2/warrant.md` (PASS WITH FIXES), on `275e1aa`. Fixes are in 
 - **N5 applied.** theory.md §4 grounds the departure in the assistant not knowing whether its reconstruction is the implicit premise, with the user's word the only evidence.
 - **N6 not applied (spec.md out of scope).** For the batch owner: append to spec §5.8 Borders "; poking holes in an idea or plan to dia-brainstorm (an argument's support stays here)."
 - **N7 applied.** Rule 3 takes the strength from the rule itself, not the claim's qualifier; Step 5 says when an overstatement follows from the "generally" default; the worked example and the template's qualifier check say it too.
+
+## Clutter cuts (2026-10-21)
+
+Source: the owner-approved clutter audit of the skill bodies (section 4, dia-warrant; drift items D1–D3), on `0d5a949`. The description is unchanged. SKILL.md 4,766 → 4,410 cl100k tokens (body 135 → 130 lines); template 842 → 819; theory.md 3,377 → 3,395. Not yet re-run (A/B of `0d5a949` vs this build is open).
+
+- **W9.** Pitfalls deleted: strawman warrant, counter-facts, filling empty slots, "no weak link" as true (they restate Rules 3, 5, 2 and 1). The fallacy-label and layout-is-your-reading pitfalls (Index F6) and the quoting pitfall stay.
+- **W1.** Rule 3 drops the validity-rule provenance sentence; the label stays in the intro and theory.md §4.
+- **W3.** Rule 9 (one pass in audit mode) deleted; Parameters defines the modes.
+- **W5.** Step 6's closing rule rewritten without the double negative (all answered for the step: qualifier if overstated, else no weak link found; Step 5 result always given).
+- **W8.** The rejection follow-up points to Rule 7 for "none given"; for `claude`/`text` the rejection is a dispute and a proposed rule becomes W2.
+- **W4.** Step 5's last three sentences merged into two.
+- **W2.** Rule 4's departure sentence shortened, pointing to theory.md §4.
+- **W7.** Ask mode's "no" points to Rule 7; the "stopped" case is left to "Stop means stop".
+- **W6.** The bare-answer rule moves into Rule 5; deleted from the answer follow-up; ask mode points to Rule 5.
+- **W10.** Scope's close cases shortened. Adapted: "go to the skills above" became "go to dia-brainstorm or the skills above", because the Scope list above does not name dia-brainstorm. Medium risk: re-run cells 12, 13 and i-churn-all.
+- **WT1+2.** Template: the separate "Qualifier check" section is merged into the Result's always-on qualifier line; the qualifier-result condition reads "only if every question is answered for the step".
+- **D1.** Template record's Warrant field adds "Wa and Wb for a chain"; Step 7's fallback decision field adds "or not needed", matching the template's fourth value.
+- **D2.** Step 1's "eight-question cap" now reads "Step 4's limit of about eight".
+- **D3.** theory.md §5 lists the chained-step rule (Step 1) and the bare-answer rule (Rule 5) among the skill's additions.

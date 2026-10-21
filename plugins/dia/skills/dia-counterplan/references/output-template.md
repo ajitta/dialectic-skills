@@ -32,7 +32,7 @@ Coherent: C1 … Cn can hold together | replaced Ck because it conflicted with C
 Same data: no contrary contradicts D1 … Dn | C2 reads D2 as …
 
 ## Counterplan
-Recommendation: one or two sentences, at the plan's level of detail. A slot (step, cost, date) whose fact (a price, a measured quantity) neither side has reads "not supplied" and goes under Not tested; a step or date the counterplan chooses is named, never "not supplied".
+Recommendation: one or two sentences, at the plan's level of detail.
 1. … (rests on C1; cites D1)
 2. … (rests on C2)
 
@@ -62,4 +62,4 @@ Printed after the user rules on every pair, or stops, or when Step 3 finds no ke
 - Rewrites: Cn rewritten because … (named defect) | none
 - History: (one line per follow-up turn)
 
-For no key assumption found, the record has only Target / plan, Key assumptions (0 of m listed), Result, and: Not tested: whether the shared data are accurate, assumptions not listed, and alternatives to the plan; no counterplan was written, which does not show the plan is sound.
+For no key assumption found, the record has Target / plan, Key assumptions (0 of m listed), Result, and: Not tested: whether the shared data are accurate, assumptions not listed, and alternatives to the plan; no counterplan was written, which does not show the plan is sound.

@@ -46,7 +46,7 @@ Declined or changed:
 
 ## Review findings, review/index.md
 
-- **F7 applied.** The skill does not claim that the assistant only questions: it raises cases and recommends a repair, and says so in Roles. The Counterexample Game finding is stated in theory.md as the reason for the per-case check and the cap, explicitly "a risk finding, not support for the method".
+- **F7 applied.** The skill does not claim that the assistant only questions: it raises cases and recommends a repair, and says so in the opening paragraph and hard rule 7 (the Roles section it first cited was cut on 2026-10-21; see Clutter cuts). The Counterexample Game finding is stated in theory.md as the reason for the per-case check and the cap, explicitly "a risk finding, not support for the method".
 - **F10 applied in part.** The exclusion sentence is the review's, plus the dia-warrant clause the owner asked for. Negative probe cells below cover every bordering sibling. Not done here: the sibling edits F10 lists (dia-reductio "follows strictly", dia-brainstorm's pointers), which D35 assigns to the batch owner; this implementer may not touch other skills. Note for the batch owner: dia-brainstorm's Step 2 "Counterexample" tactic and its "poke holes" trigger still border this skill; probe 5 checks it.
 - Batch owner, same commit (b30344d): dia-reductio 1.1.0 now says "follows strictly from its premises" and points to dia-warrant and dia-conjecture; dia-brainstorm 1.2.0 points to dia-counterplan. dia-brainstorm's description has no pointer to dia-conjecture; its body gets a fallback line toward dia-counterplan and dia-conjecture (package review findings 4 and 9). The P7 re-run is done: probes Part O.
 
@@ -119,3 +119,18 @@ Source: `review/pass2/conjecture.md` (PASS WITH FIXES), plus the conjecture item
 - **N8 declined here** (spec §5.9 and §5.3 are another file): route to the spec owner.
 - **Session violations** (b turn 6 "$38" figure, b turn 5 bare "Yes", a turn 1 L3 reason): no text change; hard rule 2, Step 2 and S1's one-line check already cover them.
 - Also fixed: the stale "Still open: the P7 re-run" under review/index.md F10 (package pass2 finding 2).
+
+## Clutter cuts (2026-10-21)
+
+Source: the owner-approved body clutter audit (section 4, dia-conjecture: C1-C7). C9 declined by the owner. Frontmatter unchanged. SKILL.md 3,925 → 3,370 cl100k tokens (body 3,680 → 3,125; −555), 136 → 119 lines.
+
+- **C1:** the five-step "shape" list after the opening paragraph cut (the steps and the Step 6 cap say the same).
+- **C2:** the Roles section cut. The reconstruction offer moved to Step 1; the both-sides disclosure to Step 2's [A]-lemma bullet. Ownership and the user's rulings stay in the opening line and hard rules 4 and 7. Dropped with it: the sentence naming the owner's incentive to monster-bar (F4); the per-case check and the ruling classes that answer it remain. F7 above now cites the opening paragraph and hard rule 7.
+- **C3:** Step 5's conditional-C′ sentence cut; hard rule 3 and the record's Conditional-on line keep it.
+- **C4:** Step 4's Invalid, Concept-stretching and Monster-barring bullets shortened to the audit's text. The explicit "ask whether the user now reads the term more narrowly" is gone; a narrowing reply is classified as it comes. theory.md section 5 still says "whether or not the user calls it a change" (not edited here).
+- **C5:** the record's Claim-line tail simplified to "a lemma replacement that leaves C unchanged goes under Proof-analysis"; a widening replacement keeps "deeper proof" in the reason list.
+- **C6:** Pitfalls cut to Exception lists and Unnamed monster-barring (the other five restated rules; Step 5 keeps the empty-repair ban).
+- **C7:** Step 5's Weaker-lemma bullet reworded to the audit's text (same check line and ban).
+- **Audit 3.2 (Step 0 misreading):** the sample restatement of the Friday policy as a claim removed, so the model has nothing to echo; "do not restate it that way yourself" stays.
+- **Drift D4:** no change here. Hard rule 11 translates labels, as dia-warrant does; the odd one out is dia-counterplan.
+- Not re-run: the audit's section 5 A/B re-runs (C2, C4, C7 and the record) are still open.

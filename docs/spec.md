@@ -164,7 +164,7 @@ The seven rebuilt skills (5.1–5.7) keep their reference behavior unless this s
   - ends with a record.
 - Parameter: `--target=user|claude|text|all`, unchanged.
 - Required change: the description currently contains Hangul trigger terms. They are removed, and the description relies on "or the same in any language". Korean-prompt routing must be probed against a baseline (§12, P7).
-- Cross-references: the description points to dia-negative, dia-elenchus and, since D35, dia-warrant and dia-conjecture; the body has no pointers.
+- Cross-references: the description points to dia-negative and, since D35, dia-warrant and dia-conjecture; the dia-elenchus pointer was dropped in D37 (no reductio/elenchus confusion recorded). The body has no pointers.
 - Invocation: implicit allowed, which is the Codex default; the reference had no `openai.yaml`.
 - References carried over: `theory.md` and `output-template.md`.
 
@@ -284,6 +284,7 @@ Prerequisite: claude.ai requires "Code execution and file creation" to be enable
 - Allowed keys: `name`, `description`, `license`, `compatibility`, `metadata`, `allowed-tools`.
   - This is the owner's `superclaude/portable-skills/package.py` whitelist. That project found that claude.ai upload fails hard on Claude Code-only keys such as `disable-model-invocation`, `argument-hint` and `when_to_use` (single source: the owner's probe notes).
 - `name` matches the folder name. `description` is at most 1024 characters.
+- Description convention (D37): method label (the name a user would type, plus at most one honest qualifier) → what it does, in at most two sentences, only behaviour that separates it from its siblings → "Use when …, or the same in any language." → one "Not for …" sentence naming the sibling for each border. Explicit-only skills: what it does → "Use only when …" → the gate negation → "Not for …". Dates, rule and chapter numbers, lineage, template fields and flags stay in the body. State each border once, on the side probes show over-pulling, unless a probe shows both halves are needed (brainstorm/elenchus, Part B). Target at most 900 characters, so a probe-driven fix still fits. When a description is edited, reread it whole and delete what the new phrase makes redundant; cite the probe cell in the decision row.
 - `metadata`: `author: ajitta`, `version`, `lineage`, `source`.
 - `license: MIT` (D18).
 - Body length guideline: at most 200 lines, the `superclaude` validator limit. Longer material goes in `references/`.

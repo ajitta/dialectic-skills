@@ -1,6 +1,6 @@
 ---
 name: dia-conjecture
-description: Lakatos's method of proofs and refutations (Rules 1-4) as a dialogue. Takes a strictly universal claim the user holds (all, every, always, never), a rule or generalization about what is the case (not a policy to adopt), splits its argument into lemmas and raises one counterexample per message, each with its check; the user rules on each case and picks a repair Lakatos allows (replace the lemma, or build it into the claim), and it ends with a record. Use when the user asks for proofs and refutations, Lakatos, counterexamples to their conjecture, rule or proof, monster-barring, "does this hold in every case", or the same in any language. Not for plans, policies, decisions or ideas (for the opposing case use dia-counterplan; to poke holes or stress-test, dia-brainstorm), for what a word means (dia-elenchus), for finding Q and not-Q (dia-reductio), for how well reasons support a probable or usually-true conclusion (dia-warrant), or for the gap between what a claim promises and what it delivers (dia-negative).
+description: Lakatos's proofs and refutations as a dialogue. Takes a strictly universal claim the user holds (all, every, always, never) about what is the case, not a policy to adopt; splits its argument into lemmas and raises one counterexample per message; the user rules on each and picks a repair (replace the lemma, or build it into the claim). Use when the user asks for proofs and refutations, Lakatos, counterexamples to their conjecture, rule or proof, or "does this hold in every case", or the same in any language. Not for plans, policies, decisions or ideas (dia-counterplan, dia-brainstorm), what a word means (dia-elenchus), finding Q and not-Q (dia-reductio), or how well reasons support a probable conclusion (dia-warrant).
 license: MIT
 metadata:
   author: ajitta
@@ -11,19 +11,7 @@ metadata:
 
 # Proofs and Refutations
 
-This skill runs the method of Lakatos's *Proofs and Refutations* on a strictly universal claim C that the user holds: a conjecture, rule or generalization about what is the case (not a policy to adopt), of the form "every A is B" (all, always, never, no A is B). Label: Lakatos's *Proofs and Refutations*, ch. 1 sections 1-6 and Rules 1-4; of section 6 only its deeper-proof move (6a) is used; Rule 5 (section 7) and the concept-stretching analysis of sections 8-9 are not implemented (concept-stretching is only classified). Lakatos wrote about informal mathematics, and his classroom had many voices; here C may come from any field, the user owns it, and one assistant raises the cases. Sources, lineage and the departures from Lakatos: [references/theory.md](references/theory.md); read it only when the user asks about the method or the sources. The shape:
-
-1. The user states C and the argument (the proof) for it.
-2. You split the argument into lemmas (proof-analysis).
-3. You raise one counterexample at a time, with its check; the user rules on it.
-4. A case that counts is answered by Lakatos's rules: repair the proof, or improve C by building the refuted lemma into it. The user picks the repair.
-5. Repeat on the current claim, up to three rounds, then offer to stop. End with a record.
-
-## Roles
-
-- **The user** owns C and its proof, rules on every case, and picks every repair. **You** raise cases and lay out the repairs Lakatos's rules allow, with one recommendation.
-- **Ask for the user's argument first.** If they have none, offer to reconstruct it as lemmas labelled [A]. Run on them only after the user accepts each one, and say in that message that you are then arguing both sides: you wrote the proof you attack.
-- Model counterexamples are often invalid, and the user who owns C is tempted to rule against good ones. So every case carries a check the user can fault (hard rule 2), and every ruling is classified (Step 4).
+This skill runs the method of Lakatos's *Proofs and Refutations* on a strictly universal claim C that the user holds: a conjecture, rule or generalization about what is the case (not a policy to adopt), of the form "every A is B" (all, always, never, no A is B). Label: Lakatos's *Proofs and Refutations*, ch. 1 sections 1-6 and Rules 1-4; of section 6 only its deeper-proof move (6a) is used; Rule 5 (section 7) and the concept-stretching analysis of sections 8-9 are not implemented (concept-stretching is only classified). Lakatos wrote about informal mathematics, and his classroom had many voices; here C may come from any field, the user owns it, and one assistant raises the cases. Sources, lineage and the departures from Lakatos: [references/theory.md](references/theory.md); read it only when the user asks about the method or the sources.
 
 ## Hard rules
 
@@ -41,7 +29,7 @@ This skill runs the method of Lakatos's *Proofs and Refutations* on a strictly u
 
 ## Step 0 — Is it a strictly universal claim?
 
-Take only a claim about every member of a class that says what is the case. A rule about what to do ("never deploy on Fridays", "every refund must be approved within a day") is a policy even when worded with all, every or never, or asked as "does it hold in every case". Otherwise say in one line where it fits, and stop unless the user restates it as a claim about what is the case (for example "every Friday deploy fails more often than other deploys"); do not restate it that way yourself:
+Take only a claim about every member of a class that says what is the case. A rule about what to do ("never deploy on Fridays", "every refund must be approved within a day") is a policy even when worded with all, every or never, or asked as "does it hold in every case". Otherwise say in one line where it fits, and stop unless the user restates it as a claim about what is the case; do not restate it that way yourself:
 
 - "generally", "usually", "most", or a claim the user would keep despite one exception: dia-warrant (one counterexample to a defeasible claim is a rebuttal condition, not a refutation);
 - a plan, policy, decision or idea: dia-counterplan for the opposing case, dia-brainstorm to poke holes or stress-test, dia-negative for where it fails its own standard;
@@ -54,13 +42,13 @@ If it is unclear whether the user means "every" strictly, make that your one que
 
 ## Step 1 — Fix C, ask for the proof
 
-Restate C as "every A is B" in the user's key words, saying what A covers and what B asserts; if you had to paraphrase, say "in my words" (a flag, not a second question). In the same message ask one thing: why they hold it, that is, their argument or proof.
+Restate C as "every A is B" in the user's key words, saying what A covers and what B asserts; if you had to paraphrase, say "in my words" (a flag, not a second question). In the same message ask one thing: why they hold it, that is, their argument or proof (if they have none, offer to reconstruct it as [A] lemmas).
 
 ## Step 2 — Proof-analysis
 
 Split the argument into numbered lemmas L1 … Ln, each a step the argument needs: [T] the words of C's source (the user, the pasted text or your earlier answer; quote them) or [A] a step you supplied because the argument needs it (one-line reason). Keep it to about five lemmas and mark the one you suspect most. Ask one thing: "Is this your argument? Correct any line." A lemma keeps its number for the rest of the dialogue and in the record.
 
-- An [A] lemma counts only after the user accepts it (see Roles).
+- An [A] lemma counts only after the user accepts it. If you reconstructed the proof, say in that message that you are then arguing both sides: you wrote the proof you attack.
 - If the user gives no argument and declines a reconstruction, say that without a proof there is no lemma to repair, so a case that counts leaves only giving up C or a response Lakatos rejects; continue only if the user wants that.
 - **Prior criterion** (Popper's prior refutation criterion; an addition to Lakatos): if C rests on observation (people, systems, markets, measurements), ask before the first case, as its own message, what observation the user would accept as a case against C. Record the answer and hold later rulings to it. For a mathematical or definitional C, the check of hard rule 2 is the criterion.
 
@@ -80,9 +68,9 @@ Layout, one case per message (here C is "every sorted list can be binary-searche
 ## Step 4 — Classify the ruling
 
 - **Counts:** the user accepts the case. Go to Step 5.
-- **Invalid:** the user names a condition the case fails under the reading of C fixed in Step 1. Check it. If the fault holds, withdraw the case and record "invalid: fails [condition]". If the case does meet that condition under that reading, show that line once more and ask whether the user now reads the term more narrowly: if so, it is monster-barring; if the user holds that the Step 1 reading already excluded it, the case is disputed.
-- **Concept-stretching:** the case meets C only under a reading of a term wider than the one fixed in Step 1 (or stated by the user before the case was raised). Record it as concept-stretching; it does not count against C as so read, unless the user adopts the wider reading (then record the change, hard rule 5, and treat the case as counting). A narrower reading first stated after the case is never this class. Lakatos's further analysis of such cases (sections 8-9) is not implemented.
-- **Monster-barring:** the user excludes a case that meets C as read in Step 1 by narrowing a term ("that's not a real A", "by A I meant …"), whether or not they call it a change. Name the move. Accept it only as an explicit definition change: the new definition, the content lost (the cases C no longer covers), and a note that this departs from Lakatos's Rule 2 ("Do not allow a refutation to be dismissed as a monster"). The changed claim becomes C′.
+- **Invalid:** the user names a condition the case fails under the Step 1 reading. Check it: if the fault holds, withdraw the case ("invalid: fails [condition]"); if not, show that line once more. A reply that then narrows the term is monster-barring; one that keeps the Step 1 reading leaves the case disputed.
+- **Concept-stretching:** the case meets C only under a reading of a term wider than the Step 1 reading. It does not count unless the user adopts the wider reading (a change to C, hard rule 5).
+- **Monster-barring:** the user excludes a case that meets the Step 1 reading by narrowing a term ("that's not a real A", "by A I meant …"). Name the move and accept it only as a definition change: the new definition, the content lost, and that Lakatos's Rule 2 forbids it ("Do not allow a refutation to be dismissed as a monster"). The changed claim becomes C′.
 - **Disputed:** a bare "no", or insistence, with no condition named. Ask once which condition fails. If none is named, record the case as disputed: neither withdrawn nor counted. Move on to the next case.
 - If the dispute turns into what a key term means, say so and offer dia-elenchus for that question; the case stays disputed.
 
@@ -93,11 +81,11 @@ Branch on the case's label (Lakatos's Rules 2-4):
 - **Local only** (Lj fails, C survives the case): Rule 4. Replace Lj by a lemma the case does not refute and the proof can still use. C is unchanged, unless an earlier repair built Lj into C: then the replacement widens C′ to cover the case (Lakatos's deeper proof, ch. 1 section 6), and the user picks it like any C′.
 - **Global only** (C fails, no listed lemma fails): the proof hides a lemma. Name the hidden lemma the case refutes, add it to the proof-analysis as the next L-number, marked [A, hidden], which the user accepts by picking this option, then Rule 2: C′ is C with that lemma built in as a condition ("every A that … is B").
 - **Both** (C and Lj fail): lemma-incorporation, Rule 2: C′ is "every A that meets Lj is B".
-- **Weaker lemma** (Rule 2's "a suitable lemma"), where you can find one: for a global case, a weaker lemma than the one you would build in, one the proof can still use, that the counting case fails and that more of C's other cases meet, so that C′ keeps more of C's content. Show in one line that the counting case fails it. Never offer a condition the counting case meets (that case is an A that is not B), or one that only restates B ("every A that ends up B is B"): that keeps C true by emptying it, the "empty tautology" SEP's account of Lakatos warns of, and is not a repair.
+- **Weaker lemma** (Rule 2's "a suitable lemma"), for a global case, if you can find one: a condition weaker than the one you would build in, still usable by the proof, that more of C's cases meet but the counting case fails (show that in one line). Never offer a condition the counting case meets, or one that only restates B ("every A that ends up B is B"): that empties C (SEP's "empty tautology") and is not a repair.
 - **Give up C** is an option whenever C itself fails (global or both).
 - Exception-barring (listing the case as an exception) and monster-adjustment (reinterpreting the case so that it fits) only if the user asks for them, labelled as responses Lakatos rejects.
 
-Number the options; for each, say in one line what it keeps and what it no longer covers. Recommend one in one line with its reason, then ask the user to pick. If the case rests only on your recall, mark the resulting C′ conditional.
+Number the options; for each, say in one line what it keeps and what it no longer covers. Recommend one in one line with its reason, then ask the user to pick.
 
 ## Step 6 — Next round, ending, record
 
@@ -114,7 +102,7 @@ End when the user stops, when they accept the offer to stop, or when you find no
 Record:
 
 - **Result:** … · rounds: n
-- **Claim:** C "…" → C′ "…", one arrow per change, each with its reason (lemma-incorporation, hidden lemma built in, weaker lemma, deeper proof, exception-barring, monster-adjustment, definition change, "I meant …"); a Rule 4 lemma replacement goes under Proof-analysis, not here, unless it widens C′ (then the reason is deeper proof)
+- **Claim:** C "…" → C′ "…", one arrow per change, each with its reason (lemma-incorporation, hidden lemma built in, weaker lemma, deeper proof, exception-barring, monster-adjustment, definition change, "I meant …"); a lemma replacement that leaves C unchanged goes under Proof-analysis
 - **Proof-analysis:** L1 [T] "…"; L2 [A, accepted] …; L3 [A, hidden, added after case k] …; replaced: …
 - **Prior criterion:** the user's answer (Popper's; an addition) | not asked (C is not empirical)
 - **Cases:** one line each: kind (global / local Lj / both), evidence class, ruling (counts / invalid / concept-stretching / monster-barring / disputed), response
@@ -127,10 +115,5 @@ A holding result must fill **Tried**: a claim nobody pressed has not held. If a 
 
 ## Pitfalls
 
-- **Invented cases:** a case that only sounds right. If the check has a line you cannot fill, drop the case.
 - **Exception lists:** repairs that exclude cases one by one instead of naming the lemma that explains them. Look for the hidden lemma, or a weaker lemma.
 - **Unnamed monster-barring:** yours or the user's. Reinterpreting a case so that it fits is monster-adjustment, offered only on request.
-- **Bundling:** three cases, or a case plus a repair menu, in one message.
-- **Empty repairs:** a condition that restates B ("saves money when it costs less") keeps C true by emptying it. Do not offer it.
-- **Easy holding:** ending "holding" after one weak case. Press the most suspect lemma first.
-- **Advisor drift:** replacing C with a claim of your own. Repairs come from the rules above, and the user picks.

@@ -1,10 +1,10 @@
 ---
 name: dia-iterate
-description: Improve an output through repeated rounds gated by external verification. Each round fixes only defects that a verification method confirmed, and the loop stops on a regression, zero defects (none named, or all refuted), verification exhausted, a fixed point, or the round cap. Use only when the user's message begins with dia-iterate, or when the skill is invoked explicitly by name (for example /dia:dia-iterate, $dia:dia-iterate, $dia-iterate or @dia-iterate). Without that marker do not activate, however close the request sounds; send single-pass review requests to dia-refine.
+description: Improve an output through repeated rounds gated by external verification; each round fixes only defects that a verification method confirmed, until a stop condition is met. Use only when the user's message begins with dia-iterate, or when the skill is invoked explicitly by name (for example /dia:dia-iterate, $dia:dia-iterate, $dia-iterate or @dia-iterate). Without that marker do not activate, however close the request sounds. Not for single-pass review (dia-refine).
 license: MIT
 metadata:
   author: ajitta
-  version: "1.1.0"
+  version: "1.2.0"
   lineage: "recursive-refine (installed copy, unversioned), output mode only"
   source: "https://github.com/ajitta/dialectic-skills"
 ---

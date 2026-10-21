@@ -1,10 +1,10 @@
 ---
 name: dia-elenchus
-description: Socratic dialogue (elenchus) as in Plato's Socratic dialogues. Finds the concept an idea stands on, asks "what is X?", gets the user's agreement to premises one short question at a time, and shows where those premises contradict the definition so the user revises it; each revision is kept as a new idea of the user's (this skill's addition). Usually ends in aporia (knowing what you don't know). Gives no advice or ideas of its own. Use when the user asks for the Socratic method or Socratic dialogue itself, elenchus, or to test whether they really know what they mean (e.g. "socratic dialogue", "elenchus", "what do I even mean by X", "make me define it first", or the same in any language). A request for Socratic dialogue or the Socratic method comes here even when it arrives with a product or plan idea. For questioning that ends in options and a plan, or when the user asks to brainstorm, use dia-brainstorm instead. Not for factual questions or how-to requests.
+description: Socratic dialogue (elenchus) as in Plato. Asks "what is X?" about the concept an idea stands on, gets the user's agreement to premises one short question at a time, and shows where they contradict the definition so the user revises it (each revision is kept as the user's new idea, this skill's addition). Usually ends in aporia; gives no advice or ideas of its own. Use when the user asks for the Socratic method, Socratic dialogue or elenchus, or to test whether they really know what they mean ("what do I even mean by X", "make me define it first"), or the same in any language. A request for Socratic dialogue or the Socratic method comes here even when it arrives with a product or plan idea. Not for questioning toward options and a plan or a request to brainstorm (dia-brainstorm), or for factual or how-to questions.
 license: MIT
 metadata:
   author: ajitta
-  version: "1.1.0"
+  version: "1.2.0"
   lineage: "socratic-elenchus 1.3.1"
   source: "https://github.com/ajitta/dialectic-skills"
 ---

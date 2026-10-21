@@ -31,7 +31,7 @@ All of these studies used human participants. In the group studies, separate sub
 
 What follows for the skill:
 
-- **Why DI and not DA.** The evidence favours DA on performance and DI only on the quality of surfaced assumptions. This skill is DI anyway because its distinct output is the counterplan, which no sibling produces; the critic's role is already played by dia-brainstorm's stress mode, which questions the user. The choice rests on that division of work, not on DI being better. There is no separate DA mode. A request for a devil's advocate on a plan is answered with dialectical inquiry (a counterplan), not with devil's-advocacy critique; critique by questions stays with dia-brainstorm's stress mode. A devil's advocate on a single claim or question ("is X true?") is not a plan and does not belong to this skill.
+- **Why DI and not DA.** The evidence favours DA on performance and DI only on the quality of surfaced assumptions. This skill is DI anyway because its distinct output is the counterplan, which no sibling produces; the critic's role is already played by dia-brainstorm's stress mode, which questions the user. The choice rests on that division of work, not on DI being better. There is no separate DA mode.
 - **The false-assurance guard.** Schwenk's two warnings are why the record states what the comparison did not test and that "hearing both sides is not evidence that the plan was tested", and why Rule 1 forbids carping.
 
 ## 5. One assistant in one chat

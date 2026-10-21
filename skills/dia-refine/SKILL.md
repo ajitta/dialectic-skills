@@ -1,10 +1,10 @@
 ---
 name: dia-refine
-description: Review the previous answer or a named draft once, checking in order for factual errors, logical leaps, missing requirements and needless repetition, and return one integrated revision that fixes defects whose basis was confirmed and marks suspected ones. Use when the message starts with dia-refine, or when the user asks to review the previous answer as a draft, fix factual errors and logical leaps, recheck or revise the previous answer, treat it as a draft, give only the improved final version, or do a task the dia-refine way, or the same in any language. A passing mention of dia-refine in the middle of a sentence is not an invocation. Repeated verification rounds belong to dia-iterate.
+description: Review the previous answer or a named draft once for factual errors, logical leaps, missing requirements and needless repetition, and return one integrated revision that fixes defects whose basis was confirmed and marks suspected ones. Use when the message starts with dia-refine, or when the user asks to review or recheck the previous answer or a draft, fix its factual errors and logical leaps, or give only the improved final version, or the same in any language. A passing mention of dia-refine mid-sentence is not an invocation. Not for repeated verification rounds (dia-iterate).
 license: MIT
 metadata:
   author: ajitta
-  version: "1.0.0"
+  version: "1.1.0"
   lineage: "self-refine (installed copy, unversioned)"
   source: "https://github.com/ajitta/dialectic-skills"
 ---

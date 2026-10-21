@@ -1,10 +1,10 @@
 ---
 name: dia-negative
-description: Internal critique (narrower than Adorno's immanent critique), adapted from Adorno's negative dialectics, in one pass. Takes a claim, concept, plan or policy; states its own standard; shows strictly, with particular cases, where what it claims and what it delivers come apart; names what it leaves out and infers what it actually does, as a checkable inference; then offers options with a recommendation, leaves the decision to the user and ends with a record, forcing no synthesis. Tests the user's claim, the assistant's own earlier answer, a pasted text or all (--target). Use when the user asks for negative dialectics, immanent critique, "what does this concept hide", "what is this claim or policy really for", "where does this claim fail its own standard", or wants the real purpose behind a stated goal examined, or the same in any language. Not for what code, a command or a setting does, or a general review. For logical consistency use dia-reductio; for a Socratic definition dialogue, dia-elenchus.
+description: Internal critique (narrower than Adorno's immanent critique) adapted from his negative dialectics, in one pass. Takes a claim, concept, plan or policy, states its own standard, and shows with particular cases where what it claims and what it delivers come apart; names what it leaves out and infers what it actually does; offers options and leaves the decision to the user, forcing no synthesis. Works on the user's claim, the assistant's earlier answer or a pasted text. Use when the user asks for negative dialectics, immanent critique, "what does this concept hide", "what is this claim or policy really for", "where does this claim fail its own standard", or wants the real purpose behind a stated goal examined, or the same in any language. Not for what code, a command or a setting does, a general review, logical consistency (dia-reductio) or a Socratic definition dialogue (dia-elenchus).
 license: MIT
 metadata:
   author: ajitta
-  version: "1.0.0"
+  version: "1.1.0"
   lineage: "negative-dialectics (installed copy, unversioned)"
   source: "https://github.com/ajitta/dialectic-skills"
 ---

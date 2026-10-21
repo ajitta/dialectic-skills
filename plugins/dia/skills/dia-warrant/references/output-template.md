@@ -30,13 +30,10 @@ expert opinion | analogy | cause to effect | consequences | sign (two if both fi
 4. [conclusion] …? — …
 Facts added: (each with its evidence class: verified this session (a tool ran) | supplied by the user | single source | unverified recall)
 
-## Qualifier check
-The warrant (stated | my reconstruction) licenses "…"; the claim says "…" → matches | overstated (if from the "generally" default, say so and ask whether "certainly" was meant) | no warrant to compare (warrant none given)
-
 ## Result
 Weakest link: [slot], because "[question]" is left open | is answered against the step ("quote")
-Weakest link: qualifier, because the claim says "…" where the warrant licenses "…" (only if no question is open or answered against the step)
-Qualifier check: matches | overstated | no warrant to compare (always reported beside the weakest link)
+Weakest link: qualifier, because the claim says "…" where the warrant licenses "…" (only if every question is answered for the step)
+Qualifier check (always): the warrant (stated | my reconstruction) licenses "…"; the claim says "…" → matches | overstated (from the "generally" default? ask whether "certainly" was meant) | no warrant to compare
 Why it matters: (one line)
 What would strengthen it: (the kind of answer or evidence, not a fact supplied by you)
 
@@ -48,7 +45,7 @@ No weak link found among the questions asked; not a proof. Asked: 1–n. Next qu
 - Target / claim:
 - Mode: audit | ask
 - Scheme:
-- Warrant: stated | reconstructed (W1; W2 if any) | none given
+- Warrant: stated | reconstructed (W1; W2 if any; Wa and Wb for a chain) | none given
 - Questions: n asked — a answered, m open
 - Result: weakest link: [slot], because … | weakest link: qualifier, because the claim says "…" where the warrant licenses "…" | no weak link found among the questions asked; not a proof | stopped
 - Qualifier check: matches | overstated ("…" vs "…") | no warrant to compare

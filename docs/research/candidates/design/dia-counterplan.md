@@ -99,3 +99,18 @@ Review: `docs/research/candidates/review/pass2/counterplan.md` (PASS WITH FIXES,
 - **N7** applied: Step 7 says a leaning counts as held only if the user says so; otherwise the pair is open with the lean noted in one word.
 - **N8** applied: the pick follow-up now matches Rule 5 (the result is their set or will be; the observation for each open pair, or the one the user names as hardest). Choices line above updated.
 - **N9** applied in part: the assumptions-only line in "When this skill does not fit" now says no record and key assumptions only, not flaws (Rule 1). The spec §5.10 qualifier "(except when no key assumption is found)" is not applied: spec.md is outside this pass; left for the owner.
+
+## Clutter cuts (2026-10-21)
+
+Owner-approved body cuts from the clutter audit (section 4, dia-counterplan; drift D5). Frontmatter unchanged. Tokens (cl100k): SKILL.md 3,554 → 3,339 (−215), output-template.md 879 → 829 (−50), theory.md 3,415 → 3,343 (−72).
+
+- **P1:** Rule 3 no longer asks for the both-sides line; Step 6 and the record keep it (Step 6 now reads "one line saying that one assistant wrote both sides", since its "the line" pointed to the removed sentence).
+- **P2:** Rule 5 absorbs the pick follow-up (during or after the inquiry; the result is their set; the observation for each open pair); the Follow-up bullet is deleted. This supersedes the N8 wording ("or will be", "the one pair they name as hardest").
+- **P3:** the Procedure intro is shortened (early exits named in one parenthesis; later turns show only what changed and fit a phone screen); the added-assumption follow-up reads "Steps 3 to 7; ask".
+- **P4:** "\"Can't tell\" records the pair as open" is dropped from the kept-argument line (Step 7 and the result definitions cover it).
+- **P5:** Rule 3's missing-fact sentence points to Rule 4 instead of restating "not tested".
+- **P6:** Pitfalls cut to two (strawman counterplan; side-by-side as proof); the other five restated rules.
+- **P7:** Step 3's no-key line is shortened; Step 8 keeps "does not show the plan is sound".
+- **P8:** theory.md §4 loses the two routing sentences added by P-F8 (the description and "When this skill does not fit" carry the routing).
+- **PT1:** the template Counterplan line loses the "not supplied" restatement (Rule 3 keeps it).
+- **D5:** the template's no-key record line drops "only", matching Step 8.
