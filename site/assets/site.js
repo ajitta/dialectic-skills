@@ -20,7 +20,7 @@
           ? 'Follow it with a space and your request, or start the message with the skill name. It is meant to start only these ways, not from a plain request.'
           : 'Follow it with a space and your request. On Codex it may also start when your request matches it.',
       };
-      case 'chatgpt': return { code: `@${skill}`, note: 'Type @, then pick the skill.' };
+      case 'chatgpt': return { code: `@${skill}`, note: 'Type @, then pick the skill. Since 1.2.0 you can also start the message with the skill name.' };
       default: return { code: `/dia:${skill}`, note: 'Type it in the message box on claude.ai or Claude desktop.' };
     }
   };

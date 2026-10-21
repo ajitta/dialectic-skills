@@ -409,6 +409,7 @@
               or the Git URL <code>https://<wbr>github.com/<wbr>ajitta/<wbr><span class="nobr">dialectic-skills.git</span></code>, then select <code>dia</code> in its plugin list and install it. Updates arrive through the marketplace.</li>
           </ol>
           <ul class="notes">
+            <li>On the phone, type <code>@</code> and pick the skill, or start the message with its name (such as <code>dia-brainstorm …</code>; 1.2.0 and later).</li>
             <li>On Business and Enterprise workspaces, an admin can also add the plugin for the whole workspace.</li>
           </ul>
         </div>
@@ -421,7 +422,7 @@
   <div class="wrap invoke__grid">
     <div class="invoke__list">
       <h2 class="head mask" id="invoke-title" data-reveal><span>Start a skill</span></h2>
-      <p data-reveal style="--i:1">Every surface supports at least one of three ways. Asking in words works everywhere and is the safe default on mobile.</p>
+      <p data-reveal style="--i:1">There are three ways. Since 1.2.0 the simplest, and the quickest on a phone, is to start the message with the skill name, with no <code>/</code>, <code>$</code> or <code>@</code>.</p>
 
       <h3 class="rows__group" data-reveal>In words</h3>
       <ul class="rows">
@@ -433,9 +434,9 @@
 
       <h3 class="rows__group" data-reveal>By name, as the first word</h3>
       <ul class="rows">
-        <li data-reveal style="--i:0"><span class="dot"></span><span class="rows__name">Start the message with the skill name</span><span class="rows__value"><code>dia-confirm …</code></span></li>
+        <li data-reveal style="--i:0"><span class="dot"></span><span class="rows__name">Works for every skill</span><span class="rows__value"><code>dia-brainstorm …</code></span></li>
         <li data-reveal style="--i:1"><span class="dot"></span><span class="rows__name">Meant to start this way or by selection</span><span class="rows__value"><code>dia-refine …</code></span></li>
-        <li data-reveal style="--i:2"><span class="dot"></span><span class="rows__name">Never starts from a plain request</span><span class="rows__value"><code>dia-iterate …</code></span></li>
+        <li data-reveal style="--i:2"><span class="dot"></span><span class="rows__name">Never start from a plain request</span><span class="rows__value"><code>dia-confirm …</code> <code>dia-iterate …</code></span></li>
       </ul>
 
       <h3 class="rows__group" data-reveal>Selected, per surface</h3>
@@ -454,7 +455,7 @@
         <li data-reveal style="--i:2"><span class="dot"></span><span class="rows__name">Mode and depth for <code>dia-brainstorm</code>: <code>develop</code> (default) or <code>stress</code>; <code>quick</code>, <code>standard</code> (default) or <code>deep</code></span><span class="rows__value"><code>stress</code> <code>quick</code> <code>deep</code></span></li>
         <li data-reveal style="--i:3"><span class="dot"></span><span class="rows__name">Criteria for <code>dia-refine</code> and <code>dia-iterate</code>: anything after the name</span><span class="rows__value"><code>dia-refine for tone</code></span></li>
       </ul>
-      <p class="invoke__note" data-reveal>Since 1.2.0, starting the message with the name works on Codex with no <code>$</code> (probed), and is expected to work on ChatGPT with no <code>@</code> (owner check pending). <code>dia-confirm</code> and <code>dia-iterate</code> start only that way or when selected. <code>--target</code> applies to <code>dia-reductio</code> and <code>dia-negative</code>.</p>
+      <p class="invoke__note" data-reveal>Starting with the name was tested on Codex for 1.2.0, not yet on ChatGPT; there, <code>@</code> is the sure route. <code>--target</code> applies to <code>dia-reductio</code> and <code>dia-negative</code>.</p>
     </div>
 
     <figure class="invoke__film pair" data-reveal>
@@ -511,6 +512,10 @@
         <div class="tile__body"><p>The plugin is installed through two routes (for example <code>dia@dialectic-skills</code> and <code>dia@ajitta</code>, or an upload and a marketplace). Remove one.</p></div>
       </details>
       <details class="tile" name="faq" data-reveal style="--i:8">
+        <summary><span>On ChatGPT, a skill starts only from <code>@</code></span></summary>
+        <div class="tile__body"><p>Most likely your upload is older than 1.2.0, where four skills were hidden from the model. Upload the latest <code>dialectic-skills-openai.zip</code> again; uploads do not update themselves.</p></div>
+      </details>
+      <details class="tile" name="faq" data-reveal style="--i:9">
         <summary><span><code>dia-iterate</code> does not start</span></summary>
         <div class="tile__body"><p>It starts only when <code>dia-iterate</code> is the first word of the message or when it is selected explicitly (<code>/dia:dia-iterate</code>, <code>$dia:dia-iterate</code>, <code>@dia-iterate</code>).</p></div>
       </details>
