@@ -1,0 +1,7 @@
+interface:
+  display_name: "Dia: Conjecture"
+  short_description: "Proofs and refutations: counterexamples test your rule"
+  default_prompt: "Use $dia:dia-conjecture to test this universal claim with counterexamples: "
+
+policy:
+  allow_implicit_invocation: true

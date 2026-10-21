@@ -1,0 +1,7 @@
+interface:
+  display_name: "Dia: Counterplan"
+  short_description: "Counterplan from a plan's key assumptions; you synthesize"
+  default_prompt: "Use $dia:dia-counterplan to write the counterplan to this plan: "
+
+policy:
+  allow_implicit_invocation: true

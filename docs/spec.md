@@ -10,7 +10,7 @@
 
 ## 1. Summary
 
-`dialectic-skills` packages seven reasoning-and-review skills as one plugin, installed under the plugin name `dia`. The skills are rebuilt from the owner's existing skills (socratic-brainstorm, socratic-elenchus, reductio, negative-dialectics, self-refine, recursive-refine, confirm-intent). The target surfaces are:
+`dialectic-skills` packages ten reasoning-and-review skills as one plugin, installed under the plugin name `dia`. Seven are rebuilt from the owner's existing skills (socratic-brainstorm, socratic-elenchus, reductio, negative-dialectics, self-refine, recursive-refine, confirm-intent); three were added in 1.3.0 from the candidate research (D35). The target surfaces are:
 
 - Claude Code
 - Codex
@@ -24,7 +24,7 @@ The shipped package contains instructions only: Markdown, YAML and JSON. It has 
 
 ### Goals
 
-- G1. One plugin, `dia`, containing seven skills with the names in §4.
+- G1. One plugin, `dia`, containing the skills named in §4 (seven until 1.2.1, ten from 1.3.0, D35).
 - G2. The same skill files run unchanged on every target surface, and on a surface that has no tools at all (mobile chat).
 - G3. Skill files are written in English. Hangul appears only under `references/ko/` (§6).
 - G4. The repository starts by importing the material it is rebuilt from into `upstream/` (§11). That material is kept in the repository and never shipped.
@@ -43,7 +43,7 @@ These decisions were settled with the owner during the spec interview of 2026-10
 
 | # | Decision |
 |---|---|
-| D1 | Scope: seven skills. confirm-intent was added during the interview. |
+| D1 | Scope: seven skills. confirm-intent was added during the interview. Extended to ten in 1.3.0 (D35). |
 | D2 | recursive-refine is included in reduced form: output mode only, with no subagents and no scripts. |
 | D3 | Existing skills are rebuilt from reference copies. They are not edited in place. |
 | D4 | The owner's ChatGPT plan is Pro. Both mobile apps (Claude and ChatGPT) are in scope. |
@@ -77,6 +77,7 @@ These decisions were settled with the owner during the spec interview of 2026-10
 | D32 | Directory listings, prepared in 1.1.1 (owner, 2026-10-20; requirements in `docs/directory-submission.md`). (1) The plugin folder ships a `README.md` generated from `packaging/plugin-README.md`, because the Anthropic directory blocks a plugin folder without a README of at least 40 words; it states that the plugin runs, sends and fetches nothing itself. (2) The OpenAI directory upload is a separate generated zip, `releases/dialectic-skills-openai.zip`: the same files with `.codex-plugin/plugin.json` (the manifest plus the `interface` listing fields from `packaging/openai/interface.json`) in place of `.claude-plugin/`, and two square SVG images under `assets/` for `interface.logo` and `interface.composerIcon`. Images exist only in that zip, so the marketplace payload stays Markdown, YAML and JSON (§7.1). `tools/package.py` checks the README length and the OpenAI final-submission limits, and the listing files count toward the version digest. The logo is a draft for the owner to replace if wanted. |
 | D33 | All seven skills set `allow_implicit_invocation: true` in plugin 1.2.0 (owner, 2026-10-21). Reason: on ChatGPT mobile the four explicit-only skills (dia-confirm, dia-elenchus, dia-brainstorm, dia-iterate) could be reached only through the `@` picker, because `false` drops a skill from the model-visible list (probed on Codex, P3 and Part M; on ChatGPT mobile observed by the owner before and after the change, P5 1.2.0), so a message starting with the skill's name did nothing; on Claude the same message works (P2), and Claude already routed dia-elenchus and dia-brainstorm from natural language (P7). Now dia-elenchus and dia-brainstorm route as on Claude, and dia-confirm and dia-iterate are gated by wording: dia-iterate by its existing description and body marker rule, dia-confirm by a description that names the first word and says a request that only sounds like it is not an invocation, plus a body sentence for a load without the marker (run the review only on an explicit request to confirm first; otherwise do the task without holding it; added after the independent review). Probes Part M (Codex, base 1.1.1 vs 1.2.0; Claude for the dia-confirm description). Cost: the Codex/ChatGPT always-on listing grows from 610 to 1,342 o200k tokens (Codex measured; ChatGPT's own list was not measurable from here). This reverses the upstream `04-design.md` D2 choice for Codex only; `disable-model-invocation` stays unused (§7.2). |
 | D34 | dia-brainstorm 1.1.1, plugin 1.2.1 (owner, 2026-10-21). After D33, ChatGPT mobile loaded dia-brainstorm for a plain task written as a bare noun phrase («사진 파일을 날짜별로 이름 바꾸는 스크립트»). The description now says the skill is for a user who asks to think an idea through with questions, poke holes in it or stress-test it, and is not for a request to make or write something (a script, code, a text), even one that names an idea; Step 0 says that if the skill was loaded for such a request anyway, do the task without it. The ChatGPT case did not reproduce on Codex or Claude; the change kept every positive routing cell on both, within n=3 noise (Codex idea cell 2/3; probes Part N). A forced load of the body on Claude wrote the script 6/6 with the 1.2.1 body against 1/6 with the 1.2.0 body (independent review). On ChatGPT mobile with 1.2.1, the owner's noun phrase gave the script directly (P5). |
+| D35 | Three skills added in plugin 1.3.0 (owner, 2026-10-21, on branch `next`; not on `main` until the owner approves): `dia-warrant` (Toulmin layout with Walton's critical questions, one pass), `dia-conjecture` (Lakatos's proofs and refutations on a strictly universal claim, multi-turn) and `dia-counterplan` (Mason's dialectical inquiry on a plan or decision; the user synthesizes). Basis: `docs/research/candidates/` (six family documents, weighed by fit for human-AI chat and fidelity) and its independent review (`docs/research/candidates/review/`, all SOUND WITH FIXES); the owner took the recommended pick in each cluster. Each skill applies its review's corrections; the applied and declined findings are in `docs/research/candidates/design/<skill>.md`. Routing: each new description carries exclusion sentences toward its bordering siblings; dia-reductio and dia-brainstorm get pointers to the new skills (their `metadata.version` bumps). Not done in this decision: dia-hypothesis, dia-commit, the munāẓara pushback rule (separate batch), the site's skill plates. |
 
 ## 4. Names and identifiers
 
@@ -102,6 +103,9 @@ The plugin `name` is the only field that sets the namespace. `displayName` is sh
 | `dia-negative` | negative-dialectics (installed copy) | `/dia:dia-negative` | `$dia:dia-negative` / `@dia-negative` |
 | `dia-refine` | self-refine (installed copy) | `/dia:dia-refine` or a message starting `dia-refine` | `$dia:dia-refine` / `@dia-refine` or a message starting `dia-refine` |
 | `dia-iterate` | recursive-refine, output mode only (installed copy) | a message starting `dia-iterate`, or `/dia:dia-iterate` | `$dia:dia-iterate` / `@dia-iterate`, or a message starting `dia-iterate` (1.2.0, D33) |
+| `dia-warrant` (1.3.0, D35) | new: `docs/research/candidates/argumentation.md` | `/dia:dia-warrant` | `$dia:dia-warrant` / `@dia-warrant`, or natural language |
+| `dia-conjecture` (1.3.0, D35) | new: `docs/research/candidates/modern-dialectic.md` | `/dia:dia-conjecture` | `$dia:dia-conjecture` / `@dia-conjecture`, or natural language |
+| `dia-counterplan` (1.3.0, D35) | new: `docs/research/candidates/argumentation.md` | `/dia:dia-counterplan` | `$dia:dia-counterplan` / `@dia-counterplan`, or natural language |
 
 Naming rules:
 
@@ -119,7 +123,7 @@ Natural-language requests work on every surface and are the safe default on mobi
 
 ## 5. Skills
 
-All seven skills keep their reference behavior unless this section or D19–D34 say otherwise. For every skill, the rebuild:
+The seven rebuilt skills (5.1–5.7) keep their reference behavior unless this section or D19–D35 say otherwise. The three skills added in 1.3.0 (5.8–5.10) have no reference; their design notes are in `docs/research/candidates/design/`. For every rebuilt skill, the rebuild:
 
 - renames the skill;
 - updates cross-references so that each description names the new skill names;
@@ -204,6 +208,27 @@ All seven skills keep their reference behavior unless this section or D19–D34 
 - Pointers: single-pass requests go to dia-refine.
 - References carried over: `verification-sources.md`.
 
+### 5.8 dia-warrant (new in 1.3.0, D35)
+
+- Purpose: a one-pass audit of how well an argument's reasons support a conclusion that is only probable. Lays the argument out in Toulmin's terms (claim, data, warrant, backing, qualifier, rebuttal), supplies the least warrant that licenses the step and labels it reconstructed, tests it with Walton's critical questions tagged by the slot they question, and names the weakest link or says none was found among the questions asked. An "ask" mode has the user fill each slot, one question per message.
+- Borders: strict contradiction and deductive validity go to dia-reductio; fixing the previous answer or a draft to dia-refine; counterexamples to a strictly universal claim to dia-conjecture; a plan's assumptions to dia-counterplan.
+- Invocation: natural language or name. `allow_implicit_invocation: true`.
+- Design note: `docs/research/candidates/design/dia-warrant.md`.
+
+### 5.9 dia-conjecture (new in 1.3.0, D35)
+
+- Purpose: Lakatos's method of proofs and refutations on a strictly universal claim the user holds. The user gives the claim and its argument and rules on each case; the assistant raises one counterexample per message, shown condition by condition, and classifies the user's ruling (invalid, concept-stretching, monster-barring as an explicit definition change, or disputed). Repairs follow Rules 1–4 (local and global counterexamples, hidden lemmas, lemma-incorporation). Popper's prior refutation criterion is a labelled addition. At most three rounds, then an offer to stop.
+- Borders: plans and decisions go to dia-counterplan or dia-brainstorm; the meaning of a word to dia-elenchus; Q and not-Q to dia-reductio; probable claims to dia-warrant; a claim against its own standard to dia-negative.
+- Invocation: natural language or name. `allow_implicit_invocation: true`.
+- Design note: `docs/research/candidates/design/dia-conjecture.md`.
+
+### 5.10 dia-counterplan (new in 1.3.0, D35)
+
+- Purpose: dialectical inquiry after Mason (1969) on a plan, decision or recommendation. Lists the assumptions it rests on, keeps those that would change the decision if false (SAST test), states a specific contrary for each, checks the contraries are coherent, writes the counterplan at the same level of detail and on the same data, and asks which assumptions from each side the user now holds; that set is the result. The assistant gives no verdict on which plan wins, and the record says one assistant wrote both sides and what the comparison did not test.
+- Borders: questioning the user's idea (poke holes, stress-test) goes to dia-brainstorm; counterexamples to a universal claim to dia-conjecture; an argument's support to dia-warrant; a plan against its own standard to dia-negative.
+- Invocation: natural language or name. `allow_implicit_invocation: true`.
+- Design note: `docs/research/candidates/design/dia-counterplan.md`.
+
 ## 6. Language policy
 
 - L1. `SKILL.md`, `agents/openai.yaml`, manifests and every file under `references/` except `references/ko/` contain no Hangul. A test enforces this boundary. The Hangul ranges are U+1100–11FF, U+3130–318F, U+A960–A97F and U+AC00–D7FF, the same ranges as `superclaude`'s `test_shipped_plugin_has_no_hangul`.
@@ -285,8 +310,11 @@ policy:
 | dia-negative | true | Same as the reference (no yaml, default true) |
 | dia-refine | true | Natural-language triggers are part of its design |
 | dia-iterate | true | First word or explicit name; the description and the body gate it (D33) |
+| dia-warrant | true | Natural-language triggers; exclusion sentences toward dia-reductio, dia-refine, dia-conjecture and dia-counterplan (D35) |
+| dia-conjecture | true | Natural-language triggers; exclusion sentences toward dia-counterplan, dia-brainstorm, dia-elenchus, dia-reductio, dia-warrant and dia-negative (D35) |
+| dia-counterplan | true | Natural-language triggers limited to plans and decisions; exclusion sentences toward dia-brainstorm, dia-conjecture, dia-warrant and dia-negative (D35) |
 
-`allow_implicit_invocation` defaults to `true`. When it is `false`, explicit `$skill` invocation still works ([Build skills](https://learn.chatgpt.com/docs/build-skills)), but the skill is left out of the model-visible list (P3), so a message that starts with its name cannot reach it. All seven are `true` since 1.2.0 (D33); explicit-only skills are gated by wording, as on Claude.
+`allow_implicit_invocation` defaults to `true`. When it is `false`, explicit `$skill` invocation still works ([Build skills](https://learn.chatgpt.com/docs/build-skills)), but the skill is left out of the model-visible list (P3), so a message that starts with its name cannot reach it. All skills are `true` since 1.2.0 (D33), and the three added in 1.3.0 too (D35); explicit-only skills are gated by wording, as on Claude.
 
 ### 7.4 Manifests
 

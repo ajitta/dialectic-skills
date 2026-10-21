@@ -1,10 +1,10 @@
 ---
 name: dia-reductio
-description: Strict reductio ad absurdum run in one pass. States the thesis, lists every premise with its source, derives a strict contradiction (Q and not-Q) line by line, then lays out which premises could be given up, recommends one, and leaves the decision to the user; ends with a record. Can test the user's claim, the assistant's own earlier answer, a pasted text, or all of them, chosen with --target. Use when the user asks for reductio, proof by contradiction, indirect proof, "assume it's true and show where it breaks", "find the contradiction", or wants to know whether a position holds together or follows from its premises, or the same in any language. For the gap between what a concept or plan claims and what it delivers, or the real purpose behind a claim, use dia-negative. For one-question-at-a-time definition dialogue, use dia-elenchus.
+description: Strict reductio ad absurdum run in one pass. States the thesis, lists every premise with its source, derives a strict contradiction (Q and not-Q) line by line, then lays out which premises could be given up, recommends one, and leaves the decision to the user; ends with a record. Can test the user's claim, the assistant's own earlier answer, a pasted text, or all of them, chosen with --target. Use when the user asks for reductio, proof by contradiction, indirect proof, "assume it's true and show where it breaks", "find the contradiction", or wants to know whether a position holds together or follows strictly from its premises, or the same in any language. For the gap between what a concept or plan claims and what it delivers, or the real purpose behind a claim, use dia-negative. For one-question-at-a-time definition dialogue, use dia-elenchus. For how well reasons support a merely probable conclusion, use dia-warrant; for counterexamples to an all, always or never claim, dia-conjecture.
 license: MIT
 metadata:
   author: ajitta
-  version: "1.0.0"
+  version: "1.1.0"
   lineage: "reductio (installed copy, unversioned)"
   source: "https://github.com/ajitta/dialectic-skills"
 ---

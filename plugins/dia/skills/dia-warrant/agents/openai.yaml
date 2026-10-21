@@ -1,0 +1,7 @@
+interface:
+  display_name: "Dia: Warrant"
+  short_description: "Toulmin layout and critical questions; names the weakest link"
+  default_prompt: "Use $dia:dia-warrant to audit how well this argument supports its conclusion: "
+
+policy:
+  allow_implicit_invocation: true

@@ -87,6 +87,9 @@ EXPECTED_IMPLICIT = {
     "dia-negative": True,
     "dia-refine": True,
     "dia-iterate": True,
+    "dia-warrant": True,
+    "dia-conjecture": True,
+    "dia-counterplan": True,
 }
 
 

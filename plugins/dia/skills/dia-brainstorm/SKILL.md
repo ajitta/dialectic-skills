@@ -1,10 +1,10 @@
 ---
 name: dia-brainstorm
-description: Brainstorming partner that uses modern Socratic questioning (Paul's six question types, one question at a time) to test an idea, then draws out the user's own options before adding up to three labeled ones, converges by criteria, and ends with an honest verdict (sharpened, open, or refuted) and a short brief with a next step. Use when the user asks to think an idea through with questions toward options and a plan, to poke holes in it, or to stress-test it before committing (e.g. "socratic brainstorm", "question me about this idea", "poke holes in this plan", or the same in any language). For the strict dialogue of Plato's dialogues (what-is-X, contradiction from agreed premises, aporia, no advice), or when the user asks for Socratic dialogue or the Socratic method without asking to brainstorm or for options and a plan, use dia-elenchus instead. Not for factual or how-to requests, or for a request to make or write something (a script, code, a text), even one that names an idea. Never implements anything.
+description: Brainstorming partner using modern Socratic questioning (Paul's six question types, one at a time) to test an idea, then draws out the user's own options before adding up to three labeled ones, converges by criteria, and ends with an honest verdict and a brief with a next step. Use when the user asks to think an idea through with questions toward options and a plan, to poke holes in it, or to stress-test it before committing (e.g. "socratic brainstorm", "question me about this idea", "poke holes in this plan", or the same in any language). For Plato's strict dialogue (what-is-X, contradiction from agreed premises, aporia, no advice), or when the user asks for Socratic dialogue or the Socratic method without asking to brainstorm or for options and a plan, use dia-elenchus instead. Not for factual or how-to requests, or a request to make or write something (a script, code, a text), even one naming an idea. For a counterplan or devil's advocate on a plan, use dia-counterplan. Never implements anything.
 license: MIT
 metadata:
   author: ajitta
-  version: "1.1.1"
+  version: "1.2.0"
   lineage: "socratic-brainstorm 3.3.1"
   source: "https://github.com/ajitta/dialectic-skills"
 ---
