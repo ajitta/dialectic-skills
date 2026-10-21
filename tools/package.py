@@ -80,13 +80,13 @@ OLD_NAMES_RE = re.compile(
     r"\b(socratic-brainstorm|socratic-elenchus|confirm-intent|dia-intent|negative-dialectics|self-refine|recursive-refine)\b"
 )
 EXPECTED_IMPLICIT = {
-    "dia-confirm": False,
-    "dia-elenchus": False,
-    "dia-brainstorm": False,
+    "dia-confirm": True,
+    "dia-elenchus": True,
+    "dia-brainstorm": True,
     "dia-reductio": True,
     "dia-negative": True,
     "dia-refine": True,
-    "dia-iterate": False,
+    "dia-iterate": True,
 }
 
 

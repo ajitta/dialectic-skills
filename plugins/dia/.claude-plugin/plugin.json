@@ -1,7 +1,7 @@
 {
   "name": "dia",
   "displayName": "Dialectic Skills",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "description": "Seven reasoning-and-review skills that run on any assistant, with or without tools: dia-confirm confirms the goal before work, dia-elenchus and dia-brainstorm question an idea Socratically, dia-reductio tests a claim by strict contradiction, dia-negative critiques a claim by its own standard, dia-refine reviews an answer once, and dia-iterate runs verification-gated review rounds.",
   "author": {
     "name": "ajitta",

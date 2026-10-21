@@ -4,4 +4,4 @@ interface:
   default_prompt: "Use $dia:dia-iterate to run verified review rounds on the previous answer: "
 
 policy:
-  allow_implicit_invocation: false
+  allow_implicit_invocation: true

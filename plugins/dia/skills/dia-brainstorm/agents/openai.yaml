@@ -4,4 +4,4 @@ interface:
   default_prompt: "Use $dia:dia-brainstorm to question me about this idea: "
 
 policy:
-  allow_implicit_invocation: false
+  allow_implicit_invocation: true

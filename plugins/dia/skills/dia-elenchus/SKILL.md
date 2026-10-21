@@ -4,7 +4,7 @@ description: Socratic dialogue (elenchus) as in Plato's Socratic dialogues. Find
 license: MIT
 metadata:
   author: ajitta
-  version: "1.0.0"
+  version: "1.1.0"
   lineage: "socratic-elenchus 1.3.1"
   source: "https://github.com/ajitta/dialectic-skills"
 ---

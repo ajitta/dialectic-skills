@@ -4,4 +4,4 @@ interface:
   default_prompt: "Use $dia:dia-confirm to confirm the goal and open decisions before you start on this task: "
 
 policy:
-  allow_implicit_invocation: false
+  allow_implicit_invocation: true

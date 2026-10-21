@@ -4,7 +4,7 @@ description: Improve an output through repeated rounds gated by external verific
 license: MIT
 metadata:
   author: ajitta
-  version: "1.0.0"
+  version: "1.1.0"
   lineage: "recursive-refine (installed copy, unversioned), output mode only"
   source: "https://github.com/ajitta/dialectic-skills"
 ---

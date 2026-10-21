@@ -4,7 +4,7 @@ description: Brainstorming partner that uses modern Socratic questioning (Paul's
 license: MIT
 metadata:
   author: ajitta
-  version: "1.0.0"
+  version: "1.1.0"
   lineage: "socratic-brainstorm 3.3.1"
   source: "https://github.com/ajitta/dialectic-skills"
 ---
