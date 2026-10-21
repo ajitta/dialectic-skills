@@ -65,7 +65,7 @@ Where an install is made decides where `dia` shows up. README § Install says th
   - Set `ENABLE_CLAUDEAI_MCP_SERVERS=false`: the account's claude.ai connectors otherwise load into isolated sessions, add a varying number of tools, and even appear in `--tools Skill` runs.
   - Action-holding cells need `--max-turns` 12 or more; hitting the cap returns an empty result.
   - Delete the credential copies afterwards.
-- **Baseline arm:** a plugin directory with `.claude-plugin/plugin.json` (`{"name": "old", ...}`) and `skills/` copied from `upstream/installed/*` and `upstream/superclaude-stable-47f791b/socratic-*`.
+- **Baseline arm:** a plugin directory with `.claude-plugin/plugin.json` (`{"name": "old", ...}`) and `skills/` copied from `upstream/installed/*` and `upstream/superclaude-stable-47f791b/socratic-*` (on the `upstream` branch since spec D36: `git archive archive/upstream upstream | tar -x`).
 - **Codex CLI:** use an isolated `CODEX_HOME`.
   - `codex plugin marketplace add <path>`, then `codex plugin add dia@dialectic-skills`.
   - `codex debug prompt-input "hi"` shows the model-visible skill list and needs no model call.

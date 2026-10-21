@@ -412,7 +412,7 @@ releases/dialectic-skills-openai.zip
                                 generated, OpenAI directory upload
 tools/package.py                validate and build (developer-only)
 tests/                          developer-only
-upstream/                       material the skills were rebuilt from; never shipped
+(branch upstream)               material the skills were rebuilt from; not on main, never shipped
 README.<lang>.md                translations of this file (not shipped)
 docs/spec.md                    specification
 docs/probes.md                  surface and routing probe results

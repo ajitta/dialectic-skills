@@ -21,7 +21,7 @@ All are stdlib-only. CI (`.github/workflows/check.yml`) runs them plus `claude p
 ## Rules
 
 - Skill text stays assistant-neutral: write "you" or "the assistant", not a product name, and make every tool use conditional ("if a search tool is available"). No references to other projects or their commands.
-- `upstream/` is read-only reference material (spec §11). Never edit it; its SHA-256 values in `upstream/README.md` must stay valid. It is never shipped.
+- The reference material the skills were rebuilt from lives on the orphan branch `upstream` (tag `archive/upstream`), not on `main` (spec D36). It is read-only: never edit it, and never add it back to `main`, because skill directories crawl the default branch and would list the old skills as installable. Paths such as `upstream/installed/<skill>/SKILL.md` in research and review documents refer to that branch.
 - The shipped package (`plugins/dia/`, `releases/dialectic-skills.zip`) is instructions only: Markdown, YAML, JSON. No scripts, hooks, binaries, MCP or LSP config (spec §7.1).
 - No Hangul outside `skills/<skill>/references/ko/` (spec §6). This covers SKILL.md, `agents/openai.yaml`, manifests and other references. The README translations (`README.ko.md`, `README.ja.md`, `README.zh-CN.md`) are the one repository-level exception (spec D31).
 - When `README.md` changes, update the three translations in the same commit; `tests/test_package.py` checks that they keep its structure.

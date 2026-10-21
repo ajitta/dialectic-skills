@@ -27,7 +27,7 @@ The shipped package contains instructions only: Markdown, YAML and JSON. It has 
 - G1. One plugin, `dia`, containing seven skills with the names in §4.
 - G2. The same skill files run unchanged on every target surface, and on a surface that has no tools at all (mobile chat).
 - G3. Skill files are written in English. Hangul appears only under `references/ko/` (§6).
-- G4. The repository starts by importing the material it is rebuilt from into `upstream/` (§11). That material is kept in the repository and never shipped.
+- G4. The repository starts by importing the material it is rebuilt from into `upstream/` (§11). That material is kept in the repository and never shipped. Since D36 it lives on the orphan branch `upstream` (tag `archive/upstream`), not on `main`.
 - G5. Every install route and invocation path in §9 is either backed by a source or listed as a probe in §12.
 
 ### Non-goals
@@ -77,6 +77,7 @@ These decisions were settled with the owner during the spec interview of 2026-10
 | D32 | Directory listings, prepared in 1.1.1 (owner, 2026-10-20; requirements in `docs/directory-submission.md`). (1) The plugin folder ships a `README.md` generated from `packaging/plugin-README.md`, because the Anthropic directory blocks a plugin folder without a README of at least 40 words; it states that the plugin runs, sends and fetches nothing itself. (2) The OpenAI directory upload is a separate generated zip, `releases/dialectic-skills-openai.zip`: the same files with `.codex-plugin/plugin.json` (the manifest plus the `interface` listing fields from `packaging/openai/interface.json`) in place of `.claude-plugin/`, and two square SVG images under `assets/` for `interface.logo` and `interface.composerIcon`. Images exist only in that zip, so the marketplace payload stays Markdown, YAML and JSON (§7.1). `tools/package.py` checks the README length and the OpenAI final-submission limits, and the listing files count toward the version digest. The logo is a draft for the owner to replace if wanted. |
 | D33 | All seven skills set `allow_implicit_invocation: true` in plugin 1.2.0 (owner, 2026-10-21). Reason: on ChatGPT mobile the four explicit-only skills (dia-confirm, dia-elenchus, dia-brainstorm, dia-iterate) could be reached only through the `@` picker, because `false` drops a skill from the model-visible list (probed on Codex, P3 and Part M; on ChatGPT mobile observed by the owner before and after the change, P5 1.2.0), so a message starting with the skill's name did nothing; on Claude the same message works (P2), and Claude already routed dia-elenchus and dia-brainstorm from natural language (P7). Now dia-elenchus and dia-brainstorm route as on Claude, and dia-confirm and dia-iterate are gated by wording: dia-iterate by its existing description and body marker rule, dia-confirm by a description that names the first word and says a request that only sounds like it is not an invocation, plus a body sentence for a load without the marker (run the review only on an explicit request to confirm first; otherwise do the task without holding it; added after the independent review). Probes Part M (Codex, base 1.1.1 vs 1.2.0; Claude for the dia-confirm description). Cost: the Codex/ChatGPT always-on listing grows from 610 to 1,342 o200k tokens (Codex measured; ChatGPT's own list was not measurable from here). This reverses the upstream `04-design.md` D2 choice for Codex only; `disable-model-invocation` stays unused (§7.2). |
 | D34 | dia-brainstorm 1.1.1, plugin 1.2.1 (owner, 2026-10-21). After D33, ChatGPT mobile loaded dia-brainstorm for a plain task written as a bare noun phrase («사진 파일을 날짜별로 이름 바꾸는 스크립트»). The description now says the skill is for a user who asks to think an idea through with questions, poke holes in it or stress-test it, and is not for a request to make or write something (a script, code, a text), even one that names an idea; Step 0 says that if the skill was loaded for such a request anyway, do the task without it. The ChatGPT case did not reproduce on Codex or Claude; the change kept every positive routing cell on both, within n=3 noise (Codex idea cell 2/3; probes Part N). A forced load of the body on Claude wrote the script 6/6 with the 1.2.1 body against 1/6 with the 1.2.0 body (independent review). On ChatGPT mobile with 1.2.1, the owner's noun phrase gave the script directly (P5). |
+| D36 | `upstream/` moves off `main` to the orphan branch `upstream`, tagged `archive/upstream` (owner, 2026-10-21). Reason: skill directories that crawl a repository's default branch (claude-plugins.dev, SkillsMP, agentmods and others) index every `SKILL.md` they find, so the seven old skills under `upstream/` would be listed as installable skills of this repository; a dry run of claude-plugins.dev's index found all 21 `SKILL.md` files. skills.sh lists by install telemetry and was unaffected. The archive is byte-identical to `upstream/` at `eb7ab54`, so the SHA-256 values in its `upstream/README.md` still hold, and research and review documents that cite `upstream/...` paths refer to that branch. The packaging rule that no shipped path contains `upstream` stays. (D35 is the 1.3.0 batch on branch `next`.) |
 
 ## 4. Names and identifiers
 
@@ -331,7 +332,6 @@ dialectic-skills/
 ├── releases/dialectic-skills.zip   generated, shipped (committed); top-level folder dia/
 ├── tools/package.py                developer-only
 ├── tests/                          developer-only
-├── upstream/                       material the skills are rebuilt from (§11), never shipped
 ├── docs/spec.md                    this document
 ├── README.md
 └── LICENSE
@@ -369,7 +369,7 @@ The `superclaude` repository and its `socratic` plugin are left as they are.
 
 ## 11. Bootstrap: importing upstream material (first task)
 
-The first commit of the new repository imports the material the skills are rebuilt from. It lives under `upstream/`, is excluded from packaging, and is read-only by convention. Rebuild work reads it; nothing edits it.
+The first commit of the new repository imports the material the skills are rebuilt from. It lives under `upstream/`, is excluded from packaging, and is read-only by convention. Rebuild work reads it; nothing edits it. Since D36 it is on the orphan branch `upstream` (tag `archive/upstream`), not on `main`; the steps below describe the original import.
 
 `upstream/` (repository root) is unrelated to `skills/<skill>/references/`. The latter holds the documents a skill reads at run time, such as theory notes, output templates and `ko/`, and it is shipped with the plugin (§7.1).
 
