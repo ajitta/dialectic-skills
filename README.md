@@ -335,17 +335,20 @@ How well do the reasons support this? "My friend is a personal trainer and she s
 
 **What you get** (real run, shortened):
 
-> **Target:** `user` (inferred), audit mode.
-> **Claim:** "if I take up running I will get knee problems." This is stated, with no qualifier. The strength is "will".
-> **Data:** "My friend is a personal trainer and she says running ruins your knees" (stated).
-> **Warrant W1 (reconstructed):** What a personal trainer says about running and knees is generally reliable. **Warrant W2 (reconstructed):** If running generally harms knees, then a person who takes it up will probably get knee problems.
-> **Backing:** none given. **Rebuttal:** none given. **Schemes:** expert opinion (W1) and cause to effect (W2).
-> **Critical questions** (seven, all open), among them: **[data]** Is the friend a genuine expert in the relevant field? Open. A personal trainer knows exercise practice. Orthopedics and sports medicine are a different field… · **[warrant/backing]** Is her assertion based on evidence? Open. No studies, clinical experience or observed cases are cited. · **[rebuttal]** Could other factors prevent knee problems in your case (technique, footwear, running volume, body weight, prior injury)? Open. …
-> **Qualifier check (compared with my reconstructed W2):** W2 licenses "probably" or "may". The claim says "will", so it is overstated.
-> **Result:** **Weakest link: warrant, because "Is her assertion based on evidence?" is left open.** … What would strengthen the link is a stated basis for her view, such as studies, injury data or her own client history. *(then a record: scheme, warrants, questions asked and left open, what would strengthen the link)*
-> This audit does not decide whether running harms knees. … If you'd like me to question you slot by slot about your own argument, I can switch to ask mode.
+> **Target:** user (inferred). I examine the argument as you stated it.
+> **Claim (C):** "if I take up running I will get knee problems." This is stated, with no qualifier ("will").
+> **Intermediate claim (C1):** "running ruins your knees." This is stated as your friend's view. The argument is a chain: data → C1 → C.
+> **Reading fixed:** "ruins" is ambiguous. I read it as "causes lasting knee damage in people who run."
+> **Data (stated):** "My friend is a personal trainer and she says running ruins your knees."
+> **Wa (reconstructed):** What a personal trainer says about running's effect on knees is generally reliable. This is the step from data to C1. **Wb (reconstructed):** If running generally ruins knees, then a person who takes up running will generally get knee problems. This is the step from C1 to C.
+> **Backing:** none given. **Rebuttal:** none given. **Scheme:** The first step is **expert opinion**. The second applies a **general rule to a case**, which I tested with the general questions.
+> **Critical questions** *(eight, all open)*: 1. [data] Is she a genuine expert in the field this claim belongs to? Her stated role is personal trainer. The argument doesn't say whether that covers joint health or injury. **Open.** … 3. [warrant/backing] Is her assertion based on evidence? The argument cites none, only "she says." **Open.** … 7. [rebuttal] Could you be an exception, for example through your running volume, your history, or other factors? **Open.** … I answered none of these with facts of my own. Each needs an answer from you or from a source.
+> **Qualifier check:** C says "will". Wa and Wb license only "generally", which is "probably". So the claim is **overstated**. Both warrants are my reconstruction, and the overstatement comes from the "generally" default. If you meant "certainly", say so. …
+> **Result:** **Weakest link: warrant (Wa), because "Is her assertion based on evidence?" is left open.** It matters because everything rests on "she says." Without a stated basis for her claim, the data give C very little support. The link would be stronger if you knew what her claim rests on, such as studies, her clients' outcomes, or training in injury. … *(then a record: target and claim, mode, scheme, both warrants reconstructed, 8 questions asked and 0 answered, result, qualifier check, what would strengthen the link, decision on the reconstructed warrants: pending)*
+> This audit doesn't decide whether running causes knee problems. It only rates how well the reasons given support that claim.
+> If you'd like to check your own argument step by step, I can switch to ask mode.
 
-"Stated" means the argument said it; "reconstructed" means the assistant supplied it because the step needs it. The tags show which part each question tests: **[data]**, **[warrant/backing]**, **[rebuttal]** or **[conclusion]**. The result names one part: data, warrant, backing, qualifier, rebuttal or claim.
+"Stated" means the argument said it; "reconstructed" means the assistant supplied it because the step needs it. Here the reasons pass through an in-between claim (C1, "running ruins your knees"), so each step gets its own warrant (Wa, Wb) and the result says which step the weak link is on. Before testing, the assistant also fixed one reading of the unclear word "ruins". The tags show which part each question tests: **[data]**, **[warrant/backing]**, **[rebuttal]** or **[conclusion]**. The result names one part: data, warrant, backing, qualifier, rebuttal or claim.
 
 **Tips**
 
@@ -368,34 +371,38 @@ Find counterexamples to my rule: buying in bulk always saves money.
 
 **What a session looks like** (real run, shortened):
 
-> **Assistant:** The claim is yours, so I'll treat it as your rule. In my words, C is "every purchase made in bulk saves the buyer money"… Why do you hold this rule? What is your argument for it?
+> **Assistant:** This is your own claim. In my words, C is: every purchase made in bulk (a larger quantity than you'd otherwise buy at once) saves money, where "saves money" means you spend less in total than you would have without buying in bulk. Why do you hold it? If you don't have an argument written out, I can reconstruct one as numbered steps, but then I'd be attacking a proof I wrote myself. Which do you want?
 >
-> **You:** Well, the big pack costs less per item, and I'd buy the stuff anyway, so I'm just paying less for the same things. …
+> **You:** Sure, I can say why: the big pack costs less per item, and I'd buy the stuff anyway, so I end up spending less. Go ahead and write it out as steps if you want, and I'll tell you which ones I agree with.
 >
-> **Assistant:** Here is your argument split into steps. … 1. [T] "the big pack costs less per item". 2. [T] "I'd buy the stuff anyway". I read this as meaning every item in the big pack gets used, and used up before it goes bad… This is the step I suspect most. 3. [A] The only thing that changes is the price per item… 4. [A] Lower price per item, with the same items used, means lower total spending…
+> **Assistant:** Here is the argument as numbered steps. L1 and L2 are your words. I wrote L3 to L5 because the argument needs them. 1. [T] "the big pack costs less per item" 2. [T] "I'd buy the stuff anyway" 3. [A] You would use every item in the big pack. None spoils, expires, gets lost or gets thrown out, and you don't use it faster just because it's there. … 4. [A] The extra costs of buying in bulk are zero or small compared with the per-item saving. These include a membership fee, storage space, upfront cash and transport. … 5. [A] The cheaper per-item price comes from the bulk pack itself, not from a sale on the smaller pack. … I suspect L3 most… Since I wrote L3 to L5 and am attacking them, I'm arguing both sides here. Is this your argument? Correct any line, and tell me which lines you accept.
 >
-> *…you accept the steps, adding that you never counted storage; asked what you would accept as a case against the rule, you name spending more in total, throwing some away, and buying much more than usual just because it was a good deal…*
+> **You:** Yeah, that's my argument. I agree with 1, 2, 4 and 5, and for 3 I only meant stuff I'd really use up, so if something spoils before I finish it, I guess that doesn't count as saving.
 >
-> **Assistant:** Case 1 (both: against C and against L2): a 12-pack of yogurt with a short shelf life. … A 12-pack costs $6.00, which is $0.50 per cup. A 4-pack costs $3.20, which is $0.80 per cup. These numbers are made up for the example. You eat about 4 cups before the date on the pack runs out. The other 8 get thrown away. … Does it save money? No. You spend $6.00 for the 4 cups you eat… This rests on arithmetic from the stipulated numbers. … Does this case count against your claim?
+> **Assistant:** That's a change to your rule, so here are the old and new wording. **Old C:** every bulk purchase saves money. **New C′:** every bulk purchase of items you will actually use up saves money. **What C′ no longer covers:** anything that spoils, expires, goes stale or gets lost before you finish it. … Before I raise any case, what would you accept as evidence against your rule? …
 >
-> **You:** Yeah, that one counts. … So my rule fails for stuff that goes bad before I can use it.
+> *…you answer: paying more in total than for the small packs even though you used up every item, for example when the membership fee or the gas to get there costs more than you saved per item…*
 >
-> **Assistant:** … 1. Build L2 into the rule. C′ would be "every bulk purchase that you fully use up before it spoils saves money"… 2. Use a deeper condition… 3. Give up the rule. I recommend option 2… Pick 1, 2 or 3…
+> **Assistant:** Case 1 (both: against C′ and L4): a one-off club trip. Say you join a warehouse club for a $60 annual fee, just to buy a 40-roll pack of paper towels. The pack costs $0.25 less per roll than the shops near you, and you use all 40 rolls. **A, a bulk purchase of items you'll use up?** Yes. It's a 40-roll pack and every roll gets used. **B fails, you save money?** Yes, it fails. The per-roll saving is 40 × $0.25 = $10, but you paid $60 to get in. … **L4 fails too.** … It rests on arithmetic with numbers I made up, so the evidence class is logic, not a real receipt. Does this count against your rule?
 >
-> **You:** I'll pick option 1, since it's the simplest… The percentage thing in option 2 sounds like too much math for me to do every time I'm at the store.
+> **You:** Yeah, that counts. … I guess I'd have to say bulk saves money only when the extra costs, like a fee, are smaller than what I save.
 >
-> **Assistant:** Your repair is recorded as an explicit change to the claim. … No longer covered: bulk purchases where you use some and waste some. … Round 2, Case 2 (both: against C′ and against L3…): a shelf-stable box of snack bars. … You normally eat about 6 bars a month. With 24 in the cupboard you eat all 24 within the month… You spend $9.60, where your normal habit would have cost $3.00. … Does this case count against your new claim?
+> **Assistant:** Your fix is that bulk saves money only when the extra costs are smaller than what you save. That is true, but it doesn't work as a repair. It says "bulk saves money when it saves money", so no purchase could ever count against it. … 1. **No attributable extra costs.** C′ becomes: every bulk purchase of items you'll use up, where no fee, special trip or storage cost comes from this purchase alone, saves money. … 2. **Fees and special trips only.** … 3. **Give up C′.** … I recommend option 1. It names all the costs L4 was hiding, so you don't end up adding exceptions one at a time. Which do you pick?
 >
-> **You:** Yeah, that one counts. … I'd have to say it only saves money if I'd have bought that many anyway.
+> **You:** I'll go with option 1. It covers storage and the trips too, not just the fee, and those can eat up the savings the same way, so I'd rather list all the extra costs up front than keep patching one at a time.
 >
-> **Assistant:** You have already named the repair in your own words, and it matches option 1 below. The rules say I lay out the options and you pick, so here they are: … Which do you pick: 1, 2 or 3?
+> **Assistant:** Current claim, C′ as you picked it: … Case 2 (both: against C′ and L1): a bulk pack that costs more per item. Say one store sells a brand of batteries in a 12-pack for $9 ($0.75 each) and in a 48-pack for $42 ($0.875 each). You need 48 batteries and will use every one. … **B fails, you save money?** Yes, it fails. The 48-pack costs $42, while four 12-packs cost 4 × $9 = $36. You spend $6 more. **L1 fails too.** … Does this count against your rule?
+>
+> **You:** Yeah, that counts. … I'd have to check the per-item price first, since my rule only works when the big pack really is cheaper per item.
+>
+> **Assistant:** Your fix is to check the per-item price first. That is a repair, and unlike last time it has a condition you can test before buying. Here are three versions: … I recommend option 1… One warning: with this much built in, the rule is close to true by arithmetic. … What's left is closer to a checklist than a discovery. Which do you pick?
 
 **Tips**
 
 - If a case doesn't fit your rule, say which line of its check is wrong. A bare "no" leaves the case "disputed": neither withdrawn nor counted.
-- You pick every repair, even one you have already put into words. The assistant recommends an option, but your choice is what goes into the rule, as in the run above where option 1 was picked over the recommended option 2.
-- Each case says what it rests on. "Arithmetic from the stipulated numbers" means the numbers were made up and only the sums are checked; whether real prices look like that is yours to judge.
-- Saying "that's not a real bulk buy" to shut out a case is a change of definition; the assistant names it and says what your rule no longer covers.
+- You pick every repair, even one you have already put into words. In the run above you proposed a fix twice, and both times the assistant laid out numbered options, recommended one and asked you to pick. A fix that amounts to "bulk saves money when it saves money" is turned down as a repair, because no purchase could ever count against it.
+- Each case says what it rests on. "Arithmetic with numbers I made up" means the numbers are invented and only the sums are checked; whether real prices look like that is yours to judge.
+- Narrowing a word of your rule, as with "I only meant stuff I'd really use up" in the run above, is a change of definition: the assistant shows the old and new wording and says what your rule no longer covers. Saying "that's not a real bulk buy" just to shut out a case counts the same way.
 - After three rounds it offers to stop, and "wrap up" stops it at any time. The best result is "holding against the cases tried", never "proved"; "open" means a case is disputed, or a case counted and no repair was picked.
 
 ### dia-counterplan: hear the case for a different plan
@@ -412,25 +419,25 @@ Devil's advocate on this plan: we want to move from our two-bedroom city apartme
 
 **What a session looks like** (real run, shortened):
 
-> **Assistant:** **Target:** user (your plan). One assistant wrote both sides below.
-> **The plan:** … D1: payment is about the same as current rent (supplied by you) … D3: the school has good reviews (supplied by you; single source, reviews) …
-> **Assumptions:** *(eight, each marked [T] stated by you or [A] added by the assistant)*, for example A2 [A]: "About the same" covers the full cost of the house: maintenance, taxes, utilities, and a second car or more fuel if needed. …
-> **Key assumptions (would the opposite change the decision?):** K1 = A2: yes. If the true cost is well above rent, the "same payment" advantage disappears. K2 = A3: yes. A 2-hour daily commute is the largest cost in the plan. … *(five in all: cost, commute, school, network, timing)*
-> **Contraries (my choice):** C1: The all-in cost is clearly above rent once you add a second car or heavier fuel, maintenance, and taxes (supposing, for example, that you must buy a second car for school runs and errands). C2: The commute costs more than it seems… (supposing it makes you miss most dinners and bedtimes). …
-> **Counterplan: stay in the city a while, change the space and the school path.** Keep your 20-minute commute and your city network (C2, C4). Stay in the apartment for now, or move to a larger city or inner-ring place if the cost fits. The payment slot is "not supplied": no figure for a larger city home (C1). … Revisit the move when the younger child is nearer school age, with the commute and all-in costs verified first (C5, C1). …
-> **Side by side:** … 2. K2 (plan): the commute is tolerable. / C2: it takes away most weekday family time. Favours the plan if: a trial week of the full commute at real hours feels sustainable, or you can work from home some days. Favours the counterplan if: the trial week leaves you missing dinners and bedtimes, or you can't work remotely. …
-> One assistant wrote both sides. I give no verdict on which is better.
-> **Your synthesis:** For each pair (K1/C1 to K5/C5), which assumption do you now hold: the plan's, the counterplan's, one in your own words, or "can't tell"?
+> **Assistant:** **Target:** `user` (your plan). I'm giving no verdict. I wrote both sides, so the result will be your set of assumptions.
+> **The plan:** "move from our two-bedroom city apartment to a bigger house in the suburbs before our kids (6 and 3) start school next September." Data, all supplied by you and none verified this session: **D1:** The monthly payment is about the same as your current rent. … **D4:** Your commute goes from 20 minutes to about 1 hour each way. …
+> **Assumptions:** *(seven, all marked [A], added by the assistant; for example)* **A1 [A]:** "About the same payment" means about the same total cost of housing. The plan needs this for the move to be cost-neutral. … **A6 [A]:** Your commute can't be shortened, for example by remote days. …
+> **Key assumptions:** I asked of each: if the opposite were true, would the decision change? **K1 = A2:** Yes. If the commute isn't sustainable, the main cost of the plan outweighs the gains. **K2 = A1:** Yes. If total cost is higher, "same as rent" no longer holds. … *(five in all: commute, cost, school, timing, space)*
+> **Contraries (my choice, each a supposition, not a reported fact):** **C1:** The commute proves unsustainable. About 2 hours a day removes you from mornings and evenings, and the hour isn't usable time. … **C2:** The real monthly cost exceeds the rent. I'm supposing maintenance, taxes, insurance, utilities, extra fuel or fares, and possibly a second car. Figures: not supplied. … **C5:** At 6 and 3, parental time and proximity matter more than a private room each and a yard. Shared rooms and public parks are enough for now.
+> **Counterplan: stay in the city for now.** Each slot matches the plan's detail, and each part is marked with the contrary it rests on. **Housing and cost:** Stay in the two-bedroom apartment at the current rent (C2, C4). … **School:** Enroll both in the city school option for next September (C3, C4). Name, reviews and distance: not supplied. **Commute:** Keep the 20-minute commute (C1). **Timing:** Hold the decision, then revisit in 12 months. That date is my choice. …
+> **Side by side:** 1. **K1 (a ~1-hour commute is sustainable) vs C1 (it isn't).** Favours the plan if a two-week rush-hour trial leaves you and your household fine with it. Favours the counterplan if the trial shows you'd miss routines you care about, or your partner would carry much more. …
+> One assistant wrote both sides, so the counterplan may be less developed than a real advocate's version.
+> **Your synthesis:** For each pair K1–K5, which assumption do you now hold: the plan's, the counterplan's, your own wording, or "can't tell"?
 >
-> **You:** 1. Cost (K1/C1): Can't tell yet. I haven't added up the property taxes or the upkeep… 2. Commute (K2/C2): I lean toward the counterplan. I can't work from home, so the hour each way is fixed. … *(can't tell on school and network; a lean toward the counterplan on timing)* … One thing I do know is that the kids need their own rooms. The fighting is real, and that's the main reason I want to move…
+> **You:** K1: Can't tell yet. I can't work from home, so the hour each way is real. But I haven't tried that drive at rush hour, so I don't know how bad it would be. K2: Can't tell yet. I haven't added up property taxes and upkeep, so I don't know if it's really the same as rent. Right now I'd say the counterplan's worry is fair, but I don't have the numbers. … *(can't tell on the school; the counterplan's on timing)* … K5: The plan's, mostly. The kids fight over their shared room most nights, so the space is a real problem for us now. … So overall I'm not ready to say yes to the move. First I need to add up the real monthly costs and try the drive. Then I can decide.
 >
-> **Assistant:** … You said the kids need their own rooms… That makes A4 a key assumption. … C6 (my choice): Separate rooms would not much reduce the fighting. Suppose it comes mostly from the age gap and tired evenings… **Record** … K2/C2 commute: counterplan held (leaning). … K6/C6 space: plan held. … **Result:** undetermined. Three pairs are open, and two rulings are leanings you haven't tested. **Kept for the side set aside:** … K6/C6. For the counterplan: the fighting may continue with separate rooms (a supposition, not a reported fact). Deciding observation: how the kids behave when apart. **Written by:** one assistant wrote both sides of this comparison. **Not tested:** … Hearing both sides is not evidence that the plan was tested. … I give no verdict on which plan wins.
+> **Assistant:** Your rulings are in. Since K1–K3 are still open, the result is **undetermined**. **Record** … 1. **K1, commute sustainable (plan) vs C1:** Open. … Your clarification on working from home now replaces my A6 as [T]. 2. **K2, total cost ≈ rent (plan) vs C2:** Open. You think the counterplan's worry is fair, but you haven't added up property taxes and upkeep. Lean: counterplan, which I record as a lean, not a ruling. … 4. **K4, move must precede September (plan) vs C4:** Counterplan held. … 5. **K5, rooms and yard are worth it now (plan) vs C5:** Plan held, mostly. … **Result:** undetermined. Three pairs are open, one is held for the counterplan, and one is held for the plan with a caveat. **Kept for the side set aside:** … **K5** (set aside: the counterplan's side): the yard's benefit is unproven, and the commute removes about 80 minutes a day from time with the kids. **Written by:** One assistant wrote both sides of this comparison. **Not tested:** … Alternatives other than these two, such as a closer suburb, or a larger city apartment or one with more bedrooms. … Hearing both sides is not evidence that the plan was tested. … Once you have them, I can rerun just those three pairs with the new numbers, or sketch a plan built on your set if you ask for one.
 
 **Tips**
 
 - Answer pair by pair: the plan's assumption, the counterplan's, your own wording, or "can't tell". "Can't tell" is a fine answer; the record then says what would decide it. A result of "undetermined" (*teyku*, the Talmud's "let it stand") means at least one pair is still open.
-- If you only lean one way, say so. The pair is then recorded as open with your lean noted; it counts as held only if you say you hold that side (the run above predates this rule and wrote "counterplan held (leaning)").
-- Something new you bring in, like "the kids need their own rooms", becomes a new pair with its own contrary.
+- If you only lean one way, say so. The pair is then recorded as open with your lean noted; it counts as held only if you say you hold that side. In the run above, "Right now I'd say the counterplan's worry is fair" left the cost pair open with "Lean: counterplan".
+- Facts you give about your situation go into the record: in the run above, "I can't work from home" replaced the assistant's added assumption A6 as your own [T] line. Something new that the plan rests on becomes a new pair with its own contrary.
 - Rejecting a contrary counts as your ruling; the assistant records it and doesn't argue. It rewrites a contrary only if you show that it misstates your facts or clashes with another one.
 - "Which plan wins?" gets no verdict, during or after the inquiry, because the same assistant wrote both sides. Instead it names the observation that would decide the pair you find hardest.
 
