@@ -32,13 +32,13 @@ If no flag is given, infer the target: a pasted text means `text`; "your recomme
 - The message only asks you to write, draft or improve a plan, with no request for the opposing case: the skill was loaded by mistake; do the task without it.
 - The question is about one claim, even as a devil's advocate ("play devil's advocate: is X true?", "is X healthy?"), not a plan, decision or recommendation: answer it without this skill.
 - The user wants to be questioned about the plan, one question at a time: say in one line that dia-brainstorm does that, and stop.
-- The user asks only what the plan rests on, or only for its weak points, with no request for the opposing plan: run Steps 1 to 3, then offer the counterplan in one line.
+- The user asks only what the plan rests on, or only for its weak points, with no request for the opposing plan: run Steps 1 to 3, then offer the counterplan in one line. No record; the output names the key assumptions only, not the plan's flaws (Rule 1).
 
 ## Hard rules
 
 1. **Build the alternative; do not carp.** The counterplan follows from contrary assumptions; it is not a list of the plan's flaws. It must be a course of action a competent advocate could adopt and defend.
 2. **Contraries, chosen and labelled.** For each key assumption state a specific, plausible contrary, not its bare negation: for "demand grows 10% a year", write "demand stays flat (supposing, for example, that the two largest buyers merge)", not "demand does not grow 10%". The choice is yours; mark each one "my choice". A mechanism in a contrary is a supposition, never a reported fact. Together the contraries must be able to hold at once and must fit the same data.
-3. **Symmetry.** Pair every key assumption with its contrary. Write the counterplan at the same level of detail as the plan and cite the same data: if the plan names steps, costs or dates, the counterplan names the same slots. Where a slot needs a figure that neither side has, write the slot with "not supplied" and list it under "not tested"; that counts as matching detail, and Rule 4 wins. Say in one line of the output that one assistant wrote both sides.
+3. **Symmetry.** Pair every key assumption with its contrary. Write the counterplan at the same level of detail as the plan and cite the same data: if the plan names steps, costs or dates, the counterplan names the same slots. Where a slot needs a fact that neither side has (a price, a measured quantity), write the slot with "not supplied" and list it under "not tested"; that counts as matching detail, and Rule 4 wins. A step, date or condition the counterplan itself chooses is not a fact: name it. Say in one line of the output that one assistant wrote both sides.
 4. **No new facts.** Both sides use the plan's data and what the user supplies. Never invent figures, sources or quotes for either side; a fact a side would need but neither has goes under "not tested". Label every fact with its evidence class: verified this session (a tool ran) / supplied by the user / single source / unverified recall. Your own recall is never "verified". If a search tool is available and the user asks you to check a datum, check it and update its class for both sides.
 5. **No verdict.** Do not say, or imply by tone, ranking or adjectives, which plan is better. If the user asks which wins, say in one line that this skill gives no verdict because you wrote both sides, and point to the observations that would decide the key pairs.
 6. **A ruling is not a challenge.** When the user rejects a contrary, record the ruling; do not argue for the contrary and do not soften it. Rewrite a contrary only on a named defect: it misstates the data, or it contradicts another contrary.
@@ -51,11 +51,11 @@ The first response runs Steps 1 to 7 in one message and ends with Step 7's quest
 
 ### Step 1: State the plan
 
-State the plan and its recommendation in one or two sentences, with a quote. List the data it cites as D1, D2, …, each with its evidence class. If the user has options but no recommendation, ask in one line which one to treat as the plan, and stop.
+State the plan and its recommendation in one or two sentences, with an exact quote (copy the target's words; never reword inside quotation marks). List the data it cites as D1, D2, …, each with its evidence class. If the user has options but no recommendation, ask in one line which one to treat as the plan, and stop.
 
 ### Step 2: List the assumptions
 
-Number the assumptions the recommendation rests on: A1, A2, …. Label each **[T]** stated by the target (quote it) or **[A]** reconstructed by you, with a one-line reason the plan needs it. Cover the situation (demand, people, costs, timing), what others will do, and what counts as success. A datum the decision turns on that is only single source or unverified recall is also an assumption: list it. Keep to what the recommendation uses, usually five to ten.
+Number the assumptions the recommendation rests on: A1, A2, …. Label each **[T]** stated by the target (quote it) or **[A]** reconstructed by you, with a one-line reason the plan needs it. A line you had to reword or infer is [A], even if it restates what the target said. Cover the situation (demand, people, costs, timing), what others will do, and what counts as success. A datum the decision turns on that is only single source or unverified recall is also an assumption: list it. Keep to what the recommendation uses, usually five to ten.
 
 ### Step 3: Keep the key assumptions
 
@@ -85,7 +85,7 @@ Then each side's recommendation in one line, and the line that one assistant wro
 
 ### Step 7: Ask for the user's synthesis
 
-Ask one question: which assumption from each pair do they now hold? They may answer per pair with the plan's, the counterplan's, one in their own words, or "can't tell". The set they give is the result: Mason's second criterion asks for new and more relevant assumptions, and here the user forms them, not you. Do not suggest an answer.
+Ask one question: which assumption from each pair do they now hold? They may answer per pair with the plan's, the counterplan's, one in their own words, or "can't tell". The set they give is the result: Mason's second criterion asks for new and more relevant assumptions, and here the user forms them, not you. Do not suggest an answer. A leaning ("I lean toward …") counts as held only if the user says so; otherwise record the pair as open and note the lean in one word.
 
 ### Step 8: Record
 
@@ -119,9 +119,9 @@ If the user then asks for a plan built on their set, sketch it after the record 
 - **The user rules on pairs:** record each ruling. If a pair gets none, ask about it once; then record it as open.
 - **The user rejects a contrary:** that is a ruling on the pair (Rule 6); record it with their reason if they give one; the pair counts as the plan's assumption held unless they give their own wording or say they can't tell. If they name a defect (it misstates a datum, or it contradicts another contrary), check it. If it holds, rewrite that Cn, redo Steps 4 to 6 for what rests on it, and note the defect under rewrites; if not, show the datum or line in one sentence and keep it.
 - **The user says the counterplan is weaker:** check Rule 3 and fix a named asymmetry (less detail, a datum left out). "It's weak" alone names none.
-- **The user disputes the plan's assumptions:** withdraw an assumption only if you can name its defect (a misquote, or the recommendation does not need it); insistence is not a defect. For target `user`, their clarification of their own plan is [T] and replaces the [A] line it covers. If the recommendation still needs the assumption, show where in one line and keep it. An assumption the user adds goes through Steps 3 to 6.
+- **The user disputes the plan's assumptions:** withdraw an assumption only if you can name its defect (a misquote, or the recommendation does not need it); insistence is not a defect. For target `user`, their clarification of their own plan is [T] and replaces the [A] line it covers. If the recommendation still needs the assumption, show where in one line and keep it. An assumption the user adds goes through Steps 3 to 7: show only the new lines and ask for their ruling on the new pair before the record. If it would make more than five key pairs, say which pair it displaces, or list it as passed but not paired.
 - **The user changes the plan:** treat it as a new plan, rerun, and add it to the history.
-- **The user asks for your pick:** Rule 5, during and after the inquiry. Say the result is their set, and name the observation that would decide the pair they find hardest.
+- **The user asks for your pick:** Rule 5, during and after the inquiry; add that the result is their set (or will be, once they rule), and name the observation that would decide each open pair, or the one pair they name as hardest.
 - **Stop signal** ("stop", "enough", "wrap up", or the same in the user's language): go to the record with what you have.
 
 ## Pitfalls

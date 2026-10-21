@@ -396,7 +396,7 @@ dia-confirm 동생 결혼식에서 할 짧은 축사를 써 주세요.
 - 수선 방법은 매번 사용자가 고릅니다. 이미 자기 말로 말한 것이어도 마찬가지입니다. 어시스턴트는 하나를 권하지만 규칙에 들어가는 것은 사용자가 고른 것입니다. 위 실행에서도 권한 2번 대신 1번이 골라졌습니다.
 - 사례마다 무엇에 기대는지 적혀 있습니다. "정해 둔 숫자로 한 계산"은 숫자는 지어낸 것이고 계산만 확인했다는 뜻입니다. 실제 가격이 그런지는 사용자가 판단합니다.
 - 사례를 막으려고 "그건 진짜 대용량 구매가 아니다"라고 하면 정의를 바꾸는 것입니다. 어시스턴트는 그 점을 짚고, 규칙이 이제 무엇을 포괄하지 못하는지 밝힙니다.
-- 세 라운드가 지나면 멈출지 묻고, "마무리"라고 하면 언제든 멈춥니다. 가장 좋은 결과는 "시험한 사례들에 대해서는 버팀"이며, "증명됨"은 결코 아닙니다. "열려 있음"은 인정된 반례가 있는데 아직 수선 방법을 고르지 않았다는 뜻입니다.
+- 세 라운드가 지나면 멈출지 묻고, "마무리"라고 하면 언제든 멈춥니다. 가장 좋은 결과는 "시험한 사례들에 대해서는 버팀"이며, "증명됨"은 결코 아닙니다. "열려 있음"은 다툼 있는 사례가 있거나, 인정된 반례가 있는데 아직 수선 방법을 고르지 않았다는 뜻입니다.
 
 ### dia-counterplan: 다른 계획을 옹호하는 주장 들어 보기
 
@@ -429,7 +429,7 @@ dia-confirm 동생 결혼식에서 할 짧은 축사를 써 주세요.
 **팁**
 
 - 쌍마다 답하세요: 계획의 가정, 대안 계획의 가정, 자기 표현, 또는 "모르겠음". "모르겠음"도 좋은 답입니다. 그러면 기록에 무엇이 결정을 가를지가 적힙니다. 결과가 "미결"(*테이쿠*, 탈무드에서 "그대로 두라"는 뜻)이면 적어도 한 쌍이 아직 열려 있다는 뜻입니다.
-- 한쪽으로 기울기만 했다면 그렇게 말하세요. 기록에는 확정된 판단이 아니라 기울어짐으로 남습니다("대안 계획 쪽 (기울어짐)").
+- 한쪽으로 기울기만 했다면 그렇게 말하세요. 그 쌍은 기울어짐을 적어 둔 채 열린 쌍으로 기록되고, 그쪽을 받아들인다고 말할 때만 판정된 것으로 셉니다(위 실행은 이 규칙 이전의 것이라 "대안 계획 쪽 (기울어짐)"으로 적었습니다).
 - 새로 꺼낸 내용, 예를 들어 "아이들에게 각자 방이 필요하다"는 그 자체로 반대 가정이 붙은 새 쌍이 됩니다.
 - 반대 가정을 거부하면 그것이 사용자의 판정으로 기록됩니다. 어시스턴트는 기록만 하고 반박하지 않습니다. 반대 가정이 사용자의 사실을 잘못 적었거나 다른 반대 가정과 충돌한다는 점을 보여 줄 때만 고쳐 씁니다.
 - "어느 계획이 이기나요?"라고 물어도 탐구 중이든 끝난 뒤든 판정은 하지 않습니다. 같은 어시스턴트가 양쪽을 썼기 때문입니다. 대신 가장 판단하기 어려운 쌍을 가를 관찰이 무엇인지 알려 줍니다.
@@ -521,12 +521,12 @@ releases/dialectic-skills-openai.zip
                                 generated, OpenAI directory upload
 tools/package.py                validate and build (developer-only)
 tests/                          developer-only
-upstream/                       material the skills were rebuilt from; never shipped
+upstream/                       material the seven original skills were rebuilt from; never shipped
 README.<lang>.md                translations of this file (not shipped)
 docs/spec.md                    specification
 docs/probes.md                  surface and routing probe results
-docs/token-cost.md              measured token cost per skill
-docs/skill-effect.md            each skill against no skill, blind-judged
+docs/token-cost.md              measured token cost (the seven 1.2.x skills)
+docs/skill-effect.md            the seven 1.2.x skills against no skill, blind-judged
 ```
 
 ## 개발

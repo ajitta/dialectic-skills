@@ -1,6 +1,6 @@
 # Design note: dia-warrant
 
-New skill for plugin 1.3.0. Sources: `docs/research/candidates/argumentation.md` (§2.1 Toulmin, §2.2 pragma-dialectics, §2.3 Walton, §5.2 sketch) and the independent review (`review/argumentation.md` F6–F9, F13; `review/index.md` F6, F10), and the diff review of `b30344d` (`review/diff/warrant.md`; see Diff review below). Where they differ, the review wins. Files: `skills/dia-warrant/SKILL.md`, `agents/openai.yaml`, `references/theory.md`, `references/output-template.md`.
+New skill for plugin 1.3.0. Sources: `docs/research/candidates/argumentation.md` (§2.1 Toulmin, §2.2 pragma-dialectics, §2.3 Walton, §5.2 sketch) and the independent review (`review/argumentation.md` F6–F9, F13; `review/index.md` F6, F10), the diff review of `b30344d` (`review/diff/warrant.md`; see Diff review below), and the second-pass review of `275e1aa` (`review/pass2/warrant.md`; see Second pass below). Where they differ, the review wins. Files: `skills/dia-warrant/SKILL.md`, `agents/openai.yaml`, `references/theory.md`, `references/output-template.md`.
 
 ## Shape
 
@@ -9,7 +9,7 @@ New skill for plugin 1.3.0. Sources: `docs/research/candidates/argumentation.md`
 - `--target=user|claude|text|all` with the siblings' inference rule and first-line statement.
 - Fixed results: **weakest link: [slot], because [critical question] is left open** (or "is answered against the step"); **weakest link: qualifier, because the claim says "[strength]" where the warrant licenses "[strength]"**; **no weak link found among the questions asked; not a proof**; **stopped**.
 - Never: an unlabelled reconstructed warrant; "false" or "invalid" for weak support; a verdict on the claim's truth (Rule 1 says the audit does not decide it, also when the user asks).
-- Body 132 lines; the five schemes' questions are inline, so the skill works without opening any reference. The output template is a reference, and Step 7 lists the record fields as a fallback (the dia-reductio pattern).
+- Body 135 lines; the five schemes' questions are inline, so the skill works without opening any reference. The output template is a reference, and Step 7 lists the record fields as a fallback (the dia-reductio pattern).
 
 ## Research-doc proposals
 
@@ -37,7 +37,7 @@ New skill for plugin 1.3.0. Sources: `docs/research/candidates/argumentation.md`
 - **F8 applied.** SKILL.md and theory.md use Toulmin's own "What have you got to go on?" and "How do you get there?", and theory.md says the backing question is Verheij's paraphrase. Page references come from Verheij [4] (1958/2003). The merge is grounded in Verheij's four types of critical questions, not in [6], and every question carries a slot tag. Verheij sorts Walton's 1996 expert-opinion questions and adds a conditions-of-use question; the tags on the 2008 trustworthiness and backup-evidence questions and on the other four schemes are labelled as this skill's application of his mapping.
 - **F9 applied.** Rule 3 supplies the least warrant, adapting the pragma-dialectical validity rule to a defeasible step; it is labelled reconstructed, and W1/W2 are given when two are plausible. The critical questions are inline (no reference needed).
 - **F13 applied.** Named ask mode, offered in one line after an audit of the user's own argument; it runs directly when the user asks to be questioned or wants to build an argument.
-- **Index F6, partly applied.** The price of the pick, warrant reconstruction ("the core danger"), is met by Rules 2–4, the user's power to reject a warrant, and a pitfall that says the layout is the assistant's reading. On the jargon point, the triggers use plain words ("how well reasons support a conclusion", "whether an expert, analogy or causal argument holds up") beside "warrant" and "Toulmin". **Declined:** a "fallacy" trigger. The skill reports open questions, not fallacy labels (pitfall); add the trigger only if probe cell 11 shows that "is this a fallacy" requests are lost.
+- **Index F6, partly applied.** The price of the pick, warrant reconstruction ("the core danger"), is met by Rules 2–4, the user's power to reject a warrant, and a pitfall that says the layout is the assistant's reading. On the jargon point, the triggers use plain words ("how well reasons support a conclusion", "whether an expert, analogy or causal argument holds up") beside "warrant" and "Toulmin". **Declined:** a "fallacy" trigger. The skill reports open questions, not fallacy labels (pitfall); add the trigger only if probe cell 11 shows that "is this a fallacy" requests are lost. That condition has fired (cell 11 loaded no skill: Claude 0/3, Codex 0/2), so the owner decides; see Second pass, S1.
 - **Index F6 dia-refine scope applied.** The pointer says "the previous answer or a draft", not only the assistant's own answer.
 - **Index F10, partly applied.** The warrant exclusion sentence is used in the owner's adapted form: a "strictly universal claim (all, always, never)" in place of "a general rule or claim", because a Toulmin warrant is itself a general rule. The sibling edits F10 lists for dia-reductio and dia-brainstorm were applied in the same commit (dia-reductio 1.1.0, dia-brainstorm 1.2.0); the P7 negative cells for every pair are open.
 
@@ -70,15 +70,15 @@ These were fetched on 2026-10-21 for the five question sets: Wikipedia "Argument
 | 13 | "What hidden assumptions is my case for the four-day week resting on? It boosts morale, so productivity rises." | dia-warrant, not dia-counterplan |
 | 14 | "Does the reasoning in your last answer actually support its conclusion?" | dia-warrant (target claude), not dia-refine |
 
-A miss on 5–10 or 12–14 means the description is pulling too wide. Narrow the triggers first; do not add another exclusion clause, because the description is 9 characters under the limit.
+A miss on 5–10 means the description is pulling too wide. Narrow the triggers first. Do not add another exclusion clause, because the description is 9 characters under the limit. A miss on 11–14 means a request this skill should take went elsewhere or nowhere. Fix it in the sibling that took it (its body fallback) or in this description's triggers, not by narrowing this description.
 
 Cells 11–14 were added by the diff review (finding 7); the close-case tiebreak they test lives in the Scope section, not the description.
 
-Results of the batch owner's run before the diff-review fixes (n=3 Claude, n=2 Codex): every positive cell passed except two. The op-ed cell (3) passed 2/3 on Claude. A Korean cell asking how solid the grounds are for "my claim that most startups survive 5 years after series A" passed 2/2 on Codex and 0/3 on Claude, which answered directly. The description was not widened for it: a bare factual claim with no stated reasons is a defensible non-load, close to cell 10. Cells 11–14 and the re-probe after the fixes (probes Part O) are open.
+Results of the batch owner's run before the diff-review fixes (n=3 Claude, n=2 Codex): every positive cell passed except two. The op-ed cell (3) passed 2/3 on Claude. A Korean cell asking how solid the grounds are for "my claim that most startups survive 5 years after series A" passed 2/2 on Codex and 0/3 on Claude, which answered directly. The description was not widened for it: a bare factual claim with no stated reasons is a defensible non-load, close to cell 10. Cells 11–13 and the post-fix re-probe were run on `283f6fa` (probes Part O). Cell 11 loaded no skill (Claude 0/3, Codex 0/2). Cell 12 went to dia-brainstorm on Claude (3/3) and split on Codex (dia-warrant 1, dia-brainstorm 1). Cell 13 loaded nothing on Claude (0/3) and dia-warrant on Codex (2/2). Cell 14 was not run as written: Part O ran a different "check your last answer" prompt and expected no skill.
 
 ## Diff review (2026-10-21)
 
-Source: `review/diff/warrant.md` (PASS WITH FIXES), on `b30344d`. The batch owner made the dia-reductio (1.1.0) and dia-brainstorm (1.2.0) sibling edits in `b30344d`; this note had them as open. All fixes are in SKILL.md, theory.md and the output template; the description is unchanged (1,015 characters) and the body stays at 132 lines. No version bump: 1.3.0 is unreleased on `next`, so the skill stays at 1.0.0.
+Source: `review/diff/warrant.md` (PASS WITH FIXES), on `b30344d`. The batch owner made the dia-reductio (1.1.0) and dia-brainstorm (1.2.0) sibling edits in `b30344d`; this note had them as open. All fixes are in SKILL.md, theory.md and the output template; the description is unchanged (1,015 characters) and the body is 133 lines. No version bump: 1.3.0 is unreleased on `next`, so the skill stays at 1.0.0.
 
 - **1 applied (should-fix).** Rule 3 now gives the warrant the strength the target's words give the link, or "generally", and adapts the validity rule to defeasible steps instead of requiring validity, so it no longer clashes with Rule 1 or the worked example. Step 5 says when the comparison is with a reconstruction; theory.md §4 and the SKILL.md intro say "adapts".
 - **2 applied (should-fix).** Rule 7 gains the **weakest link: qualifier** form; Step 6 reports the qualifier check in every case and uses that form when no question is open or against; Step 7 and the template record have a qualifier-check field, and the template's Result lines carry the new form.
@@ -86,9 +86,25 @@ Source: `review/diff/warrant.md` (PASS WITH FIXES), on `b30344d`. The batch owne
 - **4 applied (should-fix).** A bare "yes" or "trust me" leaves a question open (Follow-up turns); in ask mode a bare yes or no fills nothing.
 - **5 applied (should-fix).** Rule 4 states the departure from the rule's first half; the rejection follow-up is split by target (user: remove, then "none given" makes the warrant the weakest link; claude or text: a dispute, withdrawn only on a named defect); ask mode's "no" leaves "none given". Rule 7 says a "none given" warrant leaves "How do you get there?" open, so the follow-up's result matches the fixed form. theory.md §4 quotes the whole rule 5 and states the departure.
 - **6 applied (nit).** theory.md §3 says Verheij sorts Walton's 1996 questions plus his own conditions-of-use question; the 2008 trustworthiness and backup-evidence tags are this skill's.
-- **7 applied in part (should-fix).** "8 and 3" is now "7 and 3"; cells 11–14 are added; the owner's pre-fix run is recorded above. Running 11–14 and the post-fix re-probe is open.
-- **8 applied (should-fix).** The review's close-case tiebreak (brainstorm, counterplan, conjecture) is in Scope; the description is not touched, so the 1,024 cap is not at issue.
+- **7 applied in part (should-fix).** "8 and 3" is now "7 and 3"; cells 11–14 are added; the owner's pre-fix run is recorded above. Cells 11–13 and the re-probe ran (probes Part O; results above); cell 14 as written is open.
+- **8 applied (should-fix).** The review's close-case tiebreak (brainstorm, counterplan, conjecture) is in Scope; the description is not touched, so the 1,024 cap is not at issue. The Scope tiebreak acts only after this skill loads; the reverse case is in dia-brainstorm's Step 0 fallback.
 - **9 applied (nit).** Rule 7 maps [warrant/backing] to warrant or backing and [conclusion] to the claim; "conclusion" is "claim" in the slot list and the tie order.
 - **10 applied (nit).** Step 7 ends with the truth line, then the ask-mode offer when Parameters call for it, as the template does.
 - **11 applied (nit).** The worked example gains the [conclusion] question (the analogy's counter-case, merged with the general one) and says its qualifier comparison is with the reconstructed W1.
 - **12 applied (nit).** F7a and Index F10 now say the sibling edits landed in `b30344d`; the `report-*.md` citations are now `review/<x>.md`.
+
+## Second pass (2026-10-21)
+
+Source: `review/pass2/warrant.md` (PASS WITH FIXES), on `275e1aa`. Fixes are in SKILL.md, the output template, theory.md and this note; the description is unchanged (1,015 characters); the body is 135 lines. No version bump (1.3.0 unreleased on `next`).
+
+- **S1 applied in this note; probes.md left to its owner.** Lines on cells 11–13 and the re-probe now carry the Part O results; cell 14 as written is open; the miss rule is split (5–10 too wide; 11–14 fix the sibling or the triggers); the F6 fallacy condition is marked fired. Open for the probes.md owner: replace Part O readings 1 and 3 with the review's text.
+- **S1 fallacy trigger: open, owner decides.** (a) recommended: drop "Ends with a record. " and add "or is a fallacy" after "holds up" (1,011 characters), then re-run cell 11; (b) decline again: "Cell 11 loads no skill on either engine. Declined: Claude answers it directly at base too, and the headroom is kept." The description is not changed here.
+- **S2 applied.** Step 1 gains the chained-step rule (C1; Wa and Wb by step; W1/W2 stay rivals; questions within the cap; qualifier on the step reaching C; the result names the step); the template has a step-warrants line; Step 7's fallback warrant field adds Wa and Wb.
+- **S3 not applied here (sibling file).** For the batch owner: insert in `skills/dia-brainstorm/SKILL.md` Step 0 fallback, after "…it belongs to dia-conjecture;": "if it asks how well the reasons given support a conclusion (an argument rather than an idea or plan), it belongs to dia-warrant;", then re-run cell 12. The DN:90 sentence is applied (Diff review, 8).
+- **N1 applied.** "132 lines" is 133 in the Diff review section; Shape gives the current 135.
+- **N2 applied.** The template's critical-question status line uses the review's form.
+- **N3 applied.** Step 5 says a "none given" warrant gives "no warrant to compare"; the template record's Warrant line adds "none given"; to keep them consistent, the template's qualifier-check lines and Step 7's fallback field add "no warrant to compare".
+- **N4 applied.** Step 7's last line names C; the template's closing line quotes C to match.
+- **N5 applied.** theory.md §4 grounds the departure in the assistant not knowing whether its reconstruction is the implicit premise, with the user's word the only evidence.
+- **N6 not applied (spec.md out of scope).** For the batch owner: append to spec §5.8 Borders "; poking holes in an idea or plan to dia-brainstorm (an argument's support stays here)."
+- **N7 applied.** Rule 3 takes the strength from the rule itself, not the claim's qualifier; Step 5 says when an overstatement follows from the "generally" default; the worked example and the template's qualifier check say it too.

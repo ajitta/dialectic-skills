@@ -396,7 +396,7 @@ dia-confirm 帮我写一篇在我弟弟婚礼上用的简短致辞。
 - 每一次修补都由你来选，即使是你自己已经说出来的那种。助手会推荐一个选项，但写进规则的是你选的那个；在上面的运行里，被选中的是选项 1，而不是助手推荐的选项 2。
 - 每个案例都会注明它依据什么。"对设定数字的算术"是说数字是编的，核对的只是计算；真实价格是不是这样，由你判断。
 - 为了排除一个案例而说"那不算真正的批量购买"，就是改了定义；助手会点明这一点，并说出你的规则从此不再覆盖哪些情况。
-- 三轮之后它会问你要不要停，随时说"收尾"都能停下。最好的结果是"对已试过的案例仍然成立"，永远不会是"已证明"；"未决"表示有案例算数，但还没选修补方式。
+- 三轮之后它会问你要不要停，随时说"收尾"都能停下。最好的结果是"对已试过的案例仍然成立"，永远不会是"已证明"；"未决"表示有案例存在争议，或有案例算数但还没选修补方式。
 
 ### dia-counterplan：听听为另一套方案所作的辩护
 
@@ -429,7 +429,7 @@ dia-confirm 帮我写一篇在我弟弟婚礼上用的简短致辞。
 **小贴士**
 
 - 按组回答：原计划的假设、反方案的假设、你自己的说法，或"说不准"。"说不准"完全可以，记录里会写明什么能做出判断。结果为"未定"（*teyku*，塔木德中"让它悬着"的意思）表示至少还有一组没有定论。
-- 如果你只是偏向某一边，就照实说。记录会把它记为倾向（"反方案一方（倾向）"），而不是定论。
+- 如果你只是偏向某一边，就照实说。这一组会记为没有定论并注明你的倾向；只有你说你认同那一边时，才算作认同（上面的运行早于这条规则，写的是"反方案一方（倾向）"）。
 - 你新提出的内容，比如"孩子们需要各自的房间"，会成为新的一组，并配上它自己的对立假设。
 - 拒绝某个对立假设，就是你的裁定；助手只记录，不争辩。只有当你指出它写错了你的事实、或与另一个对立假设相冲突时，它才会改写。
 - 问"哪个方案赢？"，无论在探究中还是结束后都得不到裁决，因为两边都是同一个助手写的。它会转而指出，哪项观察能判定你最拿不准的那一组。
@@ -521,12 +521,12 @@ releases/dialectic-skills-openai.zip
                                 generated, OpenAI directory upload
 tools/package.py                validate and build (developer-only)
 tests/                          developer-only
-upstream/                       material the skills were rebuilt from; never shipped
+upstream/                       material the seven original skills were rebuilt from; never shipped
 README.<lang>.md                translations of this file (not shipped)
 docs/spec.md                    specification
 docs/probes.md                  surface and routing probe results
-docs/token-cost.md              measured token cost per skill
-docs/skill-effect.md            each skill against no skill, blind-judged
+docs/token-cost.md              measured token cost (the seven 1.2.x skills)
+docs/skill-effect.md            the seven 1.2.x skills against no skill, blind-judged
 ```
 
 ## 开发

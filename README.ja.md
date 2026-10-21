@@ -396,7 +396,7 @@ dia-confirm 弟の結婚式で読む短いスピーチを書いてください�
 - 修正方法は毎回あなたが選びます。すでに自分の言葉で言ったものでも同じです。アシスタントは 1 つを勧めますが、ルールに入るのはあなたが選んだものです。上の実行例でも、勧められた 2 ではなく 1 が選ばれています。
 - 各事例には、何にもとづくかが書かれます。「決めておいた数字での計算」は、数字は作りもので、確かめたのは計算だけという意味です。実際の値段がそうなっているかは、あなたが判断します。
 - 事例を締め出すために「それは本当のまとめ買いじゃない」と言うのは、定義の変更です。アシスタントはそれを指摘し、ルールが何をカバーしなくなったかを示します。
-- 3 ラウンドたつと終えるかどうか尋ね、「まとめて」と言えばいつでも終わります。最良の結果は「試した事例に対しては持ちこたえている」で、「証明された」になることはありません。「未決」は、反例と認めた事例があるのに修正方法をまだ選んでいないという意味です。
+- 3 ラウンドたつと終えるかどうか尋ね、「まとめて」と言えばいつでも終わります。最良の結果は「試した事例に対しては持ちこたえている」で、「証明された」になることはありません。「未決」は、係争中の事例があるか、反例と認めた事例があるのに修正方法をまだ選んでいないという意味です。
 
 ### dia-counterplan：別の計画を推す意見を聞く
 
@@ -429,7 +429,7 @@ dia-confirm 弟の結婚式で読む短いスピーチを書いてください�
 **ヒント**
 
 - 組ごとに答えます：計画の前提、対抗計画の前提、自分の言葉、または「わからない」。「わからない」でもかまいません。記録に、何が決め手になるかが書かれます。結果が「未決」（*テイク*、タルムードの「そのままにしておけ」）なら、少なくとも 1 組がまだ未解決だという意味です。
-- 片方に傾いているだけなら、そう言ってください。記録には、決まった考えではなく「傾き」として残ります（「対抗計画側（傾き）」）。
+- 片方に傾いているだけなら、そう言ってください。その組は傾きを書き添えて未解決として記録され、その側をとると言ったときだけ、とったものとして数えられます（上の実行例はこのルールより前のもので、「対抗計画側（傾き）」と書いています）。
 - 新しく持ち出したこと、たとえば「子どもたちにはそれぞれの部屋が必要」は、反対の前提が付いた新しい組になります。
 - 反対の前提を退けると、それはあなたの判定として記録されます。アシスタントは記録するだけで反論しません。書き直すのは、その前提があなたの事実を取り違えている、または別の反対の前提とぶつかっていると示されたときだけです。
 - 「どちらの計画が勝ち？」と聞いても、探究の途中でも終わった後でも判定はしません。同じアシスタントが両方を書いたからです。代わりに、あなたがいちばん決めかねている組を決め手になる観察を示します。
@@ -521,12 +521,12 @@ releases/dialectic-skills-openai.zip
                                 generated, OpenAI directory upload
 tools/package.py                validate and build (developer-only)
 tests/                          developer-only
-upstream/                       material the skills were rebuilt from; never shipped
+upstream/                       material the seven original skills were rebuilt from; never shipped
 README.<lang>.md                translations of this file (not shipped)
 docs/spec.md                    specification
 docs/probes.md                  surface and routing probe results
-docs/token-cost.md              measured token cost per skill
-docs/skill-effect.md            each skill against no skill, blind-judged
+docs/token-cost.md              measured token cost (the seven 1.2.x skills)
+docs/skill-effect.md            the seven 1.2.x skills against no skill, blind-judged
 ```
 
 ## 開発

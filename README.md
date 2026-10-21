@@ -396,7 +396,7 @@ Find counterexamples to my rule: buying in bulk always saves money.
 - You pick every repair, even one you have already put into words. The assistant recommends an option, but your choice is what goes into the rule, as in the run above where option 1 was picked over the recommended option 2.
 - Each case says what it rests on. "Arithmetic from the stipulated numbers" means the numbers were made up and only the sums are checked; whether real prices look like that is yours to judge.
 - Saying "that's not a real bulk buy" to shut out a case is a change of definition; the assistant names it and says what your rule no longer covers.
-- After three rounds it offers to stop, and "wrap up" stops it at any time. The best result is "holding against the cases tried", never "proved"; "open" means a case counted and no repair was picked.
+- After three rounds it offers to stop, and "wrap up" stops it at any time. The best result is "holding against the cases tried", never "proved"; "open" means a case is disputed, or a case counted and no repair was picked.
 
 ### dia-counterplan: hear the case for a different plan
 
@@ -429,7 +429,7 @@ Devil's advocate on this plan: we want to move from our two-bedroom city apartme
 **Tips**
 
 - Answer pair by pair: the plan's assumption, the counterplan's, your own wording, or "can't tell". "Can't tell" is a fine answer; the record then says what would decide it. A result of "undetermined" (*teyku*, the Talmud's "let it stand") means at least one pair is still open.
-- If you only lean one way, say so. The record keeps it as a leaning ("counterplan held (leaning)"), not as a settled view.
+- If you only lean one way, say so. The pair is then recorded as open with your lean noted; it counts as held only if you say you hold that side (the run above predates this rule and wrote "counterplan held (leaning)").
 - Something new you bring in, like "the kids need their own rooms", becomes a new pair with its own contrary.
 - Rejecting a contrary counts as your ruling; the assistant records it and doesn't argue. It rewrites a contrary only if you show that it misstates your facts or clashes with another one.
 - "Which plan wins?" gets no verdict, during or after the inquiry, because the same assistant wrote both sides. Instead it names the observation that would decide the pair you find hardest.
@@ -521,12 +521,12 @@ releases/dialectic-skills-openai.zip
                                 generated, OpenAI directory upload
 tools/package.py                validate and build (developer-only)
 tests/                          developer-only
-upstream/                       material the skills were rebuilt from; never shipped
+upstream/                       material the seven original skills were rebuilt from; never shipped
 README.<lang>.md                translations of this file (not shipped)
 docs/spec.md                    specification
 docs/probes.md                  surface and routing probe results
-docs/token-cost.md              measured token cost per skill
-docs/skill-effect.md            each skill against no skill, blind-judged
+docs/token-cost.md              measured token cost (the seven 1.2.x skills)
+docs/skill-effect.md            the seven 1.2.x skills against no skill, blind-judged
 ```
 
 ## Develop

@@ -28,7 +28,7 @@ This skill runs the method of Lakatos's *Proofs and Refutations* on a strictly u
 ## Hard rules
 
 1. **One counterexample per message, one ask per message.** A dialogue turn fits a phone screen without scrolling: no tables or headers; a short numbered list of lemmas or repair options is fine.
-2. **Every case shows its check.** Condition by condition: that it meets C's antecedent (it is an A, in C's stated terms) and violates its consequent (it is not B); for a local case, which lemma it violates and how. If you cannot write the check, do not raise the case.
+2. **Every case shows its check.** Condition by condition: that it meets C's antecedent (it is an A, under the reading of C fixed in Step 1) and violates its consequent (it is not B); for a local case, which lemma it violates and how. If you cannot write the check, do not raise the case.
 3. **Evidence classes.** Each case says what it rests on: logic or definition / supplied by the user / verified this session (a tool ran) / single source / unverified recall. Your own recall is never "verified". If a search tool is available, you may check a fact a case rests on. A C′ forced by a case that rests only on your recall is **conditional** on that case.
 4. **The user rules; you classify.** Never rule on a case's validity for the user. Classify the ruling by Step 4.
 5. **No silent redefinition.** An "I meant …" or a narrowed term is a change to C: state the old and the new wording and what the new one no longer covers. Lakatos's Teacher refuses "surreptitious changes" of this kind.
@@ -41,7 +41,7 @@ This skill runs the method of Lakatos's *Proofs and Refutations* on a strictly u
 
 ## Step 0 — Is it a strictly universal claim?
 
-Take only a claim about every member of a class. Otherwise say in one line where it fits, and stop unless the user restates it as universal:
+Take only a claim about every member of a class that says what is the case. A rule about what to do ("never deploy on Fridays", "every refund must be approved within a day") is a policy even when worded with all, every or never, or asked as "does it hold in every case". Otherwise say in one line where it fits, and stop unless the user restates it as a claim about what is the case (for example "every Friday deploy fails more often than other deploys"); do not restate it that way yourself:
 
 - "generally", "usually", "most", or a claim the user would keep despite one exception: dia-warrant (one counterexample to a defeasible claim is a rebuttal condition, not a refutation);
 - a plan, policy, decision or idea: dia-counterplan for the opposing case, dia-brainstorm to poke holes or stress-test, dia-negative for where it fails its own standard;
@@ -93,7 +93,7 @@ Branch on the case's label (Lakatos's Rules 2-4):
 - **Local only** (Lj fails, C survives the case): Rule 4. Replace Lj by a lemma the case does not refute and the proof can still use. C is unchanged, unless an earlier repair built Lj into C: then the replacement widens C′ to cover the case (Lakatos's deeper proof, ch. 1 section 6), and the user picks it like any C′.
 - **Global only** (C fails, no listed lemma fails): the proof hides a lemma. Name the hidden lemma the case refutes, add it to the proof-analysis as the next L-number, marked [A, hidden], which the user accepts by picking this option, then Rule 2: C′ is C with that lemma built in as a condition ("every A that … is B").
 - **Both** (C and Lj fail): lemma-incorporation, Rule 2: C′ is "every A that meets Lj is B".
-- **Deeper proof**, where you can find one: for a global case, a weaker condition that the case still fails but more of C's other cases meet, so that C′ keeps more of C's content than lemma-incorporation (Lakatos, "increasing content by deeper proofs"). Never offer a C′ whose condition the counting case meets: that case is an A that is not B.
+- **Weaker lemma** (Rule 2's "a suitable lemma"), where you can find one: for a global case, a weaker lemma than the one you would build in, one the proof can still use, that the counting case fails and that more of C's other cases meet, so that C′ keeps more of C's content. Show in one line that the counting case fails it. Never offer a condition the counting case meets (that case is an A that is not B), or one that only restates B ("every A that ends up B is B"): that keeps C true by emptying it, the "empty tautology" SEP's account of Lakatos warns of, and is not a repair.
 - **Give up C** is an option whenever C itself fails (global or both).
 - Exception-barring (listing the case as an exception) and monster-adjustment (reinterpreting the case so that it fits) only if the user asks for them, labelled as responses Lakatos rejects.
 
@@ -114,7 +114,7 @@ End when the user stops, when they accept the offer to stop, or when you find no
 Record:
 
 - **Result:** … · rounds: n
-- **Claim:** C "…" → C′ "…", one arrow per change, each with its reason (lemma-incorporation, hidden lemma built in, deeper proof, exception-barring, monster-adjustment, definition change, "I meant …"); a Rule 4 lemma replacement goes under Proof-analysis, not here
+- **Claim:** C "…" → C′ "…", one arrow per change, each with its reason (lemma-incorporation, hidden lemma built in, weaker lemma, deeper proof, exception-barring, monster-adjustment, definition change, "I meant …"); a Rule 4 lemma replacement goes under Proof-analysis, not here, unless it widens C′ (then the reason is deeper proof)
 - **Proof-analysis:** L1 [T] "…"; L2 [A, accepted] …; L3 [A, hidden, added after case k] …; replaced: …
 - **Prior criterion:** the user's answer (Popper's; an addition) | not asked (C is not empirical)
 - **Cases:** one line each: kind (global / local Lj / both), evidence class, ruling (counts / invalid / concept-stretching / monster-barring / disputed), response
@@ -128,8 +128,9 @@ A holding result must fill **Tried**: a claim nobody pressed has not held. If a 
 ## Pitfalls
 
 - **Invented cases:** a case that only sounds right. If the check has a line you cannot fill, drop the case.
-- **Exception lists:** repairs that exclude cases one by one instead of naming the lemma that explains them. Look for the hidden lemma, or a deeper proof.
+- **Exception lists:** repairs that exclude cases one by one instead of naming the lemma that explains them. Look for the hidden lemma, or a weaker lemma.
 - **Unnamed monster-barring:** yours or the user's. Reinterpreting a case so that it fits is monster-adjustment, offered only on request.
 - **Bundling:** three cases, or a case plus a repair menu, in one message.
+- **Empty repairs:** a condition that restates B ("saves money when it costs less") keeps C true by emptying it. Do not offer it.
 - **Easy holding:** ending "holding" after one weak case. Press the most suspect lemma first.
 - **Advisor drift:** replacing C with a claim of your own. Repairs come from the rules above, and the user picks.

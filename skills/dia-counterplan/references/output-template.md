@@ -32,7 +32,7 @@ Coherent: C1 … Cn can hold together | replaced Ck because it conflicted with C
 Same data: no contrary contradicts D1 … Dn | C2 reads D2 as …
 
 ## Counterplan
-Recommendation: one or two sentences, at the plan's level of detail. A slot (step, cost, date) whose figure neither side has reads "not supplied" and goes under Not tested.
+Recommendation: one or two sentences, at the plan's level of detail. A slot (step, cost, date) whose fact (a price, a measured quantity) neither side has reads "not supplied" and goes under Not tested; a step or date the counterplan chooses is named, never "not supplied".
 1. … (rests on C1; cites D1)
 2. … (rests on C2)
 

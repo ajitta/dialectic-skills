@@ -2,7 +2,7 @@
 
 New skill for plugin 1.3.0. Method: Lakatos's *Proofs and Refutations*, ch. 1 sections 1-6 and Rules 1-4, as a multi-turn counterexample dialogue on a strictly universal claim the user holds. Sources: `docs/research/candidates/modern-dialectic.md` (section 2.3, the Popper fold in 2.4, the sketch in section 4) and the independent reviews `review/modern-dialectic.md` and `review/index.md` (candidates review of 2026-10-21; diff review `review/diff/conjecture.md`). Where the research and the review differ, the review was followed.
 
-Files: `skills/dia-conjecture/SKILL.md` (body 125 lines), `agents/openai.yaml`, `references/theory.md`. No `references/output-template.md`: the record fits in the body, so no fallback is needed.
+Files: `skills/dia-conjecture/SKILL.md` (body 126 lines), `agents/openai.yaml`, `references/theory.md`. No `references/output-template.md`: the record fits in the body, so no fallback is needed.
 
 Description: 1,020 characters after the diff review (Python `len` of the parsed value; limit 1,024; 1,018 in b30344d).
 
@@ -32,7 +32,7 @@ Declined or changed:
 
 ## Review findings, review/modern-dialectic.md
 
-- **F1 applied.** Step 3 applies Lakatos's Rules 1 and 3 to every local case; Step 5 branches local only (Rule 4, C unchanged), global only (name the hidden lemma, add it, then Rule 2), both (lemma-incorporation). Exception-barring and monster-adjustment only on request, labelled as responses Lakatos rejects. A deeper-proof option carries the content-increasing direction (section 6).
+- **F1 applied.** Step 3 applies Lakatos's Rules 1 and 3 to every local case; Step 5 branches local only (Rule 4; C unchanged unless the lemma was built into C, then a deeper proof widens C′), global only (name the hidden lemma, add it, then Rule 2), both (lemma-incorporation). Exception-barring and monster-adjustment only on request, labelled as responses Lakatos rejects. The content-increasing direction is the deeper proof (section 6a) for a local case against a built-in lemma, and a weaker lemma (Rule 2's "a suitable lemma") for a global case.
 - **F2 applied.** Hard rule 2: each case shows, condition by condition, that it meets C's antecedent and violates its consequent. Step 4: invalid (the user names a failed condition) is withdrawn; monster-barring is accepted only as an explicit definition change with its lost content, labelled as a departure from Rule 2; a bare denial is disputed, neither dropped nor counted.
 - **F3 applied.** Strictly universal claims only; Step 0 and the description send "generally / usually" claims to dia-warrant, plans and policies to dia-counterplan, dia-brainstorm or dia-negative, meanings to dia-elenchus, Q and not-Q to dia-reductio. "Contradiction" and "follows from its premises" are not in the description. The overlap with dia-reductio and dia-negative (both narrowings are exception-barring) is stated in theory.md section 7.
 - **F4 applied.** Roles: ask for the argument first; a run on reconstructed [A] lemmas needs the user's acceptance of each, and the skill says it is then arguing both sides. The user's incentive to monster-bar is named, and answered by the per-case check and the ruling classes.
@@ -48,7 +48,7 @@ Declined or changed:
 
 - **F7 applied.** The skill does not claim that the assistant only questions: it raises cases and recommends a repair, and says so in Roles. The Counterexample Game finding is stated in theory.md as the reason for the per-case check and the cap, explicitly "a risk finding, not support for the method".
 - **F10 applied in part.** The exclusion sentence is the review's, plus the dia-warrant clause the owner asked for. Negative probe cells below cover every bordering sibling. Not done here: the sibling edits F10 lists (dia-reductio "follows strictly", dia-brainstorm's pointers), which D35 assigns to the batch owner; this implementer may not touch other skills. Note for the batch owner: dia-brainstorm's Step 2 "Counterexample" tactic and its "poke holes" trigger still border this skill; probe 5 checks it.
-- Batch owner, same commit (b30344d): dia-reductio 1.1.0 now says "follows strictly from its premises" and points to dia-warrant and dia-conjecture; dia-brainstorm 1.2.0 points to dia-counterplan. dia-brainstorm's description has no pointer to dia-conjecture; its body gets a fallback line toward dia-counterplan and dia-conjecture (package review findings 4 and 9). Still open: the P7 re-run.
+- Batch owner, same commit (b30344d): dia-reductio 1.1.0 now says "follows strictly from its premises" and points to dia-warrant and dia-conjecture; dia-brainstorm 1.2.0 points to dia-counterplan. dia-brainstorm's description has no pointer to dia-conjecture; its body gets a fallback line toward dia-counterplan and dia-conjecture (package review findings 4 and 9). The P7 re-run is done: probes Part O.
 
 ## Open items for the owner
 
@@ -72,13 +72,13 @@ Run on Claude and Codex, n=2 per cell, against the 1.2.x baseline, as in P7.
 | 9 | "대부분의 스타트업은 시리즈 A 이후 5년을 버틴다는 내 주장, 근거가 얼마나 탄탄해?" | dia-warrant |
 | 10 | "Write a Python function that checks whether every element of a list is positive." | no skill |
 | 11 | "Poke holes in my claim that every microservice should own its own database." | dia-conjecture (universal claim; negative for dia-brainstorm) |
-| 12 | "My definition: a game is any activity done for fun. Give me counterexamples." | owner to decide: dia-elenchus (definition) or dia-conjecture; record the choice in Step 0 |
-| 13 | "Our policy says every refund is approved within 24 hours. Find counterexamples." | dia-negative (policy; negative for dia-conjecture) |
+| 12 | "My definition: a game is any activity done for fun. Give me counterexamples." | dia-elenchus (Step 0 sends what a word means there; owner to confirm) |
+| 13 | "Our policy says every refund is approved within 24 hours. Find counterexamples." | dia-conjecture acceptable (read as a claim about what happens) |
 | 14 | "Here is my proof that every even perfect number ends in 6 or 8. Does it follow?" | dia-reductio (deductive step; negative for dia-conjecture) |
 | 15 | "How well does my argument support the claim that all our users churn after a price rise?" | dia-conjecture or dia-warrant, owner to decide; the two descriptions currently both claim it |
 | 16 | "Our team rule: never deploy on Fridays. Does it hold in every case?" | not dia-conjecture (a policy to adopt; Step 0 sends it to dia-negative or dia-counterplan) |
 
-Probe run reported by the batch owner (description of b30344d, before the diff-review edits): all four positive cells 3/3 on Claude and 2/2 on Codex; no sibling cell moved to dia-conjecture. Rows 11-16 were added after that run and are not yet run.
+Probe run reported by the batch owner (description of b30344d, before the diff-review edits): all four positive cells 3/3 on Claude and 2/2 on Codex; no sibling cell moved to dia-conjecture. Rows 11-16 were run on 283f6fa: probes Part O, boundary table.
 
 ## Diff review (2026-10-21)
 
@@ -88,7 +88,7 @@ Source: `review/diff/conjecture.md` (PASS WITH FIXES), plus `review/diff/package
 - **2 applied** (Rule 4 in the Claim line): Rule 4 dropped from the reasons for C → C′; lemma replacements go under Proof-analysis.
 - **3 applied** (deeper proof): local-only now widens C′ when the replaced lemma was built into C (section 6); the deeper-proof option is a weaker condition the counting case still fails. theory.md section 4 describes both uses of 6a.
 - **4 applied** (overlapping results): the result is the first that applies, ordered given up, stopped before testing, open, revised, holding.
-- **5 applied** (policies): the description says "Not for plans, policies, decisions or ideas"; "such as" dropped. To fit package finding 10 (below) the description also drops "ch. 1 sections 1-6" from its label (the body keeps the full label), says "splits its argument" and "a repair Lakatos allows".
+- **5 applied** (policies): the description says "Not for plans, policies, decisions or ideas"; "such as" dropped. To fit package finding 10 (below) the description also drops "ch. 1 sections 1-6" from its label (the body keeps the full label), says "splits its argument" and "a repair Lakatos allows", and "checked condition by condition" became "each with its check" (hard rule 2 still requires condition by condition).
 - **6 applied** (routing): probe rows 11-15 added; the open-question-3 line replaced, with the dia-brainstorm body fallback added (package finding 9).
 - **7 applied** (monster-adjustment source): theory.md section 3 says the grouping is the skill's reading, not a quoted source.
 - **8 applied** (worked example): "O(log n) time", and the check separates link walks from comparisons.
@@ -100,3 +100,22 @@ Source: `review/diff/conjecture.md` (PASS WITH FIXES), plus `review/diff/package
 - **Package 10 applied** (rule vs policy): the description and the body's opening line say "a rule or generalization about what is the case (not a policy to adopt)"; theory.md section 5 matches; probe 16 covers the Friday-deploy request.
 - **Package 4 applied**: the batch-owner sibling edits in b30344d are recorded under review/index.md F10.
 - Declined: none.
+
+## Second pass (2026-10-21)
+
+Source: `review/pass2/conjecture.md` (PASS WITH FIXES), plus the conjecture item in `review/pass2/package.md` (finding 6). Description 1,020 characters; body 126 lines. No version bump (1.0.0 is unreleased); `plugins/dia/` and the zips are not regenerated here.
+
+- **S1 applied** (global "deeper proof" mislabelled): Step 5's option is now **Weaker lemma** (Rule 2's "a suitable lemma"), with a one-line check that the counting case fails it and a ban on conditions the case meets or that restate B; the Claim line adds "weaker lemma"; theory.md section 4 uses the reviewer's sentence; Pitfalls gains **Empty repairs**. Changed from the reviewer's text: "the 'empty tautology' Lakatos's critics warn of" became "SEP's account of Lakatos warns of" (the phrase is SEP's exposition, not a critic's); theory.md section 3 quotes SEP's example and points to Step 5; the Exception-lists pitfall says "or a weaker lemma" (deeper proof is now local only).
+- **Package 6 applied** (out-283-a turn 6, option 2, met by the counting case): covered by S1's check line and ban.
+- **S2 applied** (Step 0 admits a universally worded policy): Step 0 uses the reviewer's text. Part O's "Step 0 sends a policy to adopt elsewhere" is false: in the one Friday run that loaded dia-conjecture (`out2/cc-var2-c-neg-friday-2.json`), Step 0 did not stop; the assistant recast the rule as "every deploy made on a Friday is a mistake" and continued. Step 0 is tightened for this. probes.md is left to its owner.
+- **S3 applied in this note** (boundary results): "not yet run" replaced; the F1 line updated. For probes.md's owner: Part O's "Every positive cell for the three new skills …" holds only for the first table; in the boundary table row 11 ("Poke holes in my claim that every microservice …") goes to dia-brainstorm or no skill on Claude (0/3) and splits on Codex (1/2); dia-brainstorm's description has no pointer to dia-conjecture (owner decision).
+- **N1 applied:** the Claim line adds ", unless it widens C′ (then the reason is deeper proof)".
+- **N2 applied:** hard rule 2 reads "under the reading of C fixed in Step 1".
+- **N3 declined here** (dia-brainstorm:41 is another skill's file): route to the batch owner.
+- **N4 applied:** row 13 expects "dia-conjecture acceptable (read as a claim about what happens)".
+- **N5 applied:** the diff-review "5 applied" line records "each with its check".
+- **N6 applied** (recorded): row 12 now expects dia-elenchus, as Step 0 already decides, for the owner to confirm. Part O's "dia-conjecture 2/2" for row 12 on Codex var2 counts reads: both runs ignored the skill (one bulleted list of four counterexamples, no Step 1).
+- **N7 declined here** (spec D35 is another file): route to the spec owner ("1,219 for the seven at eb7ab54").
+- **N8 declined here** (spec §5.9 and §5.3 are another file): route to the spec owner.
+- **Session violations** (b turn 6 "$38" figure, b turn 5 bare "Yes", a turn 1 L3 reason): no text change; hard rule 2, Step 2 and S1's one-line check already cover them.
+- Also fixed: the stale "Still open: the P7 re-run" under review/index.md F10 (package pass2 finding 2).

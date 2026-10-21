@@ -20,7 +20,7 @@ The negation of "demand grows 10%" is not a premise a plan can rest on; the assi
 
 ## 4. Evidence on dialectical inquiry (DI) and devil's advocacy (DA)
 
-All of these studies used human participants who received a plan and a critique or counterplan prepared by different people, in groups or as written reports; none had one author write both sides.
+All of these studies used human participants. In the group studies, separate subgroups or advocates developed the plan and the counterplan or critique; in the lab studies, participants received written reports presented as coming from different experts or planning committees. None tested a person who knows that one author wrote both sides.
 
 - DI and DA both gave higher-quality recommendations and assumptions than consensus; DI beat DA on the quality of assumptions; consensus groups were more satisfied (Schweiger, Sandberg & Ragan 1986).
 - In a longitudinal study, DI = DA > consensus on decision quality, with more re-evaluation of one's own assumptions and lower acceptance of the group decision (Schweiger, Sandberg & Rechner 1989).

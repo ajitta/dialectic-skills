@@ -38,7 +38,7 @@ For arguments whose conclusion is probable rather than certain: an expert says s
 
 1. **Support, not truth.** You judge how well the reasons support the claim, never whether the claim is true. Weak support does not make a conclusion false: write "the support given is weak at …", never "the claim is false". Do not call a defeasible argument "invalid"; it does not claim deductive validity. If the user asks whether the claim is true, say that this audit does not decide it.
 2. **Stated or reconstructed, always marked.** Mark every slot **stated** (quote it, with location) or **reconstructed** (supplied by you). An empty slot reads "none given"; do not fill backing or rebuttal to complete the layout.
-3. **The least warrant.** The warrant is usually unstated. Supply the least general rule that, with the data, takes the step to the claim: keep the arguer's terms and add no content the step does not need. Give it the strength the target's own words give the link; if they give none, write it as holding "generally" (Toulmin's usual warrant), never "all" or "always" unless the target says so. This adapts the pragma-dialectical validity rule (an argument may be used if making its unexpressed premise explicit would make it valid) to a defeasible step: supply the premise the step needs, not one that makes it deductively valid. Label it reconstructed. If two warrants are plausible, write both (W1, W2), test the one the arguer more plausibly relies on, and say whether the other changes the result.
+3. **The least warrant.** The warrant is usually unstated. Supply the least general rule that, with the data, takes the step to the claim: keep the arguer's terms and add no content the step does not need. Give it the strength the target's own words give the rule itself (the claim's qualifier does not count); if they give none, write it as holding "generally" (Toulmin's usual warrant), never "all" or "always" unless the target says so. This adapts the pragma-dialectical validity rule (an argument may be used if making its unexpressed premise explicit would make it valid) to a defeasible step: supply the premise the step needs, not one that makes it deductively valid. Label it reconstructed. If two warrants are plausible, write both (W1, W2), test the one the arguer more plausibly relies on, and say whether the other changes the result.
 4. **Three discussion rules (from pragma-dialectics; this skill's selection).** *Standpoint:* test the claim the target actually made, at its own strength, not a stronger or weaker one. *Unexpressed premise:* never present a reconstructed warrant or premise as the target's own. When the user is the arguer and disowns it, it goes, but the step still needs a rule (Follow-up turns); this departs from the rule's other half, under which an arguer may not deny a premise left implicit. *Usage:* read the wording as carefully as it allows; if a key word is unclear or ambiguous, say so in one line and fix one reading before testing.
 5. **Ask, don't assert.** Critical questions ask; do not settle an open one with counter-facts of your own. Each question is **answered in the argument** (quote it), **answered by the user**, **answered by a source you found** (only if a search tool is available and the user asked you to check), or **open**. An answered question is answered for or against the step; say which. Any fact you add carries its evidence class: verified this session (a tool ran) / supplied by the user / single source / unverified recall. Your own recall is never "verified".
 6. **Each question names its slot.** Tag every critical question [data], [warrant/backing], [rebuttal] or [conclusion].
@@ -51,6 +51,8 @@ For arguments whose conclusion is probable rather than certain: an expert says s
 ### Step 1: Fix the claim
 
 Quote the claim C, with its qualifier if it has one. If the input makes several claims, pick the one the others support and list the rest in one line as not audited. If several separate reasons support C, audit the one that carries most weight and name the others in one line.
+
+If the reasons reach C through an intermediate claim (data, then C1, then C), name C1 in one line. Give each step its own warrant, labelled by step (Wa: data to C1; Wb: C1 to C). W1 and W2 remain rival warrants for one step. Ask the questions of both steps within the eight-question cap, check the qualifier on the step that reaches C, and say in the result which step the weakest link is on.
 
 ### Step 2: Lay out the argument
 
@@ -73,7 +75,7 @@ Ask the four general questions and those of the scheme, merge duplicates, and ke
 
 ### Step 5: Check the qualifier
 
-Compare the strength of C with what the warrant licenses. A claim put without qualification ("will", "is") on a warrant that holds only "generally" is overstated; the same claim put as "probably" is not. The qualifier is Toulmin's; using it as a check is this skill's addition. If the warrant is reconstructed, say in the same line that the comparison is with your reconstruction.
+Compare the strength of C with what the warrant licenses. A claim put without qualification ("will", "is") on a warrant that holds only "generally" is overstated; the same claim put as "probably" is not. The qualifier is Toulmin's; using it as a check is this skill's addition. If the warrant is reconstructed, say in the same line that the comparison is with your reconstruction. When the claim is unqualified and the warrant is your "generally" reconstruction, say that the overstatement follows from that default, so the user can say whether "certainly" was meant. If the warrant reads "none given", the qualifier check reads "no warrant to compare".
 
 ### Step 6: Name the weakest link
 
@@ -81,7 +83,7 @@ Pick the slot where the support is thinnest: a question answered against the ste
 
 ### Step 7: Record
 
-Close with the record from the output template. If the template cannot be read, the record is: target and claim; mode; scheme; warrant (stated or reconstructed, and W2 if any); questions asked (n answered, m open); result; qualifier check (matches or overstated); what would strengthen the link; checked by (rereading only, or the tool used); decision on the reconstructed warrant (pending, accepted or rejected by the user); history. Print it as plain Markdown, not a code block. End with one line: whether the claim is true is not decided by this audit (then, if Parameters call for it, the one-line ask-mode offer).
+Close with the record from the output template. If the template cannot be read, the record is: target and claim; mode; scheme; warrant (stated, reconstructed or none given; W2 if any; Wa and Wb for a chain); questions asked (n answered, m open); result; qualifier check (matches, overstated, or no warrant to compare); what would strengthen the link; checked by (rereading only, or the tool used); decision on the reconstructed warrant (pending, accepted or rejected by the user); history. Print it as plain Markdown, not a code block. End with one line naming C: whether "C" is true is not decided by this audit (then, if Parameters call for it, the one-line ask-mode offer).
 
 ## Critical questions
 
@@ -108,7 +110,7 @@ Worked example (target text: "Remote work worked at Acme, so it will work for us
 - [warrant/backing] Do the cited similarities bear on remote work? open: no similarity is cited
 - [rebuttal] Do we differ from Acme in a way that matters? open
 - [conclusion] Is there a similar company where remote work failed? open
-- Qualifier (compared with the reconstructed W1): W1 licenses "probably"; the claim says "will", so it is overstated.
+- Qualifier (compared with the reconstructed W1): W1 licenses "probably"; the claim says "will", so it is overstated; that follows from the "generally" default, so say if "certainly" was meant.
 - Result: weakest link: warrant, because "Do the cited similarities bear on remote work?" is left open.
 
 ## Ask mode
