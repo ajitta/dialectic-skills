@@ -113,7 +113,7 @@ codex plugin add dia@dialectic-skills
 共有三种方式，每个平台至少支持其中一种：
 
 1. **用文字描述。** 直接要求使用某种方法："对……用反证法"、"对……做内在批判"、"请来一场苏格拉底式对话……"。这在所有平台上都有效，也是移动端的稳妥默认方式。适用于 `dia-reductio`、`dia-negative`、`dia-elenchus` 和 `dia-brainstorm`。
-2. **在消息中写出名称。** 以技能名称开头：`dia-confirm …`、`dia-refine …`、`dia-iterate …`。从 1.2.0 起，在 Codex 上无需 `$`、在 ChatGPT（包括手机应用）上无需 `@` 即可这样启动，这是在手机上最快的方式。`dia-refine` 和 `dia-iterate` 设计为以这种方式或显式选择来启动：`dia-iterate` 从不由普通请求触发；在 Claude Code 上，"修改一下这份草稿"这类普通请求也很少会加载 `dia-refine`。
+2. **在消息中写出名称。** 以技能名称开头：`dia-confirm …`、`dia-refine …`、`dia-iterate …`。从 1.2.0 起，在 Codex 上无需 `$`、在 ChatGPT 上无需 `@`（已由所有者在手机应用中确认） 即可这样启动，这是在手机上最快的方式。`dia-refine` 和 `dia-iterate` 设计为以这种方式或显式选择来启动：`dia-iterate` 从不由普通请求触发；在 Claude Code 上，"修改一下这份草稿"这类普通请求也很少会加载 `dia-refine`。
 3. **显式选择**，各平台写法不同：
 
 | 平台 | 语法 | 示例 |

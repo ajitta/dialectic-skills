@@ -27,7 +27,7 @@ What this is: **modern Socratic questioning** (Richard Paul's six question types
 
 ## Step 0 — Frame (one message)
 
-If the message only asks you to make, write or fix something (a script, code, a text), or just names such a thing, and neither names this skill nor asks to be questioned, to brainstorm or to stress-test, this skill was loaded by mistake: do the task without it.
+If the message only asks you to make or write something (a script, code, a text), or just names such a thing, and neither names this skill nor asks to be questioned, to brainstorm or to stress-test, this skill was loaded by mistake: do the task without it.
 
 Read the request for an idea, a mode and a depth. Options can arrive in any wording and language (`--mode stress`, "go hard", "quick", "keep it light"); no parser exists, so infer them.
 

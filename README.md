@@ -113,7 +113,7 @@ All routes above work on Windows. The skills contain no scripts, so no Python or
 There are three ways, and every surface supports at least one of them:
 
 1. **In words.** Ask for the method: "use proof by contradiction on…", "do an immanent critique of…", "Socratic dialogue please…". This works on every surface and is the safe default on mobile. It works for `dia-reductio`, `dia-negative`, `dia-elenchus` and `dia-brainstorm`.
-2. **By name in the message.** Start the message with the skill name: `dia-confirm …`, `dia-refine …`, `dia-iterate …`. Since 1.2.0 this also works on Codex without `$` and on ChatGPT, including the mobile app, without `@`, which makes it the quickest route on a phone. `dia-refine` and `dia-iterate` are meant to start this way or by an explicit selection: `dia-iterate` never starts from a plain request, and on Claude Code a plain "fix this draft" request rarely loads `dia-refine`.
+2. **By name in the message.** Start the message with the skill name: `dia-confirm …`, `dia-refine …`, `dia-iterate …`. Since 1.2.0 this also works on Codex without `$` and on ChatGPT without `@` (owner-checked in the mobile app), which makes it the quickest route on a phone. `dia-refine` and `dia-iterate` are meant to start this way or by an explicit selection: `dia-iterate` never starts from a plain request, and on Claude Code a plain "fix this draft" request rarely loads `dia-refine`.
 3. **Explicit selection**, written differently on each surface:
 
 | Surface | Syntax | Example |

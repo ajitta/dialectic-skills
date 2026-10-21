@@ -250,7 +250,7 @@ Reading:
 - Every dia-brainstorm first reply was the Step 1 steelman confirmation turn, as designed.
 - Re-run after the independent review added a body gate to dia-confirm (first wording at `94d11b4`; reworded in the second review pass so it applies only to a load without the marker), same harnesses, n=3 per cell, transcripts in `out3/`: Codex «dia-confirm 먼저 확인해줘: …» 3/3; the steps-in-words request 0/3 (2/3 before; a description-level routing choice, so read this as within noise at n=3, not as an effect of the body sentence); the photo-script request in Korean and English 0/3 each; "Refactor this function …, but check with me before changing its behavior" 0/3. Claude: «dia-confirm 먼저 확인해줘: …» 3/3, "dia-confirm: I want a script …" 3/3, the steps-in-words request 0/3, "Write a script that renames all my photos by date." 0/3. No natural prompt loaded dia-confirm without its name, so the body gate's "otherwise" path was not exercised.
 - Final wording (`c34a1ec`), n=2 per cell, `out4/`: Codex «dia-confirm 먼저 확인해줘: …» 2/2 review and hold; the steps-in-words request loaded dia-confirm 1/2 and, as the body now allows for an explicit request to confirm first, gave the review and held; the English photo-script request 0/2. Claude «dia-confirm 먼저 확인해줘: …» 2/2, the English photo-script request 0/2.
-- Not run from here: ChatGPT web and mobile (owner, handoff item 15).
+- Not run from here: ChatGPT web and mobile (owner, handoff item 15; passed 2026-10-21, P5).
 
 **Part N, a bare noun phrase loads dia-brainstorm on ChatGPT mobile (owner, 1.2.0), 2026-10-21.** Same harnesses as Part M (Codex CLI 0.163.0 gpt-6.1-sol, sandbox bypassed; Claude Code sonnet `--tools Skill`, fresh config, neutral directory), n=3 per cell. Arms: 1.2.0 (`c34a1ec`, skill files as released) and a candidate (`0caa83f`, released as 1.2.1, spec D34) whose dia-brainstorm description excludes requests to make or write something and whose Step 0 says to do such a task without the skill if loaded by mistake. Transcripts: `out-repro/` and `out-fix/`.
 
@@ -268,8 +268,9 @@ Reading:
 
 Reading:
 
-- The owner's ChatGPT result did not reproduce on Codex or Claude (0/12 per engine on the photo-script cells at 1.2.0); ChatGPT's own skill choice cannot be run from the build VM.
+- The owner's ChatGPT result did not reproduce on Codex or Claude (0/12 dia-brainstorm loads per engine on the photo-script cells at 1.2.0); ChatGPT's own skill choice cannot be run from the build VM.
 - The candidate kept every positive cell (Codex idea 2/3 against 3/3 is within n=3 noise) and loaded nothing on the negatives.
+- Step 0's new sentence was not exercised by these cells (no negative loaded dia-brainstorm). The independent review forced a load by putting SKILL.md in the system prompt on Claude sonnet: for the Korean and English noun phrases the 1.2.1 body wrote the script 6/6, the 1.2.0 body 1/6 (it ran Steps 0-1 otherwise). Its six borderline prompts ("brainstorm a script idea with me", "poke holes in my plan to write a script", think-it-through requests) loaded dia-brainstorm on 1.2.1 as on 1.2.0, n=2 per engine; "Write a script … ask me questions first if anything is unclear" loaded nothing.
 - Claude 1.2.0 loaded dia-confirm once for the English noun phrase; that run wrote the script without holding for approval, the first observed use of dia-confirm's body gate for a load without the marker. Other skills seen in Claude runs (`run`, `update-config`) are Claude Code built-ins, not dia.
 
 ### P8: tool-less run (`--tools Skill`: no search, fetch, code or file tools)
