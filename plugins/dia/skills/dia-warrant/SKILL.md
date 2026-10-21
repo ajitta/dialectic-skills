@@ -44,6 +44,7 @@ For arguments whose conclusion is probable rather than certain: an expert says s
 6. **Each question names its slot.** Tag every critical question [data], [warrant/backing], [rebuttal] or [conclusion].
 7. **Fixed results.** The slot is one of data, warrant, backing, qualifier, rebuttal, claim. The result is exactly one of: **weakest link: [slot], because [critical question] is left open** (or "is answered against the step", with the quote); **weakest link: qualifier, because the claim says "[strength]" where the warrant licenses "[strength]"**; **no weak link found among the questions asked; not a proof**; **stopped**. A [warrant/backing] question names warrant, or backing if it doubts a stated backing; a [conclusion] question names the claim. A warrant that reads "none given" leaves Toulmin's "How do you get there?" open.
 8. **Language follows the user.** Write the whole output in the language of the user's latest message, including headings, slot names, tags and the fixed results. Quote the target in its original language.
+9. **One pass in audit mode.** Lay out the whole audit at once; ask slot questions one at a time only in ask mode. **Stopped** is the result only when ask mode ends before the layout is complete.
 
 ## Procedure (audit)
 
@@ -117,7 +118,7 @@ Worked example (target text: "Remote work worked at Acme, so it will work for us
 - **One question per message, asking for one thing.** A turn fits a phone screen without scrolling: no tables, headers or lists of questions while asking.
 - **Order:** claim ("What exactly do you claim?"), data ("What have you got to go on?"), warrant ("How do you get there?"), backing ("Why does that rule hold?"), qualifier ("How sure: always, usually, presumably?"), rebuttal ("When would that rule not apply?"), then name the scheme in one line and ask its open critical questions, most important first.
 - **The user's answers are the material.** Each answer fills its slot as stated by the user. Restate it in one line in the user's key words, together with the next question; never spend a turn only on confirming. Do not argue or answer the questions yourself. A bare yes or no (Rule 5): ask once for the content, then mark it open.
-- **No warrant from the user:** offer the least warrant (Rule 3) once, labelled as your reconstruction, and ask whether they hold it; a "no" removes it, and with no other rule the warrant stays "none given" (Rule 7).
+- **No warrant from the user:** offer the least warrant (Rule 3) once, labelled as your reconstruction, and ask whether they hold it; a "no" removes it, and with no other rule the warrant stays "none given" and the result is **weakest link: warrant, because "How do you get there?" is left open** (Rule 7).
 - **Stop means stop.** On any stop signal ("stop", "enough", "wrap up", or the same in the user's language) go to Steps 5 to 7 with what you have; if the warrant was never stated or accepted, the result is **stopped**. When the questions run out, do Steps 5 to 7 in one message. If the user asks for the full audit midway, switch to audit mode with what you have.
 
 ## Targets
@@ -130,7 +131,7 @@ Worked example (target text: "Remote work worked at Acme, so it will work for us
 
 - **The user disputes a finding** (a slot, a warrant, a tag, a status or the weakest link): recheck it. Withdraw it only if you can name its defect (a misquote, a warrant stronger than the least one, a question the argument does answer, a wrong tag or evidence class); insistence is not a defect. If it holds, give the reason in one line and keep it. If it is withdrawn, redo Step 6 and say whether the result changes.
 - **The user answers an open question:** mark it answered by the user, label any fact in the answer "supplied by the user", and redo Steps 5 to 7.
-- **The user rejects a reconstructed warrant:** for target `user`, remove it, test W2 if there was one, otherwise ask in one line which rule they rely on; if they name none, the warrant reads "none given" (Rule 7). For `claude` or `text` the user is not the arguer: the rejection is a dispute (above); a rule they propose becomes W2. Then redo Steps 4 to 7.
+- **The user rejects a reconstructed warrant:** for target `user`, remove it, test W2 if there was one, otherwise ask in one line which rule they rely on; if they name none, the warrant reads "none given" and the result is **weakest link: warrant, because "How do you get there?" is left open** (Rule 7), not **stopped**. For `claude` or `text` the user is not the arguer: the rejection is a dispute (above); a rule they propose becomes W2. Then redo Steps 4 to 7.
 - **The user asks about the method:** answer from the theory reference, briefly.
 
 ## Pitfalls
