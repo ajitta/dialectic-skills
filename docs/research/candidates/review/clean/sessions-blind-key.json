@@ -1,0 +1,18 @@
+{
+ "warrant-1-A": "base",
+ "warrant-1-B": "var",
+ "warrant-2-A": "var",
+ "warrant-2-B": "base",
+ "warrant-reject-1-A": "base",
+ "warrant-reject-1-B": "var",
+ "warrant-reject-2-A": "var",
+ "warrant-reject-2-B": "base",
+ "conjecture-1-A": "var",
+ "conjecture-1-B": "base",
+ "conjecture-2-A": "var",
+ "conjecture-2-B": "base",
+ "counterplan-1-A": "base",
+ "counterplan-1-B": "var",
+ "counterplan-2-A": "var",
+ "counterplan-2-B": "base"
+}

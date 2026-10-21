@@ -1,0 +1,8 @@
+out = out2
+cell                     expected               (ok/n {other skills:runs}; base | var; cc = Claude n=3, cx = Codex n=2)
+o-c-poke-micro           dia-conjecture         ccB 0/3{brainstorm:3}          ccV 0/3{brainstorm:2}          cxB -                        cxV -                        
+dw-6-refine-prev         dia-refine             ccB 3/3                        ccV 2/3                        cxB -                        cxV -                        
+
+runs: {('cc', 'base'): 6, ('cc', 'var'): 6} excluded: {'discarded(synced)': 0, 'limit': 0}
+
+FLAGS: none

@@ -1,0 +1,28 @@
+out = /home/ubuntu/work/dia-review/clean-gate-c-2026-10-21/out
+cell                     expected               (ok/n {other skills:runs}; base | var; cc = Claude n=3, cx = Codex n=2)
+p6-refine                dia-refine             ccB 3/3                        ccV 3/3                        cxB 1/1                      cxV 1/1                      
+p6-iterate               dia-iterate            ccB 3/3                        ccV 3/3                        cxB -                        cxV -                        
+p6-mention               None                   ccB 3/3                        ccV 3/3                        cxB 1/1                      cxV 1/1                      
+j-refine-facts           dia-refine             ccB 3/3                        ccV 3/3                        cxB 1/1                      cxV 1/1                      
+j-final                  dia-refine             ccB 3/3                        ccV 3/3                        cxB 1/1                      cxV 1/1                      
+j-quote                  dia-refine             ccB 3/3                        ccV 3/3                        cxB -                        cxV -                        
+j-iterate                dia-iterate            ccB 3/3                        ccV 3/3                        cxB -                        cxV -                        
+j-mention                None                   ccB 3/3                        ccV 3/3                        cxB 1/1                      cxV 1/1                      
+j-nl-fix                 dia-refine             ccB 3/3                        ccV 3/3                        cxB 1/1                      cxV 1/1                      
+j-nl-final               dia-refine             ccB 1/3                        ccV 3/3                        cxB 1/1                      cxV 1/1                      
+j-nl-ko                  dia-refine             ccB 3/3                        ccV 3/3                        cxB 1/1                      cxV 1/1                      
+m-fw-iterate             dia-iterate            ccB 3/3                        ccV 3/3                        cxB -                        cxV -                        
+m-fw-iterate-rv          dia-iterate            ccB 3/3                        ccV 3/3                        cxB -                        cxV -                        
+m-gate-iterate           NOT:dia-iterate        ccB 3/3                        ccV 3/3                        cxB -                        cxV -                        
+m-mention-confirm        None                   ccB 3/3                        ccV 3/3                        cxB -                        cxV -                        
+o-s-refine               dia-refine             ccB 3/3                        ccV 3/3                        cxB 1/1                      cxV 1/1                      
+o-c-poke-micro           dia-conjecture         ccB 0/3{brainstorm:3}          ccV 0/3{brainstorm:1}          cxB -                        cxV -                        
+dw-6-refine-prev         dia-refine             ccB 3/3                        ccV 3/3                        cxB 1/1                      cxV 1/1                      
+dw-14-last-answer        dia-warrant            ccB 0/3                        ccV 0/3                        cxB -                        cxV -                        
+x-mention-iterate        None                   ccB 3/3                        ccV 3/3                        cxB -                        cxV -                        
+
+runs: {('cc', 'base'): 60, ('cc', 'var'): 60, ('cx', 'base'): 10, ('cx', 'var'): 10} excluded: {'discarded(synced)': 0, 'limit': 0}
+codex listing base: ['dia:dia-brainstorm', 'dia:dia-confirm', 'dia:dia-conjecture', 'dia:dia-counterplan', 'dia:dia-elenchus', 'dia:dia-iterate', 'dia:dia-negative', 'dia:dia-reductio', 'dia:dia-refine', 'dia:dia-warrant']
+codex listing var: ['dia:dia-brainstorm', 'dia:dia-confirm', 'dia:dia-conjecture', 'dia:dia-counterplan', 'dia:dia-elenchus', 'dia:dia-iterate', 'dia:dia-negative', 'dia:dia-reductio', 'dia:dia-refine', 'dia:dia-warrant']
+
+FLAGS: none

@@ -320,6 +320,23 @@ Reading:
 - Two leaks into dia-conjecture remain: a factual universal stated as a policy ("every refund is approved within 24 hours", Claude 2/3, Codex 1/2) and one run of the Friday deployment rule (Claude 1/3). The refund cell reads as a universal claim about what is the case, so loading dia-conjecture is defensible. In the one Friday run that loaded dia-conjecture, Step 0 did not stop: the assistant recast the rule as 'every deploy made on a Friday is a mistake' and continued; Step 0 is tightened for this after `283f6fa` (not re-probed). Recorded, not fixed: all three descriptions are within 10 characters of the cap.
 - "Poke holes in my argument …" goes to dia-brainstorm on Claude in both arms; that is brainstorm's own trigger phrase. After `283f6fa`, dia-brainstorm's Step 0 fallback also names dia-warrant for a request about how well reasons support a conclusion; the cell has not been re-run with it.
 
+**Part P, description and body clean-up on branch `next-clean` (spec D37), 2026-10-21/22.** Base arm `0d5a949` (end of Part O fixes), var arm `23c77c9` (all ten descriptions rewritten, body cuts), refine re-check `947239d`. Same harnesses as Part O. 115 single-prompt cells collected from P6, P7, Parts B, C, D, G, J, M, N, O and the three design-note routing tables, including cells never run before (dia-warrant cells 6 and 14, dia-counterplan cells 3 and 9, an iterate passing-mention cell). Claude n=3 per arm per cell; Codex n=2 for the first 58 cells, then n=1 per arm with a second run only where the arms differed (owner, to save Codex quota). Tallies: `docs/research/candidates/review/clean/gate-tally*.txt`.
+
+| Engine | Base: expected outcome | Var: expected outcome |
+|---|---|---|
+| Claude (327 runs per arm, INFO cells excluded) | 292 | 295 |
+| Codex (168 runs per arm) | 160 | 159 |
+
+Flagged cells and changes:
+
+- "Review your previous answer as a draft and fix the logical leaps." (dia-refine): Claude base 3/3, var 1/3. The rewrite had dropped "treat it as a draft"; restored in `947239d`, then 5/6 on Claude and 1/1 on Codex; the other nineteen refine, iterate and passing-mention cells on `947239d` match base.
+- "Poke holes in my claim that every microservice should own its own database." (labelled dia-conjecture): never dia-conjecture on Claude in either arm (dia-brainstorm or no skill, 15 runs per arm across the three runs of the gate). "Poke holes" is dia-brainstorm's trigger and the claim is a policy, which dia-conjecture excludes; the label was wrong, not the routing.
+- "What does this Kubernetes setting hide from us …" (no skill): Codex var loaded dia-negative once in two runs (base 0/2); Claude 3/3 no skill in both arms. Watched, not changed.
+- Gains from the two additions: the fallacy question loads dia-warrant on Codex (base 0/2, var 2/2; Claude still 0/3 in both), and "Poke holes in my argument …" loads dia-warrant on Claude 3/3 (base 1/3).
+- INFO cells: "a game is any activity done for fun. Give me counterexamples." loads dia-conjecture on Codex var 2/2 (base 0/2), a universal claim about what is the case; the refund-policy cell leaks into dia-conjecture less on Claude (var 1/3, base 3/3).
+
+Behaviour (not routing): the README example sessions plus three scripted users for rules no cell exercised (a rejected reconstructed warrant with a bare "yes"; "that's not a real bulk purchase" and a bare "no" to counterexamples; "So which would you pick?" after a counterplan), two runs per arm, judged blind by an independent reviewer (`sessions-blind-judge.md`, key in `sessions-blind-key.json`). Pairs: var better 3, base better 2, tie 3. The one var-only failure (dia-warrant result changed to "stopped" at wrap-up after the user rejected the warrant) came from shortening the follow-up's explicit result to "(Rule 7)" and deleting the one-pass rule; both restored in `a970b17`, then 6/6 runs gave "weakest link: warrant, because \"How do you get there?\" is left open" after a rejection. Both arms once let the counterplan close imply a course of action after refusing to pick (pre-existing).
+
 ### P8: tool-less run (`--tools Skill`: no search, fetch, code or file tools)
 
 Draft under test: "The Eiffel Tower was completed in 1889 and is about 330 m tall. Python 3.13 removed the GIL by default. 17 x 23 = 391." The Python sentence is wrong.

@@ -1,0 +1,126 @@
+out = /home/ubuntu/work/dia-review/clean-gate-2026-10-21/out
+cell                     expected               (ok/n {other skills:runs}; base | var; cc = Claude n=3, cx = Codex n=2)
+p6-refine                dia-refine             ccB 3/3                        ccV 3/3                        cxB 2/2                      cxV 2/2                      
+p6-iterate               dia-iterate            ccB 3/3                        ccV 3/3                        cxB 2/2                      cxV 2/2                      
+p6-plain                 None                   ccB 3/3                        ccV 3/3                        cxB 1/2{refine:1}            cxV 0/2{refine:2}            
+p6-mention               None                   ccB 3/3                        ccV 3/3                        cxB 2/2                      cxV 2/2                      
+p7-red-ko                dia-reductio           ccB 3/3                        ccV 3/3                        cxB 2/2                      cxV 2/2                      
+p7-red-en                dia-reductio           ccB 3/3                        ccV 3/3                        cxB 2/2                      cxV 2/2                      
+p7-neg-ko                dia-negative           ccB 3/3                        ccV 3/3                        cxB 2/2                      cxV 2/2                      
+p7-neg-en                dia-negative           ccB 3/3                        ccV 3/3                        cxB 2/2                      cxV 2/2                      
+p7-imm-ko                dia-negative           ccB 3/3                        ccV 3/3                        cxB 2/2                      cxV 2/2                      
+p7-ele-ko                dia-elenchus           ccB 3/3                        ccV 3/3                        cxB 2/2                      cxV 2/2                      
+p7-ele-en                dia-elenchus           ccB 3/3                        ccV 3/3                        cxB 2/2                      cxV 2/2                      
+p7-bra-ko                dia-brainstorm         ccB 3/3                        ccV 3/3                        cxB 2/2                      cxV 2/2                      
+p7-bra-en                dia-brainstorm         ccB 3/3                        ccV 3/3                        cxB 2/2                      cxV 2/2                      
+c-plan-en                dia-brainstorm         ccB 3/3                        ccV 3/3                        cxB 2/2{elenchus:1}          cxV 2/2                      
+c-plan-ko                dia-brainstorm         ccB 3/3                        ccV 3/3                        cxB 2/2                      cxV 2/2                      
+d-greatwall              None                   ccB 3/3                        ccV 3/3                        cxB 2/2                      cxV 2/2                      
+g-vacation               dia-negative           ccB 3/3                        ccV 3/3{update-config:1}       cxB 2/2                      cxV 2/2                      
+g-flat                   dia-negative           ccB 3/3                        ccV 3/3                        cxB 2/2                      cxV 2/2                      
+g-ko-flex                dia-negative           ccB 3/3                        ccV 3/3                        cxB 2/2                      cxV 2/2                      
+g-slots                  None                   ccB 3/3                        ccV 3/3                        cxB 2/2                      cxV 2/2                      
+g-noverify               None                   ccB 3/3                        ccV 3/3                        cxB 2/2                      cxV 2/2                      
+g-k8s                    None                   ccB 3/3                        ccV 3/3                        cxB 2/2                      cxV 1/2{negative:1}          WRONG-cx:negative
+g-flag                   None                   ccB 2/3{negative:1, run:1}     ccV 2/3{negative:1}            cxB 2/2                      cxV 2/2                      
+g-review                 None                   ccB 3/3                        ccV 3/3                        cxB 2/2                      cxV 2/2                      
+j-refine-facts           dia-refine             ccB 3/3                        ccV 3/3                        cxB 2/2                      cxV 2/2                      
+j-final                  dia-refine             ccB 3/3                        ccV 3/3                        cxB 2/2                      cxV 2/2                      
+j-quote                  dia-refine             ccB 3/3                        ccV 3/3                        cxB 2/2                      cxV 2/2                      
+j-iterate                dia-iterate            ccB 3/3                        ccV 3/3                        cxB 2/2                      cxV 2/2                      
+j-mention                None                   ccB 3/3                        ccV 3/3                        cxB 2/2                      cxV 2/2                      
+j-nl-fix                 dia-refine             ccB 3/3                        ccV 3/3                        cxB 2/2                      cxV 2/2                      
+j-nl-final               dia-refine             ccB 2/3                        ccV 2/3                        cxB 2/2                      cxV 2/2                      
+j-nl-ko                  dia-refine             ccB 3/3                        ccV 3/3                        cxB 2/2                      cxV 2/2                      
+m-fw-confirm             dia-confirm            ccB 3/3{noop:1}                ccV 3/3                        cxB 2/2                      cxV 2/2                      
+m-fw-confirm-en          dia-confirm            ccB 3/3                        ccV 3/3                        cxB 2/2                      cxV 2/2                      
+m-fw-iterate             dia-iterate            ccB 3/3                        ccV 3/3                        cxB 2/2                      cxV 2/2                      
+m-fw-iterate-rv          dia-iterate            ccB 3/3                        ccV 3/3                        cxB 2/2                      cxV 2/2                      
+m-fw-brainstorm          dia-brainstorm         ccB 3/3                        ccV 3/3                        cxB 2/2                      cxV 2/2                      
+m-fw-elenchus            dia-elenchus           ccB 3/3                        ccV 3/3                        cxB 2/2                      cxV 2/2                      
+m-nl-brainstorm          dia-brainstorm         ccB 3/3                        ccV 3/3                        cxB 2/2                      cxV 2/2                      
+m-nl-elenchus            dia-elenchus           ccB 3/3                        ccV 3/3                        cxB 2/2                      cxV 2/2                      
+m-gate-confirm           INFO                   ccB n=3 none:3                 ccV n=3 none:3                 cxB n=2 none:2               cxV n=2 none:2               
+m-gate-iterate           NOT:dia-iterate        ccB 3/3                        ccV 3/3                        cxB 2/2{refine:2}            cxV 2/2{refine:1}            
+m-task-ko                None                   ccB 3/3{update-config:1}       ccV 3/3                        cxB 2/2                      cxV 2/2                      
+m-task-en                None                   ccB 3/3                        ccV 3/3                        cxB 2/2                      cxV 2/2                      
+m-sql                    None                   ccB 3/3                        ccV 3/3                        cxB 2/2                      cxV 2/2                      
+m-closure                None                   ccB 3/3                        ccV 3/3                        cxB 2/2                      cxV 2/2                      
+m-names                  None                   ccB 3/3                        ccV 3/3                        cxB 2/2                      cxV 2/2                      
+m-howto                  None                   ccB 3/3                        ccV 3/3                        cxB 2/2                      cxV 2/2                      
+m-regex                  None                   ccB 3/3                        ccV 3/3                        cxB 2/2                      cxV 2/2                      
+m-mention-confirm        None                   ccB 3/3                        ccV 3/3                        cxB 2/2                      cxV 2/2                      
+m-refactor               None                   ccB 3/3                        ccV 3/3                        cxB 2/2                      cxV 2/2                      
+m-refactor-rv            None                   ccB 3/3                        ccV 3/3                        cxB 2/2                      cxV 2/2                      
+m-ratelimit-rv           None                   ccB 3/3                        ccV 3/3                        cxB 2/2                      cxV 2/2                      
+m-ko-plan-rv             None                   ccB 2/3{confirm:1}             ccV 3/3                        cxB 2/2                      cxV 2/2                      
+n-np                     None                   ccB 3/3                        ccV 3/3{update-config:2}       cxB 2/2                      cxV 2/2                      
+n-np-q                   None                   ccB 3/3                        ccV 3/3                        cxB 2/2                      cxV 2/2                      
+n-np-en                  None                   ccB 3/3                        ccV 3/3                        cxB 2/2                      cxV 2/2                      
+n-idea                   dia-brainstorm         ccB 3/3                        ccV 3/3                        cxB 2/2                      cxV 1/2                      
+n-bs-en                  dia-brainstorm         ccB 3/3                        ccV 3/3                        cxB 1/1                      cxV 1/1                      
+n-poke                   dia-brainstorm         ccB 3/3                        ccV 3/3                        cxB 1/1                      cxV 1/1                      
+n-b1-bs-script           dia-brainstorm         ccB 3/3                        ccV 3/3                        cxB 1/1                      cxV 1/1                      
+n-b2-poke-script         dia-brainstorm         ccB 3/3                        ccV 3/3                        cxB 1/1                      cxV 1/1                      
+n-b3-ko-idea             dia-brainstorm         ccB 3/3                        ccV 3/3                        cxB 1/1                      cxV 1/1                      
+n-b4-think               dia-brainstorm         ccB 3/3                        ccV 3/3                        cxB 1/1                      cxV 1/1                      
+n-b5-write-ask           None                   ccB 3/3                        ccV 3/3                        cxB 1/1                      cxV 1/1                      
+n-b6-ko-blog             dia-brainstorm         ccB 3/3                        ccV 3/3                        cxB 1/1                      cxV 1/1                      
+o-w-churn                dia-warrant            ccB 3/3                        ccV 3/3                        cxB 1/1                      cxV 1/1                      
+o-w-expert-ko            dia-warrant            ccB 3/3                        ccV 3/3                        cxB 1/1                      cxV 1/1                      
+o-w-oped                 dia-warrant            ccB 3/3                        ccV 3/3                        cxB 1/1                      cxV 1/1                      
+o-w-ask-ko               dia-warrant            ccB 3/3                        ccV 3/3                        cxB 1/1                      cxV 1/1                      
+o-w-startup-ko           dia-warrant            ccB 0/3                        ccV 1/3                        cxB 1/1                      cxV 1/1                      
+o-w-darkmode             dia-warrant            ccB 3/3                        ccV 3/3                        cxB 1/1                      cxV 1/1                      
+o-c-memo                 dia-conjecture         ccB 3/3                        ccV 3/3                        cxB 1/1                      cxV 1/1                      
+o-c-deploy-ko            dia-conjecture         ccB 3/3                        ccV 3/3                        cxB 1/1                      cxV 1/1                      
+o-c-regular-ko           dia-conjecture         ccB 3/3                        ccV 3/3                        cxB 1/1                      cxV 1/1                      
+o-c-micro                dia-conjecture         ccB 3/3                        ccV 2/3                        cxB 1/1                      cxV 1/1                      
+o-p-4day                 dia-counterplan        ccB 3/3                        ccV 3/3                        cxB 1/1                      cxV 1/1                      
+o-p-warehouse-ko         dia-counterplan        ccB 3/3                        ccV 3/3                        cxB 1/1                      cxV 1/1                      
+o-p-outsource-ko         dia-counterplan        ccB 3/3                        ccV 3/3                        cxB 1/1                      cxV 1/1                      
+o-p-assume               dia-counterplan        ccB 3/3                        ccV 3/3                        cxB 1/1                      cxV 1/1                      
+o-s-poke-cafe            dia-brainstorm         ccB 3/3                        ccV 3/3                        cxB 1/1                      cxV 1/1                      
+o-s-poke-startup         dia-brainstorm         ccB 3/3                        ccV 3/3                        cxB 1/1                      cxV 1/1                      
+o-s-verify-ko            dia-brainstorm         ccB 3/3                        ccV 3/3                        cxB 1/1                      cxV 1/1                      
+o-s-el-fair              dia-elenchus           ccB 3/3                        ccV 3/3                        cxB 1/1                      cxV 1/1                      
+o-s-neg-policy           dia-negative           ccB 3/3                        ccV 3/3                        cxB 1/1                      cxV 1/1                      
+o-s-red-ko               dia-reductio           ccB 3/3                        ccV 3/3                        cxB 1/1                      cxV 1/1                      
+o-s-red-deduct-ko        dia-reductio           ccB 0/3                        ccV 0/3                        cxB 1/1                      cxV 1/1                      
+o-s-red-en               dia-reductio           ccB 3/3                        ccV 3/3                        cxB 1/1                      cxV 1/1                      
+o-s-refine               dia-refine             ccB 3/3                        ccV 3/3                        cxB 1/1                      cxV 1/1                      
+o-n-fasting              None                   ccB 3/3                        ccV 3/3                        cxB 1/1                      cxV 1/1                      
+o-n-da-claim             None                   ccB 3/3                        ccV 3/3                        cxB 1/1                      cxV 1/1                      
+o-n-code                 None                   ccB 3/3                        ccV 3/3                        cxB 1/1                      cxV 1/1                      
+o-n-gtm                  None                   ccB 3/3                        ccV 3/3                        cxB 1/1                      cxV 1/1                      
+o-w-fallacy              dia-warrant            ccB 0/3                        ccV 0/3                        cxB 0/2                      cxV 2/2                      
+o-w-poke-arg             dia-warrant            ccB 1/3{brainstorm:1}          ccV 3/3                        cxB 1/1                      cxV 1/1                      
+o-w-hidden               dia-warrant            ccB 0/3                        ccV 1/3                        cxB 1/1                      cxV 1/1                      
+o-c-poke-micro           dia-conjecture         ccB 0/3                        ccV 0/3{brainstorm:1}          cxB 1/2{brainstorm:2}        cxV 1/2{brainstorm:2}        WRONG-cc:brainstorm
+o-i-game-def             INFO                   ccB n=3 none:3                 ccV n=3 none:3                 cxB n=2 none:2               cxV n=2 none:0{conjecture:2} ~cx
+o-c-neg-refund           INFO                   ccB n=3 none:0{conjecture:3}   ccV n=3 none:2{conjecture:1}   cxB n=2 none:1{conjecture:1} cxV n=2 none:0{conjecture:2} 
+o-c-neg-proof            dia-reductio           ccB 0/3                        ccV 0/3                        cxB 0/1                      cxV 0/1                      
+o-i-churn-all            INFO                   ccB n=3 none:1{warrant:2}      ccV n=3 none:0{warrant:3}      cxB n=1 none:0{warrant:1}    cxV n=1 none:0{warrant:1}    
+o-c-neg-friday           NOT:dia-conjecture     ccB 3/3                        ccV 3/3                        cxB 0/1{conjecture:1}        cxV 0/1{conjecture:1}        
+o-r-follow               dia-reductio           ccB 0/3                        ccV 0/3                        cxB 0/1                      cxV 0/1                      
+o-i-last-answer          INFO                   ccB n=3 none:3                 ccV n=3 none:3                 cxB n=1 none:0{refine:1}     cxV n=1 none:0{refine:1}     
+o-r-prime                dia-reductio           ccB 3/3                        ccV 3/3                        cxB 1/1                      cxV 1/1                      
+dw-6-refine-prev         dia-refine             ccB 3/3                        ccV 1/3                        cxB 1/1                      cxV 1/1                      REG
+dw-14-last-answer        dia-warrant            ccB 0/3                        ccV 0/3                        cxB 1/1                      cxV 1/1                      
+dc-4-4day-oppose         dia-counterplan        ccB 0/3                        ccV 1/3                        cxB 1/1                      cxV 1/1                      
+dc-5-poke-lunch          dia-brainstorm         ccB 3/3                        ccV 3/3                        cxB 1/1                      cxV 1/1                      
+dc-7-hiring              dia-negative           ccB 3/3                        ccV 3/3                        cxB 1/1                      cxV 1/1                      
+dc-8-release             dia-reductio           ccB 0/3                        ccV 0/3                        cxB 0/1                      cxV 0/1                      
+dp-3-postgres            dia-counterplan        ccB 3/3                        ccV 3/3                        cxB 1/1                      cxV 1/1                      
+dp-9-oped-support        dia-warrant            ccB 3/3                        ccV 3/3                        cxB 1/1                      cxV 1/1                      
+dp-n5-hidden-warehouse   INFO                   ccB n=3 none:3                 ccV n=3 none:3                 cxB n=1 none:1               cxV n=1 none:1               
+x-mention-iterate        None                   ccB 3/3                        ccV 3/3                        cxB 1/1                      cxV 1/1                      
+
+runs: {('cc', 'base'): 345, ('cc', 'var'): 345, ('cx', 'base'): 177, ('cx', 'var'): 177} excluded: {'discarded(synced)': 0, 'limit': 4}
+codex listing base: ['dia:dia-brainstorm', 'dia:dia-confirm', 'dia:dia-conjecture', 'dia:dia-counterplan', 'dia:dia-elenchus', 'dia:dia-iterate', 'dia:dia-negative', 'dia:dia-reductio', 'dia:dia-refine', 'dia:dia-warrant']
+codex listing var: ['dia:dia-brainstorm', 'dia:dia-confirm', 'dia:dia-conjecture', 'dia:dia-counterplan', 'dia:dia-elenchus', 'dia:dia-iterate', 'dia:dia-negative', 'dia:dia-reductio', 'dia:dia-refine', 'dia:dia-warrant']
+
+FLAGS (3):
+  g-k8s                    None                   WRONG-cx:negative
+  o-c-poke-micro           dia-conjecture         WRONG-cc:brainstorm
+  dw-6-refine-prev         dia-refine             REG
