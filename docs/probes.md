@@ -44,6 +44,7 @@ Results of the probes in `docs/spec.md` §12.2. Each run is n=1 unless stated; a
 - The owner reported that the skills run on ChatGPT desktop and on ChatGPT mobile (Pro). The install route used, whether the skills appear under `@`, and per-prompt results were not reported. O4 is therefore resolved as a supported route on Pro, not a plan limitation.
 - Owner's working setup (2026-10-20, 1.1.x): Claude desktop and Codex in the ChatGPT desktop app installed from the GitHub marketplace; claude.ai and chatgpt.com each with an uploaded zip. Web, desktop and mobile all work. Observed on Claude as well: a plugin added in Claude desktop did not reach the mobile app, and one added on claude.ai did not appear in Claude desktop, so desktop installs are local and web installs are account-wide. README Install states this.
 - Install route matters for mobile (owner, 2026-10-20, 1.1.1): adding the GitHub marketplace in the ChatGPT desktop app (Codex) makes `dia` visible on that desktop only, not on ChatGPT mobile; uploading the plugin zip in the desktop app makes it appear on mobile too. The marketplace route installs into the desktop's local Codex folder (on the build VM, `codex plugin marketplace add` writes only under `CODEX_HOME`), while an upload is saved to the account. README now recommends `dialectic-skills-openai.zip` for ChatGPT.
+- 1.2.0 (owner, 2026-10-21, D33): after re-uploading `dialectic-skills-openai.zip` on chatgpt.com the mobile app showed plugin version 1.2.0. With no `@`, a message starting `dia-brainstorm …` and one starting `dia-iterate --max 1 …` both ran the skill. A plain task written as a bare noun phrase, «사진 파일을 날짜별로 이름 바꾸는 스크립트» (no verb), loaded dia-brainstorm; the same request with «만들어줘» was not reported as loading anything. On Codex and Claude the noun phrase did not reproduce (Part N).
 - Not recorded: whether `default_prompt` (`Use $dia:dia-<x> …`, spec D19) resolves in ChatGPT, and whether Codex's unrun-tool claim (handoff item 10) recurs there.
 
 ### P3: Codex CLI 0.162.1
@@ -250,6 +251,26 @@ Reading:
 - Re-run after the independent review added a body gate to dia-confirm (first wording at `94d11b4`; reworded in the second review pass so it applies only to a load without the marker), same harnesses, n=3 per cell, transcripts in `out3/`: Codex «dia-confirm 먼저 확인해줘: …» 3/3; the steps-in-words request 0/3 (2/3 before; a description-level routing choice, so read this as within noise at n=3, not as an effect of the body sentence); the photo-script request in Korean and English 0/3 each; "Refactor this function …, but check with me before changing its behavior" 0/3. Claude: «dia-confirm 먼저 확인해줘: …» 3/3, "dia-confirm: I want a script …" 3/3, the steps-in-words request 0/3, "Write a script that renames all my photos by date." 0/3. No natural prompt loaded dia-confirm without its name, so the body gate's "otherwise" path was not exercised.
 - Final wording (`c34a1ec`), n=2 per cell, `out4/`: Codex «dia-confirm 먼저 확인해줘: …» 2/2 review and hold; the steps-in-words request loaded dia-confirm 1/2 and, as the body now allows for an explicit request to confirm first, gave the review and held; the English photo-script request 0/2. Claude «dia-confirm 먼저 확인해줘: …» 2/2, the English photo-script request 0/2.
 - Not run from here: ChatGPT web and mobile (owner, handoff item 15).
+
+**Part N, a bare noun phrase loads dia-brainstorm on ChatGPT mobile (owner, 1.2.0), 2026-10-21.** Same harnesses as Part M (Codex CLI 0.163.0 gpt-6.1-sol, sandbox bypassed; Claude Code sonnet `--tools Skill`, fresh config, neutral directory), n=3 per cell. Arms: 1.2.0 (`c34a1ec`, skill files as released) and a candidate whose dia-brainstorm description excludes requests to make or write something and whose Step 0 says to do such a task without the skill if loaded by mistake. Transcripts: `out-repro/` and `out-fix/`.
+
+| Cell | Should load | Codex 1.2.0 | Codex candidate | Claude 1.2.0 | Claude candidate |
+|---|---|---|---|---|---|
+| «사진 파일을 날짜별로 이름 바꾸는 스크립트» (bare, as the owner sent it) | none | 0/3 | 0/3 | 0/3 | 0/3 |
+| the same in quotation marks | none | 0/3 | 0/3 | 0/3 | 0/3 |
+| the same + «만들어줘.» | none | 0/3 | 0/3 | 0/3 | 0/3 |
+| "A script that renames photo files by date" | none | 0/3 | 0/3 | dia-confirm 1/3 | 0/3 |
+| «주말 사이드 프로젝트로 동네 공구 대여 앱을 생각 중이야. 같이 생각해볼래?» | dia-brainstorm | 3/3 | 2/3 | 3/3 | 3/3 |
+| «소크라테스식 브레인스토밍 해줘. …» | dia-brainstorm | 3/3 | 3/3 | 3/3 | 3/3 |
+| "Socratic brainstorm with me: …" | dia-brainstorm | 3/3 | 3/3 | 3/3 | 3/3 |
+| "Poke holes in this plan before I commit: …" | dia-brainstorm | 3/3 | 3/3 | 3/3 | 3/3 |
+| «소크라테스 대화법으로 따져줘. …» | dia-elenchus | 3/3 | 3/3 | 3/3 | 3/3 |
+
+Reading:
+
+- The owner's ChatGPT result did not reproduce on Codex or Claude (0/12 per engine on the photo-script cells at 1.2.0); ChatGPT's own skill choice cannot be run from the build VM.
+- The candidate kept every positive cell (Codex idea 2/3 against 3/3 is within n=3 noise) and loaded nothing on the negatives.
+- Claude 1.2.0 loaded dia-confirm once for the English noun phrase; that run wrote the script without holding for approval, the first observed use of dia-confirm's body gate for a load without the marker. Other skills seen in Claude runs (`run`, `update-config`) are Claude Code built-ins, not dia.
 
 ### P8: tool-less run (`--tools Skill`: no search, fetch, code or file tools)
 
