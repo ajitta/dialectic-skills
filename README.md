@@ -380,6 +380,7 @@ dia-iterate --max 2 check the dates and facts in this paragraph: "The first iPho
 - **`dia-iterate` does not start.** It starts only when `dia-iterate` is the first word of the message or when it is selected explicitly (`/dia:dia-iterate`, `$dia:dia-iterate`, `@dia-iterate`).
 - **`$dia:dia-confirm:` does not resolve on Codex.** Put a space, not a colon, after the skill name.
 - **The upload is rejected on claude.ai.** Use Customize › Plugins › Upload plugin, not Customize › Skills.
+- **claude.ai keeps an old version after Check for updates.** Remove `dia` in Customize › Plugins and install it again from the `dialectic-skills` marketplace; turn on Sync automatically for later releases.
 
 Which routes have been verified, and how, is recorded in [docs/probes.md](docs/probes.md).
 

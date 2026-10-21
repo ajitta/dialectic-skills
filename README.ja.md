@@ -380,6 +380,7 @@ dia-iterate --max 2 この段落の日付と事実を確認して：「初代 iP
 - **`dia-iterate` が起動しない。** `dia-iterate` がメッセージの最初の語である場合か、明示的に選択した場合（`/dia:dia-iterate`、`$dia:dia-iterate`、`@dia-iterate`）にのみ起動します。
 - **Codex で `$dia:dia-confirm:` が解決されない。** スキル名の後にはコロンではなくスペースを入れてください。
 - **claude.ai でアップロードが拒否される。** Customize › Skills ではなく、Customize › Plugins › Upload plugin を使ってください。
+- **claude.ai で Check for updates 後も古いバージョンのまま。** Customize › Plugins で `dia` を削除し、`dialectic-skills` マーケットプレイスから再インストールしてください。以後のリリースを自動で受け取るには Sync automatically をオンにします。
 
 どの経路をどのように検証したかは、[docs/probes.md](docs/probes.md) に記録されています。
 

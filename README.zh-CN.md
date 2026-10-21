@@ -380,6 +380,7 @@ dia-iterate --max 2 核查这段话里的日期和事实："第一代 iPhone 于
 - **`dia-iterate` 无法启动。** 只有当 `dia-iterate` 是消息的第一个词，或被显式选择时（`/dia:dia-iterate`、`$dia:dia-iterate`、`@dia-iterate`），它才会启动。
 - **在 Codex 上 `$dia:dia-confirm:` 无法解析。** 技能名称后面应加空格，而不是冒号。
 - **在 claude.ai 上上传被拒绝。** 请使用 Customize › Plugins › Upload plugin，而不是 Customize › Skills。
+- **在 claude.ai 上 Check for updates 后仍是旧版本。** 在 Customize › Plugins 中移除 `dia`，再从 `dialectic-skills` 市场重新安装；如需自动获取后续版本，请打开 Sync automatically。
 
 哪些途径已经验证过、如何验证的，记录在 [docs/probes.md](docs/probes.md) 中。
 

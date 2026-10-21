@@ -380,6 +380,7 @@ dia-iterate --max 2 이 문단의 날짜와 사실을 확인해 주세요: "최�
 - **`dia-iterate`가 시작되지 않습니다.** 메시지의 첫 단어가 `dia-iterate`이거나 명시적으로 선택했을 때(`/dia:dia-iterate`, `$dia:dia-iterate`, `@dia-iterate`)에만 시작됩니다.
 - **Codex에서 `$dia:dia-confirm:`이 인식되지 않습니다.** 스킬 이름 뒤에 콜론이 아니라 공백을 넣습니다.
 - **claude.ai에서 업로드가 거부됩니다.** Customize › Skills가 아니라 Customize › Plugins › Upload plugin을 사용합니다.
+- **claude.ai에서 Check for updates 후에도 예전 버전이 남아 있습니다.** Customize › Plugins에서 `dia`를 제거한 뒤 `dialectic-skills` 마켓플레이스에서 다시 설치합니다. 이후 릴리스를 자동으로 받으려면 Sync automatically를 켭니다.
 
 어떤 경로를 어떻게 검증했는지는 [docs/probes.md](docs/probes.md)에 기록되어 있습니다.
 
