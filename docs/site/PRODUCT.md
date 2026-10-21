@@ -19,15 +19,17 @@ web
   "Skill guide with examples")**
 - Claude Code and Codex CLI users who install from the command line. **(inferred from the Quick start
   order in README)**
-- The job on the project page: understand what the seven skills do, pick one, install `dia` on the
+- The job on the project page: understand what the ten skills do, pick one, install `dia` on the
   surface they use, and know how to start a skill there. **(inferred)**
 
 ## Product Purpose
 
-`dia` (Dialectic Skills) is one plugin of seven reasoning-and-review skills: `dia-confirm`,
-`dia-elenchus`, `dia-brainstorm`, `dia-reductio`, `dia-negative`, `dia-refine`, `dia-iterate`. Each
-turns an old way of thinking (Socratic questioning, proof by contradiction, internal critique, an
-editor's review pass) into a routine the assistant follows step by step. Success for the page is an
+`dia` (Dialectic Skills) is one plugin of ten reasoning-and-review skills: `dia-confirm`,
+`dia-elenchus`, `dia-brainstorm`, `dia-reductio`, `dia-negative`, `dia-warrant`, `dia-conjecture`,
+`dia-counterplan`, `dia-refine`, `dia-iterate` (the last three added before them in 1.3.0). Each
+turns an old way of thinking (Socratic questioning, proof by contradiction, internal critique,
+Toulmin's argument layout, Lakatos's proofs and refutations, Mason's dialectical inquiry, an editor's
+review pass) into a routine the assistant follows step by step. Success for the page is an
 install on the visitor's surface and a first skill started. **(success definition inferred)**
 
 ## Positioning
@@ -53,7 +55,8 @@ install on the visitor's surface and a first skill started. **(success definitio
 
 ## Capabilities and Constraints
 
-- Current plugin version 1.1.1 (`plugin-manifest.json`). License MIT.
+- Plugin version 1.3.0 on the `next` branch, unreleased; the live page and `main` describe 1.2.1
+  (`plugin-manifest.json`). License MIT. The page is published only from `main`.
 - `dia-intent` was renamed `dia-confirm` in 1.1.0.
 - The project page lives at `https://ajitta.github.io/dialectic-skills/` and is plain static
   HTML/CSS/JS in `site/`; all asset URLs must be relative. **(stack observed in the repository)**
@@ -71,8 +74,9 @@ install on the visitor's surface and a first skill started. **(success definitio
 ## Evidence on Hand
 
 - Real sessions from the README, shortened, one per skill (the wedding speech, "a good teacher", the
-  weekend money, "the customer is always right", the open-door policy, the Great Wall, the first
-  iPhone). The two dialogue examples used a simulated user, which the README states.
+  weekend money, "the customer is always right", the open-door policy, the trainer and the knees,
+  buying in bulk, the move to the suburbs, the Great Wall, the first iPhone). The dialogue examples
+  used a simulated user, which the README states.
 - `docs/probes.md` records which install routes were verified and how. `docs/skill-effect.md` and
   `docs/token-cost.md` hold measurements, not marketing claims.
 - Public-domain pictures and footage with credits in `site/assets/img/credits.json`.

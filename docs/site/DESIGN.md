@@ -1,6 +1,6 @@
 ---
 name: Dialectic Skills
-description: Project page for dia, seven reasoning-and-review skills in one plugin, drawn from one motif, two overlapping circles and the amber lens where they meet.
+description: Project page for dia, ten reasoning-and-review skills in one plugin, drawn from one motif, two overlapping circles and the amber lens where they meet.
 colors:
   sky: "#cbe4f2"
   sky-tone: "#b6d7ea"
@@ -147,7 +147,7 @@ components:
 
 The whole page is drawn from one shape: dia's own mark, two overlapping circles (you and the assistant) and the amber lens where they meet. That shape is the hero, the frame of every picture, the speaker dot beside every turn of a session, the round end of every button and the mark built large in the footer. Nothing else on the page is decorative. If a new surface needs an accent, it borrows from the motif (a circle, a pill, the amber lens) rather than adding a new device.
 
-The ground is two pale, flat fields, sky and sand, that alternate section by section and plate by plate, so the page reads as a sequence of plates in a printed edition. Pictures are public-domain artworks and documents from the history of argument (Socrates, Plato manuscripts, Euclid, Diogenes), always in greyscale inside the left circle, with the amber lens laid over them in multiply. Ink is near-black, never pure black on pure white; text is a serif set at reading length, headings a heavy grotesque.
+The ground is two pale, flat fields, sky and sand, that alternate section by section and plate by plate, so the page reads as a sequence of plates in a printed edition. Pictures are public-domain artworks and documents from the history of argument (Socrates, Plato manuscripts, Euclid, Diogenes, a Daumier courtroom, Pacioli at his geometry, the choice of Hercules), always in greyscale inside the left circle, with the amber lens laid over them in multiply. Ink is near-black, never pure black on pure white; text is a serif set at reading length, headings a heavy grotesque.
 
 Density is generous and editorial: one idea per screen, long real examples shown in full, no cards-in-grids. Motion is a single vocabulary of masked rises and circles sliding into overlap, and it disappears entirely under reduced motion.
 
@@ -212,7 +212,7 @@ A pale sky-and-sand ground carried by near-black ink, with the logo's amber as t
 Full-bleed colour fields, each padded by the page margin (clamp 1rem to 2rem) with vertical section padding (clamp 3.5rem to 5.5rem). Inside, a 12-column grid with a fluid gutter (clamp 1rem to 2rem) sets split compositions: heading in columns 1 to 5 or 1 to 4, content from column 7 or 5 to the end.
 
 - **Hero:** a full-height viewport; copy in the left half, the two-circle pair anchored to the right edge, sized from the viewport (radius min(40svh, 27vw)) and cropped by it.
-- **Skill plates:** seven full-width plates, each two equal columns, at least 88svh tall, alternating sand and sky and alternating which side holds the picture. The picture column is sticky while the text scrolls.
+- **Skill plates:** ten full-width plates in README order, each two equal columns, at least 88svh tall, alternating sky and sand and alternating which side holds the picture. The first plate is sky with the picture on the left (the ink switch bar separates it from the sky section head); every even plate is sand with the picture on the right (`plate--flip field-sand`), so the last plate is sand and hands over to the sky Install section. With an odd number of plates, start on sand instead. The picture column is sticky while the text scrolls.
 - **Install:** five stages in one rounded panel; on wide screens a horizontal accordion (open stage 60% wide, closed stages show a vertical label), below 900px a vertical accordion.
 - **Questions:** sticky heading on the left, accordion of tiles on the right.
 - **Breakpoints:** 900px (splits collapse to one column; plates reorder to name, lead, picture, then text; picture shrinks to 64% and alternates left and right) and 600px (picture 72%, speaker names stack above turns, secondary nav link hidden).
@@ -230,7 +230,7 @@ The system is flat. There are no shadows anywhere. Depth comes from three things
 
 Every shape is a circle or derives from one.
 
-- **Circles** (50%): picture frames, the speaker and list dots (0.6rem, 0.75rem and 1rem), inline thumbnails in the intro statement (1.4em, sitting on the line).
+- **Circles** (50%): picture frames, the speaker and list dots (0.6rem, 0.75rem and 1rem), inline thumbnails in the intro statement (1.4em, sitting on the line). List dots (the "wants" list, the rows in "Start a skill") sit on the first line of their text, not the vertical centre of the row, so they stay put when a line wraps.
 - **Pills** (999px): every button, the surface tabs, the native select in the phone switch, the start-command chips.
 - **Panels** (28px): prompt boxes, install command boxes, question tiles, the install stage group. The only non-circular corner on the page.
 - **The pair:** two circles on a 3:2 box overlapping by a third (hero, film, footer, wordmark), or on a square box overlapping on the diagonal (skill plates, mirrored on alternate plates). The lens is an SVG path filled with amber in multiply blend.

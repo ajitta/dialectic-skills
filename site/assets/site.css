@@ -160,7 +160,8 @@ strong { font-weight: 600; }
 .skills__intro p { margin-top: 1.5rem; }
 .wants { grid-column: 7 / -1; align-self: end; }
 .wants a { display: flex; align-items: baseline; gap: 0.75rem; min-height: 2.75rem; padding-block: 0.45rem; text-decoration: none; }
-.wants .dot { align-self: center; background: var(--accent); }
+/* The dot sits on the first line of the goal, also when the goal wraps (and, on phones, when the name drops below it). */
+.wants .dot { align-self: flex-start; margin-top: calc((1.55em - 1rem) / 2); background: var(--accent); }
 .wants__goal { flex: 1; }
 .wants code { flex: none; color: var(--ink); font-size: var(--step-body); font-variant-numeric: tabular-nums; }
 @media (hover: hover) and (pointer: fine) {
@@ -278,7 +279,7 @@ pre { margin: 0; white-space: pre-wrap; overflow-wrap: anywhere; line-height: 1.
 .invoke__list > p { margin-top: 1.5rem; }
 .rows__group { font-size: var(--step-body); color: var(--muted); margin-top: 2.5rem; margin-bottom: 0.4rem; }
 .rows li { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.25rem 0.75rem; min-height: 2.75rem; padding-block: 0.45rem; }
-.rows .dot { align-self: center; width: 0.75rem; height: 0.75rem; background: var(--blue-3); }
+.rows .dot { align-self: flex-start; margin-top: calc((1.55em - 0.75rem) / 2); width: 0.75rem; height: 0.75rem; background: var(--blue-3); }
 .rows__name { flex: 1 1 14rem; }
 .rows__value { display: flex; flex-wrap: wrap; gap: 0.35rem 0.75rem; justify-content: flex-end; text-align: right; font-variant-numeric: tabular-nums; }
 .invoke__note { margin-top: 2.5rem; }

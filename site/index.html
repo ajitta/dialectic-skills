@@ -5,14 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="google-site-verification" content="jMH7Vovuubz9O26rgOam803mKx9rvFa1m46VuDWj_Os">
 <!-- impeccable-disable cramped-padding: false positive. The static scan cannot resolve the clamp() padding on .intro and .invoke and their .wrap child; rendered URL scans measure 56px or more of inset and still check this rule. -->
-<title>Dialectic Skills (dia): seven reasoning-and-review skills for Claude, Codex and ChatGPT</title>
-<meta name="description" content="dia is one plugin of seven reasoning-and-review skills: confirm the task, Socratic dialogue and brainstorm, proof by contradiction, internal critique, one review pass and verified review rounds. Instructions only; runs on Claude, Codex and ChatGPT, also in chats with no tools.">
+<title>Dialectic Skills (dia): ten reasoning-and-review skills for Claude, Codex and ChatGPT</title>
+<meta name="description" content="dia is one plugin of ten reasoning-and-review skills: confirm the task, Socratic dialogue and brainstorm, proof by contradiction, internal critique, argument support, counterexamples, a counterplan, one review pass and verified review rounds. Instructions only; runs on Claude, Codex and ChatGPT, also in chats with no tools.">
 <link rel="canonical" href="https://ajitta.github.io/dialectic-skills/">
 <meta name="theme-color" content="#cbe4f2">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Dialectic Skills">
 <meta property="og:title" content="Dialectic Skills (dia)">
-<meta property="og:description" content="Seven reasoning-and-review skills in one plugin, for Claude (web, desktop, mobile, Claude Code), Codex and ChatGPT. Instructions only; MIT licensed.">
+<meta property="og:description" content="Ten reasoning-and-review skills in one plugin, for Claude (web, desktop, mobile, Claude Code), Codex and ChatGPT. Instructions only; MIT licensed.">
 <meta property="og:url" content="https://ajitta.github.io/dialectic-skills/">
 <meta property="og:image" content="https://ajitta.github.io/dialectic-skills/assets/og.png">
 <meta property="og:image:width" content="1200">
@@ -20,7 +20,7 @@
 <meta property="og:image:alt" content="Dialectic Skills: two overlapping circles, with a marble herm of Socrates in one of them">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Dialectic Skills (dia)">
-<meta name="twitter:description" content="Seven reasoning-and-review skills in one plugin, for Claude, Codex and ChatGPT. Instructions only; MIT licensed.">
+<meta name="twitter:description" content="Ten reasoning-and-review skills in one plugin, for Claude, Codex and ChatGPT. Instructions only; MIT licensed.">
 <meta name="twitter:image" content="https://ajitta.github.io/dialectic-skills/assets/og.png">
 <link rel="icon" href="assets/icon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png">
@@ -51,10 +51,10 @@
       <span class="line" aria-hidden="true"><span data-line style="--i:0">Dialectic</span></span>
       <span class="line" aria-hidden="true"><span data-line style="--i:1">skills</span></span>
     </h1>
-    <p class="lead hero__lead" data-load style="--d:420ms">Seven reasoning-and-review skills that make your assistant question an idea, test a claim or review a draft, step by step. One plugin for Claude (web, desktop, mobile, Claude&nbsp;Code), Codex and ChatGPT.</p>
+    <p class="lead hero__lead" data-load style="--d:420ms">Ten reasoning-and-review skills that make your assistant question an idea, test a claim, weigh a plan or review a draft, step by step. One plugin for Claude (web, desktop, mobile, Claude&nbsp;Code), Codex and ChatGPT.</p>
     <p class="hero__actions" data-load style="--d:500ms">
       <a class="button" href="#install">Install dia</a>
-      <a class="link link--plain" href="#skills">See the seven skills</a>
+      <a class="link link--plain" href="#skills">See the ten skills</a>
     </p>
   </div>
 
@@ -86,7 +86,7 @@
     <div class="facts">
       <p class="fact" data-reveal style="--i:1"><strong class="fact__title">Instructions only.</strong> The package is Markdown, YAML and JSON, with no scripts, so every skill also works in a chat with no tools. You need no background in philosophy to use it.</p>
       <p class="fact" data-reveal style="--i:2"><strong class="fact__title">In your language.</strong> Skill files are in English; each skill replies in the language of your message. Every prompt on this page works in any language.</p>
-      <p class="fact" data-reveal style="--i:3"><strong class="fact__title">One plugin, everywhere.</strong> The same seven skills are written to run unchanged on Claude (web, desktop, mobile, Claude Code), Codex and ChatGPT. Free under the MIT License.</p>
+      <p class="fact" data-reveal style="--i:3"><strong class="fact__title">One plugin, everywhere.</strong> The same ten skills are written to run unchanged on Claude (web, desktop, mobile, Claude Code), Codex and ChatGPT. Free under the MIT License.</p>
     </div>
   </div>
 </section>
@@ -94,8 +94,8 @@
 <section class="skills" id="skills" aria-labelledby="skills-title">
   <div class="wrap skills__head">
     <div class="skills__intro">
-      <h2 class="head mask" id="skills-title" data-reveal><span>Seven skills</span></h2>
-      <p data-reveal style="--i:1">Each is a way of thinking people have used for a long time, turned into a routine the assistant follows. Pick one by what you want to do. The sessions are from the project’s README, run on Claude Code with this plugin and shortened; in the two dialogues the user’s replies came from a simulated user. The wording you get will differ from run to run.</p>
+      <h2 class="head mask" id="skills-title" data-reveal><span>Ten skills</span></h2>
+      <p data-reveal style="--i:1">Each is a way of thinking people have used for a long time, turned into a routine the assistant follows. Pick one by what you want to do. The sessions are from the project’s README, run on Claude Code with this plugin and shortened; in the dialogues the user’s replies came from a simulated user. The wording you get will differ from run to run.</p>
     </div>
     <ul class="wants" aria-label="Pick a skill by what you want to do">
       <li data-reveal style="--i:0"><a href="#dia-confirm"><span class="dot"></span><span class="wants__goal">Make sure the assistant understood the task before it starts</span><code>dia-confirm</code></a></li>
@@ -103,8 +103,11 @@
       <li data-reveal style="--i:2"><a href="#dia-brainstorm"><span class="dot"></span><span class="wants__goal">Turn a rough idea into options and a plan</span><code>dia-brainstorm</code></a></li>
       <li data-reveal style="--i:3"><a href="#dia-reductio"><span class="dot"></span><span class="wants__goal">Check whether a claim holds together</span><code>dia-reductio</code></a></li>
       <li data-reveal style="--i:4"><a href="#dia-negative"><span class="dot"></span><span class="wants__goal">See whether a slogan, policy or promise lives up to its own words</span><code>dia-negative</code></a></li>
-      <li data-reveal style="--i:5"><a href="#dia-refine"><span class="dot"></span><span class="wants__goal">Fix the mistakes in an answer or a draft, once</span><code>dia-refine</code></a></li>
-      <li data-reveal style="--i:6"><a href="#dia-iterate"><span class="dot"></span><span class="wants__goal">Fact-check something thoroughly, round by round</span><code>dia-iterate</code></a></li>
+      <li data-reveal style="--i:5"><a href="#dia-warrant"><span class="dot"></span><span class="wants__goal">See how well the reasons behind a conclusion actually support it</span><code>dia-warrant</code></a></li>
+      <li data-reveal style="--i:6"><a href="#dia-conjecture"><span class="dot"></span><span class="wants__goal">Test an “always” or “never” rule of yours against counterexamples</span><code>dia-conjecture</code></a></li>
+      <li data-reveal style="--i:7"><a href="#dia-counterplan"><span class="dot"></span><span class="wants__goal">Hear the strongest case for a different plan before you commit</span><code>dia-counterplan</code></a></li>
+      <li data-reveal style="--i:8"><a href="#dia-refine"><span class="dot"></span><span class="wants__goal">Fix the mistakes in an answer or a draft, once</span><code>dia-refine</code></a></li>
+      <li data-reveal style="--i:9"><a href="#dia-iterate"><span class="dot"></span><span class="wants__goal">Fact-check something thoroughly, round by round</span><code>dia-iterate</code></a></li>
     </ul>
   </div>
 
@@ -118,7 +121,7 @@
   </div>
 
   <!-- dia-confirm -->
-  <article class="plate field-sand" id="dia-confirm" data-skill="dia-confirm" data-codex="name">
+  <article class="plate" id="dia-confirm" data-skill="dia-confirm" data-codex="name">
     <figure class="plate__pic pair pair--diag" data-reveal>
       <div class="pair__art">
         <span class="pair__b"></span>
@@ -147,7 +150,7 @@
   </article>
 
   <!-- dia-elenchus -->
-  <article class="plate plate--flip" id="dia-elenchus" data-skill="dia-elenchus" data-codex="auto">
+  <article class="plate plate--flip field-sand" id="dia-elenchus" data-skill="dia-elenchus" data-codex="auto">
     <figure class="plate__pic pair pair--diag pair--flip" data-reveal>
       <div class="pair__art">
         <span class="pair__b"></span>
@@ -178,7 +181,7 @@
   </article>
 
   <!-- dia-brainstorm -->
-  <article class="plate field-sand" id="dia-brainstorm" data-skill="dia-brainstorm" data-codex="auto">
+  <article class="plate" id="dia-brainstorm" data-skill="dia-brainstorm" data-codex="auto">
     <figure class="plate__pic pair pair--diag" data-reveal>
       <div class="pair__art">
         <span class="pair__b"></span>
@@ -210,7 +213,7 @@
   </article>
 
   <!-- dia-reductio -->
-  <article class="plate plate--flip" id="dia-reductio" data-skill="dia-reductio" data-codex="auto">
+  <article class="plate plate--flip field-sand" id="dia-reductio" data-skill="dia-reductio" data-codex="auto">
     <figure class="plate__pic pair pair--diag pair--flip" data-reveal>
       <div class="pair__art">
         <span class="pair__b"></span>
@@ -240,7 +243,7 @@
   </article>
 
   <!-- dia-negative -->
-  <article class="plate field-sand" id="dia-negative" data-skill="dia-negative" data-codex="auto">
+  <article class="plate" id="dia-negative" data-skill="dia-negative" data-codex="auto">
     <figure class="plate__pic pair pair--diag" data-reveal>
       <div class="pair__art">
         <span class="pair__b"></span>
@@ -268,14 +271,106 @@
     </div>
   </article>
 
-  <!-- dia-refine -->
-  <article class="plate plate--flip" id="dia-refine" data-skill="dia-refine" data-codex="auto">
+  <!-- dia-warrant -->
+  <article class="plate plate--flip field-sand" id="dia-warrant" data-skill="dia-warrant" data-codex="auto">
     <figure class="plate__pic pair pair--diag pair--flip" data-reveal>
+      <div class="pair__art">
+        <span class="pair__b"></span>
+      <img class="pair__a" src="assets/img/daumier-peroration.jpg" width="1200" height="898" loading="lazy" decoding="async" style="object-position:66% 50%"
+           alt="Lithograph: in a courtroom a lawyer flings one arm high as he ends his speech, while robed colleagues and the judges look on">
+      <svg class="pair__lens" viewBox="0 0 2.7071 2.7071" aria-hidden="true"><path d="M1.966 0.7412A1 1 0 0 1 0.7412 1.966A1 1 0 0 1 1.966 0.7412Z" transform="matrix(-1 0 0 1 2.7071 0)"/></svg>
+      </div>
+      <figcaption class="small">Honoré Daumier, <i lang="fr">Une péroraison à la Démosthène</i>, from <i lang="fr">Les Gens de Justice</i>, 1847.</figcaption>
+    </figure>
+    <div class="plate__text">
+      <h3 class="head plate__name mask" data-reveal style="--i:1"><span>dia-warrant</span></h3>
+      <p class="lead" data-reveal style="--i:2">See how well the reasons support a conclusion.</p>
+      <p data-reveal style="--i:3">Most everyday arguments make a conclusion likely rather than prove it: an expert said so, it worked for them, this causes that. The assistant lays the argument out in parts, after Stephen Toulmin: the claim, the data, the warrant (the rule that gets you from the data to the claim, usually left unsaid), its backing, the qualifier and the rebuttal. It asks Douglas Walton’s critical questions for that kind of argument and names the weakest link, in one pass. When the reasons pass through an in-between claim, each step gets its own warrant and the result says which step the weak link is on. It judges the support, never whether the claim is true.</p>
+      <p class="start" data-reveal style="--i:4"><span class="start__how">Starts by name, or in words.</span> <span class="start__line">Start it with <code class="start__code">/dia:dia-warrant</code></span> <span class="start__note"></span></p>
+      <div class="try" data-reveal style="--i:5">
+        <p class="try__label">Try this prompt</p>
+        <pre><code>How well do the reasons support this? "My friend is a personal trainer and she says running ruins your knees, so if I take up running I will get knee problems."</code></pre>
+      </div>
+      <dl class="output" aria-label="What you get, shortened" data-reveal style="--i:6">
+        <dt>Warrant</dt><dd>The argument is a chain: data → C1 → C. … Wa (reconstructed): What a personal trainer says about running’s effect on knees is generally reliable. This is the step from data to C1. Wb (reconstructed): If running generally ruins knees, then a person who takes up running will generally get knee problems. This is the step from C1 to C.</dd>
+        <dt>Critical questions</dt><dd><i>(eight, all open, among them)</i> 1. [data] Is she a genuine expert in the field this claim belongs to? … 3. [warrant/backing] Is her assertion based on evidence? The argument cites none, only “she says.” Open.</dd>
+        <dt>Qualifier check</dt><dd>C says “will”. Wa and Wb license only “generally”, which is “probably”. So the claim is overstated.</dd>
+        <dt>Result</dt><dd>Weakest link: warrant (Wa), because “Is her assertion based on evidence?” is left open. … This audit doesn’t decide whether running causes knee problems.</dd>
+      </dl>
+      <p class="small output__legend" data-reveal style="--i:6">C1 is the in-between claim “running ruins your knees”. “Reconstructed” means the assistant supplied it because the step needs it. In ask mode you fill in each part yourself, one question per message.</p>
+      <p class="plate__actions" data-reveal style="--i:7"><button class="button button--ink" type="button" data-copy='How well do the reasons support this? "My friend is a personal trainer and she says running ruins your knees, so if I take up running I will get knee problems."'>Copy the prompt</button> <a class="button button--tone" href="https://github.com/ajitta/dialectic-skills#dia-warrant-see-how-well-the-reasons-support-a-conclusion">Full guide</a></p>
+    </div>
+  </article>
+
+  <!-- dia-conjecture -->
+  <article class="plate" id="dia-conjecture" data-skill="dia-conjecture" data-codex="auto">
+    <figure class="plate__pic pair pair--diag" data-reveal>
+      <div class="pair__art">
+        <span class="pair__b"></span>
+      <img class="pair__a" src="assets/img/pacioli-portrait.jpg" width="1200" height="1000" loading="lazy" decoding="async" style="object-position:30% 40%;--lift:1.35"
+           alt="Painting: the mathematician Luca Pacioli, in a friar’s habit, draws a geometric figure on a slate, with a glass polyhedron hanging beside him and a young man behind">
+      <svg class="pair__lens" viewBox="0 0 2.7071 2.7071" aria-hidden="true"><path d="M1.966 0.7412A1 1 0 0 1 0.7412 1.966A1 1 0 0 1 1.966 0.7412Z"/></svg>
+      </div>
+      <figcaption class="small">Attributed to Jacopo de’ Barbari, Portrait of Luca Pacioli, about 1495–1500.</figcaption>
+    </figure>
+    <div class="plate__text">
+      <h3 class="head plate__name mask" data-reveal style="--i:1"><span>dia-conjecture</span></h3>
+      <p class="lead" data-reveal style="--i:2">Test an “always” rule against counterexamples.</p>
+      <p data-reveal style="--i:3">A rule with “always”, “every” or “never” in it can be knocked down by one case that doesn’t fit. Following Imre Lakatos’s <i>Proofs and Refutations</i>, the assistant splits your reasons into numbered steps, then brings one counterexample per message and shows how it fits your rule and still breaks it. You decide whether each case counts; when one does, the assistant lists the repairs and recommends one, and you pick. It is for rules about what is the case, not for plans or policies.</p>
+      <p class="start" data-reveal style="--i:4"><span class="start__how">Starts by name, or in words.</span> <span class="start__line">Start it with <code class="start__code">/dia:dia-conjecture</code></span> <span class="start__note"></span></p>
+      <div class="try" data-reveal style="--i:5">
+        <p class="try__label">Try this prompt</p>
+        <pre><code>Find counterexamples to my rule: buying in bulk always saves money.</code></pre>
+      </div>
+      <ol class="talk" aria-label="A real session, shortened" data-reveal style="--i:6">
+        <li class="talk__turn is-assistant"><b>Assistant</b> <span>Here is the argument as numbered steps. L1 and L2 are your words. I wrote L3 to L5 because the argument needs them. … 4. [A] The extra costs of buying in bulk are zero or small compared with the per-item saving. These include a membership fee, storage space, upfront cash and transport. … Is this your argument?</span></li>
+        <li class="talk__turn is-gap"><span></span><i>…you narrow step 3 to things you use up, and say what would count against the rule…</i></li>
+        <li class="talk__turn is-assistant"><b>Assistant</b> <span>Case 1 (both: against C′ and L4): a one-off club trip. Say you join a warehouse club for a $60 annual fee, just to buy a 40-roll pack of paper towels. … The per-roll saving is 40 × $0.25 = $10, but you paid $60 to get in. … It rests on arithmetic with numbers I made up… Does this count against your rule?</span></li>
+        <li class="talk__turn is-you"><b>You</b> <span>Yeah, that counts. … I guess I’d have to say bulk saves money only when the extra costs, like a fee, are smaller than what I save.</span></li>
+        <li class="talk__turn is-assistant"><b>Assistant</b> <span>Your fix is that bulk saves money only when the extra costs are smaller than what you save. That is true, but it doesn’t work as a repair. It says “bulk saves money when it saves money”, so no purchase could ever count against it. … 1. No attributable extra costs. … 2. Fees and special trips only. … 3. Give up C′. … I recommend option 1. … Which do you pick?</span></li>
+        <li class="talk__turn is-you"><b>You</b> <span>I’ll go with option 1. It covers storage and the trips too, not just the fee…</span></li>
+      </ol>
+      <p class="plate__actions" data-reveal style="--i:7"><button class="button button--ink" type="button" data-copy="Find counterexamples to my rule: buying in bulk always saves money.">Copy the prompt</button> <a class="button button--tone" href="https://github.com/ajitta/dialectic-skills#dia-conjecture-test-an-always-rule-against-counterexamples">Full guide</a></p>
+    </div>
+  </article>
+
+  <!-- dia-counterplan -->
+  <article class="plate plate--flip field-sand" id="dia-counterplan" data-skill="dia-counterplan" data-codex="auto">
+    <figure class="plate__pic pair pair--diag pair--flip" data-reveal>
+      <div class="pair__art">
+        <span class="pair__b"></span>
+      <img class="pair__a" src="assets/img/carracci-choice-of-hercules.jpg" width="1200" height="815" loading="lazy" decoding="async" style="object-position:48% 50%;--lift:1.15"
+           alt="Painting: the young Hercules sits at a crossroads between two women, each urging him down a different path">
+      <svg class="pair__lens" viewBox="0 0 2.7071 2.7071" aria-hidden="true"><path d="M1.966 0.7412A1 1 0 0 1 0.7412 1.966A1 1 0 0 1 1.966 0.7412Z" transform="matrix(-1 0 0 1 2.7071 0)"/></svg>
+      </div>
+      <figcaption class="small">Annibale Carracci, The Choice of Hercules, 1596.</figcaption>
+    </figure>
+    <div class="plate__text">
+      <h3 class="head plate__name mask" data-reveal style="--i:1"><span>dia-counterplan</span></h3>
+      <p class="lead" data-reveal style="--i:2">Hear the case for a different plan.</p>
+      <p data-reveal style="--i:3">Dialectical inquiry, a planning method from management research (Richard Mason, 1969). The assistant lists the assumptions your plan rests on, keeps the ones that would change the decision if they were wrong, gives each a believable opposite, and builds the best rival plan on the same facts. Then you say which assumption of each pair you now hold; that mix is the result. If you only lean one way, the pair stays open with your lean noted. It gives no verdict on which plan wins, because it wrote both sides itself.</p>
+      <p class="start" data-reveal style="--i:4"><span class="start__how">Starts by name, or in words.</span> <span class="start__line">Start it with <code class="start__code">/dia:dia-counterplan</code></span> <span class="start__note"></span></p>
+      <div class="try" data-reveal style="--i:5">
+        <p class="try__label">Try this prompt</p>
+        <pre><code>Devil's advocate on this plan: we want to move from our two-bedroom city apartment to a bigger house in the suburbs before our kids (6 and 3) start school next September. The monthly payment is about the same as our rent now, the kids would each get their own room and a yard, and the school there has good reviews. The catch: my commute goes from 20 minutes to about an hour each way.</code></pre>
+      </div>
+      <ol class="talk" aria-label="A real session, shortened" data-reveal style="--i:6">
+        <li class="talk__turn is-assistant"><b>Assistant</b> <span>I’m giving no verdict. I wrote both sides, so the result will be your set of assumptions. … K1 = A2: Yes. If the commute isn’t sustainable, the main cost of the plan outweighs the gains. K2 = A1: Yes. If total cost is higher, “same as rent” no longer holds. … <i>(five in all)</i> Counterplan: stay in the city for now … For each pair K1–K5, which assumption do you now hold: the plan’s, the counterplan’s, your own wording, or “can’t tell”?</span></li>
+        <li class="talk__turn is-you"><b>You</b> <span>K1: Can’t tell yet. I can’t work from home, so the hour each way is real. … K2: Can’t tell yet. … Right now I’d say the counterplan’s worry is fair, but I don’t have the numbers. … K5: The plan’s, mostly. The kids fight over their shared room most nights…</span></li>
+        <li class="talk__turn is-assistant"><b>Assistant</b> <span>Your rulings are in. Since K1–K3 are still open, the result is undetermined. … Your clarification on working from home now replaces my A6 as [T]. … Lean: counterplan, which I record as a lean, not a ruling. … Result: undetermined. Three pairs are open, one is held for the counterplan, and one is held for the plan with a caveat. … Hearing both sides is not evidence that the plan was tested.</span></li>
+      </ol>
+      <p class="plate__actions" data-reveal style="--i:7"><button class="button button--ink" type="button" data-copy="Devil's advocate on this plan: we want to move from our two-bedroom city apartment to a bigger house in the suburbs before our kids (6 and 3) start school next September. The monthly payment is about the same as our rent now, the kids would each get their own room and a yard, and the school there has good reviews. The catch: my commute goes from 20 minutes to about an hour each way.">Copy the prompt</button> <a class="button button--tone" href="https://github.com/ajitta/dialectic-skills#dia-counterplan-hear-the-case-for-a-different-plan">Full guide</a></p>
+    </div>
+  </article>
+
+  <!-- dia-refine -->
+  <article class="plate" id="dia-refine" data-skill="dia-refine" data-codex="auto">
+    <figure class="plate__pic pair pair--diag" data-reveal>
       <div class="pair__art">
         <span class="pair__b"></span>
       <img class="pair__a" src="assets/img/clarke-plato-euthyphro.jpg" width="788" height="1200" loading="lazy" decoding="async" style="object-position:62% 14%"
            alt="Manuscript page in Greek minuscule, with notes in a second hand in the margin">
-      <svg class="pair__lens" viewBox="0 0 2.7071 2.7071" aria-hidden="true"><path d="M1.966 0.7412A1 1 0 0 1 0.7412 1.966A1 1 0 0 1 1.966 0.7412Z" transform="matrix(-1 0 0 1 2.7071 0)"/></svg>
+      <svg class="pair__lens" viewBox="0 0 2.7071 2.7071" aria-hidden="true"><path d="M1.966 0.7412A1 1 0 0 1 0.7412 1.966A1 1 0 0 1 1.966 0.7412Z"/></svg>
       </div>
       <figcaption class="small">Opening of Plato’s Euthyphro in the Clarke Plato, a manuscript copied in 895. Bodleian Library, Oxford.</figcaption>
     </figure>
@@ -298,13 +393,13 @@
   </article>
 
   <!-- dia-iterate -->
-  <article class="plate field-sand" id="dia-iterate" data-skill="dia-iterate" data-codex="name">
-    <figure class="plate__pic pair pair--diag" data-reveal>
+  <article class="plate plate--flip field-sand" id="dia-iterate" data-skill="dia-iterate" data-codex="name">
+    <figure class="plate__pic pair pair--diag pair--flip" data-reveal>
       <div class="pair__art">
         <span class="pair__b"></span>
       <img class="pair__a" src="assets/img/nova-reperta-printing.jpg" width="1200" height="916" loading="lazy" decoding="async" style="object-position:40% 46%"
            alt="Engraving of a printing workshop: compositors setting type, a press being pulled, printed sheets hung up to dry">
-      <svg class="pair__lens" viewBox="0 0 2.7071 2.7071" aria-hidden="true"><path d="M1.966 0.7412A1 1 0 0 1 0.7412 1.966A1 1 0 0 1 1.966 0.7412Z"/></svg>
+      <svg class="pair__lens" viewBox="0 0 2.7071 2.7071" aria-hidden="true"><path d="M1.966 0.7412A1 1 0 0 1 0.7412 1.966A1 1 0 0 1 1.966 0.7412Z" transform="matrix(-1 0 0 1 2.7071 0)"/></svg>
       </div>
       <figcaption class="small">Jan Collaert I, The Invention of Book Printing, from Nova Reperta, about 1600.</figcaption>
     </figure>
@@ -378,7 +473,7 @@
               <div class="code"><pre><code>ajitta/dialectic-skills</code></pre></div>
               Copy the name rather than typing it: a misspelling such as <code>dialectric</code> fails with “Repository not found”. The Git URL <code>https://<wbr>github.com/<wbr>ajitta/<wbr><span class="nobr">dialectic-skills.git</span></code> works too.</li>
             <li><strong>Add the plugin.</strong> Adding the marketplace installs nothing yet. In Customize › Plugins, open Discover, select <code>dia</code> (Dialectic Skills), and select Add.</li>
-            <li><strong>Check.</strong> Type <code>/dia</code> in the message box. Seven entries, <code>dia:dia-brainstorm</code> to <code>dia:dia-refine</code>, should appear. Updates arrive through the marketplace.</li>
+            <li><strong>Check.</strong> Type <code>/dia</code> in the message box. Ten entries, <code>dia:dia-brainstorm</code> to <code>dia:dia-warrant</code>, should appear. Updates arrive through the marketplace.</li>
           </ol>
           <ul class="notes">
             <li>Instead of steps 2 and 3 you can upload <a class="link-plain" href="https://github.com/ajitta/dialectic-skills/releases/latest/download/dialectic-skills.zip">dialectic-skills.zip</a> from the latest release: Customize › Plugins › Add › Upload plugin (not Customize › Skills). An upload does not update itself.</li>
@@ -430,6 +525,9 @@
         <li data-reveal style="--i:1"><span class="dot"></span><span class="rows__name">“do an immanent critique of…”</span><span class="rows__value"><code>dia-negative</code></span></li>
         <li data-reveal style="--i:2"><span class="dot"></span><span class="rows__name">“Socratic dialogue please…”</span><span class="rows__value"><code>dia-elenchus</code></span></li>
         <li data-reveal style="--i:3"><span class="dot"></span><span class="rows__name">“Socratic brainstorm with me…”</span><span class="rows__value"><code>dia-brainstorm</code></span></li>
+        <li data-reveal style="--i:4"><span class="dot"></span><span class="rows__name">“how well do the reasons support this?”</span><span class="rows__value"><code>dia-warrant</code></span></li>
+        <li data-reveal style="--i:5"><span class="dot"></span><span class="rows__name">“find counterexamples to my rule…”</span><span class="rows__value"><code>dia-conjecture</code></span></li>
+        <li data-reveal style="--i:6"><span class="dot"></span><span class="rows__name">“devil’s advocate on this plan…”</span><span class="rows__value"><code>dia-counterplan</code></span></li>
       </ul>
 
       <h3 class="rows__group" data-reveal>By name, as the first word</h3>
@@ -451,11 +549,13 @@
       <h3 class="rows__group" data-reveal>Options, as flags or plain words</h3>
       <ul class="rows">
         <li data-reveal style="--i:0"><span class="dot"></span><span class="rows__name">What is examined: your claim, the assistant’s answer, a pasted text, or all</span><span class="rows__value"><code>--target=user|claude|text|all</code></span></li>
-        <li data-reveal style="--i:1"><span class="dot"></span><span class="rows__name">Round cap for <code>dia-iterate</code>, default 3</span><span class="rows__value"><code>--max N</code></span></li>
-        <li data-reveal style="--i:2"><span class="dot"></span><span class="rows__name">Mode and depth for <code>dia-brainstorm</code>: <code>develop</code> (default) or <code>stress</code>; <code>quick</code>, <code>standard</code> (default) or <code>deep</code></span><span class="rows__value"><code>stress</code> <code>quick</code> <code>deep</code></span></li>
-        <li data-reveal style="--i:3"><span class="dot"></span><span class="rows__name">Criteria for <code>dia-refine</code> and <code>dia-iterate</code>: anything after the name</span><span class="rows__value"><code>dia-refine for tone</code></span></li>
+        <li data-reveal style="--i:1"><span class="dot"></span><span class="rows__name">Whose plan <code>dia-counterplan</code> examines: yours, the assistant’s earlier recommendation, or a pasted text</span><span class="rows__value"><code>--target=user|claude|text</code></span></li>
+        <li data-reveal style="--i:2"><span class="dot"></span><span class="rows__name">Mode for <code>dia-warrant</code>: <code>audit</code> (default) lays out the whole check at once; <code>ask</code> has you fill in each part, one question per message</span><span class="rows__value"><code>--mode=ask</code></span></li>
+        <li data-reveal style="--i:3"><span class="dot"></span><span class="rows__name">Round cap for <code>dia-iterate</code>, default 3</span><span class="rows__value"><code>--max N</code></span></li>
+        <li data-reveal style="--i:4"><span class="dot"></span><span class="rows__name">Mode and depth for <code>dia-brainstorm</code>: <code>develop</code> (default) or <code>stress</code>; <code>quick</code>, <code>standard</code> (default) or <code>deep</code></span><span class="rows__value"><code>stress</code> <code>quick</code> <code>deep</code></span></li>
+        <li data-reveal style="--i:5"><span class="dot"></span><span class="rows__name">Criteria for <code>dia-refine</code> and <code>dia-iterate</code>: anything after the name</span><span class="rows__value"><code>dia-refine for tone</code></span></li>
       </ul>
-      <p class="invoke__note" data-reveal>Starting with the name was tested for 1.2.0 on Codex and in the ChatGPT mobile app. <code>--target</code> applies to <code>dia-reductio</code> and <code>dia-negative</code>.</p>
+      <p class="invoke__note" data-reveal>Starting with the name was tested for 1.2.0 on Codex and in the ChatGPT mobile app. <code>--target</code> applies to <code>dia-reductio</code>, <code>dia-negative</code> and <code>dia-warrant</code>, and without <code>all</code> to <code>dia-counterplan</code>.</p>
     </div>
 
     <figure class="invoke__film pair" data-reveal>
@@ -492,34 +592,38 @@
         <div class="tile__body"><p>Both run and both answers are complete, which makes for long output (around 9,000 characters in tests). On a phone, ask for one at a time.</p></div>
       </details>
       <details class="tile" name="faq" data-reveal style="--i:3">
+        <summary><span><code>dia-warrant</code>, <code>dia-conjecture</code> or <code>dia-counterplan</code> sent me to another skill</span></summary>
+        <div class="tile__body"><p>These three check what you gave them first. If the request belongs to a sibling, they say so in one line and name it: a rule you mean only as “usually” goes to <code>dia-warrant</code>, a strict “always” claim to <code>dia-conjecture</code>, a plan’s assumptions to <code>dia-counterplan</code>, and a request to be questioned about your plan to <code>dia-brainstorm</code>. Ask again with the skill they name.</p></div>
+      </details>
+      <details class="tile" name="faq" data-reveal style="--i:4">
         <summary><span>Can I get advice after <code>dia-elenchus</code>?</span></summary>
         <div class="tile__body"><p>Ask, and the assistant says the Socratic part is over and labels each suggestion as its own. For a full options-and-plan session, name <code>dia-brainstorm</code> and it takes the record from there.</p></div>
       </details>
-      <details class="tile" name="faq" data-reveal style="--i:4">
+      <details class="tile" name="faq" data-reveal style="--i:5">
         <summary><span>“Repository not found” when I add the marketplace</span></summary>
         <div class="tile__body"><p>Check the spelling: <code>ajitta/dialectic-skills</code> (dialectic, not dialectric). The repository is public and needs no GitHub login.</p></div>
       </details>
-      <details class="tile" name="faq" data-reveal style="--i:5">
+      <details class="tile" name="faq" data-reveal style="--i:6">
         <summary><span>No dia skills under <code>/</code> on Claude mobile</span></summary>
         <div class="tile__body"><p>Expected: the mobile menu does not list plugin skills. Type the full name (such as <code>/dia-brainstorm</code>), ask in words, or start the message with the skill name.</p></div>
       </details>
-      <details class="tile" name="faq" data-reveal style="--i:6">
+      <details class="tile" name="faq" data-reveal style="--i:7">
         <summary><span>It works on one device but not another</span></summary>
         <div class="tile__body"><p>Desktop installs stay on that computer; web installs are saved to your account and reach the mobile app. Install on the web for the web and mobile, and in each desktop app you use.</p></div>
       </details>
-      <details class="tile" name="faq" data-reveal style="--i:7">
+      <details class="tile" name="faq" data-reveal style="--i:8">
         <summary><span>Every skill appears twice</span></summary>
         <div class="tile__body"><p>The plugin is installed through two routes (for example <code>dia@dialectic-skills</code> and <code>dia@ajitta</code>, or an upload and a marketplace). Remove one.</p></div>
       </details>
-      <details class="tile" name="faq" data-reveal style="--i:8">
+      <details class="tile" name="faq" data-reveal style="--i:9">
         <summary><span>claude.ai keeps an old version</span></summary>
         <div class="tile__body"><p>If Check for updates leaves an old version, remove <code>dia</code> in Customize › Plugins and install it again from the <code>dialectic-skills</code> marketplace. Turn on Sync automatically for later releases.</p></div>
       </details>
-      <details class="tile" name="faq" data-reveal style="--i:8">
+      <details class="tile" name="faq" data-reveal style="--i:10">
         <summary><span>On ChatGPT, a skill starts only from <code>@</code></span></summary>
         <div class="tile__body"><p>Most likely your upload is older than 1.2.0, where four skills were hidden from the model. Upload the latest <code>dialectic-skills-openai.zip</code> again; uploads do not update themselves.</p></div>
       </details>
-      <details class="tile" name="faq" data-reveal style="--i:9">
+      <details class="tile" name="faq" data-reveal style="--i:11">
         <summary><span><code>dia-iterate</code> does not start</span></summary>
         <div class="tile__body"><p>It starts only when <code>dia-iterate</code> is the first word of the message or when it is selected explicitly (<code>/dia:dia-iterate</code>, <code>$dia:dia-iterate</code>, <code>@dia-iterate</code>).</p></div>
       </details>
@@ -552,7 +656,7 @@
         <li><a class="link" href="https://github.com/ajitta/dialectic-skills/blob/main/README.ja.md" hreflang="ja">README in Japanese</a></li>
         <li><a class="link" href="https://github.com/ajitta/dialectic-skills/blob/main/README.zh-CN.md" hreflang="zh-CN">README in Simplified Chinese</a></li>
       </ul>
-      <p class="footer__credits">Pictures and footage, all public domain: <a href="https://commons.wikimedia.org/wiki/File:Bust_Socrates_Musei_Capitolini_MC1163.jpg">herm of Socrates</a>, Capitoline Museums, via Wikimedia Commons; François-André Vincent, <a href="https://commons.wikimedia.org/wiki/File:Alcibades_being_taught_by_Socrates,_Fran%C3%A7ois-Andr%C3%A9_Vincent.jpg">Alcibiades Being Taught by Socrates</a>, via Wikimedia Commons; Jacques-Louis David, <a href="https://www.metmuseum.org/art/collection/search/436105">The Death of Socrates</a>, The Met (CC0); Agostino Veneziano, <a href="https://www.metmuseum.org/art/collection/search/342969">The Group, from Raphael’s School of Athens</a>, The Met (CC0); <a href="https://commons.wikimedia.org/wiki/File:Euclid3a.gif">Euclid’s Elements, Ratdolt, 1482</a>, via Wikimedia Commons; <a href="https://www.metmuseum.org/art/collection/search/650907">Diogenes holding a lantern</a>, after Ribera, The Met (CC0); <a href="https://commons.wikimedia.org/wiki/File:Euthyphron_beginning._Clarke_Plato.jpg">Clarke Plato, Euthyphro</a>, via Wikimedia Commons; Jan Collaert I, <a href="https://www.metmuseum.org/art/collection/search/659683">The Invention of Book Printing</a>, The Met (CC0); <a href="https://commons.wikimedia.org/wiki/File:Acropolis_(1921).webm">Acropolis (1921)</a>, via Wikimedia Commons. Type: Libre Franklin and Source Serif 4, SIL Open Font License.</p>
+      <p class="footer__credits">Pictures and footage, all public domain: <a href="https://commons.wikimedia.org/wiki/File:Bust_Socrates_Musei_Capitolini_MC1163.jpg">herm of Socrates</a>, Capitoline Museums, via Wikimedia Commons; François-André Vincent, <a href="https://commons.wikimedia.org/wiki/File:Alcibades_being_taught_by_Socrates,_Fran%C3%A7ois-Andr%C3%A9_Vincent.jpg">Alcibiades Being Taught by Socrates</a>, via Wikimedia Commons; Jacques-Louis David, <a href="https://www.metmuseum.org/art/collection/search/436105">The Death of Socrates</a>, The Met (CC0); Agostino Veneziano, <a href="https://www.metmuseum.org/art/collection/search/342969">The Group, from Raphael’s School of Athens</a>, The Met (CC0); <a href="https://commons.wikimedia.org/wiki/File:Euclid3a.gif">Euclid’s Elements, Ratdolt, 1482</a>, via Wikimedia Commons; <a href="https://www.metmuseum.org/art/collection/search/650907">Diogenes holding a lantern</a>, after Ribera, The Met (CC0); Honoré Daumier, <a href="https://www.metmuseum.org/art/collection/search/625297"><span lang="fr">Une péroraison à la Démosthène</span>, from <span lang="fr">Les Gens de Justice</span></a>, The Met (CC0); attributed to Jacopo de’ Barbari, <a href="https://commons.wikimedia.org/wiki/File:Jacopo_de%27_Barbari_(attributed_to)_Portrait_of_Luca_Pacioli_(1445_1517)_with_a_student_(Guidobaldo_da_Montefeltro)_(2).jpg">Portrait of Luca Pacioli</a>, via Wikimedia Commons; Annibale Carracci, <a href="https://commons.wikimedia.org/wiki/File:Annibale_Carracci,_Hercules_at_the_Crossroads,_brighter.jpg">The Choice of Hercules</a>, via Wikimedia Commons; <a href="https://commons.wikimedia.org/wiki/File:Euthyphron_beginning._Clarke_Plato.jpg">Clarke Plato, Euthyphro</a>, via Wikimedia Commons; Jan Collaert I, <a href="https://www.metmuseum.org/art/collection/search/659683">The Invention of Book Printing</a>, The Met (CC0); <a href="https://commons.wikimedia.org/wiki/File:Acropolis_(1921).webm">Acropolis (1921)</a>, via Wikimedia Commons. Type: Libre Franklin and Source Serif 4, SIL Open Font License.</p>
     </div>
     <div class="footer__last">
       <p>Dialectic Skills by <a class="link-plain" href="https://github.com/ajitta">ajitta</a>, released under the MIT License.</p>
