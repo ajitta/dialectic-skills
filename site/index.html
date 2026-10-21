@@ -61,8 +61,12 @@
   <figure class="hero__pair" data-open>
     <div class="pair__art">
         <span class="pair__b"></span>
-    <img class="pair__a" src="assets/img/socrates-herm.jpg" width="1400" height="2122" fetchpriority="high" decoding="async"
-         alt="Marble herm of Socrates: a bald, bearded head on a pillar inscribed with his name in Greek">
+    <picture>
+      <source type="image/avif" srcset="assets/img/socrates-herm-w480.avif 480w, assets/img/socrates-herm-w800.avif 800w, assets/img/socrates-herm-w1400.avif 1400w" sizes="(min-width: 1240px) min(80vh, 54vw), (min-width: 900px) min(80vh, 48vw), (min-width: 600px) 66vw, 87vw">
+      <source type="image/webp" srcset="assets/img/socrates-herm-w480.webp 480w, assets/img/socrates-herm-w800.webp 800w, assets/img/socrates-herm-w1400.webp 1400w" sizes="(min-width: 1240px) min(80vh, 54vw), (min-width: 900px) min(80vh, 48vw), (min-width: 600px) 66vw, 87vw">
+      <img class="pair__a" src="assets/img/socrates-herm.jpg" width="1400" height="2122" fetchpriority="high" decoding="async"
+           alt="Marble herm of Socrates: a bald, bearded head on a pillar inscribed with his name in Greek">
+    </picture>
     <svg class="pair__lens" viewBox="0 0 3 2" aria-hidden="true"><path d="M1.5 0.134A1 1 0 0 1 1.5 1.866A1 1 0 0 1 1.5 0.134Z"/></svg>
       </div>
     <figcaption class="small">Herm of Socrates, Roman copy of a Greek original. Capitoline Museums, Rome.</figcaption>
@@ -76,11 +80,11 @@
     <h2 class="head mask intro__title" id="intro-title" data-reveal><span>What dia is</span></h2>
     <p class="statement" data-reveal>
       The Socratic question
-      <img class="thumb" src="assets/img/socrates-herm.jpg" width="1400" height="2122" alt="" loading="lazy" decoding="async" style="object-position:50% 22%">,
+      <picture><source type="image/avif" srcset="assets/img/socrates-herm-w160.avif 160w, assets/img/socrates-herm-w480.avif 480w" sizes="42px"><source type="image/webp" srcset="assets/img/socrates-herm-w160.webp 160w, assets/img/socrates-herm-w480.webp 480w" sizes="42px"><img class="thumb" src="assets/img/socrates-herm.jpg" width="1400" height="2122" alt="" loading="lazy" decoding="async" style="object-position:50% 22%"></picture>,
       the proof by contradiction
-      <img class="thumb" src="assets/img/euclid-1482.jpg" width="816" height="1000" alt="" loading="lazy" decoding="async" style="object-position:84% 46%">,
+      <picture><source type="image/avif" srcset="assets/img/euclid-1482-w160.avif 160w, assets/img/euclid-1482-w480.avif 480w" sizes="42px"><source type="image/webp" srcset="assets/img/euclid-1482-w160.webp 160w, assets/img/euclid-1482-w480.webp 480w" sizes="42px"><img class="thumb" src="assets/img/euclid-1482.jpg" width="816" height="1000" alt="" loading="lazy" decoding="async" style="object-position:84% 46%"></picture>,
       the critique on its own terms
-      <img class="thumb" src="assets/img/diogenes-lantern.jpg" width="818" height="1000" alt="" loading="lazy" decoding="async" style="object-position:48% 36%">:
+      <picture><source type="image/avif" srcset="assets/img/diogenes-lantern-w160.avif 160w, assets/img/diogenes-lantern-w480.avif 480w" sizes="42px"><source type="image/webp" srcset="assets/img/diogenes-lantern-w160.webp 160w, assets/img/diogenes-lantern-w480.webp 480w" sizes="42px"><img class="thumb" src="assets/img/diogenes-lantern.jpg" width="818" height="1000" alt="" loading="lazy" decoding="async" style="object-position:48% 36%"></picture>:
       old ways of thinking, turned into routines your assistant follows step by step.
     </p>
     <div class="facts">
@@ -125,8 +129,12 @@
     <figure class="plate__pic pair pair--diag" data-reveal>
       <div class="pair__art">
         <span class="pair__b"></span>
-      <img class="pair__a" src="assets/img/alcibiades-socrates.jpg" width="1200" height="910" loading="lazy" decoding="async" style="object-position:72% 40%"
-           alt="Painting: Socrates, seated in a blue cloak, talks with the young Alcibiades, who stands in armour and listens">
+      <picture>
+        <source type="image/avif" srcset="assets/img/alcibiades-socrates-w480.avif 480w, assets/img/alcibiades-socrates-w800.avif 800w, assets/img/alcibiades-socrates-w1200.avif 1200w" sizes="(min-width: 900px) 41vw, (min-width: 600px) min(59vw, 468px), calc(57vw - 18px)">
+        <source type="image/webp" srcset="assets/img/alcibiades-socrates-w480.webp 480w, assets/img/alcibiades-socrates-w800.webp 800w, assets/img/alcibiades-socrates-w1200.webp 1200w" sizes="(min-width: 900px) 41vw, (min-width: 600px) min(59vw, 468px), calc(57vw - 18px)">
+        <img class="pair__a" src="assets/img/alcibiades-socrates.jpg" width="1200" height="910" loading="lazy" decoding="async" style="object-position:72% 40%"
+             alt="Painting: Socrates, seated in a blue cloak, talks with the young Alcibiades, who stands in armour and listens">
+      </picture>
       <svg class="pair__lens" viewBox="0 0 2.7071 2.7071" aria-hidden="true"><path d="M1.966 0.7412A1 1 0 0 1 0.7412 1.966A1 1 0 0 1 1.966 0.7412Z"/></svg>
       </div>
       <figcaption class="small">François-André Vincent, Alcibiades Being Taught by Socrates, 1776.</figcaption>
@@ -140,12 +148,17 @@
         <p class="try__label">Try this prompt</p>
         <pre><code>dia-confirm Write a short speech for my brother’s wedding.</code></pre>
       </div>
-      <ol class="talk" aria-label="A session, shortened" data-reveal style="--i:6">
-        <li class="talk__turn is-assistant"><b>Assistant</b> <span>Goal and success conditions: a short wedding speech about your brother, ready to read aloud, about 1–2 minutes, warm, with a toast. … Confirmation: reply “proceed” with your answers, or tell me to use a generic template.</span></li>
-        <li class="talk__turn is-you"><b>You</b> <span>My brother is Minho, marrying Sara; I’m the best man. He taught me to ride a bike, even though he’s younger. Warm, one light joke, about 3 minutes. proceed</span></li>
-        <li class="talk__turn is-assistant"><b>Assistant</b> <span>Here’s your speech, about 400 words… <i>(the speech follows, built around the bike story)</i></span></li>
-      </ol>
-      <p class="plate__actions" data-reveal style="--i:7"><button class="button button--ink" type="button" data-copy="dia-confirm Write a short speech for my brother’s wedding.">Copy the prompt</button> <a class="button button--tone" href="https://github.com/ajitta/dialectic-skills#dia-confirm-agree-on-the-task-before-work-starts">Full guide</a></p>
+      <p class="plate__actions" data-reveal style="--i:6"><button class="button button--ink" type="button" data-copy="dia-confirm Write a short speech for my brother’s wedding.">Copy the prompt</button> <a class="button button--tone" href="https://github.com/ajitta/dialectic-skills#dia-confirm-agree-on-the-task-before-work-starts">Full guide</a></p>
+      <details class="session" data-reveal style="--i:7">
+        <summary>See the session</summary>
+        <div class="session__body">
+          <ol class="talk" aria-label="A session, shortened">
+            <li class="talk__turn is-assistant"><b>Assistant</b> <span>Goal and success conditions: a short wedding speech about your brother, ready to read aloud, about 1–2 minutes, warm, with a toast. … Confirmation: reply “proceed” with your answers, or tell me to use a generic template.</span></li>
+            <li class="talk__turn is-you"><b>You</b> <span>My brother is Minho, marrying Sara; I’m the best man. He taught me to ride a bike, even though he’s younger. Warm, one light joke, about 3 minutes. proceed</span></li>
+            <li class="talk__turn is-assistant"><b>Assistant</b> <span>Here’s your speech, about 400 words… <i>(the speech follows, built around the bike story)</i></span></li>
+          </ol>
+        </div>
+      </details>
     </div>
   </article>
 
@@ -154,8 +167,12 @@
     <figure class="plate__pic pair pair--diag pair--flip" data-reveal>
       <div class="pair__art">
         <span class="pair__b"></span>
-      <img class="pair__a" src="assets/img/death-of-socrates.jpg" width="1200" height="798" loading="lazy" decoding="async" style="object-position:53% 40%;--lift:1.45"
-           alt="Painting: Socrates sits up on his bed, one hand raised as he talks, the other reaching for the cup, his friends grieving around him">
+      <picture>
+        <source type="image/avif" srcset="assets/img/death-of-socrates-w480.avif 480w, assets/img/death-of-socrates-w800.avif 800w, assets/img/death-of-socrates-w1200.avif 1200w" sizes="(min-width: 900px) 47vw, (min-width: 600px) min(68vw, 534px), calc(65vw - 21px)">
+        <source type="image/webp" srcset="assets/img/death-of-socrates-w480.webp 480w, assets/img/death-of-socrates-w800.webp 800w, assets/img/death-of-socrates-w1200.webp 1200w" sizes="(min-width: 900px) 47vw, (min-width: 600px) min(68vw, 534px), calc(65vw - 21px)">
+        <img class="pair__a" src="assets/img/death-of-socrates.jpg" width="1200" height="798" loading="lazy" decoding="async" style="object-position:53% 40%;--lift:1.45"
+             alt="Painting: Socrates sits up on his bed, one hand raised as he talks, the other reaching for the cup, his friends grieving around him">
+      </picture>
       <svg class="pair__lens" viewBox="0 0 2.7071 2.7071" aria-hidden="true"><path d="M1.966 0.7412A1 1 0 0 1 0.7412 1.966A1 1 0 0 1 1.966 0.7412Z" transform="matrix(-1 0 0 1 2.7071 0)"/></svg>
       </div>
       <figcaption class="small">Jacques-Louis David, The Death of Socrates, 1787.</figcaption>
@@ -169,14 +186,19 @@
         <p class="try__label">Try this prompt</p>
         <pre><code>Socratic dialogue please. I think a good teacher is one whose students get high test scores.</code></pre>
       </div>
-      <ol class="talk" aria-label="A real session, shortened" data-reveal style="--i:6">
-        <li class="talk__turn is-assistant"><b>Assistant</b> <span>I don’t know what makes a good teacher, so I’ll test your definition. Suppose a teacher gives the students the exam questions and answers the day before, and they all score high. Is that a good teacher?</span></li>
-        <li class="talk__turn is-you"><b>You</b> <span>No, that’s basically cheating. Maybe a good teacher is one whose students get high scores <i>because they actually learned the material</i>.</span></li>
-        <li class="talk__turn is-gap"><span></span><i>…five more cases later…</i></li>
-        <li class="talk__turn is-you"><b>You</b> <span>They could have, they just chose not to, so by my new idea that teacher isn’t good. That contradicts what I said earlier. I’m stuck. Where does that leave me?</span></li>
-        <li class="talk__turn is-assistant"><b>Assistant</b> <span>You’ve reached aporia, and that’s a result, not a failure.</span></li>
-      </ol>
-      <p class="plate__actions" data-reveal style="--i:7"><button class="button button--ink" type="button" data-copy="Socratic dialogue please. I think a good teacher is one whose students get high test scores.">Copy the prompt</button> <a class="button button--tone" href="https://github.com/ajitta/dialectic-skills#dia-elenchus-find-out-what-you-really-mean">Full guide</a></p>
+      <p class="plate__actions" data-reveal style="--i:6"><button class="button button--ink" type="button" data-copy="Socratic dialogue please. I think a good teacher is one whose students get high test scores.">Copy the prompt</button> <a class="button button--tone" href="https://github.com/ajitta/dialectic-skills#dia-elenchus-find-out-what-you-really-mean">Full guide</a></p>
+      <details class="session" data-reveal style="--i:7">
+        <summary>See the session</summary>
+        <div class="session__body">
+          <ol class="talk" aria-label="A real session, shortened">
+            <li class="talk__turn is-assistant"><b>Assistant</b> <span>I don’t know what makes a good teacher, so I’ll test your definition. Suppose a teacher gives the students the exam questions and answers the day before, and they all score high. Is that a good teacher?</span></li>
+            <li class="talk__turn is-you"><b>You</b> <span>No, that’s basically cheating. Maybe a good teacher is one whose students get high scores <i>because they actually learned the material</i>.</span></li>
+            <li class="talk__turn is-gap"><span></span><i>…five more cases later…</i></li>
+            <li class="talk__turn is-you"><b>You</b> <span>They could have, they just chose not to, so by my new idea that teacher isn’t good. That contradicts what I said earlier. I’m stuck. Where does that leave me?</span></li>
+            <li class="talk__turn is-assistant"><b>Assistant</b> <span>You’ve reached aporia, and that’s a result, not a failure.</span></li>
+          </ol>
+        </div>
+      </details>
     </div>
   </article>
 
@@ -185,8 +207,12 @@
     <figure class="plate__pic pair pair--diag" data-reveal>
       <div class="pair__art">
         <span class="pair__b"></span>
-      <img class="pair__a" src="assets/img/school-of-athens-group.jpg" width="904" height="1200" loading="lazy" decoding="async" style="object-position:50% 62%"
-           alt="Engraving: a group of philosophers crowd around a seated man writing on a tablet, under classical arches">
+      <picture>
+        <source type="image/avif" srcset="assets/img/school-of-athens-group-w480.avif 480w, assets/img/school-of-athens-group-w904.avif 904w" sizes="(min-width: 900px) 31vw, (min-width: 600px) min(45vw, 355px), calc(43vw - 14px)">
+        <source type="image/webp" srcset="assets/img/school-of-athens-group-w480.webp 480w, assets/img/school-of-athens-group-w904.webp 904w" sizes="(min-width: 900px) 31vw, (min-width: 600px) min(45vw, 355px), calc(43vw - 14px)">
+        <img class="pair__a" src="assets/img/school-of-athens-group.jpg" width="904" height="1200" loading="lazy" decoding="async" style="object-position:50% 62%"
+             alt="Engraving: a group of philosophers crowd around a seated man writing on a tablet, under classical arches">
+      </picture>
       <svg class="pair__lens" viewBox="0 0 2.7071 2.7071" aria-hidden="true"><path d="M1.966 0.7412A1 1 0 0 1 0.7412 1.966A1 1 0 0 1 1.966 0.7412Z"/></svg>
       </div>
       <figcaption class="small">Agostino Veneziano, The Group, from Raphael’s School of Athens, 1523.</figcaption>
@@ -200,15 +226,20 @@
         <p class="try__label">Try this prompt</p>
         <pre><code>Socratic brainstorm with me, keep it quick: I want to earn some extra money on weekends.</code></pre>
       </div>
-      <ol class="talk" aria-label="A real session, shortened" data-reveal style="--i:6">
-        <li class="talk__turn is-assistant"><b>Assistant</b> <span>Quick mode, about 4 questions. Your idea is to earn some extra money on weekends, alongside your current job. Is that right, or did I assume something you didn’t mean?</span></li>
-        <li class="talk__turn is-you"><b>You</b> <span>Right. About 8 hours each weekend, roughly $300 a month, no more than $200 to start.</span></li>
-        <li class="talk__turn is-assistant"><b>Assistant</b> <span>Eight hours a weekend is about 32 hours a month, so $300 comes to about $9 an hour. What do you already know how to do that someone would plausibly pay for?</span></li>
-        <li class="talk__turn is-you"><b>You</b> <span>I’m good at photography and own a decent camera. Maybe photos for small local shops.</span></li>
-        <li class="talk__turn is-gap"><span></span><i>…more questions, options, criteria…</i></li>
-        <li class="talk__turn is-assistant"><b>Assistant</b> <span>Verdict: open. … Next step: this week, post in two neighborhood groups offering 3–4 park slots, and track bookings, price paid and editing minutes per client.</span></li>
-      </ol>
-      <p class="plate__actions" data-reveal style="--i:7"><button class="button button--ink" type="button" data-copy="Socratic brainstorm with me, keep it quick: I want to earn some extra money on weekends.">Copy the prompt</button> <a class="button button--tone" href="https://github.com/ajitta/dialectic-skills#dia-brainstorm-grow-a-rough-idea-then-decide">Full guide</a></p>
+      <p class="plate__actions" data-reveal style="--i:6"><button class="button button--ink" type="button" data-copy="Socratic brainstorm with me, keep it quick: I want to earn some extra money on weekends.">Copy the prompt</button> <a class="button button--tone" href="https://github.com/ajitta/dialectic-skills#dia-brainstorm-grow-a-rough-idea-then-decide">Full guide</a></p>
+      <details class="session" data-reveal style="--i:7">
+        <summary>See the session</summary>
+        <div class="session__body">
+          <ol class="talk" aria-label="A real session, shortened">
+            <li class="talk__turn is-assistant"><b>Assistant</b> <span>Quick mode, about 4 questions. Your idea is to earn some extra money on weekends, alongside your current job. Is that right, or did I assume something you didn’t mean?</span></li>
+            <li class="talk__turn is-you"><b>You</b> <span>Right. About 8 hours each weekend, roughly $300 a month, no more than $200 to start.</span></li>
+            <li class="talk__turn is-assistant"><b>Assistant</b> <span>Eight hours a weekend is about 32 hours a month, so $300 comes to about $9 an hour. What do you already know how to do that someone would plausibly pay for?</span></li>
+            <li class="talk__turn is-you"><b>You</b> <span>I’m good at photography and own a decent camera. Maybe photos for small local shops.</span></li>
+            <li class="talk__turn is-gap"><span></span><i>…more questions, options, criteria…</i></li>
+            <li class="talk__turn is-assistant"><b>Assistant</b> <span>Verdict: open. … Next step: this week, post in two neighborhood groups offering 3–4 park slots, and track bookings, price paid and editing minutes per client.</span></li>
+          </ol>
+        </div>
+      </details>
     </div>
   </article>
 
@@ -217,8 +248,12 @@
     <figure class="plate__pic pair pair--diag pair--flip" data-reveal>
       <div class="pair__art">
         <span class="pair__b"></span>
-      <img class="pair__a" src="assets/img/euclid-1482.jpg" width="816" height="1000" loading="lazy" decoding="async" style="object-position:70% 52%"
-           alt="Printed page with a decorated border: the opening of Euclid’s Elements, with small diagrams of lines, circles and triangles in the margin">
+      <picture>
+        <source type="image/avif" srcset="assets/img/euclid-1482-w480.avif 480w, assets/img/euclid-1482-w816.avif 816w" sizes="(min-width: 900px) 31vw, (min-width: 600px) min(45vw, 355px), calc(43vw - 14px)">
+        <source type="image/webp" srcset="assets/img/euclid-1482-w480.webp 480w, assets/img/euclid-1482-w816.webp 816w" sizes="(min-width: 900px) 31vw, (min-width: 600px) min(45vw, 355px), calc(43vw - 14px)">
+        <img class="pair__a" src="assets/img/euclid-1482.jpg" width="816" height="1000" loading="lazy" decoding="async" style="object-position:70% 52%"
+             alt="Printed page with a decorated border: the opening of Euclid’s Elements, with small diagrams of lines, circles and triangles in the margin">
+      </picture>
       <svg class="pair__lens" viewBox="0 0 2.7071 2.7071" aria-hidden="true"><path d="M1.966 0.7412A1 1 0 0 1 0.7412 1.966A1 1 0 0 1 1.966 0.7412Z" transform="matrix(-1 0 0 1 2.7071 0)"/></svg>
       </div>
       <figcaption class="small">Euclid’s Elements, first page of the first printed edition. Erhard Ratdolt, Venice, 1482.</figcaption>
@@ -232,13 +267,18 @@
         <p class="try__label">Try this prompt</p>
         <pre><code>Use proof by contradiction on this claim: the customer is always right.</code></pre>
       </div>
-      <dl class="output" aria-label="What you get, shortened" data-reveal style="--i:6">
-        <dt>Premises</dt><dd>P1 [A] “right” means “true”; P2 [A] customer C1 says the coat was bought here and customer C2 says it was not, about the same coat; P3 [L] if not-p is true, p is not true.</dd>
-        <dt>Contradiction</dt><dd>lines 4 and 6. Strength: it rests on added premises P1 and P2, which are ordinary facts, not logic.</dd>
-        <dt>Recommendation</dt><dd>the repaired claim: “a customer’s good-faith complaint deserves a fair hearing and, where the business can, a remedy,” because it keeps what the slogan is for. The decision is yours.</dd>
-      </dl>
-      <p class="small output__legend" data-reveal style="--i:6">[T] stated by the claim, [L] a rule of logic, [A] added by the assistant. A contradiction that needs an [A] premise is only as strong as that premise.</p>
-      <p class="plate__actions" data-reveal style="--i:7"><button class="button button--ink" type="button" data-copy="Use proof by contradiction on this claim: the customer is always right.">Copy the prompt</button> <a class="button button--tone" href="https://github.com/ajitta/dialectic-skills#dia-reductio-check-whether-a-claim-holds-together">Full guide</a></p>
+      <p class="plate__actions" data-reveal style="--i:6"><button class="button button--ink" type="button" data-copy="Use proof by contradiction on this claim: the customer is always right.">Copy the prompt</button> <a class="button button--tone" href="https://github.com/ajitta/dialectic-skills#dia-reductio-check-whether-a-claim-holds-together">Full guide</a></p>
+      <details class="session" data-reveal style="--i:7">
+        <summary>See what you get</summary>
+        <div class="session__body">
+          <dl class="output" aria-label="What you get, shortened">
+            <dt>Premises</dt><dd>P1 [A] “right” means “true”; P2 [A] customer C1 says the coat was bought here and customer C2 says it was not, about the same coat; P3 [L] if not-p is true, p is not true.</dd>
+            <dt>Contradiction</dt><dd>lines 4 and 6. Strength: it rests on added premises P1 and P2, which are ordinary facts, not logic.</dd>
+            <dt>Recommendation</dt><dd>the repaired claim: “a customer’s good-faith complaint deserves a fair hearing and, where the business can, a remedy,” because it keeps what the slogan is for. The decision is yours.</dd>
+          </dl>
+          <p class="small output__legend">[T] stated by the claim, [L] a rule of logic, [A] added by the assistant. A contradiction that needs an [A] premise is only as strong as that premise.</p>
+        </div>
+      </details>
     </div>
   </article>
 
@@ -247,8 +287,12 @@
     <figure class="plate__pic pair pair--diag" data-reveal>
       <div class="pair__art">
         <span class="pair__b"></span>
-      <img class="pair__a" src="assets/img/diogenes-lantern.jpg" width="818" height="1000" loading="lazy" decoding="async" style="object-position:46% 44%"
-           alt="Engraved portrait of Diogenes, a bearded man in a rough cloak, holding up a lit lantern">
+      <picture>
+        <source type="image/avif" srcset="assets/img/diogenes-lantern-w480.avif 480w, assets/img/diogenes-lantern-w818.avif 818w" sizes="(min-width: 900px) 31vw, (min-width: 600px) min(45vw, 355px), calc(43vw - 14px)">
+        <source type="image/webp" srcset="assets/img/diogenes-lantern-w480.webp 480w, assets/img/diogenes-lantern-w818.webp 818w" sizes="(min-width: 900px) 31vw, (min-width: 600px) min(45vw, 355px), calc(43vw - 14px)">
+        <img class="pair__a" src="assets/img/diogenes-lantern.jpg" width="818" height="1000" loading="lazy" decoding="async" style="object-position:46% 44%"
+             alt="Engraved portrait of Diogenes, a bearded man in a rough cloak, holding up a lit lantern">
+      </picture>
       <svg class="pair__lens" viewBox="0 0 2.7071 2.7071" aria-hidden="true"><path d="M1.966 0.7412A1 1 0 0 1 0.7412 1.966A1 1 0 0 1 1.966 0.7412Z"/></svg>
       </div>
       <figcaption class="small">Diogenes holding a lantern, print after Jusepe de Ribera, 1750–69.</figcaption>
@@ -262,12 +306,17 @@
         <p class="try__label">Try this prompt</p>
         <pre><code>Do an immanent critique of this claim: "We have an open-door policy, so anyone in the company can raise a problem with management at any time."</code></pre>
       </div>
-      <dl class="output" aria-label="What you get, shortened" data-reveal style="--i:6">
-        <dt>F1. “Anyone” fails for problems about management.</dt><dd>If your problem is with your manager, the open door opens onto the person you are complaining about, and the policy names no second path.</dd>
-        <dt>What it actually does (an inference)</dt><dd>it moves the blame for silence onto whoever didn’t walk through the door. What would prove this wrong: a record of complaints about managers raised through the policy and acted on.</dd>
-        <dt>Recommendation</dt><dd>change the practice. The decision is yours.</dd>
-      </dl>
-      <p class="plate__actions" data-reveal style="--i:7"><button class="button button--ink" type="button" data-copy='Do an immanent critique of this claim: "We have an open-door policy, so anyone in the company can raise a problem with management at any time."'>Copy the prompt</button> <a class="button button--tone" href="https://github.com/ajitta/dialectic-skills#dia-negative-hold-a-claim-to-its-own-standard">Full guide</a></p>
+      <p class="plate__actions" data-reveal style="--i:6"><button class="button button--ink" type="button" data-copy='Do an immanent critique of this claim: "We have an open-door policy, so anyone in the company can raise a problem with management at any time."'>Copy the prompt</button> <a class="button button--tone" href="https://github.com/ajitta/dialectic-skills#dia-negative-hold-a-claim-to-its-own-standard">Full guide</a></p>
+      <details class="session" data-reveal style="--i:7">
+        <summary>See what you get</summary>
+        <div class="session__body">
+          <dl class="output" aria-label="What you get, shortened">
+            <dt>F1. “Anyone” fails for problems about management.</dt><dd>If your problem is with your manager, the open door opens onto the person you are complaining about, and the policy names no second path.</dd>
+            <dt>What it actually does (an inference)</dt><dd>it moves the blame for silence onto whoever didn’t walk through the door. What would prove this wrong: a record of complaints about managers raised through the policy and acted on.</dd>
+            <dt>Recommendation</dt><dd>change the practice. The decision is yours.</dd>
+          </dl>
+        </div>
+      </details>
     </div>
   </article>
 
@@ -276,8 +325,12 @@
     <figure class="plate__pic pair pair--diag pair--flip" data-reveal>
       <div class="pair__art">
         <span class="pair__b"></span>
-      <img class="pair__a" src="assets/img/daumier-peroration.jpg" width="1200" height="898" loading="lazy" decoding="async" style="object-position:66% 50%"
-           alt="Lithograph: in a courtroom a lawyer flings one arm high as he ends his speech, while robed colleagues and the judges look on">
+      <picture>
+        <source type="image/avif" srcset="assets/img/daumier-peroration-w480.avif 480w, assets/img/daumier-peroration-w800.avif 800w, assets/img/daumier-peroration-w1200.avif 1200w" sizes="(min-width: 900px) 41vw, (min-width: 600px) min(60vw, 474px), calc(57vw - 19px)">
+        <source type="image/webp" srcset="assets/img/daumier-peroration-w480.webp 480w, assets/img/daumier-peroration-w800.webp 800w, assets/img/daumier-peroration-w1200.webp 1200w" sizes="(min-width: 900px) 41vw, (min-width: 600px) min(60vw, 474px), calc(57vw - 19px)">
+        <img class="pair__a" src="assets/img/daumier-peroration.jpg" width="1200" height="898" loading="lazy" decoding="async" style="object-position:66% 50%"
+             alt="Lithograph: in a courtroom a lawyer flings one arm high as he ends his speech, while robed colleagues and the judges look on">
+      </picture>
       <svg class="pair__lens" viewBox="0 0 2.7071 2.7071" aria-hidden="true"><path d="M1.966 0.7412A1 1 0 0 1 0.7412 1.966A1 1 0 0 1 1.966 0.7412Z" transform="matrix(-1 0 0 1 2.7071 0)"/></svg>
       </div>
       <figcaption class="small">Honoré Daumier, <i lang="fr">Une péroraison à la Démosthène</i>, from <i lang="fr">Les Gens de Justice</i>, 1847.</figcaption>
@@ -291,14 +344,19 @@
         <p class="try__label">Try this prompt</p>
         <pre><code>How well do the reasons support this? "My friend is a personal trainer and she says running ruins your knees, so if I take up running I will get knee problems."</code></pre>
       </div>
-      <dl class="output" aria-label="What you get, shortened" data-reveal style="--i:6">
-        <dt>Warrant</dt><dd>The argument is a chain: data → C1 → C. … Wa (reconstructed): What a personal trainer says about running’s effect on knees is generally reliable. This is the step from data to C1. Wb (reconstructed): If running generally ruins knees, then a person who takes up running will generally get knee problems. This is the step from C1 to C.</dd>
-        <dt>Critical questions</dt><dd><i>(eight, all open, among them)</i> 1. [data] Is she a genuine expert in the field this claim belongs to? … 3. [warrant/backing] Is her assertion based on evidence? The argument cites none, only “she says.” Open.</dd>
-        <dt>Qualifier check</dt><dd>C says “will”. Wa and Wb license only “generally”, which is “probably”. So the claim is overstated.</dd>
-        <dt>Result</dt><dd>Weakest link: warrant (Wa), because “Is her assertion based on evidence?” is left open. … This audit doesn’t decide whether running causes knee problems.</dd>
-      </dl>
-      <p class="small output__legend" data-reveal style="--i:6">C1 is the in-between claim “running ruins your knees”. “Reconstructed” means the assistant supplied it because the step needs it. In ask mode you fill in each part yourself, one question per message.</p>
-      <p class="plate__actions" data-reveal style="--i:7"><button class="button button--ink" type="button" data-copy='How well do the reasons support this? "My friend is a personal trainer and she says running ruins your knees, so if I take up running I will get knee problems."'>Copy the prompt</button> <a class="button button--tone" href="https://github.com/ajitta/dialectic-skills#dia-warrant-see-how-well-the-reasons-support-a-conclusion">Full guide</a></p>
+      <p class="plate__actions" data-reveal style="--i:6"><button class="button button--ink" type="button" data-copy='How well do the reasons support this? "My friend is a personal trainer and she says running ruins your knees, so if I take up running I will get knee problems."'>Copy the prompt</button> <a class="button button--tone" href="https://github.com/ajitta/dialectic-skills#dia-warrant-see-how-well-the-reasons-support-a-conclusion">Full guide</a></p>
+      <details class="session" data-reveal style="--i:7">
+        <summary>See what you get</summary>
+        <div class="session__body">
+          <dl class="output" aria-label="What you get, shortened">
+            <dt>Warrant</dt><dd>The argument is a chain: data → C1 → C. … Wa (reconstructed): What a personal trainer says about running’s effect on knees is generally reliable. This is the step from data to C1. Wb (reconstructed): If running generally ruins knees, then a person who takes up running will generally get knee problems. This is the step from C1 to C.</dd>
+            <dt>Critical questions</dt><dd><i>(eight, all open, among them)</i> 1. [data] Is she a genuine expert in the field this claim belongs to? … 3. [warrant/backing] Is her assertion based on evidence? The argument cites none, only “she says.” Open.</dd>
+            <dt>Qualifier check</dt><dd>C says “will”. Wa and Wb license only “generally”, which is “probably”. So the claim is overstated.</dd>
+            <dt>Result</dt><dd>Weakest link: warrant (Wa), because “Is her assertion based on evidence?” is left open. … This audit doesn’t decide whether running causes knee problems.</dd>
+          </dl>
+          <p class="small output__legend">C1 is the in-between claim “running ruins your knees”. “Reconstructed” means the assistant supplied it because the step needs it. In ask mode you fill in each part yourself, one question per message.</p>
+        </div>
+      </details>
     </div>
   </article>
 
@@ -307,8 +365,12 @@
     <figure class="plate__pic pair pair--diag" data-reveal>
       <div class="pair__art">
         <span class="pair__b"></span>
-      <img class="pair__a" src="assets/img/pacioli-portrait.jpg" width="1200" height="1000" loading="lazy" decoding="async" style="object-position:30% 40%;--lift:1.35"
-           alt="Painting: the mathematician Luca Pacioli, in a friar’s habit, draws a geometric figure on a slate, with a glass polyhedron hanging beside him and a young man behind">
+      <picture>
+        <source type="image/avif" srcset="assets/img/pacioli-portrait-w480.avif 480w, assets/img/pacioli-portrait-w800.avif 800w, assets/img/pacioli-portrait-w1200.avif 1200w" sizes="(min-width: 900px) 37vw, (min-width: 600px) min(54vw, 426px), calc(52vw - 17px)">
+        <source type="image/webp" srcset="assets/img/pacioli-portrait-w480.webp 480w, assets/img/pacioli-portrait-w800.webp 800w, assets/img/pacioli-portrait-w1200.webp 1200w" sizes="(min-width: 900px) 37vw, (min-width: 600px) min(54vw, 426px), calc(52vw - 17px)">
+        <img class="pair__a" src="assets/img/pacioli-portrait.jpg" width="1200" height="1000" loading="lazy" decoding="async" style="object-position:30% 40%;--lift:1.35"
+             alt="Painting: the mathematician Luca Pacioli, in a friar’s habit, draws a geometric figure on a slate, with a glass polyhedron hanging beside him and a young man behind">
+      </picture>
       <svg class="pair__lens" viewBox="0 0 2.7071 2.7071" aria-hidden="true"><path d="M1.966 0.7412A1 1 0 0 1 0.7412 1.966A1 1 0 0 1 1.966 0.7412Z"/></svg>
       </div>
       <figcaption class="small">Attributed to Jacopo de’ Barbari, Portrait of Luca Pacioli, about 1495–1500.</figcaption>
@@ -322,15 +384,20 @@
         <p class="try__label">Try this prompt</p>
         <pre><code>Find counterexamples to my rule: buying in bulk always saves money.</code></pre>
       </div>
-      <ol class="talk" aria-label="A real session, shortened" data-reveal style="--i:6">
-        <li class="talk__turn is-assistant"><b>Assistant</b> <span>Here is the argument as numbered steps. L1 and L2 are your words. I wrote L3 to L5 because the argument needs them. … 4. [A] The extra costs of buying in bulk are zero or small compared with the per-item saving. These include a membership fee, storage space, upfront cash and transport. … Is this your argument?</span></li>
-        <li class="talk__turn is-gap"><span></span><i>…you narrow step 3 to things you use up, and say what would count against the rule…</i></li>
-        <li class="talk__turn is-assistant"><b>Assistant</b> <span>Case 1 (both: against C′ and L4): a one-off club trip. Say you join a warehouse club for a $60 annual fee, just to buy a 40-roll pack of paper towels. … The per-roll saving is 40 × $0.25 = $10, but you paid $60 to get in. … It rests on arithmetic with numbers I made up… Does this count against your rule?</span></li>
-        <li class="talk__turn is-you"><b>You</b> <span>Yeah, that counts. … I guess I’d have to say bulk saves money only when the extra costs, like a fee, are smaller than what I save.</span></li>
-        <li class="talk__turn is-assistant"><b>Assistant</b> <span>Your fix is that bulk saves money only when the extra costs are smaller than what you save. That is true, but it doesn’t work as a repair. It says “bulk saves money when it saves money”, so no purchase could ever count against it. … 1. No attributable extra costs. … 2. Fees and special trips only. … 3. Give up C′. … I recommend option 1. … Which do you pick?</span></li>
-        <li class="talk__turn is-you"><b>You</b> <span>I’ll go with option 1. It covers storage and the trips too, not just the fee…</span></li>
-      </ol>
-      <p class="plate__actions" data-reveal style="--i:7"><button class="button button--ink" type="button" data-copy="Find counterexamples to my rule: buying in bulk always saves money.">Copy the prompt</button> <a class="button button--tone" href="https://github.com/ajitta/dialectic-skills#dia-conjecture-test-an-always-rule-against-counterexamples">Full guide</a></p>
+      <p class="plate__actions" data-reveal style="--i:6"><button class="button button--ink" type="button" data-copy="Find counterexamples to my rule: buying in bulk always saves money.">Copy the prompt</button> <a class="button button--tone" href="https://github.com/ajitta/dialectic-skills#dia-conjecture-test-an-always-rule-against-counterexamples">Full guide</a></p>
+      <details class="session" data-reveal style="--i:7">
+        <summary>See the session</summary>
+        <div class="session__body">
+          <ol class="talk" aria-label="A real session, shortened">
+            <li class="talk__turn is-assistant"><b>Assistant</b> <span>Here is the argument as numbered steps. L1 and L2 are your words. I wrote L3 to L5 because the argument needs them. … 4. [A] The extra costs of buying in bulk are zero or small compared with the per-item saving. These include a membership fee, storage space, upfront cash and transport. … Is this your argument?</span></li>
+            <li class="talk__turn is-gap"><span></span><i>…you narrow step 3 to things you use up, and say what would count against the rule…</i></li>
+            <li class="talk__turn is-assistant"><b>Assistant</b> <span>Case 1 (both: against C′ and L4): a one-off club trip. Say you join a warehouse club for a $60 annual fee, just to buy a 40-roll pack of paper towels. … The per-roll saving is 40 × $0.25 = $10, but you paid $60 to get in. … It rests on arithmetic with numbers I made up… Does this count against your rule?</span></li>
+            <li class="talk__turn is-you"><b>You</b> <span>Yeah, that counts. … I guess I’d have to say bulk saves money only when the extra costs, like a fee, are smaller than what I save.</span></li>
+            <li class="talk__turn is-assistant"><b>Assistant</b> <span>Your fix is that bulk saves money only when the extra costs are smaller than what you save. That is true, but it doesn’t work as a repair. It says “bulk saves money when it saves money”, so no purchase could ever count against it. … 1. No attributable extra costs. … 2. Fees and special trips only. … 3. Give up C′. … I recommend option 1. … Which do you pick?</span></li>
+            <li class="talk__turn is-you"><b>You</b> <span>I’ll go with option 1. It covers storage and the trips too, not just the fee…</span></li>
+          </ol>
+        </div>
+      </details>
     </div>
   </article>
 
@@ -339,8 +406,12 @@
     <figure class="plate__pic pair pair--diag pair--flip" data-reveal>
       <div class="pair__art">
         <span class="pair__b"></span>
-      <img class="pair__a" src="assets/img/carracci-choice-of-hercules.jpg" width="1200" height="815" loading="lazy" decoding="async" style="object-position:48% 50%;--lift:1.15"
-           alt="Painting: the young Hercules sits at a crossroads between two women, each urging him down a different path">
+      <picture>
+        <source type="image/avif" srcset="assets/img/carracci-choice-of-hercules-w480.avif 480w, assets/img/carracci-choice-of-hercules-w800.avif 800w, assets/img/carracci-choice-of-hercules-w1200.avif 1200w" sizes="(min-width: 900px) 46vw, (min-width: 600px) min(66vw, 523px), calc(63vw - 21px)">
+        <source type="image/webp" srcset="assets/img/carracci-choice-of-hercules-w480.webp 480w, assets/img/carracci-choice-of-hercules-w800.webp 800w, assets/img/carracci-choice-of-hercules-w1200.webp 1200w" sizes="(min-width: 900px) 46vw, (min-width: 600px) min(66vw, 523px), calc(63vw - 21px)">
+        <img class="pair__a" src="assets/img/carracci-choice-of-hercules.jpg" width="1200" height="815" loading="lazy" decoding="async" style="object-position:48% 50%;--lift:1.15"
+             alt="Painting: the young Hercules sits at a crossroads between two women, each urging him down a different path">
+      </picture>
       <svg class="pair__lens" viewBox="0 0 2.7071 2.7071" aria-hidden="true"><path d="M1.966 0.7412A1 1 0 0 1 0.7412 1.966A1 1 0 0 1 1.966 0.7412Z" transform="matrix(-1 0 0 1 2.7071 0)"/></svg>
       </div>
       <figcaption class="small">Annibale Carracci, The Choice of Hercules, 1596.</figcaption>
@@ -354,12 +425,17 @@
         <p class="try__label">Try this prompt</p>
         <pre><code>Devil's advocate on this plan: we want to move from our two-bedroom city apartment to a bigger house in the suburbs before our kids (6 and 3) start school next September. The monthly payment is about the same as our rent now, the kids would each get their own room and a yard, and the school there has good reviews. The catch: my commute goes from 20 minutes to about an hour each way.</code></pre>
       </div>
-      <ol class="talk" aria-label="A real session, shortened" data-reveal style="--i:6">
-        <li class="talk__turn is-assistant"><b>Assistant</b> <span>I’m giving no verdict. I wrote both sides, so the result will be your set of assumptions. … K1 = A2: Yes. If the commute isn’t sustainable, the main cost of the plan outweighs the gains. K2 = A1: Yes. If total cost is higher, “same as rent” no longer holds. … <i>(five in all)</i> Counterplan: stay in the city for now … For each pair K1–K5, which assumption do you now hold: the plan’s, the counterplan’s, your own wording, or “can’t tell”?</span></li>
-        <li class="talk__turn is-you"><b>You</b> <span>K1: Can’t tell yet. I can’t work from home, so the hour each way is real. … K2: Can’t tell yet. … Right now I’d say the counterplan’s worry is fair, but I don’t have the numbers. … K5: The plan’s, mostly. The kids fight over their shared room most nights…</span></li>
-        <li class="talk__turn is-assistant"><b>Assistant</b> <span>Your rulings are in. Since K1–K3 are still open, the result is undetermined. … Your clarification on working from home now replaces my A6 as [T]. … Lean: counterplan, which I record as a lean, not a ruling. … Result: undetermined. Three pairs are open, one is held for the counterplan, and one is held for the plan with a caveat. … Hearing both sides is not evidence that the plan was tested.</span></li>
-      </ol>
-      <p class="plate__actions" data-reveal style="--i:7"><button class="button button--ink" type="button" data-copy="Devil's advocate on this plan: we want to move from our two-bedroom city apartment to a bigger house in the suburbs before our kids (6 and 3) start school next September. The monthly payment is about the same as our rent now, the kids would each get their own room and a yard, and the school there has good reviews. The catch: my commute goes from 20 minutes to about an hour each way.">Copy the prompt</button> <a class="button button--tone" href="https://github.com/ajitta/dialectic-skills#dia-counterplan-hear-the-case-for-a-different-plan">Full guide</a></p>
+      <p class="plate__actions" data-reveal style="--i:6"><button class="button button--ink" type="button" data-copy="Devil's advocate on this plan: we want to move from our two-bedroom city apartment to a bigger house in the suburbs before our kids (6 and 3) start school next September. The monthly payment is about the same as our rent now, the kids would each get their own room and a yard, and the school there has good reviews. The catch: my commute goes from 20 minutes to about an hour each way.">Copy the prompt</button> <a class="button button--tone" href="https://github.com/ajitta/dialectic-skills#dia-counterplan-hear-the-case-for-a-different-plan">Full guide</a></p>
+      <details class="session" data-reveal style="--i:7">
+        <summary>See the session</summary>
+        <div class="session__body">
+          <ol class="talk" aria-label="A real session, shortened">
+            <li class="talk__turn is-assistant"><b>Assistant</b> <span>I’m giving no verdict. I wrote both sides, so the result will be your set of assumptions. … K1 = A2: Yes. If the commute isn’t sustainable, the main cost of the plan outweighs the gains. K2 = A1: Yes. If total cost is higher, “same as rent” no longer holds. … <i>(five in all)</i> Counterplan: stay in the city for now … For each pair K1–K5, which assumption do you now hold: the plan’s, the counterplan’s, your own wording, or “can’t tell”?</span></li>
+            <li class="talk__turn is-you"><b>You</b> <span>K1: Can’t tell yet. I can’t work from home, so the hour each way is real. … K2: Can’t tell yet. … Right now I’d say the counterplan’s worry is fair, but I don’t have the numbers. … K5: The plan’s, mostly. The kids fight over their shared room most nights…</span></li>
+            <li class="talk__turn is-assistant"><b>Assistant</b> <span>Your rulings are in. Since K1–K3 are still open, the result is undetermined. … Your clarification on working from home now replaces my A6 as [T]. … Lean: counterplan, which I record as a lean, not a ruling. … Result: undetermined. Three pairs are open, one is held for the counterplan, and one is held for the plan with a caveat. … Hearing both sides is not evidence that the plan was tested.</span></li>
+          </ol>
+        </div>
+      </details>
     </div>
   </article>
 
@@ -368,8 +444,12 @@
     <figure class="plate__pic pair pair--diag" data-reveal>
       <div class="pair__art">
         <span class="pair__b"></span>
-      <img class="pair__a" src="assets/img/clarke-plato-euthyphro.jpg" width="788" height="1200" loading="lazy" decoding="async" style="object-position:62% 14%"
-           alt="Manuscript page in Greek minuscule, with notes in a second hand in the margin">
+      <picture>
+        <source type="image/avif" srcset="assets/img/clarke-plato-euthyphro-w480.avif 480w, assets/img/clarke-plato-euthyphro-w788.avif 788w" sizes="(min-width: 900px) 31vw, (min-width: 600px) min(45vw, 355px), calc(43vw - 14px)">
+        <source type="image/webp" srcset="assets/img/clarke-plato-euthyphro-w480.webp 480w, assets/img/clarke-plato-euthyphro-w788.webp 788w" sizes="(min-width: 900px) 31vw, (min-width: 600px) min(45vw, 355px), calc(43vw - 14px)">
+        <img class="pair__a" src="assets/img/clarke-plato-euthyphro.jpg" width="788" height="1200" loading="lazy" decoding="async" style="object-position:62% 14%"
+             alt="Manuscript page in Greek minuscule, with notes in a second hand in the margin">
+      </picture>
       <svg class="pair__lens" viewBox="0 0 2.7071 2.7071" aria-hidden="true"><path d="M1.966 0.7412A1 1 0 0 1 0.7412 1.966A1 1 0 0 1 1.966 0.7412Z"/></svg>
       </div>
       <figcaption class="small">Opening of Plato’s Euthyphro in the Clarke Plato, a manuscript copied in 895. Bodleian Library, Oxford.</figcaption>
@@ -383,12 +463,17 @@
         <p class="try__label">Try this prompt</p>
         <pre><code>dia-refine check the facts: The Great Wall of China is the only man-made structure visible from the Moon with the naked eye, and it was built entirely during the Ming dynasty.</code></pre>
       </div>
-      <dl class="output" aria-label="What you get, with web search, shortened" data-reveal style="--i:6">
-        <dt>Confirmed errors</dt><dd>“visible from the Moon” is false (checked by search). “Built entirely during the Ming dynasty” is false: walls were joined under the Qin around 220 BC, and other dynasties added sections.</dd>
-        <dt>Correct content kept</dt><dd>the Ming built most of the stone wall seen today.</dd>
-        <dt>Remaining uncertainty</dt><dd>exact Qin and Han dates vary by source; only secondary sources were checked.</dd>
-      </dl>
-      <p class="plate__actions" data-reveal style="--i:7"><button class="button button--ink" type="button" data-copy="dia-refine check the facts: The Great Wall of China is the only man-made structure visible from the Moon with the naked eye, and it was built entirely during the Ming dynasty.">Copy the prompt</button> <a class="button button--tone" href="https://github.com/ajitta/dialectic-skills#dia-refine-one-careful-review-of-an-answer-or-a-draft">Full guide</a></p>
+      <p class="plate__actions" data-reveal style="--i:6"><button class="button button--ink" type="button" data-copy="dia-refine check the facts: The Great Wall of China is the only man-made structure visible from the Moon with the naked eye, and it was built entirely during the Ming dynasty.">Copy the prompt</button> <a class="button button--tone" href="https://github.com/ajitta/dialectic-skills#dia-refine-one-careful-review-of-an-answer-or-a-draft">Full guide</a></p>
+      <details class="session" data-reveal style="--i:7">
+        <summary>See what you get</summary>
+        <div class="session__body">
+          <dl class="output" aria-label="What you get, with web search, shortened">
+            <dt>Confirmed errors</dt><dd>“visible from the Moon” is false (checked by search). “Built entirely during the Ming dynasty” is false: walls were joined under the Qin around 220 BC, and other dynasties added sections.</dd>
+            <dt>Correct content kept</dt><dd>the Ming built most of the stone wall seen today.</dd>
+            <dt>Remaining uncertainty</dt><dd>exact Qin and Han dates vary by source; only secondary sources were checked.</dd>
+          </dl>
+        </div>
+      </details>
     </div>
   </article>
 
@@ -397,8 +482,12 @@
     <figure class="plate__pic pair pair--diag pair--flip" data-reveal>
       <div class="pair__art">
         <span class="pair__b"></span>
-      <img class="pair__a" src="assets/img/nova-reperta-printing.jpg" width="1200" height="916" loading="lazy" decoding="async" style="object-position:40% 46%"
-           alt="Engraving of a printing workshop: compositors setting type, a press being pulled, printed sheets hung up to dry">
+      <picture>
+        <source type="image/avif" srcset="assets/img/nova-reperta-printing-w480.avif 480w, assets/img/nova-reperta-printing-w800.avif 800w, assets/img/nova-reperta-printing-w1200.avif 1200w" sizes="(min-width: 900px) 41vw, (min-width: 600px) min(59vw, 465px), calc(56vw - 18px)">
+        <source type="image/webp" srcset="assets/img/nova-reperta-printing-w480.webp 480w, assets/img/nova-reperta-printing-w800.webp 800w, assets/img/nova-reperta-printing-w1200.webp 1200w" sizes="(min-width: 900px) 41vw, (min-width: 600px) min(59vw, 465px), calc(56vw - 18px)">
+        <img class="pair__a" src="assets/img/nova-reperta-printing.jpg" width="1200" height="916" loading="lazy" decoding="async" style="object-position:40% 46%"
+             alt="Engraving of a printing workshop: compositors setting type, a press being pulled, printed sheets hung up to dry">
+      </picture>
       <svg class="pair__lens" viewBox="0 0 2.7071 2.7071" aria-hidden="true"><path d="M1.966 0.7412A1 1 0 0 1 0.7412 1.966A1 1 0 0 1 1.966 0.7412Z" transform="matrix(-1 0 0 1 2.7071 0)"/></svg>
       </div>
       <figcaption class="small">Jan Collaert I, The Invention of Book Printing, from Nova Reperta, about 1600.</figcaption>
@@ -412,12 +501,17 @@
         <p class="try__label">Try this prompt</p>
         <pre><code>dia-iterate --max 2 check the dates and facts in this paragraph: "The first iPhone went on sale in 2008, and the App Store opened the same day with 500 apps."</code></pre>
       </div>
-      <dl class="output" aria-label="What you get, with web search, shortened" data-reveal style="--i:6">
-        <dt>Changes</dt><dd>“went on sale in 2008” → “2007” (on sale June 29, 2007). “the App Store opened the same day” → “about a year later, in July 2008”.</dd>
-        <dt>Round summary</dt><dd>round 1: 3 claims checked, 2 confirmed wrong, 1 correct, by web search. Stopped because no defects remained, so round 2 was not needed.</dd>
-        <dt>Corrected paragraph</dt><dd>“The first iPhone went on sale in 2007, and the App Store opened about a year later, in July 2008, with 500 apps.”</dd>
-      </dl>
-      <p class="plate__actions" data-reveal style="--i:7"><button class="button button--ink" type="button" data-copy='dia-iterate --max 2 check the dates and facts in this paragraph: "The first iPhone went on sale in 2008, and the App Store opened the same day with 500 apps."'>Copy the prompt</button> <a class="button button--tone" href="https://github.com/ajitta/dialectic-skills#dia-iterate-check-and-fix-in-rounds">Full guide</a></p>
+      <p class="plate__actions" data-reveal style="--i:6"><button class="button button--ink" type="button" data-copy='dia-iterate --max 2 check the dates and facts in this paragraph: "The first iPhone went on sale in 2008, and the App Store opened the same day with 500 apps."'>Copy the prompt</button> <a class="button button--tone" href="https://github.com/ajitta/dialectic-skills#dia-iterate-check-and-fix-in-rounds">Full guide</a></p>
+      <details class="session" data-reveal style="--i:7">
+        <summary>See what you get</summary>
+        <div class="session__body">
+          <dl class="output" aria-label="What you get, with web search, shortened">
+            <dt>Changes</dt><dd>“went on sale in 2008” → “2007” (on sale June 29, 2007). “the App Store opened the same day” → “about a year later, in July 2008”.</dd>
+            <dt>Round summary</dt><dd>round 1: 3 claims checked, 2 confirmed wrong, 1 correct, by web search. Stopped because no defects remained, so round 2 was not needed.</dd>
+            <dt>Corrected paragraph</dt><dd>“The first iPhone went on sale in 2007, and the App Store opened about a year later, in July 2008, with 500 apps.”</dd>
+          </dl>
+        </div>
+      </details>
     </div>
   </article>
 </section>

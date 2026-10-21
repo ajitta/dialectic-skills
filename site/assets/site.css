@@ -227,6 +227,20 @@ pre { margin: 0; white-space: pre-wrap; overflow-wrap: anywhere; line-height: 1.
 .output dt:first-child { margin-top: 0; }
 
 .plate__actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 0.5rem; }
+/* The session or output sits behind a native disclosure, closed by default, so a plate reads in one screen.
+   The toggle is a pill like the buttons, with the plus/minus of the question tiles; open, it turns amber. */
+.session > summary { position: relative; display: flex; align-items: center; width: fit-content; min-height: 3.25rem; padding: 0 3.6rem 0 1.6rem; border-radius: 999px; background: var(--tone); color: var(--ink); list-style: none; cursor: pointer; font-family: var(--font-display); font-weight: 700; letter-spacing: -0.01em; transition: transform var(--t-press) var(--ease-out), background-color var(--t-hover) ease, color var(--t-hover) ease; }
+.session > summary::-webkit-details-marker { display: none; }
+.session > summary:active { transform: scale(0.96); }
+.session > summary::before, .session > summary::after { content: ""; position: absolute; right: 1.5rem; top: 50%; width: 0.9rem; height: 3px; margin-top: -1.5px; border-radius: 999px; background: currentColor; transition: transform var(--t-ui) var(--ease-out); }
+.session > summary::after { transform: rotate(90deg); }
+.session[open] > summary { background: var(--accent); color: var(--accent-ink); }
+.session[open] > summary::after { transform: rotate(0deg); }
+.session__body { display: grid; gap: 1.5rem; padding-top: 1.75rem; }
+/* Closed means not laid out at all: Chrome's native closed state only skips painting, and the skipped session still
+   reports geometry over the next plate to layout probes. The cost is that find-in-page no longer opens a session. */
+.session:not([open]) > .session__body { display: none; }
+@media (hover: hover) and (pointer: fine) { .session:not([open]) > summary:hover { background: var(--ink); color: var(--paper); } }
 
 /* ---------- install ---------- */
 .install { padding-block: var(--pad); }
@@ -343,7 +357,6 @@ pre { margin: 0; white-space: pre-wrap; overflow-wrap: anywhere; line-height: 1.
   .plate__text > .lead { order: 2; margin-top: -0.75rem; }
   .plate__pic, .plate--flip .plate__pic { order: 3; margin-block: 1rem; }
   .plate__text > :not(.plate__name):not(.lead) { order: 4; }
-  .plate .plate__text > .talk, .plate .plate__text > .output, .plate .plate__text > .output__legend { order: 5; }
   .plate__text > :not(p) { max-width: 42rem; }
   .plate__pic { position: relative; top: 0; padding-inline: 0; width: min(64%, 30rem); }
   .plate--flip .plate__pic { justify-self: end; }
@@ -392,6 +405,7 @@ pre { margin: 0; white-space: pre-wrap; overflow-wrap: anywhere; line-height: 1.
   .js .pair[data-reveal].is-in .pair__a, .js .pair[data-reveal].is-in .pair__b { transform: none; }
 
   .tile[open] .tile__body { animation: rise 420ms var(--ease-out); }
+  .session[open] .session__body { animation: rise 420ms var(--ease-out); }
   .js .stage.is-open .stage__body { animation: rise 500ms var(--ease-out); }
 }
 @keyframes line-up { to { transform: none; } }

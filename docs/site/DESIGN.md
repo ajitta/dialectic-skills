@@ -130,6 +130,19 @@ components:
   question-tile-open:
     backgroundColor: "{colors.accent}"
     textColor: "{colors.accent-ink}"
+  session-toggle:
+    backgroundColor: "{colors.sky-tone}"
+    textColor: "{colors.ink}"
+    typography: "{typography.title}"
+    rounded: "{rounded.pill}"
+    padding: "0 3.6rem 0 1.6rem"
+    height: "3.25rem"
+  session-toggle-hover:
+    backgroundColor: "{colors.ink}"
+    textColor: "{colors.paper}"
+  session-toggle-open:
+    backgroundColor: "{colors.accent}"
+    textColor: "{colors.accent-ink}"
   install-stage:
     backgroundColor: "{colors.blue-1}"
     textColor: "{colors.paper}"
@@ -149,7 +162,7 @@ The whole page is drawn from one shape: dia's own mark, two overlapping circles 
 
 The ground is two pale, flat fields, sky and sand, that alternate section by section and plate by plate, so the page reads as a sequence of plates in a printed edition. Pictures are public-domain artworks and documents from the history of argument (Socrates, Plato manuscripts, Euclid, Diogenes, a Daumier courtroom, Pacioli at his geometry, the choice of Hercules), always in greyscale inside the left circle, with the amber lens laid over them in multiply. Ink is near-black, never pure black on pure white; text is a serif set at reading length, headings a heavy grotesque.
 
-Density is generous and editorial: one idea per screen, long real examples shown in full, no cards-in-grids. Motion is a single vocabulary of masked rises and circles sliding into overlap, and it disappears entirely under reduced motion.
+Density is generous and editorial: one idea per screen, long real examples kept whole but folded behind a toggle on each plate, no cards-in-grids. Motion is a single vocabulary of masked rises and circles sliding into overlap, and it disappears entirely under reduced motion.
 
 **Key Characteristics:**
 - One motif: two circles and an amber lens, repeated at every scale from a 0.6rem dot to a full-viewport hero.
@@ -163,7 +176,7 @@ Density is generous and editorial: one idea per screen, long real examples shown
 A pale sky-and-sand ground carried by near-black ink, with the logo's amber as the single accent and a five-step blue ramp reserved for the install stages.
 
 ### Primary
-- **Lens Amber** (accent): the lens of the dia mark. Fills the primary button, the active surface tab, the open question tile, the "wants" dots, text selection and the lens shape over every picture. Ink text sits on it (accent-ink), never the reverse.
+- **Lens Amber** (accent): the lens of the dia mark. Fills the primary button, the active surface tab, the open question tile, the open session toggle, the "wants" dots, text selection and the lens shape over every picture. Ink text sits on it (accent-ink), never the reverse.
 - **Burnt Amber** (accent-strong): hover state of amber buttons and the hover underline colour of plain links.
 
 ### Secondary
@@ -212,10 +225,10 @@ A pale sky-and-sand ground carried by near-black ink, with the logo's amber as t
 Full-bleed colour fields, each padded by the page margin (clamp 1rem to 2rem) with vertical section padding (clamp 3.5rem to 5.5rem). Inside, a 12-column grid with a fluid gutter (clamp 1rem to 2rem) sets split compositions: heading in columns 1 to 5 or 1 to 4, content from column 7 or 5 to the end.
 
 - **Hero:** a full-height viewport; copy in the left half, the two-circle pair anchored to the right edge, sized from the viewport (radius min(40svh, 27vw)) and cropped by it.
-- **Skill plates:** ten full-width plates in README order, each two equal columns, at least 88svh tall, alternating sky and sand and alternating which side holds the picture. The first plate is sky with the picture on the left (the ink switch bar separates it from the sky section head); every even plate is sand with the picture on the right (`plate--flip field-sand`), so the last plate is sand and hands over to the sky Install section. With an odd number of plates, start on sand instead. The picture column is sticky while the text scrolls.
+- **Skill plates:** ten full-width plates in README order, each two equal columns, at least 88svh tall (a floor for tall screens: with the sessions folded every plate is already taller than 88svh at 1440 by 900 and at 375 by 812, so the floor only holds the one-plate-per-screen rhythm where the viewport is taller than the plate; it was kept, not lowered, when the sessions were folded), alternating sky and sand and alternating which side holds the picture. The first plate is sky with the picture on the left (the ink switch bar separates it from the sky section head); every even plate is sand with the picture on the right (`plate--flip field-sand`), so the last plate is sand and hands over to the sky Install section. With an odd number of plates, start on sand instead. The picture column is sticky while the text scrolls.
 - **Install:** five stages in one rounded panel; on wide screens a horizontal accordion (open stage 60% wide, closed stages show a vertical label), below 900px a vertical accordion.
 - **Questions:** sticky heading on the left, accordion of tiles on the right.
-- **Breakpoints:** 900px (splits collapse to one column; plates reorder to name, lead, picture, then text; picture shrinks to 64% and alternates left and right) and 600px (picture 72%, speaker names stack above turns, secondary nav link hidden).
+- **Breakpoints:** 900px (splits collapse to one column; plates reorder to name, lead, picture, then text; picture shrinks to 64% and alternates left and right) and 600px (picture 58%, speaker names stack above turns, secondary nav link hidden).
 
 Measures: body 64ch, captions 46ch, question answers 52ch, plate text 42rem.
 
@@ -231,11 +244,11 @@ The system is flat. There are no shadows anywhere. Depth comes from three things
 Every shape is a circle or derives from one.
 
 - **Circles** (50%): picture frames, the speaker and list dots (0.6rem, 0.75rem and 1rem), inline thumbnails in the intro statement (1.4em, sitting on the line). List dots (the "wants" list, the rows in "Start a skill") sit on the first line of their text, not the vertical centre of the row, so they stay put when a line wraps.
-- **Pills** (999px): every button, the surface tabs, the native select in the phone switch, the start-command chips.
+- **Pills** (999px): every button, the session toggles, the surface tabs, the native select in the phone switch, the start-command chips.
 - **Panels** (28px): prompt boxes, install command boxes, question tiles, the install stage group. The only non-circular corner on the page.
 - **The pair:** two circles on a 3:2 box overlapping by a third (hero, film, footer, wordmark), or on a square box overlapping on the diagonal (skill plates, mirrored on alternate plates). The lens is an SVG path filled with amber in multiply blend.
 
-The open/close indicator in question tiles is drawn with two short CSS bars (a plus that turns into a minus), not a glyph or icon font.
+The open/close indicator in question tiles and session toggles is drawn with two short CSS bars (a plus that turns into a minus), not a glyph or icon font.
 
 ## Components
 
@@ -258,7 +271,10 @@ The page's live control and its signature component. A sticky ink bar at the top
 Display-face labels with a small dot before them: tone dot, scaled to 0.75, when off; full-size amber dot and ink text when on.
 
 ### Skill plate
-A full-width field with the diagonal pair and a caption on one side and, on the other: headline skill name, lead promise, body paragraph, the start line (with a pill code chip and a muted note), a prompt panel, then a real shortened session or output, then an ink and a tone button.
+A full-width field with the diagonal pair and a caption on one side and, on the other: headline skill name, lead promise, body paragraph, the start line (with a pill code chip and a muted note), a prompt panel, an ink and a tone button, then the session toggle with the real shortened session or output folded behind it. Below 900px the same order follows the picture.
+
+### Session toggle
+A native `<details class="session">` after the plate's buttons, closed on load, so a plate reads in one screen and the copy button sits right under its prompt. The summary is a tone pill in the display face, "See the session" over a transcript or "See what you get" over a structured output, with the CSS plus/minus at its right end; hover inverts it to paper on ink, open turns it amber with ink text, and the press scales it like a button. It is a real disclosure: it opens without JavaScript, by keyboard (Enter or Space) and is announced as a group with its expanded state; the transcript or output inside keeps its own `aria-label` ("A real session, shortened"). A closed session is `display: none`, not only unpainted: Chrome's native closed state still lays the hidden text out over the next plate, where layout probes read it as covered or as an eyebrow. The price is that find-in-page no longer opens a session on its own. Printing opens every session (site.js, on `beforeprint`) and closes them again afterwards.
 
 ### Session transcript
 Each turn is a two-column row: speaker name in the display face with a circle before it (ink for Assistant, blue-3 for You), then the serif turn. Elided stretches are an italic muted line with no speaker. Structured outputs use a definition list with display-face terms.
@@ -273,7 +289,7 @@ Rounded tone panels with a display-face summary and a plus/minus drawn in CSS. O
 A 3px outline offset 3px in the current surface's focus colour (`--focus`), defaulting to ink. Ink surfaces (the switch bar, the footer) set it to amber; each install stage sets it to its own stage ink, so focus always contrasts with the ground it is on.
 
 ### Motion
-Easings are custom out-curves (ease-out cubic-bezier(0.22, 1, 0.36, 1), expo cubic-bezier(0.16, 1, 0.3, 1)); durations 140ms press, 180ms hover, 240ms UI, about 900ms reveals with a 70ms stagger. Hero lines rise out of masks, the hero pair opens with a shutter wipe and its picture settles from 1.12 scale; on scroll, headings rise from masks and each pair's circles slide into overlap. All of it sits inside `prefers-reduced-motion: no-preference` and behind the `js` class, so content is visible without JavaScript and static under reduced motion. The film in "Start a skill" plays only while in view, never autoplays under reduced motion, and has a visible pause button.
+Easings are custom out-curves (ease-out cubic-bezier(0.22, 1, 0.36, 1), expo cubic-bezier(0.16, 1, 0.3, 1)); durations 140ms press, 180ms hover, 240ms UI, about 900ms reveals with a 70ms stagger. Hero lines rise out of masks, the hero pair opens with a shutter wipe and its picture settles from 1.12 scale; on scroll, headings rise from masks and each pair's circles slide into overlap. Plain reveals start once an element is 10% up the screen (their content is readable before they move); a masked heading starts as soon as it enters, because until it rises it is invisible. An opened session rises in like an opened question tile. All of it sits inside `prefers-reduced-motion: no-preference` and behind the `js` class, so content is visible without JavaScript and static under reduced motion. The film in "Start a skill" plays only while in view, never autoplays under reduced motion, and has a visible pause button.
 
 ## Do's and Don'ts
 
@@ -282,6 +298,7 @@ Easings are custom out-curves (ease-out cubic-bezier(0.22, 1, 0.36, 1), expo cub
 - **Do** alternate sky and sand fields between sections and plates, and let the panel tone and second circle follow the field.
 - **Do** set headings and controls in Libre Franklin 700 and all reading text in Source Serif 4.
 - **Do** keep monospace for commands, skill names and flags, the things a reader types or copies.
+- **Do** serve every picture as a `<picture>` with AVIF and WebP renditions and the JPG as fallback (docs/site/README.md, Pictures); the greyscale and `--lift` stay on the `<img>`, so every format gets the same treatment.
 - **Do** put pictures in greyscale inside the circle with the amber lens in multiply; lift the brightness of dark pictures (`--lift`) rather than letting the lens turn them to a blot.
 - **Do** set `--focus` on any new dark surface so the focus outline contrasts with its ground.
 - **Do** wrap every animation in `prefers-reduced-motion: no-preference` and keep content visible without JavaScript.

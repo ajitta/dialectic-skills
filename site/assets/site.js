@@ -163,26 +163,39 @@
 
   /* ---------- reveals, once ---------- */
   const reveals = [...document.querySelectorAll('[data-reveal]')];
+  // Most reveals only rise, so their content is readable before they start; they wait until they are 10% up the
+  // screen. A masked heading is hidden until it rises, so it starts as soon as it enters: a heading never sits
+  // missing at the bottom of the screen above text that is already there.
+  const masked = (el) => el.classList.contains('mask');
   if ('IntersectionObserver' in window) {
-    const io = new IntersectionObserver((entries) => {
-      for (const e of entries) if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); }
-    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.08 });
-    reveals.forEach((el) => io.observe(el));
+    const show = (entries, obs) => {
+      for (const e of entries) if (e.isIntersecting) { e.target.classList.add('is-in'); obs.unobserve(e.target); }
+    };
+    const io = new IntersectionObserver(show, { rootMargin: '0px 0px -10% 0px', threshold: 0.08 });
+    const ioMask = new IntersectionObserver(show, { threshold: 0.08 });
+    reveals.forEach((el) => (masked(el) ? ioMask : io).observe(el));
     // A fast jump (a link, the End key) can carry the page past an element between two frames, and the
     // observer then never sees it intersect: show whatever is already above the fold.
     let queued = false;
     const catchUp = () => {
       queued = false;
-      const limit = innerHeight * 0.9;
       for (const el of reveals) {
         if (el.classList.contains('is-in')) continue;
-        if (el.getBoundingClientRect().top < limit) { el.classList.add('is-in'); io.unobserve(el); }
+        if (el.getBoundingClientRect().top < innerHeight * (masked(el) ? 1 : 0.9)) { el.classList.add('is-in'); (masked(el) ? ioMask : io).unobserve(el); }
       }
     };
     addEventListener('scroll', () => { if (!queued) { queued = true; requestAnimationFrame(catchUp); } }, { passive: true });
   } else {
     reveals.forEach((el) => el.classList.add('is-in'));
   }
+
+  /* ---------- print the sessions too: open the closed ones for printing, close them again after ---------- */
+  let printed = [];
+  addEventListener('beforeprint', () => {
+    printed = [...document.querySelectorAll('details.session:not([open])')];
+    printed.forEach((d) => { d.open = true; });
+  });
+  addEventListener('afterprint', () => { printed.forEach((d) => { d.open = false; }); printed = []; });
 
   /* ---------- the film plays only in view, never under reduced motion, and can be paused ---------- */
   const calm = matchMedia('(prefers-reduced-motion: reduce)');
