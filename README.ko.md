@@ -104,6 +104,19 @@ codex plugin add dia@dialectic-skills
 
 Business와 Enterprise 워크스페이스에서는 관리자가 워크스페이스 전체에 플러그인을 추가할 수도 있습니다(zip 업로드 또는 GitHub 마켓플레이스 가져오기).
 
+### 다른 에이전트 (skills CLI)
+
+오픈소스 [`skills` CLI](https://github.com/vercel-labs/skills)는 플러그인이 아니라 스킬 폴더를 Claude Code, Codex, Cursor 같은 Agent Skills를 읽는 에이전트에 복사합니다. 이 CLI로 설치해야 dia가 [skills.sh](https://skills.sh)에 올라갑니다. `npx skills find`와 find-skills 스킬이 찾아보는 곳이 바로 skills.sh입니다.
+
+```
+npx skills add ajitta/dialectic-skills
+```
+
+- 설치할 스킬과 에이전트를 물어봅니다. `-s '*' -a claude-code -y`를 붙이면 묻지 않고 모든 스킬을 Claude Code에 설치합니다. 현재 프로젝트가 아니라 사용자 전체에 설치하려면 `-g`를 붙입니다.
+- 이 방법으로 설치한 스킬은 일반 스킬이라 이름에 플러그인 접두어가 없습니다. Claude Code에서는 `/dia-elenchus`, Codex에서는 `$dia-elenchus`입니다.
+- 업데이트: `npx skills update`. Node.js가 필요합니다.
+- 에이전트마다 경로는 하나만 쓰세요. 플러그인과 이 방법을 함께 설치하면 모든 스킬이 두 번씩 나타납니다.
+
 ### Windows
 
 위의 모든 경로는 Windows에서도 작동합니다. 스킬에는 스크립트가 없으므로 Python이나 셸 설정이 필요하지 않습니다.

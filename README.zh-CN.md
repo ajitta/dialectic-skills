@@ -104,6 +104,19 @@ codex plugin add dia@dialectic-skills
 
 在 Business 和 Enterprise 工作区中，管理员还可以为整个工作区添加该插件（上传 zip 或导入 GitHub marketplace）。
 
+### 其他智能体（skills CLI）
+
+开源的 [`skills` CLI](https://github.com/vercel-labs/skills) 会把技能文件夹（而不是插件）复制到 Claude Code、Codex、Cursor 等能加载 Agent Skills 的智能体中。通过这个 CLI 安装后，dia 才会出现在 [skills.sh](https://skills.sh) 上；`npx skills find` 和 find-skills 技能搜索的正是 skills.sh。
+
+```
+npx skills add ajitta/dialectic-skills
+```
+
+- 它会询问要安装哪些技能、装到哪些智能体。加上 `-s '*' -a claude-code -y` 则不再询问，直接把全部技能装到 Claude Code。要为当前用户而不是当前项目安装，加 `-g`。
+- 这样安装的是普通技能，名称没有插件前缀：在 Claude Code 中是 `/dia-elenchus`，在 Codex 中是 `$dia-elenchus`。
+- 更新：`npx skills update`。需要 Node.js。
+- 每个智能体只用一种途径。插件和这种方式同时安装时，每个技能都会出现两次。
+
 ### Windows
 
 以上所有途径都适用于 Windows。技能不包含任何脚本，因此无需配置 Python 或 shell。

@@ -104,6 +104,19 @@ There are two routes. Use the first for the web and mobile, the second for the d
 
 On Business and Enterprise workspaces, an admin can also add the plugin for the whole workspace (upload the zip or import the GitHub marketplace).
 
+### Other agents (skills CLI)
+
+The open-source [`skills` CLI](https://github.com/vercel-labs/skills) copies the skill folders (not the plugin) into Claude Code, Codex, Cursor and other agents that load Agent Skills. Installs made with it are what list dia on [skills.sh](https://skills.sh), the directory that `npx skills find` and the find-skills skill search.
+
+```
+npx skills add ajitta/dialectic-skills
+```
+
+- It asks which skills and which agents; `-s '*' -a claude-code -y` takes all skills for Claude Code without asking. Add `-g` to install for your user instead of the current project.
+- Skills installed this way are plain skills, so their names have no plugin prefix: `/dia-elenchus` in Claude Code, `$dia-elenchus` in Codex.
+- Update: `npx skills update`. It needs Node.js.
+- Use one route per agent. With the plugin and this route both installed, every skill appears twice.
+
 ### Windows
 
 All routes above work on Windows. The skills contain no scripts, so no Python or shell setup is needed.

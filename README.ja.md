@@ -104,6 +104,19 @@ codex plugin add dia@dialectic-skills
 
 Business と Enterprise のワークスペースでは、管理者がワークスペース全体にプラグインを追加することもできます（zip のアップロード、または GitHub マーケットプレイスのインポート）。
 
+### ほかのエージェント（skills CLI）
+
+オープンソースの [`skills` CLI](https://github.com/vercel-labs/skills) は、プラグインではなくスキルのフォルダーを、Claude Code、Codex、Cursor など Agent Skills を読み込むエージェントにコピーします。この CLI でインストールされると、dia が [skills.sh](https://skills.sh) に載ります。`npx skills find` と find-skills スキルが検索するのは skills.sh です。
+
+```
+npx skills add ajitta/dialectic-skills
+```
+
+- インストールするスキルとエージェントを尋ねます。`-s '*' -a claude-code -y` を付けると、尋ねずにすべてのスキルを Claude Code に入れます。現在のプロジェクトではなくユーザー全体に入れるには `-g` を付けます。
+- この方法で入れたスキルは通常のスキルなので、名前にプラグインの接頭辞が付きません。Claude Code では `/dia-elenchus`、Codex では `$dia-elenchus` です。
+- 更新：`npx skills update`。Node.js が必要です。
+- エージェントごとに経路は一つだけにしてください。プラグインとこの方法の両方で入れると、すべてのスキルが二重に表示されます。
+
 ### Windows
 
 上記の経路はすべて Windows でも使えます。スキルにはスクリプトが含まれていないため、Python やシェルの準備は不要です。
