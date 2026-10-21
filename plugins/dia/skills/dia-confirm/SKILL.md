@@ -11,7 +11,7 @@ metadata:
 
 A request to analyze, review, or edit this skill is not a request to run it.
 
-Run this review when the message starts with `dia-confirm`, the skill was selected or invoked by name, or the user explicitly asks you to confirm the goal, assumptions or open decisions before starting. Otherwise do the task without this skill and do not hold it for approval.
+If this skill was loaded although the message does not start with `dia-confirm` and the skill was not selected or invoked by name, run the review only when the user explicitly asked to confirm the goal, assumptions or open decisions first; otherwise do the task without this skill and do not hold it for approval. Replies to a review in progress follow Recognizing Approval.
 
 ## Before Starting
 

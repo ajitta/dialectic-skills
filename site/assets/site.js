@@ -17,7 +17,7 @@
       case 'codex': return {
         code: `$dia:${skill}`,
         note: codex === 'name'
-          ? 'Follow it with a space and your request, or start the message with the skill name. This skill does not start from a plain request.'
+          ? 'Follow it with a space and your request, or start the message with the skill name. It is meant to start only these ways, not from a plain request.'
           : 'Follow it with a space and your request. On Codex it may also start when your request matches it.',
       };
       case 'chatgpt': return { code: `@${skill}`, note: 'Type @, then pick the skill.' };
