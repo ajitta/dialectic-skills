@@ -32,7 +32,7 @@ Coherent: C1 … Cn can hold together | replaced Ck because it conflicted with C
 Same data: no contrary contradicts D1 … Dn | C2 reads D2 as …
 
 ## Counterplan
-Recommendation: one or two sentences, at the plan's level of detail.
+Recommendation: one or two sentences, at the plan's level of detail. A slot (step, cost, date) whose figure neither side has reads "not supplied" and goes under Not tested.
 1. … (rests on C1; cites D1)
 2. … (rests on C2)
 
@@ -49,15 +49,17 @@ Which assumption from each pair do you now hold? Per pair: the plan's, the count
 
 ---
 
-Printed after the user rules on every pair, or stops:
+Printed after the user rules on every pair, or stops, or when Step 3 finds no key assumption:
 
 ## Record
 - Target / plan: (and the self-examination line for claude)
 - Key assumptions: n of m listed
 - Pairs and rulings: K1 plan | counterplan | own: "…" | open — one line per pair
 - Result: plan side held | counterplan side held | synthesis | undetermined | no key assumption found | stopped
-- Kept for the side set aside: one line per pair with the strongest argument for the assumption not held; for an open pair, the strongest argument on each side and the observation that would decide it
+- Kept for the side set aside: one line per pair with the strongest argument for the assumption not held (for a ruling in the user's own words, for whichever of Kn and Cn it departs from more); for an open pair, the strongest argument on each side and the observation that would decide it
 - Written by: one assistant wrote both sides of this comparison
 - Not tested: the accuracy of the shared data; assumptions not listed; alternatives other than these two; how either plan would play out; (anything else). Hearing both sides is not evidence that the plan was tested.
 - Rewrites: Cn rewritten because … (named defect) | none
 - History: (one line per follow-up turn)
+
+For no key assumption found, the record has only Target / plan, Key assumptions (0 of m listed), Result, and: Not tested: whether the shared data are accurate, assumptions not listed, and alternatives to the plan; no counterplan was written, which does not show the plan is sound.

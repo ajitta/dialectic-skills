@@ -38,6 +38,8 @@ If the idea is missing, ask for it. If the mode is unclear, state your pick and 
 
 If the request only says "Socratic" in general ("do it Socratically", "question me like Socrates", "socratic method") and does not ask for brainstorming or options, it normally belongs to dia-elenchus; if this skill was chosen anyway (for example by name), add one line to that same message: this session tests the idea and ends with options and a plan; for the strict dialogue of Plato's dialogues (definitions, contradictions, no advice), they can ask for `dia-elenchus`. Then continue; don't wait for an answer.
 
+If the request asks for the opposing plan, a counterplan or a devil's advocate on a plan, it belongs to dia-counterplan; if it asks for counterexamples to a claim about every case (all, always, never), it belongs to dia-conjecture. If this skill was chosen anyway, add one line to that same message naming that skill, then continue.
+
 If dia-elenchus is named in the same request, the definition dialogue comes first: say so in one line, and start Step 0 here only when the user asks for options or that dialogue ends. Never interleave the two.
 
 If the idea is already precise (clear scope, owner, success measure, no open questions) or the user signals they want answers, not questions, say so and offer: record it as-is, or probe the one aspect they name. Don't manufacture doubt.

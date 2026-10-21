@@ -1,6 +1,6 @@
 ---
 name: dia-counterplan
-description: Dialectical inquiry after Mason (1969) in the Churchman lineage, run by one assistant in one chat; the counterplan is the assistant's, the synthesis is the user's. Turns the key assumptions of a plan, decision or recommendation into plausible contraries, builds the counterplan on the same data, and asks which assumptions from each side the user holds. Picks no winner; ends with a record. Use when the user asks for a counterplan or a devil's advocate on a plan or decision ("devil's advocate on this plan", "make the case for the opposite plan", "what if our key assumptions are wrong"), or the same in any language. Not for whether one claim is true. Writes the opposing case; it does not question the user. To poke holes in or stress-test the user's idea through questions, use dia-brainstorm; for counterexamples to a universal claim, dia-conjecture; for how well an argument's reasons support its conclusion, dia-warrant; for where a plan fails its own standard or what it really serves, dia-negative.
+description: Dialectical inquiry after Mason (1969) in the Churchman lineage, run by one assistant in one chat; the counterplan is the assistant's, the synthesis is the user's. Turns the key assumptions of a plan or recommendation into plausible contraries, builds the counterplan on the same data, and asks which assumptions from each side the user holds. Picks no winner; ends with a record. Use only when asked for a counterplan or a devil's advocate on a plan or decision ("make the case for the opposite plan", "what if our key assumptions are wrong"), or the same in any language. Not for a devil's advocate on a claim or question ("is X true?", "is X healthy?"); answer directly. Writes the opposing case; it does not question the user. To poke holes in or stress-test an idea through questions, use dia-brainstorm; for counterexamples to a universal claim, dia-conjecture; for how well an argument's reasons support its conclusion, dia-warrant; for where a plan fails its own standard or what it really serves, dia-negative.
 license: MIT
 metadata:
   author: ajitta
@@ -13,7 +13,7 @@ metadata:
 
 Dialectical inquiry after Mason (1969) in the Churchman lineage, run by one assistant in one chat: the counterplan is the assistant's, the synthesis is the user's. Take a plan, decision or recommendation; list the assumptions it rests on; keep those the decision turns on; give each a plausible contrary; write the counterplan those contraries support on the same data; set the two side by side; then ask which assumptions from each side the user now holds. That set is the result. You give no verdict on which plan wins.
 
-In Mason's field study separate advocates argued the two plans before the managers. Here one assistant writes both sides, so the format obliges a counter-case but cannot ensure it is as strong as the plan, and hearing both sides is not evidence that the plan was tested. Sources, the evidence on dialectical inquiry and devil's advocacy, and the limits of this adaptation are in [references/theory.md](references/theory.md); read it only when the user asks about the method or its sources, then answer briefly. The output layout is in [references/output-template.md](references/output-template.md); read it before the first output if you can open it (Step 8 names the record fields in case you cannot).
+In Mason's field study the plan came from the company's planners, the counterplan was built separately on opposite assumptions, and the two were debated before the managers. Here one assistant writes both sides, so the format obliges a counter-case but cannot ensure it is as strong as the plan, and hearing both sides is not evidence that the plan was tested. Sources, the evidence on dialectical inquiry and devil's advocacy, and the limits of this adaptation are in [references/theory.md](references/theory.md); read it only when the user asks about the method or its sources, then answer briefly. The output layout is in [references/output-template.md](references/output-template.md); read it before the first output if you can open it (Step 8 names the record fields in case you cannot).
 
 ## Parameters
 
@@ -30,14 +30,15 @@ If no flag is given, infer the target: a pasted text means `text`; "your recomme
 ## When this skill does not fit
 
 - The message only asks you to write, draft or improve a plan, with no request for the opposing case: the skill was loaded by mistake; do the task without it.
-- The question is whether one claim is true ("play devil's advocate: is X true?"), not a plan, decision or recommendation: answer it without this skill.
+- The question is about one claim, even as a devil's advocate ("play devil's advocate: is X true?", "is X healthy?"), not a plan, decision or recommendation: answer it without this skill.
 - The user wants to be questioned about the plan, one question at a time: say in one line that dia-brainstorm does that, and stop.
+- The user asks only what the plan rests on, or only for its weak points, with no request for the opposing plan: run Steps 1 to 3, then offer the counterplan in one line.
 
 ## Hard rules
 
 1. **Build the alternative; do not carp.** The counterplan follows from contrary assumptions; it is not a list of the plan's flaws. It must be a course of action a competent advocate could adopt and defend.
-2. **Contraries, chosen and labelled.** For each key assumption state a specific, plausible contrary, not its bare negation: for "demand grows 10% a year", write "demand stays flat as the two largest buyers merge", not "demand does not grow 10%". The choice is yours; mark each one "my choice". Together the contraries must be able to hold at once and must fit the same data.
-3. **Symmetry.** Pair every key assumption with its contrary. Write the counterplan at the same level of detail as the plan and cite the same data: if the plan names steps, costs or dates, so does the counterplan. Say in one line of the output that one assistant wrote both sides.
+2. **Contraries, chosen and labelled.** For each key assumption state a specific, plausible contrary, not its bare negation: for "demand grows 10% a year", write "demand stays flat (supposing, for example, that the two largest buyers merge)", not "demand does not grow 10%". The choice is yours; mark each one "my choice". A mechanism in a contrary is a supposition, never a reported fact. Together the contraries must be able to hold at once and must fit the same data.
+3. **Symmetry.** Pair every key assumption with its contrary. Write the counterplan at the same level of detail as the plan and cite the same data: if the plan names steps, costs or dates, the counterplan names the same slots. Where a slot needs a figure that neither side has, write the slot with "not supplied" and list it under "not tested"; that counts as matching detail, and Rule 4 wins. Say in one line of the output that one assistant wrote both sides.
 4. **No new facts.** Both sides use the plan's data and what the user supplies. Never invent figures, sources or quotes for either side; a fact a side would need but neither has goes under "not tested". Label every fact with its evidence class: verified this session (a tool ran) / supplied by the user / single source / unverified recall. Your own recall is never "verified". If a search tool is available and the user asks you to check a datum, check it and update its class for both sides.
 5. **No verdict.** Do not say, or imply by tone, ranking or adjectives, which plan is better. If the user asks which wins, say in one line that this skill gives no verdict because you wrote both sides, and point to the observations that would decide the key pairs.
 6. **A ruling is not a challenge.** When the user rejects a contrary, record the ruling; do not argue for the contrary and do not soften it. Rewrite a contrary only on a named defect: it misstates the data, or it contradicts another contrary.
@@ -46,7 +47,7 @@ If no flag is given, infer the target: a pasted text means `text`; "your recomme
 
 ## Procedure
 
-The first response runs Steps 1 to 7 in one message and ends with Step 7's question. Each follow-up turn fits a phone screen without scrolling.
+The first response runs Steps 1 to 7 in one message and ends with Step 7's question, unless Step 1 stops to ask, Step 3 finds no key assumption, or the user asked only for the assumptions (When this skill does not fit). A follow-up that only records rulings or answers a question fits a phone screen without scrolling. A rewrite or an added assumption shows only the changed lines (the new Cn, the counterplan steps that rest on it, the changed pair). A rerun on a changed plan, and the record, may be longer but use numbered lines, not tables.
 
 ### Step 1: State the plan
 
@@ -93,15 +94,17 @@ When the user has ruled on every pair, or stops, close with the record from the 
 - **plan side held:** the user holds the plan's assumption on every pair;
 - **counterplan side held:** the counterplan's on every pair;
 - **synthesis:** a mix, or assumptions in the user's own words, with no pair left open;
-- **undetermined:** at least one pair left open; the question stands (*teyku*, "let it stand", borrowed from the Talmud);
+- **undetermined:** at least one pair left open; the question stands (named after *teyku*, "let it stand", borrowed loosely from the Talmud);
 - **no key assumption found** (Step 3);
-- **stopped:** the user stopped before ruling.
+- **stopped:** the user stopped before ruling on any pair. If they stop after ruling on some, the result is **undetermined** and the unruled pairs are open.
 
-The record always says:
+Unless the result is **no key assumption found**, the record always says:
 
-- **Kept for the side set aside:** for each pair, the strongest argument for the assumption the user did not hold, in one line, so a later decision can return to it. For an open pair, the strongest argument on each side and the observation that would decide it.
+- **Kept for the side set aside:** for each pair, the strongest argument for the assumption the user did not hold, in one line, so a later decision can return to it (borrowed from the Mishnah's kept minority opinion, theory.md §6). For an open pair, the strongest argument on each side and the observation that would decide it. For a pair answered in the user's own words, keep the strongest argument for whichever of Kn and Cn their wording departs from more. "Can't tell" records the pair as open.
 - **Written by:** one assistant wrote both sides of this comparison.
 - **Not tested:** at least whether the shared data are accurate, assumptions not listed, alternatives other than these two, and how either plan would play out; then the line "Hearing both sides is not evidence that the plan was tested."
+
+For **no key assumption found**, the record says instead: Not tested: whether the shared data are accurate, assumptions not listed, and alternatives to the plan; no counterplan was written, which does not show the plan is sound.
 
 If the user then asks for a plan built on their set, sketch it after the record and label it as yours; the set, not the sketch, is the result.
 
@@ -114,11 +117,11 @@ If the user then asks for a plan built on their set, sketch it after the record 
 ## Follow-up turns
 
 - **The user rules on pairs:** record each ruling. If a pair gets none, ask about it once; then record it as open.
-- **The user rejects a contrary:** that is a ruling on the pair (Rule 6); record it with their reason if they give one. If they name a defect (it misstates a datum, or it contradicts another contrary), check it. If it holds, rewrite that Cn, redo Steps 4 to 6 for what rests on it, and note the defect under rewrites; if not, show the datum or line in one sentence and keep it.
+- **The user rejects a contrary:** that is a ruling on the pair (Rule 6); record it with their reason if they give one; the pair counts as the plan's assumption held unless they give their own wording or say they can't tell. If they name a defect (it misstates a datum, or it contradicts another contrary), check it. If it holds, rewrite that Cn, redo Steps 4 to 6 for what rests on it, and note the defect under rewrites; if not, show the datum or line in one sentence and keep it.
 - **The user says the counterplan is weaker:** check Rule 3 and fix a named asymmetry (less detail, a datum left out). "It's weak" alone names none.
 - **The user disputes the plan's assumptions:** withdraw an assumption only if you can name its defect (a misquote, or the recommendation does not need it); insistence is not a defect. For target `user`, their clarification of their own plan is [T] and replaces the [A] line it covers. If the recommendation still needs the assumption, show where in one line and keep it. An assumption the user adds goes through Steps 3 to 6.
 - **The user changes the plan:** treat it as a new plan, rerun, and add it to the history.
-- **The user asks for your pick:** Rule 5. After the record, if they still want your view, say the inquiry is over, give it labelled as your own, and add that you wrote both sides.
+- **The user asks for your pick:** Rule 5, during and after the inquiry. Say the result is their set, and name the observation that would decide the pair they find hardest.
 - **Stop signal** ("stop", "enough", "wrap up", or the same in the user's language): go to the record with what you have.
 
 ## Pitfalls
@@ -129,4 +132,4 @@ If the user then asks for a plan built on their set, sketch it after the record 
 - A winner picked by tone, ranking or adjectives ("the more realistic plan").
 - The side-by-side treated as proof that the plan was tested.
 - Numbers invented to make either side concrete.
-- A follow-up turn that needs scrolling on a phone.
+- A ruling-only follow-up that needs scrolling on a phone.

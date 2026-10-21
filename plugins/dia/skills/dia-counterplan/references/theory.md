@@ -16,11 +16,11 @@ Strategic Assumption Surfacing and Testing (SAST; Mason & Mitroff 1981) is a lat
 
 ## 3. Contraries, not negations
 
-The negation of "demand grows 10%" is not a premise a plan can rest on; the assistant has to pick a contrary, and that choice is where bias enters (compare dia-reductio, which distinguishes contradictories from contraries). Mason's counterplan rests on a coherent opposing view, not on item-by-item denials. Hence Rule 2 and Step 4: each contrary is specific and plausible, marked as the assistant's choice, checked for joint coherence and fitted to the same data, so the user can reject any of them.
+The negation of "demand grows 10%" is not a premise a plan can rest on; the assistant has to pick a contrary, and that choice is where bias enters (compare dia-reductio, which distinguishes contradictories from contraries). Schwenk summarises Mason's step as "the negation of these assumptions" and a counterplan "based on opposite assumptions" (BEBR 814); taken item by item, a bare negation gives a plan nothing to rest on, so the skill picks contraries instead (a departure, §7). Hence Rule 2 and Step 4: each contrary is specific and plausible, marked as the assistant's choice, checked for joint coherence and fitted to the same data, so the user can reject any of them.
 
 ## 4. Evidence on dialectical inquiry (DI) and devil's advocacy (DA)
 
-All of these studies used human groups with separate advocates.
+All of these studies used human participants who received a plan and a critique or counterplan prepared by different people, in groups or as written reports; none had one author write both sides.
 
 - DI and DA both gave higher-quality recommendations and assumptions than consensus; DI beat DA on the quality of assumptions; consensus groups were more satisfied (Schweiger, Sandberg & Ragan 1986).
 - In a longitudinal study, DI = DA > consensus on decision quality, with more re-evaluation of one's own assumptions and lower acceptance of the group decision (Schweiger, Sandberg & Rechner 1989).
@@ -31,7 +31,7 @@ All of these studies used human groups with separate advocates.
 
 What follows for the skill:
 
-- **Why DI and not DA.** The evidence favours DA on performance and DI only on the quality of surfaced assumptions. This skill is DI anyway because its distinct output is the counterplan, which no sibling produces; the critic's role is already played by dia-brainstorm's stress mode, which questions the user. The choice rests on that division of work, not on DI being better. There is no separate DA mode.
+- **Why DI and not DA.** The evidence favours DA on performance and DI only on the quality of surfaced assumptions. This skill is DI anyway because its distinct output is the counterplan, which no sibling produces; the critic's role is already played by dia-brainstorm's stress mode, which questions the user. The choice rests on that division of work, not on DI being better. There is no separate DA mode. A request for a devil's advocate on a plan is answered with dialectical inquiry (a counterplan), not with devil's-advocacy critique; critique by questions stays with dia-brainstorm's stress mode. A devil's advocate on a single claim or question ("is X true?") is not a plan and does not belong to this skill.
 - **The false-assurance guard.** Schwenk's two warnings are why the record states what the comparison did not test and that "hearing both sides is not evidence that the plan was tested", and why Rule 1 forbids carping.
 
 ## 5. One assistant in one chat
@@ -48,14 +48,15 @@ Fit for an AI chat is medium, not high.
 
 Two elements come from the Talmud, not from Mason, and are labelled as borrowings:
 
-- **Undetermined (*teyku*).** A Talmudic problem with two balanced sides and no deciding authority ends *teyku*, "let it stand", unsolved; there are more than 300 such cases in the Babylonian Talmud (Jacobs). The result **undetermined** keeps a key pair open, with the balanced considerations and the observation that would decide it, instead of forcing a choice.
-- **The strongest argument for the side set aside.** The Mishnah records a minority opinion so that a later court may rely on it (Mishnah Eduyot 1:5–6). The record keeps the strongest argument for each assumption the user did not hold, for the same reason.
+- **Undetermined (*teyku*).** A Talmudic problem with two balanced sides and no deciding authority ends *teyku*, "let it stand", unsolved; there are more than 300 such cases in the Babylonian Talmud (Jacobs). The result **undetermined** keeps a key pair open, with the balanced considerations and the observation that would decide it, instead of forcing a choice. Unlike *teyku*, which Jacobs calls inherently insoluble, an undetermined pair here is open only for now; the borrowing is the refusal to force a choice, not a claim that the pair cannot be decided.
+- **The strongest argument for the side set aside.** The Mishnah records a minority opinion so that a later court may rely on it (Mishnah Eduyot 1:5). The record keeps the strongest argument for each assumption the user did not hold, for the same reason. Eduyot 1:6 gives a rival reason (Rabbi Judah: the minority view is recorded so it can be identified as set aside); the skill follows 1:5.
 
 ## 7. Departures, in one list
 
-- One assistant writes both sides; Mason had separate advocates and a group of managers.
+- One assistant restates the plan and writes the counterplan; in Mason's study the plan and counterplan had different authors and were debated before a group of managers.
 - The synthesis is the user's set of assumptions; the assistant writes none and picks no winner.
 - Contraries are chosen by the assistant and labelled, not presented as the opposition's own view.
+- Contraries replace the negated ("opposite") assumptions of Schwenk's summary.
 - SAST's test is used without its importance and certainty ratings.
 - *Teyku* and the kept minority view are borrowed from the Talmud.
 

@@ -13,7 +13,7 @@ Criteria, in the owner's terms: the skills are used in conversation with an AI a
 | Modern argumentation theory | [argumentation.md](argumentation.md) | 245 | 50 | `dia-counterplan` (dialectical inquiry), `dia-warrant` (Toulmin + Walton); later `dia-steelman` |
 | HCI: answer first | [commit-first.md](commit-first.md) | 206 | 17 | `dia-commit`, explicit-only, after a sycophancy probe |
 
-Every document was written by a separate agent with its own citation ledger; `sources.py verify` passes for all six (every `[n]` resolves to a fetched page; unsourced claims are marked `[unverified]`). The documents have **not** had an independent review yet.
+Every document was written by a separate agent with its own citation ledger; `sources.py verify` passes for all six (every `[n]` resolves to a fetched page; unsourced claims are marked `[unverified]`). Each document was reviewed independently on 2026-10-21 ([review/](review/), all SOUND WITH FIXES); the corrections were applied in [design/](design/), not in these documents. The three picks (dia-warrant, dia-conjecture, dia-counterplan) are implemented on branch `next` (spec D35).
 
 ## External proposal
 

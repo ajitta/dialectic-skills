@@ -35,7 +35,7 @@ class TestSource(unittest.TestCase):
     def test_committed_output_is_current(self):
         self.assertEqual(pkg.check_release(self.files) + pkg.check_generated(self.files), [])
 
-    def test_skills_match_spec_names(self):
+    def test_skills_match_expected_table(self):
         self.assertEqual(sorted(s.name for s in self.skills), sorted(pkg.EXPECTED_IMPLICIT))
 
     def test_implicit_invocation_table(self):

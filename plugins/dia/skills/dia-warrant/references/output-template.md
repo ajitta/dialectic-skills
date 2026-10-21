@@ -23,17 +23,19 @@ Not audited: (other claims, or other reasons for C, one line, if any)
 expert opinion | analogy | cause to effect | consequences | sign (two if both fit) | none of these: (the step in one line)
 
 ## Critical questions
-1. [data] …? — answered in the argument "…" | answered by the user | answered by a source you found (evidence class) | open
+1. [data] …? — answered in the argument "…" | answered by the user | answered by a source you found (evidence class), each for | against the step | open
 2. [warrant/backing] …? — …
 3. [rebuttal] …? — …
 4. [conclusion] …? — …
 Facts added: (each with its evidence class: verified this session (a tool ran) | supplied by the user | single source | unverified recall)
 
 ## Qualifier check
-The warrant licenses "…"; the claim says "…" → matches | overstated
+The warrant (stated | my reconstruction) licenses "…"; the claim says "…" → matches | overstated
 
 ## Result
 Weakest link: [slot], because "[question]" is left open | is answered against the step ("quote")
+Weakest link: qualifier, because the claim says "…" where the warrant licenses "…" (only if no question is open or answered against the step)
+Qualifier check: matches | overstated (always reported beside the weakest link)
 Why it matters: (one line)
 What would strengthen it: (the kind of answer or evidence, not a fact supplied by you)
 
@@ -47,7 +49,8 @@ No weak link found among the questions asked; not a proof. Asked: 1–n. Next qu
 - Scheme:
 - Warrant: stated | reconstructed (W1; W2 if any)
 - Questions: n asked — a answered, m open
-- Result: weakest link: [slot], because … | no weak link found among the questions asked; not a proof | stopped
+- Result: weakest link: [slot], because … | weakest link: qualifier, because the claim says "…" where the warrant licenses "…" | no weak link found among the questions asked; not a proof | stopped
+- Qualifier check: matches | overstated ("…" vs "…")
 - Would strengthen it:
 - Checked by: rereading only | a tool (name it)
 - Reconstructed warrant: pending | accepted by the user | rejected by the user | not needed (stated)
