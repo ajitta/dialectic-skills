@@ -113,7 +113,7 @@ codex plugin add dia@dialectic-skills
 共有三种方式，每个平台至少支持其中一种：
 
 1. **用文字描述。** 直接要求使用某种方法："对……用反证法"、"对……做内在批判"、"请来一场苏格拉底式对话……"。这在所有平台上都有效，也是移动端的稳妥默认方式。适用于 `dia-reductio`、`dia-negative`、`dia-elenchus` 和 `dia-brainstorm`。
-2. **在消息中写出名称。** 以技能名称开头：`dia-confirm …`、`dia-refine …`、`dia-iterate …`。`dia-refine` 和 `dia-iterate` 设计为以这种方式或显式选择来启动：`dia-iterate` 从不由普通请求触发；在 Claude Code 上，"修改一下这份草稿"这类普通请求也很少会加载 `dia-refine`。
+2. **在消息中写出名称。** 以技能名称开头：`dia-confirm …`、`dia-refine …`、`dia-iterate …`。从 1.2.0 起，在 Codex 和 ChatGPT 上也无需 `$` 或 `@` 即可这样启动，这是在手机上最快的方式。`dia-refine` 和 `dia-iterate` 设计为以这种方式或显式选择来启动：`dia-iterate` 从不由普通请求触发；在 Claude Code 上，"修改一下这份草稿"这类普通请求也很少会加载 `dia-refine`。
 3. **显式选择**，各平台写法不同：
 
 | 平台 | 语法 | 示例 |
@@ -124,7 +124,7 @@ codex plugin add dia@dialectic-skills
 | Codex（复制的文件夹） | `$dia-<x>` | `$dia-refine` |
 | ChatGPT | 输入 `@` 后选择技能 | `@dia-negative` |
 
-在 Codex 上，`dia-confirm`、`dia-elenchus`、`dia-brainstorm` 和 `dia-iterate` 从不自动启动；请用 `$dia:dia-<x>` 选择。`dia-reductio`、`dia-negative` 和 `dia-refine` 在你的请求与之匹配时也可能自动启动。
+从 1.2.0 起，Codex 和 ChatGPT 也与 Claude 一样，所有技能对模型可见。`dia-reductio`、`dia-negative`、`dia-elenchus`、`dia-brainstorm` 和 `dia-refine` 在你的请求与之匹配时可能自动启动；`dia-confirm` 和 `dia-iterate` 设计为仅在消息以其名称开头或被显式选择（`$dia:dia-<x>`、`@`）时启动。不过在 Codex 上，如果用文字直接要求 `dia-confirm` 的步骤（如“先整理我的目标并列出待决事项”），也可能加载该技能。
 
 ### 选项
 

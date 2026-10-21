@@ -113,7 +113,7 @@ Business와 Enterprise 워크스페이스에서는 관리자가 워크스페이�
 방법은 세 가지이며, 모든 환경에서 적어도 한 가지는 지원합니다.
 
 1. **말로 요청하기.** 방법을 직접 요청합니다: "…에 귀류법을 적용해 주세요", "…을 내재적 비판해 주세요", "소크라테스식 대화로 부탁합니다…". 모든 환경에서 작동하며, 모바일에서는 이 방법이 가장 안전한 기본값입니다. `dia-reductio`, `dia-negative`, `dia-elenchus`, `dia-brainstorm`에 쓸 수 있습니다.
-2. **메시지에 이름 적기.** 메시지를 스킬 이름으로 시작합니다: `dia-confirm …`, `dia-refine …`, `dia-iterate …`. `dia-refine`과 `dia-iterate`는 이 방식이나 명시적 선택으로 시작하도록 설계되었습니다. `dia-iterate`는 일반 요청으로는 절대 시작되지 않으며, Claude Code에서는 "이 초안 고쳐 주세요" 같은 일반 요청으로 `dia-refine`이 로드되는 경우가 드뭅니다.
+2. **메시지에 이름 적기.** 메시지를 스킬 이름으로 시작합니다: `dia-confirm …`, `dia-refine …`, `dia-iterate …`. 1.2.0부터는 Codex와 ChatGPT에서도 `$`나 `@` 없이 이렇게 시작할 수 있어, 휴대폰에서 가장 빠른 방법입니다. `dia-refine`과 `dia-iterate`는 이 방식이나 명시적 선택으로 시작하도록 설계되었습니다. `dia-iterate`는 일반 요청으로는 절대 시작되지 않으며, Claude Code에서는 "이 초안 고쳐 주세요" 같은 일반 요청으로 `dia-refine`이 로드되는 경우가 드뭅니다.
 3. **명시적 선택.** 환경마다 표기법이 다릅니다.
 
 | 환경 | 문법 | 예시 |
@@ -124,7 +124,7 @@ Business와 Enterprise 워크스페이스에서는 관리자가 워크스페이�
 | Codex (복사한 폴더) | `$dia-<x>` | `$dia-refine` |
 | ChatGPT | `@` 입력 후 스킬 선택 | `@dia-negative` |
 
-Codex에서 `dia-confirm`, `dia-elenchus`, `dia-brainstorm`, `dia-iterate`는 저절로 시작되지 않으므로 `$dia:dia-<x>`로 선택해야 합니다. `dia-reductio`, `dia-negative`, `dia-refine`은 요청 내용이 맞으면 저절로 시작될 수도 있습니다.
+1.2.0부터 Codex와 ChatGPT에서도 Claude처럼 모든 스킬이 모델에 보입니다. `dia-reductio`, `dia-negative`, `dia-elenchus`, `dia-brainstorm`, `dia-refine`은 요청 내용이 맞으면 저절로 시작될 수 있고, `dia-confirm`과 `dia-iterate`는 메시지를 이름으로 시작하거나 직접 선택(`$dia:dia-<x>`, `@`)할 때만 시작하도록 되어 있습니다. 다만 Codex에서는 "먼저 내 목표를 정리하고 결정할 것들을 알려줘"처럼 `dia-confirm`의 절차를 그대로 말로 요청하면 이 스킬이 로드되기도 합니다.
 
 ### 옵션
 

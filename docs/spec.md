@@ -75,6 +75,7 @@ These decisions were settled with the owner during the spec interview of 2026-10
 | D30 | `dia-intent` is renamed `dia-confirm` in plugin 1.1.0 (owner, 2026-10-20). Reason: SuperClaude's `/sc:intent` also captures intent before work, but records it as a committed `00-intent.md`; this skill shows the goal, assumptions and open decisions and holds until the user approves, and the new name states that hold. It also continues the lineage name `confirm-intent`. The rename breaks invocation by the old name; released as a minor version because the owner was the only user and the repository was still private. `tools/package.py` rejects `dia-intent` outside `metadata.lineage`. Decision rows and research documents dated before D30 keep the old name as a historical record. `dia-brainstorm` keeps its name despite `/sc:brainstorm` (owner, same day): both brainstorm, and dropping the Socratic cue from a name has hurt routing before (probes Part B). |
 | D31 | The README is written in English and translated into Korean, Japanese and Simplified Chinese (`README.ko.md`, `README.ja.md`, `README.zh-CN.md`; owner, 2026-10-20). Each file starts with the same language switcher. The translations are repository files, not shipped, so the shipped-package language rules (§6) do not apply to them; they are an exception to D11 for the README only. A test keeps them in step with `README.md`: same heading levels, tables, link targets and code-block count, command blocks byte-identical, and every in-page anchor resolves. Example prompts are translated so each file shows requests in its own language. |
 | D32 | Directory listings, prepared in 1.1.1 (owner, 2026-10-20; requirements in `docs/directory-submission.md`). (1) The plugin folder ships a `README.md` generated from `packaging/plugin-README.md`, because the Anthropic directory blocks a plugin folder without a README of at least 40 words; it states that the plugin runs, sends and fetches nothing itself. (2) The OpenAI directory upload is a separate generated zip, `releases/dialectic-skills-openai.zip`: the same files with `.codex-plugin/plugin.json` (the manifest plus the `interface` listing fields from `packaging/openai/interface.json`) in place of `.claude-plugin/`, and two square SVG images under `assets/` for `interface.logo` and `interface.composerIcon`. Images exist only in that zip, so the marketplace payload stays Markdown, YAML and JSON (§7.1). `tools/package.py` checks the README length and the OpenAI final-submission limits, and the listing files count toward the version digest. The logo is a draft for the owner to replace if wanted. |
+| D33 | All seven skills set `allow_implicit_invocation: true` in plugin 1.2.0 (owner, 2026-10-21). Reason: on ChatGPT mobile the four explicit-only skills (dia-confirm, dia-elenchus, dia-brainstorm, dia-iterate) could be reached only through the `@` picker, because `false` drops a skill from the model-visible list, so a message starting with the skill's name did nothing; on Claude the same message works (P2), and Claude already routed dia-elenchus and dia-brainstorm from natural language (P7). Now dia-elenchus and dia-brainstorm route as on Claude, and dia-confirm and dia-iterate are gated by wording: dia-iterate by its existing description and body marker rule, dia-confirm by a description that names the first word and says a request that only sounds like it is not an invocation. Probes Part M (Codex, base 1.1.1 vs 1.2.0; Claude for the dia-confirm description). Cost: the Codex/ChatGPT always-on listing grows from 610 to 1,343 o200k tokens. This reverses the upstream `04-design.md` D2 choice for Codex only; `disable-model-invocation` stays unused (§7.2). |
 
 ## 4. Names and identifiers
 
@@ -117,7 +118,7 @@ Natural-language requests work on every surface and are the safe default on mobi
 
 ## 5. Skills
 
-All seven skills keep their reference behavior unless this section or D19–D32 say otherwise. For every skill, the rebuild:
+All seven skills keep their reference behavior unless this section or D19–D33 say otherwise. For every skill, the rebuild:
 
 - renames the skill;
 - updates cross-references so that each description names the new skill names;
@@ -128,24 +129,24 @@ All seven skills keep their reference behavior unless this section or D19–D32 
 ### 5.1 dia-confirm (from confirm-intent; `dia-intent` until 1.0.0, D30)
 
 - Purpose: before work starts, restate the goal, disclose material assumptions and list only the decisions the user must make. Then wait for approval.
-- Behavior: the reference, amended by D19–D32.
-- Invocation: explicit only. Its own description already says "Use only when explicitly selected or invoked", so `allow_implicit_invocation: false`.
+- Behavior: the reference, amended by D19–D33.
+- Invocation: first word or explicit name only. The description says "Use only when the message starts with dia-confirm, or when the skill is explicitly selected or invoked by name". `allow_implicit_invocation: true` since 1.2.0 (D33), so the first word works on Codex and ChatGPT too.
 - References: none at present. `references/ko/` is optional (§6).
 
 ### 5.2 dia-elenchus (from socratic-elenchus 1.3.1)
 
 - Purpose: Plato's elenchus. Ask "what is X?", collect agreed premises one question at a time, show contradictions, and treat each revision as the user's new idea. It usually ends in aporia and never gives advice.
-- Behavior: the reference, amended by D19–D32.
+- Behavior: the reference, amended by D19–D33.
 - Cross-reference: "use socratic-brainstorm" becomes "use dia-brainstorm".
-- Invocation: `allow_implicit_invocation: false`, as in the reference.
+- Invocation: natural language or name, as on Claude. `allow_implicit_invocation: true` since 1.2.0 (D33; the reference had false).
 - References carried over: `elenchus-patterns.md` and `record-template.md`; `theory.md` added (D24) for the dialogue loci and sources, read only when the user asks about the sources or the method.
 
 ### 5.3 dia-brainstorm (from socratic-brainstorm 3.3.1)
 
 - Purpose: modern Socratic questioning, one question at a time. The user lists options, the skill adds up to three labeled ones, and the user converges by criteria. It ends with a verdict and a brief, and never implements anything.
-- Behavior: the reference, amended by D19–D32.
+- Behavior: the reference, amended by D19–D33.
 - Cross-reference: points to dia-elenchus.
-- Invocation: `allow_implicit_invocation: false`, as in the reference.
+- Invocation: natural language or name, as on Claude. `allow_implicit_invocation: true` since 1.2.0 (D33; the reference had false).
 - References carried over: `question-bank.md` and `brief-template.md`.
 
 ### 5.4 dia-reductio (from reductio)
@@ -195,7 +196,7 @@ All seven skills keep their reference behavior unless this section or D19–D32 
 - Purpose: repeated review rounds, each gated by external verification. Each round names defects, assigns an external verification method, verifies, fixes only confirmed defects, locks verified items and logs the round. The loop stops on regression, zero defects, verification exhausted, fixed point, or the round cap (`--max N`, default 3).
 - Required changes:
   - Remove skill mode entirely: the "Skill mode" sections, `references/skill-loop.md`, and every mention of `cp -r`, `diff -u`, subagents, `evals/` and `package_skill`. Targets are the last output, a named draft, or a file the surface can read.
-  - Invocation: first word or explicit name only. Activate only when the message starts with `dia-iterate` or the skill is invoked explicitly by name. If the marker is absent but the skill looks right, ask in one line for a message starting with `dia-iterate`, or an explicit invocation of the skill by name, and stop. Explicit `/dia:dia-iterate`, `$dia:dia-iterate`, `$dia-iterate` and `@dia-iterate` also count. `allow_implicit_invocation: false`, so on the Codex plugin route only `$dia:dia-iterate` reaches it (inferred from P3).
+  - Invocation: first word or explicit name only. Activate only when the message starts with `dia-iterate` or the skill is invoked explicitly by name. If the marker is absent but the skill looks right, ask in one line for a message starting with `dia-iterate`, or an explicit invocation of the skill by name, and stop. Explicit `/dia:dia-iterate`, `$dia:dia-iterate`, `$dia-iterate` and `@dia-iterate` also count. Until 1.1.1 `allow_implicit_invocation: false` hid it from the model on Codex and ChatGPT, so the first word could not work there; since 1.2.0 it is `true` (D33) and the description and the body's marker rule do the gating.
   - Generalize tool names in `verification-sources.md`. "Context7 doc lookup" becomes "an official-documentation lookup tool (for example Context7) or a fetch of official docs".
   - Add an explicit tool-less rule: when no search, fetch or code tool is available, the only external evidence is the user's instructions and material the user supplies. Most defects are therefore unverifiable, and the loop usually stops after round 1 with the "verification exhausted" list. This is expected behavior, not a failure.
   - Keep the content-filter guardrails: a change-list output by default, no source quotations except a misquotation corrected in one sentence (D23), one retry, then change the output shape.
@@ -276,15 +277,15 @@ policy:
 
 | Skill | `allow_implicit_invocation` | Reason |
 |---|---|---|
-| dia-confirm | false | Its description says explicit only |
-| dia-elenchus | false | Same as the reference |
-| dia-brainstorm | false | Same as the reference |
+| dia-confirm | true | First word or explicit name; the description gates it (D33) |
+| dia-elenchus | true | Natural-language triggers as on Claude (D33; the reference had false) |
+| dia-brainstorm | true | Natural-language triggers as on Claude (D33; the reference had false) |
 | dia-reductio | true | Same as the reference (no yaml, default true) |
 | dia-negative | true | Same as the reference (no yaml, default true) |
 | dia-refine | true | Natural-language triggers are part of its design |
-| dia-iterate | false | First word or explicit name only, by design |
+| dia-iterate | true | First word or explicit name; the description and the body gate it (D33) |
 
-`allow_implicit_invocation` defaults to `true`. When it is `false`, explicit `$skill` invocation still works ([Build skills](https://learn.chatgpt.com/docs/build-skills)).
+`allow_implicit_invocation` defaults to `true`. When it is `false`, explicit `$skill` invocation still works ([Build skills](https://learn.chatgpt.com/docs/build-skills)), but the skill is left out of the model-visible list (P3), so a message that starts with its name cannot reach it. All seven are `true` since 1.2.0 (D33); explicit-only skills are gated by wording, as on Claude.
 
 ### 7.4 Manifests
 
@@ -351,7 +352,7 @@ Each route has a status:
 | Claude Code | `/plugin marketplace add ajitta/dialectic-skills`, then `/plugin install dia@dialectic-skills`; or account sync after a claude.ai upload | `/dia:dia-<x>`, natural language, first word for refine and iterate | documented (namespacing) / owner-probed (sync) |
 | Codex CLI / IDE | `codex plugin marketplace add <path or owner/repo>`, then `codex plugin add dia@dialectic-skills`; fallback: copy `skills/dia-<x>` to `~/.agents/skills/` | `$dia:dia-<x>` (plugin) or `$dia-<x>` (copied folder), `/skills`, implicit per §7.3 | local-path plugin route probed (P3); GitHub route untested |
 | ChatGPT desktop | Upload `dialectic-skills-openai.zip` in the desktop app (saved to the account, reaches web and mobile); or add the GitHub marketplace through Codex in the desktop app (local to that computer only) | `@dia-<x>`, implicit | owner-probed (P4/P5, 2026-10-20; upload vs marketplace observed 1.1.1) |
-| ChatGPT mobile | A plugin uploaded as a zip on desktop reaches mobile through the account; a marketplace added on desktop does not | `@dia-<x>`, natural language | owner-probed (P4/P5, 2026-10-20; upload vs marketplace observed 1.1.1) |
+| ChatGPT mobile | A plugin uploaded as a zip on desktop reaches mobile through the account; a marketplace added on desktop does not | `@dia-<x>`, natural language, first word (1.2.0, D33; owner check pending) | owner-probed (P4/P5, 2026-10-20; upload vs marketplace observed 1.1.1) |
 
 Sources for the ChatGPT rows: [Build skills](https://learn.chatgpt.com/docs/build-skills), [OpenAI Help — Plugins](https://help-lb.openai.com/en/articles/20001256), [OpenAI Help — Skills in ChatGPT](https://help.openai.com/en/articles/20001066-skills-in-chatgpt).
 

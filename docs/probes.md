@@ -214,6 +214,40 @@ dia-brainstorm, Claude Code (harness as Part E, connectors off), two scripted se
 | `$dia:dia-confirm` + the Korean request | Codex | 2/2, Korean review | yes |
 | model-visible listing | Codex | dia-negative, dia-reductio, dia-refine only (dia-confirm is explicit-only) | yes |
 
+**Part M, D33: `allow_implicit_invocation: true` for all seven skills, 1.1.1 (base) vs 1.2.0 (var), 2026-10-21.** Codex CLI 0.163.0, gpt-6.1-sol, one isolated `CODEX_HOME` per arm with the plugin added from a frozen local marketplace copy, `codex exec --json --ephemeral` in an empty scratch directory with the sandbox bypassed (bwrap cannot start on the build VM), so the model can read skill files. "Loaded" means the run read `dia-<x>/SKILL.md`; "direct" means its first command was a `cat` of the path from the skill list, "search" means it first searched the disk (`rg --files`) for the name. Claude Code (Part E harness, sonnet, `--tools Skill`, fresh `CLAUDE_CONFIG_DIR`, neutral directory, no `@synced` plugin in any init event) covers the changed dia-confirm description. Runner and transcripts: `~/work/dia-review/implicit-2026-10-21/` on the build VM.
+
+| Cell | Should load | Codex 1.1.1 | Codex 1.2.0 |
+|---|---|---|---|
+| model-visible listing | — | negative, reductio, refine | all seven |
+| «dia-confirm 먼저 확인해줘: 사진 파일을 날짜별로 이름 바꾸는 스크립트 만들어줘.» | dia-confirm | 2/2, by search | 3/3, direct |
+| «dia-iterate --max 1» + a three-claim draft | dia-iterate | 2/2, by search | 3/3, direct |
+| «dia-brainstorm 주말 사이드 프로젝트로 동네 중고 공구 대여 앱을 생각 중이야.» | dia-brainstorm | 2/2, by search | 3/3, direct |
+| «dia-elenchus 나는 좋은 리더란 결정을 빨리 내리는 사람이라고 생각해.» | dia-elenchus | 2/2, by search | 3/3, direct |
+| «소크라테스식 브레인스토밍 해줘. …» | dia-brainstorm | 0/2 | 3/3, direct |
+| «소크라테스 대화법으로 따져줘. …» | dia-elenchus | 1/2, by search | 3/3, direct |
+| «시작하기 전에 내 목표와 가정, 결정할 것들을 먼저 정리해서 확인받아줘: …» (dia-confirm's steps in words, no name) | no (by design) | — | dia-confirm 2/3; the third run gave the same kind of review without it |
+| «이 초안을 검증하면서 결함이 없어질 때까지 여러 번 반복해서 고쳐줘: …» (no name) | not dia-iterate | — | dia-iterate 0/3 (dia-refine 3/3) |
+| the photo-script request alone, Korean and English | none | — | 0/3, 0/3 |
+| "Poke holes in this code:" + string-built SQL | none | — | 0/3 |
+| "What is a closure in JavaScript? Define it first, …" | none | — | 0/3 |
+| "Brainstorm three names for a Python function that merges two sorted lists." | none | — | 0/3 |
+| a macOS rename how-to; a regex question | none | — | 0/3 each |
+| "I read that dia-confirm is a skill name somewhere; anyway, what is 17 x 23?" | none | — | 0/3 |
+
+| Cell (Claude Code, 1.2.0) | dia-confirm loaded |
+|---|---|
+| «dia-confirm 먼저 확인해줘: …» | 3/3 |
+| "dia-confirm: I want a script that renames all my photos by date." | 3/3 |
+| «시작하기 전에 내 목표와 가정, 결정할 것들을 먼저 정리해서 확인받아줘: …» | 0/3 |
+| the passing-mention prompt above | 0/3 |
+
+Reading:
+
+- At 1.1.1 every Codex load of the four skills came from the model searching the disk for the name. ChatGPT web and mobile have no shell, so there the first word had no route at all; that is the owner's mobile complaint. At 1.2.0 each load reads the path from the skill list directly.
+- The only off-design load is dia-confirm on Codex for a request that asks for its exact steps in words (2/3); Claude did not load it (0/3). The reply is what the user asked for, so it is recorded, not fixed. No plain task, coding or how-to prompt loaded any of the four (0/21), nor did the passing mention (0/3).
+- Observation (n=1, not caused by this change): a dia-brainstorm first message on Codex was a confirm-only turn ("이렇게 이해하면 맞아?").
+- Not run from here: ChatGPT web and mobile (owner, handoff item 15).
+
 ### P8: tool-less run (`--tools Skill`: no search, fetch, code or file tools)
 
 Draft under test: "The Eiffel Tower was completed in 1889 and is about 330 m tall. Python 3.13 removed the GIL by default. 17 x 23 = 391." The Python sentence is wrong.
