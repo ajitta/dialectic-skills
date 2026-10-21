@@ -39,6 +39,7 @@ State of the work and what is left, for the next agent session. Read `AGENTS.md`
 | 16 | dia-brainstorm loaded for a bare noun phrase on ChatGPT mobile: fixed in 1.2.1, passed 2026-10-21 | — | Probes Part N and P5; spec D34. After re-uploading the 1.2.1 zip, «사진 파일을 날짜별로 이름 바꾸는 스크립트» on the phone gave the script directly, with no dia-brainstorm (owner). |
 | 17 | Candidate methods for new skills: three picks (D35) released in 1.3.0 on 2026-10-22; README and site updated | — | `docs/research/candidates/README.md`: six family documents, cross-family clusters (pick at most one per cluster), folds into existing skills, and the check of the external proposal. Each pick then needs a spec decision row, §4/§5 entries, a full research document, routing probes with negative cells against its siblings, and a minor bump. |
 | 18 | Description and body clean-up (spec D37): released in 1.3.0 on 2026-10-22, gated in probes Part P | — | Descriptions follow spec §7.2's convention (at most 900 characters; one "Not for" sentence). Re-run Part P's flagged cells after any description edit. |
+| 19 | 1.3.0 on the owner's surfaces: ChatGPT zip re-uploaded and a new skill tried on the phone, 2026-10-22 (owner report; no problem reported) | owner reports a miss if one shows up | The build VM cannot run the ChatGPT or Claude apps' skill choice; per-app results were not reported in detail. |
 
 Observations from P8 (n=1 each; see `docs/probes.md`):
 
