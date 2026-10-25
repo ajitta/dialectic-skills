@@ -567,7 +567,7 @@
               <div class="code"><pre><code>ajitta/dialectic-skills</code></pre></div>
               Copy the name rather than typing it: a misspelling such as <code>dialectric</code> fails with “Repository not found”. The Git URL <code>https://<wbr>github.com/<wbr>ajitta/<wbr><span class="nobr">dialectic-skills.git</span></code> works too.</li>
             <li><strong>Add the plugin.</strong> Adding the marketplace installs nothing yet. In Customize › Plugins, open Discover, select <code>dia</code> (Dialectic Skills), and select Add.</li>
-            <li><strong>Check.</strong> Type <code>/dia</code> in the message box. Ten entries, <code>dia:dia-brainstorm</code> to <code>dia:dia-warrant</code>, should appear. Updates arrive through the marketplace.</li>
+            <li><strong>Check.</strong> Type <code>/dia</code> in the message box. Eleven entries, <code>dia:dia-brainstorm</code> to <code>dia:dia-warrant</code> (the ten skills and <code>dia:dia-menu</code>), should appear. Updates arrive through the marketplace.</li>
           </ol>
           <ul class="notes">
             <li>Instead of steps 2 and 3 you can upload <a class="link-plain" href="https://github.com/ajitta/dialectic-skills/releases/latest/download/dialectic-skills.zip">dialectic-skills.zip</a> from the latest release: Customize › Plugins › Add › Upload plugin (not Customize › Skills). An upload does not update itself.</li>
@@ -581,9 +581,9 @@
         <div class="stage__body" id="stage-mobile">
           <ol class="steps">
             <li>Add dia on claude.ai (the web), as in the claude.ai steps. There is no install step on the phone: a plugin added on the web is saved to your account and reaches the mobile app by itself. One added in Claude desktop does not.</li>
-            <li>Type the full name to start a skill, for example:
-              <div class="code"><pre><code>/dia-brainstorm</code></pre></div>
-              The mobile <code>/</code> menu does not list plugin skills, but typing the full name still starts one. You can also ask in words or start the message with the skill name.</li>
+            <li>Start the message with <code>dia</code>, for example:
+              <div class="code"><pre><code>dia 4 Every prime is odd.</code></pre></div>
+              <code>dia</code> alone lists the skills with numbers; a number or the first three letters of a name starts that skill; <code>dia</code> followed by your request picks the skill that fits. The mobile <code>/</code> menu does not list plugin skills, but the full name (<code>/dia-brainstorm</code>) and asking in words work too.</li>
           </ol>
         </div>
       </section>
@@ -699,7 +699,7 @@
       </details>
       <details class="tile" name="faq" data-reveal style="--i:6">
         <summary><span>No dia skills under <code>/</code> on Claude mobile</span></summary>
-        <div class="tile__body"><p>Expected: the mobile menu does not list plugin skills. Type the full name (such as <code>/dia-brainstorm</code>), ask in words, or start the message with the skill name.</p></div>
+        <div class="tile__body"><p>Expected: the mobile menu does not list plugin skills. Start the message with <code>dia</code>, type the full name (such as <code>/dia-brainstorm</code>), ask in words, or start the message with the skill name.</p></div>
       </details>
       <details class="tile" name="faq" data-reveal style="--i:7">
         <summary><span>It works on one device but not another</span></summary>

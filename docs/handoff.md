@@ -43,7 +43,7 @@ State of the work and what is left, for the next agent session. Read `AGENTS.md`
 | 19 | 1.3.0 on the owner's surfaces: ChatGPT zip re-uploaded, a new skill tried on the phone, and claude.ai showing 1.3.0, 2026-10-22 (owner report; no problem reported) | owner reports a miss if one shows up | The build VM cannot run the ChatGPT or Claude apps' skill choice; per-app results were not reported in detail. |
 | 20 | dia-menu (spec D38): released in 1.4.0 on 2026-10-25 | — | Probes Part Q; reviews `~/work/dia-review/menu-2026-10-25/report.md` and `report2.md` on the build VM. Watch: on Codex, "N reasons my plan will fail?" via `dia` can announce a method that the sibling then skips (Part Q round 3). |
 | 21 | dia-menu on the phones after release | owner | Claude mobile: send `dia`, then `dia 4 Assume every prime is odd and show where it breaks.`, then `dia` plus a request in Korean. ChatGPT mobile (re-upload `dialectic-skills-openai.zip` first): the same three. Pass: the menu lists ten skills; the number and the request each start the right skill (the request also names it), and the reply follows that skill's own format, not a free-form imitation. |
-| 22 | Project page (`site/`) still shows ten skills without the menu | agent, after merge | Add a short `dia` line to the page; deploys on a push touching `site/`. |
+| 22 | Project page shows `dia` (mobile step, claude.ai check count, FAQ): done 2026-10-25 | — | Text-only edits in `site/index.html`; the og image and skill count (ten skills) are unchanged. Design gates in `docs/site/README.md` were not re-run (no layout change). |
 
 Observations from P8 (n=1 each; see `docs/probes.md`):
 
