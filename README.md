@@ -116,7 +116,7 @@ All routes above work on Windows. The skills contain no scripts, so no Python or
 
 There are four ways, and every surface supports at least one of them:
 
-1. **The menu: start the message with `dia`.** `dia` alone lists the skills with numbers. `dia 4 <your text>` or `dia red <your text>` starts that skill (here `dia-reductio`); if the letters fit two skills (`con`), it asks which. `dia <your text>` picks the skill that fits, names it in the first line, and runs it; if two fit about equally, it asks. It never starts `dia-confirm` (1) or `dia-iterate` (10) from a plain request; use their number or name, for example `dia 10 --max 2 <draft>`. This is the quickest route on a phone: three letters, no hyphen.
+1. **The menu: start the message with `dia`.** `dia` alone lists the skills with numbers. `dia 4 <your text>` or `dia red <your text>` starts that skill (here `dia-reductio`); if the letters fit two skills (`con`), it asks which. `dia <your text>` picks the skill that fits, usually names it in one line first, and runs it; if two fit about equally, it asks. It never starts `dia-confirm` (1) or `dia-iterate` (10) from a plain request; use their number or name, for example `dia 10 --max 2 <draft>`. This is the quickest route on a phone: three letters, no hyphen.
 2. **In words.** Ask for the method: "use proof by contradiction on…", "do an immanent critique of…", "Socratic dialogue please…", "how well do the reasons support this?", "find counterexamples to my rule…", "devil's advocate on this plan…". This works on every surface and is the safe default on mobile. It works for `dia-reductio`, `dia-negative`, `dia-elenchus`, `dia-brainstorm`, `dia-warrant`, `dia-conjecture` and `dia-counterplan`.
 3. **By name in the message.** Start the message with the skill name: `dia-confirm …`, `dia-refine …`, `dia-iterate …`. Since 1.2.0 this also works on Codex without `$` and on ChatGPT without `@` (owner-checked in the mobile app). `dia-refine` and `dia-iterate` are meant to start this way or by an explicit selection: `dia-iterate` never starts from a plain request, and on Claude Code a plain "fix this draft" request rarely loads `dia-refine`.
 4. **Explicit selection**, written differently on each surface:
@@ -495,7 +495,7 @@ dia-iterate --max 2 check the dates and facts in this paragraph: "The first iPho
 
 ### dia-menu: one short word for every skill
 
-**In plain words.** Not a method of its own, just a quicker way in. Start your message with `dia`. On its own, `dia` lists the ten skills with numbers. Put a number or the first few letters of a name after it to start that skill, or just write what you want and it picks the skill that fits, telling you which in the first line. If the letters fit two skills, or two skills fit your request about equally, it asks instead of guessing.
+**In plain words.** Not a method of its own, just a quicker way in. Start your message with `dia`. On its own, `dia` lists the ten skills with numbers. Put a number or the first few letters of a name after it to start that skill, or just write what you want and it picks the skill that fits, usually telling you which in one line first. If the letters fit two skills, or two skills fit your request about equally, it asks instead of guessing.
 
 **Use it when** you are typing on a phone, or you are not sure which skill you need. `dia-confirm` (1) and `dia-iterate` (10) start only by their number or name, never because `dia` guessed them.
 
@@ -510,7 +510,7 @@ dia Our churn dropped after we added onboarding emails, so the emails reduced ch
 **What you get** (real runs on Claude Code, shortened):
 
 > `dia` → the numbered list: "1. **dia-confirm**: Restate the goal, assumptions and open decisions before work starts (only by name or number). 2. **dia-brainstorm**: … 10. **dia-iterate**: Repeated review rounds, each gated by an outside check (only by name or number)", then how to pick one.
-> `dia 4 …` → `dia-reductio` starts at once: "**Target:** … The thesis is your claim "every prime is odd" …"
+> `dia 4 …` → `dia-reductio` starts at once: "**Target:** user (inferred). **Thesis T:** "every prime is odd". **Direction:** refute. …"
 > `dia Our churn dropped …` → `dia-warrant` starts: "**Layout** – **Claim:** "the emails reduced churn" (stated). … **Data:** "Our churn dropped after we added onboarding emails" (stated). …"
 > `dia con …` (fits `dia-confirm` and `dia-conjecture`; a Korean run, translated) → "Two skills start with "con", so I can't pick one. Choose by number.", with both listed.
 
@@ -519,6 +519,8 @@ dia Our churn dropped after we added onboarding emails, so the emails reduced ch
 - Numbers stay fixed: 1 confirm, 2 brainstorm, 3 elenchus, 4 reductio, 5 negative, 6 warrant, 7 conjecture, 8 counterplan, 9 refine, 10 iterate.
 - Options pass through: `dia 10 --max 2 <draft>` is the same as `dia-iterate --max 2 <draft>`.
 - `dia` must be the first word on its own. `dia-refine …` and the other full names still go straight to their skill.
+- Letters need at least three (`red`, not `re`), and a word that is plainly part of your sentence (`dia red flags in my plan?`) is read as a request, not a pick.
+- Where the assistant cannot open a second skill, `dia` still shows the menu and replies with the full form to send (such as `dia-reductio …`); this case has not been tested.
 
 ## Using several skills together
 

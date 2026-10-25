@@ -364,12 +364,34 @@ Pass rules: a selector or request cell passes when the expected skill is the onl
 | r-mention | "I read that dia is the name of a plugin; anyway, what is 17 x 23?" | plain, no menu | 3/3 | 2/2 | 3/3 | 2/2 |
 | r-nl-brainstorm | Korean "Socratic brainstorm" request | brainstorm, no menu | 3/3 | 2/2 | 3/3 | 2/2 |
 
-Totals: Claude var 60/60, Codex var 40/40, base 12/12 and 8/8.
+Round-1 totals under round-1 rules: Claude var 60/60, Codex var 40/40, base 12/12 and 8/8.
 
 - A full skill name after `dia` (`dia confirm`) often loaded that skill directly without the menu (Claude 2 of 3, Codex 2 of 2), and one `dia <request>` warrant run did the same; the right skill ran in every case.
-- In one Codex a-iterate-gate run the menu read `dia-iterate/SKILL.md` and then, citing the menu rule, returned the `dia 10` form without running a round; it is counted as a pass.
-- a-none: the menu said in one line that no dia skill fits, named the closest (Claude: dia-brainstorm, a weak match for a how-to question), and answered.
+- In one Codex a-iterate-gate run the menu first chose dia-iterate from the plain request, read its SKILL.md, and then backed out citing the menu rule ("although I said earlier I would apply it"); under the stricter rules of round 2 below it is a fail (Codex 1/2).
+- a-none: Claude said in one line that no dia skill fits and answered, naming a "closest" skill that did not fit (dia-brainstorm twice, the gated dia-confirm once); one Codex run answered with no such line, and one suggested `dia 1`.
+- One Claude m-num run also loaded the built-in `update-config` skill; non-dia loads were filtered out of the round-1 tally without notice.
+- The independent review (`~/work/dia-review/menu-2026-10-25/report.md`, PASS WITH FIXES) found that these rules were too lenient: a-conjecture used a policy ("every microservice should own its DB"), and dia-conjecture loaded but declined it in all 5 runs while the tally counted 5/5 because it checked only which skill loaded; the one-line announcement was not captured (only the final message was kept). Round 1 is therefore superseded by round 2.
 - Not run from here: claude.ai web and mobile, Claude desktop, ChatGPT web, desktop and mobile (owner probes; handoff).
+
+**Part Q, round 2: after the review fixes, `5de2a33`, 2026-10-25.** Same harnesses; every assistant message is now kept (`texts`), not only the last. Runner `run.py` with `MENU_ARM=var2 MENU_OUT=out2`, tally `tally2.py`. Stricter rules: a sibling cell passes only if that skill is the only dia sibling loaded **and** its method shows in the texts (a per-skill marker such as `P1`/`[A]` for reductio, `K1`/`C1` for counterplan, a counterexample for conjecture, `①` or defects for refine, a round table for iterate); the iterate gate fails if dia-iterate loads at all or a round table appears in any language (`Round`, `라운드`, `회차`); `NOTSIB:x` = x must not load; non-dia skill loads are listed. The a-conjecture prompt is now a factual universal ("slow requests in our service are always caused by DB queries"), and eight cells are new:
+
+| Cell | Prompt (abbreviated) | Expected | Claude (n=3) | Codex (n=2) |
+|---|---|---|---|---|
+| m-confirm-num | `dia 1` + photo script | confirm | 3/3 | 2/2 |
+| m-iter-max2 | `dia 10 --max 2` + draft | iterate | 3/3 | 2/2 |
+| m-cap | `Dia 4 Assume every prime is odd …` | reductio | 3/3 | 2/2 |
+| s-policy | `dia` + counterexamples to the rule "every microservice should own its DB" (Korean) | not conjecture | 3/3 (none fits, answered) | 2/2 (brainstorm) |
+| s-redflags | `dia red flags in my plan? …` | not reductio | 3/3 (brainstorm) | 2/2 (brainstorm) |
+| s-itkeeps | `dia it keeps getting facts wrong …` + draft | not iterate | 3/3 (refine) | 2/2 (refine) |
+| s-3reasons | `dia 3 reasons my plan to rewrite our backend in Rust will fail?` | not elenchus | 3/3 (asked brainstorm or counterplan twice, brainstorm once) | 2/2 (counterplan, brainstorm) |
+| s-devil-claim | `dia devil's advocate: is coffee healthy?` | not counterplan | 3/3 (none fits, answered) | 2/2 |
+
+All twenty round-1 cells were re-run on `5de2a33` and pass under the stricter rules: Claude 84/84 and Codex 56/56 in total, including a-conjecture (the counterexample method ran: the claim restated with its terms, then the user's grounds asked for), a-iterate-gate (no iterate load, the form handed back), and the four regression cells. No non-dia skill loaded.
+
+- The one-line choice (`→ dia-<x>: …`) was printed in every Claude run of the eight request cells that went through the menu and in 15 of 16 Codex runs. Runs where the host loaded the named skill directly (`dia confirm …`, and on Claude `dia 10 …`, since dia-iterate's description now names that form) print no line; README says "usually".
+- s-policy on Claude: the menu judged the rule neither a factual universal nor a plan, so none fits, and answered directly; the skill text sends such a rule to dia-brainstorm. Acceptable (no false conjecture), noted as the case to watch.
+- Codex replies sometimes quote skill text with absolute paths under the build VM's scratch directory (rounds 1 and 2); host-side Codex behaviour, not from the skill text.
+- Not probed: the hand-off fallback for a host that cannot load a second skill (every harness here has the Skill tool or a shell); claude.ai web and mobile, Claude desktop, ChatGPT web, desktop and mobile (owner probes; handoff item 21).
 
 ### P8: tool-less run (`--tools Skill`: no search, fetch, code or file tools)
 
