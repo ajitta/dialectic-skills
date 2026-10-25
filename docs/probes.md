@@ -386,12 +386,29 @@ Round-1 totals under round-1 rules: Claude var 60/60, Codex var 40/40, base 12/1
 | s-3reasons | `dia 3 reasons my plan to rewrite our backend in Rust will fail?` | not elenchus | 3/3 (asked brainstorm or counterplan twice, brainstorm once) | 2/2 (counterplan, brainstorm) |
 | s-devil-claim | `dia devil's advocate: is coffee healthy?` | not counterplan | 3/3 (none fits, answered) | 2/2 |
 
-All twenty round-1 cells were re-run on `5de2a33` and pass under the stricter rules: Claude 84/84 and Codex 56/56 in total, including a-conjecture (the counterexample method ran: the claim restated with its terms, then the user's grounds asked for), a-iterate-gate (no iterate load, the form handed back), and the four regression cells. No non-dia skill loaded.
+All twenty round-1 cells were re-run on `5de2a33` and pass under the stricter rules: Claude 84/84 and Codex 56/56 in total, including a-conjecture (dia-conjecture's Step 1 ran: the claim restated as every A is B, then the user's grounds asked for; no counterexample yet, as the method's first turn requires), a-iterate-gate (no iterate load, the form handed back), and the four regression cells. No non-dia skill loaded on Claude. On Codex the harness was not isolated from the VM's user skills: the listing held 34 `firecrawl*` skills from `~/.agents/skills` (rounds 1 and 2), and 13 of 56 Codex runs used one to check facts (refine, iterate, s-itkeeps, s-devil-claim); the round-2 tally could not see Codex loads of non-dia skills.
+- m-iter-max2: the cap was read and reported; no run reached it (all stopped earlier by their own stop conditions).
+- Codex a-iterate-gate replies open with host commentary promising the work, then hand back the form; dia-iterate did not load.
 
 - The one-line choice (`→ dia-<x>: …`) was printed in every Claude run of the eight request cells that went through the menu and in 15 of 16 Codex runs. Runs where the host loaded the named skill directly (`dia confirm …`, and on Claude `dia 10 …`, since dia-iterate's description now names that form) print no line; README says "usually".
 - s-policy on Claude: the menu judged the rule neither a factual universal nor a plan, so none fits, and answered directly; the skill text sends such a rule to dia-brainstorm. Acceptable (no false conjecture), noted as the case to watch.
 - Codex replies sometimes quote skill text with absolute paths under the build VM's scratch directory (rounds 1 and 2); host-side Codex behaviour, not from the skill text.
 - Not probed: the hand-off fallback for a host that cannot load a second skill (every harness here has the Skill tool or a shell); claude.ai web and mobile, Claude desktop, ChatGPT web, desktop and mobile (owner probes; handoff item 21).
+
+**Part Q, round 3: after the second review pass, `aa59cbf`, 2026-10-25.** Second-pass review: `~/work/dia-review/menu-2026-10-25/report2.md` (PASS WITH FIXES). Its main finding: on Codex `dia 1 thing I keep forgetting: …` started dia-confirm (2/2), because the "a number that counts something" exception sat in the prefix rule, not the number rule. Fixed in dia-menu rule 2, dia-confirm and dia-iterate (a counting number is not a selector), and the rule-or-policy border now matches what Claude did (exceptions to a rule are a plain answer). Harness: Codex now runs with `HOME` set to a temporary directory holding only `CODEX_HOME`, so the listing has only the eleven dia skills, and every `SKILL.md` read is recorded in order with the messages (`events`). Tally `tally3.py`: method markers are searched only in messages after the sibling loads, with the menu's `→` line removed; `NOTSIB` also needs a none-fits line or the chosen sibling's marker; `PLAIN` on a request cell needs the none-fits line. 18 cells re-run (the changed rules, the gates and the regressions), Claude n=3, Codex n=2:
+
+| Cell | Expected | Claude | Codex |
+|---|---|---|---|
+| x-1thing `dia 1 thing I keep forgetting: how do I undo the last git commit …` | not confirm | 3/3 (none fits) | 2/2 (none fits) |
+| x-10reasons `dia 10 reasons my plan to rewrite our backend in Rust will fail?` | not iterate | 3/3 | 1/2 |
+| x-iter `dia iter --max 1` + draft | iterate | 3/3 | 2/2 |
+| s-3reasons `dia 3 reasons my plan … will fail?` | not elenchus | 3/3 | 0/2 |
+| s-policy, m-num, m-ambig, m-iter-num, m-iter-max2, m-confirm-num, m-confirm-name, a-conjecture, a-refine, a-iterate-gate, a-none, r-fw-iterate, r-fw-refine, r-mention | as in round 2 | 3/3 each | 2/2 each |
+
+Totals: Claude 54/54, Codex 33/36. No non-dia skill was read in any run.
+
+- The three Codex misses are the same shape: for "N reasons my plan will fail?" the menu picked dia-brainstorm (2) or dia-counterplan (1), announced it, and the sibling then answered with a plain list of N reasons, skipping its own method (no question, no assumption pairs). No gated skill started; the user got what the sentence asked for, but the announced method did not run. Claude asked which of the two to use, or ran dia-brainstorm's opening question. Case to watch; no rule added.
+- No counting number started a skill on either engine (x-1thing, x-10reasons, s-3reasons: 0 of 25 runs loaded confirm, iterate or elenchus).
 
 ### P8: tool-less run (`--tools Skill`: no search, fetch, code or file tools)
 
