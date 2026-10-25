@@ -410,6 +410,8 @@ Totals: Claude 54/54, Codex 33/36. No non-dia skill was read in any run.
 - The three Codex misses are the same shape: for "N reasons my plan will fail?" the menu picked dia-brainstorm (2) or dia-counterplan (1), announced it, and the sibling then answered with a plain list of N reasons, skipping its own method (no question, no assumption pairs). No gated skill started; the user got what the sentence asked for, but the announced method did not run. Claude asked which of the two to use, or ran dia-brainstorm's opening question. Case to watch; no rule added.
 - No counting number started a skill on either engine (x-1thing, x-10reasons, s-3reasons: 0 of 25 runs loaded confirm, iterate or elenchus).
 
+- Owner, 2026-10-25, after the `v1.4.0` release: the mobile check (`dia`, `dia 4 Assume every prime is odd and show where it breaks.`, `dia` + a Korean request on Claude mobile and ChatGPT mobile) is reported done; per-prompt results were not reported (handoff item 21).
+
 ### P8: tool-less run (`--tools Skill`: no search, fetch, code or file tools)
 
 Draft under test: "The Eiffel Tower was completed in 1889 and is about 330 m tall. Python 3.13 removed the GIL by default. 17 x 23 = 391." The Python sentence is wrong.
