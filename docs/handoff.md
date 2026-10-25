@@ -2,8 +2,9 @@
 
 State of the work and what is left, for the next agent session. Read `AGENTS.md` and `docs/spec.md` first; probe evidence is in `docs/probes.md`.
 
-## State (2026-10-21)
+## State (2026-10-25)
 
+- Branch `menu` (not merged): plugin **1.4.0** adds `dia-menu` (spec D38): `dia`, `dia <n>`, `dia <prefix>`, `dia <request>`; dia-confirm 1.3.0 and dia-iterate 1.3.0 accept its selector. Probes Part Q on Claude Code and Codex all pass. Merge, tag and release wait for the owner; then the owner checks `dia` on Claude mobile and ChatGPT mobile (items below).
 - Plugin `dia` **1.3.0** (2026-10-22, `v1.3.0`) adds dia-warrant, dia-conjecture and dia-counterplan (spec D35) and rewrites all ten descriptions to one convention after a clutter audit (spec D37; gate in probes Part P). 1.2.1 (2026-10-21) is meant to keep dia-brainstorm off plain requests to make or write something (spec D34; confirmed on ChatGPT mobile by the owner, item 16). 1.2.0 (2026-10-21) made all seven skills visible to the model on Codex and ChatGPT (`allow_implicit_invocation: true`, spec D33), so a message that starts with a skill's name works there as on Claude: probed on Codex (probes Part M) and confirmed in the ChatGPT mobile app by the owner (probes P5, item 15). 1.1.1 (2026-10-20) added the directory packaging (spec D32); 1.1.0 renamed `dia-intent` to `dia-confirm` (spec D30). 1.0.0 (`v1.0.0`) was released after acceptance (spec §12.3); the pre-release `v0.1.0` is what the owner probed, and 1.0.0 differs from it only in the version number. Every skill change needs a new plugin `version` and the skill's `metadata.version`. Older docs (probes, research, reviews) use the name `dia-intent`; it is the same skill.
 - The repository `ajitta/dialectic-skills` is public since 2026-10-20 (owner decision; secrets scan of the full history was clean, and all `upstream/` material is the owner's own work).
 - CI (`.github/workflows/check.yml`) runs on every push to `main` and on pull requests. It runs `tools/package.py --check`, the unit tests, and `claude plugin validate --strict` for the plugin and the marketplace. It is green.
@@ -40,6 +41,9 @@ State of the work and what is left, for the next agent session. Read `AGENTS.md`
 | 17 | Candidate methods for new skills: three picks (D35) released in 1.3.0 on 2026-10-22; README and site updated | — | `docs/research/candidates/README.md`: six family documents, cross-family clusters (pick at most one per cluster), folds into existing skills, and the check of the external proposal. Each pick then needs a spec decision row, §4/§5 entries, a full research document, routing probes with negative cells against its siblings, and a minor bump. |
 | 18 | Description and body clean-up (spec D37): released in 1.3.0 on 2026-10-22, gated in probes Part P | — | Descriptions follow spec §7.2's convention (at most 900 characters; one "Not for" sentence). Re-run Part P's flagged cells after any description edit. |
 | 19 | 1.3.0 on the owner's surfaces: ChatGPT zip re-uploaded, a new skill tried on the phone, and claude.ai showing 1.3.0, 2026-10-22 (owner report; no problem reported) | owner reports a miss if one shows up | The build VM cannot run the ChatGPT or Claude apps' skill choice; per-app results were not reported in detail. |
+| 20 | dia-menu (spec D38, plugin 1.4.0) on branch `menu`: built, probed (Part Q), independent review pending | agent, then owner | Owner: go for merge, tag and release. |
+| 21 | dia-menu on the phones after release | owner | Claude mobile: send `dia`, then `dia 4 Assume every prime is odd and show where it breaks.`, then `dia` plus a request in Korean. ChatGPT mobile (re-upload `dialectic-skills-openai.zip` first): the same three. Pass: the menu lists ten skills; the number and the request each start the right skill and say which. |
+| 22 | Project page (`site/`) still shows ten skills without the menu | agent, after merge | Add a short `dia` line to the page; deploys on a push touching `site/`. |
 
 Observations from P8 (n=1 each; see `docs/probes.md`):
 

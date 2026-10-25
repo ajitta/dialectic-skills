@@ -4,7 +4,7 @@
 
 Website: [ajitta.github.io/dialectic-skills](https://ajitta.github.io/dialectic-skills/)
 
-Ten reasoning-and-review skills in one plugin, written to run unchanged on any assistant that loads Agent Skills: Claude (web, desktop, mobile, Claude Code), Codex and ChatGPT. The package is instructions only (Markdown, YAML, JSON), so every skill also works in a chat with no tools. Skill files are in English; each skill replies in the language of your message.
+Ten reasoning-and-review skills in one plugin, written to run unchanged on any assistant that loads Agent Skills: Claude (web, desktop, mobile, Claude Code), Codex and ChatGPT. The package is instructions only (Markdown, YAML, JSON), so every skill also works in a chat with no tools. Skill files are in English; each skill replies in the language of your message. On a phone, type just `dia`: a menu skill (`dia-menu`, new in 1.4.0) lists the skills and starts one by number, by the first letters of its name, or by what you ask for.
 
 | Skill | What it does | How it starts |
 |---|---|---|
@@ -18,6 +18,7 @@ Ten reasoning-and-review skills in one plugin, written to run unchanged on any a
 | `dia-counterplan` | Mason's dialectical inquiry on a plan or decision: the key assumptions, a plausible contrary for each, a counterplan on the same facts, then you say which assumptions you now hold. Picks no winner. | by name, or in words |
 | `dia-refine` | One review pass over the last answer or a draft: factual errors, logical leaps, missing requirements, repetition. Fixes only confirmed defects. | first word `dia-refine`, or by name |
 | `dia-iterate` | Repeated review rounds, each gated by external verification; stops on regression, zero defects, verification exhausted, fixed point or `--max N` (default 3). | first word `dia-iterate`, or by name only |
+| `dia-menu` | Not a method: a short entry point. `dia` shows a numbered menu, `dia 4 …` or `dia red …` starts a skill by number or first letters, and `dia <request>` picks the skill that fits and says which. Never starts `dia-confirm` or `dia-iterate` on its own. | first word `dia` |
 
 ## Contents
 
@@ -66,7 +67,7 @@ Then try: `Use proof by contradiction on this claim: remote work always raises p
 
    The Git URL `https://github.com/ajitta/dialectic-skills.git` works too, and Claude desktop also accepts a local folder (a clone of this repository). Copy the name rather than typing it: a misspelling such as `dialectric` fails with "Repository not found".
 3. **Add the plugin.** Adding the marketplace installs nothing yet. In Customize › Plugins, open Discover, select `dia` (Dialectic Skills), and select Add.
-4. **Check.** Type `/dia` in the message box. Ten entries, `dia:dia-brainstorm` to `dia:dia-warrant`, should appear. Updates arrive through the marketplace (Check for updates, or Sync automatically).
+4. **Check.** Type `/dia` in the message box. Eleven entries, `dia:dia-brainstorm` to `dia:dia-warrant` (the ten skills and `dia:dia-menu`), should appear. Updates arrive through the marketplace (Check for updates, or Sync automatically).
 
 Instead of steps 2 and 3 you can upload the plugin: Customize › Plugins › Add › Upload plugin with [`dialectic-skills.zip`](https://github.com/ajitta/dialectic-skills/releases/latest/download/dialectic-skills.zip) from the latest release. Use Customize › Plugins, not Customize › Skills: the Skills screen rejects a zip that carries a plugin manifest. An upload does not update itself; upload each new release again.
 
@@ -74,7 +75,7 @@ Instead of steps 2 and 3 you can upload the plugin: Customize › Plugins › Ad
 
 ### Claude mobile (iOS, Android)
 
-There is no install step. A plugin added on claude.ai (the web) is saved to your account and reaches the mobile app by itself; one added in Claude desktop does not. The mobile `/` menu does not list plugin skills, but typing the full name still starts one, for example `/dia-brainstorm`. You can also ask in words or start the message with the skill name.
+There is no install step. A plugin added on claude.ai (the web) is saved to your account and reaches the mobile app by itself; one added in Claude desktop does not. The mobile `/` menu does not list plugin skills. The shortest route is to start the message with `dia` (see How to invoke); typing the full name also works, for example `/dia-brainstorm` or a message starting `dia-brainstorm`, and so does asking in words.
 
 ### Claude Code
 
@@ -113,11 +114,12 @@ All routes above work on Windows. The skills contain no scripts, so no Python or
 
 ## How to invoke
 
-There are three ways, and every surface supports at least one of them:
+There are four ways, and every surface supports at least one of them:
 
-1. **In words.** Ask for the method: "use proof by contradiction on…", "do an immanent critique of…", "Socratic dialogue please…", "how well do the reasons support this?", "find counterexamples to my rule…", "devil's advocate on this plan…". This works on every surface and is the safe default on mobile. It works for `dia-reductio`, `dia-negative`, `dia-elenchus`, `dia-brainstorm`, `dia-warrant`, `dia-conjecture` and `dia-counterplan`.
-2. **By name in the message.** Start the message with the skill name: `dia-confirm …`, `dia-refine …`, `dia-iterate …`. Since 1.2.0 this also works on Codex without `$` and on ChatGPT without `@` (owner-checked in the mobile app), which makes it the quickest route on a phone. `dia-refine` and `dia-iterate` are meant to start this way or by an explicit selection: `dia-iterate` never starts from a plain request, and on Claude Code a plain "fix this draft" request rarely loads `dia-refine`.
-3. **Explicit selection**, written differently on each surface:
+1. **The menu: start the message with `dia`.** `dia` alone lists the skills with numbers. `dia 4 <your text>` or `dia red <your text>` starts that skill (here `dia-reductio`); if the letters fit two skills (`con`), it asks which. `dia <your text>` picks the skill that fits, names it in the first line, and runs it; if two fit about equally, it asks. It never starts `dia-confirm` (1) or `dia-iterate` (10) from a plain request; use their number or name, for example `dia 10 --max 2 <draft>`. This is the quickest route on a phone: three letters, no hyphen.
+2. **In words.** Ask for the method: "use proof by contradiction on…", "do an immanent critique of…", "Socratic dialogue please…", "how well do the reasons support this?", "find counterexamples to my rule…", "devil's advocate on this plan…". This works on every surface and is the safe default on mobile. It works for `dia-reductio`, `dia-negative`, `dia-elenchus`, `dia-brainstorm`, `dia-warrant`, `dia-conjecture` and `dia-counterplan`.
+3. **By name in the message.** Start the message with the skill name: `dia-confirm …`, `dia-refine …`, `dia-iterate …`. Since 1.2.0 this also works on Codex without `$` and on ChatGPT without `@` (owner-checked in the mobile app), which makes it the quickest route on a phone. `dia-refine` and `dia-iterate` are meant to start this way or by an explicit selection: `dia-iterate` never starts from a plain request, and on Claude Code a plain "fix this draft" request rarely loads `dia-refine`.
+4. **Explicit selection**, written differently on each surface:
 
 | Surface | Syntax | Example |
 |---|---|---|
@@ -160,6 +162,7 @@ The sessions were run on Claude Code (Sonnet) with this plugin, and the user rep
 | hear the strongest case for a different plan before you commit | `dia-counterplan` |
 | fix the mistakes in an answer or a draft, once | `dia-refine` |
 | fact-check something thoroughly, round by round | `dia-iterate` |
+| not sure which, or typing on a phone | `dia` (`dia-menu`) |
 
 ### dia-confirm: agree on the task before work starts
 
@@ -490,6 +493,33 @@ dia-iterate --max 2 check the dates and facts in this paragraph: "The first iPho
 - `--max N` sets the round limit (default 3).
 - In a chat with no search or tools, it stops after round 1 and lists what it couldn't verify instead of guessing.
 
+### dia-menu: one short word for every skill
+
+**In plain words.** Not a method of its own, just a quicker way in. Start your message with `dia`. On its own, `dia` lists the ten skills with numbers. Put a number or the first few letters of a name after it to start that skill, or just write what you want and it picks the skill that fits, telling you which in the first line. If the letters fit two skills, or two skills fit your request about equally, it asks instead of guessing.
+
+**Use it when** you are typing on a phone, or you are not sure which skill you need. `dia-confirm` (1) and `dia-iterate` (10) start only by their number or name, never because `dia` guessed them.
+
+**Try:**
+
+```
+dia
+dia 4 Assume every prime is odd and show where it breaks.
+dia Our churn dropped after we added onboarding emails, so the emails reduced churn. How well do my reasons support that?
+```
+
+**What you get** (real runs on Claude Code, shortened):
+
+> `dia` → the numbered list: "1. **dia-confirm**: Restate the goal, assumptions and open decisions before work starts (only by name or number). 2. **dia-brainstorm**: … 10. **dia-iterate**: Repeated review rounds, each gated by an outside check (only by name or number)", then how to pick one.
+> `dia 4 …` → `dia-reductio` starts at once: "**Target:** … The thesis is your claim "every prime is odd" …"
+> `dia Our churn dropped …` → `dia-warrant` starts: "**Layout** – **Claim:** "the emails reduced churn" (stated). … **Data:** "Our churn dropped after we added onboarding emails" (stated). …"
+> `dia con …` (fits `dia-confirm` and `dia-conjecture`; a Korean run, translated) → "Two skills start with "con", so I can't pick one. Choose by number.", with both listed.
+
+**Tips**
+
+- Numbers stay fixed: 1 confirm, 2 brainstorm, 3 elenchus, 4 reductio, 5 negative, 6 warrant, 7 conjecture, 8 counterplan, 9 refine, 10 iterate.
+- Options pass through: `dia 10 --max 2 <draft>` is the same as `dia-iterate --max 2 <draft>`.
+- `dia` must be the first word on its own. `dia-refine …` and the other full names still go straight to their skill.
+
 ## Using several skills together
 
 - **`dia-elenchus` and `dia-brainstorm` in one request:** the definition dialogue comes first and the first message says so; brainstorming starts when you ask for options or the dialogue ends. The two are never interleaved.
@@ -501,12 +531,12 @@ dia-iterate --max 2 check the dates and facts in this paragraph: "The first iPho
 ## Troubleshooting
 
 - **`Repository not found` when adding the marketplace.** Check the spelling: `ajitta/dialectic-skills` (dialectic, not dialectric). The repository is public and needs no GitHub login.
-- **No dia skills under `/` on Claude mobile.** Expected: the mobile menu does not list plugin skills. Type the full name (such as `/dia-brainstorm`), ask in words, or start the message with the skill name.
+- **No dia skills under `/` on Claude mobile.** Expected: the mobile menu does not list plugin skills. Start the message with `dia`, type the full name (such as `/dia-brainstorm`), ask in words, or start the message with the skill name.
 - **dia works on one device but not on another.** Desktop installs stay on that computer; web installs are saved to your account and reach the mobile app. Install on the web for the web and mobile, and in each desktop app you use (see Install).
 - **Every skill appears twice.** The plugin is installed through two routes (for example `dia@dialectic-skills` and `dia@ajitta`, or an upload and a marketplace). Remove one.
 - **Skills section missing or greyed out on claude.ai.** Turn on Settings › Capabilities › Code execution and file creation.
 - **`dia-intent` is not found.** It was renamed `dia-confirm` in 1.1.0.
-- **`dia-iterate` does not start.** It starts only when `dia-iterate` is the first word of the message or when it is selected explicitly (`/dia:dia-iterate`, `$dia:dia-iterate`, `@dia-iterate`).
+- **`dia-iterate` does not start.** It starts only when `dia-iterate` is the first word of the message or when it is selected explicitly (`/dia:dia-iterate`, `$dia:dia-iterate`, `@dia-iterate`, `dia 10`, `dia iterate`). `dia <request>` alone never picks it.
 - **`$dia:dia-confirm:` does not resolve on Codex.** Put a space, not a colon, after the skill name.
 - **The upload is rejected on claude.ai.** Use Customize › Plugins › Upload plugin, not Customize › Skills.
 - **claude.ai keeps an old version after Check for updates.** Remove `dia` in Customize › Plugins and install it again from the `dialectic-skills` marketplace; turn on Sync automatically for later releases.
