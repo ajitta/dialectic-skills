@@ -4,7 +4,7 @@
 
 웹사이트: [ajitta.github.io/dialectic-skills](https://ajitta.github.io/dialectic-skills/)
 
-추론과 검토를 위한 스킬 열 개를 하나의 플러그인에 담았습니다. Agent Skills를 불러오는 모든 어시스턴트, 즉 Claude(웹, 데스크톱, 모바일, Claude Code), Codex, ChatGPT에서 수정 없이 실행되도록 작성했습니다. 패키지는 지침(Markdown, YAML, JSON)으로만 이루어져 있으므로 도구가 없는 채팅에서도 모든 스킬이 작동합니다. 스킬 파일은 영어로 작성되어 있으며, 각 스킬은 사용자가 쓴 메시지의 언어로 답합니다.
+추론과 검토를 위한 스킬 열 개를 하나의 플러그인에 담았습니다. Agent Skills를 불러오는 모든 어시스턴트, 즉 Claude(웹, 데스크톱, 모바일, Claude Code), Codex, ChatGPT에서 수정 없이 실행되도록 작성했습니다. 패키지는 지침(Markdown, YAML, JSON)으로만 이루어져 있으므로 도구가 없는 채팅에서도 모든 스킬이 작동합니다. 스킬 파일은 영어로 작성되어 있으며, 각 스킬은 사용자가 쓴 메시지의 언어로 답합니다. 휴대폰에서는 `dia`만 입력하면 됩니다. 메뉴 스킬(`dia-menu`, 1.4.0에서 추가)이 스킬 목록을 보여 주고, 번호나 이름의 앞 글자, 또는 요청 내용으로 스킬 하나를 골라 시작합니다.
 
 | 스킬 | 하는 일 | 시작 방식 |
 |---|---|---|
@@ -18,6 +18,7 @@
 | `dia-counterplan` | 메이슨의 변증법적 탐구를 계획이나 결정에 적용합니다: 핵심 가정, 가정마다 그럴듯한 반대 가정, 같은 사실 위에 세운 대안 계획을 제시한 뒤, 이제 어느 가정을 받아들이는지 사용자가 답합니다. 승자는 정하지 않습니다. | 이름으로, 또는 말로 요청해서 |
 | `dia-refine` | 직전 답변이나 초안을 한 차례 검토합니다: 사실 오류, 논리적 비약, 누락된 요구 사항, 반복. 확인된 결함만 고칩니다. | 첫 단어를 `dia-refine`로, 또는 이름으로 |
 | `dia-iterate` | 검토 라운드를 반복하며, 각 라운드는 외부 검증을 거쳐야 합니다. 퇴행, 결함 0건, 검증 수단 소진, 고정점 도달, `--max N`(기본값 3) 중 하나에 이르면 멈춥니다. | 첫 단어를 `dia-iterate`로, 또는 이름으로만 |
+| `dia-menu` | 방법이 아니라 짧은 진입점입니다. `dia`는 번호가 붙은 메뉴를 보여 주고, `dia 4 …`나 `dia red …`는 번호나 앞 글자로 스킬을 시작하며, `dia <request>`는 알맞은 스킬을 골라 어떤 스킬인지 밝힙니다. `dia-confirm`이나 `dia-iterate`를 스스로 시작하지는 않습니다. | 첫 단어를 `dia`로 |
 
 ## 목차
 
@@ -66,7 +67,7 @@ claude.ai(웹): Customize › Plugins › Add › Add marketplace에 `ajitta/dia
 
    Git URL `https://github.com/ajitta/dialectic-skills.git`을 넣어도 되고, Claude 데스크톱에서는 로컬 폴더(이 저장소를 클론한 폴더)도 지정할 수 있습니다. 직접 타이핑하지 말고 복사해서 붙여 넣으십시오. `dialectric`처럼 철자가 틀리면 "Repository not found"로 실패합니다.
 3. **플러그인 추가.** 마켓플레이스를 추가한 것만으로는 아직 아무것도 설치되지 않습니다. Customize › Plugins에서 Discover를 열고 `dia`(Dialectic Skills)를 선택한 뒤 Add를 누릅니다.
-4. **확인.** 메시지 입력창에 `/dia`를 입력합니다. `dia:dia-brainstorm`부터 `dia:dia-warrant`까지 열 개 항목이 나타나야 합니다. 업데이트는 마켓플레이스를 통해 받습니다(Check for updates 또는 Sync automatically).
+4. **확인.** 메시지 입력창에 `/dia`를 입력합니다. `dia:dia-brainstorm`부터 `dia:dia-warrant`까지 열한 개 항목(스킬 열 개와 `dia:dia-menu`)이 나타나야 합니다. 업데이트는 마켓플레이스를 통해 받습니다(Check for updates 또는 Sync automatically).
 
 2·3단계 대신 플러그인을 업로드할 수도 있습니다. Customize › Plugins › Add › Upload plugin에서 최신 릴리스의 [`dialectic-skills.zip`](https://github.com/ajitta/dialectic-skills/releases/latest/download/dialectic-skills.zip)을 올립니다. Customize › Skills가 아니라 Customize › Plugins를 사용해야 합니다. Skills 화면은 플러그인 매니페스트가 들어 있는 zip을 거부합니다. 업로드한 플러그인은 스스로 업데이트되지 않으므로, 새 릴리스가 나올 때마다 다시 업로드해야 합니다.
 
@@ -74,7 +75,7 @@ claude.ai(웹): Customize › Plugins › Add › Add marketplace에 `ajitta/dia
 
 ### Claude 모바일 (iOS, Android)
 
-따로 설치할 필요가 없습니다. claude.ai(웹)에서 추가한 플러그인은 계정에 저장되어 모바일 앱에 자동으로 나타납니다. Claude 데스크톱에서 추가한 것은 나타나지 않습니다. 모바일의 `/` 메뉴에는 플러그인 스킬이 표시되지 않지만, 이름을 끝까지 입력하면 스킬이 실행됩니다. 예: `/dia-brainstorm`. 말로 요청하거나 메시지를 스킬 이름으로 시작해도 됩니다.
+따로 설치할 필요가 없습니다. claude.ai(웹)에서 추가한 플러그인은 계정에 저장되어 모바일 앱에 자동으로 나타납니다. Claude 데스크톱에서 추가한 것은 나타나지 않습니다. 모바일의 `/` 메뉴에는 플러그인 스킬이 표시되지 않습니다. 가장 짧은 방법은 메시지를 `dia`로 시작하는 것입니다(호출 방법 참고). 이름을 끝까지 입력해도 됩니다. 예: `/dia-brainstorm`, 또는 `dia-brainstorm`으로 시작하는 메시지. 말로 요청해도 됩니다.
 
 ### Claude Code
 
@@ -113,11 +114,12 @@ Business와 Enterprise 워크스페이스에서는 관리자가 워크스페이�
 
 ## 호출 방법
 
-방법은 세 가지이며, 모든 환경에서 적어도 한 가지는 지원합니다.
+방법은 네 가지이며, 모든 환경에서 적어도 한 가지는 지원합니다.
 
-1. **말로 요청하기.** 방법을 직접 요청합니다: "…에 귀류법을 적용해 주세요", "…을 내재적 비판해 주세요", "소크라테스식 대화로 부탁합니다…", "이 근거가 결론을 얼마나 뒷받침하나요?", "내 규칙의 반례를 찾아 주세요…", "이 계획에 반대 입장을 맡아 주세요…". 모든 환경에서 작동하며, 모바일에서는 이 방법이 가장 안전한 기본값입니다. `dia-reductio`, `dia-negative`, `dia-elenchus`, `dia-brainstorm`, `dia-warrant`, `dia-conjecture`, `dia-counterplan`에 쓸 수 있습니다.
-2. **메시지에 이름 적기.** 메시지를 스킬 이름으로 시작합니다: `dia-confirm …`, `dia-refine …`, `dia-iterate …`. 1.2.0부터는 Codex에서 `$` 없이, ChatGPT에서 `@` 없이(모바일 앱에서 소유자 확인) 이렇게 시작할 수 있어 휴대폰에서 가장 빠른 방법입니다. `dia-refine`과 `dia-iterate`는 이 방식이나 명시적 선택으로 시작하도록 설계되었습니다. `dia-iterate`는 일반 요청으로는 절대 시작되지 않으며, Claude Code에서는 "이 초안 고쳐 주세요" 같은 일반 요청으로 `dia-refine`이 로드되는 경우가 드뭅니다.
-3. **명시적 선택.** 환경마다 표기법이 다릅니다.
+1. **메뉴: 메시지를 `dia`로 시작하기.** `dia`만 입력하면 번호가 붙은 스킬 목록이 나옵니다. `dia 4 <your text>`나 `dia red <your text>`는 그 스킬(여기서는 `dia-reductio`)을 시작합니다. 앞 글자가 두 스킬에 해당하면(`con`) 어느 쪽인지 묻습니다. `dia <your text>`는 알맞은 스킬을 골라 대개 먼저 한 줄로 이름을 밝히고 실행합니다. 두 스킬이 비슷하게 맞으면 묻습니다. 일반 요청으로는 `dia-confirm`(1)이나 `dia-iterate`(10)를 절대 시작하지 않으므로, 번호나 이름을 쓰십시오. 예: `dia 10 --max 2 <draft>`. 휴대폰에서 가장 빠른 방법입니다. 세 글자에 하이픈도 없습니다.
+2. **말로 요청하기.** 방법을 직접 요청합니다: "…에 귀류법을 적용해 주세요", "…을 내재적 비판해 주세요", "소크라테스식 대화로 부탁합니다…", "이 근거가 결론을 얼마나 뒷받침하나요?", "내 규칙의 반례를 찾아 주세요…", "이 계획에 반대 입장을 맡아 주세요…". 모든 환경에서 작동하며, 모바일에서는 이 방법이 가장 안전한 기본값입니다. `dia-reductio`, `dia-negative`, `dia-elenchus`, `dia-brainstorm`, `dia-warrant`, `dia-conjecture`, `dia-counterplan`에 쓸 수 있습니다.
+3. **메시지에 이름 적기.** 메시지를 스킬 이름으로 시작합니다: `dia-confirm …`, `dia-refine …`, `dia-iterate …`. 1.2.0부터는 Codex에서 `$` 없이, ChatGPT에서 `@` 없이(모바일 앱에서 소유자 확인) 이렇게 시작할 수 있습니다. `dia-refine`과 `dia-iterate`는 이 방식이나 명시적 선택으로 시작하도록 설계되었습니다. `dia-iterate`는 일반 요청으로는 절대 시작되지 않으며, Claude Code에서는 "이 초안 고쳐 주세요" 같은 일반 요청으로 `dia-refine`이 로드되는 경우가 드뭅니다.
+4. **명시적 선택.** 환경마다 표기법이 다릅니다.
 
 | 환경 | 문법 | 예시 |
 |---|---|---|
@@ -160,6 +162,7 @@ Business와 Enterprise 워크스페이스에서는 관리자가 워크스페이�
 | 결정하기 전에 다른 계획을 가장 강하게 옹호하는 주장 들어 보기 | `dia-counterplan` |
 | 답변이나 초안의 실수를 한 번 바로잡기 | `dia-refine` |
 | 라운드를 거듭하며 꼼꼼하게 사실 확인하기 | `dia-iterate` |
+| 어떤 스킬을 쓸지 모르겠을 때, 또는 휴대폰으로 입력할 때 | `dia` (`dia-menu`) |
 
 ### dia-confirm: 일을 시작하기 전에 과제 합의하기
 
@@ -490,6 +493,35 @@ dia-iterate --max 2 이 문단의 날짜와 사실을 확인해 주세요: "최�
 - `--max N`으로 라운드 상한을 정합니다(기본값 3).
 - 검색이나 도구가 없는 채팅에서는 1라운드 후에 멈추고, 짐작하는 대신 검증하지 못한 항목을 나열합니다.
 
+### dia-menu: 짧은 한 단어로 모든 스킬 부르기
+
+**쉽게 말하면.** 그 자체로 하나의 방법은 아니고, 더 빨리 들어가는 길일 뿐입니다. 메시지를 `dia`로 시작하세요. `dia`만 쓰면 스킬 열 개를 번호와 함께 보여 줍니다. 뒤에 번호나 이름의 앞 몇 글자를 붙이면 그 스킬이 시작되고, 원하는 일을 그냥 쓰면 알맞은 스킬을 골라 대개 먼저 한 줄로 어떤 스킬인지 알려 줍니다. 앞 글자가 두 스킬에 해당하거나 두 스킬이 요청에 비슷하게 맞으면, 짐작하지 않고 묻습니다.
+
+**이럴 때 쓰세요.** 휴대폰으로 입력할 때, 또는 어떤 스킬이 필요한지 잘 모를 때입니다. `dia-confirm`(1)과 `dia-iterate`(10)는 번호나 이름으로만 시작되며, `dia`가 짐작해서 시작하는 일은 없습니다.
+
+**해 보기:**
+
+```
+dia
+dia 4 모든 소수는 홀수라고 가정하고 어디서 무너지는지 보여 주세요.
+dia 온보딩 이메일을 추가한 뒤 이탈률이 떨어졌으니, 이메일이 이탈을 줄인 거예요. 제 이유가 이 결론을 얼마나 뒷받침하나요?
+```
+
+**결과는 이렇습니다** (Claude Code에서 실제 실행, 줄임; `dia con` 외에는 영어 실행을 번역):
+
+> `dia` → 번호가 붙은 목록: "1. **dia-confirm**: 작업을 시작하기 전에 목표, 가정, 아직 열려 있는 결정을 다시 정리합니다(이름이나 번호로만). 2. **dia-brainstorm**: … 10. **dia-iterate**: 외부 확인을 거쳐야 하는 검토 라운드를 반복합니다(이름이나 번호로만)", 이어서 고르는 방법을 안내합니다.
+> `dia 4 …` → `dia-reductio`가 바로 시작됩니다: "**대상:** 사용자(추정). **논제 T:** ‘모든 소수는 홀수다’. **방향:** 반박. …"
+> `dia 온보딩 이메일을 …` → `dia-warrant`가 시작됩니다: "**구조** – **주장:** ‘이메일이 이탈을 줄였다’(명시됨). … **자료:** ‘온보딩 이메일을 추가한 뒤 이탈률이 떨어졌다’(명시됨). …"
+> `dia con …` (`dia-confirm`과 `dia-conjecture`에 모두 해당, 한국어로 실행한 원문 그대로) → "‘con’으로 시작하는 skill이 둘이라 하나를 고를 수 없습니다. 번호로 골라 주세요." 그리고 두 스킬을 함께 보여 줍니다.
+
+**팁**
+
+- 번호는 바뀌지 않습니다: 1 confirm, 2 brainstorm, 3 elenchus, 4 reductio, 5 negative, 6 warrant, 7 conjecture, 8 counterplan, 9 refine, 10 iterate.
+- 옵션은 그대로 전달됩니다: `dia 10 --max 2 <draft>`는 `dia-iterate --max 2 <draft>`와 같습니다.
+- `dia`는 단독으로 첫 단어여야 합니다. `dia-refine …`을 비롯한 전체 이름은 여전히 곧바로 해당 스킬로 갑니다.
+- 앞 글자는 세 글자 이상이어야 하고(`re`가 아니라 `red`), 문장의 일부임이 분명한 단어(`dia red flags in my plan?`)는 선택이 아니라 요청으로 읽습니다.
+- 어시스턴트가 두 번째 스킬을 열 수 없는 환경에서는 `dia`가 메뉴는 그대로 보여 주고, 보낼 전체 형식(예: `dia-reductio …`)을 알려 줍니다. 이 경우는 시험하지 않았습니다.
+
 ## 여러 스킬 함께 쓰기
 
 - **한 요청에 `dia-elenchus`와 `dia-brainstorm`을 함께 쓰는 경우:** 정의를 다루는 대화가 먼저 진행되며, 첫 메시지에서 이를 알립니다. 사용자가 선택지를 요청하거나 대화가 끝나면 브레인스토밍이 시작됩니다. 두 과정이 뒤섞이는 일은 없습니다.
@@ -501,12 +533,12 @@ dia-iterate --max 2 이 문단의 날짜와 사실을 확인해 주세요: "최�
 ## 문제 해결
 
 - **마켓플레이스를 추가할 때 `Repository not found`가 나타납니다.** 철자를 확인합니다: `ajitta/dialectic-skills`(dialectric이 아니라 dialectic). 저장소는 공개되어 있으며 GitHub 로그인이 필요하지 않습니다.
-- **Claude 모바일의 `/`에 dia 스킬이 없습니다.** 정상입니다. 모바일 메뉴에는 플러그인 스킬이 표시되지 않습니다. 이름을 끝까지 입력하거나(예: `/dia-brainstorm`), 말로 요청하거나, 메시지를 스킬 이름으로 시작합니다.
+- **Claude 모바일의 `/`에 dia 스킬이 없습니다.** 정상입니다. 모바일 메뉴에는 플러그인 스킬이 표시되지 않습니다. 메시지를 `dia`로 시작하거나, 이름을 끝까지 입력하거나(예: `/dia-brainstorm`), 말로 요청하거나, 메시지를 스킬 이름으로 시작합니다.
 - **어떤 기기에서는 dia가 되는데 다른 기기에서는 안 됩니다.** 데스크톱에서 설치한 것은 그 컴퓨터에만 있고, 웹에서 설치한 것은 계정에 저장되어 모바일 앱까지 갑니다. 웹과 모바일용으로 웹에서 한 번, 쓰는 데스크톱 앱마다 한 번씩 설치하세요(설치 참고).
 - **모든 스킬이 두 번씩 나타납니다.** 플러그인이 두 경로로 설치된 것입니다(예: `dia@dialectic-skills`와 `dia@ajitta`, 또는 업로드와 마켓플레이스). 하나를 제거합니다.
 - **claude.ai에 Skills 섹션이 없거나 비활성화되어 있습니다.** Settings › Capabilities › Code execution and file creation을 켭니다.
 - **`dia-intent`를 찾을 수 없습니다.** 1.1.0에서 `dia-confirm`으로 이름이 바뀌었습니다.
-- **`dia-iterate`가 시작되지 않습니다.** 메시지의 첫 단어가 `dia-iterate`이거나 명시적으로 선택했을 때(`/dia:dia-iterate`, `$dia:dia-iterate`, `@dia-iterate`)에만 시작됩니다.
+- **`dia-iterate`가 시작되지 않습니다.** 메시지의 첫 단어가 `dia-iterate`이거나 명시적으로 선택했을 때(`/dia:dia-iterate`, `$dia:dia-iterate`, `@dia-iterate`, `dia 10`, `dia iterate`)에만 시작됩니다. `dia <request>`만으로는 절대 선택되지 않습니다.
 - **Codex에서 `$dia:dia-confirm:`이 인식되지 않습니다.** 스킬 이름 뒤에 콜론이 아니라 공백을 넣습니다.
 - **claude.ai에서 업로드가 거부됩니다.** Customize › Skills가 아니라 Customize › Plugins › Upload plugin을 사용합니다.
 - **claude.ai에서 Check for updates 후에도 예전 버전이 남아 있습니다.** Customize › Plugins에서 `dia`를 제거한 뒤 `dialectic-skills` 마켓플레이스에서 다시 설치합니다. 이후 릴리스를 자동으로 받으려면 Sync automatically를 켭니다.

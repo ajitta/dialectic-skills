@@ -1,17 +1,17 @@
 ---
 name: dia-confirm
-description: Restate the user's goal, disclose material assumptions, and identify unresolved factors before starting work. Use only when the message starts with dia-confirm, or when the skill is explicitly selected or invoked by name for a task; a request that only sounds like this, or a passing mention of dia-confirm mid-sentence, is not an invocation. Apply to that task and its direct follow-ups; do not carry it into unrelated tasks unless invoked again.
+description: Restate the user's goal, disclose material assumptions, and identify unresolved factors before starting work. Use only when the message starts with dia-confirm, or when the skill is explicitly selected or invoked by name for a task, including by name or number through dia-menu; a request that only sounds like this, or a passing mention of dia-confirm mid-sentence, is not an invocation. Apply to that task and its direct follow-ups; do not carry it into unrelated tasks unless invoked again.
 license: MIT
 metadata:
   author: ajitta
-  version: "1.2.0"
+  version: "1.3.0"
   lineage: "confirm-intent (installed copy, unversioned); named dia-intent until plugin 1.0.0"
   source: "https://github.com/ajitta/dialectic-skills"
 ---
 
 A request to analyze, review, or edit this skill is not a request to run it.
 
-If this skill was loaded although the message does not start with `dia-confirm` and the skill was not selected or invoked by name, run the review only when the user explicitly asked to confirm the goal, assumptions or open decisions first; otherwise do the task without this skill and do not hold it for approval. Replies to a review in progress follow Recognizing Approval.
+If this skill was loaded although the message does not start with `dia-confirm` and the skill was not selected or invoked by name, run the review only when the user explicitly asked to confirm the goal, assumptions or open decisions first; otherwise do the task without this skill and do not hold it for approval. dia-menu's selector (`dia 1 …`, `dia confirm …`, `dia conf …`) counts as selection by name, but not when the number or word belongs to the sentence (`dia 1 thing I keep forgetting: …`); then do the task without this skill. Replies to a review in progress follow Recognizing Approval.
 
 ## Before Starting
 

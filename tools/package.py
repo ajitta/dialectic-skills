@@ -90,6 +90,7 @@ EXPECTED_IMPLICIT = {
     "dia-warrant": True,
     "dia-conjecture": True,
     "dia-counterplan": True,
+    "dia-menu": True,
 }
 
 

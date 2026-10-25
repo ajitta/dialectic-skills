@@ -13,6 +13,8 @@ Ten reasoning-and-review skills for Claude, Codex and ChatGPT. Each skill is a s
 - `dia-refine`: one review pass over an answer or draft. Fixes only defects with a confirmed basis.
 - `dia-iterate`: repeated review rounds, each gated by an external check, with a round cap.
 
+Start a message with `dia` to reach them quickly (`dia-menu`): `dia` alone lists them with numbers, `dia 4 …` or `dia red …` starts one by number or first letters, and `dia` followed by your request picks the skill that fits and names it.
+
 ## What the plugin does and does not do
 
 The plugin contains only Markdown, YAML and JSON files. It has no scripts, hooks, MCP servers or binaries, and it does not run, send or fetch anything by itself. It does not read or store personal data. Some skills tell the assistant to use a search or code tool if one is already available in your session, to check a fact or a calculation; without such a tool, the skills work from the conversation alone and mark what they could not verify.

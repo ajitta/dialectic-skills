@@ -4,7 +4,7 @@
 
 网站: [ajitta.github.io/dialectic-skills](https://ajitta.github.io/dialectic-skills/)
 
-一个插件内含十个推理与审查技能，无需修改即可在任何加载 Agent Skills 的助手上运行：Claude（网页版、桌面版、移动版、Claude Code）、Codex 和 ChatGPT。整个包只包含指令（Markdown、YAML、JSON），因此每个技能在没有任何工具的聊天中也能使用。技能文件用英文编写；每个技能都会用你消息所用的语言回复。
+一个插件内含十个推理与审查技能，无需修改即可在任何加载 Agent Skills 的助手上运行：Claude（网页版、桌面版、移动版、Claude Code）、Codex 和 ChatGPT。整个包只包含指令（Markdown、YAML、JSON），因此每个技能在没有任何工具的聊天中也能使用。技能文件用英文编写；每个技能都会用你消息所用的语言回复。在手机上只需输入 `dia`：一个菜单技能（`dia-menu`，1.4.0 新增）会列出各个技能，并按编号、名称的前几个字母或你的请求内容启动其中一个。
 
 | 技能 | 作用 | 启动方式 |
 |---|---|---|
@@ -18,6 +18,7 @@
 | `dia-counterplan` | 把梅森的辩证探究用在一项计划或决定上：关键假设、每个假设的合理对立假设、基于同样事实的反方案，然后由你说出现在认同哪些假设。不评选胜者。 | 通过名称，或用文字描述 |
 | `dia-refine` | 对上一个回答或草稿做一轮审查：事实错误、逻辑跳跃、遗漏的需求、重复。只修正已确认的缺陷。 | 首词为 `dia-refine`，或通过名称 |
 | `dia-iterate` | 多轮重复审查，每轮都以外部验证把关；在出现退化、零缺陷、验证手段用尽、达到不动点或 `--max N`（默认 3）时停止。 | 首词为 `dia-iterate`，或仅通过名称 |
+| `dia-menu` | 不是一种方法，而是一个简短的入口：`dia` 显示带编号的菜单，`dia 4 …` 或 `dia red …` 按编号或开头字母启动技能，`dia <request>` 则挑选合适的技能并说明选了哪个。从不自行启动 `dia-confirm` 或 `dia-iterate`。 | 首词为 `dia` |
 
 ## 目录
 
@@ -66,7 +67,7 @@ claude.ai（网页版）：Customize › Plugins › Add › Add marketplace，�
 
    也可以输入 Git URL `https://github.com/ajitta/dialectic-skills.git`，Claude 桌面版还可以指定本地文件夹（本仓库的克隆）。请复制粘贴而不要手动输入：像 `dialectric` 这样的拼写错误会以 "Repository not found" 失败。
 3. **添加插件。** 只添加 marketplace 还不会安装任何东西。在 Customize › Plugins 中打开 Discover，选择 `dia`（Dialectic Skills），然后选择 Add。
-4. **检查。** 在消息框中输入 `/dia`，应出现从 `dia:dia-brainstorm` 到 `dia:dia-warrant` 共十项。更新通过 marketplace 获取（Check for updates，或 Sync automatically）。
+4. **检查。** 在消息框中输入 `/dia`，应出现从 `dia:dia-brainstorm` 到 `dia:dia-warrant` 共十一项（十个技能加上 `dia:dia-menu`）。更新通过 marketplace 获取（Check for updates，或 Sync automatically）。
 
 也可以不走第 2、3 步，直接上传插件：在 Customize › Plugins › Add › Upload plugin 上传最新发布版中的 [`dialectic-skills.zip`](https://github.com/ajitta/dialectic-skills/releases/latest/download/dialectic-skills.zip)。请使用 Customize › Plugins，而不是 Customize › Skills：Skills 页面会拒绝带有插件清单的 zip。上传的插件不会自动更新；每个新版本都需重新上传。
 
@@ -74,7 +75,7 @@ claude.ai（网页版）：Customize › Plugins › Add › Add marketplace，�
 
 ### Claude 移动版（iOS、Android）
 
-无需安装步骤。在 claude.ai（网页版）添加的插件会保存到你的账号，并自动出现在移动应用中；在 Claude 桌面版添加的则不会。移动版的 `/` 菜单不会列出插件技能，但完整输入名称仍可启动技能，例如 `/dia-brainstorm`。也可以用自然语言提出请求，或以技能名称开头发送消息。
+无需安装步骤。在 claude.ai（网页版）添加的插件会保存到你的账号，并自动出现在移动应用中；在 Claude 桌面版添加的则不会。移动版的 `/` 菜单不会列出插件技能。最快的方式是以 `dia` 开头发送消息（见"调用方式"）；完整输入名称也可以，例如 `/dia-brainstorm` 或以 `dia-brainstorm` 开头的消息；用自然语言提出请求同样可行。
 
 ### Claude Code
 
@@ -113,11 +114,12 @@ codex plugin add dia@dialectic-skills
 
 ## 调用方式
 
-共有三种方式，每个平台至少支持其中一种：
+共有四种方式，每个平台至少支持其中一种：
 
-1. **用文字描述。** 直接要求使用某种方法："对……用反证法"、"对……做内在批判"、"请来一场苏格拉底式对话……"、"这些理由能在多大程度上支撑结论？"、"给我的规则找反例……"、"对这个计划唱唱反调……"。这在所有平台上都有效，也是移动端的稳妥默认方式。适用于 `dia-reductio`、`dia-negative`、`dia-elenchus`、`dia-brainstorm`、`dia-warrant`、`dia-conjecture` 和 `dia-counterplan`。
-2. **在消息中写出名称。** 以技能名称开头：`dia-confirm …`、`dia-refine …`、`dia-iterate …`。从 1.2.0 起，在 Codex 上无需 `$`、在 ChatGPT 上无需 `@`（已由所有者在手机应用中确认） 即可这样启动，这是在手机上最快的方式。`dia-refine` 和 `dia-iterate` 设计为以这种方式或显式选择来启动：`dia-iterate` 从不由普通请求触发；在 Claude Code 上，"修改一下这份草稿"这类普通请求也很少会加载 `dia-refine`。
-3. **显式选择**，各平台写法不同：
+1. **菜单：以 `dia` 开头发送消息。** 只输入 `dia` 会列出带编号的技能。`dia 4 <your text>` 或 `dia red <your text>` 启动对应的技能（这里是 `dia-reductio`）；如果开头字母同时符合两个技能（`con`），它会问你选哪个。`dia <your text>` 会挑选合适的技能，通常先用一行写出其名称，然后运行；如果有两个技能差不多同样合适，它会询问。它从不因普通请求而启动 `dia-confirm`（1）或 `dia-iterate`（10）；请使用它们的编号或名称，例如 `dia 10 --max 2 <draft>`。这是在手机上最快的方式：三个字母，没有连字符。
+2. **用文字描述。** 直接要求使用某种方法："对……用反证法"、"对……做内在批判"、"请来一场苏格拉底式对话……"、"这些理由能在多大程度上支撑结论？"、"给我的规则找反例……"、"对这个计划唱唱反调……"。这在所有平台上都有效，也是移动端的稳妥默认方式。适用于 `dia-reductio`、`dia-negative`、`dia-elenchus`、`dia-brainstorm`、`dia-warrant`、`dia-conjecture` 和 `dia-counterplan`。
+3. **在消息中写出名称。** 以技能名称开头：`dia-confirm …`、`dia-refine …`、`dia-iterate …`。从 1.2.0 起，在 Codex 上无需 `$`、在 ChatGPT 上无需 `@`（已由所有者在手机应用中确认） 即可这样启动。`dia-refine` 和 `dia-iterate` 设计为以这种方式或显式选择来启动：`dia-iterate` 从不由普通请求触发；在 Claude Code 上，"修改一下这份草稿"这类普通请求也很少会加载 `dia-refine`。
+4. **显式选择**，各平台写法不同：
 
 | 平台 | 语法 | 示例 |
 |---|---|---|
@@ -160,6 +162,7 @@ codex plugin add dia@dialectic-skills
 | 在拍板之前，听听为另一套方案所作的最有力的辩护 | `dia-counterplan` |
 | 把一个回答或一份草稿中的错误修正一遍 | `dia-refine` |
 | 一轮一轮地彻底核查事实 | `dia-iterate` |
+| 不确定该用哪个，或者正在用手机输入 | `dia` (`dia-menu`) |
 
 ### dia-confirm：开始工作前先对齐任务
 
@@ -490,6 +493,35 @@ dia-iterate --max 2 核查这段话里的日期和事实："第一代 iPhone 于
 - `--max N` 设置轮数上限（默认 3）。
 - 在没有搜索或工具的聊天中，它会在第 1 轮后停止，列出无法核实的内容，而不是去猜。
 
+### dia-menu：一个短词调用所有技能
+
+**通俗地说。** 它本身不是一种方法，只是一条更快的入口。消息以 `dia` 开头即可。单独输入 `dia` 会列出带编号的十个技能。在后面加上编号或名称的前几个字母，就会启动那个技能；或者直接写出你想做的事，它会挑选合适的技能，通常先用一行告诉你选了哪个。如果开头字母同时符合两个技能，或者有两个技能与你的请求差不多同样契合，它会询问你，而不是去猜。
+
+**适合使用的情况：** 你在用手机输入，或者不确定需要哪个技能。`dia-confirm`（1）和 `dia-iterate`（10）只能通过编号或名称启动，绝不会因为 `dia` 的猜测而启动。
+
+**试试：**
+
+```
+dia
+dia 4 假设每个质数都是奇数，并指出它在哪里不成立。
+dia 我们加了新用户引导邮件之后，流失率下降了，所以是这些邮件降低了流失。我的理由能在多大程度上支撑这个结论？
+```
+
+**你会得到**（在 Claude Code 上的真实运行，已删减；除 `dia con` 外均译自英文运行）：
+
+> `dia` → 带编号的列表："1. **dia-confirm**：开始工作前复述目标、假设和待定的决定（仅通过名称或编号）。2. **dia-brainstorm**：…… 10. **dia-iterate**：多轮重复审查，每轮都以外部核查把关（仅通过名称或编号）"，接着说明如何选择。
+> `dia 4 …` → `dia-reductio` 立即开始："**对象：** 用户（推断）。**论题 T：**“每个质数都是奇数”。**方向：** 反驳。……"
+> `dia 我们加了新用户引导邮件之后 …` → `dia-warrant` 开始："**结构** – **主张：** “是这些邮件降低了流失”（已陈述）。…… **资料：** “我们加了新用户引导邮件之后，流失率下降了”（已陈述）。……"
+> `dia con …`（同时符合 `dia-confirm` 和 `dia-conjecture`；这是一次韩语运行，此处为译文）→ "有两个技能以“con”开头，所以我无法只选一个。请按编号选择。"，并列出这两个技能。
+
+**小贴士**
+
+- 编号固定不变：1 confirm、2 brainstorm、3 elenchus、4 reductio、5 negative、6 warrant、7 conjecture、8 counterplan、9 refine、10 iterate。
+- 选项会原样传递：`dia 10 --max 2 <draft>` 等同于 `dia-iterate --max 2 <draft>`。
+- `dia` 必须单独作为第一个词。`dia-refine …` 等完整名称仍会直接进入对应的技能。
+- 开头字母至少要三个（是 `red` 而不是 `re`）；明显属于句子一部分的词（`dia red flags in my plan?`）会被当作请求，而不是选择。
+- 在助手无法打开第二个技能的环境中，`dia` 仍会显示菜单，并回复应发送的完整形式（例如 `dia-reductio …`）；这种情况尚未测试。
+
 ## 组合使用多个技能
 
 - **在一个请求中同时使用 `dia-elenchus` 和 `dia-brainstorm`：** 先进行定义对话，第一条消息会说明这一点；当你要求给出选项或对话结束时，开始头脑风暴。两者从不交替进行。
@@ -501,12 +533,12 @@ dia-iterate --max 2 核查这段话里的日期和事实："第一代 iPhone 于
 ## 故障排除
 
 - **添加 marketplace 时出现 `Repository not found`。** 检查拼写：`ajitta/dialectic-skills`（是 dialectic，不是 dialectric）。该仓库是公开的，无需登录 GitHub。
-- **Claude 移动版的 `/` 下没有 dia 技能。** 这是预期行为：移动版菜单不会列出插件技能。请完整输入名称（例如 `/dia-brainstorm`）、用文字描述请求，或以技能名称开头发送消息。
+- **Claude 移动版的 `/` 下没有 dia 技能。** 这是预期行为：移动版菜单不会列出插件技能。请以 `dia` 开头发送消息、完整输入名称（例如 `/dia-brainstorm`）、用文字描述请求，或以技能名称开头发送消息。
 - **dia 在一台设备上能用，在另一台上不能用。** 在桌面应用安装的只留在那台电脑上；在网页版安装的会保存到账号，并同步到移动应用。请在网页版安装一次（供网页版和移动版使用），并在你使用的每个桌面应用中各安装一次（见“安装”）。
 - **每个技能都出现了两次。** 插件通过两种途径安装了（例如 `dia@dialectic-skills` 和 `dia@ajitta`，或一次上传加一次 marketplace）。删除其中一个。
 - **claude.ai 上的 Skills 部分缺失或显示为灰色。** 打开 Settings › Capabilities › Code execution and file creation。
 - **找不到 `dia-intent`。** 它已在 1.1.0 中更名为 `dia-confirm`。
-- **`dia-iterate` 无法启动。** 只有当 `dia-iterate` 是消息的第一个词，或被显式选择时（`/dia:dia-iterate`、`$dia:dia-iterate`、`@dia-iterate`），它才会启动。
+- **`dia-iterate` 无法启动。** 只有当 `dia-iterate` 是消息的第一个词，或被显式选择时（`/dia:dia-iterate`、`$dia:dia-iterate`、`@dia-iterate`、`dia 10`、`dia iterate`），它才会启动。仅凭 `dia <request>` 从不会选中它。
 - **在 Codex 上 `$dia:dia-confirm:` 无法解析。** 技能名称后面应加空格，而不是冒号。
 - **在 claude.ai 上上传被拒绝。** 请使用 Customize › Plugins › Upload plugin，而不是 Customize › Skills。
 - **在 claude.ai 上 Check for updates 后仍是旧版本。** 在 Customize › Plugins 中移除 `dia`，再从 `dialectic-skills` 市场重新安装；如需自动获取后续版本，请打开 Sync automatically。
