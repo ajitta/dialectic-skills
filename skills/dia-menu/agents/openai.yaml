@@ -1,0 +1,7 @@
+interface:
+  display_name: "Dia: Menu"
+  short_description: "Menu of the dia skills; picks the one that fits your request"
+  default_prompt: "Use $dia:dia-menu to pick and run the dia skill that fits: "
+
+policy:
+  allow_implicit_invocation: true

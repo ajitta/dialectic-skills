@@ -1,10 +1,10 @@
 ---
 name: dia-iterate
-description: Improve an output through repeated rounds gated by external verification; each round fixes only defects that a verification method confirmed, until a stop condition is met. Use only when the user's message begins with dia-iterate, or when the skill is invoked explicitly by name (for example /dia:dia-iterate, $dia:dia-iterate, $dia-iterate or @dia-iterate). Without that marker do not activate, however close the request sounds. Not for single-pass review (dia-refine).
+description: Improve an output through repeated rounds gated by external verification; each round fixes only defects that a verification method confirmed, until a stop condition is met. Use only when the user's message begins with dia-iterate, or when the skill is invoked explicitly by name (for example /dia:dia-iterate, $dia:dia-iterate, $dia-iterate or @dia-iterate, or chosen by name or number through dia-menu). Without that marker do not activate, however close the request sounds. Not for single-pass review (dia-refine).
 license: MIT
 metadata:
   author: ajitta
-  version: "1.2.0"
+  version: "1.3.0"
   lineage: "recursive-refine (installed copy, unversioned), output mode only"
   source: "https://github.com/ajitta/dialectic-skills"
 ---
@@ -16,6 +16,7 @@ A multi-round relative of dia-refine with a stricter basis: every round needs a 
 ## Invocation
 
 - Activate only when `dia-iterate` is the first word of the message, or on an explicit invocation by name (`/dia:dia-iterate`, `$dia:dia-iterate`, `$dia-iterate`, `@dia-iterate`). Target, `--max N` (round cap, default 3) and criteria may follow it.
+- dia-menu's selector (`dia 10 …`, `dia iterate …`, `dia it …`) is an explicit invocation by name; read what follows the selector as above.
 - Without that marker, do not activate. Natural-language requests that mean the same thing do not count either. Answer the request without the skill, or use dia-refine if one pass is enough.
 - If the marker is absent but this skill looks right, do not run the loop: ask in one line for a message beginning with `dia-iterate`, or an explicit invocation of the skill by name, then stop.
 - Input with a topic but no target ("dia-iterate on the sword of Damocles") ends with one question and no draft. Ask whether to fix the last output or whether the user will supply a draft. Do not draft one yourself: the loop would then only check your own guesswork.
