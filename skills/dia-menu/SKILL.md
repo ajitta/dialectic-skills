@@ -24,8 +24,8 @@ A short way to reach the other dia skills, made for phones: `dia` is three lette
 Read the first word after `dia` (call it the selector), then the rest (the request).
 
 1. **No text after `dia`, or only `help`, `menu` or `?`:** show the menu (below) and stop.
-2. **Selector is a number from 1 to 10:** the skill with that number in the menu table.
-3. **Selector is a full skill name or the start of one,** at least three letters, with or without the `dia-` prefix (`red`, `reductio`, `dia-reductio`): the one skill whose name starts with it. If the word reads as part of the request's sentence rather than a pick (`red flags …`, `war game …`, `count the …`, `negative feedback …`), or a number counts something (`3 reasons …`), treat the whole text as a request (rule 4); if unsure, ask in one line. If two or more names start with it (`con` matches confirm and conjecture), list those skills with their numbers in one line, ask which, and stop.
+2. **Selector is a number from 1 to 10:** the skill with that number in the menu table, unless the number counts something in the sentence (`3 reasons …`, `1 thing …`, `10 ideas …`); then the whole text is a request (rule 4); if unsure, ask in one line.
+3. **Selector is a full skill name or the start of one,** at least three letters, with or without the `dia-` prefix (`red`, `reductio`, `dia-reductio`): the one skill whose name starts with it. If the word reads as part of the request's sentence rather than a pick (`red flags …`, `war game …`, `count the …`, `negative feedback …`), treat the whole text as a request (rule 4); if unsure, ask in one line. If two or more names start with it (`con` matches confirm and conjecture), list those skills with their numbers in one line, ask which, and stop.
 4. **Anything else:** the whole text after `dia` is the request. Choose the skill as in "Choosing for a request".
 
 A selector with no request after it starts the chosen skill with no target; that skill asks for one by its own rules.
@@ -59,7 +59,7 @@ Pick from skills 2 to 9 only, by what the user wants done, using the borders in 
 
 - An idea or plan to question, poke holes in or stress-test before committing → dia-brainstorm; an argument to poke holes in → dia-warrant. A counterplan or devil's advocate on a plan or decision → dia-counterplan; a devil's advocate on a claim or question is a plain answer (none fits).
 - A definition or belief to examine Socratically, or a request for Socratic dialogue even with a plan idea → dia-elenchus.
-- Whether a position is consistent or follows strictly from its premises → dia-reductio. How strongly given reasons support a conclusion → dia-warrant. A claim that something is the case in every instance (all, every, always, never) → dia-conjecture; a rule or policy to adopt → dia-counterplan if it is a plan or decision, otherwise dia-brainstorm. Whether something meets its own stated standard → dia-negative.
+- Whether a position is consistent or follows strictly from its premises → dia-reductio. How strongly given reasons support a conclusion → dia-warrant. A claim that something is the case in every instance (all, every, always, never) → dia-conjecture; a rule or policy to adopt → dia-counterplan if it is a plan or decision, dia-brainstorm if the user wants it questioned or stress-tested; a request for exceptions to a rule is a plain answer (none fits). Whether something meets its own stated standard → dia-negative.
 - A previous answer or a draft to check and fix once → dia-refine.
 
 Then:

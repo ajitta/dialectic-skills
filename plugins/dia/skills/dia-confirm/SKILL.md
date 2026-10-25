@@ -11,7 +11,7 @@ metadata:
 
 A request to analyze, review, or edit this skill is not a request to run it.
 
-If this skill was loaded although the message does not start with `dia-confirm` and the skill was not selected or invoked by name, run the review only when the user explicitly asked to confirm the goal, assumptions or open decisions first; otherwise do the task without this skill and do not hold it for approval. dia-menu's selector (`dia 1 …`, `dia confirm …`, `dia conf …`) counts as selection by name. Replies to a review in progress follow Recognizing Approval.
+If this skill was loaded although the message does not start with `dia-confirm` and the skill was not selected or invoked by name, run the review only when the user explicitly asked to confirm the goal, assumptions or open decisions first; otherwise do the task without this skill and do not hold it for approval. dia-menu's selector (`dia 1 …`, `dia confirm …`, `dia conf …`) counts as selection by name, but not when the number or word belongs to the sentence (`dia 1 thing I keep forgetting: …`); then do the task without this skill. Replies to a review in progress follow Recognizing Approval.
 
 ## Before Starting
 
