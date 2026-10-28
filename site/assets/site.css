@@ -319,6 +319,9 @@ pre { margin: 0; white-space: pre-wrap; overflow-wrap: anywhere; line-height: 1.
 .tile[open] { background: var(--accent); color: var(--accent-ink); }
 .tile[open] summary::after { transform: rotate(0deg); }
 .tile__body { padding: 0 1.6rem 1.5rem; }
+/* Closed tiles are not laid out, like closed sessions: the last tile's hidden answer otherwise reports geometry
+   above the footer word mark, where layout probes read it as an eyebrow. */
+.tile:not([open]) > .tile__body { display: none; }
 .tile__body p { max-width: 52ch; }
 @media (hover: hover) and (pointer: fine) { .tile:not([open]) summary:hover { background: color-mix(in srgb, var(--ink) 6%, transparent); border-radius: var(--radius); } }
 

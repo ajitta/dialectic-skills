@@ -513,11 +513,13 @@ Review A: "Wrong twice: the 1965 paper said every year, and doubling every two y
 Review B: "The 18 months was Moore's own 1975 figure, and doubling every two years gives 64 times in 10 years."
 ```
 
-**What you get** (an illustration built from the design trials, which ran a draft of this skill with web search on the same facts; not a recorded run of this prompt; see [docs/research/dia-adjudicate.md](docs/research/dia-adjudicate.md)):
+**What you get** (real run with web search, shortened):
 
-> **Claims in the text:** "18 months, 1965 paper" fails: the 1965 paper said about once a year, and 18 months came from Intel's David House, about performance. "About 16 times" fails at either rate: doubling every 18 months for 10 years gives about 100 times, every two years 2^5 = 32 (recomputed).
-> **Report issues:** A holds. B is wrong on both points: the 1975 revision was every two years, and two-year doubling gives 32 times, not 64.
-> **For a human check:** the two verdicts that overturn B, each with the source sentence it rests on.
+> **Inputs.** "There are two reports. I shuffled them, so R1 is Review B and R2 is Review A." One web search; "its answer is a model summary, not the raw pages".
+> **Claims in the target:** the 18-month period fails: "The 1965 figure was a year, and the 1975 revision was two years", and 18 months "comes from David House, not Moore". 18 months over 10 years "is 120/18 = 6.67 doublings. 2^6.67 ≈ 101.6, about 100×, not 16×" (re-derived), a second error "that neither report mentions". C, about 16×: fails.
+> **Report issues:** R2 (Review A): every year in 1965, valid; 32× at two-year doubling, valid. R1 (Review B): 18 months as Moore's 1975 figure, wrong; 64×, wrong: "2^5 = 32. 64 is 2^6, which is 12 years at that rate."
+> **Not verified:** "I did not open the 1965 paper or the 1975 talk. I relied on a summarized search."
+> **For a human check:** 1. R1's 18-month attribution, which "rests on a summary". 2. R1's 64× figure. 3. T's 16× figure, "my own recomputation, so please check it." *(sources listed)*
 
 **Tips**
 
@@ -540,12 +542,14 @@ Only touch files the task needs.
 - If the tests fail, stop.
 ```
 
-**What you get** (an illustration of the report's form, not a recorded run):
+**What you get** (real run, shortened):
 
-> **"If the tests fail, stop"**: the condition sits on its own bullet, apart from the update it gates (Rule 1).
-> **"touch"** can be read as reading as well as editing; name the files, or say "edit" (Rule 2).
-> **No reasons:** none of the lines says why, so the agent cannot tell which docs matter (Rule 3).
-> Nothing is changed until you pick findings.
+> "Review of the three lines against the dia-instruct rules, most severe first. I haven't changed the text."
+> 1. **Line 3: "- If the tests fail, stop."** (Rule 1, Rule 3): "The condition sits in its own bullet, apart from the action it guards." "Stop" "could mean halt edits, revert edits, or report and wait", and no reason is given.
+> 2. **Line 2: "Only touch files the task needs."** (Rule 2, Rule 1, Rule 3): "'Touch' can be read as read, edit or create, and 'needs' is the agent's own judgment." No paths are named.
+> 3. **Line 1: "Update the docs for the new flag."** (Rule 2): "'The docs' and 'the new flag' are unnamed."
+> 4. **Across the lines** (Rule 4): "docs", "files" and "the task" may be read as different scopes.
+> "Tell me which findings to act on, and give me the flag name, the doc paths and the test command if you want me to draft the rewrite."
 
 **Tips**
 
