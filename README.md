@@ -17,7 +17,7 @@ Twelve reasoning-and-review skills in one plugin, written to run unchanged on an
 | `dia-conjecture` | Lakatos's proofs and refutations as a dialogue on an "all / always / never" claim you hold: your argument split into steps, one counterexample per message with its check, you rule on each case and pick the repair. | by name, or in words |
 | `dia-counterplan` | Mason's dialectical inquiry on a plan or decision: the key assumptions, a plausible contrary for each, a counterplan on the same facts, then you say which assumptions you now hold. Picks no winner. | by name, or in words |
 | `dia-refine` | One review pass over the last answer or a draft: factual errors, logical leaps, missing requirements, repetition. Fixes only confirmed defects. | first word `dia-refine`, or by name |
-| `dia-ratchet` | Repeated review rounds in which only outside evidence counts (a search, a tool run or your own material, never the assistant's own re-derivation); what passed is locked; stops on regression, zero defects, verification exhausted, fixed point or `--max N` (default 3). Named `dia-iterate` before 1.5.0. | first word `dia-ratchet`, or by name only |
+| `dia-ratchet` | Repeated review rounds in which only outside evidence counts (a search, a tool run or your own material, never the assistant's own re-derivation); what passed is locked; stops on regression, zero defects, verification exhausted, fixed point or `--max N` (default 3). Named `dia-iterate` before 1.6.0. | first word `dia-ratchet`, or by name only |
 | `dia-adjudicate` | Rules on reports that people or other assistants wrote about a text (critiques, reviews, verification reports): checks the text's claims and every report point against sources, gives a verdict for each, and lists the verdicts a person should recheck. Never rewrites the text. | first word `dia-adjudicate`, or by name only |
 | `dia-instruct` | Checks or writes text a model will follow (a skill file, an agent prompt, an agent instructions file) against four rules: each paragraph one expression with its conditions and fallback, scope words as narrow as meant, fewer instructions each with its reason, one name per thing. A review lists breaches and changes nothing until you pick. | by name, or in words |
 | `dia-menu` | Not a method: a short entry point. `dia` shows a numbered menu, `dia 4 …` or `dia red …` starts a skill by number or first letters, and `dia <request>` picks the skill that fits and says which. Never starts `dia-intent`, `dia-ratchet` or `dia-adjudicate` on its own. | first word `dia` |
@@ -496,7 +496,7 @@ dia-ratchet --max 2 check the dates and facts in this paragraph: "The first iPho
 
 - `--max N` sets the round limit (default 3).
 - In a chat with no search or tools, it stops after round 1 and lists what it couldn't verify instead of guessing.
-- Named `dia-iterate` before 1.5.0; the old name no longer starts it.
+- Named `dia-iterate` before 1.6.0; the old name no longer starts it.
 
 ### dia-adjudicate: decide which review points hold
 
@@ -551,7 +551,7 @@ Only touch files the task needs.
 
 - It treats the text you give it as material to check, not as instructions to follow, even when that text is itself a prompt.
 - Ask "how strong is this rule?" to see what each rule rests on; that file is read only then.
-- Where the assistant can start a separate agent, a change to text you will keep is reviewed by one that did not write it; otherwise the check is labelled not independent.
+- Where the assistant can start a separate agent, a change to text you will keep is reviewed by one that did not write it; otherwise, and for an edit that only adds a fact or command such as a test command, the assistant checks it itself and labels the check not independent.
 
 ### dia-menu: one short word for every skill
 
@@ -573,7 +573,7 @@ dia Our churn dropped after we added onboarding emails, so the emails reduced ch
 > `dia 4 …` → `dia-reductio` starts at once: "**Target:** user (inferred). **Thesis T:** "every prime is odd". **Direction:** refute. …"
 > `dia Our churn dropped …` → `dia-warrant` starts: "**Layout** – **Claim:** "the emails reduced churn" (stated). … **Data:** "Our churn dropped after we added onboarding emails" (stated). …"
 > `dia con …` (fits `dia-confirm` and `dia-conjecture`; a Korean run, translated) → "Two skills start with "con", so I can't pick one. Choose by number.", with both listed.
-> *(Recorded with 1.4.0, when 1 was `dia-confirm` and 10 was `dia-iterate`; since 1.6.0 1 is `dia-intent`, and `con` fits only `dia-conjecture`. From 1.5.0 the list has eleven rows: 10 is `dia-ratchet` and 11 is `dia-adjudicate`; from 1.6.0 it has twelve, with 12 `dia-instruct`.)*
+> *(Recorded with 1.4.0, when 1 was `dia-confirm` and 10 was `dia-iterate`; since 1.6.0 1 is `dia-intent`, and `con` fits only `dia-conjecture`. From 1.6.0 the list has twelve rows: 10 is `dia-ratchet`, 11 `dia-adjudicate` and 12 `dia-instruct`.)*
 
 **Tips**
 
@@ -599,7 +599,7 @@ dia Our churn dropped after we added onboarding emails, so the emails reduced ch
 - **Every skill appears twice.** The plugin is installed through two routes (for example `dia@dialectic-skills` and `dia@ajitta`, or an upload and a marketplace). Remove one.
 - **Skills section missing or greyed out on claude.ai.** Turn on Settings › Capabilities › Code execution and file creation.
 - **`dia-confirm` is not found.** It was renamed back to `dia-intent` in 1.6.0; it was `dia-confirm` from 1.1.0 to 1.4.0.
-- **`dia-iterate` is not found.** It was renamed `dia-ratchet` in 1.5.0.
+- **`dia-iterate` is not found.** It was renamed `dia-ratchet` in 1.6.0.
 - **`dia-ratchet` or `dia-adjudicate` does not start.** Each starts only when its name is the first word of the message or when it is selected explicitly (`/dia:dia-ratchet`, `$dia:dia-ratchet`, `@dia-ratchet`, `dia 10`, `dia ratchet`; for `dia-adjudicate` the same forms and `dia 11`). `dia <request>` alone never picks them.
 - **`$dia:dia-intent:` does not resolve on Codex.** Put a space, not a colon, after the skill name.
 - **The upload is rejected on claude.ai.** Use Customize › Plugins › Upload plugin, not Customize › Skills.

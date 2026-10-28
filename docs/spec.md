@@ -2,7 +2,7 @@
 
 | | |
 |---|---|
-| Status | Approved by the owner on 2026-10-20; pre-release 0.1.0, accepted (§12.3) and released as 1.0.0 on 2026-10-20; 1.1.0 renames dia-intent to dia-confirm (D30), and 1.6.0 renames it back (D42). Probe results: `docs/probes.md` |
+| Status | Approved by the owner on 2026-10-20; pre-release 0.1.0, accepted (§12.3) and released as 1.0.0 on 2026-10-20; 1.1.0 renames dia-intent to dia-confirm (D30), and 1.6.0 renames it back (D42). 1.5.0 (D39, D40) was built on a branch and never released; its changes ship in 1.6.0 (owner, 2026-10-28). Probe results: `docs/probes.md` |
 | Date | 2026-10-20 |
 | Owner | ajitta |
 | Repository | `ajitta/dialectic-skills` (public since 2026-10-20) |
@@ -259,7 +259,8 @@ The seven rebuilt skills (5.1–5.7) keep their reference behavior unless this s
 - Purpose: check or write text a model reads and follows against four rules (each paragraph one expression holding its condition, limit and fallback; a scope word read as a type signature; fewer instructions, each with its reason; one name per thing) and the structure they imply. A breach of a rule or structure item is a finding; a lead is advice, never a finding. A review-only request yields a report of breaches with location, quote and rule, and no change until the user picks.
 - Borders: an answer or a draft for people, checked for factual errors and logical leaps, goes to dia-refine; ruling on reviews others wrote goes to dia-adjudicate.
 - Invocation: natural language and by name; dia-menu row 12, and the menu may choose it for a request. `allow_implicit_invocation: true`.
-- Tool-less surfaces: without a sub-agent, kept text is self-checked and the check is called not independent; without an eval, a meaning change stays only if the user accepts it as unmeasured.
+- Tool-less surfaces: without a sub-agent, kept text is self-checked and the check is called not independent; without an eval, a meaning change stays only if it is reported as unmeasured and the user accepts it.
+- Owner rulings after the pre-merge review (2026-10-28): replies to the user are in the user's language, while text written or edited keeps its language or the one its rules set; a fix for a confirmed review finding is self-checked, with another sub-agent round only when the fix changes meaning; an edit that only adds or updates a fact or command in kept text (a path, a test command) is self-checked like single-use text; "a general-purpose sub-agent" and the CLAUDE.md trigger stay.
 - Research: `docs/writing-for-models/` (session record, A/B on dia-adjudicate); evidence per part in `skills/dia-instruct/references/evidence.md`.
 
 ## 6. Language policy
