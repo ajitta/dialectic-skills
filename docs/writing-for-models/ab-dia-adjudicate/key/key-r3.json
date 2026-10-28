@@ -1,0 +1,34 @@
+{
+  "case3": {
+    "report_items": {"A1": "valid", "A2": "wrong", "A3": "valid", "A4": "valid",
+                     "B1": "valid", "B2": "valid", "B3": "valid", "B4": "wrong",
+                     "C1": "valid", "C2": "valid", "C3": "wrong", "C4": "wrong", "C5": "unverifiable"},
+    "summary_traps": ["A1", "A4", "B1", "B3", "C2"],
+    "target_errors": {
+      "M1": "S1 4 C (source 2.1 C)",
+      "M2": "S2 'lowers' causal from a correlation (calculation 2.5 C is right)",
+      "M3": "S3 'will reduce' (notes: 'may reduce'; health not measured)",
+      "M4": "S4 planting will reverse the rise (health not measured; report did not assess trees)",
+      "M5": "S5 same by night (night about 0.4 C), unraised",
+      "M6": "S6 desert cities (no arid sites)",
+      "M7": "S7 every city, every street, hospital visits"
+    },
+    "target_holds": {"H1": "S1 120 streets, three cities, 2018", "H2": "S2 10% to 60% gives 2.5 C", "H3": "S4 18% rise"}
+  },
+  "case4": {
+    "report_items": {"D1": "valid", "D2": "wrong", "D3": "valid", "D4": "valid",
+                     "E1": "valid", "E2": "valid", "E3": "wrong", "E4": "unverifiable",
+                     "F1": "valid", "F2": "wrong", "F3": "wrong"},
+    "summary_traps": ["D1", "D3", "D4", "E1"],
+    "target_errors": {
+      "N1": "S1 over two years (18 months), unraised",
+      "N2": "S1 40% on every task (close to zero for routine)",
+      "N4": "S3 never falls (30% to 10%)",
+      "N5": "S4 pair on everything (keynote: do not mandate for everything)",
+      "N6": "S5 embedded and safety-critical (not studied)",
+      "N7": "S6 happier throughout (measured only final month)",
+      "N8": "S7 every team should mandate"
+    },
+    "target_holds": {"G1": "S1 14 teams, 5 firms, 2021, 40% overall", "G2": "S2 15% of ten is 1.5"}
+  }
+}

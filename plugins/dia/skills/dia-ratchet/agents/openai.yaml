@@ -1,0 +1,7 @@
+interface:
+  display_name: "Dia: Ratchet"
+  short_description: "Review rounds gated by external checks; stop when none remain"
+  default_prompt: "Use $dia:dia-ratchet to run verified review rounds on the previous answer: "
+
+policy:
+  allow_implicit_invocation: true

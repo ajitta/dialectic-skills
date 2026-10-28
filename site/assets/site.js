@@ -51,7 +51,7 @@
 
   const plates = [...document.querySelectorAll('.plate[data-skill]')];
   // The prompt to try, as README writes it. Since 1.2.0 every prompt works unchanged on Codex too:
-  // the dia-confirm and dia-iterate prompts start with the skill name, which Codex now resolves.
+  // the dia-intent and dia-ratchet prompts start with the skill name, which Codex now resolves.
   plates.forEach((plate) => {
     const code = plate.querySelector('.try code');
     if (code) plate.dataset.prompt = code.textContent;

@@ -412,6 +412,72 @@ Totals: Claude 54/54, Codex 33/36. No non-dia skill was read in any run.
 
 - Owner, 2026-10-25, after the `v1.4.0` release: the mobile check (`dia`, `dia 4 Assume every prime is odd and show where it breaks.`, `dia` + a Korean request on Claude mobile and ChatGPT mobile) is reported done on both apps; per-prompt results were not reported (handoff item 21).
 
+**Part R, dia-adjudicate as an installed plugin skill on branch `adjudicate-ratchet` (spec D40), 2026-10-28.** Claude Code 2.1.312, sonnet, `--plugin-dir` set to the branch's `plugins/dia` at `d9b1321`, fresh `CLAUDE_CONFIG_DIR` per run, connectors off (`ENABLE_CLAUDEAI_MCP_SERVERS=false`), an empty directory outside the repository, `--allowedTools "Skill WebSearch WebFetch Bash Read"`, `--max-turns 60`, n=2. The init event listed `dia@inline` with the eleven skills (no `dia-iterate`) and five `@synced` plugins from the account (design, finance, cowork-plugin-management, unknowns, game-engagement-retention). Unlike Parts L–Q the runs were kept, because the cell is a first-word invocation and no synced plugin carries a dia skill; a routing cell would need them excluded. In this harness the proxy refused WebFetch (`connect_rejected`), so both runs had search-result summaries only, a weaker evidence condition than the trials in `docs/research/dia-adjudicate.md`. Input: that document's seeded-report test (§4.4), sent as a Korean message starting with `dia-adjudicate`: test text 3 (Moore's law) and three reports, A, B and C, with fifteen items, eight of them planted wrong. Raw transcripts were not kept in the repository.
+
+Both runs loaded `dia:dia-adjudicate` through the Skill tool (1/1 each), loaded no other skill, replied in Korean, and printed the skill's ten-part layout with a must-check list that matched their tables (7 and 6 rows). Run 1: 11 turns, about 105 s; run 2: 15 turns, about 125 s.
+
+| Item | Truth | Run 1 | Run 2 |
+|---|---|---|---|
+| A1: two-year doubling gives 32× in ten years [labelled fatal] | right; severity inflated | valid, lowered to major | valid, major |
+| A2: 18-month doubling gives about 64× in ten years | wrong (about 101.6×) | wrong | wrong |
+| A3: Dennard scaling ended about 2012 (cites Wikipedia) | wrong date for the cited source (2005–2007) | partly valid; the date conflict sent to the must-check list, source not opened | wrong date, listed as an error |
+| A4: the 1965 paper counted components, not transistors | right | valid | valid |
+| A5: Leiserson et al. showed 60,000× on average for ordinary programs | overstated (one matrix-multiply example) | suspected overstated, unverifiable | partly valid (condition cap), listed |
+| B1: 18 months was Moore's own 1975 revision | wrong (two years; 18 months is House) | wrong | wrong |
+| B2: Moore in 2015 expected the end "in the next decade or so" | right | unverifiable | valid (single secondary source) |
+| B3: Huang said "alive" and Gelsinger "dead" in 2022 | wrong (swapped) | wrong | wrong |
+| B4: single-core growth fell from 23% to about 7% a year (cites nextplatform) | figures right, not in the cited source | unverifiable | unverifiable |
+| B5: clocks stalled at 4–6 GHz after 2005 | right | partly valid | mostly valid |
+| C1: there was no 1965 paper | wrong | wrong | wrong |
+| C2: 18 months was Moore's own figure (same error as B1) | wrong | wrong | wrong |
+| C3: Moore said in 2005 "this ends in 2010" (invented) | wrong | unverifiable, suspected wrong | wrong (the 2005 remark was "10–20 more years") |
+| C4: Krzanich in 2015, "closer to two and a half years than two" | right | unverifiable | valid |
+| C5: Dennard scaling broke about 2005–2007 | right | unverifiable, thesis valid | valid |
+
+Totals: no correct item was overturned in either run (0 of 14). Of the eight wrong items, run 1 ruled five wrong, one partly valid and two unverifiable; run 2 flagged all eight. The items on which the runs differ (A3, A5, B2, C3, C4, C5) contain every item where run 1 fell short of the key. A3 is the cell the 1.0.0 text changed (spec D40, the rule that a report misstating its own cited source is always listed): run 2 listed it; run 1 could not open the source and left it for the must-check list. Run 1 called itself a single run although the message said it was one of two; it did not start a second run itself.
+
+Not probed here: the mid-sentence mention, a plain "which of these reviews is right?" request, negative cells against dia-refine, dia-ratchet and dia-warrant, and Codex (handoff item 24).
+
+**Part S, 1.6.0 on branch `writing-for-models` after the D43 rewrite (dia-intent, dia-ratchet, dia-adjudicate, dia-instruct, dia-menu routing; a first-word run of each rewritten skill), 2026-10-28.** Claude Code 2.1.312 on Windows 11, sonnet, `--plugin-dir` set to a copy of `plugins/dia` at `572e6d6`, fresh `CLAUDE_CONFIG_DIR` per run holding only a copy of the credentials (deleted after the run), `ENABLE_CLAUDEAI_MCP_SERVERS=false`, an empty directory outside the repository, tool-less (`--tools Skill`), `--max-turns 12`, n=1 per cell. No run listed an `@synced` plugin. Which skill loaded is read from the `Skill` tool_use input. 33 of 33 cells matched the expectation; the smoke cells check that each rewritten skill loads by its first word and opens in its own format, not output quality.
+
+| Cell | Expected | Loaded | Note |
+|---|---|---|---|
+| intent-name | dia-intent | dia-intent → dia-intent | loaded (twice in one run); review with the four labels |
+| intent-menu-1 | dia-menu -> dia-intent | dia-menu → dia-intent | as expected |
+| intent-menu-int | dia-menu -> dia-intent | dia-menu → dia-intent | as expected |
+| intent-plain | not dia-intent (description gate) | none | not loaded; the model confirmed the goal on its own |
+| intent-mid | none | none | as expected |
+| intent-oldname | not dia-intent (old name) | none | not loaded; plain answer (old name no longer starts it) |
+| menu-gate | dia-menu only; replies with dia 1 form | dia-menu | menu replied with `dia 1 …` / `dia-intent …` and stopped |
+| ratchet-name | dia-ratchet | dia-ratchet | as expected |
+| ratchet-rat | dia-menu -> dia-ratchet | dia-menu → dia-ratchet | as expected |
+| ratchet-10 | dia-menu -> dia-ratchet | dia-menu → dia-ratchet | as expected |
+| ratchet-plain | not dia-ratchet | none | not loaded; plain answer |
+| adj-name | dia-adjudicate | dia-adjudicate | as expected |
+| adj-11 | dia-menu -> dia-adjudicate | dia-adjudicate | loaded directly, without the menu skill; Inputs line, shuffle, tool-less limits stated |
+| adj-adj | dia-menu -> dia-adjudicate | dia-menu → dia-adjudicate | as expected |
+| adj-plain | not dia-adjudicate | none | not loaded; plain answer |
+| ins-nl | dia-instruct | dia-instruct | as expected |
+| ins-sysprompt | dia-instruct (risk: dia-refine) | dia-instruct | dia-instruct, not dia-refine |
+| ins-claudemd | none, or dia-instruct without a sub-agent review | none | not loaded; edit shown, no review step |
+| ins-email-neg | dia-refine, not dia-instruct | none | not loaded (neither dia-instruct nor dia-refine; dia-refine by plain request is the known limit of Part J) |
+| ins-write-neg | none | none | as expected |
+| ins-12 | dia-menu -> dia-instruct | dia-menu → dia-instruct | as expected |
+| ins-ins | dia-menu -> dia-instruct | dia-menu → dia-instruct | as expected |
+| menu-req-prompt | dia-menu -> dia-instruct | dia-menu → dia-instruct | as expected |
+| menu-bare | dia-menu, 12 rows | dia-menu | twelve numbered rows and the three lines |
+| menu-con | dia-menu -> dia-conjecture | dia-menu → dia-conjecture | `con` went to dia-conjecture alone |
+| smoke-brainstorm | dia-brainstorm | dia-brainstorm | as expected |
+| smoke-elenchus | dia-elenchus | dia-elenchus | as expected |
+| smoke-reductio | dia-reductio | dia-reductio | as expected |
+| smoke-negative | dia-negative | dia-negative | ran; could not open `references/output-template.md` (no Read tool in this harness) and followed Steps 1–8 |
+| smoke-warrant | dia-warrant | dia-warrant | as expected |
+| smoke-conjecture | dia-conjecture | dia-conjecture | as expected |
+| smoke-counterplan | dia-counterplan | dia-counterplan | as expected |
+| smoke-refine | dia-refine | dia-refine | as expected |
+
+Not probed here: Codex and ChatGPT; n>1; mid-sentence mentions of dia-ratchet and dia-adjudicate; probes Part P's flagged description cells (descriptions are unchanged since Part P except dia-refine, dia-ratchet and dia-menu in D39).
+
 ### P8: tool-less run (`--tools Skill`: no search, fetch, code or file tools)
 
 Draft under test: "The Eiffel Tower was completed in 1889 and is about 330 m tall. Python 3.13 removed the GIL by default. 17 x 23 = 391." The Python sentence is wrong.

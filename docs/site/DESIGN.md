@@ -1,6 +1,6 @@
 ---
 name: Dialectic Skills
-description: Project page for dia, ten reasoning-and-review skills in one plugin, drawn from one motif, two overlapping circles and the amber lens where they meet.
+description: Project page for dia, twelve reasoning-and-review skills in one plugin, drawn from one motif, two overlapping circles and the amber lens where they meet.
 colors:
   sky: "#cbe4f2"
   sky-tone: "#b6d7ea"

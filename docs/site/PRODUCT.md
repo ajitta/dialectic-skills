@@ -19,14 +19,14 @@ web
   "Skill guide with examples")**
 - Claude Code and Codex CLI users who install from the command line. **(inferred from the Quick start
   order in README)**
-- The job on the project page: understand what the ten skills do, pick one, install `dia` on the
+- The job on the project page: understand what the twelve skills do, pick one, install `dia` on the
   surface they use, and know how to start a skill there. **(inferred)**
 
 ## Product Purpose
 
-`dia` (Dialectic Skills) is one plugin of ten reasoning-and-review skills: `dia-confirm`,
+`dia` (Dialectic Skills) is one plugin of twelve reasoning-and-review skills: `dia-intent`,
 `dia-elenchus`, `dia-brainstorm`, `dia-reductio`, `dia-negative`, `dia-warrant`, `dia-conjecture`,
-`dia-counterplan`, `dia-refine`, `dia-iterate` (the last three added before them in 1.3.0). Each
+`dia-counterplan`, `dia-refine`, `dia-ratchet`, `dia-adjudicate`, `dia-instruct` (warrant, conjecture and counterplan added in 1.3.0; adjudicate and instruct in 1.6.0). Each
 turns an old way of thinking (Socratic questioning, proof by contradiction, internal critique,
 Toulmin's argument layout, Lakatos's proofs and refutations, Mason's dialectical inquiry, an editor's
 review pass) into a routine the assistant follows step by step. Success for the page is an
@@ -55,9 +55,9 @@ install on the visitor's surface and a first skill started. **(success definitio
 
 ## Capabilities and Constraints
 
-- Plugin version 1.3.0 on the `next` branch, unreleased; the live page and `main` describe 1.2.1
+- Plugin version 1.6.0 on branch `writing-for-models`, unreleased; the live page and `main` describe 1.4.0
   (`plugin-manifest.json`). License MIT. The page is published only from `main`.
-- `dia-intent` was renamed `dia-confirm` in 1.1.0.
+- `dia-intent` was renamed `dia-confirm` in 1.1.0 and back to `dia-intent` in 1.6.0; `dia-iterate` was renamed `dia-ratchet` in 1.6.0. The page shows plates for ten skills; `dia-adjudicate` and `dia-instruct` (1.6.0) are listed and link to the README until they get plates and pictures.
 - The project page lives at `https://ajitta.github.io/dialectic-skills/` and is plain static
   HTML/CSS/JS in `site/`; all asset URLs must be relative. **(stack observed in the repository)**
 - Undecided: whether the page should ever carry translated versions (the README has Korean, Japanese

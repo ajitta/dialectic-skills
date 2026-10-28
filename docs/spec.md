@@ -2,15 +2,15 @@
 
 | | |
 |---|---|
-| Status | Approved by the owner on 2026-10-20; pre-release 0.1.0, accepted (§12.3) and released as 1.0.0 on 2026-10-20; 1.1.0 renames dia-intent to dia-confirm (D30). Probe results: `docs/probes.md` |
+| Status | Approved by the owner on 2026-10-20; pre-release 0.1.0, accepted (§12.3) and released as 1.0.0 on 2026-10-20; 1.1.0 renames dia-intent to dia-confirm (D30), and 1.6.0 renames it back (D42). 1.5.0 (D39, D40) was built on a branch and never released; its changes ship in 1.6.0 (owner, 2026-10-28). Probe results: `docs/probes.md` |
 | Date | 2026-10-20 |
 | Owner | ajitta |
-| Repository | `ajitta/dialectic-skills` (private) |
+| Repository | `ajitta/dialectic-skills` (public since 2026-10-20) |
 | Scope of this document | What to build and how to verify it. Building it is a separate step. |
 
 ## 1. Summary
 
-`dialectic-skills` packages ten reasoning-and-review skills as one plugin, installed under the plugin name `dia`. A menu skill, `dia-menu` (1.4.0, D38), is the short entry point to them. Seven are rebuilt from the owner's existing skills (socratic-brainstorm, socratic-elenchus, reductio, negative-dialectics, self-refine, recursive-refine, confirm-intent); three were added in 1.3.0 from the candidate research (D35). The target surfaces are:
+`dialectic-skills` packages twelve reasoning-and-review skills as one plugin, installed under the plugin name `dia`. A menu skill, `dia-menu` (1.4.0, D38), is the short entry point to them. Seven are rebuilt from the owner's existing skills (socratic-brainstorm, socratic-elenchus, reductio, negative-dialectics, self-refine, recursive-refine, confirm-intent); three were added in 1.3.0 from the candidate research (D35), dia-adjudicate in 1.5.0 (D40) and dia-instruct in 1.6.0 (D41). The target surfaces are:
 
 - Claude Code
 - Codex
@@ -24,7 +24,7 @@ The shipped package contains instructions only: Markdown, YAML and JSON. It has 
 
 ### Goals
 
-- G1. One plugin, `dia`, containing the skills named in §4 (seven until 1.2.1, ten from 1.3.0, D35, plus dia-menu from 1.4.0, D38).
+- G1. One plugin, `dia`, containing the skills named in §4 (seven until 1.2.1, ten from 1.3.0, D35, plus dia-menu from 1.4.0, D38, eleven with dia-adjudicate from 1.5.0, D40, and twelve with dia-instruct from 1.6.0, D41).
 - G2. The same skill files run unchanged on every target surface, and on a surface that has no tools at all (mobile chat).
 - G3. Skill files are written in English. Hangul appears only under `references/ko/` (§6).
 - G4. The repository starts by importing the material it is rebuilt from into `upstream/` (§11). That material is kept in the repository and never shipped.
@@ -80,6 +80,11 @@ These decisions were settled with the owner during the spec interview of 2026-10
 | D35 | Three skills added in plugin 1.3.0 (owner, 2026-10-21; built on branch `next`, merged to `main` 2026-10-22): `dia-warrant` (Toulmin layout with Walton's critical questions, one pass), `dia-conjecture` (Lakatos's proofs and refutations on a strictly universal claim, multi-turn) and `dia-counterplan` (Mason's dialectical inquiry on a plan or decision; the user synthesizes). Basis: `docs/research/candidates/` (six family documents, weighed by fit for human-AI chat and fidelity) and its independent review (`docs/research/candidates/review/`, all SOUND WITH FIXES); the owner picked dia-warrant (cluster 1) and dia-counterplan (cluster 3), and dia-conjecture, which the index review (F7) moved out of cluster 2 into the distinct candidates; cluster 2 (dia-munazara, dia-defend) was not picked. Each skill applies its review's corrections; the applied and declined findings are in `docs/research/candidates/design/<skill>.md`. Routing: each new description carries exclusion sentences toward its bordering siblings. Sibling edits (index review F10): dia-reductio 1.1.0 asks whether a position "holds together or follows strictly from its premises" (D23 had "follows from") and points to dia-warrant and dia-conjecture; dia-brainstorm 1.2.0 points to dia-counterplan and, to stay within 1,024 characters, drops the verdict names and "short" and shortens two phrases ("For Plato's strict dialogue", "even one naming an idea"), with no rule change; its Step 0 gains a fallback line toward dia-counterplan, dia-conjecture and dia-warrant. A request for a devil's advocate on a plan is answered with dialectical inquiry (a counterplan), not with devil's-advocacy critique; critique by questions stays with dia-brainstorm's stress mode. The ten descriptions total 1,922 o200k tokens at `b30344d` (1,219 for the seven at `eb7ab54`). Routing probes: probes Part O. Not done in this decision: the site (plates and text); dia-hypothesis, dia-commit, the munāẓara pushback rule (separate batch). |
 | D37 | Description clean-up for plugin 1.3.0 (owner, 2026-10-21; shipped in 1.3.0 on 2026-10-22). An independent audit (`docs/research/candidates/review/clean/audit-descriptions.md`) found the descriptions patched sentence by sentence through the probe rounds: 1,924 o200k tokens for ten (1,219 for seven at 1.2.1), 26% of it pointers to siblings, five within 15 characters of the 1,024 cap. All ten were rewritten to the §7.2 convention, keeping every phrase with probe evidence: 1,566 tokens, longest 896 characters. Added in the same pass: dia-warrant's fallacy trigger (Part O cell 0/5) and dia-brainstorm's pointer to dia-warrant ("Poke holes in my argument …" went to dia-brainstorm). Body cuts in dia-warrant, dia-conjecture and dia-counterplan removed restated rules and pitfalls (`audit-bodies.md`). Gate: probes Part P. Two cuts were reverted on gate evidence: dia-refine's "treat it as a draft" trigger and dia-warrant's explicit "none given" result with the one-pass rule. Skill versions: dia-elenchus 1.2.0, dia-negative 1.1.0, dia-refine 1.1.0, dia-iterate 1.2.0; the others keep the 1.3.0-cycle numbers. D36 is reserved for the `upstream/` move on branch `docs-skills-cli`. |
 | D38 | `dia-menu` added in plugin 1.4.0 (owner, 2026-10-25; built on branch `menu`). Reason: typing `dia-<x>` or `/dia-<x>` in full is slow on a phone (a hyphen and, on the Claude mobile app, a `/` that the menu does not complete). `dia` alone shows a numbered menu of the ten skills; `dia <number>` or `dia <first letters>` runs that skill (an ambiguous prefix is asked about); `dia <request>` picks among dia-brainstorm through dia-refine, says which in one line, and runs it, asking when two fit about equally. It never starts dia-confirm or dia-iterate from a plain request (owner ruling (a), 2026-10-25: their gates stay); a selector by name or number counts as an explicit invocation, so dia-confirm 1.3.0 and dia-iterate 1.3.0 each gain one sentence saying so, plus a clause in their descriptions. Naming: the menu's trigger word `dia` is not a skill name; the skill is `dia-menu`, so D9 (each name carries the `dia-` prefix) and the §4 rule that no name is a prefix of another both still hold. A keyboard text-replacement route was offered and rejected by the owner as out of scope. The menu also declines an explicit "confirm the goal first" request without the name or number (it replies with `dia 1 …`), although dia-confirm's own body would run it; this costs one round trip and keeps ruling (a) simple. After the independent review (`~/work/dia-review/menu-2026-10-25/report.md` on the build VM): dia-conjecture takes claims about what is the case, not rules or policies to adopt (those go to dia-counterplan for a plan or decision, otherwise dia-brainstorm); a selector needs three letters and yields to a word that belongs to the sentence; the warrant, counterplan and elenchus borders follow those skills' descriptions; dia-iterate's selector form is `dia iter`; after the second review pass, a number that counts something (`dia 1 thing …`) is a request, not a selector, and dia-confirm and dia-iterate say so too. Descriptions: 1,706 o200k tokens for eleven (1,566 at 1.3.0): dia-menu 119, dia-confirm +9, dia-iterate +12. Probes: `docs/probes.md` Part Q. D36 is reserved for branch `docs-skills-cli` (not merged). |
+| D39 | `dia-iterate` is renamed `dia-ratchet` in plugin 1.5.0 (owner, 2026-10-28; built on branch `adjudicate-ratchet`, not merged). Reason: the skill's defining rule is not repetition but its evidence gate (only an outside check counts, the user's own material included; your own re-derivation does not), and "iterate" suggests the self-judged revision loop the skill exists to prevent (Huang et al., ICLR 2024). A ratchet moves only forward on confirmed evidence, locks what passed and stops on regression, which is the skill's stop-and-lock design. The descriptions now lead with the evidence basis that separates the two review skills: dia-refine fixes on "a tool, the user's material or your own re-derivation of the logic or a calculation"; dia-ratchet fixes only on "an external check ... never on your own re-derivation". dia-ratchet 1.4.0 (its lineage records the old name), dia-refine 1.2.0, dia-menu 1.1.0 (selector `dia ratchet`, `dia rat`). `rat` is a prefix of no other name. As with D30, the rename breaks invocation by the old name; the owner and a few acquaintances are the only users, so no alias is kept, and `tools/package.py` now rejects `dia-iterate` outside `metadata.lineage`. Decision rows, research documents, probes and reviews dated before D39 keep the old name as a historical record. Not done here: routing probes for the edited descriptions (re-run probes Part P's flagged cells and Part Q's gated cells under the new name), the project page (`site/`). |
+| D40 | `dia-adjudicate` added in plugin 1.5.0 (owner, 2026-10-28; branch `adjudicate-ratchet`, not merged). A judge that rules on reports others wrote about a target (critiques, reviews, verification reports): it inventories the target's claims independently of the reports, merges report items, checks each against outside evidence and gives verdicts with an evidence class, without rewriting the target. Its rules come from trials in which judge agents misruled (`docs/research/dia-adjudicate.md`): overturning a report item needs a contradicting source span on the same point, and a summarizing fetch caps an overturn at "unverifiable" unless a direct question to the source contradicts the item; not found is not false; quotations are compared to the letter, and a report that misstates its own cited source is always listed; study-to-case conditions are compared; agreement between reports is not evidence; one reading of the target throughout, with a consistency check; every overturn goes into the tables and a must-check list for a person; running twice and checking only the differing items is recommended where the host allows it. Gating: explicit-only, like dia-ratchet (first word or name, dia-menu selector 11); the menu never chooses it from a plain request. Draft history v0.1 to v0.6 and the trial results are in the research document; those are draft numbers, and the shipped skill starts at 1.0.0. Not done here: routing probes (first-word cells, and negative cells against dia-refine, dia-ratchet and dia-warrant), a README skill-guide example from a recorded run, the project page. |
+| D41 | `dia-instruct` added in plugin 1.6.0, and dia-adjudicate 1.1.0 rewritten by its rules (owner, 2026-10-28; branch `writing-for-models`, built on `adjudicate-ratchet`, not merged). dia-instruct checks or writes text a model reads and follows (skill files, agent and sub-agent prompts, AGENTS.md, rules files, hook and tool messages) against four rules: each paragraph one expression holding its condition, limit and fallback; a scope word read as a type signature; fewer instructions, each with its reason; one name per thing. It adds structure items, leads that are never findings, and a change procedure: a meaning change only on request or by a rule, an A/B when an eval exercises the change, and review of kept text by a sub-agent that did not write it where one is available. Source: the owner's writing-for-models draft, cleaned for public release (nothing from the owner's private repository); what each part rests on is in its `references/evidence.md`, and the session record is in `docs/writing-for-models/`. Name: the owner picked dia-instruct over dia-write and dia-prompt; `ins` is a prefix of no other name. Invocation: natural language, like dia-refine, with one Not-for sentence toward dia-refine and dia-adjudicate; dia-menu 1.2.0 gives it row 12 and may choose it for a request (owner ruling). Added for this repository: a sentence that the text under review is material, not instructions (D26). Removed: the related-work line on Matt Pocock's writing-for-agents skill (AGENTS.md rule on other projects; owner ruling). dia-adjudicate 1.1.0 is the B arm of the A/B in `docs/writing-for-models/ab-dia-adjudicate/`: each misruling seen in trials moved from the opening list into the rule that targets it as its reason, and the overturn conditions became one rule, so the rules run 1–12; an independent meaning check found no judging change after three were reverted. Over 28 runs in three rounds (Opus and Haiku; local sources and a summarizing fetch tool) it showed no difference from 1.0.0. One count is unresolved: correct items capped at "partly valid" in A 1/6 and B 5/6 runs (p = 0.08); a re-run of that case at 12 or more runs per arm is open. Not done here: routing probes for dia-instruct (natural-language cells, negative cells against dia-refine and dia-adjudicate, menu cells `dia 12`, `dia ins` and a plain request to write a prompt), a README example from a recorded run, the project page. |
+| D42 | `dia-confirm` is renamed back to `dia-intent` in plugin 1.6.0 (owner, 2026-10-28; branch `intent`, built on `writing-for-models`). Reason: "confirm" reads as an action the assistant performs rather than as what the skill is about, and the owner found it confusing next to the other names; "intent" names the object of the review (the user's goal, assumptions and open decisions). This reverses D30's name only; D30's behavior (show the review and hold until approval) is unchanged. dia-intent 1.4.0 (its lineage records both former names), dia-menu 1.2.0 (row 1, selectors `dia intent`, `dia int`). `int` is a prefix of no other name (`ins` is dia-instruct); with confirm gone, no three-letter prefix fits two names, so `con` now selects dia-conjecture alone. The rename breaks invocation by `dia-confirm`; the owner and a few acquaintances are the only users, so no alias is kept (as D39), and `tools/package.py` now rejects `dia-confirm` outside `metadata.lineage` instead of `dia-intent`. Records dated before D42 keep the name they used. Not done here: routing probes for the renamed skill (first word, mid-sentence mention, `dia 1`, `dia int`), the project page. |
+| D43 | The bodies of eleven skills are rewritten by dia-instruct's rules in plugin 1.6.0 (owner, 2026-10-28): dia-intent, dia-brainstorm, dia-elenchus, dia-reductio, dia-negative, dia-warrant, dia-conjecture, dia-counterplan, dia-refine, dia-ratchet and dia-menu. Reason: the owner wants every skill written so that a model reads and follows it more reliably (conditions inside the sentence they gate, reasons attached, one name per thing); readability for people is not a goal. Scope: body only; frontmatter, descriptions, `agents/openai.yaml` and `references/` are unchanged, so the routing gates (probes Parts P and Q) still describe the same descriptions. Wording and structure only, with no intended behavior change, so no A/B was run and the change is unmeasured (owner accepted). Each body was rewritten by one sub-agent and reviewed for meaning and against the rules by another that did not write it; every confirmed finding was fixed before adoption. dia-elenchus's Pitfalls section is folded into the rules it qualifies; dia-counterplan's Targets bullets moved under Parameters. Versions: dia-brainstorm 1.3.0, dia-elenchus 1.3.0, dia-reductio 1.2.0, dia-negative 1.2.0, dia-warrant 1.1.0, dia-conjecture 1.1.0, dia-counterplan 1.1.0; dia-intent, dia-refine, dia-ratchet and dia-menu keep their unreleased 1.6.0 versions. Meaning changes the rewrite surfaced are listed for the owner in `docs/writing-for-models/rewrite-2026-10-28.md`, not applied. |
 
 ## 4. Names and identifiers
 
@@ -98,22 +103,24 @@ The plugin `name` is the only field that sets the namespace. `displayName` is sh
 
 | New skill | Rebuilt from (reference version) | Claude invocation | Codex / ChatGPT invocation |
 |---|---|---|---|
-| `dia-confirm` (named `dia-intent` until 1.0.0, D30) | confirm-intent (installed copy, no version field) | `/dia:dia-confirm` | `$dia:dia-confirm` / `@dia-confirm`, or a message starting `dia-confirm` (1.2.0, D33) |
+| `dia-intent` (named `dia-confirm` from 1.1.0 to 1.4.0, D30, D42) | confirm-intent (installed copy, no version field) | `/dia:dia-intent` | `$dia:dia-intent` / `@dia-intent`, or a message starting `dia-intent` (1.2.0, D33) |
 | `dia-elenchus` | socratic-elenchus 1.3.1 (`superclaude@stable`) | `/dia:dia-elenchus` | `$dia:dia-elenchus` / `@dia-elenchus`, or natural language (1.2.0, D33) |
 | `dia-brainstorm` | socratic-brainstorm 3.3.1 (`superclaude@stable`) | `/dia:dia-brainstorm` | `$dia:dia-brainstorm` / `@dia-brainstorm`, or natural language (1.2.0, D33) |
 | `dia-reductio` | reductio (installed copy) | `/dia:dia-reductio` | `$dia:dia-reductio` / `@dia-reductio` |
 | `dia-negative` | negative-dialectics (installed copy) | `/dia:dia-negative` | `$dia:dia-negative` / `@dia-negative` |
 | `dia-refine` | self-refine (installed copy) | `/dia:dia-refine` or a message starting `dia-refine` | `$dia:dia-refine` / `@dia-refine` or a message starting `dia-refine` |
-| `dia-iterate` | recursive-refine, output mode only (installed copy) | a message starting `dia-iterate`, or `/dia:dia-iterate` | `$dia:dia-iterate` / `@dia-iterate`, or a message starting `dia-iterate` (1.2.0, D33) |
+| `dia-ratchet` (named `dia-iterate` until 1.4.0, D39) | recursive-refine, output mode only (installed copy) | a message starting `dia-ratchet`, or `/dia:dia-ratchet` | `$dia:dia-ratchet` / `@dia-ratchet`, or a message starting `dia-ratchet` (1.2.0, D33) |
 | `dia-warrant` (1.3.0, D35) | new: `docs/research/candidates/argumentation.md` | `/dia:dia-warrant` | `$dia:dia-warrant` / `@dia-warrant`, or natural language |
 | `dia-conjecture` (1.3.0, D35) | new: `docs/research/candidates/modern-dialectic.md` | `/dia:dia-conjecture` | `$dia:dia-conjecture` / `@dia-conjecture`, or natural language |
 | `dia-counterplan` (1.3.0, D35) | new: `docs/research/candidates/argumentation.md` | `/dia:dia-counterplan` | `$dia:dia-counterplan` / `@dia-counterplan`, or natural language |
 | `dia-menu` (1.4.0, D38) | new: menu and router, no method of its own | `dia`, `dia <n>`, `dia <prefix>`, `dia <request>`; `/dia:dia-menu` | the same first word; `$dia:dia-menu` / `@dia-menu` |
+| `dia-adjudicate` (1.5.0, D40) | new: `docs/research/dia-adjudicate.md` | a message starting `dia-adjudicate`, or `/dia:dia-adjudicate` | `$dia:dia-adjudicate` / `@dia-adjudicate`, or a message starting `dia-adjudicate` |
+| `dia-instruct` (1.6.0, D41) | new: the owner's writing-for-models draft (`docs/writing-for-models/`) | `/dia:dia-instruct` | `$dia:dia-instruct` / `@dia-instruct`, or natural language |
 
 Naming rules:
 
 - Each name is kebab-case and matches its folder name.
-- No name is a prefix of another name. A build check enforces this, because `dia-refine` and `dia-iterate` are invoked by first word.
+- No name is a prefix of another name. A build check enforces this, because `dia-refine`, `dia-ratchet` and `dia-adjudicate` are invoked by first word.
 
 On namespacing outside Claude:
 
@@ -126,7 +133,7 @@ Natural-language requests work on every surface and are the safe default on mobi
 
 ## 5. Skills
 
-The seven rebuilt skills (5.1–5.7) keep their reference behavior unless this section or D19–D35 say otherwise. The three skills added in 1.3.0 (5.8–5.10) and dia-menu (5.11, 1.4.0) have no reference; design notes for 5.8–5.10 are in `docs/research/candidates/design/`, and dia-menu's design is D38 and §5.11. For every rebuilt skill, the rebuild:
+The seven rebuilt skills (5.1–5.7) keep their reference behavior unless this section or D19–D35 say otherwise. The three skills added in 1.3.0 (5.8–5.10), dia-menu (5.11, 1.4.0), dia-adjudicate (5.12, 1.5.0) and dia-instruct (5.13, 1.6.0) have no reference; design notes for 5.8–5.10 are in `docs/research/candidates/design/`, dia-menu's design is D38 and §5.11, dia-adjudicate's research is `docs/research/dia-adjudicate.md`, and dia-instruct's record is `docs/writing-for-models/`. For every rebuilt skill, the rebuild:
 
 - renames the skill;
 - updates cross-references so that each description names the new skill names;
@@ -134,11 +141,11 @@ The seven rebuilt skills (5.1–5.7) keep their reference behavior unless this s
 - adds `agents/openai.yaml` (§7.3);
 - sets `metadata.version` to `1.0.0` and records `metadata.lineage` as `<old name> <old version>`.
 
-### 5.1 dia-confirm (from confirm-intent; `dia-intent` until 1.0.0, D30)
+### 5.1 dia-intent (from confirm-intent; `dia-confirm` from 1.1.0 to 1.4.0, D30, D42)
 
 - Purpose: before work starts, restate the goal, disclose material assumptions and list only the decisions the user must make. Then wait for approval.
 - Behavior: the reference, amended by D19–D34.
-- Invocation: first word or explicit name. The description says "Use only when the message starts with dia-confirm, or when the skill is explicitly selected or invoked by name". `allow_implicit_invocation: true` since 1.2.0 (D33), so the first word works on Codex (probed, Part M); on ChatGPT mobile the owner confirmed it for dia-brainstorm and dia-iterate (P5 1.2.0), and dia-confirm there works by the same setting, not checked. A body sentence backs the description up: if the skill loads without the marker, it runs the review only when the user explicitly asked to confirm the goal, assumptions or open decisions first, and otherwise does the task without holding it for approval.
+- Invocation: first word or explicit name. The description says "Use only when the message starts with dia-intent, or when the skill is explicitly selected or invoked by name". `allow_implicit_invocation: true` since 1.2.0 (D33), so the first word works on Codex (probed, Part M); on ChatGPT mobile the owner confirmed it for dia-brainstorm and dia-iterate (P5 1.2.0), and dia-intent there works by the same setting, not checked. A body sentence backs the description up: if the skill loads without the marker, it runs the review only when the user explicitly asked to confirm the goal, assumptions or open decisions first, and otherwise does the task without holding it for approval.
 - References: none at present. `references/ko/` is optional (§6).
 
 ### 5.2 dia-elenchus (from socratic-elenchus 1.3.1)
@@ -194,17 +201,18 @@ The seven rebuilt skills (5.1–5.7) keep their reference behavior unless this s
     - Natural language, in English triggers plus "or the same in any language": for example "review your previous answer as a draft", "fix factual errors and logical leaps", "give me only the improved final version".
     - A passing mention of dia-refine in the middle of a sentence is not an invocation.
     - Since D24 the natural-language triggers and the passing-mention rule live in the description only; the body keeps the explicit forms.
-    - Multi-round requests belong to dia-iterate.
-  - The pointer to recursive-refine becomes a pointer to dia-iterate.
+    - Multi-round requests belong to dia-ratchet (dia-iterate until 1.4.0, D39).
+  - The pointer to recursive-refine becomes a pointer to dia-ratchet.
+  - Since D39 the description leads with its evidence basis: a tool, the user's material or its own re-derivation of the logic or a calculation.
 - Tool-less surfaces: the behavior is already specified. Unchecked items are marked unverified and left as drafted.
 - References: none at present.
 
-### 5.7 dia-iterate (from recursive-refine, output mode)
+### 5.7 dia-ratchet (from recursive-refine, output mode; `dia-iterate` until 1.4.0, D39)
 
 - Purpose: repeated review rounds, each gated by external verification. Each round names defects, assigns an external verification method, verifies, fixes only confirmed defects, locks verified items and logs the round. The loop stops on regression, zero defects, verification exhausted, fixed point, or the round cap (`--max N`, default 3).
 - Required changes:
   - Remove skill mode entirely: the "Skill mode" sections, `references/skill-loop.md`, and every mention of `cp -r`, `diff -u`, subagents, `evals/` and `package_skill`. Targets are the last output, a named draft, or a file the surface can read.
-  - Invocation: first word or explicit name only. Activate only when the message starts with `dia-iterate` or the skill is invoked explicitly by name. If the marker is absent but the skill looks right, ask in one line for a message starting with `dia-iterate`, or an explicit invocation of the skill by name, and stop. Explicit `/dia:dia-iterate`, `$dia:dia-iterate`, `$dia-iterate` and `@dia-iterate` also count. Until 1.1.1 `allow_implicit_invocation: false` hid it from the model on Codex and ChatGPT, so the first word could not work there; since 1.2.0 it is `true` (D33) and the description and the body's marker rule do the gating.
+  - Invocation: first word or explicit name only. Activate only when the message starts with `dia-ratchet` or the skill is invoked explicitly by name. If the marker is absent but the skill looks right, ask in one line for a message starting with `dia-ratchet`, or an explicit invocation of the skill by name, and stop. Explicit `/dia:dia-ratchet`, `$dia:dia-ratchet`, `$dia-ratchet` and `@dia-ratchet` also count. Until 1.1.1 `allow_implicit_invocation: false` hid it from the model on Codex and ChatGPT, so the first word could not work there; since 1.2.0 it is `true` (D33) and the description and the body's marker rule do the gating.
   - Generalize tool names in `verification-sources.md`. "Context7 doc lookup" becomes "an official-documentation lookup tool (for example Context7) or a fetch of official docs".
   - Add an explicit tool-less rule: when no search, fetch or code tool is available, the only external evidence is the user's instructions and material the user supplies. Most defects are therefore unverifiable, and the loop usually stops after round 1 with the "verification exhausted" list. This is expected behavior, not a failure.
   - Keep the content-filter guardrails: a change-list output by default, no source quotations except a misquotation corrected in one sentence (D23), one retry, then change the output shape.
@@ -234,10 +242,27 @@ The seven rebuilt skills (5.1–5.7) keep their reference behavior unless this s
 
 ### 5.11 dia-menu (new in 1.4.0, D38)
 
-- Purpose: a short entry point. `dia` alone shows a fixed numbered menu of the ten skills; `dia <n>` or `dia <prefix>` (at least three letters, with or without `dia-`, in any letter case) runs that skill, unless the word plainly belongs to the request's sentence (`red flags …`, `3 reasons …`; this also holds for a number, so `dia 1 thing …` is a request), and an ambiguous prefix lists the matches and asks; `dia <request>` picks one of dia-brainstorm, dia-elenchus, dia-reductio, dia-negative, dia-warrant, dia-conjecture, dia-counterplan and dia-refine, names it in one line, and runs it, or asks when two fit about equally. A plain task with no fitting method is done without a dia skill; the menu says so in one line and names a skill only if one is close. A rule or policy to adopt goes to dia-counterplan if it is a plan or decision, to dia-brainstorm if the user wants it questioned; a request for exceptions to a rule is a plain answer.
-- Gates: dia-confirm and dia-iterate are never chosen from a plain request; the menu replies with the form to send. A selector by number or name is an explicit invocation by name for every skill.
+- Purpose: a short entry point. `dia` alone shows a fixed numbered menu of the skills (ten in 1.4.0; eleven from 1.5.0, with dia-adjudicate as 11, D40; twelve from 1.6.0, with dia-instruct as 12, D41); `dia <n>` or `dia <prefix>` (at least three letters, with or without `dia-`, in any letter case) runs that skill, unless the word plainly belongs to the request's sentence (`red flags …`, `3 reasons …`; this also holds for a number, so `dia 1 thing …` is a request), and an ambiguous prefix lists the matches and asks; `dia <request>` picks one of dia-brainstorm, dia-elenchus, dia-reductio, dia-negative, dia-warrant, dia-conjecture, dia-counterplan, dia-refine and dia-instruct (1.6.0), names it in one line, and runs it, or asks when two fit about equally. A plain task with no fitting method is done without a dia skill; the menu says so in one line and names a skill only if one is close. A rule or policy to adopt goes to dia-counterplan if it is a plan or decision, to dia-brainstorm if the user wants it questioned; a request for exceptions to a rule is a plain answer.
+- Gates: dia-intent, dia-ratchet and dia-adjudicate are never chosen from a plain request; the menu replies with the form to send. A selector by number or name is an explicit invocation by name for every skill.
 - Hand-off: the chosen skill is loaded the way the host loads skills and followed in full; the menu table is not a substitute. If it cannot be loaded, the menu says so and gives `dia-<x> <request>`.
 - Invocation: first word `dia` on its own, or the name. `allow_implicit_invocation: true`.
+
+### 5.12 dia-adjudicate (new in 1.5.0, D40)
+
+- Purpose: rule on reports that others (people or agents) wrote about a target text, answer or draft. Inventories the target's checkable claims before reading the reports closely, merges the reports' points into unique issues, checks each against outside evidence (calculations, quotations to the letter, facts, study-to-case conditions, inference steps) and gives a verdict, a severity by effect on the target's conclusion and an evidence class for each. Does not rewrite the target or write a new critique. Ends with a must-check list of the verdicts where a judge's own errors concentrate: every overturned report item, every "unverifiable" on a claim the conclusion depends on, and every verdict changed by the consistency check.
+- Borders: reviewing and fixing a draft yourself goes to dia-refine; fixing through verified rounds to dia-ratchet; an argument's support to dia-warrant (its critical questions may inform the checks).
+- Invocation: first word or explicit name only, as dia-ratchet; dia-menu selector 11. `allow_implicit_invocation: true`; the description and the body's marker rule gate it.
+- Tool-less surfaces: only the user's material counts as outside evidence; calculations and logic can be re-derived; most factual items stay "unverifiable" and none is overturned.
+- Research and trials: `docs/research/dia-adjudicate.md`.
+
+### 5.13 dia-instruct (new in 1.6.0, D41)
+
+- Purpose: check or write text a model reads and follows against four rules (each paragraph one expression holding its condition, limit and fallback; a scope word read as a type signature; fewer instructions, each with its reason; one name per thing) and the structure they imply. A breach of a rule or structure item is a finding; a lead is advice, never a finding. A review-only request yields a report of breaches with location, quote and rule, and no change until the user picks.
+- Borders: an answer or a draft for people, checked for factual errors and logical leaps, goes to dia-refine; ruling on reviews others wrote goes to dia-adjudicate.
+- Invocation: natural language and by name; dia-menu row 12, and the menu may choose it for a request. `allow_implicit_invocation: true`.
+- Tool-less surfaces: without a sub-agent, kept text is self-checked and the check is called not independent; without an eval, a meaning change stays only if it is reported as unmeasured and the user accepts it.
+- Owner rulings after the pre-merge review (2026-10-28): replies to the user are in the user's language, while text written or edited keeps its language or the one its rules set; a fix for a confirmed review finding is self-checked, with another sub-agent round only when the fix changes meaning; an edit that only adds or updates a fact or command in kept text (a path, a test command) is self-checked like single-use text; "a general-purpose sub-agent" and the CLAUDE.md trigger stay.
+- Research: `docs/writing-for-models/` (session record, A/B on dia-adjudicate); evidence per part in `skills/dia-instruct/references/evidence.md`.
 
 ## 6. Language policy
 
@@ -255,7 +280,7 @@ The seven rebuilt skills (5.1–5.7) keep their reference behavior unless this s
 
   Laws change, so the `As of` date is required. The skill must tell the user that date when it relies on the file.
 - L5. `SKILL.md` names each `references/ko/` file and the condition for reading it, for example: "If the claim turns on Korean law or a Korean institution, read `references/ko/<file>.md`". Otherwise the file is not read. This keeps the default context small.
-- L6. Replies follow the user's language; every skill states this (dia-confirm, as dia-intent, since D20).
+- L6. Replies follow the user's language; every skill states this (dia-intent since D20).
 - L7. Removing Hangul from descriptions (5.4, 5.5, 5.6) may reduce routing accuracy for Korean prompts. P7 measures this. If routing drops below the baseline, fix the English trigger wording. Do not reintroduce Hangul.
 
 No skill ships `references/ko/` files in 1.0.0 (D17).
@@ -314,19 +339,21 @@ policy:
 
 | Skill | `allow_implicit_invocation` | Reason |
 |---|---|---|
-| dia-confirm | true | First word or explicit name; the description gates it, and a body sentence covers a load without the marker (D33) |
+| dia-intent | true | First word or explicit name; the description gates it, and a body sentence covers a load without the marker (D33) |
 | dia-elenchus | true | Natural-language triggers as on Claude (D33; the reference had false) |
 | dia-brainstorm | true | Natural-language triggers as on Claude (D33; the reference had false) |
 | dia-reductio | true | Same as the reference (no yaml, default true) |
 | dia-negative | true | Same as the reference (no yaml, default true) |
 | dia-refine | true | Natural-language triggers are part of its design |
-| dia-iterate | true | First word or explicit name; the description and the body gate it (D33) |
+| dia-ratchet | true | First word or explicit name; the description and the body gate it (D33; named dia-iterate until 1.4.0, D39) |
 | dia-warrant | true | Natural-language triggers; exclusion sentences toward dia-reductio, dia-refine, dia-conjecture and dia-counterplan (D35) |
 | dia-conjecture | true | Natural-language triggers; exclusion sentences toward dia-counterplan, dia-brainstorm, dia-elenchus, dia-reductio, dia-warrant and dia-negative (D35) |
 | dia-counterplan | true | Natural-language triggers limited to plans and decisions; exclusion sentences toward dia-brainstorm, dia-conjecture, dia-warrant and dia-negative (D35) |
 | dia-menu | true | First word `dia`; the description gates it, and full skill names stay with their skills (D38) |
+| dia-adjudicate | true | First word or explicit name; the description and the body gate it (D40) |
+| dia-instruct | true | Natural-language triggers for text a model follows; exclusion sentence toward dia-refine and dia-adjudicate (D41) |
 
-`allow_implicit_invocation` defaults to `true`. When it is `false`, explicit `$skill` invocation still works ([Build skills](https://learn.chatgpt.com/docs/build-skills)), but the skill is left out of the model-visible list (P3), so a message that starts with its name cannot reach it. All skills are `true` since 1.2.0 (D33), and the three added in 1.3.0 too (D35), and dia-menu (D38); explicit-only skills are gated by wording, as on Claude.
+`allow_implicit_invocation` defaults to `true`. When it is `false`, explicit `$skill` invocation still works ([Build skills](https://learn.chatgpt.com/docs/build-skills)), but the skill is left out of the model-visible list (P3), so a message that starts with its name cannot reach it. All skills are `true` since 1.2.0 (D33), and the three added in 1.3.0 too (D35), dia-menu (D38), dia-adjudicate (D40) and dia-instruct (D41); explicit-only skills are gated by wording, as on Claude.
 
 ### 7.4 Manifests
 
@@ -356,7 +383,7 @@ The reason, from the owner's probe notes (single source, Codex 0.160 and Claude 
 
 ```
 dialectic-skills/
-├── skills/                         source: ten plain skills
+├── skills/                         source: the plain skills
 │   └── dia-<x>/
 │       ├── SKILL.md
 │       ├── references/*.md
@@ -372,6 +399,7 @@ dialectic-skills/
 ├── tools/package.py                developer-only
 ├── tests/                          developer-only
 ├── upstream/                       material the skills are rebuilt from (§11), never shipped
+├── docs/writing-for-models/        dia-instruct's draft record and its A/B on dia-adjudicate (D41), never shipped
 ├── docs/spec.md                    this document
 ├── README.md
 └── LICENSE
@@ -390,7 +418,7 @@ Each route has a status:
 | claude.ai web / Claude desktop | Customize › Plugins › Upload plugin with `dialectic-skills.zip`. Not Customize › Skills, which rejects a zip that carries a plugin manifest. | `/dia:dia-<x>` or natural language | owner-probed for `dia` (P1) |
 | Claude mobile (iOS/Android) | Install once via web or desktop; it reaches the mobile app through the account. The upload screen is not in the mobile app. | Natural language; the mobile `/` menu does not list plugin skills (P2) | owner-probed for `dia` (P2) |
 | claude.ai marketplace | Customize › Plugins › Add marketplace `ajitta/dialectic-skills`, then add `dia` from Discover | as above | owner-probed (1.1.0, 2026-10-20; the synced copy on the build VM comes from marketplace `dialectic-skills` and matches 1.1.0) |
-| Claude Code | `/plugin marketplace add ajitta/dialectic-skills`, then `/plugin install dia@dialectic-skills`; or account sync after a claude.ai upload | `/dia:dia-<x>`, natural language, first word for refine and iterate | documented (namespacing) / owner-probed (sync) |
+| Claude Code | `/plugin marketplace add ajitta/dialectic-skills`, then `/plugin install dia@dialectic-skills`; or account sync after a claude.ai upload | `/dia:dia-<x>`, natural language, first word for refine, ratchet and adjudicate; `dia` for the menu | documented (namespacing) / owner-probed (sync) |
 | Codex CLI / IDE | `codex plugin marketplace add <path or owner/repo>`, then `codex plugin add dia@dialectic-skills`; fallback: copy `skills/dia-<x>` to `~/.agents/skills/` | `$dia:dia-<x>` (plugin) or `$dia-<x>` (copied folder), `/skills`, implicit per §7.3 | local-path plugin route probed (P3); GitHub route untested |
 | ChatGPT desktop | Upload `dialectic-skills-openai.zip` in the desktop app (saved to the account, reaches web and mobile); or add the GitHub marketplace through Codex in the desktop app (local to that computer only) | `@dia-<x>`, implicit | owner-probed (P4/P5, 2026-10-20; upload vs marketplace observed 1.1.1) |
 | ChatGPT mobile | A plugin uploaded as a zip on desktop reaches mobile through the account; a marketplace added on desktop does not | `@dia-<x>`, natural language, first word (1.2.0, D33; owner-probed 2026-10-21) | owner-probed (P4/P5, 2026-10-20; upload vs marketplace observed 1.1.1) |
@@ -459,13 +487,13 @@ Each probe is run once (n=1) unless stated otherwise, and the result is recorded
 | # | Probe | Pass condition |
 |---|---|---|
 | P1 | claude.ai upload of `dialectic-skills.zip` | Accepted; every skill in §4 listed as `dia:dia-<x>` |
-| P2 | Claude mobile app, one natural-language prompt per skill | The right skill loads; the reply is in the prompt's language. For dia-confirm the prompt names the skill, and for dia-iterate it starts with `dia-iterate` (a mid-sentence mention should produce the one-line request, not the loop); dia-elenchus and dia-brainstorm use the P7 prompts, which ask for the method by name in natural language. For dia-intent also check that the same request without the name does not load it |
+| P2 | Claude mobile app, one natural-language prompt per skill | The right skill loads; the reply is in the prompt's language. For dia-intent the prompt names the skill, and for dia-ratchet (dia-iterate before 1.5.0) it starts with `dia-ratchet` (a mid-sentence mention should produce the one-line request, not the loop); dia-elenchus and dia-brainstorm use the P7 prompts, which ask for the method by name in natural language. For dia-intent also check that the same request without the name does not load it |
 | P3 | Codex CLI plugin install, with only `.claude-plugin/plugin.json` | Plugin loads; `$dia:dia-<x>` resolves (the first run showed that plugin skills are namespaced; `$dia-<x>` applies only to a copied folder); `allow_implicit_invocation: false` holds for the four explicit-only skills. If this fails, add the root `plugin.json` (§7.4), re-run, and confirm that Claude Code still loads with both manifests present |
 | P4 | ChatGPT desktop (Pro), local plugin install | Skills appear under `@`; one prompt per skill routes correctly |
 | P5 | ChatGPT mobile (Pro) after P4 | Skills are usable; if not, record the plan limitation and test the Codex-cloud fallback |
-| P6 | First-word invocation | `dia-refine — check numbers` runs one pass; `dia-iterate` runs the loop; "please refine this paragraph" does not trigger either; a sentence mentioning dia-refine in the middle does not trigger it |
+| P6 | First-word invocation | `dia-refine — check numbers` runs one pass; `dia-ratchet` (`dia-iterate` before 1.5.0) runs the loop; "please refine this paragraph" does not trigger either; a sentence mentioning dia-refine in the middle does not trigger it |
 | P7 | Routing baseline, n=2 | Korean and English prompts for reductio, negative dialectics, elenchus and brainstorm. Compare against the old skills from `upstream/`. No drop allowed; on a drop, fix the English wording (L7). From 1.3.0 (D35) also the routing tables in `docs/research/candidates/design/dia-*.md`, with negative cells against every bordering sibling (probes Part O; the dia-warrant/dia-refine border is covered only by a first-word cell) |
-| P8 | Tool-less run | On a surface or session with no tools, `dia-iterate` stops after round 1 with a "verification exhausted" list, and `dia-refine` marks unchecked items unverified instead of changing them |
+| P8 | Tool-less run | On a surface or session with no tools, `dia-ratchet` (`dia-iterate` before 1.5.0) stops after round 1 with a "verification exhausted" list, and `dia-refine` marks unchecked items unverified instead of changing them |
 | P9 | `references/ko/` loading, once O1 is filled | A Korean-law prompt makes the skill read the ko file and state its `As of` date; an unrelated prompt does not read it |
 
 ### 12.3 Acceptance

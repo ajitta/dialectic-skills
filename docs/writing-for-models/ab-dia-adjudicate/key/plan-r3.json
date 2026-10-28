@@ -1,0 +1,62 @@
+[
+ {
+  "run": "r3-01",
+  "case": "case4",
+  "skill": "skill-k3"
+ },
+ {
+  "run": "r3-02",
+  "case": "case3",
+  "skill": "skill-k3"
+ },
+ {
+  "run": "r3-03",
+  "case": "case4",
+  "skill": "skill-m7"
+ },
+ {
+  "run": "r3-04",
+  "case": "case3",
+  "skill": "skill-k3"
+ },
+ {
+  "run": "r3-05",
+  "case": "case3",
+  "skill": "skill-m7"
+ },
+ {
+  "run": "r3-06",
+  "case": "case4",
+  "skill": "skill-m7"
+ },
+ {
+  "run": "r3-07",
+  "case": "case3",
+  "skill": "skill-k3"
+ },
+ {
+  "run": "r3-08",
+  "case": "case4",
+  "skill": "skill-k3"
+ },
+ {
+  "run": "r3-09",
+  "case": "case3",
+  "skill": "skill-m7"
+ },
+ {
+  "run": "r3-10",
+  "case": "case4",
+  "skill": "skill-m7"
+ },
+ {
+  "run": "r3-11",
+  "case": "case3",
+  "skill": "skill-m7"
+ },
+ {
+  "run": "r3-12",
+  "case": "case4",
+  "skill": "skill-k3"
+ }
+]

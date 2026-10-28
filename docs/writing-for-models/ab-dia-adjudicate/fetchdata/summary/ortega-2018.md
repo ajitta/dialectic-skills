@@ -1,0 +1,1 @@
+The paper studies street trees and summer heat on 120 streets in three Velland cities (2015–2017). Leafier streets were cooler on average. At night the difference shrank to about 0.4 °C. The study covered temperate cities and did not measure health outcomes. Canopy cover and street width were correlated.

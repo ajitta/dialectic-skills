@@ -1,0 +1,7 @@
+interface:
+  display_name: "Dia: Adjudicate"
+  short_description: "Rule on others' reports about a text; list checks for a person"
+  default_prompt: "Use $dia:dia-adjudicate to rule on these reports about the text: "
+
+policy:
+  allow_implicit_invocation: true
