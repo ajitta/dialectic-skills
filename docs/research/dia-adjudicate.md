@@ -145,7 +145,7 @@ The difference between dia-refine and dia-iterate is not how many passes they ma
 - All agents were Claude models; the judges were a different model from the critics but the same provider, so error correlation is reduced at best, not removed.
 - The answer keys were checked through the same summarizing fetch tool the agents used.
 - The seeded errors were clean, checkable facts on public pages. Paywalled figures and subtly wrong interpretations were not tested.
-- The draft was tested as a file the agents read, not as an installed plugin skill; no routing probes were run for dia-adjudicate or for the edited descriptions of dia-refine, dia-ratchet and dia-menu.
+- The drafts were tested as a file the agents read. The shipped 1.0.0 was then run once as an installed plugin skill on the seeded-report test (probes Part R, n=2, search summaries only, since the fetch tool was blocked there): it loaded by first word both times and overturned no correct item. No other routing probes were run for dia-adjudicate, and none for the edited descriptions of dia-refine, dia-ratchet and dia-menu.
 
 ## 8. Sources
 
