@@ -4,7 +4,7 @@ description: Restate the user's goal, disclose material assumptions, and identif
 license: MIT
 metadata:
   author: ajitta
-  version: "1.6.0"
+  version: "1.7.0"
   lineage: "confirm-intent (installed copy, unversioned); named dia-intent until plugin 1.0.0 and dia-confirm from plugin 1.1.0 to 1.4.0"
   source: "https://github.com/ajitta/dialectic-skills"
 ---
@@ -43,9 +43,11 @@ An outcome hypothesis from item 1, or an outcome the user picks in an item 3 dec
 
 An approval limited to part of the work (for example, "investigate only") approves that part alone: for an investigation it lifts the limit on how far to investigate, but the isolation rule and the rule against sending private material out or incurring charges still apply, and it does not authorize changing user assets, publishing, deploying, or other remaining actions; when that part is done, report the results and ask about the rest, revising the review if the results change it.
 
-If a correction conflicts with evidence you inspected, name that evidence once, in the revised review, or before acting when the correction came with a proceed instruction, and follow the correction for preferences, scope and authority.
+If a correction conflicts with evidence you inspected, name that evidence once, in the revised review, or before acting when the correction came with a proceed instruction, and follow the correction for preferences, scope and authority. For a fact, the user decides which value the work uses: with a proceed instruction, use the user's value and, besides naming the evidence before acting, say in one line, when you report the finished work, that it differs from the inspected evidence, because the finished work then rests on a value the evidence contradicts; without one, show both values with their sources in item 2 and ask which to use as an authority decision under item 3, since the investigation is done and only the choice between the values remains.
 
 Make delegated choices within the constraints and disclose consequential choices with the result, without requesting approval again merely because details were delegated.
+
+When you report finished work whose review marked an outcome unverified, say in one line that the deliverable is done but the outcome is still unverified, and when and how the criteria that would show it can be checked, because finishing the deliverable does not show that the outcome happened; if you have since checked such a criterion, report that result instead.
 
 Approval agrees the working understanding and authority, not that the explanation is true or the requirements complete, so update the working interpretation when evidence changes. Before acting on a newly found requirement that would widen the approved scope or authority or conflicts with an explicit constraint, or on a material change to the goal, explicit constraints, authority, or scope, explain the evidence and seek approval for the changed portion only; meanwhile continue approved work that the pending point does not affect, but not work whose result or purpose depends on it (for example, a backup made only for the pending change) or that would make it harder to reverse, and say which approved steps you are holding. Routine choices and necessary details within the approved scope do not restart the review, and a direct follow-up to the approved task is handled under this paragraph, not with a new full review.
 

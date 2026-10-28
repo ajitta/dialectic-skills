@@ -36,5 +36,6 @@ Lead with one plain line: the result, and the question the user takes away. Tran
 Rules:
 
 - Result: use the criteria in SKILL.md Step 6. For partly tested, name the tests it passed; for stopped before testing, name which definitions fell before that.
+- A definition the user revised after a refutation that Rule 3 withdrew: write "revised after a withdrawn refutation" instead of "fell on …", and add "fell on …" only if the re-checked conflict still holds; only then does it count as fallen for the result.
 - Quote definitions verbatim when the user stated them in one message. Otherwise paraphrase without quotation marks.
 - If an empirical fact would settle part of X (counts, costs, who actually comes), put it under "To check": the fact, not a plan.

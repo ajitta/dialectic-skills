@@ -4,7 +4,7 @@ description: Internal critique (narrower than Adorno's immanent critique) adapte
 license: MIT
 metadata:
   author: ajitta
-  version: "1.2.1"
+  version: "1.2.2"
   lineage: "negative-dialectics (installed copy, unversioned)"
   source: "https://github.com/ajitta/dialectic-skills"
 ---
@@ -95,7 +95,7 @@ Pick one option and give: the reason; the evidence class of the weakest finding 
 
 ### Step 8: Record
 
-Close with the record from references/output-template.md, or, if that file cannot be read, with this record: target and C; stated purpose; findings (n firm, m conditional); remainder; operative function; options and recommendation; decision; status; history. Its status is exactly one of: **open** (gaps found; by design nothing is closed), **holding against the tested particulars**, **stopped**.
+Close with the record from references/output-template.md, or, if that file cannot be read, with this record: target and C; stated purpose; findings (n firm, m conditional); remainder; operative function; options and recommendation; decision; status; history. Its status is exactly one of: **open** (gaps found; by design nothing is closed) or **holding against the tested particulars**.
 
 ## Follow-up turns
 

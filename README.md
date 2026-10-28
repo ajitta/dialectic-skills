@@ -195,7 +195,7 @@ dia-intent Write a short speech for my brother's wedding.
 **Tips**
 
 - Answer only the questions you care about and add "proceed". Corrections plus "proceed" count as approval of the corrected task.
-- If you don't say what the work is for, the review guesses it in one line, marked as its hypothesis; correct it or just say "proceed". If you name a result beyond the work itself, such as "a landing page that will increase sales", it keeps the criteria for finishing the page apart from those that would show sales rose, labels indirect measures as proxies, and marks the result unverified until something can check it.
+- If you don't say what the work is for, the review guesses it in one line, marked as its hypothesis; correct it or just say "proceed". If you name a result beyond the work itself, such as "a landing page that will increase sales", it keeps the criteria for finishing the page apart from those that would show sales rose, labels indirect measures as proxies, and marks the result unverified until something can check it, saying so again when it reports the finished work.
 - "Looks good", silence or a thumbs-up do not count as approval; the assistant keeps waiting.
 - It covers that one task and its direct follow-ups. Start a new task with `dia-intent` again if you want the same check.
 

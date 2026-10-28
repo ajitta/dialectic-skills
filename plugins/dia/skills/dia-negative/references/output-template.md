@@ -58,5 +58,5 @@ The decision is yours.
 - Operative function (inference, evidence class):
 - Options: A, B, … offered — recommended: X
 - Decision: pending | the user chose …
-- Status: open | holding against the tested particulars | stopped
+- Status: open | holding against the tested particulars
 - History: (one line per follow-up turn)
