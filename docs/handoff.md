@@ -59,7 +59,7 @@ State of the work and what is left, for the next agent session. Read `AGENTS.md`
 | 29 | README example for dia-instruct: recorded run, done 2026-10-28 | — | Real run on Claude Code, shortened, in all four READMEs and on the plate. |
 | 30 | One merge to `main` for `adjudicate-ratchet`, `writing-for-models` and `intent`: done 2026-10-28 | — | One pull request with green CI, tag `v1.6.0` (owner's plan: one review instead of three, since `main` deploys at once). |
 | 31 | Meaning changes surfaced by the D43 rewrite | owner decides | `docs/writing-for-models/rewrite-2026-10-28.md`, table. None applied; each needs the owner's request and, where an eval exercises it, an A/B (dia-instruct step 1). |
-| 32 | Codex on an account with an uploaded `dia` | owner | Probes Part T: Codex synced the account's uploaded dia 1.4.0 into its plugin cache and ran its `dia-confirm` in 3 of 4 runs of the old-name cell, though that copy was not in the visible skill list. Re-uploading the current `dialectic-skills-openai.zip` on chatgpt.com should replace it; until then `dia-confirm …` may still run the 1.4.0 skill in Codex and ChatGPT. |
+| 32 | Codex on an account with an uploaded `dia`: resolved 2026-10-28 | — | Probes Part T: Codex synced the account's uploaded dia 1.4.0 into its plugin cache and ran its `dia-confirm` in 3 of 4 old-name runs. After the owner re-uploaded `dialectic-skills-openai.zip` (1.6.1) on chatgpt.com, the synced copy is `created-by-me-remote/dia/1.6.1` (13 skills, no dia-confirm), and `dia-confirm …` loaded no skill in 2 of 2 Codex runs ("I don't have a `dia-confirm` skill available"). Re-upload the zip on every release (item 14). |
 
 Observations from P8 (n=1 each; see `docs/probes.md`):
 
