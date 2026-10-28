@@ -12,6 +12,8 @@ One document per skill: the method in its primary sources, relevant LLM research
 | dia-refine | [dia-refine.md](dia-refine.md) | 17 | 15 (2) |
 | dia-iterate | [dia-iterate.md](dia-iterate.md) | 27 | 13 (2) |
 
+Later: [dia-adjudicate.md](dia-adjudicate.md) (2026-10-28) records the trials behind dia-adjudicate and the rename of dia-iterate to dia-ratchet (spec D39, D40); documents above keep the old name.
+
 Citations were registered as pages were fetched and checked with a citation ledger (every `[n]` resolves to a fetched URL). Claims without a source are marked `[unverified]`. The documents are agent-written; see [review/](review/) for the independent check.
 
 ## Cross-cutting themes
