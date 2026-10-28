@@ -1,25 +1,25 @@
 ---
-name: dia-iterate
-description: Improve an output through repeated rounds gated by external verification; each round fixes only defects that a verification method confirmed, until a stop condition is met. Use only when the user's message begins with dia-iterate, or when the skill is invoked explicitly by name (for example /dia:dia-iterate, $dia:dia-iterate, $dia-iterate or @dia-iterate, or dia-menu's selector dia 10 or dia iterate). Without that marker do not activate, however close the request sounds. Not for single-pass review (dia-refine).
+name: dia-ratchet
+description: Improve an output through repeated rounds in which only outside evidence counts; each round fixes only defects that an external check confirmed (a tool that ran, or the user's own material), never on your own re-derivation, and locks what passed, until a stop condition is met. Use only when the user's message begins with dia-ratchet, or when the skill is invoked explicitly by name (for example /dia:dia-ratchet, $dia:dia-ratchet, $dia-ratchet or @dia-ratchet, or dia-menu's selector dia 10 or dia ratchet). Without that marker do not activate, however close the request sounds. Not for single-pass review (dia-refine).
 license: MIT
 metadata:
   author: ajitta
-  version: "1.3.0"
-  lineage: "recursive-refine (installed copy, unversioned), output mode only"
+  version: "1.4.0"
+  lineage: "recursive-refine (installed copy, unversioned), output mode only; named dia-iterate until plugin 1.4.0"
   source: "https://github.com/ajitta/dialectic-skills"
 ---
 
-# dia-iterate
+# dia-ratchet
 
-A multi-round relative of dia-refine with a stricter basis: every round needs a signal from outside the model, and your own re-derivation does not count as one, because a loop that feeds on its own judgment amplifies its own errors (Huang et al., ICLR 2024, arXiv:2310.01798: revising on self-judgment alone brings no gain on reasoning tasks and often makes them worse). A round, "verify, then fix only what was confirmed", loosely follows CRITIC (Gou et al., arXiv:2305.11738); it is not the Self-Refine loop. Only defects you name can be verified, and an error you would make yourself is unlikely to be named, so the confirmed defects are a lower bound, and a "zero defects" stop is not a clean bill.
+The name is the rule: like a ratchet, the output moves only forward on confirmed evidence, what passed is locked, and the loop stops if anything slips back. A multi-round relative of dia-refine with a stricter basis: every round needs a signal from outside the model, and your own re-derivation does not count as one, because a loop that feeds on its own judgment amplifies its own errors (Huang et al., ICLR 2024, arXiv:2310.01798: revising on self-judgment alone brings no gain on reasoning tasks and often makes them worse). A round, "verify, then fix only what was confirmed", loosely follows CRITIC (Gou et al., arXiv:2305.11738); it is not the Self-Refine loop. Only defects you name can be verified, and an error you would make yourself is unlikely to be named, so the confirmed defects are a lower bound, and a "zero defects" stop is not a clean bill.
 
 ## Invocation
 
-- Activate only when `dia-iterate` is the first word of the message, or on an explicit invocation by name (`/dia:dia-iterate`, `$dia:dia-iterate`, `$dia-iterate`, `@dia-iterate`). Target, `--max N` (round cap, default 3) and criteria may follow it.
-- dia-menu's selector (`dia 10 …`, `dia iterate …`, `dia iter …`) is an explicit invocation by name; read what follows the selector as above. A number that counts something in the sentence (`dia 10 reasons …`) is not a selector.
+- Activate only when `dia-ratchet` is the first word of the message, or on an explicit invocation by name (`/dia:dia-ratchet`, `$dia:dia-ratchet`, `$dia-ratchet`, `@dia-ratchet`). Target, `--max N` (round cap, default 3) and criteria may follow it.
+- dia-menu's selector (`dia 10 …`, `dia ratchet …`, `dia rat …`) is an explicit invocation by name; read what follows the selector as above. A number that counts something in the sentence (`dia 10 reasons …`) is not a selector.
 - Without that marker, do not activate. Natural-language requests that mean the same thing do not count either. Answer the request without the skill, or use dia-refine if one pass is enough.
-- If the marker is absent but this skill looks right, do not run the loop: ask in one line for a message beginning with `dia-iterate`, or an explicit invocation of the skill by name, then stop.
-- Input with a topic but no target ("dia-iterate on the sword of Damocles") ends with one question and no draft. Ask whether to fix the last output or whether the user will supply a draft. Do not draft one yourself: the loop would then only check your own guesswork.
+- If the marker is absent but this skill looks right, do not run the loop: ask in one line for a message beginning with `dia-ratchet`, or an explicit invocation of the skill by name, then stop.
+- Input with a topic but no target ("dia-ratchet on the sword of Damocles") ends with one question and no draft. Ask whether to fix the last output or whether the user will supply a draft. Do not draft one yourself: the loop would then only check your own guesswork.
 - If dia-refine is named in the same request, run this loop and the refine pass separately, each with its own output. Your own re-derivation still never counts as verification in a round, even if the refine pass used it.
 
 ## Choosing the target

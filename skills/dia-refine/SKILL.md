@@ -1,10 +1,10 @@
 ---
 name: dia-refine
-description: Review the previous answer or a named draft once for factual errors, logical leaps, missing requirements and needless repetition, and return one integrated revision that fixes defects whose basis was confirmed and marks suspected ones. Use when the message starts with dia-refine, or when the user asks to review or recheck the previous answer or a draft, treat it as a draft, fix its factual errors and logical leaps, or give only the improved final version, or the same in any language. A passing mention of dia-refine mid-sentence is not an invocation. Not for repeated verification rounds (dia-iterate).
+description: Review the previous answer or a named draft once for factual errors, logical leaps, missing requirements and needless repetition, and return one integrated revision that fixes defects whose basis was confirmed, by a tool, the user's material or your own re-derivation of the logic or a calculation, and marks suspected ones. Use when the message starts with dia-refine, or when the user asks to review or recheck the previous answer or a draft, treat it as a draft, fix its factual errors and logical leaps, or give only the improved final version, or the same in any language. A passing mention of dia-refine mid-sentence is not an invocation. Not for repeated rounds that accept only outside checks (dia-ratchet).
 license: MIT
 metadata:
   author: ajitta
-  version: "1.1.0"
+  version: "1.2.0"
   lineage: "self-refine (installed copy, unversioned)"
   source: "https://github.com/ajitta/dialectic-skills"
 ---
@@ -17,7 +17,7 @@ Treat the last output as a draft, find its defects, and produce one integrated r
 
 - Explicit: the message starts with `dia-refine`. What follows is the review criteria, for example `dia-refine — check the numbers` or `dia-refine for tone`. `/dia:dia-refine`, `$dia:dia-refine`, `$dia-refine` and `@dia-refine` also count.
 - A task with no draft yet: "do this task the dia-refine way" means first write a candidate answer, check it once by the procedure below, and give only the final version. Show the review only if the user asks for it.
-- Requests for several rounds belong to `dia-iterate`, not to this skill. If dia-iterate is named in the same request, run the two as separate passes with separate outputs and keep their bases apart: a re-derivation in this pass is not verification for an iterate round.
+- Requests for several rounds belong to `dia-ratchet`, not to this skill. If dia-ratchet is named in the same request, run the two as separate passes with separate outputs and keep their bases apart: a re-derivation in this pass is not verification for a ratchet round.
 
 ## Target
 
