@@ -49,6 +49,7 @@ pushed history.
 | `../../skills/dia-instruct/` | The skill (spec D41): four rules for text a model reads and follows, the structure they imply, leads, and how to write, edit or review such text. `references/evidence.md` holds what each part rests on and is read only when the user asks how strong a rule is or wants to change one. |
 | `ab-dia-adjudicate/` | A/B test of the skill's rules on `dia-adjudicate`: both versions, four fictional cases with an answer key, the fetch-tool simulator, prompts, all judge outputs and the scorer. Its README says how to re-run. |
 | `SESSION.md` | What was done in the session that made this (2026-10-28), with the owner's rulings and the reasons. |
+| `ab-dia-intent.md` | A/B of dia-intent 1.4.0 against 1.5.0 (deliverable and outcome, spec D45): two rounds, results and the open review findings. The harness and raw runs are outside the repository (path in the file). |
 
 ## State (2026-10-28)
 
