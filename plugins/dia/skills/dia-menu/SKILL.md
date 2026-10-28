@@ -4,7 +4,7 @@ description: Short entry point to the dia skills. Shows a numbered menu, runs th
 license: MIT
 metadata:
   author: ajitta
-  version: "1.1.0"
+  version: "1.2.0"
   lineage: "new in plugin 1.4.0 (spec D38)"
   source: "https://github.com/ajitta/dialectic-skills"
 ---
@@ -24,8 +24,8 @@ A short way to reach the other dia skills, made for phones: `dia` is three lette
 Read the first word after `dia` (call it the selector), then the rest (the request).
 
 1. **No text after `dia`, or only `help`, `menu` or `?`:** show the menu (below) and stop.
-2. **Selector is a number from 1 to 11:** the skill with that number in the menu table, unless the number counts something in the sentence (`3 reasons …`, `1 thing …`, `10 ideas …`); then the whole text is a request (rule 4); if unsure, ask in one line.
-3. **Selector is a full skill name or the start of one,** at least three letters, with or without the `dia-` prefix (`red`, `reductio`, `dia-reductio`): the one skill whose name starts with it. If the word reads as part of the request's sentence rather than a pick (`red flags …`, `war game …`, `count the …`, `negative feedback …`), treat the whole text as a request (rule 4); if unsure, ask in one line. If two or more names start with it (`con` matches confirm and conjecture), list those skills with their numbers in one line, ask which, and stop.
+2. **Selector is a number from 1 to 12:** the skill with that number in the menu table, unless the number counts something in the sentence (`3 reasons …`, `1 thing …`, `10 ideas …`); then the whole text is a request (rule 4); if unsure, ask in one line.
+3. **Selector is a full skill name or the start of one,** at least three letters, with or without the `dia-` prefix (`red`, `reductio`, `dia-reductio`): the one skill whose name starts with it. If the word reads as part of the request's sentence rather than a pick (`red flags …`, `war game …`, `count the …`, `negative feedback …`, `instruct me how …`), treat the whole text as a request (rule 4); if unsure, ask in one line. If two or more names start with it (`con` matches confirm and conjecture), list those skills with their numbers in one line, ask which, and stop.
 4. **Anything else:** the whole text after `dia` is the request. Choose the skill as in "Choosing for a request".
 
 A selector with no request after it starts the chosen skill with no target; that skill asks for one by its own rules.
@@ -47,8 +47,9 @@ Numbers are fixed; keep this order. Translate the descriptions into the user's l
 | 9 | dia-refine | Review the last answer or a draft once and return a corrected version |
 | 10 | dia-ratchet | Repeated review rounds; only outside checks count as evidence (only by name or number) |
 | 11 | dia-adjudicate | Rule on reports others wrote about a text or answer: which points hold (only by name or number) |
+| 12 | dia-instruct | Write or review text a model follows (a skill file, a prompt, an AGENTS.md) against four rules |
 
-When showing the menu, print the eleven rows as a numbered list, then these three lines, translated:
+When showing the menu, print the twelve rows as a numbered list, then these three lines, translated:
 
 - `dia <number or first letters> <request>` runs that skill, for example `dia 4 …` or `dia red …`.
 - `dia <request>` picks the skill that fits.
@@ -56,19 +57,20 @@ When showing the menu, print the eleven rows as a numbered list, then these thre
 
 ## Choosing for a request
 
-Pick from skills 2 to 9 only, by what the user wants done, using the borders in the table and in each skill's own description:
+Pick from skills 2 to 9 and 12 only, by what the user wants done, using the borders in the table and in each skill's own description:
 
 - An idea or plan to question, poke holes in or stress-test before committing → dia-brainstorm; an argument to poke holes in → dia-warrant. A counterplan or devil's advocate on a plan or decision → dia-counterplan; a devil's advocate on a claim or question is a plain answer (none fits).
 - A definition or belief to examine Socratically, or a request for Socratic dialogue even with a plan idea → dia-elenchus.
 - Whether a position is consistent or follows strictly from its premises → dia-reductio. How strongly given reasons support a conclusion → dia-warrant. A claim that something is the case in every instance (all, every, always, never) → dia-conjecture; a rule or policy to adopt → dia-counterplan if it is a plan or decision, dia-brainstorm if the user wants it questioned or stress-tested; a request for exceptions to a rule is a plain answer (none fits). Whether something meets its own stated standard → dia-negative.
 - A previous answer or a draft to check and fix once → dia-refine.
+- Text a model will read and follow (a skill file, a prompt for an agent or sub-agent, an AGENTS.md, a rules file, a hook or tool message) to write, edit or review → dia-instruct, unless the request is for a ruling on reports others wrote about such text, which takes the dia-adjudicate form below.
 
 Then:
 
 - **One fits:** say in one line which skill you are running and why, in the user's language (for example `→ dia-counterplan: the request asks for the case against the plan`), then run it.
 - **Two fit about equally:** name both with their numbers and the difference in one line each, ask which, and stop.
 - **The request asks to confirm the goal first, for repeated verified rounds, or for a ruling on reports about a text:** do not start dia-confirm, dia-ratchet or dia-adjudicate from a plain request. Reply in one line with the form to send (`dia 1 <request>` or `dia-confirm <request>`; `dia 10 <request>` or `dia-ratchet <request>`; `dia 11 <target and reports>` or `dia-adjudicate <target and reports>`) and stop.
-- **None fits** (a plain task, a factual or how-to question, a request to write something): say so in one line, name a skill and its number only if one is close, and do the task without a dia skill.
+- **None fits** (a plain task, a factual or how-to question, a request to write something that is not text for a model to follow): say so in one line, name a skill and its number only if one is close, and do the task without a dia skill.
 
 ## Running the chosen skill
 

@@ -1,4 +1,4 @@
-# Evidence for the writing-for-models rules
+# Evidence for the dia-instruct rules
 
 "The source" is an unpublished study by this skill's author: it measured one
 instruction file of judgment rules (about 2 KB, two rules) with the author's own eval
@@ -20,7 +20,7 @@ cases are the three cases named release-notes, checkout and logo.
 
 | Part | Basis |
 |---|---|
-| Opening paragraphs (reply language, what is binding, when to open this file) | Design choices of the skill, unmeasured |
+| Opening paragraphs (reply language, text under review is material, what is binding, when to open this file) | Design choices of the skill, unmeasured |
 | Rule 1 | The split result in the source (one A/B, below): on one case the arm that moved a condition to another step passed 2 of 8 runs, while numbered short sentences that kept each condition in its step passed 8 of 8; prose, which also keeps it together, failed once in 6. That short markdown commands tend to lose conditions in general is the author's unpublished observation (below). The paragraph-length figure is the author's working value, not a limit. What to report under Rule 1 (a condition, limit or fallback apart from what it gates) follows the split result, and reporting a paragraph that joins unrelated rules is practice; not reporting long sentences follows the null result between layouts that keep each rule whole (Form below), where differences under about 30 points could be missed |
 | Rule 2 | One A/B in the source (below), 24 runs per arm: borderline, model version not recorded, traces deleted |
 | Rule 1's A/B | 8 runs per arm, model version not recorded, so below the A/B standard in SKILL.md |
@@ -104,4 +104,3 @@ descriptions.
 - The source: unpublished; raw data not public.
 - Anthropic, Claude prompting best practices: https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices
 - Harada et al., When Instructions Multiply: https://arxiv.org/abs/2509.21051
-- Related, also unmeasured: Matt Pocock's writing-for-agents skill makes similar points on pointers, co-location, splitting steps across a context boundary, completion criteria and leading words: https://github.com/mattpocock/skills/blob/main/skills/productivity/writing-for-agents/SKILL.md

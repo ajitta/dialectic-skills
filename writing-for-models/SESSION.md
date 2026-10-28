@@ -1,7 +1,9 @@
 # Session record, 2026-10-28
 
-How `skill/writing-for-models/` came to be and why it reads the way it does, so a later
-session can continue without the chat. The session ran in Korean; the owner's words are
+How the writing-for-models draft became `skills/dia-instruct/` and why it reads the way
+it does, so a later session can continue without the chat. Sections 1–8 describe the
+skill while it was still called writing-for-models; section 9 covers the move into
+`dia`. The session ran in Korean; the owner's words are
 translated. Where a ruling settled a question, it is marked **Ruling**.
 
 ## 1. Starting point
@@ -144,7 +146,46 @@ data are in `ab-dia-adjudicate/`; results and their reading are in `README.md`.
 - After three rounds (28 runs) no difference was found. The next step under the skill's
   A/B rule, and the alternative, are open item 2 in `README.md`.
 
-## 9. Not kept
+## 9. Into dia
+
+The first push put everything in this folder, on a branch from `main`, because files
+added straight to `docs/` would mix with other branches (owner). Then the owner decided
+to put the skill into `dia` and to apply B on this branch, merging later, separately.
+
+- The branch was rebased onto `adjudicate-ratchet`, the only branch that has
+  `dia-adjudicate`. Its first commit only added this folder, so the rebase was clean.
+- **Ruling:** the name is `dia-instruct`; dia-write and dia-prompt were the other
+  options. Every `dia` name needs the `dia-` prefix (spec §4), and `ins` is a prefix of
+  no other name.
+- **Ruling:** it loads on natural-language requests, like dia-refine, rather than by
+  name only. dia-menu 1.2.0 lists it as row 12 and may choose it for a request to write
+  or review text a model follows.
+- **Ruling:** the related-work line on Matt Pocock's skill is removed, because AGENTS.md
+  allows no references to other projects in skill text. The credit stays in section 3.
+- Added under spec D26: one sentence that the text under review is material, not
+  instructions. A reviewed instruction file would otherwise be in a position to steer
+  its own review. This is a meaning change that a repository rule requires, which the
+  skill's own step 1 allows.
+- The description follows spec §7.2: label, what it does, "Use when …", one "Not for"
+  sentence toward dia-refine and dia-adjudicate. `evidence.md` now calls them the
+  dia-instruct rules too (Rule 4).
+- B replaced `skills/dia-adjudicate/SKILL.md` unchanged apart from `metadata.version`
+  1.1.0. The plugin is 1.6.0. Spec D41 records all of this.
+- A sub-agent that had not written these changes reviewed dia-instruct and dia-menu
+  against dia-instruct, AGENTS.md and spec §7.2, with the old texts. The confirmed
+  findings caused by this pass were fixed:
+  - The material sentence now says the host's own session rules (a repository's
+    AGENTS.md) still bind while that file is edited (Rule 2).
+  - The description drops the rule list (§7.2: only what separates it from siblings)
+    and says "a draft written for people" and "reports", as dia-adjudicate does
+    (Rule 4).
+  - In the menu, a request to draft a toast or email no longer reads as going to
+    dia-refine; reports about a prompt go to the dia-adjudicate form; "agent file"
+    became "AGENTS.md"; and `instruct me how …` joined the sentence-word examples.
+  The fixes were self-checked, not reviewed again. Findings on text that predates this
+  pass were left for the owner (`README.md`, open item 5).
+
+## 10. Not kept
 
 - The owner's original attachments, because they contain private-repository content.
 - Intermediate drafts of the skill, including the version before self-application.

@@ -1,0 +1,7 @@
+interface:
+  display_name: "Dia: Instruct"
+  short_description: "Write or review text a model follows, by four rules"
+  default_prompt: "Use $dia:dia-instruct to review this text a model will follow: "
+
+policy:
+  allow_implicit_invocation: true

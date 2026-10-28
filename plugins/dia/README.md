@@ -1,6 +1,6 @@
 # Dialectic Skills (`dia`)
 
-Eleven reasoning-and-review skills for Claude, Codex and ChatGPT. Each skill is a set of written instructions that the assistant follows when you ask for it by name or describe the task.
+Twelve reasoning-and-review skills for Claude, Codex and ChatGPT. Each skill is a set of written instructions that the assistant follows when you ask for it by name or describe the task.
 
 - `dia-confirm`: before work starts, restates the goal, discloses assumptions, lists the decisions you must make, and waits for your approval.
 - `dia-elenchus`: Plato's elenchus. Asks what you mean by a key idea, one question at a time, and shows where your own premises contradict each other. Gives no advice.
@@ -13,6 +13,7 @@ Eleven reasoning-and-review skills for Claude, Codex and ChatGPT. Each skill is 
 - `dia-refine`: one review pass over an answer or draft. Fixes only defects with a confirmed basis.
 - `dia-ratchet`: repeated review rounds with a round cap; only external checks count as evidence, and what passed is locked.
 - `dia-adjudicate`: rules on reports others wrote about a text (critiques, reviews), checking each point against sources, and lists the verdicts a person should recheck.
+- `dia-instruct`: checks or writes text a model will follow (a skill file, a prompt, an agent file) against four rules, so conditions stay with what they gate and each instruction carries its reason.
 
 Start a message with `dia` to reach them quickly (`dia-menu`): `dia` alone lists them with numbers, `dia 4 …` or `dia red …` starts one by number or first letters, and `dia` followed by your request picks the skill that fits and names it.
 

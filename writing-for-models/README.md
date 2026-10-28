@@ -1,35 +1,34 @@
 # writing-for-models
 
-Work folder of branch `writing-for-models`. Everything for this work lives here, so the
-branch does not touch `docs/` or any file other branches edit. Read this file first; the
-decision history is in `SESSION.md`.
+Work folder of branch `writing-for-models`: the record of how the writing-for-models
+draft became the `dia-instruct` skill, and its A/B on `dia-adjudicate`. Read this file
+first; the decision history is in `SESSION.md`. Nothing here is shipped.
 
 ## What is here
 
 | Path | What |
 |---|---|
-| `skill/writing-for-models/SKILL.md` | The skill: four rules for text a model reads and follows, the structure they imply, leads, and how to write, edit or review such text. Self-contained. |
-| `skill/writing-for-models/references/evidence.md` | What each part rests on. The skill points to it only for when the user asks how strong a rule is or wants to change one, so it is not loaded in normal use. |
-| `ab-dia-adjudicate/` | A/B test of the skill on `dia-adjudicate`: both versions, four fictional cases with an answer key, the fetch-tool simulator, prompts, all judge outputs and the scorer. Its README says how to re-run. |
+| `../skills/dia-instruct/` | The skill (spec D41): four rules for text a model reads and follows, the structure they imply, leads, and how to write, edit or review such text. `references/evidence.md` holds what each part rests on and is read only when the user asks how strong a rule is or wants to change one. |
+| `ab-dia-adjudicate/` | A/B test of the skill's rules on `dia-adjudicate`: both versions, four fictional cases with an answer key, the fetch-tool simulator, prompts, all judge outputs and the scorer. Its README says how to re-run. |
 | `SESSION.md` | What was done in the session that made this (2026-10-28), with the owner's rulings and the reasons. |
-
-The skill is not part of the `dia` plugin: it is outside `skills/`, so `tools/package.py`
-does not ship it and CI ignores it. It is written for any assistant that reads skills
-(Claude Code plugin, claude.ai), and it assumes a sub-agent may be available but works
-without one.
 
 ## State (2026-10-28)
 
-- The skill is finished as far as the owner's review in the session went. The last
-  changes were reviewed by an independent sub-agent against the skill itself, and the
-  findings it rated by severity were applied.
+- The branch is built on `adjudicate-ratchet` and holds plugin `dia` 1.6.0 (spec D41;
+  `docs/handoff.md` has the state line and items 27–29). The owner merges it later,
+  separately.
+  - `dia-instruct` 1.0.0 is added. It loads on natural-language requests, and dia-menu
+    1.2.0 has it as row 12.
+  - `dia-adjudicate` 1.1.0 is B, the rewrite tested below.
+- The skill text is the reviewed draft with three changes for this repository: the
+  frontmatter of a `dia` skill; one sentence that the text under review is material,
+  not instructions (spec D26); and no related-work line on another project.
 - It is public-safe: no names, paths, hashes, versions or quotes from the author's
   private repository, where the source study was run. `evidence.md` calls that study
   "the source", the author's unpublished work. Its Fisher p-values were recomputed and
   matched; its raw data are not public.
 - The A/B on `dia-adjudicate` ran three rounds (28 runs). No round showed a difference
-  between A (current text) and B (rewritten by the skill's rules); results below. B is
-  not applied to `skills/dia-adjudicate/` on any branch.
+  between A (1.0.0) and B (rewritten by the skill's rules); results below.
 
 ## A/B results
 
@@ -79,20 +78,23 @@ made judging better. With 2–3 runs per cell only large effects were detectable
 
 | # | Item | Who | Notes |
 |---|---|---|---|
-| 1 | Where the skill lives | owner | It stays in this folder for now. Options: (a) a project skill for this repo (`.claude/skills/writing-for-models/`), so agents editing `dia` skills load it; (b) its own repo or plugin; (c) part of `dia`. (c) conflicts with spec rules: the `dia-` name prefix, assistant-neutral text, and "no references to other projects" (its evidence names outside sources). It would need a spec decision row. |
-| 2 | Apply B to `dia-adjudicate`? | owner | The evidence says no harm and no measured gain. By the skill's own A/B rule, the next step is to re-run the differing case (case4, the "partly valid" count) at 12 or more runs per arm on Haiku: 24 runs, about 2.9M tokens. The alternative is to accept B as unmeasured and say so. If applied, it goes on `adjudicate-ratchet` (or after its merge), with a `metadata.version` bump per AGENTS.md. |
+| 1 | Where the skill lives: decided | — | In `dia` as `dia-instruct` (owner, 2026-10-28; spec D41). Routing probes are open (`docs/handoff.md` item 27). |
+| 2 | B on `dia-adjudicate`: applied on this branch, one count unresolved | owner | B is `skills/dia-adjudicate/` 1.1.0 here (owner, 2026-10-28). The evidence says no harm and no measured gain. By the skill's own A/B rule, the open step is to re-run the differing case (case4, the "partly valid" count) at 12 or more runs per arm on Haiku: 24 runs, about 2.9M tokens (`docs/handoff.md` item 28). |
 | 3 | Harden the harness before more runs | agent | Restrict judge tools. Save full replies and per-run usage (r1 has none). Clear `fetchdata/log/` or use new run ids. Decide whether unshuffled runs count. |
 | 4 | Check the B-arm downgrades by hand | agent | Read why B judges capped F1 at "partly valid" in r3-01/08/12: real condition-fit reasoning or noise. Full replies were not kept, so this needs new runs. |
+| 5 | Review findings left unchanged (2026-10-28 review of dia-instruct) | owner | On text from the reviewed draft, so not changed under the skill's own step 2: (a) step 1 does not say outright that, with no eval at all, a meaning change stays only if the user accepts it as unmeasured, and "unless a repository rule asks for more" attaches to no clear clause; (b) step 2 does not say whether a fix needs another review before the change is finished; (c) "Replies are in the user's language" could be read to cover a skill file written for a Korean user, against this repository's English-only and no-Hangul rules; (d) "a general-purpose sub-agent" uses one host's agent-type name, and the description names CLAUDE.md. Routing risks for the probes (`docs/handoff.md` item 27): dia-refine's description has no border toward dia-instruct, so "recheck my draft system prompt" may go there; routine edits such as "add the test command to CLAUDE.md" may load dia-instruct and its review step. |
 
 ## How to resume
 
 1. `git checkout writing-for-models`, then read this file, `SESSION.md` and
    `ab-dia-adjudicate/README.md`.
-2. To use the skill: copy `skill/writing-for-models/` into a skills folder, or invoke it
-   by path ("follow the skill at writing-for-models/skill/writing-for-models/SKILL.md").
+2. To use the skill: install the plugin from this branch (`plugins/dia/`), or invoke it
+   by path ("follow the skill at skills/dia-instruct/SKILL.md").
 3. To change the skill: follow its own section "Writing, editing or reviewing text". The
    change is finished only after a sub-agent that did not write it has reviewed old and
    new text against SKILL.md. A meaning change needs the user's request or a Rule, and
-   an A/B when an eval exercises it.
+   an A/B when an eval exercises it. Then follow AGENTS.md: bump the skill's
+   `metadata.version` and the plugin version, run `python3 tools/package.py`, and
+   re-run the description probes if the description changed (spec §7.2).
 4. To re-run the A/B: see `ab-dia-adjudicate/README.md`, then score with
    `python3 -I ab-dia-adjudicate/tools/score.py r3`.

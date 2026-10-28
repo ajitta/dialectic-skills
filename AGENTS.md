@@ -4,7 +4,7 @@ Guidance for coding agents (Codex, Hermes Agent, Claude Code) in this repository
 
 ## What this repo is
 
-`dialectic-skills` packages eleven reasoning-and-review skills as one plugin named `dia`. The skills are general-purpose and independent of any other project: they must run unchanged on Claude (web, desktop, mobile, Claude Code), Codex and ChatGPT, including chats with no tools. `docs/spec.md` is the authority for names, layout, package rules and acceptance; surface probe results are in `docs/probes.md`; the current state and remaining work are in `docs/handoff.md`.
+`dialectic-skills` packages twelve reasoning-and-review skills as one plugin named `dia`. The skills are general-purpose and independent of any other project: they must run unchanged on Claude (web, desktop, mobile, Claude Code), Codex and ChatGPT, including chats with no tools. `docs/spec.md` is the authority for names, layout, package rules and acceptance; surface probe results are in `docs/probes.md`; the current state and remaining work are in `docs/handoff.md`.
 
 ## Commands
 

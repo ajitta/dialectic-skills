@@ -92,6 +92,7 @@ EXPECTED_IMPLICIT = {
     "dia-counterplan": True,
     "dia-menu": True,
     "dia-adjudicate": True,
+    "dia-instruct": True,
 }
 
 
