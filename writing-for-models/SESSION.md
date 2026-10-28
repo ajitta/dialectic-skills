@@ -152,8 +152,9 @@ The first push put everything in this folder, on a branch from `main`, because f
 added straight to `docs/` would mix with other branches (owner). Then the owner decided
 to put the skill into `dia` and to apply B on this branch, merging later, separately.
 
-- The branch was rebased onto `adjudicate-ratchet`, the only branch that has
-  `dia-adjudicate`. Its first commit only added this folder, so the rebase was clean.
+- `adjudicate-ratchet`, the only branch that has `dia-adjudicate`, was merged into this
+  branch (commit `e68bf61`). A rebase was tried first, but publishing it needed a force
+  push, which was refused; the merge gives the same files and keeps the pushed history.
 - **Ruling:** the name is `dia-instruct`; dia-write and dia-prompt were the other
   options. Every `dia` name needs the `dia-` prefix (spec §4), and `ins` is a prefix of
   no other name.

@@ -4,6 +4,42 @@ Work folder of branch `writing-for-models`: the record of how the writing-for-mo
 draft became the `dia-instruct` skill, and its A/B on `dia-adjudicate`. Read this file
 first; the decision history is in `SESSION.md`. Nothing here is shipped.
 
+## Start here (next session)
+
+The branch is complete as of commit `fad0a90` and is not merged. Build checks, the 19
+unit tests and `claude plugin validate --strict` pass.
+
+**How the branch is built.** `adjudicate-ratchet` was merged into it (commit `e68bf61`),
+because `dia-adjudicate` exists only there. Merging this branch into `main` therefore
+also brings in all of 1.5.0 (dia-ratchet rename, dia-adjudicate). A rebase with a force
+push was tried first and refused; the merge leaves the same files without rewriting
+pushed history.
+
+**Waiting on the owner:**
+
+| Decision | Where | What to decide |
+|---|---|---|
+| Four review findings on text from the reviewed draft | open item 5 below | Change each or keep it. The one that matters most here: "Replies are in the user's language" can be read to mean a skill file written for a Korean user is written in Korean, against this repository's English-only, no-Hangul rule for skill files. |
+| dia-adjudicate 1.1.0 keeps one unresolved count | open item 2; `docs/handoff.md` item 28 | Re-test or accept. Correct items capped at "partly valid": A 1/6 vs B 5/6 runs (p = 0.08). The re-test is case4 at 12 or more runs per arm on Haiku, about 2.9M tokens, after restricting the judges' tools. |
+| When to merge | `docs/handoff.md` items 23 and 27 | Merge with or after `adjudicate-ratchet`, and decide whether routing probes come first. |
+
+**Agent work left:**
+
+1. Routing probes for dia-instruct (`docs/handoff.md` item 27). Not run. Two risks to
+   check first:
+   - "recheck my draft system prompt" may go to dia-refine, whose description has no
+     border toward dia-instruct;
+   - routine edits such as "add the test command to CLAUDE.md" may load dia-instruct and
+     its review step.
+2. Replace the README example for dia-instruct with a shortened recorded run once 1.6.0
+   is installed. The current example is labelled an illustration. The project page
+   (`site/`) does not show dia-instruct (`docs/handoff.md` item 29).
+3. The Japanese and Chinese README text for 1.6.0 was written by an agent and not read
+   by a native speaker (`docs/handoff.md` item 14c).
+4. The fixes made after the independent review were self-checked only. Before release,
+   have a sub-agent that did not write them review `skills/dia-instruct/SKILL.md` and
+   `skills/dia-menu/SKILL.md` once more against dia-instruct.
+
 ## What is here
 
 | Path | What |
