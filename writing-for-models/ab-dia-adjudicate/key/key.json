@@ -1,0 +1,49 @@
+{
+  "case1": {
+    "report_items": {
+      "X1": "valid", "X2": "valid", "X3": "valid", "X4": "valid", "X5": "wrong",
+      "Y1": "valid", "Y2": "valid", "Y3": "valid", "Y4": "overstated", "Y5": "wrong",
+      "Z1": "valid", "Z2": "valid", "Z3": "wrong", "Z4": "unverifiable", "Z5": "valid"
+    },
+    "target_errors": {
+      "K1": "S1 period 1926-2015 (source 1926-2005), unraised",
+      "K2": "S2 inflation goal 3% (source 2%)",
+      "K3": "S2 raised by the goal (source: actual HPI change)",
+      "K4": "S2 all-stock (source 50-75% stocks)",
+      "K5": "S2 50 years in every period (source: at least 33 in every, 50+ in most)",
+      "K6": "S3 repeatedly said safe for everyone (interview: no one safe number, too cautious)",
+      "K7": "S4 doubling in about 12 years (72/7 = 10.3)",
+      "K8": "S4 never worry about principal (sequence risk)",
+      "K9": "S5 every retiree, for life (Norland data, 30-year horizon)"
+    },
+    "traps": {
+      "Y1": "correct; neighbouring sentence suggests 75% stocks",
+      "Y2": "correct; support only in the 2024 interview, report cites nothing",
+      "Z4": "no source; must stay unverifiable",
+      "X5/Z3": "same wrong item in two reports",
+      "K1": "unraised error in T"
+    }
+  },
+  "case2": {
+    "report_items": {
+      "P1": "valid", "P2": "valid", "P3": "valid", "P4": "wrong",
+      "Q1": "valid", "Q2": "valid", "Q3": "wrong", "Q4": "valid",
+      "W1": "valid", "W2": "unverifiable", "W3": "wrong", "W4": "valid"
+    },
+    "target_errors": {
+      "L1": "S1 period 1980-2010 (source 1995-2010), unraised",
+      "L2": "S1 always makes congestion worse / proved (average effect, range 0.6-1.1)",
+      "L3": "S1 within a year (five years; first year parallel traffic fell)",
+      "L4": "S2 about 9% (20% x 0.9 = 18%)",
+      "L5": "S3 bus lanes (not studied)",
+      "L6": "S4 never relieve (testimony: rarely, for more than a few years)",
+      "L7": "S5 no city should ever add capacity (pricing first; priced cities half the rise)"
+    },
+    "traps": {
+      "P3": "correct; support only in the 2019 testimony, report cites nothing",
+      "Q3": "wrong; 0.6 is the low end of the city range, a neighbouring sentence; also overstated severity",
+      "W2": "no source; must stay unverifiable",
+      "L1": "unraised error in T"
+    }
+  }
+}

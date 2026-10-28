@@ -1,0 +1,42 @@
+[
+ {
+  "run": "h01",
+  "case": "case2",
+  "skill": "skill-k3"
+ },
+ {
+  "run": "h02",
+  "case": "case1",
+  "skill": "skill-k3"
+ },
+ {
+  "run": "h03",
+  "case": "case2",
+  "skill": "skill-m7"
+ },
+ {
+  "run": "h04",
+  "case": "case1",
+  "skill": "skill-m7"
+ },
+ {
+  "run": "h05",
+  "case": "case1",
+  "skill": "skill-m7"
+ },
+ {
+  "run": "h06",
+  "case": "case2",
+  "skill": "skill-k3"
+ },
+ {
+  "run": "h07",
+  "case": "case1",
+  "skill": "skill-k3"
+ },
+ {
+  "run": "h08",
+  "case": "case2",
+  "skill": "skill-m7"
+ }
+]

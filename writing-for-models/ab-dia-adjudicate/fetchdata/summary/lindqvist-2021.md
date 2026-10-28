@@ -1,0 +1,1 @@
+A study of 14 teams at 5 Nordvik firms over 18 months on pair programming. Pairs spent more person-hours on tasks. The effect on defects was close to zero for routine tasks. All teams built business web applications; remote pairing was not studied.

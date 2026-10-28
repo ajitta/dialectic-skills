@@ -1,0 +1,17 @@
+2026-10-28T08:15:11.604426+00:00	lindqvist-2021	Q	How many teams and how many firms were in the study, and over what period?
+2026-10-28T08:15:11.630097+00:00	lindqvist-2021	Q	Did the defect reduction hold on every task type, or was it close to zero for routine tasks?
+2026-10-28T08:15:11.661839+00:00	lindqvist-2021	Q	What was the overall reduction in post-release defects, and which task types showed the largest reduction?
+2026-10-28T08:15:11.777105+00:00	lindqvist-2021	Q	How much extra person-hour effort did pairs need, and how did it change over time?
+2026-10-28T08:15:11.806722+00:00	lindqvist-2021	Q	Did the extra effort of pairing fall with experience or over the months of the study?
+2026-10-28T08:15:11.840052+00:00	lindqvist-2021	Q	Was developer satisfaction measured, and in which period of the study?
+2026-10-28T08:15:11.971216+00:00	lindqvist-2021	Q	Were embedded or safety-critical software projects studied?
+2026-10-28T08:15:11.998590+00:00	lindqvist-2021	Q	Who funded the study?
+2026-10-28T08:15:12.033769+00:00	lindqvist-2021	Q	Did the study recommend that every team should mandate pair programming, or pair on everything?
+2026-10-28T08:15:12.060262+00:00	lindqvist-2021	Q	For which kinds of work did the study find pairing useful, such as complex tasks in business web applications?
+2026-10-28T08:15:12.175386+00:00	lindqvist-2023-keynote	Q	Did Lindqvist say that teams should pair on everything?
+2026-10-28T08:15:12.208501+00:00	lindqvist-2023-keynote	Q	What did Lindqvist say about pairing on routine tickets, and about mandating pairing for every team?
+2026-10-28T08:15:12.243542+00:00	lindqvist-2023-keynote	Q	Did Lindqvist describe pairing as mostly overhead for routine work?
+2026-10-28T08:15:51.903742+00:00	lindqvist-2021	Q	Does the paper mention the Nordvik Pairing Institute or any funder or sponsor?
+2026-10-28T08:15:51.926877+00:00	lindqvist-2023-keynote	Q	Does Lindqvist mention the Nordvik Pairing Institute or any funding for the study?
+2026-10-28T08:15:51.948944+00:00	lindqvist-2021	Q	What conclusion do the authors draw about when pairing is worth its cost?
+2026-10-28T08:15:51.978502+00:00	lindqvist-2021	Q	Were the 14 teams studied over 18 months or two years?

@@ -1,0 +1,19 @@
+2026-10-28T08:15:14.391004+00:00	lindqvist-2021	FETCH	
+2026-10-28T08:15:14.508490+00:00	lindqvist-2023-keynote	FETCH	
+2026-10-28T08:15:14.716284+00:00	lindqvist-2021	Q	How many teams and how many firms took part, and over what period of time?
+2026-10-28T08:15:14.866389+00:00	lindqvist-2021	Q	What reduction in post-release defects was found, overall and for routine tasks versus complex tasks?
+2026-10-28T08:15:15.010595+00:00	lindqvist-2021	Q	How many more person-hours did pairs need, as a percentage?
+2026-10-28T08:15:15.170575+00:00	lindqvist-2021	Q	How did the extra effort change over time or with developer experience?
+2026-10-28T08:15:25.440153+00:00	lindqvist-2021	Q	Was developer satisfaction or happiness measured, and when during the study?
+2026-10-28T08:15:25.522618+00:00	lindqvist-2021	Q	Did the study include embedded software or safety-critical software?
+2026-10-28T08:15:25.604126+00:00	lindqvist-2021	Q	Who funded the study?
+2026-10-28T08:15:25.691904+00:00	lindqvist-2021	Q	Does the article recommend that every team mandate pair programming, or limit its advice to certain kinds of tasks?
+2026-10-28T08:15:25.771401+00:00	lindqvist-2023-keynote	Q	Did Lindqvist say that teams should pair on everything?
+2026-10-28T08:15:25.858238+00:00	lindqvist-2023-keynote	Q	What did Lindqvist say about pairing routine tickets, or about mandating pairing for every task?
+2026-10-28T08:15:40.039023+00:00	lindqvist-2021	Q	What does the article conclude pairing is worth doing for, and what does it say about routine tasks?
+2026-10-28T08:15:40.125229+00:00	lindqvist-2021	Q	Does the article say pairing should be used on every task, or that all teams should adopt it?
+2026-10-28T08:15:40.210500+00:00	lindqvist-2023-keynote	Q	Who funded the research on pair programming, or which institute sponsored it?
+2026-10-28T08:15:40.294851+00:00	lindqvist-2021	Q	Which organisation funded or sponsored this study?
+2026-10-28T08:15:40.377560+00:00	lindqvist-2023-keynote	Q	Did Lindqvist say anything about the 40% defect reduction, or about teams pairing on all tasks?
+2026-10-28T08:15:46.511552+00:00	lindqvist-2021	Q	Does the article mention the Nordvik Pairing Institute, or any funding or acknowledgement section?
+2026-10-28T08:15:46.588406+00:00	lindqvist-2023-keynote	Q	Does the keynote mention the Nordvik Pairing Institute?
