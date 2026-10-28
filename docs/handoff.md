@@ -4,10 +4,11 @@ State of the work and what is left, for the next agent session. Read `AGENTS.md`
 
 ## Next session: start here (2026-10-28)
 
-Released and live: plugin `dia` **1.6.1** (`v1.6.1`, `main`), project page and both zips; the owner re-uploaded the ChatGPT zip and Codex now syncs 1.6.1 (item 32). Nothing is half-done on a branch. What is left, by who acts:
+Released and live: plugin `dia` **1.6.1** (`v1.6.1`, `main`), project page and both zips; the owner re-uploaded the ChatGPT zip and Codex now syncs 1.6.1 (item 32). On branch `intent-outcome`, not merged: plugin **1.7.0** with dia-intent 1.5.0 (spec D45, item 34). What is left, by who acts:
 
 | What | Who | Where to start |
 |---|---|---|
+| dia-intent 1.5.0 (D45) on branch `intent-outcome`: rule on the eight open review findings (none applied; any fix changes the A/B-tested text), then PR, merge, tag `v1.7.0`, re-upload the ChatGPT zip | owner rules; agent applies | Item 34; `docs/writing-for-models/ab-dia-intent.md` § Review of the adopted text. |
 | The other meaning-change proposals from the D43 rewrite (dia-intent, dia-brainstorm, dia-elenchus, dia-reductio, dia-negative, dia-refine, dia-ratchet, dia-menu, dia-counterplan, the rest of dia-conjecture) | owner picks; agent applies | Item 31; `docs/writing-for-models/rewrite-2026-10-28.md`. Each pick is a meaning change: owner's request, an A/B where an eval exercises it (dia-instruct step 1), review by a sub-agent that did not write it, a version bump. |
 | dia-adjudicate 1.1.0 re-test (case4, 12+ runs per arm on Haiku, about 2.9M tokens) | owner; on hold | Item 28; harden the harness first (`docs/writing-for-models/README.md`, open items 3 and 4). |
 | Directory listings (Anthropic, OpenAI) | owner submits | Item 13; `docs/directory-submission.md` § Owner steps. |
@@ -21,6 +22,7 @@ How releases go now (owner's rule): `main` deploys at once (claude.ai sync, Page
 
 ## State (2026-10-28)
 
+- Branch `intent-outcome` (2026-10-28, not merged) holds plugin `dia` **1.7.0**: dia-intent 1.5.0 separates the deliverable from a result the user states beyond it (spec D45), from a separate Codex session summarized in `docs/research/codex/README.md`. A/B in two rounds (`docs/writing-for-models/ab-dia-intent.md`); the first text over-applied the split and was replaced. Owner ruling in the same review: no rename of the plugin, repository or prefix. Build checks, unit tests and `claude plugin validate --strict` pass; no routing probes were run because the description is unchanged.
 - Plugin `dia` **1.6.1** (2026-10-28, `v1.6.1`) fixes two contradictions the D43 rewrite surfaced (spec D44: dia-warrant's stop result, dia-conjecture's case labels), adds the project-page plates for dia-adjudicate and dia-instruct, takes every skill count off the page and `og.png`, replaces the two illustrated README examples with recorded runs, and records probes Part T.
 - Plugin `dia` **1.6.0** (2026-10-28, `v1.6.0`) is the one release for three branches, merged to `main` through one pull request after review, probes and CI (owner, item 30); 1.5.0 was never released on its own (spec status line). It renames `dia-iterate` to `dia-ratchet` (D39) and `dia-confirm` back to `dia-intent` (D42), adds `dia-adjudicate` (D40) and `dia-instruct` (D41), rewrites dia-adjudicate (D41) and eleven other skill bodies (D43) by dia-instruct's rules, and gives dia-menu twelve rows. Pre-merge checks: two independent reviews of the branch, an independent meaning review of every rewritten body, probes Part S (33/33 cells on Claude Code), the project page updated in text only (item 25). The bullets below record how the branches were built.
 - Skill bodies rewritten by dia-instruct's rules (spec D43, 2026-10-28, on `writing-for-models`): eleven skills, body only, wording and structure only, each reviewed by a second sub-agent; proposals for meaning changes are in `docs/writing-for-models/rewrite-2026-10-28.md` (item 31).
@@ -78,6 +80,7 @@ How releases go now (owner's rule): `main` deploys at once (claude.ai sync, Page
 | 31 | Meaning changes surfaced by the D43 rewrite | owner decides | `docs/writing-for-models/rewrite-2026-10-28.md`, table. None applied; each needs the owner's request and, where an eval exercises it, an A/B (dia-instruct step 1). |
 | 32 | Codex on an account with an uploaded `dia`: resolved 2026-10-28 | — | Probes Part T: Codex synced the account's uploaded dia 1.4.0 into its plugin cache and ran its `dia-confirm` in 3 of 4 old-name runs. After the owner re-uploaded `dialectic-skills-openai.zip` (1.6.1) on chatgpt.com, the synced copy is `created-by-me-remote/dia/1.6.1` (13 skills, no dia-confirm), and `dia-confirm …` loaded no skill in 2 of 2 Codex runs ("I don't have a `dia-confirm` skill available"). Re-upload the zip on every release (item 14). |
 | 33 | 1.6.x on the owner's phone: passed 2026-10-28 (owner report) | — | The owner reported that 1.6.x works correctly on the phone; per-prompt and per-app results were not reported. |
+| 34 | dia-intent 1.5.0 (D45) on branch `intent-outcome` | owner decides | Eight findings of the independent review of the adopted text are open (`docs/writing-for-models/ab-dia-intent.md`). Finding 8 (keep the result marked unverified when the finished work is reported after approval) is a further meaning change and would need its own A/B. One A/B item went the other way (Sonnet landing proxy labelling 8/12 → 3/12; a rubric question about sign-up conversion). |
 
 Observations from P8 (n=1 each; see `docs/probes.md`):
 
