@@ -1,7 +1,7 @@
 {
   "$schema": "https://code.claude.com/schemas/marketplace.json",
   "name": "dialectic-skills",
-  "description": "Marketplace for the dia plugin: ten instruction-only reasoning-and-review skills and a short dia menu.",
+  "description": "Marketplace for the dia plugin: twelve instruction-only reasoning-and-review skills and a short dia menu.",
   "owner": {
     "name": "ajitta",
     "url": "https://github.com/ajitta"
@@ -10,7 +10,7 @@
     {
       "name": "dia",
       "source": "./plugins/dia",
-      "description": "Ten reasoning-and-review skills: intent confirmation, Socratic elenchus and brainstorming, reductio ad absurdum, negative dialectics, argument warrants, Lakatosian counterexamples, dialectical-inquiry counterplans, single-pass refine and verification-gated iteration, plus dia-menu, a short entry point (type dia).",
+      "description": "Twelve reasoning-and-review skills: intent confirmation, Socratic elenchus and brainstorming, reductio ad absurdum, negative dialectics, argument warrants, Lakatosian counterexamples, dialectical-inquiry counterplans, single-pass refine, review rounds gated by outside evidence (ratchet), rulings on others' reports about a text, and rules for text a model follows, plus dia-menu, a short entry point (type dia).",
       "category": "productivity"
     }
   ]
