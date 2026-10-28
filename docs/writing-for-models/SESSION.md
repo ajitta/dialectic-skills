@@ -148,9 +148,11 @@ data are in `ab-dia-adjudicate/`; results and their reading are in `README.md`.
 
 ## 9. Into dia
 
-The first push put everything in this folder, on a branch from `main`, because files
-added straight to `docs/` would mix with other branches (owner). Then the owner decided
-to put the skill into `dia` and to apply B on this branch, merging later, separately.
+**Ruling:** everything for this work goes in one folder named after the branch,
+`docs/writing-for-models/`, because files added straight to `docs/` would mix with
+other branches. The first push put the folder at the repository root by mistake; it was
+moved under `docs/` afterwards. Then the owner decided to put the skill into `dia` and
+to apply B on this branch, merging later, separately.
 
 - `adjudicate-ratchet`, the only branch that has `dia-adjudicate`, was merged into this
   branch (commit `e68bf61`). A rebase was tried first, but publishing it needed a force

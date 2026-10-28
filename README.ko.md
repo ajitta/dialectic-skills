@@ -623,12 +623,12 @@ releases/dialectic-skills-openai.zip
 tools/package.py                validate and build (developer-only)
 tests/                          developer-only
 upstream/                       material the seven original skills were rebuilt from; never shipped
-writing-for-models/             dia-instruct's draft record and its A/B on dia-adjudicate; never shipped
 README.<lang>.md                translations of this file (not shipped)
 docs/spec.md                    specification
 docs/probes.md                  surface and routing probe results
 docs/token-cost.md              measured token cost (the seven 1.2.x skills)
 docs/skill-effect.md            the seven 1.2.x skills against no skill, blind-judged
+docs/writing-for-models/        dia-instruct's draft record and its A/B on dia-adjudicate; never shipped
 ```
 
 ## 개발

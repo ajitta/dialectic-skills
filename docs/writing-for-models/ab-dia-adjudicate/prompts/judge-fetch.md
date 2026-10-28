@@ -11,7 +11,7 @@ from the session apart from the placeholders.
 
 Next time, add a sentence that forbids every tool other than file reading and the fetch
 command: in round 3 one judge tried a command on the user's linked computer and one
-listed GitHub repositories (see `../README.md`, Incidents).
+listed GitHub repositories (see `../../README.md`, Incidents).
 
 ---
 

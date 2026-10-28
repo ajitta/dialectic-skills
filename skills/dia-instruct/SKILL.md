@@ -5,7 +5,7 @@ license: MIT
 metadata:
   author: ajitta
   version: "1.0.0"
-  lineage: "new in plugin 1.6.0 (spec D41); the author's writing-for-models draft, record in writing-for-models/ in the source repository"
+  lineage: "new in plugin 1.6.0 (spec D41); the author's writing-for-models draft, record in docs/writing-for-models/ in the source repository"
   source: "https://github.com/ajitta/dialectic-skills"
 ---
 

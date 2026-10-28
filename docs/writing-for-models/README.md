@@ -1,6 +1,6 @@
 # writing-for-models
 
-Work folder of branch `writing-for-models`: the record of how the writing-for-models
+Work folder of branch `writing-for-models`, at `docs/writing-for-models/`: the record of how the writing-for-models
 draft became the `dia-instruct` skill, and its A/B on `dia-adjudicate`. Read this file
 first; the decision history is in `SESSION.md`. Nothing here is shipped.
 
@@ -44,7 +44,7 @@ pushed history.
 
 | Path | What |
 |---|---|
-| `../skills/dia-instruct/` | The skill (spec D41): four rules for text a model reads and follows, the structure they imply, leads, and how to write, edit or review such text. `references/evidence.md` holds what each part rests on and is read only when the user asks how strong a rule is or wants to change one. |
+| `../../skills/dia-instruct/` | The skill (spec D41): four rules for text a model reads and follows, the structure they imply, leads, and how to write, edit or review such text. `references/evidence.md` holds what each part rests on and is read only when the user asks how strong a rule is or wants to change one. |
 | `ab-dia-adjudicate/` | A/B test of the skill's rules on `dia-adjudicate`: both versions, four fictional cases with an answer key, the fetch-tool simulator, prompts, all judge outputs and the scorer. Its README says how to re-run. |
 | `SESSION.md` | What was done in the session that made this (2026-10-28), with the owner's rulings and the reasons. |
 
