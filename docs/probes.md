@@ -438,6 +438,46 @@ Totals: no correct item was overturned in either run (0 of 14). Of the eight wro
 
 Not probed here: the mid-sentence mention, a plain "which of these reviews is right?" request, negative cells against dia-refine, dia-ratchet and dia-warrant, and Codex (handoff item 24).
 
+**Part S, 1.6.0 on branch `writing-for-models` after the D43 rewrite (dia-intent, dia-ratchet, dia-adjudicate, dia-instruct, dia-menu routing; a first-word run of each rewritten skill), 2026-10-28.** Claude Code 2.1.312 on Windows 11, sonnet, `--plugin-dir` set to a copy of `plugins/dia` at `572e6d6`, fresh `CLAUDE_CONFIG_DIR` per run holding only a copy of the credentials (deleted after the run), `ENABLE_CLAUDEAI_MCP_SERVERS=false`, an empty directory outside the repository, tool-less (`--tools Skill`), `--max-turns 12`, n=1 per cell. No run listed an `@synced` plugin. Which skill loaded is read from the `Skill` tool_use input. 33 of 33 cells matched the expectation; the smoke cells check that each rewritten skill loads by its first word and opens in its own format, not output quality.
+
+| Cell | Expected | Loaded | Note |
+|---|---|---|---|
+| intent-name | dia-intent | dia-intent → dia-intent | loaded (twice in one run); review with the four labels |
+| intent-menu-1 | dia-menu -> dia-intent | dia-menu → dia-intent | as expected |
+| intent-menu-int | dia-menu -> dia-intent | dia-menu → dia-intent | as expected |
+| intent-plain | not dia-intent (description gate) | none | not loaded; the model confirmed the goal on its own |
+| intent-mid | none | none | as expected |
+| intent-oldname | not dia-intent (old name) | none | not loaded; plain answer (old name no longer starts it) |
+| menu-gate | dia-menu only; replies with dia 1 form | dia-menu | menu replied with `dia 1 …` / `dia-intent …` and stopped |
+| ratchet-name | dia-ratchet | dia-ratchet | as expected |
+| ratchet-rat | dia-menu -> dia-ratchet | dia-menu → dia-ratchet | as expected |
+| ratchet-10 | dia-menu -> dia-ratchet | dia-menu → dia-ratchet | as expected |
+| ratchet-plain | not dia-ratchet | none | not loaded; plain answer |
+| adj-name | dia-adjudicate | dia-adjudicate | as expected |
+| adj-11 | dia-menu -> dia-adjudicate | dia-adjudicate | loaded directly, without the menu skill; Inputs line, shuffle, tool-less limits stated |
+| adj-adj | dia-menu -> dia-adjudicate | dia-menu → dia-adjudicate | as expected |
+| adj-plain | not dia-adjudicate | none | not loaded; plain answer |
+| ins-nl | dia-instruct | dia-instruct | as expected |
+| ins-sysprompt | dia-instruct (risk: dia-refine) | dia-instruct | dia-instruct, not dia-refine |
+| ins-claudemd | none, or dia-instruct without a sub-agent review | none | not loaded; edit shown, no review step |
+| ins-email-neg | dia-refine, not dia-instruct | none | not loaded (neither dia-instruct nor dia-refine; dia-refine by plain request is the known limit of Part J) |
+| ins-write-neg | none | none | as expected |
+| ins-12 | dia-menu -> dia-instruct | dia-menu → dia-instruct | as expected |
+| ins-ins | dia-menu -> dia-instruct | dia-menu → dia-instruct | as expected |
+| menu-req-prompt | dia-menu -> dia-instruct | dia-menu → dia-instruct | as expected |
+| menu-bare | dia-menu, 12 rows | dia-menu | twelve numbered rows and the three lines |
+| menu-con | dia-menu -> dia-conjecture | dia-menu → dia-conjecture | `con` went to dia-conjecture alone |
+| smoke-brainstorm | dia-brainstorm | dia-brainstorm | as expected |
+| smoke-elenchus | dia-elenchus | dia-elenchus | as expected |
+| smoke-reductio | dia-reductio | dia-reductio | as expected |
+| smoke-negative | dia-negative | dia-negative | ran; could not open `references/output-template.md` (no Read tool in this harness) and followed Steps 1–8 |
+| smoke-warrant | dia-warrant | dia-warrant | as expected |
+| smoke-conjecture | dia-conjecture | dia-conjecture | as expected |
+| smoke-counterplan | dia-counterplan | dia-counterplan | as expected |
+| smoke-refine | dia-refine | dia-refine | as expected |
+
+Not probed here: Codex and ChatGPT; n>1; mid-sentence mentions of dia-ratchet and dia-adjudicate; probes Part P's flagged description cells (descriptions are unchanged since Part P except dia-refine, dia-ratchet and dia-menu in D39).
+
 ### P8: tool-less run (`--tools Skill`: no search, fetch, code or file tools)
 
 Draft under test: "The Eiffel Tower was completed in 1889 and is about 330 m tall. Python 3.13 removed the GIL by default. 17 x 23 = 391." The Python sentence is wrong.

@@ -6,8 +6,10 @@ first; the decision history is in `SESSION.md`. Nothing here is shipped.
 
 ## Start here (next session)
 
-The branch is complete as of commit `fad0a90` and is not merged. Build checks, the 19
-unit tests and `claude plugin validate --strict` pass.
+Merged to `main` in plugin 1.6.0 (2026-10-28), together with `adjudicate-ratchet` and
+`intent`; see `docs/handoff.md`, State. The owner's rulings on the items below are recorded
+there and in spec D41–D43; this section is kept as the record of the branch before the merge.
+The branch was complete as of commit `fad0a90`.
 
 **How the branch is built.** `adjudicate-ratchet` was merged into it (commit `e68bf61`),
 because `dia-adjudicate` exists only there. Merging this branch into `main` therefore
