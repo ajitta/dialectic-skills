@@ -4,7 +4,7 @@ description: Lakatos's proofs and refutations as a dialogue. Takes a strictly un
 license: MIT
 metadata:
   author: ajitta
-  version: "1.1.0"
+  version: "1.1.1"
   lineage: "new in plugin 1.3.0 (docs/research/candidates/modern-dialectic.md)"
   source: "https://github.com/ajitta/dialectic-skills"
 ---
@@ -16,7 +16,7 @@ This skill runs the method of Lakatos's *Proofs and Refutations* on a strictly u
 ## Hard rules
 
 1. **One case per message, one question per message.** A message fits a phone screen without scrolling, so it has no tables or headers, though a short numbered list of lemmas or repair options is fine.
-2. **Every case shows its check,** condition by condition, so the user can fault it: that it meets C's antecedent (it is an A, under the reading of C fixed in Step 1) and violates its consequent (it is not B), and for a local case, which lemma it violates and how; a case whose check you cannot write is not raised.
+2. **Every case shows its check,** condition by condition, so the user can fault it: that it meets C's antecedent (it is an A, under the reading of C fixed in Step 1); for a case against C (global only or both), that it violates the consequent (it is not B); and for a case against a lemma (local only or both), which lemma it violates and how; a case whose check you cannot write is not raised.
 3. **Evidence classes.** Each case says what it rests on: logic or definition / supplied by the user / verified this session (a tool ran) / single source / unverified recall, and your own recall is never "verified"; if a search tool is available, you may check a fact a case rests on. A C′ forced by a case that rests only on unverified recall is **conditional** on that case.
 4. **The user rules; you classify.** Never rule for the user on whether a case counts; you classify their ruling by Step 4.
 5. **No silent redefinition.** An "I meant …" or a narrowed term is a change to C: state the old and the new wording and what the new one no longer covers, since Lakatos's Teacher refuses "surreptitious changes" of this kind.
@@ -54,7 +54,7 @@ Split the argument into numbered lemmas L1 … Ln, each a step the argument need
 
 ## Step 3 — Raise one case
 
-Lakatos's Rule 1: look for cases both against C (**global**) and against the suspect lemmas (**local**). Aim first at the lemma marked most suspect, and choose the case most likely to be valid: from the user's own material first, then logical or definitional cases, then facts. Lakatos's Rule 3: before you send a local case, check whether it is also global, and label it **local only** or **both**. End the message with the one question: does the case count against C (for a local-only case, against Lj)?
+Lakatos's Rule 1: look for cases both against C (**global**) and against the suspect lemmas (**local**). Aim first at the lemma marked most suspect, and choose the case most likely to be valid: from the user's own material first, then logical or definitional cases, then facts. Lakatos's Rule 3, applied to every case: before you send a case, check whether it fails C, a listed lemma or both, and label it **global only**, **local only** or **both**, because Step 5's repairs differ by that label. End the message with the one question: does the case count against C (for a local-only case, against Lj)?
 
 Layout, one case per message (here C is "every sorted list can be binary-searched in O(log n) time", and L1 is "you can jump to the middle item in one step"):
 
@@ -81,8 +81,8 @@ Branch on the case's label (Lakatos's Rules 2-4):
 - **Local only** (Lj fails, C survives the case): Lakatos's Rule 4. Replace Lj by a lemma the case does not refute and the proof can still use. C is unchanged, unless an earlier repair built Lj into C: then the replacement widens C′ to cover the case (Lakatos's deeper proof, ch. 1 section 6), and the user picks it like any C′.
 - **Global only** (C fails, no listed lemma fails): the proof hides a lemma, so name the hidden lemma the case refutes and add it to the proof-analysis as the next L-number, marked [A, hidden] (the user accepts it by picking this option); then, by Lakatos's Rule 2, C′ is C with that lemma built in as a condition ("every A that … is B").
 - **Both** (C and Lj fail): lemma-incorporation, Lakatos's Rule 2: C′ is "every A that meets Lj is B".
-- **Weaker lemma** (the "suitable lemma" of Lakatos's Rule 2), for a global case, if you can find one: a condition weaker than the one you would build in, still usable by the proof, that more of C's cases meet but the counting case fails (show that in one line). Never offer a condition the counting case meets, or one that only restates B ("every A that ends up B is B"), because that empties C (SEP's "empty tautology") and is not a repair.
-- **Give up C** is an option whenever C itself fails (global or both).
+- **Weaker lemma** (the "suitable lemma" of Lakatos's Rule 2), for a case that fails C (global only or both), if you can find one: a condition weaker than the one you would build in, still usable by the proof, that more of C's cases meet but the counting case fails (show that in one line). Never offer a condition the counting case meets, or one that only restates B ("every A that ends up B is B"), because that empties C (SEP's "empty tautology") and is not a repair.
+- **Give up C** is an option whenever C itself fails (global only or both).
 - Exception-barring (listing the case as an exception) and monster-adjustment (reinterpreting the case so that it fits) only if the user asks for them, labelled as responses Lakatos rejects.
 
 Number the options, saying for each in one line what it keeps and what it no longer covers; recommend one in one line with its reason, then ask the user to pick.
@@ -105,7 +105,7 @@ Record:
 - **Claim:** C "…" → C′ "…", one arrow per change, each with its reason (lemma-incorporation, hidden lemma built in, weaker lemma, deeper proof, exception-barring, monster-adjustment, definition change, "I meant …"); a lemma replacement that leaves C unchanged goes under Proof-analysis
 - **Proof-analysis:** L1 [T] "…"; L2 [A, accepted] …; L3 [A, hidden, added after case k] …; replaced: …
 - **Prior criterion:** the user's answer (Popper's; an addition) | not asked (C is not empirical)
-- **Cases:** one line each: kind (global / local Lj / both), evidence class, ruling (counts / invalid / concept-stretching / monster-barring / disputed), response
+- **Cases:** one line each: kind (global only / local only, Lj / both, Lj), evidence class, ruling (counts / invalid / concept-stretching / monster-barring / disputed), response
 - **Definition changes:** old → new; content lost | none
 - **Conditional on:** cases resting only on unverified recall | none
 - **Tried:** the lemmas and the kinds of case tried; the most suspect lemma now; "C′ not yet tested" if no case was raised against the last repair
