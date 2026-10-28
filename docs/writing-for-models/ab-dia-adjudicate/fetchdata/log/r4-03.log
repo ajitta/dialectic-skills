@@ -1,0 +1,15 @@
+2026-10-28T13:27:55.018341+00:00	lindqvist-2021	Q	Was developer satisfaction measured, and when?
+2026-10-28T13:27:55.132134+00:00	lindqvist-2021	Q	Were embedded or safety-critical software projects studied?
+2026-10-28T13:27:55.249664+00:00	lindqvist-2021	Q	Who funded the study?
+2026-10-28T13:27:55.347939+00:00	lindqvist-2021	Q	What does the study recommend about which tasks teams should pair on, or whether pairing should be mandated?
+2026-10-28T13:27:55.658903+00:00	lindqvist-2023-keynote	Q	Did Lindqvist say teams should pair on everything?
+2026-10-28T13:27:55.762385+00:00	lindqvist-2023-keynote	Q	Did Lindqvist describe pairing as mostly overhead for routine tickets, or urge teams not to mandate pairing for everything?
+2026-10-28T13:27:55.840623+00:00	lindqvist-2023-keynote	Q	What did Lindqvist say about pairing on complex tasks, mandates, or whether every team should pair?
+2026-10-28T13:27:55.971511+00:00	lindqvist-2023-keynote	Q	Did the keynote say anything about embedded or safety-critical software, or about the 2021 study's defect results?
+2026-10-28T13:28:05.048646+00:00	lindqvist-2021	Q	How many teams and how many firms took part in the study, and over how long?
+2026-10-28T13:28:05.099934+00:00	lindqvist-2021	Q	What was the defect reduction for routine tasks?
+2026-10-28T13:28:05.147585+00:00	lindqvist-2021	Q	Was the defect reduction largest for complex tasks, and did it apply to every task?
+2026-10-28T13:28:05.198642+00:00	lindqvist-2021	Q	Which organisation or institute sponsored, funded or financed the research?
+2026-10-28T13:28:05.255402+00:00	lindqvist-2021	Q	What did the study conclude about whether every team should adopt pair programming?
+2026-10-28T13:28:41.193193+00:00	lindqvist-2023-keynote	Q	Did Lindqvist mention funding for the 2021 study, or the Nordvik Pairing Institute?
+2026-10-28T13:28:41.257311+00:00	lindqvist-2021	Q	Does the paper mention the Nordvik Pairing Institute or any funder or sponsor?

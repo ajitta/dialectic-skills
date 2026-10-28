@@ -4,7 +4,7 @@ description: Dialectical inquiry after Mason, adapted for one assistant in one c
 license: MIT
 metadata:
   author: ajitta
-  version: "1.1.0"
+  version: "1.1.1"
   lineage: "new in plugin 1.3.0 (docs/research/candidates/argumentation.md)"
   source: "https://github.com/ajitta/dialectic-skills"
 ---
@@ -42,7 +42,7 @@ The flag, or its natural-language equivalent, sets the target; with neither, inf
 
 1. **Build the alternative; do not carp.** The counterplan follows from contrary assumptions and is not a list of the plan's flaws; it must be a course of action a competent advocate could adopt and defend.
 2. **Contraries, chosen and labelled.** For each key assumption state a specific, plausible contrary, not its bare negation: for "demand grows 10% a year", write "demand stays flat (supposing, for example, that the two largest buyers merge)", not "demand does not grow 10%". The choice is yours, so mark each one "my choice"; a mechanism in a contrary is a supposition, never a reported fact. Together the contraries must be able to hold at once and must fit the same data.
-3. **Symmetry.** Pair every key assumption with its contrary, and write the counterplan at the same level of detail as the plan, citing the same data: if the plan names steps, costs or dates, the counterplan names the same slots. Where a slot needs a fact neither side has (a price, a measured quantity), write "not supplied" (Rule 4), which counts as matching detail. A step, date or condition the counterplan itself chooses is not a fact: name it.
+3. **Symmetry.** Pair every key assumption with its contrary, and write the counterplan at the same level of detail as the plan, citing the same data: if the plan names steps, costs or dates, the counterplan names the same slots. Where a slot needs a fact neither side has (a price, a measured quantity), write "not supplied" in the slot, which counts as matching detail, and the fact itself goes under "not tested" (Rule 4). A step, date or condition the counterplan itself chooses is not a fact: name it in its slot, never as "not supplied".
 4. **No new facts.** Both sides use the plan's data and what the user supplies; never invent figures, sources or quotes for either side, and put a fact a side would need but neither has under "not tested". Label every fact with its evidence class: verified this session (a tool ran) / supplied by the user / single source / unverified recall; your own recall is never "verified". If a search tool is available and the user asks you to check a datum, check it and update its class for both sides.
 5. **No verdict.** Do not say, or imply by tone, ranking or adjectives, which plan is better. If the user asks which wins, during the inquiry or after it, say in one line that this skill gives no verdict because you wrote both sides and that the result is their set, and name the observation that would decide each open pair.
 6. **A ruling is not a challenge.** When the user rejects a contrary, record the ruling, and neither argue for the contrary nor soften it; rewrite a contrary only on a named defect: it misstates the data, or it contradicts another contrary.
@@ -51,7 +51,7 @@ The flag, or its natural-language equivalent, sets the target; with neither, inf
 
 ## Procedure
 
-The first message runs Steps 1 to 7 and ends with Step 7's question, unless it stops earlier (Step 1, Step 3, or an assumptions-only request). Later messages show only what changed (a new Cn, the counterplan steps on it, the changed pair) and fit a phone screen; a rerun or the record may be longer, in numbered lines, not tables.
+The first message runs Steps 1 to 7 and ends with Step 7's question, unless it ends earlier: with Step 1's question, with the Step 8 record when Step 3 finds no key assumption on a counterplan request, or after Step 3, with no record, on an assumptions-only request. Later messages show only what changed (a new Cn, the counterplan steps on it, the changed pair) and fit a phone screen; a rerun or the record may be longer, in numbered lines, not tables.
 
 ### Step 1: State the plan
 

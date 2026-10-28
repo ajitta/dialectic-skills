@@ -36,12 +36,12 @@ Shapes, not scripts. Adapt each to the user's own words and the last answer, and
 
 ## Tactic templates
 
-- Concreteness: "Walk me through the first time, step by step."
+- Concreteness pull: "Walk me through the first time, step by step."
 - Counterexample: "Take [specific case]. How does the idea handle it?"
-- Contradiction: "Earlier you said "…", and just now "…". Which one gives?" (verbatim quotes only)
-- Definition: "You've used 'X' two ways. Pick one meaning for now?"
-- Falsification: "What would you need to see to drop this? A number or an event?"
-- Necessity: "What breaks if we leave this out?"
+- Contradiction surfacing: "Earlier you said "…", and just now "…". Which one gives?" (verbatim quotes only)
+- Definition pressure: "You've used 'X' two ways. Pick one meaning for now?"
+- Falsification pull: "What would you need to see to drop this? A number or an event?"
+- Necessity check: "What breaks if we leave this out?"
 
 ## Optional lenses (pick at most two, only when the idea calls for one)
 

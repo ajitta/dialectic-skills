@@ -1,0 +1,16 @@
+2026-10-28T13:27:55.020657+00:00	lindqvist-2021	Q	How many teams and how many firms took part in the study, and over how long did it run?
+2026-10-28T13:27:55.304737+00:00	lindqvist-2021	Q	By how much did pair programming reduce post-release defects, and for which kinds of tasks was that reduction measured?
+2026-10-28T13:27:55.632971+00:00	lindqvist-2021	Q	Was the defect reduction close to zero or smaller for routine tasks?
+2026-10-28T13:27:55.864366+00:00	lindqvist-2021	Q	How many extra person-hours did pairs need compared with solo developers?
+2026-10-28T13:27:56.153459+00:00	lindqvist-2021	Q	Did the extra effort of pairing fall with experience, or over time, and by how much?
+2026-10-28T13:27:56.454137+00:00	lindqvist-2021	Q	When was developer satisfaction measured, and was it measured throughout the study?
+2026-10-28T13:27:56.684723+00:00	lindqvist-2021	Q	Were any embedded or safety-critical software projects studied?
+2026-10-28T13:27:56.883761+00:00	lindqvist-2021	Q	Who funded the study, and what kinds of tasks or applications did it cover?
+2026-10-28T13:27:57.062627+00:00	lindqvist-2021	Q	Does the study recommend that every team mandate pair programming, or pair on everything?
+2026-10-28T13:27:57.238523+00:00	lindqvist-2023-keynote	Q	Did Lindqvist say that teams should pair on everything?
+2026-10-28T13:27:57.452226+00:00	lindqvist-2023-keynote	Q	Did Lindqvist describe pairing as mostly overhead for routine tickets, or urge teams not to mandate pairing for everything?
+2026-10-28T13:27:57.619861+00:00	lindqvist-2023-keynote	Q	Did the keynote discuss embedded or safety-critical software?
+2026-10-28T13:27:57.783348+00:00	lindqvist-2023-keynote	Q	Did Lindqvist talk about the 2021 study, its defect results, or whether pairing should be mandated?
+2026-10-28T13:28:53.544730+00:00	lindqvist-2021	Q	Was the study funded or sponsored, and if so by which organisation?
+2026-10-28T13:28:54.220298+00:00	lindqvist-2023-keynote	Q	Was the study or research funded or sponsored, and if so by which organisation?
+2026-10-28T13:28:54.805051+00:00	lindqvist-2021	Q	What does the paper conclude about which tasks or which teams should pair?

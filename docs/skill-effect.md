@@ -58,5 +58,5 @@ Same harness and judge. dia-refine and dia-iterate: S re-run at `562f336`, judge
 - n=3 per cell; one judge model, from the same family as the generator.
 - The checklist items come from each skill's own design goals, so they favour S; the pairwise question ("as a rigorous practitioner of the named method would") is the more neutral measure.
 - Headless runs could not use the shell or the web, which removes dia-iterate's normal verification path and dia-refine's tool checks.
-- Scripted multi-turn users do not react to the questions; an adaptive simulated respondent would test dia-elenchus and dia-brainstorm better.
+- Scripted multi-turn users do not react to the questions. The re-run above uses an adaptive simulated respondent for dia-elenchus and dia-brainstorm, but it is still one model playing a persona, not a person.
 - Raw sessions and judgments: `~/work/dia-review/eval/` on the build VM (`out/`, `judge2/`, `run.py`, `judge.py`).

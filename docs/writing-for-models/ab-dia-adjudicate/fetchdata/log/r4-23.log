@@ -1,0 +1,10 @@
+2026-10-28T13:24:34.403036+00:00	lindqvist-2021	Q	What defect reduction did pair programming produce, and on which tasks? Quote the sentences.
+2026-10-28T13:24:34.545634+00:00	lindqvist-2021	Q	How many teams and firms were studied, and over how long?
+2026-10-28T13:24:34.681796+00:00	lindqvist-2021	Q	What extra person-hours did pairs need, and did this effort change over time or with experience?
+2026-10-28T13:24:34.818496+00:00	lindqvist-2021	Q	When was developer satisfaction measured, and was it measured throughout the study?
+2026-10-28T13:24:34.961533+00:00	lindqvist-2021	Q	Were embedded or safety-critical software studied? What kinds of software and tasks were studied?
+2026-10-28T13:24:35.099760+00:00	lindqvist-2021	Q	Who funded the study, and did any funder have a pairing business interest?
+2026-10-28T13:24:35.234106+00:00	lindqvist-2021	Q	Does the study recommend that every team mandate pair programming, or does it limit its advice to particular tasks?
+2026-10-28T13:24:35.371630+00:00	lindqvist-2023-keynote	Q	Did Lindqvist say that teams should pair on everything? Quote the sentences.
+2026-10-28T13:24:35.841481+00:00	lindqvist-2023-keynote	Q	Did Lindqvist describe pairing as mostly overhead for routine tickets, or urge teams not to mandate pairing for everything? Quote the sentences.
+2026-10-28T13:24:36.632822+00:00	lindqvist-2023-keynote	Q	What did Lindqvist say about pairing on routine work, on mandating pair programming, or on the effect size of pairing? Quote the sentences.

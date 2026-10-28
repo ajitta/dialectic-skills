@@ -76,6 +76,7 @@ pushed history.
 | r1 | Opus, local, 8 | 0 / 0 | 0 / 0 | 89,334 and 91,622 (p = 0.20)¹ | 131 s and 166 s (p = 0.11)¹ |
 | r2 | Haiku, local, 8 | 0 / 0 | 0 / 0 | 116,952 / 114,733 (p = 0.49) | 175 s / 169 s (p = 0.69) |
 | r3 | Haiku, summarizing fetch, 12 | 0 / 0 | 1 run / 0 | 117,037 / 120,191 (p = 0.31) | 176 s / 192 s (p = 0.24) |
+| r4 | Haiku, summarizing fetch, case4 only, 24 | 0 / 0 | 0 / 0 | 116,216 / 113,816 (p = 0.98) | 107 s / 105 s (p = 0.75) |
 
 ¹ r1 per-run usage was not saved; the two means were reported in the session without a
 record of which arm was which. The time gap was put down to concurrency at the time.
@@ -102,6 +103,16 @@ Round 3 in detail (6 runs per arm; Fisher exact on runs, Mann-Whitney on means):
 What this supports: B did not make judging worse in these cases, and nothing shows it
 made judging better. With 2–3 runs per cell only large effects were detectable.
 
+Round 4 (2026-10-28) re-ran case4 at 12 runs per arm on Haiku, headless and tool-restricted
+(`ab-dia-adjudicate/README.md`, Runs), with B as the shipped 1.1.0 text. Correct items
+downgraded to "partly valid": A 6/12 runs, B 9/12 (Fisher p = 0.40); F1 alone: A 4, B 7. Read
+by hand, the downgrades of F1 give a condition-fit reason (the source covers complex tasks in
+business web apps; the paper does not address a mandate), which Rule 6 allows in both arms.
+Other counts: overturned correct items 0/12 and 0/12; summary traps not ruled valid A 4/12, B
+3/12; unflagged target errors A 5/12, B 1/12 (p = 0.16); tool calls A 20.2, B 16.7 (p = 0.07).
+Round 3's A 1/6 vs B 5/6 did not reproduce as a difference; by the skill's own rule (a differing
+case re-run at 12 or more runs) 1.1.0 stands (spec D48).
+
 ## Incidents (round 3)
 
 - Run r3-07 (B): the judge sub-agent tried one command on the owner's linked computer
@@ -118,9 +129,9 @@ made judging better. With 2–3 runs per cell only large effects were detectable
 | # | Item | Who | Notes |
 |---|---|---|---|
 | 1 | Where the skill lives: decided | — | In `dia` as `dia-instruct` (owner, 2026-10-28; spec D41). Routing probes are open (`docs/handoff.md` item 27). |
-| 2 | B on `dia-adjudicate`: applied on this branch, one count unresolved | owner | B is `skills/dia-adjudicate/` 1.1.0 here (owner, 2026-10-28). The evidence says no harm and no measured gain. By the skill's own A/B rule, the open step is to re-run the differing case (case4, the "partly valid" count) at 12 or more runs per arm on Haiku: 24 runs, about 2.9M tokens (`docs/handoff.md` item 28). |
-| 3 | Harden the harness before more runs | agent | Restrict judge tools. Save full replies and per-run usage (r1 has none). Clear `fetchdata/log/` or use new run ids. Decide whether unshuffled runs count. |
-| 4 | Check the B-arm downgrades by hand | agent | Read why B judges capped F1 at "partly valid" in r3-01/08/12: real condition-fit reasoning or noise. Full replies were not kept, so this needs new runs. |
+| 2 | B on `dia-adjudicate`: applied; the unresolved count re-tested in round 4 (closed 2026-10-28) | — | B is `skills/dia-adjudicate/` 1.1.0 here (owner, 2026-10-28). The evidence says no harm and no measured gain. By the skill's own A/B rule, the open step is to re-run the differing case (case4, the "partly valid" count) at 12 or more runs per arm on Haiku: 24 runs, about 2.9M tokens (`docs/handoff.md` item 28). |
+| 3 | Harden the harness before more runs: done in round 4 | — | Restrict judge tools. Save full replies and per-run usage (r1 has none). Clear `fetchdata/log/` or use new run ids. Decide whether unshuffled runs count. |
+| 4 | Check the B-arm downgrades by hand: done in round 4 | — | Read why B judges capped F1 at "partly valid" in r3-01/08/12: real condition-fit reasoning or noise. Full replies were not kept, so this needs new runs. |
 | 5 | Review findings left unchanged (2026-10-28 review of dia-instruct) | owner | On text from the reviewed draft, so not changed under the skill's own step 2: (a) step 1 does not say outright that, with no eval at all, a meaning change stays only if the user accepts it as unmeasured, and "unless a repository rule asks for more" attaches to no clear clause; (b) step 2 does not say whether a fix needs another review before the change is finished; (c) "Replies are in the user's language" could be read to cover a skill file written for a Korean user, against this repository's English-only and no-Hangul rules; (d) "a general-purpose sub-agent" uses one host's agent-type name, and the description names CLAUDE.md. Routing risks for the probes (`docs/handoff.md` item 27): dia-refine's description has no border toward dia-instruct, so "recheck my draft system prompt" may go there; routine edits such as "add the test command to CLAUDE.md" may load dia-instruct and its review step. |
 
 ## How to resume

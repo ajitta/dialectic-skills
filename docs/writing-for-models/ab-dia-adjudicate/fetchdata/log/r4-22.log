@@ -1,0 +1,13 @@
+2026-10-28T13:23:57.919304+00:00	lindqvist-2021	Q	How many teams and firms did the study cover, and over how long?
+2026-10-28T13:23:58.062238+00:00	lindqvist-2021	Q	What reduction in post-release defects did the study find, and did it hold for every task or only some kinds of task? Was the reduction close to zero for routine tasks?
+2026-10-28T13:23:58.198770+00:00	lindqvist-2021	Q	How many extra person-hours did pairs need? Did the figure say 15% or 25%?
+2026-10-28T13:23:58.344559+00:00	lindqvist-2021	Q	Did the extra effort fall from 30% in the first two months to about 10% after six months? Did the extra effort change with developer experience?
+2026-10-28T13:23:58.488946+00:00	lindqvist-2021	Q	When was developer satisfaction measured? Was it measured throughout the study or only in the final month?
+2026-10-28T13:23:58.634964+00:00	lindqvist-2021	Q	Was any embedded or safety-critical software studied?
+2026-10-28T13:23:58.778811+00:00	lindqvist-2021	Q	Does the study recommend that every team mandate pair programming, or does it support pairing only for complex tasks in business web applications?
+2026-10-28T13:23:58.918674+00:00	lindqvist-2021	Q	Who funded the study?
+2026-10-28T13:23:59.061426+00:00	lindqvist-2023-keynote	Q	Did Lindqvist say that teams should pair on everything?
+2026-10-28T13:23:59.604111+00:00	lindqvist-2023-keynote	Q	Did Lindqvist describe pairing as mostly overhead for routine tickets, or urge teams not to mandate pairing for everything?
+2026-10-28T13:24:39.248127+00:00	lindqvist-2023-keynote	Q	Who funded the study? Was it funded by the Nordvik Pairing Institute?
+2026-10-28T13:24:39.898923+00:00	lindqvist-2021	Q	Does the study report any figure of 25% for extra person-hours? Does it say pairing pays off for complex work and what does it say about routine tasks?
+2026-10-28T13:24:40.411203+00:00	lindqvist-2023-keynote	Q	Did Lindqvist say every team should mandate pair programming?

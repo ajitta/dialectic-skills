@@ -1,0 +1,11 @@
+2026-10-28T13:18:12.853559+00:00	lindqvist-2021	Q	How many teams and how many firms took part, and over how many years did the study run?
+2026-10-28T13:18:13.004628+00:00	lindqvist-2021	Q	What was the reduction in post-release defects overall, and was it different for routine tasks?
+2026-10-28T13:18:13.144465+00:00	lindqvist-2021	Q	How much more person-hours did paired teams need?
+2026-10-28T13:18:13.289209+00:00	lindqvist-2021	Q	How did the extra effort change over time, and with experience?
+2026-10-28T13:18:13.429905+00:00	lindqvist-2021	Q	When was developer satisfaction measured?
+2026-10-28T13:18:13.565495+00:00	lindqvist-2021	Q	Were embedded or safety-critical software projects studied?
+2026-10-28T13:18:13.700684+00:00	lindqvist-2021	Q	Who funded the study?
+2026-10-28T13:18:13.834125+00:00	lindqvist-2021	Q	Does the study recommend mandating pair programming for every team, or does it limit its findings to certain task types or application domains?
+2026-10-28T13:18:13.972030+00:00	lindqvist-2023-keynote	Q	Did Lindqvist say that teams should pair on everything?
+2026-10-28T13:18:14.385301+00:00	lindqvist-2023-keynote	Q	Did Lindqvist describe pairing as overhead for routine tickets, or urge teams not to mandate pairing for everything?
+2026-10-28T13:18:14.983741+00:00	lindqvist-2023-keynote	Q	Did the keynote discuss the 2021 study's results on defects, effort, satisfaction or embedded software?

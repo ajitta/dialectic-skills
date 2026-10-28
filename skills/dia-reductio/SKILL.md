@@ -4,7 +4,7 @@ description: Strict reductio ad absurdum in one pass. States the thesis and ever
 license: MIT
 metadata:
   author: ajitta
-  version: "1.2.0"
+  version: "1.2.1"
   lineage: "reductio (installed copy, unversioned)"
   source: "https://github.com/ajitta/dialectic-skills"
 ---
@@ -48,8 +48,8 @@ State the target and the thesis T in one sentence, with a quote; if the input co
 
 ### Step 2: Choose the direction
 
-- **Refute:** assume T and look for a contradiction; if one appears, T or one of the premises must go.
-- **Prove (indirect proof):** assume not-T and look for a contradiction; if one appears, T follows, unless a premise goes.
+- **Refute (when the user asks to refute T, or names no direction and does not ask whether T is true):** assume T and look for a contradiction; if one appears, T or one of the premises must go.
+- **Prove (indirect proof; when the user asks you to prove T):** assume not-T and look for a contradiction; if one appears, T follows, unless a premise goes.
 - **Both (default when the user asks whether T is true):** run both and read the pair:
   - only T leads to contradiction → T is untenable on these premises
   - only not-T leads to contradiction → T follows from these premises
@@ -117,9 +117,9 @@ Say so plainly: list the directions and premise sets you tried, write "no contra
 
 ## Follow-up turns
 
-- **The user picks an option:** apply it (drop the premise, or adopt T′), rerun Steps 3 to 8 on the revised set, and add the decision to the record's history.
-- **The user disputes a step:** check it. If you can name its defect (a wrong rule, an unlisted premise, a shifted term), withdraw the step and say whether the contradiction survives another way; otherwise, since disagreement alone is not a defect, show the step and its rule again and keep it.
-- **The user rejects an [A] premise:** remove it and rerun.
+- **The user picks an option:** apply it (give up or narrow a premise, give up T, accept T, or adopt T′), add the decision to the record's history, and rerun Steps 3 to 8 on the revised set unless the option was giving up T or accepting T, since then nothing is left to derive and the updated record closes the turn.
+- **The user disputes a step:** check it and add the outcome to the record's history: if you can name its defect (a wrong rule, an unlisted premise, a shifted term), withdraw the step and say whether the contradiction survives another way; otherwise, since disagreement alone is not a defect, show the step and its rule again and keep it.
+- **The user rejects an [A] premise:** remove it, rerun Steps 3 to 8 on the revised set, and add the rejection to the record's history.
 
 ## Pitfalls
 

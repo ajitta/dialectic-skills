@@ -4,7 +4,7 @@ description: Improve an output through repeated rounds in which only outside evi
 license: MIT
 metadata:
   author: ajitta
-  version: "1.4.0"
+  version: "1.4.1"
   lineage: "recursive-refine (installed copy, unversioned), output mode only; named dia-iterate until plugin 1.4.0"
   source: "https://github.com/ajitta/dialectic-skills"
 ---
@@ -50,7 +50,7 @@ Stop if any one holds, checking them in this order, and do not invent defects to
 
 ## Output
 
-Write the output in the language of the user's latest message, headings included, as plain Markdown, not in a code block; the block below only shows the layout. The output is a change list unless the user asks for "full text" or "the final version in full", because a full reprint mostly re-emits the original, and for a third party's or widely copied text the host's content filter can block the whole response; when full text is requested, replace `## Changes` with `## Final version`, when "final version only" is requested, give only that, and if the full text is blocked, reissue it as a change list and tell the user to apply it to the original by hand.
+Write the output in the language of the user's latest message, headings included, as plain Markdown, not in a code block; the block below only shows the layout. The output is a change list unless the user asks for "full text" or "the final version in full", because a full reprint mostly re-emits the original, and for a third party's or widely copied text the host's content filter can block the whole response; when full text is requested, replace `## Changes` with `## Final version`, when "final version only" is requested, give only that, and if the full text is blocked, follow the content-filtering guardrail under Guardrails and, once the guardrail has reduced the output to a change list, tell the user to apply that list to the original by hand.
 
 ```
 ## Changes
@@ -72,7 +72,8 @@ Confirmed but not fixed: none
 ```
 
 - If the user says the table renders poorly or asks for a compact summary, one line per round may replace it: `Round 1: named 4, confirmed 2, refuted 1, unverifiable 1; methods: …; changes: …`.
-- Sources live in the "method" column of the judgment log (a URL, "code execution", "checked against the user's instructions"); in the change list and the final version, attach a source in parentheses only to sentences that changed.
+- In the change list, each quoted "original span" is cut to a clause or less, because long verbatim overlap with existing text can trip the host's content filter and block the response.
+- Sources live in the `method:` field of each judgment-log line (a URL, "code execution", "checked against the user's instructions"); in the change list and the final version, attach a source in parentheses only to sentences that changed.
 
 ## Guardrails
 

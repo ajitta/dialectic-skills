@@ -1,10 +1,11 @@
 """Score the dia-adjudicate A/B runs against the answer key.
 
-Usage: python3 -I tools/score.py r1|r2|r3   (run from ab-dia-adjudicate/)
+Usage: python3 -I tools/score.py r1|r2|r3|r4   (run from ab-dia-adjudicate/)
 
 r1 = Opus, local sources (plan.json, out/, key.json)
 r2 = Haiku, local sources (plan-haiku.json, out-haiku/, key.json)
 r3 = Haiku, summarizing fetch tool (plan-r3.json, out-r3/, key-r3.json, fetchdata/log/)
+r4 = r3's case4 only, 12 runs per arm, headless and tool-restricted; B is the shipped 1.1.0 text (skill-q5, mapping-r4.json; tools/run_r4.py; plan-r4.json, out-r4/)
 
 Needs scipy for the tests; without it, only the per-run table is printed.
 """
@@ -19,6 +20,7 @@ ROUNDS = {
     "r1": ("plan.json", "out", "key.json"),
     "r2": ("plan-haiku.json", "out-haiku", "key.json"),
     "r3": ("plan-r3.json", "out-r3", "key-r3.json"),
+    "r4": ("plan-r4.json", "out-r4", "key-r3.json"),
 }
 OVERTURN = {"wrong", "overstated"}
 # Round 3 only: a target error counts as flagged when some inventory claim matching the
@@ -50,7 +52,7 @@ def usage(outdir):
 
 def main(rnd):
     plan_f, outdir, key_f = ROUNDS[rnd]
-    plan, key, arm_of = load("key", plan_f), load("key", key_f), {v: k for k, v in load("key", "mapping.json").items()}
+    plan, key, arm_of = load("key", plan_f), load("key", key_f), {v: k for k, v in load("key", "mapping-r4.json" if rnd == "r4" else "mapping.json").items()}
     use = usage(outdir)
     rows = []
     for p in plan:
