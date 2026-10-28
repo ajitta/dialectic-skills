@@ -1,4 +1,4 @@
-# A/B: dia-intent 1.4.0 against 1.5.0 (deliverable and outcome), and 1.5.0 against 1.6.0 (outcome hypothesis)
+# A/B: dia-intent 1.4.0 against 1.5.0 (deliverable and outcome), 1.5.0 against 1.6.0 (outcome hypothesis), and 1.6.0 against 1.7.0 (the report after approval)
 
 Spec D45. The change adds to dia-intent's item 1 a rule that keeps the criteria for finishing the deliverable apart from the criteria that would show a result the user wants beyond it, calls an indirect measure of that result a proxy, says when each criterion can be checked, and marks the result unverified when nothing can check it. It comes from a separate Codex session (`docs/research/codex/README.md`). The change is a meaning change asked for by the owner, and the dia-intent eval tasks exercise it, so dia-instruct step 1 asks for an A/B.
 
@@ -133,6 +133,21 @@ Results (only runs that loaded dia-intent; Sonnet loaded it in every run):
 
 Reading: B3 adds the labelled one-line hypothesis in every loaded run and keeps the split off unstated outcomes. Over-application does not rise (Sonnet complaint improves). Stated-outcome handling is unchanged or slightly better. Limits as in round 2; also, the H1 and N3 items were written for this change.
 
+## Round 4: dia-intent 1.7.0 against 1.6.0, the report after approval
+
+Spec D49. Owner ruling (2026-10-29): finding 8 above goes in. When the assistant reports finished work whose review marked an outcome unverified, it says in one line that the deliverable is done but the outcome is still unverified, and when and how the criteria that would show it can be checked (or the result, if it checked one). In the same version, a user's correction of a fact that conflicts with inspected evidence: with a proceed instruction the user's value is used and the report says in one line that it differs from the evidence; without one, item 2 shows both values with their sources and item 3 asks which to use. One independent review (PASS WITH FIXES, all four fixes applied).
+
+Setup: arm A plugin 1.8.0 (dia-intent 1.6.0), arm B the branch build (dia-intent 1.7.0; the other changed skills are not loaded in these cases). Two turns in one headless session: the landing or claim prompt of round 2, then "Proceed with your recommendations."; tools Skill, Read, Glob, Write with edits accepted, in an empty folder; fresh configuration per run; Claude Code 2.1.312, sonnet and haiku, n=12 per arm and model, 2026-10-29. Blind opus judge on the two turns and the list of files written: D1 the work is done in turn 2; F8 turn 2 says the deliverable is done but the intended result is still unverified, and when or how it can be checked; F9 that statement is short; C2 (claim) the update does not state the churn reduction as fact without evidence. Only runs that loaded dia-intent in turn 1 are counted.
+
+| Model / case | Loaded A / B | F8 A | F8 B | F9 A | F9 B |
+|---|---|---|---|---|---|
+| Sonnet claim | 12 / 12 | 7/12 | 12/12 | 9/12 | 11/12 |
+| Sonnet landing | 12 / 12 | 12/12 | 12/12 | 11/12 | 11/12 |
+| Haiku claim | 8 / 9 | 5/8 | 6/9 | 7/8 | 7/9 |
+| Haiku landing | 9 / 6 | 9/9 | 6/6 | 9/9 | 5/6 |
+
+D1 and C2 pass in every loaded run of both arms except one Haiku claim run in B (D1). Turn-2 length changes by -8% to +9%. Reading: on the landing page 1.6.0 already says the sales increase is unverified; on the manager update it did so in 7 of 12 Sonnet runs, and 1.7.0 in all. The fact-correction rule is not measured (no case reaches it).
+
 ## Files
 
-The harness, cells, raw runs, verdicts and per-case tables are in `C:/Users/ajitta/work/dia-probes/intent-outcome-ab/` on the owner's Windows PC: `run_ab.py`, `judge_ab.py`, `judge_n3.py`, `analyze_ab.py`, `table-r1.txt` and `table-r2.txt`. The Codex session's original handoff is in `source/` there. Round 3: `C:/Users/ajitta/work/dia-probes/intent-hypothesis-ab/` (`cells-r3.json`, `results-r3*.jsonl`, `verdicts-r3*.jsonl`, `table-r3.txt`, `table-r3-n3.txt`); the review reports of the B3 text are in `C:/Users/ajitta/work/dia-probes/next-1.8/review/`.
+The harness, cells, raw runs, verdicts and per-case tables are in `C:/Users/ajitta/work/dia-probes/intent-outcome-ab/` on the owner's Windows PC: `run_ab.py`, `judge_ab.py`, `judge_n3.py`, `analyze_ab.py`, `table-r1.txt` and `table-r2.txt`. The Codex session's original handoff is in `source/` there. Round 3: `C:/Users/ajitta/work/dia-probes/intent-hypothesis-ab/` (`cells-r3.json`, `results-r3*.jsonl`, `verdicts-r3*.jsonl`, `table-r3.txt`, `table-r3-n3.txt`); the review reports of the B3 text are in `C:/Users/ajitta/work/dia-probes/next-1.8/review/`. Round 4: `C:/Users/ajitta/work/dia-probes/intent-report-ab/` (`run2.py`, `judge2.py`, `cells.json`, results and verdicts); its review report is in `next-1.9/review/`.

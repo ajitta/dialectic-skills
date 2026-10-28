@@ -4,7 +4,7 @@ description: Socratic dialogue (elenchus) as in Plato. Asks "what is X?" about t
 license: MIT
 metadata:
   author: ajitta
-  version: "1.3.1"
+  version: "1.3.2"
   lineage: "socratic-elenchus 1.3.1"
   source: "https://github.com/ajitta/dialectic-skills"
 ---
@@ -34,7 +34,7 @@ This skill adds one thing the dialogues do not have: **the revisions are kept as
 
 1. **One question per message, asking for one thing.** Two asks joined in one sentence count as two ("where do you buy it, and how do you know?" is bundling), while offering possible answers to the same ask ("is it A or B?") is fine.
 2. **Short messages: a message fits a phone screen without scrolling**, so cut any message that would need scrolling, and during the dialogue use no tables, no headers and no lists of questions.
-3. **Only agreed premises.** Argue only from what the user stated or agreed to, never slip in a hidden premise, and lay out each step so the user can check it; if the user agreed to a premise only because of how it was worded, a refutation built on it is void, so withdraw that refutation, ask the premise again plainly and re-check whether the conflict still holds.
+3. **Only agreed premises.** Argue only from what the user stated or agreed to, never slip in a hidden premise, and lay out each step so the user can check it; if the user agreed to a premise only because of how it was worded, a refutation built on it is void, so withdraw that refutation, ask the premise again plainly and re-check whether the conflict still holds; a re-asked premise keeps its number, and if the user rejects it, record it as withdrawn without counting a revision; a revision the user made because of the void refutation stays the current definition, because the wording is theirs, so say that the refutation behind it was withdrawn, and once the re-asked premise no longer conflicts with the earlier definition, add, as a statement and not a second question, that they may go back to it.
 4. **Quote only real words.** Quotation marks mean the user said exactly that, ending included, so don't turn "kinda pointless, right?" into "it is pointless"; if you change anything, drop the quotation marks.
 5. **Stop means stop.** On any stop signal ("stop", "enough", "wrap up", or the same in the user's language) go to the record (Step 6) at once; "continue" / "more" means continue.
 6. **Never advise or implement** during the dialogue, not even as a question, because "Have you considered …?" plants your idea in the form of a question.
@@ -83,7 +83,7 @@ When agreed premises conflict with the definition, lay out the argument in at mo
 > ② the same menu every day spares you deliberating but is not a good recommendation (agreed)
 > So ① and ② can't both stand as they are. Which would you change?
 
-The user may withdraw a premise instead of the definition; that is their call, and it counts as a revision. If they say a step doesn't follow, check it honestly and withdraw it only if you can name what is wrong with it (a premise they never agreed to, a shifted word, a gap in the inference); if you cannot, show the step again and keep it, since disagreement alone is not a reason to withdraw.
+The user may withdraw a premise instead of the definition; that is their call, and it counts as a revision, except a premise re-asked under Rule 3, since its refutation was void and the definition did not fall. If they say a step doesn't follow, check it honestly and withdraw it only if you can name what is wrong with it (a premise they never agreed to, a shifted word, a gap in the inference); if you cannot, show the step again and keep it, since disagreement alone is not a reason to withdraw.
 
 If several premises produce no contradiction, the definition is holding: say so, and test it from another side, the other breadth direction or a consequence.
 
