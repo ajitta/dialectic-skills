@@ -25,7 +25,7 @@ Read the first word after `dia` (call it the selector), then the rest (the reque
 
 1. **No text after `dia`, or only `help`, `menu` or `?`:** show the menu (below) and stop.
 2. **Selector is a number from 1 to 12:** the skill with that number in the menu table, unless the number counts something in the sentence (`3 reasons …`, `1 thing …`, `10 ideas …`); then the whole text is a request (rule 4); if unsure, ask in one line.
-3. **Selector is a full skill name or the start of one,** at least three letters, with or without the `dia-` prefix (`red`, `reductio`, `dia-reductio`): the one skill whose name starts with it. If the word reads as part of the request's sentence rather than a pick (`red flags …`, `war game …`, `count the …`, `negative feedback …`, `instruct me how …`), treat the whole text as a request (rule 4); if unsure, ask in one line. If two or more names start with it (`con` matches confirm and conjecture), list those skills with their numbers in one line, ask which, and stop.
+3. **Selector is a full skill name or the start of one,** at least three letters, with or without the `dia-` prefix (`red`, `reductio`, `dia-reductio`): the one skill whose name starts with it. If the word reads as part of the request's sentence rather than a pick (`red flags …`, `war game …`, `count the …`, `negative feedback …`, `instruct me how …`), treat the whole text as a request (rule 4); if unsure, ask in one line. If two or more names start with it, list those skills with their numbers in one line, ask which, and stop.
 4. **Anything else:** the whole text after `dia` is the request. Choose the skill as in "Choosing for a request".
 
 A selector with no request after it starts the chosen skill with no target; that skill asks for one by its own rules.
@@ -36,7 +36,7 @@ Numbers are fixed; keep this order. Translate the descriptions into the user's l
 
 | # | Skill | For |
 |---|---|---|
-| 1 | dia-confirm | Restate the goal, assumptions and open decisions before work starts (only by name or number) |
+| 1 | dia-intent | Restate the goal, assumptions and open decisions before work starts (only by name or number) |
 | 2 | dia-brainstorm | Think an idea through with questions, poke holes in it, end with options and a plan |
 | 3 | dia-elenchus | Socratic dialogue: test a definition or belief against your own other beliefs |
 | 4 | dia-reductio | Proof by contradiction: does a position hold together or follow from its premises |
@@ -69,13 +69,13 @@ Then:
 
 - **One fits:** say in one line which skill you are running and why, in the user's language (for example `→ dia-counterplan: the request asks for the case against the plan`), then run it.
 - **Two fit about equally:** name both with their numbers and the difference in one line each, ask which, and stop.
-- **The request asks to confirm the goal first, for repeated verified rounds, or for a ruling on reports about a text:** do not start dia-confirm, dia-ratchet or dia-adjudicate from a plain request. Reply in one line with the form to send (`dia 1 <request>` or `dia-confirm <request>`; `dia 10 <request>` or `dia-ratchet <request>`; `dia 11 <target and reports>` or `dia-adjudicate <target and reports>`) and stop.
+- **The request asks to confirm the goal first, for repeated verified rounds, or for a ruling on reports about a text:** do not start dia-intent, dia-ratchet or dia-adjudicate from a plain request. Reply in one line with the form to send (`dia 1 <request>` or `dia-intent <request>`; `dia 10 <request>` or `dia-ratchet <request>`; `dia 11 <target and reports>` or `dia-adjudicate <target and reports>`) and stop.
 - **None fits** (a plain task, a factual or how-to question, a request to write something that is not text for a model to follow): say so in one line, name a skill and its number only if one is close, and do the task without a dia skill.
 
 ## Running the chosen skill
 
 - Load the chosen skill the way your host loads skills (for example the Skill tool with `dia:dia-<x>`, or by reading `../dia-<x>/SKILL.md` relative to this file) and follow it in full. The menu table is not a substitute for the skill's own instructions.
-- Give it the request text as the user's message. A selector by number or name is an explicit invocation of that skill by name, including for dia-confirm, dia-ratchet and dia-adjudicate.
+- Give it the request text as the user's message. A selector by number or name is an explicit invocation of that skill by name, including for dia-intent, dia-ratchet and dia-adjudicate.
 - Its flags and criteria pass through unchanged (`dia 10 --max 2 <draft>`).
 - If the skill cannot be loaded, say so in one line and give the form that starts it directly (`dia-<x> <request>`); do not imitate the method from the table.
 

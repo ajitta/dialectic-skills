@@ -2,7 +2,7 @@
 
 Twelve reasoning-and-review skills for Claude, Codex and ChatGPT. Each skill is a set of written instructions that the assistant follows when you ask for it by name or describe the task.
 
-- `dia-confirm`: before work starts, restates the goal, discloses assumptions, lists the decisions you must make, and waits for your approval.
+- `dia-intent`: before work starts, restates the goal, discloses assumptions, lists the decisions you must make, and waits for your approval.
 - `dia-elenchus`: Plato's elenchus. Asks what you mean by a key idea, one question at a time, and shows where your own premises contradict each other. Gives no advice.
 - `dia-brainstorm`: Socratic questions one at a time, then options, a comparison by your criteria, a verdict and a brief.
 - `dia-reductio`: strict reductio ad absurdum. Lists every premise with its source and derives a contradiction line by line.

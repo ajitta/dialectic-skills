@@ -99,10 +99,10 @@ class TestRules(unittest.TestCase):
         errs = pkg.crossref_violations(files, ["dia-a"])
         self.assertEqual(len(errs), 2, errs)  # unknown dia-b; old name on line 1 only
 
-    def test_renamed_dia_intent(self):
-        files = {"skills/dia-a/SKILL.md": b"run dia-intent first\n  lineage: \"confirm-intent; named dia-intent until 1.0.0\""}
+    def test_renamed_dia_confirm(self):
+        files = {"skills/dia-a/SKILL.md": b"run dia-confirm first\n  lineage: \"confirm-intent; named dia-confirm from 1.1.0 to 1.4.0\""}
         errs = pkg.crossref_violations(files, ["dia-a"])
-        self.assertTrue(any("old skill name 'dia-intent'" in e for e in errs), errs)
+        self.assertTrue(any("old skill name 'dia-confirm'" in e for e in errs), errs)
         self.assertFalse([e for e in errs if ":2:" in e], errs)  # lineage line is exempt
 
     def test_plain_scalar_guard(self):

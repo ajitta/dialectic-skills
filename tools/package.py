@@ -77,10 +77,10 @@ KO_HEADER = ("Scope:", "Source:", "As of:", "Use when:")
 SKILL_REF_RE = re.compile(r"\bdia-[a-z]+(?:-[a-z]+)*\b")
 # Names of the skills dia was rebuilt from; they may appear only in metadata.lineage.
 OLD_NAMES_RE = re.compile(
-    r"\b(socratic-brainstorm|socratic-elenchus|confirm-intent|dia-intent|dia-iterate|negative-dialectics|self-refine|recursive-refine)\b"
+    r"\b(socratic-brainstorm|socratic-elenchus|confirm-intent|dia-confirm|dia-iterate|negative-dialectics|self-refine|recursive-refine)\b"
 )
 EXPECTED_IMPLICIT = {
-    "dia-confirm": True,
+    "dia-intent": True,
     "dia-elenchus": True,
     "dia-brainstorm": True,
     "dia-reductio": True,
@@ -359,7 +359,7 @@ def crossref_violations(files: dict[str, bytes], names: list[str]) -> list[str]:
         for lineno, line in enumerate(data.decode("utf-8").split("\n"), 1):
             line = re.sub(r"https?://\S+", "", line)  # URLs are not skill references
             if line.lstrip().startswith("lineage:"):
-                continue  # lineage records former names, including dia-intent and dia-iterate
+                continue  # lineage records former names, including dia-confirm and dia-iterate
             for ref in SKILL_REF_RE.findall(line):
                 if ref not in known:
                     errors.append(f"{rel}:{lineno}: unknown skill {ref!r}")

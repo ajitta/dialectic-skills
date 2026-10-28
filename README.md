@@ -8,7 +8,7 @@ Twelve reasoning-and-review skills in one plugin, written to run unchanged on an
 
 | Skill | What it does | How it starts |
 |---|---|---|
-| `dia-confirm` | Before work starts: restates the goal, discloses material assumptions, lists only the decisions you must make, then waits for your approval. | by name only |
+| `dia-intent` | Before work starts: restates the goal, discloses material assumptions, lists only the decisions you must make, then waits for your approval. | by name only |
 | `dia-elenchus` | Plato's elenchus: "what is X?", premises agreed one question at a time, contradictions shown, each revision is your new idea. Usually ends in aporia; gives no advice. | by name, or by asking for a Socratic dialogue |
 | `dia-brainstorm` | Modern Socratic questioning one question at a time, then your options plus up to three labeled ones, convergence by criteria, a verdict and a brief. Never implements. | by name, or by asking for a Socratic brainstorm |
 | `dia-reductio` | Strict reductio ad absurdum in one pass: labeled premises, a Q and not-Q derivation with a rule per line, graded strength, options and a record. | by name, or in words |
@@ -20,7 +20,7 @@ Twelve reasoning-and-review skills in one plugin, written to run unchanged on an
 | `dia-ratchet` | Repeated review rounds in which only outside evidence counts (a search, a tool run or your own material, never the assistant's own re-derivation); what passed is locked; stops on regression, zero defects, verification exhausted, fixed point or `--max N` (default 3). Named `dia-iterate` before 1.5.0. | first word `dia-ratchet`, or by name only |
 | `dia-adjudicate` | Rules on reports that people or other assistants wrote about a text (critiques, reviews, verification reports): checks the text's claims and every report point against sources, gives a verdict for each, and lists the verdicts a person should recheck. Never rewrites the text. | first word `dia-adjudicate`, or by name only |
 | `dia-instruct` | Checks or writes text a model will follow (a skill file, an agent prompt, an agent instructions file) against four rules: each paragraph one expression with its conditions and fallback, scope words as narrow as meant, fewer instructions each with its reason, one name per thing. A review lists breaches and changes nothing until you pick. | by name, or in words |
-| `dia-menu` | Not a method: a short entry point. `dia` shows a numbered menu, `dia 4 …` or `dia red …` starts a skill by number or first letters, and `dia <request>` picks the skill that fits and says which. Never starts `dia-confirm`, `dia-ratchet` or `dia-adjudicate` on its own. | first word `dia` |
+| `dia-menu` | Not a method: a short entry point. `dia` shows a numbered menu, `dia 4 …` or `dia red …` starts a skill by number or first letters, and `dia <request>` picks the skill that fits and says which. Never starts `dia-intent`, `dia-ratchet` or `dia-adjudicate` on its own. | first word `dia` |
 
 ## Contents
 
@@ -118,20 +118,20 @@ All routes above work on Windows. The skills contain no scripts, so no Python or
 
 There are four ways, and every surface supports at least one of them:
 
-1. **The menu: start the message with `dia`.** `dia` alone lists the skills with numbers. `dia 4 <your text>` or `dia red <your text>` starts that skill (here `dia-reductio`); if the letters fit two skills (`con`), it asks which. `dia <your text>` picks the skill that fits, usually names it in one line first, and runs it; if two fit about equally, it asks. It never starts `dia-confirm` (1), `dia-ratchet` (10) or `dia-adjudicate` (11) from a plain request; use their number or name, for example `dia 10 --max 2 <draft>`. This is the quickest route on a phone: three letters, no hyphen.
+1. **The menu: start the message with `dia`.** `dia` alone lists the skills with numbers. `dia 4 <your text>` or `dia red <your text>` starts that skill (here `dia-reductio`); if the letters fit more than one skill, it asks which. `dia <your text>` picks the skill that fits, usually names it in one line first, and runs it; if two fit about equally, it asks. It never starts `dia-intent` (1), `dia-ratchet` (10) or `dia-adjudicate` (11) from a plain request; use their number or name, for example `dia 10 --max 2 <draft>`. This is the quickest route on a phone: three letters, no hyphen.
 2. **In words.** Ask for the method: "use proof by contradiction on…", "do an immanent critique of…", "Socratic dialogue please…", "how well do the reasons support this?", "find counterexamples to my rule…", "devil's advocate on this plan…", "review this prompt I wrote for an agent…". This works on every surface and is the safe default on mobile. It works for `dia-reductio`, `dia-negative`, `dia-elenchus`, `dia-brainstorm`, `dia-warrant`, `dia-conjecture`, `dia-counterplan` and `dia-instruct`.
-3. **By name in the message.** Start the message with the skill name: `dia-confirm …`, `dia-refine …`, `dia-ratchet …`, `dia-adjudicate …`. Since 1.2.0 this also works on Codex without `$` and on ChatGPT without `@` (owner-checked in the mobile app). `dia-refine`, `dia-ratchet` and `dia-adjudicate` are meant to start this way or by an explicit selection: `dia-ratchet` and `dia-adjudicate` never start from a plain request, and on Claude Code a plain "fix this draft" request rarely loads `dia-refine`.
+3. **By name in the message.** Start the message with the skill name: `dia-intent …`, `dia-refine …`, `dia-ratchet …`, `dia-adjudicate …`. Since 1.2.0 this also works on Codex without `$` and on ChatGPT without `@` (owner-checked in the mobile app). `dia-refine`, `dia-ratchet` and `dia-adjudicate` are meant to start this way or by an explicit selection: `dia-ratchet` and `dia-adjudicate` never start from a plain request, and on Claude Code a plain "fix this draft" request rarely loads `dia-refine`.
 4. **Explicit selection**, written differently on each surface:
 
 | Surface | Syntax | Example |
 |---|---|---|
 | claude.ai, Claude desktop, Claude Code | `/dia:dia-<x>` | `/dia:dia-reductio` |
 | Claude mobile | `/dia-<x>` or `/dia:dia-<x>` typed in full (the `/` menu does not list it) | `/dia-brainstorm`, `/dia:dia-brainstorm` |
-| Codex (plugin) | `$dia:dia-<x>` followed by a space | `$dia:dia-confirm write a backup script` |
+| Codex (plugin) | `$dia:dia-<x>` followed by a space | `$dia:dia-intent write a backup script` |
 | Codex (copied folder) | `$dia-<x>` | `$dia-refine` |
 | ChatGPT | `@` then pick the skill | `@dia-negative` |
 
-Since 1.2.0 every skill is visible to the model on Codex and ChatGPT, as on Claude. `dia-reductio`, `dia-negative`, `dia-elenchus`, `dia-brainstorm`, `dia-warrant`, `dia-conjecture`, `dia-counterplan`, `dia-refine` and `dia-instruct` may start when your request matches them; `dia-confirm`, `dia-ratchet` and `dia-adjudicate` are meant to start only when the message begins with their name or when you select them (`$dia:dia-<x>`, `@`). On Codex, a request that spells out `dia-confirm`'s steps ("restate my goal and list the open decisions first") can also load it.
+Since 1.2.0 every skill is visible to the model on Codex and ChatGPT, as on Claude. `dia-reductio`, `dia-negative`, `dia-elenchus`, `dia-brainstorm`, `dia-warrant`, `dia-conjecture`, `dia-counterplan`, `dia-refine` and `dia-instruct` may start when your request matches them; `dia-intent`, `dia-ratchet` and `dia-adjudicate` are meant to start only when the message begins with their name or when you select them (`$dia:dia-<x>`, `@`). On Codex, a request that spells out `dia-intent`'s steps ("restate my goal and list the open decisions first") can also load it.
 
 ### Options
 
@@ -154,7 +154,7 @@ The sessions were run on Claude Code (Sonnet) with this plugin, and the user rep
 
 | You want to… | Use |
 |---|---|
-| make sure the assistant understood the task before it starts | `dia-confirm` |
+| make sure the assistant understood the task before it starts | `dia-intent` |
 | find out what you really mean by a word or an idea | `dia-elenchus` |
 | turn a rough idea into options and a plan | `dia-brainstorm` |
 | check whether a claim holds together | `dia-reductio` |
@@ -168,16 +168,16 @@ The sessions were run on Claude Code (Sonnet) with this plugin, and the user rep
 | write or check a prompt, skill or agent file so a model follows it as meant | `dia-instruct` |
 | not sure which, or typing on a phone | `dia` (`dia-menu`) |
 
-### dia-confirm: agree on the task before work starts
+### dia-intent: agree on the task before work starts
 
-**In plain words.** Before a contractor starts work, a good one walks you through the job: here is what I'll build, here is what I'm assuming, here is what only you can decide. `dia-confirm` makes the assistant do that, and then wait for your go-ahead instead of guessing.
+**In plain words.** Before a contractor starts work, a good one walks you through the job: here is what I'll build, here is what I'm assuming, here is what only you can decide. `dia-intent` makes the assistant do that, and then wait for your go-ahead instead of guessing.
 
 **Use it when** a request is short but the result depends on things only you know: a speech, a plan, a script, an email to someone important. **Skip it** for quick questions with one obvious answer.
 
 **Try:**
 
 ```
-dia-confirm Write a short speech for my brother's wedding.
+dia-intent Write a short speech for my brother's wedding.
 ```
 
 **What a session looks like** (shortened):
@@ -196,7 +196,7 @@ dia-confirm Write a short speech for my brother's wedding.
 
 - Answer only the questions you care about and add "proceed". Corrections plus "proceed" count as approval of the corrected task.
 - "Looks good", silence or a thumbs-up do not count as approval; the assistant keeps waiting.
-- It covers that one task and its direct follow-ups. Start a new task with `dia-confirm` again if you want the same check.
+- It covers that one task and its direct follow-ups. Start a new task with `dia-intent` again if you want the same check.
 
 ### dia-elenchus: find out what you really mean
 
@@ -557,7 +557,7 @@ Only touch files the task needs.
 
 **In plain words.** Not a method of its own, just a quicker way in. Start your message with `dia`. On its own, `dia` lists the twelve skills with numbers. Put a number or the first few letters of a name after it to start that skill, or just write what you want and it picks the skill that fits, usually telling you which in one line first. If the letters fit two skills, or two skills fit your request about equally, it asks instead of guessing.
 
-**Use it when** you are typing on a phone, or you are not sure which skill you need. `dia-confirm` (1), `dia-ratchet` (10) and `dia-adjudicate` (11) start only by their number or name, never because `dia` guessed them.
+**Use it when** you are typing on a phone, or you are not sure which skill you need. `dia-intent` (1), `dia-ratchet` (10) and `dia-adjudicate` (11) start only by their number or name, never because `dia` guessed them.
 
 **Try:**
 
@@ -573,11 +573,11 @@ dia Our churn dropped after we added onboarding emails, so the emails reduced ch
 > `dia 4 …` → `dia-reductio` starts at once: "**Target:** user (inferred). **Thesis T:** "every prime is odd". **Direction:** refute. …"
 > `dia Our churn dropped …` → `dia-warrant` starts: "**Layout** – **Claim:** "the emails reduced churn" (stated). … **Data:** "Our churn dropped after we added onboarding emails" (stated). …"
 > `dia con …` (fits `dia-confirm` and `dia-conjecture`; a Korean run, translated) → "Two skills start with "con", so I can't pick one. Choose by number.", with both listed.
-> *(Recorded with 1.4.0, when 10 was `dia-iterate`. From 1.5.0 the list has eleven rows: 10 is `dia-ratchet` and 11 is `dia-adjudicate`; from 1.6.0 it has twelve, with 12 `dia-instruct`.)*
+> *(Recorded with 1.4.0, when 1 was `dia-confirm` and 10 was `dia-iterate`; since 1.6.0 1 is `dia-intent`, and `con` fits only `dia-conjecture`. From 1.5.0 the list has eleven rows: 10 is `dia-ratchet` and 11 is `dia-adjudicate`; from 1.6.0 it has twelve, with 12 `dia-instruct`.)*
 
 **Tips**
 
-- Numbers stay fixed: 1 confirm, 2 brainstorm, 3 elenchus, 4 reductio, 5 negative, 6 warrant, 7 conjecture, 8 counterplan, 9 refine, 10 ratchet, 11 adjudicate, 12 instruct.
+- Numbers stay fixed: 1 intent, 2 brainstorm, 3 elenchus, 4 reductio, 5 negative, 6 warrant, 7 conjecture, 8 counterplan, 9 refine, 10 ratchet, 11 adjudicate, 12 instruct.
 - Options pass through: `dia 10 --max 2 <draft>` is the same as `dia-ratchet --max 2 <draft>`.
 - `dia` must be the first word on its own. `dia-refine …` and the other full names still go straight to their skill.
 - Letters need at least three (`red`, not `re`), and a word that is plainly part of your sentence (`dia red flags in my plan?`) is read as a request, not a pick.
@@ -598,10 +598,10 @@ dia Our churn dropped after we added onboarding emails, so the emails reduced ch
 - **dia works on one device but not on another.** Desktop installs stay on that computer; web installs are saved to your account and reach the mobile app. Install on the web for the web and mobile, and in each desktop app you use (see Install).
 - **Every skill appears twice.** The plugin is installed through two routes (for example `dia@dialectic-skills` and `dia@ajitta`, or an upload and a marketplace). Remove one.
 - **Skills section missing or greyed out on claude.ai.** Turn on Settings › Capabilities › Code execution and file creation.
-- **`dia-intent` is not found.** It was renamed `dia-confirm` in 1.1.0.
+- **`dia-confirm` is not found.** It was renamed back to `dia-intent` in 1.6.0; it was `dia-confirm` from 1.1.0 to 1.4.0.
 - **`dia-iterate` is not found.** It was renamed `dia-ratchet` in 1.5.0.
 - **`dia-ratchet` or `dia-adjudicate` does not start.** Each starts only when its name is the first word of the message or when it is selected explicitly (`/dia:dia-ratchet`, `$dia:dia-ratchet`, `@dia-ratchet`, `dia 10`, `dia ratchet`; for `dia-adjudicate` the same forms and `dia 11`). `dia <request>` alone never picks them.
-- **`$dia:dia-confirm:` does not resolve on Codex.** Put a space, not a colon, after the skill name.
+- **`$dia:dia-intent:` does not resolve on Codex.** Put a space, not a colon, after the skill name.
 - **The upload is rejected on claude.ai.** Use Customize › Plugins › Upload plugin, not Customize › Skills.
 - **claude.ai keeps an old version after Check for updates.** Remove `dia` in Customize › Plugins and install it again from the `dialectic-skills` marketplace; turn on Sync automatically for later releases.
 

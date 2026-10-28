@@ -8,7 +8,7 @@
 
 | 스킬 | 하는 일 | 시작 방식 |
 |---|---|---|
-| `dia-confirm` | 작업을 시작하기 전에 목표를 다시 정리하고, 중요한 가정을 밝히고, 사용자가 내려야 할 결정만 나열한 뒤 승인을 기다립니다. | 이름으로만 |
+| `dia-intent` | 작업을 시작하기 전에 목표를 다시 정리하고, 중요한 가정을 밝히고, 사용자가 내려야 할 결정만 나열한 뒤 승인을 기다립니다. | 이름으로만 |
 | `dia-elenchus` | 플라톤의 엘렝코스(논박술): "X란 무엇인가?"를 묻고, 한 번에 한 질문씩 전제에 합의하며, 모순을 드러냅니다. 수정할 때마다 그것이 사용자의 새로운 생각이 됩니다. 대개 아포리아로 끝나며, 조언은 하지 않습니다. | 이름으로, 또는 소크라테스식 대화를 요청해서 |
 | `dia-brainstorm` | 현대적인 소크라테스식 질문을 한 번에 하나씩 던진 뒤, 사용자의 선택지와 표시를 붙인 최대 세 개의 제안, 기준에 따른 수렴, 결론, 요약서를 제시합니다. 구현은 하지 않습니다. | 이름으로, 또는 소크라테스식 브레인스토밍을 요청해서 |
 | `dia-reductio` | 엄격한 귀류법을 한 번에 수행합니다: 표시를 붙인 전제, 줄마다 규칙을 밝힌 Q와 not-Q 도출, 등급을 매긴 강도, 선택지와 기록. | 이름으로, 또는 말로 요청해서 |
@@ -20,7 +20,7 @@
 | `dia-ratchet` | 검토 라운드를 반복하되, 외부 근거(검색, 도구 실행, 사용자가 준 자료)만 인정하고 어시스턴트 자신의 재도출은 인정하지 않습니다. 확인을 통과한 항목은 고정합니다. 퇴행, 결함 0건, 검증 수단 소진, 고정점 도달, `--max N`(기본값 3) 중 하나에 이르면 멈춥니다. 1.5.0 이전 이름은 `dia-iterate`입니다. | 첫 단어를 `dia-ratchet`으로, 또는 이름으로만 |
 | `dia-adjudicate` | 사람이나 다른 어시스턴트가 어떤 글에 대해 쓴 보고서(비판, 리뷰, 검증 보고서)를 판정합니다. 글의 주장과 보고서의 모든 지적을 출처와 대조해 항목마다 판정을 내리고, 사람이 다시 확인해야 할 판정을 목록으로 줍니다. 글을 고쳐 쓰지는 않습니다. | 첫 단어를 `dia-adjudicate`로, 또는 이름으로만 |
 | `dia-instruct` | 모델이 읽고 따를 글(스킬 파일, 에이전트 프롬프트, 에이전트 지침 파일)을 네 가지 규칙으로 점검하거나 씁니다: 조건과 대안을 품은 하나의 식인 문단, 뜻한 만큼만 좁은 범위 단어, 저마다 이유가 붙은 더 적은 지시, 한 대상에 한 이름. 검토만 요청하면 위반 사항을 나열하고, 사용자가 고를 때까지 아무것도 바꾸지 않습니다. | 이름으로, 또는 말로 요청해서 |
-| `dia-menu` | 방법이 아니라 짧은 진입점입니다. `dia`는 번호가 붙은 메뉴를 보여 주고, `dia 4 …`나 `dia red …`는 번호나 앞 글자로 스킬을 시작하며, `dia <request>`는 알맞은 스킬을 골라 어떤 스킬인지 밝힙니다. `dia-confirm`, `dia-ratchet`, `dia-adjudicate`는 스스로 시작하지 않습니다. | 첫 단어를 `dia`로 |
+| `dia-menu` | 방법이 아니라 짧은 진입점입니다. `dia`는 번호가 붙은 메뉴를 보여 주고, `dia 4 …`나 `dia red …`는 번호나 앞 글자로 스킬을 시작하며, `dia <request>`는 알맞은 스킬을 골라 어떤 스킬인지 밝힙니다. `dia-intent`, `dia-ratchet`, `dia-adjudicate`는 스스로 시작하지 않습니다. | 첫 단어를 `dia`로 |
 
 ## 목차
 
@@ -118,20 +118,20 @@ Business와 Enterprise 워크스페이스에서는 관리자가 워크스페이�
 
 방법은 네 가지이며, 모든 환경에서 적어도 한 가지는 지원합니다.
 
-1. **메뉴: 메시지를 `dia`로 시작하기.** `dia`만 입력하면 번호가 붙은 스킬 목록이 나옵니다. `dia 4 <your text>`나 `dia red <your text>`는 그 스킬(여기서는 `dia-reductio`)을 시작합니다. 앞 글자가 두 스킬에 해당하면(`con`) 어느 쪽인지 묻습니다. `dia <your text>`는 알맞은 스킬을 골라 대개 먼저 한 줄로 이름을 밝히고 실행합니다. 두 스킬이 비슷하게 맞으면 묻습니다. 일반 요청으로는 `dia-confirm`(1), `dia-ratchet`(10), `dia-adjudicate`(11)를 절대 시작하지 않으므로, 번호나 이름을 쓰십시오. 예: `dia 10 --max 2 <draft>`. 휴대폰에서 가장 빠른 방법입니다. 세 글자에 하이픈도 없습니다.
+1. **메뉴: 메시지를 `dia`로 시작하기.** `dia`만 입력하면 번호가 붙은 스킬 목록이 나옵니다. `dia 4 <your text>`나 `dia red <your text>`는 그 스킬(여기서는 `dia-reductio`)을 시작합니다. 앞 글자가 둘 이상의 스킬에 해당하면 어느 쪽인지 묻습니다. `dia <your text>`는 알맞은 스킬을 골라 대개 먼저 한 줄로 이름을 밝히고 실행합니다. 두 스킬이 비슷하게 맞으면 묻습니다. 일반 요청으로는 `dia-intent`(1), `dia-ratchet`(10), `dia-adjudicate`(11)를 절대 시작하지 않으므로, 번호나 이름을 쓰십시오. 예: `dia 10 --max 2 <draft>`. 휴대폰에서 가장 빠른 방법입니다. 세 글자에 하이픈도 없습니다.
 2. **말로 요청하기.** 방법을 직접 요청합니다: "…에 귀류법을 적용해 주세요", "…을 내재적 비판해 주세요", "소크라테스식 대화로 부탁합니다…", "이 근거가 결론을 얼마나 뒷받침하나요?", "내 규칙의 반례를 찾아 주세요…", "이 계획에 반대 입장을 맡아 주세요…", "에이전트에게 줄 이 프롬프트를 검토해 주세요…". 모든 환경에서 작동하며, 모바일에서는 이 방법이 가장 안전한 기본값입니다. `dia-reductio`, `dia-negative`, `dia-elenchus`, `dia-brainstorm`, `dia-warrant`, `dia-conjecture`, `dia-counterplan`, `dia-instruct`에 쓸 수 있습니다.
-3. **메시지에 이름 적기.** 메시지를 스킬 이름으로 시작합니다: `dia-confirm …`, `dia-refine …`, `dia-ratchet …`, `dia-adjudicate …`. 1.2.0부터는 Codex에서 `$` 없이, ChatGPT에서 `@` 없이(모바일 앱에서 소유자 확인) 이렇게 시작할 수 있습니다. `dia-refine`, `dia-ratchet`, `dia-adjudicate`는 이 방식이나 명시적 선택으로 시작하도록 설계되었습니다. `dia-ratchet`과 `dia-adjudicate`는 일반 요청으로는 절대 시작되지 않으며, Claude Code에서는 "이 초안 고쳐 주세요" 같은 일반 요청으로 `dia-refine`이 로드되는 경우가 드뭅니다.
+3. **메시지에 이름 적기.** 메시지를 스킬 이름으로 시작합니다: `dia-intent …`, `dia-refine …`, `dia-ratchet …`, `dia-adjudicate …`. 1.2.0부터는 Codex에서 `$` 없이, ChatGPT에서 `@` 없이(모바일 앱에서 소유자 확인) 이렇게 시작할 수 있습니다. `dia-refine`, `dia-ratchet`, `dia-adjudicate`는 이 방식이나 명시적 선택으로 시작하도록 설계되었습니다. `dia-ratchet`과 `dia-adjudicate`는 일반 요청으로는 절대 시작되지 않으며, Claude Code에서는 "이 초안 고쳐 주세요" 같은 일반 요청으로 `dia-refine`이 로드되는 경우가 드뭅니다.
 4. **명시적 선택.** 환경마다 표기법이 다릅니다.
 
 | 환경 | 문법 | 예시 |
 |---|---|---|
 | claude.ai, Claude 데스크톱, Claude Code | `/dia:dia-<x>` | `/dia:dia-reductio` |
 | Claude 모바일 | `/dia-<x>` 또는 `/dia:dia-<x>`를 끝까지 입력(`/` 메뉴에는 표시되지 않음) | `/dia-brainstorm`, `/dia:dia-brainstorm` |
-| Codex (플러그인) | `$dia:dia-<x>` 뒤에 공백 | `$dia:dia-confirm 백업 스크립트 작성해줘` |
+| Codex (플러그인) | `$dia:dia-<x>` 뒤에 공백 | `$dia:dia-intent 백업 스크립트 작성해줘` |
 | Codex (복사한 폴더) | `$dia-<x>` | `$dia-refine` |
 | ChatGPT | `@` 입력 후 스킬 선택 | `@dia-negative` |
 
-1.2.0부터 Codex와 ChatGPT에서도 Claude처럼 모든 스킬이 모델에 보입니다. `dia-reductio`, `dia-negative`, `dia-elenchus`, `dia-brainstorm`, `dia-warrant`, `dia-conjecture`, `dia-counterplan`, `dia-refine`, `dia-instruct`은 요청 내용이 맞으면 저절로 시작될 수 있고, `dia-confirm`, `dia-ratchet`, `dia-adjudicate`는 메시지를 이름으로 시작하거나 직접 선택(`$dia:dia-<x>`, `@`)할 때만 시작하도록 되어 있습니다. 다만 Codex에서는 "먼저 내 목표를 정리하고 결정할 것들을 알려줘"처럼 `dia-confirm`의 절차를 그대로 말로 요청하면 이 스킬이 로드되기도 합니다.
+1.2.0부터 Codex와 ChatGPT에서도 Claude처럼 모든 스킬이 모델에 보입니다. `dia-reductio`, `dia-negative`, `dia-elenchus`, `dia-brainstorm`, `dia-warrant`, `dia-conjecture`, `dia-counterplan`, `dia-refine`, `dia-instruct`은 요청 내용이 맞으면 저절로 시작될 수 있고, `dia-intent`, `dia-ratchet`, `dia-adjudicate`는 메시지를 이름으로 시작하거나 직접 선택(`$dia:dia-<x>`, `@`)할 때만 시작하도록 되어 있습니다. 다만 Codex에서는 "먼저 내 목표를 정리하고 결정할 것들을 알려줘"처럼 `dia-intent`의 절차를 그대로 말로 요청하면 이 스킬이 로드되기도 합니다.
 
 ### 옵션
 
@@ -154,7 +154,7 @@ Business와 Enterprise 워크스페이스에서는 관리자가 워크스페이�
 
 | 이런 걸 하고 싶다면… | 쓸 스킬 |
 |---|---|
-| 일을 시작하기 전에 어시스턴트가 과제를 제대로 이해했는지 확인하기 | `dia-confirm` |
+| 일을 시작하기 전에 어시스턴트가 과제를 제대로 이해했는지 확인하기 | `dia-intent` |
 | 어떤 단어나 생각으로 내가 정말 무엇을 뜻하는지 알아내기 | `dia-elenchus` |
 | 막연한 아이디어를 선택지와 계획으로 바꾸기 | `dia-brainstorm` |
 | 어떤 주장이 앞뒤가 맞는지 확인하기 | `dia-reductio` |
@@ -168,16 +168,16 @@ Business와 Enterprise 워크스페이스에서는 관리자가 워크스페이�
 | 모델이 뜻한 대로 따르도록 프롬프트, 스킬, 에이전트 파일을 쓰거나 점검하기 | `dia-instruct` |
 | 어떤 스킬을 쓸지 모르겠을 때, 또는 휴대폰으로 입력할 때 | `dia` (`dia-menu`) |
 
-### dia-confirm: 일을 시작하기 전에 과제 합의하기
+### dia-intent: 일을 시작하기 전에 과제 합의하기
 
-**쉽게 말하면.** 좋은 시공업자는 공사를 시작하기 전에 일을 함께 짚어 봅니다. 이런 걸 만들겠다, 이런 걸 가정하고 있다, 이건 고객님만 정할 수 있다고요. `dia-confirm`은 어시스턴트가 바로 그렇게 하도록 만들고, 짐작으로 진행하는 대신 사용자가 승인할 때까지 기다리게 합니다.
+**쉽게 말하면.** 좋은 시공업자는 공사를 시작하기 전에 일을 함께 짚어 봅니다. 이런 걸 만들겠다, 이런 걸 가정하고 있다, 이건 고객님만 정할 수 있다고요. `dia-intent`은 어시스턴트가 바로 그렇게 하도록 만들고, 짐작으로 진행하는 대신 사용자가 승인할 때까지 기다리게 합니다.
 
 **이럴 때 쓰세요.** 요청은 짧은데 결과가 사용자만 아는 내용에 달려 있을 때입니다. 축사, 계획, 스크립트, 중요한 사람에게 보내는 이메일 같은 경우입니다. 답이 하나로 뻔한 간단한 질문이라면 **쓰지 않아도 됩니다**.
 
 **해 보기:**
 
 ```
-dia-confirm 동생 결혼식에서 할 짧은 축사를 써 주세요.
+dia-intent 동생 결혼식에서 할 짧은 축사를 써 주세요.
 ```
 
 **세션은 이렇게 진행됩니다** (줄임):
@@ -196,7 +196,7 @@ dia-confirm 동생 결혼식에서 할 짧은 축사를 써 주세요.
 
 - 신경 쓰이는 질문에만 답하고 "진행"을 덧붙이면 됩니다. 수정 사항과 "진행"을 함께 보내면 수정된 과제를 승인한 것으로 봅니다.
 - "좋아 보여요", 아무 답 없음, 엄지 이모지는 승인으로 치지 않습니다. 어시스턴트는 계속 기다립니다.
-- 적용 범위는 그 과제 하나와 직접 이어지는 후속 작업입니다. 새 과제에서도 같은 확인을 받고 싶다면 다시 `dia-confirm`으로 시작하세요.
+- 적용 범위는 그 과제 하나와 직접 이어지는 후속 작업입니다. 새 과제에서도 같은 확인을 받고 싶다면 다시 `dia-intent`으로 시작하세요.
 
 ### dia-elenchus: 내가 정말 무엇을 뜻하는지 알아내기
 
@@ -557,7 +557,7 @@ dia-adjudicate
 
 **쉽게 말하면.** 그 자체로 하나의 방법은 아니고, 더 빨리 들어가는 길일 뿐입니다. 메시지를 `dia`로 시작하세요. `dia`만 쓰면 스킬 열두 개를 번호와 함께 보여 줍니다. 뒤에 번호나 이름의 앞 몇 글자를 붙이면 그 스킬이 시작되고, 원하는 일을 그냥 쓰면 알맞은 스킬을 골라 대개 먼저 한 줄로 어떤 스킬인지 알려 줍니다. 앞 글자가 두 스킬에 해당하거나 두 스킬이 요청에 비슷하게 맞으면, 짐작하지 않고 묻습니다.
 
-**이럴 때 쓰세요.** 휴대폰으로 입력할 때, 또는 어떤 스킬이 필요한지 잘 모를 때입니다. `dia-confirm`(1), `dia-ratchet`(10), `dia-adjudicate`(11)는 번호나 이름으로만 시작되며, `dia`가 짐작해서 시작하는 일은 없습니다.
+**이럴 때 쓰세요.** 휴대폰으로 입력할 때, 또는 어떤 스킬이 필요한지 잘 모를 때입니다. `dia-intent`(1), `dia-ratchet`(10), `dia-adjudicate`(11)는 번호나 이름으로만 시작되며, `dia`가 짐작해서 시작하는 일은 없습니다.
 
 **해 보기:**
 
@@ -573,11 +573,11 @@ dia 온보딩 이메일을 추가한 뒤 이탈률이 떨어졌으니, 이메일
 > `dia 4 …` → `dia-reductio`가 바로 시작됩니다: "**대상:** 사용자(추정). **논제 T:** ‘모든 소수는 홀수다’. **방향:** 반박. …"
 > `dia 온보딩 이메일을 …` → `dia-warrant`가 시작됩니다: "**구조** – **주장:** ‘이메일이 이탈을 줄였다’(명시됨). … **자료:** ‘온보딩 이메일을 추가한 뒤 이탈률이 떨어졌다’(명시됨). …"
 > `dia con …` (`dia-confirm`과 `dia-conjecture`에 모두 해당, 한국어로 실행한 원문 그대로) → "‘con’으로 시작하는 skill이 둘이라 하나를 고를 수 없습니다. 번호로 골라 주세요." 그리고 두 스킬을 함께 보여 줍니다.
-> *(1.4.0으로 기록한 실행이며, 당시 10번은 `dia-iterate`였습니다. 1.5.0부터 목록은 열한 줄이고 10번은 `dia-ratchet`, 11번은 `dia-adjudicate`입니다. 1.6.0부터는 열두 줄이며 12번은 `dia-instruct`입니다.)*
+> *(1.4.0으로 기록한 실행이며, 당시 1번은 `dia-confirm`, 10번은 `dia-iterate`였습니다. 1.6.0부터 1번은 `dia-intent`이고 `con`은 `dia-conjecture`에만 해당합니다. 1.5.0부터 목록은 열한 줄이고 10번은 `dia-ratchet`, 11번은 `dia-adjudicate`입니다. 1.6.0부터는 열두 줄이며 12번은 `dia-instruct`입니다.)*
 
 **팁**
 
-- 번호는 바뀌지 않습니다: 1 confirm, 2 brainstorm, 3 elenchus, 4 reductio, 5 negative, 6 warrant, 7 conjecture, 8 counterplan, 9 refine, 10 ratchet, 11 adjudicate, 12 instruct.
+- 번호는 바뀌지 않습니다: 1 intent, 2 brainstorm, 3 elenchus, 4 reductio, 5 negative, 6 warrant, 7 conjecture, 8 counterplan, 9 refine, 10 ratchet, 11 adjudicate, 12 instruct.
 - 옵션은 그대로 전달됩니다: `dia 10 --max 2 <draft>`는 `dia-ratchet --max 2 <draft>`와 같습니다.
 - `dia`는 단독으로 첫 단어여야 합니다. `dia-refine …`을 비롯한 전체 이름은 여전히 곧바로 해당 스킬로 갑니다.
 - 앞 글자는 세 글자 이상이어야 하고(`re`가 아니라 `red`), 문장의 일부임이 분명한 단어(`dia red flags in my plan?`)는 선택이 아니라 요청으로 읽습니다.
@@ -598,10 +598,10 @@ dia 온보딩 이메일을 추가한 뒤 이탈률이 떨어졌으니, 이메일
 - **어떤 기기에서는 dia가 되는데 다른 기기에서는 안 됩니다.** 데스크톱에서 설치한 것은 그 컴퓨터에만 있고, 웹에서 설치한 것은 계정에 저장되어 모바일 앱까지 갑니다. 웹과 모바일용으로 웹에서 한 번, 쓰는 데스크톱 앱마다 한 번씩 설치하세요(설치 참고).
 - **모든 스킬이 두 번씩 나타납니다.** 플러그인이 두 경로로 설치된 것입니다(예: `dia@dialectic-skills`와 `dia@ajitta`, 또는 업로드와 마켓플레이스). 하나를 제거합니다.
 - **claude.ai에 Skills 섹션이 없거나 비활성화되어 있습니다.** Settings › Capabilities › Code execution and file creation을 켭니다.
-- **`dia-intent`를 찾을 수 없습니다.** 1.1.0에서 `dia-confirm`으로 이름이 바뀌었습니다.
+- **`dia-confirm`을 찾을 수 없습니다.** 1.6.0에서 `dia-intent`로 이름이 되돌아갔습니다. 1.1.0부터 1.4.0까지는 `dia-confirm`이었습니다.
 - **`dia-iterate`를 찾을 수 없습니다.** 1.5.0에서 `dia-ratchet`으로 이름이 바뀌었습니다.
 - **`dia-ratchet`이나 `dia-adjudicate`가 시작되지 않습니다.** 메시지의 첫 단어가 스킬 이름이거나 명시적으로 선택했을 때(`/dia:dia-ratchet`, `$dia:dia-ratchet`, `@dia-ratchet`, `dia 10`, `dia ratchet`; `dia-adjudicate`도 같은 형식과 `dia 11`)에만 시작됩니다. `dia <request>`만으로는 절대 선택되지 않습니다.
-- **Codex에서 `$dia:dia-confirm:`이 인식되지 않습니다.** 스킬 이름 뒤에 콜론이 아니라 공백을 넣습니다.
+- **Codex에서 `$dia:dia-intent:`이 인식되지 않습니다.** 스킬 이름 뒤에 콜론이 아니라 공백을 넣습니다.
 - **claude.ai에서 업로드가 거부됩니다.** Customize › Skills가 아니라 Customize › Plugins › Upload plugin을 사용합니다.
 - **claude.ai에서 Check for updates 후에도 예전 버전이 남아 있습니다.** Customize › Plugins에서 `dia`를 제거한 뒤 `dialectic-skills` 마켓플레이스에서 다시 설치합니다. 이후 릴리스를 자동으로 받으려면 Sync automatically를 켭니다.
 
