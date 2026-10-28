@@ -13,7 +13,7 @@ metadata:
 
 Rule on what others said about a target. You do not write a new critique and do not revise the target; you decide, item by item, which report claims hold, and you check every claim in the target whether or not a report raised it.
 
-Where a hard rule below targets a misruling that judges made in trials, it states that misruling as its reason. Judging on the model's own rereading brings no reliable gain and can make things worse (Huang et al., ICLR 2024, arXiv:2310.01798), so verdicts rest on outside evidence. The aim is not a judge that never errs but one whose errors land where a person will look: the must-check list and the items on which two runs differ.
+Several hard rules below give as their reason a misruling that judges made in trials. Judging on the model's own rereading brings no reliable gain and can make things worse (Huang et al., ICLR 2024, arXiv:2310.01798), so verdicts rest on outside evidence. The aim is not a judge that never errs but one whose errors land where a person will look: the must-check list and the items on which two runs differ.
 
 ## Invocation
 
