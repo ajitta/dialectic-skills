@@ -478,6 +478,139 @@ Not probed here: the mid-sentence mention, a plain "which of these reviews is ri
 
 Not probed here: Codex and ChatGPT; n>1; mid-sentence mentions of dia-ratchet and dia-adjudicate; probes Part P's flagged description cells (descriptions are unchanged since Part P except dia-refine, dia-ratchet and dia-menu in D39).
 
+**Part T, 1.6.0 as released (`v1.6.0`, `16fdec4`): Part S at n=2, mid-sentence mentions, Part P's refine and ratchet cells, Part Q's gated and menu cells with the new names, P6 and P8 for dia-ratchet, and Codex, 2026-10-28.** Claude Code 2.1.312 on Windows 11, claude-sonnet-5-5, `--plugin-dir` set to a copy of `plugins/dia` taken with `git archive v1.6.0` (identical to the working tree at the time), a fresh `CLAUDE_CONFIG_DIR` per run holding only a copy of the credentials (deleted after each run), `ENABLE_CLAUDEAI_MCP_SERVERS=false`, an empty directory outside the repository, tool-less (`--tools Skill`) unless noted, `--max-turns 12` (Part Q cells `--max-turns 8`, as in Part Q), five runs in parallel, n=2 per cell. Every init event listed `dia@inline` 1.6.0 with the thirteen skills and no `@synced` plugin, so no run was discarded; no rate limit was hit. Which skill loaded is read from the `Skill` tool_use input; for menu, gate and sibling cells the replies were also read (twelve rows; the one-line `→` choice; the method's own format; no round table in a gate reply). Codex CLI 0.164.0, gpt-6.1-sol, isolated `CODEX_HOME` with the plugin added from a scratch copy of the repository at `v1.6.0` (`codex plugin marketplace add`, `codex plugin add dia@dialectic-skills`), `codex exec --json --ephemeral -s read-only` in an empty scratch directory, every `item.*` type logged; a copy of `auth.json` was put in before each run and deleted after it. Claude: 146 of 147 runs matched the expectation (the one miss is the known plain-request limit for dia-refine); Codex: 24 of 24 runs matched, with one harness finding (the account's uploaded dia 1.4.0, below). Runner, cells, results and transcripts: `probes-t/` in the agent's scratch directory (`run_t.py`, `run_codex.py`, `cells-*.json`, `results-claude.jsonl`, `results-codex.jsonl`, `runs/`).
+
+Group A, Part S's 33 cells, second run (run 1 is Part S). 33/33 in run 2, so 66/66 over both runs.
+
+| Cell | Expected | Loaded (run 1; run 2) | Note |
+|---|---|---|---|
+| intent-name | dia-intent | dia-intent ×2; dia-intent ×2 | 2/2 |
+| intent-menu-1 | dia-menu → dia-intent | dia-menu → dia-intent; same | 2/2 |
+| intent-menu-int | dia-menu → dia-intent | dia-menu → dia-intent; dia-intent → dataviz | 2/2; run 2 loaded dia-intent directly, then the built-in `dataviz` skill, which it set aside in one line ("doesn't apply here"), and tried `Bash` (not available) |
+| intent-plain | not dia-intent (description gate) | none; none | 2/2 |
+| intent-mid | none | none; none | 2/2 |
+| intent-oldname | not dia-intent (old name) | none; none | 2/2; run 2 said no `dia-confirm` skill exists and answered plainly (tried `Write`, not available) |
+| menu-gate | dia-menu only; replies with the `dia 1` form | dia-menu; dia-menu | 2/2; run 2: "Send `dia 1 write my wedding speech` (or `dia-intent …`)" |
+| ratchet-name | dia-ratchet | dia-ratchet; dia-ratchet | 2/2; "verification exhausted" |
+| ratchet-rat | dia-menu → dia-ratchet | dia-menu → dia-ratchet; same | 2/2 |
+| ratchet-10 | dia-menu → dia-ratchet | dia-menu → dia-ratchet; dia-ratchet | 2/2; run 2 loaded dia-ratchet directly, without the menu |
+| ratchet-plain | not dia-ratchet | none; none | 2/2 |
+| adj-name | dia-adjudicate | dia-adjudicate; dia-adjudicate | 2/2 |
+| adj-11 | dia-menu → dia-adjudicate | dia-adjudicate; dia-adjudicate | 2/2; both runs loaded dia-adjudicate directly, without the menu |
+| adj-adj | dia-menu → dia-adjudicate | dia-menu → dia-adjudicate; same | 2/2 |
+| adj-plain | not dia-adjudicate | none; none | 2/2 |
+| ins-nl | dia-instruct | dia-instruct; dia-instruct | 2/2 |
+| ins-sysprompt | dia-instruct (risk: dia-refine) | dia-instruct; dia-instruct | 2/2 |
+| ins-claudemd | none, or dia-instruct without a sub-agent review | none; dia-instruct | 2/2; run 2 loaded dia-instruct, showed the edit and checked it itself, no sub-agent (tried `Bash`, not available) |
+| ins-email-neg | dia-refine, not dia-instruct | none; none | 2/2 on the dia-instruct border; dia-refine not loaded either (known limit, Part J) |
+| ins-write-neg | none | none; none | 2/2 |
+| ins-12 | dia-menu → dia-instruct | dia-menu → dia-instruct; same | 2/2 |
+| ins-ins | dia-menu → dia-instruct | dia-menu → dia-instruct; same | 2/2 |
+| menu-req-prompt | dia-menu → dia-instruct | dia-menu → dia-instruct; same | 2/2 |
+| menu-bare | dia-menu, twelve rows | dia-menu; dia-menu | 2/2; rows 1–12 and the three lines |
+| menu-con | dia-menu → dia-conjecture | dia-menu → dia-conjecture; same | 2/2 |
+| smoke-brainstorm … smoke-refine (eight cells) | the named skill | the named skill, both runs | 16/16 |
+
+Group B, mid-sentence mentions (new), n=2. 8/8.
+
+| Cell | Expected | Loaded | Note |
+|---|---|---|---|
+| b-mid-ratchet "I read that dia-ratchet locks what passed. Anyway, what is 17 x 23?" | none | none (2/2) | answered 391; both runs added a sentence about the skill without running it |
+| b-mid-adj "Someone told me dia-adjudicate is useful. Anyway, summarize the plot of Hamlet in two sentences." | none | none (2/2) | two-sentence summary only |
+| b-mid-instruct "A colleague said dia-instruct is good for prompts. Anyway, what is the capital of Australia?" | none | none (2/2) | "Canberra", plus a line that the skill was not run |
+| b-mid-menu10 "The README says dia 10 runs review rounds. Anyway, how many kilometres are in 5 miles?" | none | none (2/2) | `dia 10` mid-sentence did not open the menu |
+
+Group C1, Part P's refine, iterate (now ratchet) and passing-mention cells (the twenty-cell re-check list in `gate-tally-refine-947239d.txt`, less the conjecture, warrant and Part O cells whose prompts are not recorded), n=2. The prompts are not in the repository; they were rebuilt from the descriptions in Parts A, J, M and P (the P8 draft verbatim; the P6 draft as "Revenue rose from 1,100 to 1,200, up 20%. The Eiffel Tower was completed in 1889. Python 3.13 removed the GIL by default."). 33/34.
+
+| Cell | Expected | Loaded | Note |
+|---|---|---|---|
+| p6-refine `dia-refine — check the numbers` + P6 draft | dia-refine | dia-refine (2/2) | 20% corrected to about 9.1% under ① (re-derived) |
+| p6-ratchet `dia-ratchet --max 2` + P6 draft | dia-ratchet | dia-ratchet (2/2) | no edit, "verification exhausted", 20% pointed to one dia-refine pass |
+| p6-mention (dia-refine mid-sentence, then a boiling-point question) | none | none (2/2) | |
+| j-refine-facts `dia-refine Fix the factual errors.` + P8 draft | dia-refine | dia-refine (2/2) | |
+| j-final `dia-refine Give me only the improved final version.` + P8 draft | dia-refine | dia-refine (2/2) | revision only |
+| j-quote `dia-refine` + the Einstein quotation | dia-refine | dia-refine (2/2) | |
+| j-ratchet `dia-ratchet --max 2` + P8 draft | dia-ratchet | dia-ratchet (2/2) | "verification exhausted" |
+| j-mention "I read that dia-refine is a skill name; anyway, what is 17 x 23?" | none | none (2/2) | |
+| j-nl-fix "Fix the factual errors and logical leaps in this draft:" + P8 draft | dia-refine (plain request; known limit) | dia-refine (2/2) | |
+| j-nl-final "Review this as a draft and give me only the improved final version:" + P8 draft | dia-refine (plain request; known limit) | dia-refine; none | **1/2, MISS in run 2:** answered with a revision without the skill (the known limit, Part J) |
+| j-nl-ko «이 초안을 검토해서 사실 오류와 논리 비약을 고쳐줘:» + P8 draft | dia-refine (plain request; known limit) | dia-refine (2/2) | Korean defect list |
+| m-fw-ratchet `dia-ratchet --max 1` + P8 draft | dia-ratchet | dia-ratchet (2/2) | |
+| m-fw-ratchet-ko `dia-ratchet --max 1 이 초안을 검증해줘:` + P8 draft | dia-ratchet | dia-ratchet (2/2) | Korean round summary |
+| m-gate-ratchet «이 초안을 검증하면서 결함이 없어질 때까지 여러 번 반복해서 고쳐줘:» + P8 draft | not dia-ratchet | none (2/2) | answered directly; run 1 wrote its own two-pass check («1회차») without the skill |
+| m-mention-intent "I read that dia-intent is a skill name somewhere; anyway, what is 17 x 23?" | none | none (2/2) | |
+| dw-6-refine-prev "Review your previous answer as a draft and fix the logical leaps." | dia-refine | dia-refine (2/2) | the Part P flag; both said there is no earlier answer to review (single-prompt cell) |
+| x-mention-ratchet (dia-ratchet mid-sentence, then a leap-year question) | none | none (2/2) | |
+
+The plain-request cells (j-nl-fix, j-nl-final, j-nl-ko) loaded dia-refine 5 of 6 times, against 1 of 9 per arm in Part J; D39 changed the dia-refine description to lead with its evidence basis, which may be why (not established at n=2).
+
+Group C2, Part Q's gated cells with the new names and its menu cells, re-checked against the twelve-row table, `--max-turns 8`, n=2. Abbreviated Part Q prompts were written out in full; three cells are new (`dia 11` and `dia adj` with a second text and two reviews, `dia 11 reasons …`, and a plain ruling request after `dia`). 68/68.
+
+| Cell | Expected | Loaded | Note |
+|---|---|---|---|
+| q-m-rat-num `dia 10 --max 1` + P8 draft | dia-ratchet | dia-menu → dia-ratchet (2/2) | round table, "verification exhausted" |
+| q-m-rat-max2 `dia 10 --max 2` + P8 draft | dia-ratchet | dia-menu → dia-ratchet; dia-ratchet | 2/2; run 2 direct; both stopped after round 1 with "verification exhausted", the GIL claim listed as a suspected error |
+| q-x-rat `dia rat --max 1` + P8 draft (was `dia iter`) | dia-ratchet | dia-menu → dia-ratchet (2/2) | |
+| q-x-10reasons `dia 10 reasons my plan to rewrite our backend in Rust will fail?` | not dia-ratchet | dia-menu (2/2) | none-fits line, then the list |
+| q-a-ratchet-gate `dia` + «… 결함이 없어질 때까지 라운드를 돌려서 고쳐줘:» + draft | the `dia 10` form handed back, no rounds | dia-menu (2/2) | both replied in Korean with `dia 10 …` / `dia-ratchet …`; no round table |
+| q-m-adj-num `dia 11` + Great Wall text, reviews A and B | dia-adjudicate | dia-adjudicate; dia-menu → dia-adjudicate | 2/2; Inputs line and shuffle in both |
+| q-m-adj-pre `dia adj` + the same | dia-adjudicate | dia-menu → dia-adjudicate (2/2) | |
+| q-x-11reasons `dia 11 reasons my startup will fail?` | not dia-adjudicate | dia-menu (2/2) | none-fits line |
+| q-a-adj-gate `dia which of these two reviews of my text is right?` + the same | the `dia 11` form handed back | dia-menu (2/2) | `dia 11 <target and reports>` or `dia-adjudicate …`, then stopped |
+| q-m-intent-num `dia 1 Write a script that renames all my photos by date.` | dia-intent | dia-menu → dia-intent (2/2) | 2/2; run 1 also called the built-in `update-config` skill with "noop" after dia-intent |
+| q-m-intent-name `dia intent …` (was `dia confirm`) | dia-intent | dia-intent (2/2) | direct, without the menu (as in Part Q) |
+| q-x-1thing `dia 1 thing I keep forgetting: how do I undo the last git commit …` | not dia-intent | dia-menu (2/2) | none-fits line, `git reset --soft` |
+| q-m-help `dia` | dia-menu, twelve rows | dia-menu (2/2) | rows 1–12 |
+| q-m-num `dia 4 Assume every prime is odd …` | dia-reductio | dia-menu → dia-reductio (2/2) | |
+| q-m-cap `Dia 4 …` | dia-reductio | dia-menu → dia-reductio (2/2) | |
+| q-m-prefix `dia red 모든 소수는 홀수다.` | dia-reductio | dia-menu → dia-reductio (2/2) | Korean |
+| q-m-con `dia con` + Korean "no deploys on Friday" rule (Part Q's m-ambig) | dia-conjecture by prefix | dia-menu → dia-conjecture (2/2) | `con` is now unique (no dia-confirm), so the menu no longer asks; dia-conjecture declined the rule as a policy and stopped, as its description says |
+| q-a-counterplan, q-a-brainstorm, q-a-elenchus, q-a-conjecture, q-a-negative, q-a-refine (Korean `dia` + request) | the matching sibling | dia-menu → sibling (2/2 each; one elenchus run direct) | the `→` line, then each method's own opening (D1, stress mode, the definition question, C:, the template steps, ①) |
+| q-a-warrant, q-a-reductio (English) | dia-warrant, dia-reductio | dia-menu → sibling (2/2 each) | |
+| q-a-instruct `dia review this instruction for a coding agent: …` (new) | dia-instruct | dia-menu → dia-instruct (2/2) | |
+| q-a-none `dia` + Korean macOS rename how-to | plain, with a none-fits line | dia-menu (2/2) | |
+| q-s-policy `dia` + counterexamples to "every microservice should own its DB" (Korean) | not dia-conjecture | dia-menu (2/2) | none fits (exceptions to a rule), answered |
+| q-s-redflags `dia red flags in my plan? …` | not dia-reductio | dia-menu → dia-brainstorm (2/2) | |
+| q-s-itkeeps `dia it keeps getting facts wrong, check this draft:` | not dia-ratchet | dia-menu → dia-refine (2/2) | |
+| q-s-3reasons `dia 3 reasons my plan … will fail?` | not dia-elenchus | dia-menu (2/2) | none fits, dia-brainstorm (2) named as closest |
+| q-s-devil-claim `dia devil's advocate: is coffee healthy?` | not dia-counterplan | dia-menu (2/2) | none fits, answered |
+| q-r-mention "I read that dia is the name of a plugin; anyway, what is 17 x 23?" | none, no menu | none (2/2) | |
+| q-r-nl-brainstorm «소크라테스식 브레인스토밍 해줘. …» | dia-brainstorm, no menu | dia-brainstorm (2/2) | |
+
+Group D, P6 and P8 for dia-ratchet (the dia-iterate prompts of P6 and P8), n=2. 4/4.
+
+| Cell | Expected | Loaded | Note |
+|---|---|---|---|
+| p6-ratchet-tools `dia-ratchet --max 2` + P6 draft, tools available (no `--tools`; headless, so Bash and WebSearch were denied) | dia-ratchet | dia-ratchet (2/2) | both tried search and a calculation, were denied, changed nothing, stopped with "verification exhausted" after round 1, "Confirmed but not fixed: none", and pointed the re-derivable 20% to one dia-refine pass |
+| p8-ratchet `dia-ratchet --max 2` + P8 draft, `--tools Skill` | dia-ratchet | dia-ratchet (2/2) | no edit, "verification exhausted" after round 1, every claim listed as unverified |
+
+Group E, Codex CLI 0.164.0 (gpt-6.1-sol, `-s read-only`), n=2. "Loaded" = the run read `dia-<x>/SKILL.md`; a `$dia:` name injects the skill text, so such a run may not read it and is judged by its reply format. The isolated listing first included the user-level `~/.agents/skills` (32 skills, one of them `confirm-intent`), because Codex on Windows took the home directory from the system, not from `HOME` or `USERPROFILE`. Each of those 32 skills was turned off with `[[skills.config]] enabled = false`, after which the listing held the thirteen dia skills and Codex's four system skills. On this host `-s read-only` first refused to read any file ("blocked by policy", 1 smoke run). It worked after `[windows] sandbox = "elevated"` (the setting in the owner's own Codex config) was added to the isolated config. 24/24 runs matched.
+
+| Cell | Expected | Loaded | Note |
+|---|---|---|---|
+| `codex debug prompt-input "hi"` | thirteen dia skills | `dia:dia-adjudicate` … `dia:dia-warrant`, all thirteen | before and after the runs |
+| `$dia:dia-intent Write a script that renames all my photos by date.` | dia-intent | dia-intent (2/2) | four labels; held for approval, quoting the skill's "Until approval" line |
+| `dia-intent Write a script …` (first word) | dia-intent | dia-intent (2/2) | read the SKILL.md directly |
+| `$dia:dia-ratchet --max 1 The Eiffel Tower was completed in 1899 and is 330 m tall.` | dia-ratchet | injected (2/2) | read `references/verification-sources.md`, two web searches, fixed 1899 → 1889, locked 330 m, round table, "round cap reached (`--max 1`)" |
+| `dia-ratchet --max 1 …` (first word, extra) | dia-ratchet | dia-ratchet (2/2) | same result |
+| `$dia:dia-adjudicate` + Moore text, reviews A and B | dia-adjudicate | dia-adjudicate; injected | 2/2; Inputs line, R1/R2 shuffle, web searches; run 1 said a second-agent attempt failed and gave one run |
+| "Review this instruction I wrote for a coding agent: …" | dia-instruct | dia-instruct (2/2) | rule-numbered findings |
+| `dia 12 You are a support bot for a bakery. …` | dia-menu → dia-instruct | dia-menu → dia-instruct (2/2) | |
+| `dia` | dia-menu, twelve rows | dia-menu (2/2) | rows 1–12 and the three lines |
+| `dia-confirm Write a script …` (old name) | not dia-intent | dia-intent 0/4 | **harness finding:** in 3 of 4 runs Codex found `plugins/cache/created-by-me-remote/dia/1.4.0/skills/dia-confirm/SKILL.md` (once by reading it directly, twice after an `rg` search of `CODEX_HOME`) and ran it; the fourth said `dia-confirm` is not available and answered plainly |
+| "I read that dia-ratchet locks what passed. Anyway, what is 17 x 23?" (extra) | none | none (4/4) | "17 × 23 = 391." only |
+
+The `created-by-me-remote` copy is the account's uploaded dia 1.4.0 (eleven skills, with `dia-confirm` and `dia-iterate`). Codex wrote it to disk as soon as `auth.json` was present, as with 1.1.1 in Part M. It was not in the model-visible listing. For the last two old-name runs the copy was deleted and `--disable remote_plugin` was passed, and Codex synced it again anyway. So on a Codex logged into this account, `dia-confirm …` can still run the 1.4.0 skill. That comes from the account's uploaded plugin, not from 1.6.0. Replacing or removing the upload on chatgpt.com should end it, but this was not checked.
+
+Observations (not misses):
+
+- Tool-less runs sometimes tried a tool that does not exist in the session (`Bash` 3, `Write` 1, all refused by the host). Two runs called a built-in non-dia skill after the dia skill had loaded (`dataviz`; `update-config` with "noop"), as in Part P. Neither changed the dia output.
+- A number or prefix sometimes went straight to the skill without the menu (ratchet-10 run 2, adj-11 2/2, q-m-rat-max2 run 2, q-m-adj-num run 1, q-a-elenchus run 1, q-m-intent-name 2/2); the right skill ran each time, and Part Q's pass rule allows it.
+- Codex replies quoted skill text with an absolute path under the scratch `CODEX_HOME` (dia-intent 4/4), as in Part Q; this is Codex's behaviour, not the skill text's.
+- Every ratchet run on Claude (21) stopped with "verification exhausted" and edited nothing; with tools denied or absent, that is the designed stop. On Codex, with web search, both cells fixed 1899 → 1889 from the official site.
+
+Not probed here: ChatGPT and the Claude apps; Codex on the Part P, Part Q and dia-adjudicate negative cells (only the cells listed); Codex `-s read-only` without the elevated Windows sandbox (it cannot read skill files); the Part P cells o-s-refine, o-c-poke-micro and dw-14 (prompts not recorded); output quality beyond each skill's opening format; n>2.
+
 ### P8: tool-less run (`--tools Skill`: no search, fetch, code or file tools)
 
 Draft under test: "The Eiffel Tower was completed in 1889 and is about 330 m tall. Python 3.13 removed the GIL by default. 17 x 23 = 391." The Python sentence is wrong.

@@ -5,14 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="google-site-verification" content="jMH7Vovuubz9O26rgOam803mKx9rvFa1m46VuDWj_Os">
 <!-- impeccable-disable cramped-padding: false positive. The static scan cannot resolve the clamp() padding on .intro and .invoke and their .wrap child; rendered URL scans measure 56px or more of inset and still check this rule. -->
-<title>Dialectic Skills (dia): twelve reasoning-and-review skills for Claude, Codex and ChatGPT</title>
-<meta name="description" content="dia is one plugin of twelve reasoning-and-review skills: confirm the task, Socratic dialogue and brainstorm, proof by contradiction, internal critique, argument support, counterexamples, a counterplan, one review pass, verified review rounds, rulings on reviews of a text, and rules for text a model follows. Instructions only; runs on Claude, Codex and ChatGPT, also in chats with no tools.">
+<title>Dialectic Skills (dia): reasoning-and-review skills for Claude, Codex and ChatGPT</title>
+<meta name="description" content="dia is one plugin of reasoning-and-review skills: confirm the task, Socratic dialogue and brainstorm, proof by contradiction, internal critique, argument support, counterexamples, a counterplan, one review pass, verified review rounds, rulings on reviews of a text, and rules for text a model follows. Instructions only; runs on Claude, Codex and ChatGPT, also in chats with no tools.">
 <link rel="canonical" href="https://ajitta.github.io/dialectic-skills/">
 <meta name="theme-color" content="#cbe4f2">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Dialectic Skills">
 <meta property="og:title" content="Dialectic Skills (dia)">
-<meta property="og:description" content="Twelve reasoning-and-review skills in one plugin, for Claude (web, desktop, mobile, Claude Code), Codex and ChatGPT. Instructions only; MIT licensed.">
+<meta property="og:description" content="Reasoning-and-review skills in one plugin, for Claude (web, desktop, mobile, Claude Code), Codex and ChatGPT. Instructions only; MIT licensed.">
 <meta property="og:url" content="https://ajitta.github.io/dialectic-skills/">
 <meta property="og:image" content="https://ajitta.github.io/dialectic-skills/assets/og.png">
 <meta property="og:image:width" content="1200">
@@ -20,7 +20,7 @@
 <meta property="og:image:alt" content="Dialectic Skills: two overlapping circles, with a marble herm of Socrates in one of them">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Dialectic Skills (dia)">
-<meta name="twitter:description" content="Twelve reasoning-and-review skills in one plugin, for Claude, Codex and ChatGPT. Instructions only; MIT licensed.">
+<meta name="twitter:description" content="Reasoning-and-review skills in one plugin, for Claude, Codex and ChatGPT. Instructions only; MIT licensed.">
 <meta name="twitter:image" content="https://ajitta.github.io/dialectic-skills/assets/og.png">
 <link rel="icon" href="assets/icon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png">
@@ -51,10 +51,10 @@
       <span class="line" aria-hidden="true"><span data-line style="--i:0">Dialectic</span></span>
       <span class="line" aria-hidden="true"><span data-line style="--i:1">skills</span></span>
     </h1>
-    <p class="lead hero__lead" data-load style="--d:420ms">Twelve reasoning-and-review skills that make your assistant question an idea, test a claim, weigh a plan, review a draft or check a prompt, step by step. One plugin for Claude (web, desktop, mobile, Claude&nbsp;Code), Codex and ChatGPT.</p>
+    <p class="lead hero__lead" data-load style="--d:420ms">Reasoning-and-review skills that make your assistant question an idea, test a claim, weigh a plan, review a draft or check a prompt, step by step. One plugin for Claude (web, desktop, mobile, Claude&nbsp;Code), Codex and ChatGPT.</p>
     <p class="hero__actions" data-load style="--d:500ms">
       <a class="button" href="#install">Install dia</a>
-      <a class="link link--plain" href="#skills">See the twelve skills</a>
+      <a class="link link--plain" href="#skills">See the skills</a>
     </p>
   </div>
 
@@ -90,7 +90,7 @@
     <div class="facts">
       <p class="fact" data-reveal style="--i:1"><strong class="fact__title">Instructions only.</strong> The package is Markdown, YAML and JSON, with no scripts, so every skill also works in a chat with no tools. You need no background in philosophy to use it.</p>
       <p class="fact" data-reveal style="--i:2"><strong class="fact__title">In your language.</strong> Skill files are in English; each skill replies in the language of your message. Every prompt on this page works in any language.</p>
-      <p class="fact" data-reveal style="--i:3"><strong class="fact__title">One plugin, everywhere.</strong> The same twelve skills are written to run unchanged on Claude (web, desktop, mobile, Claude Code), Codex and ChatGPT. Free under the MIT License.</p>
+      <p class="fact" data-reveal style="--i:3"><strong class="fact__title">One plugin, everywhere.</strong> The same skills are written to run unchanged on Claude (web, desktop, mobile, Claude Code), Codex and ChatGPT. Free under the MIT License.</p>
     </div>
   </div>
 </section>
@@ -98,8 +98,8 @@
 <section class="skills" id="skills" aria-labelledby="skills-title">
   <div class="wrap skills__head">
     <div class="skills__intro">
-      <h2 class="head mask" id="skills-title" data-reveal><span>Twelve skills</span></h2>
-      <p data-reveal style="--i:1">Each is a way of thinking people have used for a long time, turned into a routine the assistant follows. Pick one by what you want to do. The sessions are from the project’s README, run on Claude Code with this plugin and shortened; in the dialogues the user’s replies came from a simulated user. The wording you get will differ from run to run. The two skills added in 1.6.0, <code>dia-adjudicate</code> and <code>dia-instruct</code>, are described in the full guide for now.</p>
+      <h2 class="head mask" id="skills-title" data-reveal><span>The skills</span></h2>
+      <p data-reveal style="--i:1">Each is a way of thinking people have used for a long time, turned into a routine the assistant follows. Pick one by what you want to do. The sessions are from the project’s README, run on Claude Code with this plugin and shortened; in the dialogues the user’s replies came from a simulated user. The wording you get will differ from run to run.</p>
     </div>
     <ul class="wants" aria-label="Pick a skill by what you want to do">
       <li data-reveal style="--i:0"><a href="#dia-intent"><span class="dot"></span><span class="wants__goal">Make sure the assistant understood the task before it starts</span><code>dia-intent</code></a></li>
@@ -112,8 +112,8 @@
       <li data-reveal style="--i:7"><a href="#dia-counterplan"><span class="dot"></span><span class="wants__goal">Hear the strongest case for a different plan before you commit</span><code>dia-counterplan</code></a></li>
       <li data-reveal style="--i:8"><a href="#dia-refine"><span class="dot"></span><span class="wants__goal">Fix the mistakes in an answer or a draft, once</span><code>dia-refine</code></a></li>
       <li data-reveal style="--i:9"><a href="#dia-ratchet"><span class="dot"></span><span class="wants__goal">Fact-check something thoroughly, round by round</span><code>dia-ratchet</code></a></li>
-      <li data-reveal style="--i:10"><a href="https://github.com/ajitta/dialectic-skills#dia-adjudicate-decide-which-review-points-hold"><span class="dot"></span><span class="wants__goal">Decide which points in reviews of a text actually hold</span><code>dia-adjudicate</code></a></li>
-      <li data-reveal style="--i:11"><a href="https://github.com/ajitta/dialectic-skills#dia-instruct-write-text-a-model-will-follow"><span class="dot"></span><span class="wants__goal">Write or check a prompt, skill or agent file so a model follows it as meant</span><code>dia-instruct</code></a></li>
+      <li data-reveal style="--i:10"><a href="#dia-adjudicate"><span class="dot"></span><span class="wants__goal">Decide which points in reviews of a text actually hold</span><code>dia-adjudicate</code></a></li>
+      <li data-reveal style="--i:11"><a href="#dia-instruct"><span class="dot"></span><span class="wants__goal">Write or check a prompt, skill or agent file so a model follows it as meant</span><code>dia-instruct</code></a></li>
     </ul>
   </div>
 
@@ -516,6 +516,94 @@
       </details>
     </div>
   </article>
+
+  <!-- dia-adjudicate -->
+  <article class="plate" id="dia-adjudicate" data-skill="dia-adjudicate" data-codex="name">
+    <figure class="plate__pic pair pair--diag" data-reveal>
+      <div class="pair__art">
+        <span class="pair__b"></span>
+      <picture>
+        <source type="image/avif" srcset="assets/img/poussin-judgment-of-solomon-w480.avif 480w, assets/img/poussin-judgment-of-solomon-w800.avif 800w, assets/img/poussin-judgment-of-solomon-w1200.avif 1200w" sizes="(min-width: 900px) 46vw, (min-width: 600px) min(67vw, 526px), calc(64vw - 21px)">
+        <source type="image/webp" srcset="assets/img/poussin-judgment-of-solomon-w480.webp 480w, assets/img/poussin-judgment-of-solomon-w800.webp 800w, assets/img/poussin-judgment-of-solomon-w1200.webp 1200w" sizes="(min-width: 900px) 46vw, (min-width: 600px) min(67vw, 526px), calc(64vw - 21px)">
+        <img class="pair__a" src="assets/img/poussin-judgment-of-solomon.jpg" width="1200" height="810" loading="lazy" decoding="async" style="object-position:46% 50%;--lift:1.25"
+             alt="Painting: King Solomon on his throne between two women who claim the same child; one reaches for the living child a soldier holds up, the other points at her, a dead child in her arms">
+      </picture>
+      <svg class="pair__lens" viewBox="0 0 2.7071 2.7071" aria-hidden="true"><path d="M1.966 0.7412A1 1 0 0 1 0.7412 1.966A1 1 0 0 1 1.966 0.7412Z"/></svg>
+      </div>
+      <figcaption class="small">Nicolas Poussin, The Judgment of Solomon, 1649. Louvre, Paris.</figcaption>
+    </figure>
+    <div class="plate__text">
+      <h3 class="head plate__name mask" data-reveal style="--i:1"><span>dia-adjudicate</span></h3>
+      <p class="lead" data-reveal style="--i:2">Decide which review points hold.</p>
+      <p data-reveal style="--i:3">A referee for reviews. You give it a text and one or more reviews of it, written by people or by other assistants. It relabels the reviews in a shuffled order, checks the text’s own claims and every point in the reviews against sources, says which points hold and which are wrong or overstated, and ends with the few verdicts a person should recheck. It never rewrites the text and adds no review of its own.</p>
+      <p class="start" data-reveal style="--i:4"><span class="start__how">Starts only when <code>dia-adjudicate</code> is the first word, or by name.</span> <span class="start__line">Start it with <code class="start__code">/dia:dia-adjudicate</code></span> <span class="start__note"></span></p>
+      <div class="try" data-reveal style="--i:5">
+        <p class="try__label">Try this prompt</p>
+        <pre><code>dia-adjudicate
+Text: "Moore's 1965 paper predicted that transistor counts double every 18 months, so in 10 years chips hold about 16 times as many."
+Review A: "Wrong twice: the 1965 paper said every year, and doubling every two years for 10 years gives 32 times."
+Review B: "The 18 months was Moore's own 1975 figure, and doubling every two years gives 64 times in 10 years."</code></pre>
+      </div>
+      <p class="plate__actions" data-reveal style="--i:6"><button class="button button--ink" type="button" data-copy="dia-adjudicate
+Text: &quot;Moore&#x27;s 1965 paper predicted that transistor counts double every 18 months, so in 10 years chips hold about 16 times as many.&quot;
+Review A: &quot;Wrong twice: the 1965 paper said every year, and doubling every two years for 10 years gives 32 times.&quot;
+Review B: &quot;The 18 months was Moore&#x27;s own 1975 figure, and doubling every two years gives 64 times in 10 years.&quot;">Copy the prompt</button> <a class="button button--tone" href="https://github.com/ajitta/dialectic-skills#dia-adjudicate-decide-which-review-points-hold">Full guide</a></p>
+      <details class="session" data-reveal style="--i:7">
+        <summary>See what you get</summary>
+        <div class="session__body">
+          <dl class="output" aria-label="What you get, real run with web search, shortened">
+            <dt>Claims in the text</dt><dd>the 18-month period fails: “The 1965 figure was a year, and the 1975 revision was two years”, and 18 months “comes from David House, not Moore”. About 16 times fails too: 18 months over 10 years “is 120/18 = 6.67 doublings. 2^6.67 ≈ 101.6, about 100×, not 16×” (re-derived), a second error “that neither report mentions”.</dd>
+            <dt>Report issues</dt><dd>Review A: every year in 1965, valid; 32× at two-year doubling, valid. Review B: 18 months as Moore’s 1975 figure, wrong; 64×, wrong: “2^5 = 32. 64 is 2^6, which is 12 years at that rate.”</dd>
+            <dt>For a human check</dt><dd>Review B’s 18-month attribution, which “rests on a summary”; Review B’s 64× figure; the text’s 16× figure, “my own recomputation, so please check it.”</dd>
+          </dl>
+        </div>
+      </details>
+    </div>
+  </article>
+
+  <!-- dia-instruct -->
+  <article class="plate plate--flip field-sand" id="dia-instruct" data-skill="dia-instruct" data-codex="auto">
+    <figure class="plate__pic pair pair--diag pair--flip" data-reveal>
+      <div class="pair__art">
+        <span class="pair__b"></span>
+      <picture>
+        <source type="image/avif" srcset="assets/img/voltolina-henricus-lecture-w480.avif 480w, assets/img/voltolina-henricus-lecture-w800.avif 800w, assets/img/voltolina-henricus-lecture-w1200.avif 1200w" sizes="(min-width: 900px) 38vw, (min-width: 600px) min(56vw, 440px), calc(53vw - 17px)">
+        <source type="image/webp" srcset="assets/img/voltolina-henricus-lecture-w480.webp 480w, assets/img/voltolina-henricus-lecture-w800.webp 800w, assets/img/voltolina-henricus-lecture-w1200.webp 1200w" sizes="(min-width: 900px) 38vw, (min-width: 600px) min(56vw, 440px), calc(53vw - 17px)">
+        <img class="pair__a" src="assets/img/voltolina-henricus-lecture.jpg" width="1200" height="969" loading="lazy" decoding="async" style="object-position:14% 50%"
+             alt="Manuscript painting: a teacher reads from a book at a raised lectern to rows of students, some following in their own books, some talking, one asleep">
+      </picture>
+      <svg class="pair__lens" viewBox="0 0 2.7071 2.7071" aria-hidden="true"><path d="M1.966 0.7412A1 1 0 0 1 0.7412 1.966A1 1 0 0 1 1.966 0.7412Z" transform="matrix(-1 0 0 1 2.7071 0)"/></svg>
+      </div>
+      <figcaption class="small">Laurentius de Voltolina, Henricus de Alemannia lecturing to students in Bologna, second half of the 14th century.</figcaption>
+    </figure>
+    <div class="plate__text">
+      <h3 class="head plate__name mask" data-reveal style="--i:1"><span>dia-instruct</span></h3>
+      <p class="lead" data-reveal style="--i:2">Write text a model will follow.</p>
+      <p data-reveal style="--i:3">A style check for instructions you give an AI: a skill file, a prompt for an agent, a project’s agent file, a rules file. It holds the text to four rules. Each paragraph says what result it wants, with its conditions and fallback in the same sentence. A word that sets a limit is as narrow as you meant it. There are fewer instructions, each with its reason. Each thing has one name. Asked only for a review, it lists what breaks a rule, most serious first, and changes nothing until you pick.</p>
+      <p class="start" data-reveal style="--i:4"><span class="start__how">Starts by name, or in words.</span> <span class="start__line">Start it with <code class="start__code">/dia:dia-instruct</code></span> <span class="start__note"></span></p>
+      <div class="try" data-reveal style="--i:5">
+        <p class="try__label">Try this prompt</p>
+        <pre><code>Review this instruction I wrote for a coding agent:
+Update the docs for the new flag.
+Only touch files the task needs.
+- If the tests fail, stop.</code></pre>
+      </div>
+      <p class="plate__actions" data-reveal style="--i:6"><button class="button button--ink" type="button" data-copy="Review this instruction I wrote for a coding agent:
+Update the docs for the new flag.
+Only touch files the task needs.
+- If the tests fail, stop.">Copy the prompt</button> <a class="button button--tone" href="https://github.com/ajitta/dialectic-skills#dia-instruct-write-text-a-model-will-follow">Full guide</a></p>
+      <details class="session" data-reveal style="--i:7">
+        <summary>See what you get</summary>
+        <div class="session__body">
+          <dl class="output" aria-label="What you get, real run, shortened">
+            <dt>Line 3, “If the tests fail, stop”</dt><dd>Rules 1 and 3: “The condition sits in its own bullet, apart from the action it guards.” “Stop” “could mean halt edits, revert edits, or report and wait”, and no reason is given.</dd>
+            <dt>Line 2, “Only touch files the task needs”</dt><dd>Rules 2, 1 and 3: “‘Touch’ can be read as read, edit or create, and ‘needs’ is the agent’s own judgment.” No paths are named.</dd>
+            <dt>Line 1 and across the lines</dt><dd>“‘The docs’ and ‘the new flag’ are unnamed” (Rule 2); “docs”, “files” and “the task” may be read as different scopes (Rule 4). The text is unchanged: “Tell me which findings to act on…”</dd>
+          </dl>
+        </div>
+      </details>
+    </div>
+  </article>
 </section>
 
 <section class="install" id="install" aria-labelledby="install-title">
@@ -569,7 +657,7 @@
               <div class="code"><pre><code>ajitta/dialectic-skills</code></pre></div>
               Copy the name rather than typing it: a misspelling such as <code>dialectric</code> fails with “Repository not found”. The Git URL <code>https://<wbr>github.com/<wbr>ajitta/<wbr><span class="nobr">dialectic-skills.git</span></code> works too.</li>
             <li><strong>Add the plugin.</strong> Adding the marketplace installs nothing yet. In Customize › Plugins, open Discover, select <code>dia</code> (Dialectic Skills), and select Add.</li>
-            <li><strong>Check.</strong> Type <code>/dia</code> in the message box. Thirteen entries, <code>dia:dia-adjudicate</code> to <code>dia:dia-warrant</code> (the twelve skills and <code>dia:dia-menu</code>), should appear. Updates arrive through the marketplace.</li>
+            <li><strong>Check.</strong> Type <code>/dia</code> in the message box. The <code>dia</code> skills and <code>dia:dia-menu</code> should appear. Updates arrive through the marketplace.</li>
           </ol>
           <ul class="notes">
             <li>Instead of steps 2 and 3 you can upload <a class="link-plain" href="https://github.com/ajitta/dialectic-skills/releases/latest/download/dialectic-skills.zip">dialectic-skills.zip</a> from the latest release: Customize › Plugins › Add › Upload plugin (not Customize › Skills). An upload does not update itself.</li>
@@ -753,7 +841,7 @@
         <li><a class="link" href="https://github.com/ajitta/dialectic-skills/blob/main/README.ja.md" hreflang="ja">README in Japanese</a></li>
         <li><a class="link" href="https://github.com/ajitta/dialectic-skills/blob/main/README.zh-CN.md" hreflang="zh-CN">README in Simplified Chinese</a></li>
       </ul>
-      <p class="footer__credits">Pictures and footage, all public domain: <a href="https://commons.wikimedia.org/wiki/File:Bust_Socrates_Musei_Capitolini_MC1163.jpg">herm of Socrates</a>, Capitoline Museums, via Wikimedia Commons; François-André Vincent, <a href="https://commons.wikimedia.org/wiki/File:Alcibades_being_taught_by_Socrates,_Fran%C3%A7ois-Andr%C3%A9_Vincent.jpg">Alcibiades Being Taught by Socrates</a>, via Wikimedia Commons; Jacques-Louis David, <a href="https://www.metmuseum.org/art/collection/search/436105">The Death of Socrates</a>, The Met (CC0); Agostino Veneziano, <a href="https://www.metmuseum.org/art/collection/search/342969">The Group, from Raphael’s School of Athens</a>, The Met (CC0); <a href="https://commons.wikimedia.org/wiki/File:Euclid3a.gif">Euclid’s Elements, Ratdolt, 1482</a>, via Wikimedia Commons; <a href="https://www.metmuseum.org/art/collection/search/650907">Diogenes holding a lantern</a>, after Ribera, The Met (CC0); Honoré Daumier, <a href="https://www.metmuseum.org/art/collection/search/625297"><span lang="fr">Une péroraison à la Démosthène</span>, from <span lang="fr">Les Gens de Justice</span></a>, The Met (CC0); attributed to Jacopo de’ Barbari, <a href="https://commons.wikimedia.org/wiki/File:Jacopo_de%27_Barbari_(attributed_to)_Portrait_of_Luca_Pacioli_(1445_1517)_with_a_student_(Guidobaldo_da_Montefeltro)_(2).jpg">Portrait of Luca Pacioli</a>, via Wikimedia Commons; Annibale Carracci, <a href="https://commons.wikimedia.org/wiki/File:Annibale_Carracci,_Hercules_at_the_Crossroads,_brighter.jpg">The Choice of Hercules</a>, via Wikimedia Commons; <a href="https://commons.wikimedia.org/wiki/File:Euthyphron_beginning._Clarke_Plato.jpg">Clarke Plato, Euthyphro</a>, via Wikimedia Commons; Jan Collaert I, <a href="https://www.metmuseum.org/art/collection/search/659683">The Invention of Book Printing</a>, The Met (CC0); <a href="https://commons.wikimedia.org/wiki/File:Acropolis_(1921).webm">Acropolis (1921)</a>, via Wikimedia Commons. Type: Libre Franklin and Source Serif 4, SIL Open Font License.</p>
+      <p class="footer__credits">Pictures and footage, all public domain: <a href="https://commons.wikimedia.org/wiki/File:Bust_Socrates_Musei_Capitolini_MC1163.jpg">herm of Socrates</a>, Capitoline Museums, via Wikimedia Commons; François-André Vincent, <a href="https://commons.wikimedia.org/wiki/File:Alcibades_being_taught_by_Socrates,_Fran%C3%A7ois-Andr%C3%A9_Vincent.jpg">Alcibiades Being Taught by Socrates</a>, via Wikimedia Commons; Jacques-Louis David, <a href="https://www.metmuseum.org/art/collection/search/436105">The Death of Socrates</a>, The Met (CC0); Agostino Veneziano, <a href="https://www.metmuseum.org/art/collection/search/342969">The Group, from Raphael’s School of Athens</a>, The Met (CC0); <a href="https://commons.wikimedia.org/wiki/File:Euclid3a.gif">Euclid’s Elements, Ratdolt, 1482</a>, via Wikimedia Commons; <a href="https://www.metmuseum.org/art/collection/search/650907">Diogenes holding a lantern</a>, after Ribera, The Met (CC0); Honoré Daumier, <a href="https://www.metmuseum.org/art/collection/search/625297"><span lang="fr">Une péroraison à la Démosthène</span>, from <span lang="fr">Les Gens de Justice</span></a>, The Met (CC0); attributed to Jacopo de’ Barbari, <a href="https://commons.wikimedia.org/wiki/File:Jacopo_de%27_Barbari_(attributed_to)_Portrait_of_Luca_Pacioli_(1445_1517)_with_a_student_(Guidobaldo_da_Montefeltro)_(2).jpg">Portrait of Luca Pacioli</a>, via Wikimedia Commons; Annibale Carracci, <a href="https://commons.wikimedia.org/wiki/File:Annibale_Carracci,_Hercules_at_the_Crossroads,_brighter.jpg">The Choice of Hercules</a>, via Wikimedia Commons; <a href="https://commons.wikimedia.org/wiki/File:Euthyphron_beginning._Clarke_Plato.jpg">Clarke Plato, Euthyphro</a>, via Wikimedia Commons; Jan Collaert I, <a href="https://www.metmuseum.org/art/collection/search/659683">The Invention of Book Printing</a>, The Met (CC0); Nicolas Poussin, <a href="https://commons.wikimedia.org/wiki/File:Poussin_-_Le_Jugement_de_Salomon,_1649,_INV_7277_;_MR_2316.jpg">The Judgment of Solomon</a>, Louvre, via Wikimedia Commons; Laurentius de Voltolina, <a href="https://commons.wikimedia.org/wiki/File:Laurentius_de_Voltolina_001.jpg">Henricus de Alemannia lecturing to students</a>, via Wikimedia Commons; <a href="https://commons.wikimedia.org/wiki/File:Acropolis_(1921).webm">Acropolis (1921)</a>, via Wikimedia Commons. Type: Libre Franklin and Source Serif 4, SIL Open Font License.</p>
     </div>
     <div class="footer__last">
       <p>Dialectic Skills by <a class="link-plain" href="https://github.com/ajitta">ajitta</a>, released under the MIT License.</p>

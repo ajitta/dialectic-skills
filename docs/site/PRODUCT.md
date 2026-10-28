@@ -19,12 +19,12 @@ web
   "Skill guide with examples")**
 - Claude Code and Codex CLI users who install from the command line. **(inferred from the Quick start
   order in README)**
-- The job on the project page: understand what the twelve skills do, pick one, install `dia` on the
+- The job on the project page: understand what the skills do, pick one, install `dia` on the
   surface they use, and know how to start a skill there. **(inferred)**
 
 ## Product Purpose
 
-`dia` (Dialectic Skills) is one plugin of twelve reasoning-and-review skills: `dia-intent`,
+`dia` (Dialectic Skills) is one plugin of reasoning-and-review skills: `dia-intent`,
 `dia-elenchus`, `dia-brainstorm`, `dia-reductio`, `dia-negative`, `dia-warrant`, `dia-conjecture`,
 `dia-counterplan`, `dia-refine`, `dia-ratchet`, `dia-adjudicate`, `dia-instruct` (warrant, conjecture and counterplan added in 1.3.0; adjudicate and instruct in 1.6.0). Each
 turns an old way of thinking (Socratic questioning, proof by contradiction, internal critique,
@@ -55,9 +55,9 @@ install on the visitor's surface and a first skill started. **(success definitio
 
 ## Capabilities and Constraints
 
-- Plugin version 1.6.0 on branch `writing-for-models`, unreleased; the live page and `main` describe 1.4.0
+- Plugin version 1.6.1 on branch `v1.6.1`; the live page and `main` describe 1.6.0
   (`plugin-manifest.json`). License MIT. The page is published only from `main`.
-- `dia-intent` was renamed `dia-confirm` in 1.1.0 and back to `dia-intent` in 1.6.0; `dia-iterate` was renamed `dia-ratchet` in 1.6.0. The page shows plates for ten skills; `dia-adjudicate` and `dia-instruct` (1.6.0) are listed and link to the README until they get plates and pictures.
+- `dia-intent` was renamed `dia-confirm` in 1.1.0 and back to `dia-intent` in 1.6.0; `dia-iterate` was renamed `dia-ratchet` in 1.6.0.
 - The project page lives at `https://ajitta.github.io/dialectic-skills/` and is plain static
   HTML/CSS/JS in `site/`; all asset URLs must be relative. **(stack observed in the repository)**
 - Undecided: whether the page should ever carry translated versions (the README has Korean, Japanese
@@ -75,7 +75,8 @@ install on the visitor's surface and a first skill started. **(success definitio
 
 - Real sessions from the README, shortened, one per skill (the wedding speech, "a good teacher", the
   weekend money, "the customer is always right", the open-door policy, the trainer and the knees,
-  buying in bulk, the move to the suburbs, the Great Wall, the first iPhone). The dialogue examples
+  buying in bulk, the move to the suburbs, the Great Wall, the first iPhone, Moore's law and two
+  reviews, an instruction for a coding agent). The dialogue examples
   used a simulated user, which the README states.
 - `docs/probes.md` records which install routes were verified and how. `docs/skill-effect.md` and
   `docs/token-cost.md` hold measurements, not marketing claims.
