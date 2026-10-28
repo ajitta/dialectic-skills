@@ -87,6 +87,8 @@ A sub-agent that did not write it reviewed B2 against dia-instruct (PASS WITH FI
 7. The fallback's reason ("a result the user did not state") does not fit a stated result that the deliverable cannot fail to bring about.
 8. After approval, nothing keeps the result marked unverified when the finished work is reported; the record's own example (a page built is not sales raised) is about that report.
 
+Owner ruling (2026-10-28): B2 ships as tested in plugin 1.7.0. The eight findings are not applied and stay open as candidates for a later version; any of them changes the tested text, so each needs the owner's pick and an A/B or independent review before it ships (finding 8 is a further meaning change and needs its own A/B). The rubric question under Sonnet landing O2 (whether sign-up conversion is a proxy for subscription sales) also stays open; it matters only if this A/B is re-run.
+
 ## Files
 
 The harness, cells, raw runs, verdicts and per-case tables are in `C:/Users/ajitta/work/dia-probes/intent-outcome-ab/` on the owner's Windows PC: `run_ab.py`, `judge_ab.py`, `judge_n3.py`, `analyze_ab.py`, `table-r1.txt` and `table-r2.txt`. The Codex session's original handoff is in `source/` there.
