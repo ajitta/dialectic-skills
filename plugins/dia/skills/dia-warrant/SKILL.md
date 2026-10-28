@@ -4,7 +4,7 @@ description: Toulmin's argument layout tested with Walton's critical questions, 
 license: MIT
 metadata:
   author: ajitta
-  version: "1.1.1"
+  version: "1.1.2"
   lineage: "new in plugin 1.3.0 (docs/research/candidates/argumentation.md)"
   source: "https://github.com/ajitta/dialectic-skills"
 ---
@@ -28,7 +28,7 @@ Two flags set the run, and a natural-language equivalent of a flag counts as the
 
 If no target flag is given, infer the target: a pasted text means `text`; "your answer", "what you said" (or the same in any language) means `claude`; otherwise `user`. State the target you inferred in the first line of the output so the user can correct it.
 
-`--mode=audit|ask` sets how. **audit** (default): the whole layout, questions and result in one response. **ask**: the user fills each slot, one question per message (see Ask mode). Use ask when the user names it, asks to be questioned about their own argument, or wants to build one that does not exist yet (then say in one line that you start in ask mode). When the target is `user` and the user wants to check their own argument without naming a mode, run the audit and end with one line offering ask mode.
+`--mode=audit|ask` sets how. **audit** (default): the whole layout, questions and result in one response. **ask**: the user fills each slot, one question per message (see Ask mode). Use ask, and say in one line that you start in ask mode, when the user names it, asks to be questioned about their own argument, or wants to build one that does not exist yet. When the target is `user` and the user wants to check their own argument without naming a mode, run the audit and end with one line offering ask mode.
 
 ## Scope
 

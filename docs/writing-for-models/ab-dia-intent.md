@@ -1,4 +1,4 @@
-# A/B: dia-intent 1.4.0 against 1.5.0 (deliverable and outcome)
+# A/B: dia-intent 1.4.0 against 1.5.0 (deliverable and outcome), and 1.5.0 against 1.6.0 (outcome hypothesis)
 
 Spec D45. The change adds to dia-intent's item 1 a rule that keeps the criteria for finishing the deliverable apart from the criteria that would show a result the user wants beyond it, calls an indirect measure of that result a proxy, says when each criterion can be checked, and marks the result unverified when nothing can check it. It comes from a separate Codex session (`docs/research/codex/README.md`). The change is a meaning change asked for by the owner, and the dia-intent eval tasks exercise it, so dia-instruct step 1 asks for an A/B.
 
@@ -89,6 +89,50 @@ A sub-agent that did not write it reviewed B2 against dia-instruct (PASS WITH FI
 
 Owner ruling (2026-10-28): B2 ships as tested in plugin 1.7.0. The eight findings are not applied and stay open as candidates for a later version; any of them changes the tested text, so each needs the owner's pick and an A/B or independent review before it ships (finding 8 is a further meaning change and needs its own A/B). The rubric question under Sonnet landing O2 (whether sign-up conversion is a proxy for subscription sales) also stays open; it matters only if this A/B is re-run.
 
+Later the same day the owner asked for the next version (round 3 below): findings 1, 2 and 4-7 are applied there, finding 3 is settled by the outcome hypothesis, finding 8 stays open, and the rubric question is settled (a sign-up count is a direct measure).
+
+## Round 3: dia-intent 1.6.0 (B3) against 1.5.0, n=12 per arm and model
+
+Spec D46. Owner rulings in the session before this round:
+- A one-line guess at the outcome the user did not state is wanted, not over-application. It must be labelled as the assistant's hypothesis and asked about, and it gets no split until the user confirms it. This idea comes from the owner's coding-harness contract ("state in one line, as a hypothesis ..., the result the action is meant to produce").
+- It appears in every review, since dia-intent runs only when invoked by name.
+- Findings 1, 2 and 4-7 above are folded into the same text. Finding 3 is what the hypothesis rule settles. Finding 8 stays open.
+- Rubric: a count of sign-ups for the subscription is a direct measure of subscription sales, not a proxy.
+
+The B3 text went through four rounds of independent review against dia-instruct before the runs; each round's confirmed findings were fixed (reports `review/dia-intent-REVIEW*.md` in `next-1.8/`).
+
+Setup as in round 2, with these changes:
+- Arms: A is plugin 1.7.0 as built (dia-intent 1.5.0). B3 is the same with only `skills/dia-intent/SKILL.md` replaced (`diff -rq` lists one file). Claude Code 2.1.312; claude-sonnet-5-5 and claude-haiku-5-5; 2026-10-28.
+- A sixth case, complaint: "dia-intent Write a reply to this customer complaint: "My meal kit arrived two days late and the vegetables were wilted. This is the second time this month."" No outcome is stated.
+- New item H1, on churn, rename, delete and complaint: names, in about one line and labelled as the assistant's guess or hypothesis, the further outcome the deliverable is probably meant to serve, and asks the user to confirm or correct it.
+- N1 accepts a one-line labelled guess. O2 counts a direct count of the result (subscriptions, sign-ups for the subscription, churn rate) as not indirect.
+- N3 is replaced: no full split (separate outcome criteria, proxies, check timing or an "unverified" mark) for an outcome the user did not state, and no inferred outcome presented as the user's words; a one-line labelled guess passes. Second pass on churn, rename, delete and complaint.
+
+Results (only runs that loaded dia-intent; Sonnet loaded it in every run):
+
+| Model / case | Item | A | B3 |
+|---|---|---|---|
+| Sonnet churn, rename, delete, complaint | H1 | 0/12 each | 12/12 each |
+| Haiku churn | H1 | 0/8 | 9/9 |
+| Haiku rename | H1 | 0/10 | 11/11 |
+| Haiku complaint | H1 | 0/9 | 9/9 |
+| Haiku delete (24 runs per arm) | H1 | 0/17 | 12/12 |
+| Sonnet complaint | N3 | 8/12 | 12/12 |
+| Haiku churn | N3 | 8/8 | 8/9 |
+| Haiku complaint | N3 | 9/9 | 8/9 |
+| Sonnet claim | O2 | 9/12 | 12/12 |
+| Sonnet landing | O2 | 11/12 | 12/12 |
+| Haiku landing | O2 | 11/11 | 11/12 |
+| Sonnet complaint | G3 | 12/12 | 10/12 |
+
+- Every other item is equal in both arms, including C1 and R1 (all pass) and O1 and O3 (at ceiling in both arms).
+- Sonnet complaint G3: both B3 misses are a claim about the working directory stated as checked, which the hypothesis rule does not touch.
+- Haiku delete loaded the skill in A 10/12 and B3 3/12 in the batch. The arms differ only in the skill body, which the model does not see before it loads the skill, so 12 more runs per arm were made: A 7/12, B3 9/12. The table counts all 24.
+- Length: mean reply length changes by -2% to +10% per cell (for example Sonnet delete 2,661 → 2,877 characters).
+- Hypothesis lines read like "**Outcome hypothesis (mine, please confirm or correct):** you want a folder of photos that sorts chronologically by filename." (Sonnet rename).
+
+Reading: B3 adds the labelled one-line hypothesis in every loaded run and keeps the split off unstated outcomes. Over-application does not rise (Sonnet complaint improves). Stated-outcome handling is unchanged or slightly better. Limits as in round 2; also, the H1 and N3 items were written for this change.
+
 ## Files
 
-The harness, cells, raw runs, verdicts and per-case tables are in `C:/Users/ajitta/work/dia-probes/intent-outcome-ab/` on the owner's Windows PC: `run_ab.py`, `judge_ab.py`, `judge_n3.py`, `analyze_ab.py`, `table-r1.txt` and `table-r2.txt`. The Codex session's original handoff is in `source/` there.
+The harness, cells, raw runs, verdicts and per-case tables are in `C:/Users/ajitta/work/dia-probes/intent-outcome-ab/` on the owner's Windows PC: `run_ab.py`, `judge_ab.py`, `judge_n3.py`, `analyze_ab.py`, `table-r1.txt` and `table-r2.txt`. The Codex session's original handoff is in `source/` there. Round 3: `C:/Users/ajitta/work/dia-probes/intent-hypothesis-ab/` (`cells-r3.json`, `results-r3*.jsonl`, `verdicts-r3*.jsonl`, `table-r3.txt`, `table-r3-n3.txt`); the review reports of the B3 text are in `C:/Users/ajitta/work/dia-probes/next-1.8/review/`.

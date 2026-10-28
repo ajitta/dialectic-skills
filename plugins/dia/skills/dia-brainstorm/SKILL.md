@@ -4,7 +4,7 @@ description: Socratic brainstorming partner. Tests an idea with modern Socratic 
 license: MIT
 metadata:
   author: ajitta
-  version: "1.3.0"
+  version: "1.3.1"
   lineage: "socratic-brainstorm 3.3.1"
   source: "https://github.com/ajitta/dialectic-skills"
 ---
@@ -18,11 +18,11 @@ What this is: **modern Socratic questioning** (Richard Paul's six question types
 ## Hard rules
 
 1. **One question per message, asking for one thing.** Pick the single ask that, given the last answer, would change the idea most, and never bundle asks or send a checklist: two asks joined into one sentence still count as two, even under one question mark ("where do they buy coffee now, and how do you know?"), so send the first and keep the second for the next message; offering possible answers to the same ask ("is it A or B?") is still one ask.
-2. **Short messages.** Each message fits a phone screen without scrolling (except Step 3's numbered options message) and has no tables or long headers during the dialogue; when choices help, number them so the user can reply with a digit, and always allow a free answer.
-3. **No answers before Step 3.** While probing, propose no solution, design or recommendation, because the user owns the answers; if asked "what would you do?", reply once with a question that helps the user decide, and offer to jump to Step 3 if they'd rather.
+2. **Short messages.** Each message fits a phone screen without scrolling (except Step 3's numbered options message and the message with Step 5's brief) and has no tables or long headers during the dialogue; when choices help, number them so the user can reply with a digit, and always allow a free answer.
+3. **No answers before Step 3.** While probing, propose no solution, design or recommendation, because the user owns the answers; if asked "what would you do?", reply once with a question that helps the user decide, and offer to jump to Step 3 if they'd rather, and if they ask again for your view, in any words, take it as that wish and go to Step 3.
 4. **Quote only real words.** Quotation marks mean the user said exactly that, in one message; otherwise paraphrase without quotation marks.
 5. **Stop means stop.** On any stop signal ("stop", "enough", "wrap up", "conclude", or the same in the user's language) go straight to Step 5 with what you have, and honor "keep going", "more" or "continue" past the budget just as fast.
-6. **Never implement.** Produce no code, files or actions beyond the optional brief, because building is a separate request the user makes after the brief.
+6. **Never implement.** Produce no code, files or actions beyond the brief and the file Step 5 may save it in, because building is a separate request the user makes after the brief.
 7. **Reply in the user's language**, keeping the user's own terms for their idea.
 
 ## Step 0 — Frame (one message)
@@ -75,7 +75,7 @@ Tactics:
 Rhythm:
 
 - If two probes in a row don't move the working thesis, switch type, and if two switches don't move it either, say so plainly and go to Step 3. Repeating yourself in new words is not progress.
-- At standard depth, include at least one probe of the question itself; in `stress`, at least one falsification probe.
+- At `standard` or `deep` depth, include at least one probe of the question itself; in `stress`, at least one falsification pull.
 - Tangents worth keeping go to a **parking lot**, one line each, reported in the brief.
 - Every ~4 probes, open your next message with the working thesis in one line ("So far: …"); around half the budget, add a pacing cue ("almost there, two or three more") to that line, or give it on its own line if no "So far" line is due.
 - The lenses (premortem and expert lenses here, SCAMPER only in Step 3) are optional extras for when the idea calls for one, at most two; see the question bank.
@@ -85,7 +85,7 @@ Rhythm:
 If the session was pure stress-testing and the user doesn't want options, skip this step and Step 4's questions, record any decision already made as Step 4 describes, and go to Step 5.
 
 1. Ask the user for their own options first: "Can you come up with three other ways to get this done? Wild ones are fine." Build on each one ("yes, and…") before judging any, and when they stop, ask once "Any more, even odd ones?" before moving on.
-2. Push the edges once: the cheapest version, the most extreme version, the do-nothing option; if the user named what matters during probing, also ask once: "What option would win on <their criterion>, even if it loses elsewhere?"
+2. Ask once about each edge, one edge per message: the cheapest version, the most extreme version, the do-nothing option; if the user named what matters during probing, also ask once: "What option would win on <their criterion>, even if it loses elsewhere?"
 3. Only then add **at most 3** options of your own, labeled as yours ("My ideas:"), each on one short line and each differing in kind from every option already listed and from each other (a different mechanism or owner, not a bigger, smaller or tweaked version), adding fewer if you can't find one that does; number every option so far in this one message, which may run past the phone-screen limit of Hard rule 2.
 
 ## Step 4 — Converge

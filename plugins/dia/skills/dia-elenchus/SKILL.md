@@ -4,7 +4,7 @@ description: Socratic dialogue (elenchus) as in Plato. Asks "what is X?" about t
 license: MIT
 metadata:
   author: ajitta
-  version: "1.3.0"
+  version: "1.3.1"
   lineage: "socratic-elenchus 1.3.1"
   source: "https://github.com/ajitta/dialectic-skills"
 ---
@@ -34,7 +34,7 @@ This skill adds one thing the dialogues do not have: **the revisions are kept as
 
 1. **One question per message, asking for one thing.** Two asks joined in one sentence count as two ("where do you buy it, and how do you know?" is bundling), while offering possible answers to the same ask ("is it A or B?") is fine.
 2. **Short messages: a message fits a phone screen without scrolling**, so cut any message that would need scrolling, and during the dialogue use no tables, no headers and no lists of questions.
-3. **Only agreed premises.** Argue only from what the user stated or agreed to, never slip in a hidden premise, and lay out each step so the user can check it; if the user agreed to a premise only because of how it was worded, a refutation built on it is void.
+3. **Only agreed premises.** Argue only from what the user stated or agreed to, never slip in a hidden premise, and lay out each step so the user can check it; if the user agreed to a premise only because of how it was worded, a refutation built on it is void, so withdraw that refutation, ask the premise again plainly and re-check whether the conflict still holds.
 4. **Quote only real words.** Quotation marks mean the user said exactly that, ending included, so don't turn "kinda pointless, right?" into "it is pointless"; if you change anything, drop the quotation marks.
 5. **Stop means stop.** On any stop signal ("stop", "enough", "wrap up", or the same in the user's language) go to the record (Step 6) at once; "continue" / "more" means continue.
 6. **Never advise or implement** during the dialogue, not even as a question, because "Have you considered …?" plants your idea in the form of a question.
@@ -56,7 +56,7 @@ If dia-brainstorm is named in the same request, say in that first message that t
 
 ## Step 2 — A definition, not examples
 
-When an answer is an example or a list rather than a definition, as first answers often are, ask what all the cases share, the thing that makes them X: "That's one example. What makes all of them X?"
+When an answer is an example or a list rather than a definition, as first answers often are, ask what all the cases share, the thing that makes them X: "That's one example. What makes all of them X?"; when the user gives examples again after you asked once, take the next ask from the row "Examples again after you asked once" in [references/elenchus-patterns.md](references/elenchus-patterns.md).
 
 Restate the definition in one sentence as a statement, not a question ("So a good recommendation is one that spares you the deliberating."), with the first premise question in the same message. The restatement must keep the user's own key words; if you had to paraphrase, say "in my words" so they can correct it (a flag, not a second question), and if they object, take their wording and continue. Never spend a message only on confirming ("So you mean …?", "Can I take it as …?"), because that stalls the examination.
 
@@ -73,7 +73,7 @@ Ask for agreement to one statement per message, chosen to bear on the definition
 
 Example: "A retrospective where nobody spoke but every problem got solved: is that a good retrospective too?"
 
-The agreed premises are the user's own answers in the conversation, not a private list of yours, so before laying out a contradiction re-read those answers and number them then; a premise keeps its number for the rest of the dialogue and in the record. Patterns: [references/elenchus-patterns.md](references/elenchus-patterns.md).
+The agreed premises are the user's own answers in the conversation, not a private list of yours, so before laying out a contradiction re-read those answers and number them then; a premise keeps its number for the rest of the dialogue and in the record. Read [references/elenchus-patterns.md](references/elenchus-patterns.md) when you first reach this step, for the shapes of premise questions, laying out a contradiction, pushback, noticing a birth and signs of aporia.
 
 ## Step 4 — Show the contradiction
 
@@ -95,9 +95,9 @@ If a revision only rewords the last one, say so and ask what actually changed.
 
 ## Step 6 — Ending
 
-End when the user stops, when they can't produce a new definition (aporia), or when a definition survives several real tests. A surviving definition is provisional, "it has held so far", never "proven", and a definition that was never tested did not "survive". Expect aporia by default; when it comes, tell the user what it gives them: they now know which part they don't know, so they won't build on a false belief.
+End when the user stops, when they can't produce a new definition (aporia), or when the current definition survives several real tests, including those the holding bar below requires. A surviving definition is provisional, "it has held so far", never "proven", and a definition that was never tested did not "survive". Expect aporia by default; when it comes, tell the user what it gives them: they now know which part they don't know, so they won't build on a false belief.
 
-Then read [references/record-template.md](references/record-template.md) and print the record with **all** its sections, translated into the user's language, as plain Markdown, not a code block. Its result is exactly one of four labels, never another: **aporia** when at least one definition fell and the user has no surviving definition or the current one is admittedly unclear, even when another label also fits; **holding (provisional)** when the current definition passed at least one real breadth test and one goal or consequence test; **partly tested** when the user stopped after the current definition passed some test but before it met the holding bar; **stopped before testing** when the user stopped while the current definition was still untested, and whenever no definition was ever given. If a filesystem exists and the user asks, save the record where they say, but ask before saving anything personal into a shared repository.
+Then read [references/record-template.md](references/record-template.md) and print the record with **all** its sections, translated into the user's language, as plain Markdown, not a code block. Its result is exactly one of four labels, never another: **aporia** when at least one definition fell and the user has no surviving definition or the current one is admittedly unclear, even when another label also fits; **holding (provisional)** when the current definition passed at least one real breadth test and one goal or consequence test (the holding bar); **partly tested** when the user stopped after the current definition passed some test but before it met the holding bar; **stopped before testing** when the user stopped while the current definition was still untested, and whenever no definition was ever given. If a filesystem exists and the user asks, save the record where they say, but ask before saving anything personal into a shared repository.
 
 ## After the dialogue (not Socratic, only on request)
 

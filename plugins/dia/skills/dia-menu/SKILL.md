@@ -4,7 +4,7 @@ description: Short entry point to the dia skills. Shows a numbered menu, runs th
 license: MIT
 metadata:
   author: ajitta
-  version: "1.2.0"
+  version: "1.2.1"
   lineage: "new in plugin 1.4.0 (spec D38)"
   source: "https://github.com/ajitta/dialectic-skills"
 ---
@@ -67,9 +67,9 @@ Pick from skills 2 to 9 and 12 only, by what the user wants done, using the bord
 
 Then:
 
+- **The request asks to confirm the goal first, for repeated verified rounds, or for a ruling on reports about a text:** do not start dia-intent, dia-ratchet or dia-adjudicate from a plain request; reply in one line with the form to send (`dia 1 <request>` or `dia-intent <request>`; `dia 10 <request>` or `dia-ratchet <request>`; `dia 11 <target and reports>` or `dia-adjudicate <target and reports>`) and stop.
 - **One fits:** say in one line which skill you are running and why, in the user's language (for example `→ dia-counterplan: the request asks for the case against the plan`), then run it.
 - **Two fit about equally:** name both with their numbers and the difference in one line each, ask which, and stop.
-- **The request asks to confirm the goal first, for repeated verified rounds, or for a ruling on reports about a text:** do not start dia-intent, dia-ratchet or dia-adjudicate from a plain request; reply in one line with the form to send (`dia 1 <request>` or `dia-intent <request>`; `dia 10 <request>` or `dia-ratchet <request>`; `dia 11 <target and reports>` or `dia-adjudicate <target and reports>`) and stop.
 - **None fits** (a plain task, a factual or how-to question, a request to write something that is not text for a model to follow): say so in one line, name a skill and its number only if one is close, and do the task without a dia skill.
 
 ## Running the chosen skill

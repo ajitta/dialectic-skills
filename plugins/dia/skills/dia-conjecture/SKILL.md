@@ -4,7 +4,7 @@ description: Lakatos's proofs and refutations as a dialogue. Takes a strictly un
 license: MIT
 metadata:
   author: ajitta
-  version: "1.1.1"
+  version: "1.1.2"
   lineage: "new in plugin 1.3.0 (docs/research/candidates/modern-dialectic.md)"
   source: "https://github.com/ajitta/dialectic-skills"
 ---
@@ -89,7 +89,7 @@ Number the options, saying for each in one line what it keeps and what it no lon
 
 ## Step 6 — Next round, ending, record
 
-A round is one case raised and ruled on, with its repair if it counted. After the user picks, restate the current C and the changed lemmas in one line, and raise the next case in the same message. After the third round, that message restates C and offers to stop instead of raising a case; continue if the user asks. If the repairs have turned into a list of exceptions, say so.
+A round is one case raised and ruled on, with its repair if it counted. When a round ends, after the user picks a repair for a case that counts or after Step 4 settles any other ruling, restate the current C and the changed lemmas in one line, and raise the next case in the same message. After the third round, and not after later rounds, that message restates C and offers to stop instead of raising a case; continue if the user asks. If the repairs have turned into a list of exceptions, say so.
 
 End when the user stops, when they accept the offer to stop, or when you find no further case you can check, and say which; never call C proved. Then print the record as plain Markdown, not a code block, translated into the user's language. Its result is the first of these that applies:
 

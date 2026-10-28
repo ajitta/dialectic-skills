@@ -50,6 +50,7 @@ and the traps.
 | r1 | Opus (`claude-opus-5-5`) | local | 2 per arm per case, 8 | `key/plan.json` | `out/` |
 | r2 | Haiku (`claude-haiku-5-5`) | local | 2 per arm per case, 8 | `key/plan-haiku.json` | `out-haiku/` |
 | r3 | Haiku (`claude-haiku-5-5`) | summarizing fetch | 3 per arm per case, 12 | `key/plan-r3.json` | `out-r3/` |
+| r4 | Haiku (`claude-haiku-5-5`) | summarizing fetch, case4 only | 12 per arm, 24 | `key/plan-r4.json` | `out-r4/` |
 
 Each run was one fresh Claude Code general-purpose sub-agent with the model set per
 round, launched in parallel batches from one session on 2026-10-28; prompts are in
@@ -58,6 +59,19 @@ round, launched in parallel batches from one session on 2026-10-28; prompts are 
 tool call). `usage.csv` has no header: run, total tokens, tool calls, seconds, as reported
 by the sub-agent result. r1 has no `usage.csv`; its means are in `../README.md`. Full
 replies and traces were not kept.
+
+Round 4 (2026-10-28, the re-test of r3's one unresolved count, `docs/handoff.md` item 28) was
+run differently, to close the harness gaps r3 left: `tools/run_r4.py` runs each judge as a
+headless `claude -p` session on Haiku (Claude Code 2.1.312) with a fresh configuration, an
+empty working directory, the tools Read, Glob and Bash only, and Bash allowed by the CLI only
+for the fetch command and `cd`, so no other tool or command can run. B is the shipped 1.1.0
+text (`skills/skill-q5/`, which differs from `skill-k3` in two wording fixes made after r3;
+`key/mapping-r4.json`); A is `skill-m7` as before. Full session streams (replies, tool calls,
+usage) are kept outside the repository, in `C:/Users/ajitta/work/dia-probes/adjudicate-r4/streams/`
+on the owner's Windows PC. Four runs (r4-03, r4-11, r4-12, r4-20) were first made before `cd`
+and a quoted fetch path were allowed; every fetch in them was denied, so they were discarded
+and re-run. In nine runs, two of them among the re-runs, two to four fetch calls were denied
+before the judge retried in an allowed form.
 
 ## Scoring
 
