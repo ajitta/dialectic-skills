@@ -12,7 +12,6 @@ Released and live: plugin `dia` **1.6.1** (`v1.6.1`, `main`), project page and b
 | dia-adjudicate 1.1.0 re-test (case4, 12+ runs per arm on Haiku, about 2.9M tokens) | owner; on hold | Item 28; harden the harness first (`docs/writing-for-models/README.md`, open items 3 and 4). |
 | Directory listings (Anthropic, OpenAI) | owner submits | Item 13; `docs/directory-submission.md` § Owner steps. |
 | Name of ChatGPT's plugin zip upload menu; native read of README.ja.md and README.zh-CN.md | owner | Item 14 (b), (c). |
-| 1.6.x on the phones: `dia-intent …`, `dia 12 …`, `dia-adjudicate …` on Claude mobile and ChatGPT mobile | owner reports | Not probed on the apps (probes Part T, "Not probed here"). |
 | Watch item: Codex claiming a check it did not run (not seen in use so far) | owner reports | Item 10. Item 12 (long output) is closed: the owner shortens by prompt. |
 | Optional probes: n>2; the three Part P cells whose prompts are only on the build VM (`claude-box:~/work/dia-review/`); output quality | agent, if asked | Harnesses and results: `C:/Users/ajitta/work/dia-probes/` on the owner's Windows PC (its README says how to re-run). |
 | Optional site check: the circle-luminance comparison in `docs/site/README.md` (Check) for the two new pictures | agent, if asked | Screenshots were checked by eye only. On Windows, taste-skill `inspect.mjs` needs Chrome's `--force-prefers-no-reduced-motion` (`docs/site/README.md`). |
@@ -78,6 +77,7 @@ How releases go now (owner's rule): `main` deploys at once (claude.ai sync, Page
 | 30 | One merge to `main` for `adjudicate-ratchet`, `writing-for-models` and `intent`: done 2026-10-28 | — | One pull request with green CI, tag `v1.6.0` (owner's plan: one review instead of three, since `main` deploys at once). |
 | 31 | Meaning changes surfaced by the D43 rewrite | owner decides | `docs/writing-for-models/rewrite-2026-10-28.md`, table. None applied; each needs the owner's request and, where an eval exercises it, an A/B (dia-instruct step 1). |
 | 32 | Codex on an account with an uploaded `dia`: resolved 2026-10-28 | — | Probes Part T: Codex synced the account's uploaded dia 1.4.0 into its plugin cache and ran its `dia-confirm` in 3 of 4 old-name runs. After the owner re-uploaded `dialectic-skills-openai.zip` (1.6.1) on chatgpt.com, the synced copy is `created-by-me-remote/dia/1.6.1` (13 skills, no dia-confirm), and `dia-confirm …` loaded no skill in 2 of 2 Codex runs ("I don't have a `dia-confirm` skill available"). Re-upload the zip on every release (item 14). |
+| 33 | 1.6.x on the owner's phone: passed 2026-10-28 (owner report) | — | The owner reported that 1.6.x works correctly on the phone; per-prompt and per-app results were not reported. |
 
 Observations from P8 (n=1 each; see `docs/probes.md`):
 

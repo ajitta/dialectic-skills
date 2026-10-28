@@ -613,6 +613,8 @@ Not probed here: ChatGPT and the Claude apps; Codex on the Part P, Part Q and di
 
 **Part T follow-up, 2026-10-28.** After the owner re-uploaded `dialectic-skills-openai.zip` (1.6.1) on chatgpt.com, Codex CLI 0.164.0 with the same isolated `CODEX_HOME` synced `created-by-me-remote/dia/1.6.1` (thirteen skills, no `dia-confirm`). `dia-confirm Write a script that renames all my photos by date.` loaded no skill in 2 of 2 runs; both answered that no `dia-confirm` skill is available and wrote the script directly. A mid-sentence `dia-ratchet` mention loaded nothing in 2 of 2.
 
+**Owner's phone check of 1.6.x, 2026-10-28.** The owner reported that 1.6.x works correctly on the phone (handoff item 33); prompts, apps and per-prompt results were not reported.
+
 ### P8: tool-less run (`--tools Skill`: no search, fetch, code or file tools)
 
 Draft under test: "The Eiffel Tower was completed in 1889 and is about 330 m tall. Python 3.13 removed the GIL by default. 17 x 23 = 391." The Python sentence is wrong.
