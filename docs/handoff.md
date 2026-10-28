@@ -2,6 +2,24 @@
 
 State of the work and what is left, for the next agent session. Read `AGENTS.md` and `docs/spec.md` first; probe evidence is in `docs/probes.md`.
 
+## Next session: start here (2026-10-28)
+
+Released and live: plugin `dia` **1.6.1** (`v1.6.1`, `main`), project page and both zips; the owner re-uploaded the ChatGPT zip and Codex now syncs 1.6.1 (item 32). Nothing is half-done on a branch. What is left, by who acts:
+
+| What | Who | Where to start |
+|---|---|---|
+| The other meaning-change proposals from the D43 rewrite (dia-intent, dia-brainstorm, dia-elenchus, dia-reductio, dia-negative, dia-refine, dia-ratchet, dia-menu, dia-counterplan, the rest of dia-conjecture) | owner picks; agent applies | Item 31; `docs/writing-for-models/rewrite-2026-10-28.md`. Each pick is a meaning change: owner's request, an A/B where an eval exercises it (dia-instruct step 1), review by a sub-agent that did not write it, a version bump. |
+| dia-adjudicate 1.1.0 re-test (case4, 12+ runs per arm on Haiku, about 2.9M tokens) | owner; on hold | Item 28; harden the harness first (`docs/writing-for-models/README.md`, open items 3 and 4). |
+| Directory listings (Anthropic, OpenAI) | owner submits | Item 13; `docs/directory-submission.md` § Owner steps. |
+| Name of ChatGPT's plugin zip upload menu; native read of README.ja.md and README.zh-CN.md | owner | Item 14 (b), (c). |
+| 1.6.x on the phones: `dia-intent …`, `dia 12 …`, `dia-adjudicate …` on Claude mobile and ChatGPT mobile | owner reports | Not probed on the apps (probes Part T, "Not probed here"). |
+| Watch items: Codex claiming a check it did not run; long output from two analysis skills | owner reports | Items 10, 12. |
+| Optional probes: n>2; the three Part P cells whose prompts are only on the build VM (`claude-box:~/work/dia-review/`); output quality | agent, if asked | Harnesses and results: `C:/Users/ajitta/work/dia-probes/` on the owner's Windows PC (its README says how to re-run). |
+| Optional site check: the circle-luminance comparison in `docs/site/README.md` (Check) for the two new pictures | agent, if asked | Screenshots were checked by eye only. On Windows, taste-skill `inspect.mjs` needs Chrome's `--force-prefers-no-reduced-motion` (`docs/site/README.md`). |
+| Housekeeping: merged remote branches (`adjudicate-ratchet`, `writing-for-models`, `menu`, `next`, `next-clean`) and the local branches `adjudicate-ratchet`, `intent`, `writing-for-models`; an old local `stash@{0}` (2026-10-20, never committed: two lines saying the adaptive-respondent multi-turn runs for dia-elenchus and dia-brainstorm are done, in `docs/research/README.md` § Still open and `docs/skill-effect.md` limits; check `docs/skill-effect.md` before applying or dropping it) | owner decides | Nothing depends on them. `docs-skills-cli` stays unmerged by owner decision; `upstream` is the archive branch (spec D36). |
+
+How releases go now (owner's rule): `main` deploys at once (claude.ai sync, Pages), so all work, review, probes and site changes happen on a branch named unlike a tag (not `vX.Y.Z`), then one pull request with green CI, merge, annotated tag `vX.Y.Z`, then the owner re-uploads `dialectic-skills-openai.zip` on chatgpt.com. The page and `og.png` carry no skill count, so a new skill needs only its plate, list entry and picture.
+
 ## State (2026-10-28)
 
 - Plugin `dia` **1.6.1** (2026-10-28, `v1.6.1`) fixes two contradictions the D43 rewrite surfaced (spec D44: dia-warrant's stop result, dia-conjecture's case labels), adds the project-page plates for dia-adjudicate and dia-instruct, takes every skill count off the page and `og.png`, replaces the two illustrated README examples with recorded runs, and records probes Part T.
