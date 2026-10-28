@@ -515,7 +515,7 @@ Review B: "The 18 months was Moore's own 1975 figure, and doubling every two yea
 
 **What you get** (an illustration built from the design trials, which ran a draft of this skill with web search on the same facts; not a recorded run of this prompt; see [docs/research/dia-adjudicate.md](docs/research/dia-adjudicate.md)):
 
-> **Claims in the text:** "18 months, 1965 paper" fails: the 1965 paper said about once a year, and 18 months came from Intel's David House, about performance. "About 16 times" fails: 2^5 = 32 (recomputed).
+> **Claims in the text:** "18 months, 1965 paper" fails: the 1965 paper said about once a year, and 18 months came from Intel's David House, about performance. "About 16 times" fails at either rate: doubling every 18 months for 10 years gives about 100 times, every two years 2^5 = 32 (recomputed).
 > **Report issues:** A holds. B is wrong on both points: the 1975 revision was every two years, and two-year doubling gives 32 times, not 64.
 > **For a human check:** the two verdicts that overturn B, each with the source sentence it rests on.
 
@@ -544,7 +544,7 @@ Only touch files the task needs.
 
 > **"If the tests fail, stop"**: the condition sits on its own bullet, apart from the update it gates (Rule 1).
 > **"touch"** can be read as reading as well as editing; name the files, or say "edit" (Rule 2).
-> **No reasons:** neither line says why, so the agent cannot tell which docs matter (Rule 3).
+> **No reasons:** none of the lines says why, so the agent cannot tell which docs matter (Rule 3).
 > Nothing is changed until you pick findings.
 
 **Tips**

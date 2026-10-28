@@ -14,7 +14,9 @@
     "Test a universal claim by counterexamples; you pick the repair (Lakatos)",
     "Build the opposing plan from a plan's key assumptions (dialectical inquiry)",
     "Review an answer or draft once and fix confirmed defects",
-    "Run verification-gated review rounds with a round cap"
+    "Run review rounds in which only outside checks count, with a round cap",
+    "Rule on reports others wrote about a text, point by point against sources",
+    "Write or review text a model follows against four rules"
   ],
   "defaultPrompt": [
     "Use proof by contradiction on this claim: remote work always raises productivity.",

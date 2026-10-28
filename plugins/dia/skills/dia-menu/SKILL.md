@@ -62,7 +62,7 @@ Pick from skills 2 to 9 and 12 only, by what the user wants done, using the bord
 - An idea or plan to question, poke holes in or stress-test before committing → dia-brainstorm; an argument to poke holes in → dia-warrant. A counterplan or devil's advocate on a plan or decision → dia-counterplan; a devil's advocate on a claim or question is a plain answer (none fits).
 - A definition or belief to examine Socratically, or a request for Socratic dialogue even with a plan idea → dia-elenchus.
 - Whether a position is consistent or follows strictly from its premises → dia-reductio. How strongly given reasons support a conclusion → dia-warrant. A claim that something is the case in every instance (all, every, always, never) → dia-conjecture; a rule or policy to adopt → dia-counterplan if it is a plan or decision, dia-brainstorm if the user wants it questioned or stress-tested; a request for exceptions to a rule is a plain answer (none fits). Whether something meets its own stated standard → dia-negative.
-- A previous answer or a draft to check and fix once → dia-refine.
+- A previous answer or a draft written for people to check and fix once → dia-refine.
 - Text a model will read and follow (a skill file, a prompt for an agent or sub-agent, an AGENTS.md, a rules file, a hook or tool message) to write, edit or review → dia-instruct, unless the request is for a ruling on reports others wrote about such text, which takes the dia-adjudicate form below.
 
 Then:

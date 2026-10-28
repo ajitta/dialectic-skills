@@ -1,6 +1,6 @@
 # Dialectic Skills (`dia`)
 
-Twelve reasoning-and-review skills for Claude, Codex and ChatGPT. Each skill is a set of written instructions that the assistant follows when you ask for it by name or describe the task.
+Twelve reasoning-and-review skills for Claude, Codex and ChatGPT. Each skill is a set of written instructions that the assistant follows when you ask for it by name or, for most skills, describe the task.
 
 - `dia-intent`: before work starts, restates the goal, discloses assumptions, lists the decisions you must make, and waits for your approval.
 - `dia-elenchus`: Plato's elenchus. Asks what you mean by a key idea, one question at a time, and shows where your own premises contradict each other. Gives no advice.

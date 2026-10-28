@@ -5,7 +5,7 @@
 | Status | Approved by the owner on 2026-10-20; pre-release 0.1.0, accepted (§12.3) and released as 1.0.0 on 2026-10-20; 1.1.0 renames dia-intent to dia-confirm (D30), and 1.6.0 renames it back (D42). Probe results: `docs/probes.md` |
 | Date | 2026-10-20 |
 | Owner | ajitta |
-| Repository | `ajitta/dialectic-skills` (private) |
+| Repository | `ajitta/dialectic-skills` (public since 2026-10-20) |
 | Scope of this document | What to build and how to verify it. Building it is a separate step. |
 
 ## 1. Summary
@@ -132,7 +132,7 @@ Natural-language requests work on every surface and are the safe default on mobi
 
 ## 5. Skills
 
-The seven rebuilt skills (5.1–5.7) keep their reference behavior unless this section or D19–D35 say otherwise. The three skills added in 1.3.0 (5.8–5.10), dia-menu (5.11, 1.4.0) and dia-adjudicate (5.12, 1.5.0) have no reference; design notes for 5.8–5.10 are in `docs/research/candidates/design/`, and dia-menu's design is D38 and §5.11. For every rebuilt skill, the rebuild:
+The seven rebuilt skills (5.1–5.7) keep their reference behavior unless this section or D19–D35 say otherwise. The three skills added in 1.3.0 (5.8–5.10), dia-menu (5.11, 1.4.0), dia-adjudicate (5.12, 1.5.0) and dia-instruct (5.13, 1.6.0) have no reference; design notes for 5.8–5.10 are in `docs/research/candidates/design/`, dia-menu's design is D38 and §5.11, dia-adjudicate's research is `docs/research/dia-adjudicate.md`, and dia-instruct's record is `docs/writing-for-models/`. For every rebuilt skill, the rebuild:
 
 - renames the skill;
 - updates cross-references so that each description names the new skill names;
@@ -416,7 +416,7 @@ Each route has a status:
 | claude.ai web / Claude desktop | Customize › Plugins › Upload plugin with `dialectic-skills.zip`. Not Customize › Skills, which rejects a zip that carries a plugin manifest. | `/dia:dia-<x>` or natural language | owner-probed for `dia` (P1) |
 | Claude mobile (iOS/Android) | Install once via web or desktop; it reaches the mobile app through the account. The upload screen is not in the mobile app. | Natural language; the mobile `/` menu does not list plugin skills (P2) | owner-probed for `dia` (P2) |
 | claude.ai marketplace | Customize › Plugins › Add marketplace `ajitta/dialectic-skills`, then add `dia` from Discover | as above | owner-probed (1.1.0, 2026-10-20; the synced copy on the build VM comes from marketplace `dialectic-skills` and matches 1.1.0) |
-| Claude Code | `/plugin marketplace add ajitta/dialectic-skills`, then `/plugin install dia@dialectic-skills`; or account sync after a claude.ai upload | `/dia:dia-<x>`, natural language, first word for refine and iterate | documented (namespacing) / owner-probed (sync) |
+| Claude Code | `/plugin marketplace add ajitta/dialectic-skills`, then `/plugin install dia@dialectic-skills`; or account sync after a claude.ai upload | `/dia:dia-<x>`, natural language, first word for refine, ratchet and adjudicate; `dia` for the menu | documented (namespacing) / owner-probed (sync) |
 | Codex CLI / IDE | `codex plugin marketplace add <path or owner/repo>`, then `codex plugin add dia@dialectic-skills`; fallback: copy `skills/dia-<x>` to `~/.agents/skills/` | `$dia:dia-<x>` (plugin) or `$dia-<x>` (copied folder), `/skills`, implicit per §7.3 | local-path plugin route probed (P3); GitHub route untested |
 | ChatGPT desktop | Upload `dialectic-skills-openai.zip` in the desktop app (saved to the account, reaches web and mobile); or add the GitHub marketplace through Codex in the desktop app (local to that computer only) | `@dia-<x>`, implicit | owner-probed (P4/P5, 2026-10-20; upload vs marketplace observed 1.1.1) |
 | ChatGPT mobile | A plugin uploaded as a zip on desktop reaches mobile through the account; a marketplace added on desktop does not | `@dia-<x>`, natural language, first word (1.2.0, D33; owner-probed 2026-10-21) | owner-probed (P4/P5, 2026-10-20; upload vs marketplace observed 1.1.1) |
