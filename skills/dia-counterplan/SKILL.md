@@ -4,7 +4,7 @@ description: Dialectical inquiry after Mason, adapted for one assistant in one c
 license: MIT
 metadata:
   author: ajitta
-  version: "1.1.1"
+  version: "1.1.2"
   lineage: "new in plugin 1.3.0 (docs/research/candidates/argumentation.md)"
   source: "https://github.com/ajitta/dialectic-skills"
 ---
@@ -115,7 +115,7 @@ If the user then asks for a plan built on their set, sketch it after the record 
 ## Follow-up turns
 
 - **The user rules on pairs:** record each ruling, and if a pair gets none, ask about it once, then record it as open.
-- **The user rejects a contrary:** that is a ruling on the pair (Rule 6); record it with their reason if they give one, and count the pair as the plan's assumption held unless they give their own wording or say they can't tell. If they name a defect (it misstates a datum, or it contradicts another contrary), check it: if it holds, rewrite that Cn, redo Steps 4 to 6 for what rests on it, and note the defect under rewrites; if not, show the datum or line in one sentence and keep the Cn.
+- **The user rejects a contrary:** that is a ruling on the pair (Rule 6); record it with their reason if they give one, and count the pair as the plan's assumption held unless they give their own wording or say they can't tell. If they name a defect (it misstates a datum, or it contradicts another contrary), check it: if it holds, rewrite that Cn, redo Steps 4 to 6 for what rests on it, note the defect under rewrites, and ask for their ruling on the rewritten pair, which replaces the ruling recorded for the old Cn, since they rejected only the old Cn; if not, show the datum or line in one sentence and keep the Cn.
 - **The user says the counterplan is weaker:** check Rule 3 and fix a named asymmetry (less detail, a datum left out); "It's weak" alone names none.
 - **The user disputes the plan's assumptions:** withdraw an assumption only if you can name its defect (a misquote, or the recommendation does not need it), since insistence is not a defect; if the recommendation still needs the assumption, show where in one line and keep it. For target `user`, their clarification of their own plan is [T] and replaces the [A] line it covers.
 - **The user adds an assumption:** it goes through Steps 3 to 7, and you ask for their ruling on the new pair before the record; if it would make more than five key pairs, say which pair it displaces, or list it as passed but not paired.
