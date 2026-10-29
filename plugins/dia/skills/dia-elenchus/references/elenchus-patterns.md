@@ -7,7 +7,7 @@ Shapes, not scripts. Each one serves the current definition.
 | User gives | Ask |
 |---|---|
 | An example ("one that suggests ramen") | "That's one case. What makes all of them X?" |
-| A list ("fast, tasty, cheap…") | "Does it need all three to be X, or is one enough?" |
+| A list of features or criteria ("fast, tasty, cheap…") | "Does it need all three to be X, or is one enough?" |
 | A synonym ("a good recommendation is a decent one") | "How would you tell that it's 'decent'?" |
 | "Depends" / "it varies" | "Across those situations, is there anything they share that makes you call it X?" |
 | A refusal ("we don't need a definition") | "Then how would you tell whether what you're building is X or not?" |

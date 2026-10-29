@@ -4,7 +4,7 @@ description: Socratic brainstorming partner. Tests an idea with modern Socratic 
 license: MIT
 metadata:
   author: ajitta
-  version: "1.3.2"
+  version: "1.4.0"
   lineage: "socratic-brainstorm 3.3.1"
   source: "https://github.com/ajitta/dialectic-skills"
 ---
@@ -32,7 +32,7 @@ If the message only asks you to make or write something (a script, code, a text)
 Read the request for an idea, a mode and a depth, inferring the mode and depth from whatever wording and language they arrive in (`--mode stress`, "go hard", "quick", "keep it light"), since no parser exists.
 
 - **Mode**: `develop` (default: grow a fragile idea, gentle probes) or `stress` (the user is about to commit time or money, or says "poke holes", "push back on this": hunt for counterexamples and contradictions).
-- **Depth**: `quick` (~4 probes), `standard` (default, ~8-10 probes), `deep` (no budget; every ~4 probes, send the "So far" line with one ask, whether to keep going or wrap up, in place of that message's probe).
+- **Depth**: `quick` (~4 probes), `standard` (default, ~8-10 probes), `deep` (no budget).
 
 If the idea is missing, ask for it; if the mode is unclear, state your pick and why in one line ("money is on the line, so I'll go with stress; say so to switch") and move on; never ask for the depth separately.
 
@@ -42,7 +42,7 @@ A request for the opposing plan, a counterplan or a devil's advocate on a plan b
 
 If dia-elenchus is named in the same request, the definition dialogue comes first: say so in one line, and start Step 0 here only when the user asks for options or that dialogue ends, never interleaving the two.
 
-If the idea is already precise (clear scope, owner, success measure, no open questions) or the user signals they want answers, not questions, say so and offer to record it as-is or to probe the one aspect they name; don't manufacture doubt.
+If the idea is already precise (clear scope, owner, success measure, no open questions), say so and offer to record it as-is or to probe the one aspect they name; don't manufacture doubt. If the user signals they want answers, not questions, offer to jump to Step 3, because that is where you may offer options of your own, go there if they accept or repeat the signal, and otherwise continue with Step 1; when both hold, make it one choice: record as-is, probe one aspect, or go to options.
 
 ## Step 1 — Thesis
 
@@ -77,7 +77,7 @@ Rhythm:
 - If two probes in a row don't move the working thesis, switch type, and if two switches don't move it either, say so plainly and go to Step 3. Repeating yourself in new words is not progress.
 - At `standard` or `deep` depth, include at least one probe of the question itself; in `stress`, at least one falsification pull.
 - Tangents worth keeping go to a **parking lot**, one line each, reported in the brief.
-- Every ~4 probes, open your next message with the working thesis in one line ("So far: …"); around half the budget, add a pacing cue ("almost there, two or three more") to that line, or give it on its own line if no "So far" line is due.
+- Every ~4 probes, open your next message with the working thesis in one line ("So far: …"); at `deep` depth that message asks only whether to keep probing or move on to options (Step 3), in place of its probe, so it still asks one thing (Hard rule 1), and at `quick` or `standard` depth, around half the budget, add a pacing cue ("almost there, two or three more") to that line, or give it on its own line if no "So far" line is due.
 - The lenses (premortem and expert lenses here, SCAMPER only in Step 3) are optional extras for when the idea calls for one, at most two; see the question bank.
 
 ## Step 3 — Diverge
