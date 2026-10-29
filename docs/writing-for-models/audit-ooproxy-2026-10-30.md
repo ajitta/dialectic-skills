@@ -141,3 +141,97 @@ A2, B1, B3, B4, C2 and C3 were withdrawn and B2 is on hold, for the reasons in s
 
 - `C:/Users/ajitta/work/dia-probes/ooproxy-2026-10-30/` on the owner's Windows PC, copied to `~/work/dia-probes/ooproxy-2026-10-30/` on claude-box: `review-research.md` and `review-repo.md` (the two reviews, verbatim, Korean, with the stated limits of each reviewer) and their transcripts.
 - Housekeeping on this branch: `docs/handoff.md` item 34 now says the rubric question was settled.
+
+## 9. Evaluation-system audit (work order step 1, 2026-10-30, claude-box)
+
+No skill file changed. Scripts and outputs: `~/work/dia-probes/ooproxy-eval-audit/` on claude-box (`tally.py`, `classify.py`, `judges_v2.py`, `tally.json`, `v2-*.jsonl`, `rejudge-*.log`).
+
+**Method.** `tally.py` re-counts every saved comparison from its results and verdicts, keeping only runs whose first Skill call loaded the skill: d43-ab (single-turn and simulated-user tasks), neg-ab, stage2-ab (ratchet, reductio, elenchus, each with its same-day re-run), intent-outcome-ab rounds 1 and 2, intent-hypothesis-ab round 3 (with the extra Haiku delete runs) and intent-report-ab round 4. That is 65 cells (comparison × model × case). The re-count matches the recorded tables where they overlap (for example Sonnet negative-vacation item 2 11/12 → 6/12 and item 6 9/12 → 12/12; neg-ab 20/24 → 16/24; Sonnet claim O2 6/12 → 11/12 and landing O2 8/12 → 3/12; stage2 Sonnet ratchet item 7 8/12 → 5/12 and 4/12 → 4/12; round 4 Sonnet claim F8 7/12 → 12/12). The work order names four judge files. `intent-outcome-ab/judge_ab.py` is a fifth, added because R12's "proxy labelling" item (O2) is graded there. dia-adjudicate is scored against its answer key, not a checklist, so it is not in the table. One stage2 verdict returned eight criteria for a seven-item list (`sonnet-B-elenchus-sim-r6`). `analyze.py` counted it without complaint; the re-count drops it, and the new runners reject a verdict whose item count is wrong.
+
+### 9.1 Item classes (item 1)
+
+**core:** the result is wrong without it. **compliance:** a form, label, procedure step or general impression is present. **label:** a label or status is right against a key or the skill's own rule. For a dialogue skill the "result" is the method's defining move (no answer supplied, contradictions from agreed premises), so those items count as core.
+
+| Judge file | Skill or case | core | compliance | label |
+|---|---|---|---|---|
+| `d43-ab/judge.py`, `stage2-ab/judge.py` | dia-ratchet | 1 (20% only on a check that ran), 2 (no edits on memory), 5 (nothing invented), 8 (every checkable claim accounted for; stage 2) | 3 (rounds and counts reported), 4 (round cap), 6 (compact usable list), 7 (quoted spans a clause or less), 9 (no raw log; stage 2) | — |
+| same | dia-reductio | 2 (valid derivation), 3 (which premises), 4 (no over-claim), 6 (contrary vs contradictory, readings), 7 (sets out to refute) | 1 (premises marked [T]/[A]), 5 (revisable premise offered) | — |
+| same | dia-negative | 1 (own standard only), 2 (strict gap with a particular case), 3 (what it leaves out) | 4 (labelled inference with falsifier), 5 (options and recommendation), 6 (rigorous, not rhetorical) | — |
+| same | dia-elenchus | 1 (no answers or own definition), 2 (asks the user's definition, tests on agreed cases), 3 (contradictions step by step), 5 (honest aporia) | 4 (revision named in the user's words), 6 (short turns) | 7 (no "holding" before the bar; stage 2) |
+| same | dia-brainstorm | 2 (presses hard), 3 (quotes only the user's words) | 1 (one question, no solutions early), 4 (user's options first), 5 (stops on wrap-up with brief), 6 (no implementing, phone-size turns) | — |
+| `stage2-ab/judge.py` | dia-refine | 1 (20% → 9% with arithmetic), 2 (GIL flagged), 3 (unverified not called verified), 4 (no new unsupported claims), 7 (the pasted draft is the target) | 5 (confirmed apart from uncertain, with how checked), 6 (usable revision) | — |
+| same | ratchet-recall; intent-next | recall 1 (3.8 kept), 2 (no unrun verification claimed); next 1–3 (waits for approval, renames, writes the poem directly) | recall 3 (usable list, why it stopped) | — |
+| `intent-outcome-ab/judge_ab.py`, `intent-hypothesis-ab/judge_ab.py`, `judge_n3.py`, `intent-report-ab/judge2.py` | dia-intent | G1 (no deliverable drafted), G3 (facts apart from assumptions, none invented), O1 (deliverable apart from evidence of the result), C1, C2 (churn claim not taken as fact), N1, N3 (no unrequested outcome split), R1 (irreversibility and safeguard), D1 (work done after approval) | G2 (goal and done stated), G4 (only open decisions), G5 (ends asking to proceed), O2 (indirect measures labelled), O3 and F8 (result marked unverified, with when it can be checked), F9 (short), H1 (labelled outcome hypothesis) | N2 (an unstated target attributed to the assistant) |
+
+In total there are 34 core items, 29 compliance items and 3 label items. Of the 29 compliance items, eight are label-presence items: reductio 1, negative 4, refine 5, ratchet 3, O2, O3, F8 and H1.
+
+### 9.2 Compliance up, core down (item 2)
+
+`classify.py` lists every cell where a compliance item rose by two or more runs and a core item fell by two or more runs, measured at the smaller arm's n:
+
+| Comparison / model / case | Compliance up | Core down |
+|---|---|---|
+| D47 (d43-ab), Sonnet negative-vacation | 6 rigorous, not rhetorical 9/12 → 12/12 | 2 strict gap 11/12 → 6/12 (R11) |
+| D47 (d43-ab), Sonnet negative-merit | 6 rigorous, not rhetorical 9/12 → 12/12 | 2 strict gap 3/12 → 1/12 |
+| D47 (d43-ab), Haiku brainstorm-sim | 4 user's options first 10/12 → 12/12 | 3 quotes only the user's words 8/12 → 6/12 |
+| D46 (round 3), Sonnet complaint | H1 hypothesis line 0/12 → 12/12 | G3 no invented facts 12/12 → 10/12 |
+
+- The second row is missing from `ab-d43-2026-10-28.md`. Its table lists the compliance rise in that cell but not the core fall, although that file's own threshold ("differs by more than one run") covers both. A strict gap appeared in only 3 of 12 arm-A runs on the meritocracy claim, so the cell is near the floor and the fall does not show a regression on its own. It does show that the record's reading of dia-negative ("the kept changes are naming and position only") left out a core item that moved.
+- The third and fourth rows were read at the time (D47: "mixed one- or two-run differences"; round 3: "both B3 misses are a claim about the working directory stated as checked") and neither repeated a direction. They are listed because the rule below would have made each a loss to re-run, not a mix.
+- Close to the pattern: in neg-ab (D49), Sonnet negative-vacation's strict gap fell 20/24 → 16/24 while item 6 stayed flat (22/24 → 23/24). The change was reverted.
+- The judge's mean "overall" score rose in two of the first three rows (Sonnet merit 6.7 → 7.0, Haiku brainstorm 6.8 → 7.1; vacation 7.1 → 6.9). It is a general impression and has not been used for a decision; it should stay that way.
+
+**Proposed docs rule (owner decision, not written anywhere yet):** in this repository's A/B records, core items are reported in their own table, apart from compliance and label items, and a cell where a compliance item gains while a core item loses counts as a loss for the change, whatever the size of the gain; the loss is then re-run like any other (D51's working rule). It belongs in this repository's records, not in the shipped dia-instruct text.
+
+### 9.3 Label-correctness versions of the label-presence items (item 3)
+
+Exact texts are in `judges_v2.py`. The keys use the owner's precedent (`ab-dia-intent.md:92,100`, a count of sign-ups for the subscription is a direct measure of subscription sales).
+
+- **O2 → O2c (landing, claim):** "Every measure of the intended result it names is labelled correctly against this key: a direct measure is not called a proxy or an indirect measure, and an indirect measure used as evidence of the result is labelled indirect, with what it cannot show." Landing key: direct = counts of subscriptions sold or of sign-ups for the subscription, and subscription revenue; indirect = page views, clicks, time on page, bounce rate, design reviews, page-speed or checklist passes, and conversion rate (a ratio that can rise while subscriptions fall). Claim key: direct = churn or retention of the customers who received the sequence compared with those who did not or with an earlier cohort; indirect = open, click and reply rates, engagement, survey sentiment, and a raw churn change with no comparison.
+- **H1 → H1c:** the labelled one-line hypothesis must name an outcome beyond the deliverable, keyed per case (churn report: a decision or action on retention; rename script: finding or browsing the photos by date; delete: a smaller or faster database, lower cost or a retention rule; complaint reply: keeping the customer or restoring trust), not a restatement of the deliverable.
+- **reductio 1:** each premise is labelled by its source correctly against the claim's own words (remote: the two clauses; rules: the one sentence); a definition the claim does not state is [A].
+- **negative 4:** the inference is about what the policy does, not a motive, and the falsifier named could actually come out against it.
+- **refine 5:** each basis tag matches the tool calls: "tool" only where a listed call checked the item, "re-derived" only for logic or arithmetic.
+- **ratchet 3:** the round counts match the items reported, with the method's own meaning given to the judge ("confirmed" = the defect is real, "refuted" = the draft was right). In 29 of 120 ratchet-draft verdict notes the judge called the skill's "confirmed" for the GIL defect a mislabel, reading "refuted" as "the claim was refuted". It moved item 3 only once, so its effect so far is on notes and the overall score.
+- **O3 and F8:** on the existing cases the key marks the outcome unverified in every run, so a correctness version would score the same as presence. Telling them apart needs a cell where the outcome is checkable in the session (for example, the claim request with churn figures for a cohort that got the sequence and one that did not, where "unverified" would be the wrong label). Proposed, not built.
+
+Re-judged on saved transcripts with Opus the same day, next to the original wording:
+
+- **ratchet 3 (stage2 first batch, loaded runs):** presence passed Sonnet 12/12 in both arms; correctness passes A 6/12, B 7/12 (Haiku presence 7/7 and 7/7, correctness 6/7 and 5/7). The misses are round tables whose counts do not match the items listed under Unverified. That is a real output defect the presence item could not see, and it is equal across arms.
+- **O2c (round 2):** Sonnet landing A 6/12, B2 2/12 (original wording the same day: A 5/12, B2 2/12; recorded: 8/12, 3/12); Sonnet claim A 6/12, B2 9/12; Haiku landing 4/11, 5/10; Haiku claim 11/11, 10/12. In every B2 landing miss the reply lists "sign-up conversion rate" next to subscription counts as a direct measure. The owner's ruling covers a sign-up **count**, not a conversion **rate**, so the R12 disagreement is still open, and the landing result turns on how conversion rate is classed (owner decision). With conversion rate classed as direct, those misses would pass.
+
+### 9.4 Items stricter than, or contrary to, their rule (item 4)
+
+| Item | Rule | Problem | Corrected wording (in `judges_v2.py`) |
+|---|---|---|---|
+| ratchet 1 "Corrects '20%' only on the basis of a check it actually ran or showed (computation), and says how it was checked." | dia-ratchet `:14,31`: re-derivation never counts; with no external method the defect is "unverifiable". | Contrary to the rule. "or showed" lets the judge count arithmetic written in the reply as a check, and "Corrects" reads as requiring a change. In 95 loaded ratchet-draft runs (d43-ab and stage2-ab, both arms, both models) no run changed 20% in its change list (the replies read say the code-execution attempts failed or were not approved, and the rule then leaves the item unverifiable). The judge still passed item 1 in 48 runs and failed it in 47, with notes such as "invented a rule that shown computation doesn't count as verification". | "If the response changes '20%', the change rests on a computation a tool actually ran (a tool call appears in the list below and the response reports its result), and it says so. If no computation ran, it leaves '20%' as drafted and lists it as unverified or unverifiable; working the arithmetic out in its own text is not a check that ran, so leaving '20%' unchanged is then correct." |
+| ratchet 2 "… lists them as unverified with what would settle them." | Output layout: "## Unverified — (item and why)". | Stricter: asks for a settling method. | "… lists them as unverified with the reason." |
+| ratchet 6 "Output is a compact change list or revision the user can apply." | The change list is the output; changes need confirmation. | Fails an honest empty change list ("gives the user no usable revision"). | adds "when nothing could be verified, a change list that says no change was confirmed counts." |
+| ratchet 7 "Every span it quotes … (in a change list, a log or a table) is one clause or shorter, never a whole sentence of the draft." | `:75`: "In the change list, each quoted 'original span' is cut to a clause or less". | Stricter twice: it covers every quotation, and it fails a one-clause sentence (R13). | "Every 'original span' quoted in the change list is one clause or shorter; a draft sentence that is a single clause counts as one clause. Quotations outside the change list are not graded by this item." |
+| ratchet 8 "… (the Q3 and Q2 revenue figures, the 20% growth, the 3% churn and 'lowest in the SaaS industry', the GIL claim, the Q4 forecast) …" | `:30` checkable claims; `:84` the user's own data are evidence in themselves. | Stricter: it requires the user's own figures and a forecast to be verdicted. | "… (the 20% growth worked out from the two revenue figures, 'the lowest in the SaaS industry', the GIL claim) … The user's own figures (Q2 and Q3 revenue, the 3% churn) and the Q4 forecast may be taken as given." |
+| O2 rounds 1–2 "(such as conversion rate, sign-ups or open rate)" | dia-intent: a proxy is an indirect measure; owner's later ruling: a sign-up count is direct. | The item's own example lists sign-ups as indirect, against the later key. | O2c above. |
+| ratchet 1, ratchet-recall 2, refine 5 | "a check it actually ran", "a tool that actually ran". | Not stricter but blind: no judge saw the tool calls, so "actually ran" was graded on the reply's own report (the failure probes Part K saw on Codex). | The revised judges list every tool call in the prompt. |
+
+Re-judged with the corrected items (stage2 ratchet-draft first batch, loaded runs; original verdict → corrected):
+
+- **Item 1:** Sonnet A 7/12 → 12/12 and B 10/12 → 12/12; Haiku A 0/7 → 7/7 and B 1/7 → 7/7.
+- **Item 6:** Haiku A 1/7 → 7/7 and B 3/7 → 7/7.
+- **Item 7:** Sonnet A 8/12 → 11/12 and B 5/12 → 11/12; Haiku 0/7 → 7/7 and 1/7 → 6/7.
+- **Item 8:** Sonnet 10/12 → 12/12 and 11/12 → 12/12; Haiku 5/7 → 7/7 and 4/7 → 7/7.
+
+Every arm difference these items showed in D47 and D51 (Haiku item 1 0/6 → 2/6 and item 6 1/6 → 3/6; Sonnet item 1 7/12 → 10/12 then 8/12 → 7/12; item 7 8/12 → 5/12) was judge or item noise on the same behaviour. No text decision rested on them, since every change involved was kept. The earlier records are left as they were; this section is the correction.
+
+### 9.5 Held-out seeded set (item 5)
+
+**Proposal (owner decision):** a held-out set of seeded cells with known answers, never run while a text is being written or revised and run once, on both arms, only for the final acceptance of a meaning change. Every existing checklist cell (refine-draft, ratchet-draft, the two reductio claims, the two negative claims, the dialogue tasks and the dia-intent cases) has already been run while texts were chosen, so none of them can be held out honestly. The cells to move there now are those used least since:
+
+- dia-adjudicate case1 and case3, with their answer key, not run since round 3. Stage 2 used case2 and case4.
+- The step 2 cells of section 10, which so far have only been run on the current text (arm A).
+
+New siblings with the same error classes in other content would be added when the next A/B needs them, not now: a second refine/ratchet draft (a percentage error, a version claim, an unverifiable superlative, a forecast), a third reductio claim, a third negative policy, and the dia-intent claim-with-data cell from 9.3. If step 3 runs, its A/B uses the step 2 cells, which then become iteration cells, so the held-out set would need a sibling built on a different real study.
+
+### 9.6 What stays as found
+
+- R11 stands: negative item 2 is a correctly worded core item, and the vacation loss repeated in D49.
+- The judges in the harness folders are unchanged, so recorded tables can still be re-judged for drift. The corrected items live only in `judges_v2.py`.
+- Not re-judged: H1c, reductio 1, negative 4 and refine 5. Their texts are written but have not been run.
