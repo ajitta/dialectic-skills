@@ -4,7 +4,7 @@ description: Restate the user's goal, disclose material assumptions, and identif
 license: MIT
 metadata:
   author: ajitta
-  version: "1.7.0"
+  version: "1.7.1"
   lineage: "confirm-intent (installed copy, unversioned); named dia-intent until plugin 1.0.0 and dia-confirm from plugin 1.1.0 to 1.4.0"
   source: "https://github.com/ajitta/dialectic-skills"
 ---
@@ -17,7 +17,7 @@ Run the review only when the message starts with `dia-intent`, when this skill w
 
 Distinguish the deliverable and any stated outcome beyond it, reported observations, causal explanations, proposed means, and explicit constraints, treating explanations and means as hypotheses unless the user sets them as constraints or requests them as the deliverable, and preserving the user's constraints and authority boundaries; quote short exact constraints (such as a name, amount or date) in the user's words and still check them as item 2 says.
 
-Before presenting the review, resolve material factual uncertainties with bounded read-only investigation of relevant supplied artifacts and project state, preferring the smallest decisive read or safe isolated probe, and never offer pre-approval investigation as an option: if a decisive read or probe is available and permitted, do it, and if it is not, say what is missing and how that affects the review. Stop when enough evidence supports the review or the remaining uncertainty requires user judgment, execution, or unavailable access; do not investigate exhaustively.
+Before presenting the review, resolve material factual uncertainties with bounded investigation of relevant supplied artifacts and project state, using only reads and safe isolated probes and preferring the smallest decisive one, and never offer pre-approval investigation as an option: if a decisive read or probe is available and permitted, do it, and if it is not, say what is missing and how that affects the review. Stop when enough evidence supports the review or the remaining uncertainty requires user judgment, execution, or unavailable access; do not investigate exhaustively.
 
 A safe isolated probe runs in a separate temporary location, such as a copy of the relevant files, and may create copies, caches, and test output there, but must leave the user's originals and external state unchanged, including their workspace, accounts, and shared systems, and if that isolation cannot be ensured, inspect by reading only and report the remaining uncertainty; running the user's code or scripts counts as a probe even if it seems only to read, so run it against the copy, not in the original location. A probe's result is evidence for the review, not a draft deliverable, so report what it showed, not the change it used, and remove or report what the probe created.
 

@@ -21,7 +21,7 @@ Text fixes for the findings in `audit-2026-10-29.md`, for the owner to pick from
 
 ## Correction to the audit
 
-M6's first part is a recorded design, not a defect. Spec line 154 says: "A body sentence backs the description up: if the skill loads without the marker, it runs the review only when the user explicitly asked to confirm the goal, assumptions or open decisions first". D38 accepts the resulting difference from dia-menu. Only M6's second part (the dropped one-task limit) stands.
+M6's first part is a recorded design, not a defect. Spec §5.1 (Invocation) says: "A body sentence backs the description up: if the skill loads without the marker, it runs the review only when the user explicitly asked to confirm the goal, assumptions or open decisions first". D38 accepts the resulting difference from dia-menu. Only M6's second part (the dropped one-task limit) stands.
 
 ## Summary
 
@@ -511,7 +511,7 @@ a contradiction that needs an [A] premise depends on it and says so.
 ## dia-intent
 
 ### M6 (a: no change; b: meaning; owner choice on Option B)
-(a) The confirm-first trigger stays. It is the spec line 154 design (see Correction).
+(a) The confirm-first trigger stays. It is the spec §5.1 design (see Correction).
 
 (b) Case: a later, unrelated task in the same conversation after dia-intent ran. That task is now done directly, not held for review.
 
@@ -524,7 +524,7 @@ New:
 when this skill was selected or invoked by name for this task, not an earlier unrelated one, because its text stays in the conversation after that task ends (dia-menu's selector
 ```
 
-Option B, only if the owner wants the body to give way on the trigger (apply with (b), and update spec line 154 and D38 in the same change). Line 14, old:
+Option B, only if the owner wants the body to give way on the trigger (apply with (b), and update spec §5.1 and D38 in the same change). Line 14, old:
 ```text
 ), or when the user explicitly asked to confirm the goal, assumptions or open decisions first, and a reply to a review in progress follows Recognizing Approval; otherwise do the task without this skill and do not hold it for approval.
 ```
@@ -624,7 +624,7 @@ and add "fell on …" only if the re-checked conflict still holds.
 - Merging them means rewriting both paragraphs for a low finding.
 
 ### P5 (meaning; owner choice)
-Case: the user withdraws an ordinary premise. Step 5 no longer runs. The definition stays current, and the withdrawal is recorded under how the definition changed, matching `record-template.md` line 11 "(or: user withdrew premise ②)".
+Case: the user withdraws an ordinary premise. Step 5 no longer runs. The definition stays current, and the withdrawal is recorded under how the definition changed. Correction (2026-10-29): `record-template.md` lines 11–13 do not support this reading. There, "(or: user withdrew premise ②)" ends definition 1 and definition 2 follows, which is the current "counts as a revision" reading. So this option would also need a template edit, which is not drafted here. The owner chose option C instead (see Owner decisions).
 
 Line 86, old:
 ```text
@@ -658,14 +658,44 @@ New:
 a meaning change stays only when the user asked for it or a finding requires it
 ```
 
-## Owner decisions
+## Owner decisions (2026-10-29: each as recommended)
 
-1. M4 edit 2: split an issue when reports disagree on it (measurable with the dia-adjudicate harness).
-2. M11: name checkable claims as defects, which raises the counts the user sees.
-3. P3: point to the reference (proposed), or define the log line inline; and whether the judgment log is printed.
-4. M9: ask the user again about a rewritten contrary (proposed), or keep the earlier ruling.
-5. L9: at Step 0, "wants answers" offers Step 3 (proposed), or record as-is.
-6. M6: keep the confirm-first trigger (proposed), or apply Option B with spec line 154 and D38.
-7. L21: whether conversation details count as private material.
-8. P5: record a withdrawn premise (proposed), or treat it as an idea born.
-9. Which fixes to take, and in how many releases. Bundling the wording-only fixes (L5, L11, L12, L20, M4 edit 1) and the template-unread fixes (M8, L4, L18) into one release keeps A/B work for the rest.
+1. M4: split an issue when reports disagree on it (edit 2), with an A/B on the dia-adjudicate harness.
+2. M11: name checkable claims as defects.
+3. P3: the judgment log is not printed; the pointer names its format (text below).
+4. M9: ask again about a rewritten contrary.
+5. L9: at Step 0, "wants answers" offers Step 3.
+6. M6: keep the confirm-first trigger; apply (b) only.
+7. L21: option C, drafted below. Names, figures and plans the user mentions also count as private; general technical terms and error messages do not.
+8. P5: option C, drafted below. A withdrawn premise still counts as a revision, as the template and `upstream/` have it, and Step 5 says that such a revision keeps its wording.
+9. Two stages:
+   - **Stage 1 (plugin 1.10.0, unmeasured):**
+     - wording: L5, L8, L11, L12, L13, L20, M4 edit 1
+     - template-unread cases: M8, L4, L18
+     - skills with no eval: M9 (dia-counterplan), M10, L1, L2, L3 (dia-conjecture), M15 (dia-instruct), M13, L14 (dia-menu; routing probes exist but were not run)
+     - The owner accepted the meaning changes as unmeasured.
+   - **Stage 2 (A/B):** M1, M2, M3, M4 edit 2, M5, M6(b), M7, M11, M12, M14, L6, L9, L10, L16, L17, L21, L22, P3, P5.
+
+## Drafts added after the owner's decisions (stage 2)
+
+### L21, option C (dia-intent line 24)
+New:
+```text
+No read, search or probe may send the user's private material (anything from their files, code or data, or names, figures or plans they mention, that is not already public) to outside services or incur charges.
+```
+
+### P5, option C (dia-elenchus Step 5)
+Line 86 and line 37 stay as they are. After the paragraph "If a revision only rewords the last one, say so and ask what actually changed.", add:
+```text
+A revision made by withdrawing a premise (Step 4) keeps the definition's wording, so do not ask the user to write it again or name a shift; record the withdrawal as the reason the previous entry ended, as the record template does, and go on to the next premise question (Step 3).
+```
+
+### P3 (dia-ratchet line 76), with the pointer edit above
+Old:
+```text
+- Sources live in the `method:` field of each judgment-log line (a URL, "code execution", "checked against the user's instructions");
+```
+New:
+```text
+- Sources live in the `method:` field of each judgment-log line, a log you keep while working and do not print (a URL, "code execution", "checked against the user's instructions");
+```

@@ -4,7 +4,7 @@ description: Internal critique (narrower than Adorno's immanent critique) adapte
 license: MIT
 metadata:
   author: ajitta
-  version: "1.2.2"
+  version: "1.2.3"
   lineage: "negative-dialectics (installed copy, unversioned)"
   source: "https://github.com/ajitta/dialectic-skills"
 ---
@@ -39,7 +39,7 @@ A natural-language equivalent of the flag counts as the flag; with neither, infe
 1. **The target's own standard only.** Judge the target only by its own claims, definitions, promises or stated goals, quote where it commits to each standard you use, and never bring in an outside value the target does not hold ("this is unfair" when it never claimed fairness).
 2. **Strict gaps only.** A finding counts only when it has three parts: (a) the claim C in the target's own terms; (b) a particular case or consequence D; (c) a demonstration that, by C's own terms, D and C cannot both hold as stated. Vague tension, "it's reductive", "it feels incomplete", or an outcome that is merely undesirable are not findings.
 3. **One reading at a time.** Fix the reading of C before testing it: when C has several live readings, test the one the target most plausibly means, or test each separately under its own label. Ambiguity alone is not a finding, so report it in one line and count a finding only where the gap is strict *within* a single reading; likewise, when a finding's argument splits into cases, it counts only for the branches where the gap is strict, and the other branches go into the conditional findings.
-4. **Where cases come from.** Take D from the target's own material first, then from logical or definitional cases, then from facts, and label every fact with its evidence class (verified this session / supplied by the user / single source / unverified recall), where your own recall is never "verified". A finding is **conditional** when it rests on a fact that is single source or unverified recall, on one contested reading, or on one branch of a case split; a fact supplied by the user does not make a finding conditional, but is labelled "supplied by the user". List the firm findings (those that are not conditional) first, then the conditional ones under their own label. A recommendation may not rest only on conditional findings unless it says so.
+4. **Where cases come from.** Take D from the target's own material first, then from logical or definitional cases, then from facts, and label every fact with its evidence class (verified this session / supplied by the user / single source / unverified recall), where your own recall is never "verified". A finding is **conditional** when it rests on a fact that is single source or unverified recall, on one contested reading, or on one branch of a case split; a fact supplied by the user does not make a finding conditional, but is labelled "supplied by the user". List the firm findings (those that are not conditional) first, then the conditional ones under their own label.
 5. **Determinate, not abstract, negation.** Each finding states exactly which part of C fails and what specific content C fails to capture; "It's more complex than that" negates nothing in particular and is not allowed.
 6. **Purpose is an inference with evidence.** When you say what function or purpose an identification serves, ground it in the pattern of what C includes and excludes, label it as an inference, name the observation that would falsify it, and speak about what the claim or text does, not about anyone's hidden motives.
 7. **No forced synthesis.** Do not end with a new master definition that claims to settle everything; a revised claim may be offered as an option, and it must state its own remainder: what it still does not capture.
@@ -91,7 +91,7 @@ Offer only the responses below that fit, each with what it keeps and what remain
 
 ### Step 7: Recommend
 
-Pick one option and give: the reason; the evidence class of the weakest finding it rests on (with no strict finding: "no strict finding; rests on the tested particulars"); the observation that would change the recommendation. End with a sentence that the decision is the user's.
+Pick one option and give: the reason; the evidence class of the weakest finding it rests on (with no strict finding: "no strict finding; rests on the tested particulars"), saying so when every finding it rests on is conditional; the observation that would change the recommendation. End with a sentence that the decision is the user's.
 
 ### Step 8: Record
 

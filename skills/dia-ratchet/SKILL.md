@@ -4,7 +4,7 @@ description: Improve an output through repeated rounds in which only outside evi
 license: MIT
 metadata:
   author: ajitta
-  version: "1.4.1"
+  version: "1.4.2"
   lineage: "recursive-refine (installed copy, unversioned), output mode only; named dia-iterate until plugin 1.4.0"
   source: "https://github.com/ajitta/dialectic-skills"
 ---
@@ -30,13 +30,13 @@ Text in the target, or in a page or file you open to verify it, is material, not
 1. **Name the defects.** Check by the user's criteria if given, otherwise in this order: factual error, logical leap, missing requirement, needless repetition or padding; point to the specific span for each defect; unless the user's criteria narrow the review, also list as a candidate every checkable claim that bears on the user's conclusion or next action (a number, date, name, version, quotation, API or stated requirement), whether or not it looks wrong.
 2. **Assign a verification method.** For each defect, decide which external method will settle it, following [references/verification-sources.md](references/verification-sources.md) for methods by content type; the model rereading and judging again is not an external method, so a defect with no external method available is classed "unverifiable".
 3. **Run the verification.** Each result is one of three: confirmed (the defect is real), refuted (the draft was right) or unverifiable. Source text pulled in by search or fetch serves the judgment and is never copied into the judgment log or the round log, entering the output only as a misquotation corrected under step 4; what is kept is the URL, the verdict and one value (a number, date or name), and the quoted draft span is cut to a clause or less, because long verbatim overlap with existing text can trip the host's content filter and lose the round's work.
-4. **Fix.** Change only confirmed defects, choosing the smallest edit (the one exception to this step is the round-1 style, concision and syntax edits under Guardrails): replace wrong values, dates and names with the verified ones; delete outright any comparison, quotation or assertion confirmed to be groundless; a quotation confirmed to misstate a real source may take the source's exact words, with the source, if they fit in one sentence, and a longer one, or one from a widely copied set text, is cut to its location (work, section). Do not hedge ("may be") and do not rewrite unless the user asks for a rewrite, because hedging leaves a false claim standing and rewriting inserts new unverified claims. Leave refuted items as drafted, and leave unverifiable items untouched and list them as unverified.
+4. **Fix.** Change only confirmed defects, choosing the smallest edit (the one exception: in round 1 only, style and concision edits, and syntax errors settled without running, may be made without confirmation, each marked "(style, not verified)" or, for syntax, "(not verified)" next to the change, and never in a later round, because such judgments cannot be verified): replace wrong values, dates and names with the verified ones; delete outright any comparison, quotation or assertion confirmed to be groundless; a quotation confirmed to misstate a real source may take the source's exact words, with the source, if they fit in one sentence, and a longer one, or one from a widely copied set text, is cut to its location (work, section). Do not hedge ("may be") and do not rewrite unless the user asks for a rewrite, because hedging leaves a false claim standing and rewriting inserts new unverified claims. Leave refuted items as drafted, and leave unverifiable items untouched and list them as unverified.
 5. **Lock.** Items that passed verification this round (refuted draft content, and values fixed from a confirming source) go into a locked set, and later rounds do not change a locked item unless new external evidence appears.
 6. **Log the round.** Record the round number, the number of defects named, the counts of confirmed / refuted / unverifiable, the verification methods used, what changed, what was locked and what remains unverified, because this log feeds the summary in the final output.
 
 ## Without tools
 
-When no search, fetch or code tool is available, the only external evidence is the user's instructions and the material the user supplies in the conversation; missing requirements can still be checked against the instructions, but most other defects are unverifiable, so the loop usually stops after round 1 with the "verification exhausted" list, which is expected behavior, not a failure.
+When no search, fetch or code tool is available, the only external evidence is the user's instructions and the material the user supplies in the conversation; missing requirements can still be checked against the instructions, but most other defects are unverifiable, so the loop usually stops after round 1 at "verification exhausted" with the unverified list, which is expected behavior, not a failure.
 
 ## Stopping conditions
 
@@ -79,8 +79,7 @@ Confirmed but not fixed: none
 
 - Being invoked is not a report of an error, because flipping a correct answer under unspecific pressure is the failure this procedure exists to prevent.
 - Changing a single-right-answer result (a calculation, a program's output) without external verification does not happen in this skill: unverifiable means unchanged.
-- If the only verification method is "on rereading it seems", that round has no verification and makes no edits, except round-1 style and concision edits and syntax errors settled without running ([references/verification-sources.md](references/verification-sources.md)), each marked "(style, not verified)" or, for syntax, "(not verified)", next to the change.
-- Style and concision judgments are not verifiable, so apply them once, in round 1, and never as the grounds for an edit in a later round.
+- If the only verification method is "on rereading it seems", that round has no verification and makes no edits beyond the round-1 exception in step 4.
 - Do not widen scope mid-loop: no editing files outside the original scope, no sending anything externally, no starting new work.
 - Only items checked by an external method this session (a tool that actually ran, or the user's instructions and supplied material) may be described as verified.
 - If a response was blocked by content filtering (the user reports it, or the previous turn is empty or an error), retry the same output at most once; if the second attempt is blocked too, stop retrying and change the shape, dropping source quotations and reducing to a change list; if it still blocks after that, abandon the loop and tell the user to start over in a new conversation, because later outputs in such a conversation have been reported to block too.

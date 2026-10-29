@@ -4,7 +4,7 @@ description: Lakatos's proofs and refutations as a dialogue. Takes a strictly un
 license: MIT
 metadata:
   author: ajitta
-  version: "1.1.3"
+  version: "1.1.4"
   lineage: "new in plugin 1.3.0 (docs/research/candidates/modern-dialectic.md)"
   source: "https://github.com/ajitta/dialectic-skills"
 ---
@@ -29,14 +29,14 @@ This skill runs the method of Lakatos's *Proofs and Refutations* on a strictly u
 
 ## Step 0 — Is it a strictly universal claim?
 
-Take only a claim about every member of a class that says what is the case; a rule about what to do ("never deploy on Fridays", "every refund must be approved within a day") is a policy even when worded with all, every or never, or asked as "does it hold in every case". When the request is not such a claim, say in one line where it fits, and stop unless the user restates it as a claim about what is the case; do not restate it that way yourself:
+Take only a claim about every member of a class that says what is the case; a rule about what to do ("never deploy on Fridays", "every refund must be approved within a day") is a policy even when worded with all, every or never, or asked as "does it hold in every case". When the request is a task (write, fix, explain something), do it without this skill; when it is otherwise not such a claim, say in one line where it fits, and stop unless the user restates it as a claim about what is the case; do not restate it that way yourself:
 
 - "generally", "usually", "most", or a claim the user would keep despite one exception: dia-warrant (one counterexample to a defeasible claim is a rebuttal condition, not a refutation);
 - a plan, policy, decision or idea: dia-counterplan for the opposing case, dia-brainstorm to poke holes or stress-test, dia-negative for where it fails its own standard;
 - what a word means: dia-elenchus;
 - whether a set of statements yields Q and not-Q: dia-reductio.
 
-If it is unclear whether the user means "every" strictly, make that your one question. If the request is a task (write, fix, explain something), do it without this skill.
+If it is unclear whether the user means "every" strictly, make that your one question.
 
 **Whose claim.** Infer it: the user's own words make it theirs, and a pasted text, or "your answer" (or the same in any language), makes it that text's or your earlier answer's; say in your first line whose claim it is, so the user can correct you. For a text or your earlier answer, the user takes the claim up for this dialogue and still rules on the cases; for your earlier answer, also say that this is a self-examination, that you will not defend it, and that you are then arguing both sides.
 
@@ -68,8 +68,8 @@ Layout, one case per message (here C is "every sorted list can be binary-searche
 ## Step 4 — Classify the ruling
 
 - **Counts:** the user accepts the case; go to Step 5.
-- **Invalid:** the user names a condition the case fails under the Step 1 reading. Check it: if the fault holds, withdraw the case ("invalid: fails [condition]"); if not, show the check's line for that condition once more, after which a reply that narrows the term is monster-barring and one that keeps the Step 1 reading leaves the case disputed.
-- **Concept-stretching:** the case meets C only under a reading of a term wider than the Step 1 reading, so it does not count unless the user adopts the wider reading (a change to C, hard rule 5).
+- **Invalid:** the user names a condition the case fails under the Step 1 reading. Check it: if the fault holds because the case's check read a term more widely than Step 1 did, the ruling is concept-stretching (below); if it holds otherwise, withdraw the case ("invalid: fails [condition]"); if it does not hold, show the check's line for that condition once more, after which a reply that narrows the term is monster-barring and one that keeps the Step 1 reading leaves the case disputed.
+- **Concept-stretching:** the case meets C only under a reading of a term wider than the Step 1 reading, so it does not count unless the user adopts the wider reading (a change to C: state the old and the new reading).
 - **Monster-barring:** the user excludes a case that meets the Step 1 reading by narrowing a term ("that's not a real A", "by A I meant …"). Name the move and accept it only as a definition change: the new definition, the content lost, and that Lakatos's Rule 2 forbids it ("Do not allow a refutation to be dismissed as a monster"). The changed claim becomes C′.
 - **Disputed:** a bare "no", or insistence, with no condition named. Ask once which condition fails; if none is named, record the case as disputed, neither withdrawn nor counted, and move on to the next case.
 - **The dispute turns into what a key term means:** say so and offer dia-elenchus for that question; the case stays disputed.
@@ -78,7 +78,7 @@ Layout, one case per message (here C is "every sorted list can be binary-searche
 
 Branch on the case's label (Lakatos's Rules 2-4):
 
-- **Local only** (Lj fails, C survives the case): Lakatos's Rule 4. Replace Lj by a lemma the case does not refute and the proof can still use. C is unchanged, unless an earlier repair built Lj into C: then the replacement widens C′ to cover the case (Lakatos's deeper proof, ch. 1 section 6), and the user picks it like any C′.
+- **Local only** (Lj fails, C survives the case): Lakatos's Rule 4. Replace Lj by a lemma the case does not refute and the proof can still use. C is unchanged, unless an earlier repair built Lj into C: then the replacement widens C to cover the case (Lakatos's deeper proof, ch. 1 section 6), and the user picks it like any C′.
 - **Global only** (C fails, no listed lemma fails): the proof hides a lemma, so name the hidden lemma the case refutes and add it to the proof-analysis as the next L-number, marked [A, hidden] (the user accepts it by picking this option); then, by Lakatos's Rule 2, C′ is C with that lemma built in as a condition ("every A that … is B").
 - **Both** (C and Lj fail): lemma-incorporation, Lakatos's Rule 2: C′ is "every A that meets Lj is B".
 - **Weaker lemma** (the "suitable lemma" of Lakatos's Rule 2), for a case that fails C (global only or both), if you can find one: a condition weaker than the one you would build in, still usable by the proof, that more of C's cases meet but the counting case fails (show that in one line). Never offer a condition the counting case meets, or one that only restates B ("every A that ends up B is B"), because that empties C (SEP's "empty tautology") and is not a repair.
@@ -89,7 +89,7 @@ Number the options, saying for each in one line what it keeps and what it no lon
 
 ## Step 6 — Next round, ending, record
 
-A round is one case raised and ruled on, with its repair if it counted. When a round ends, after the user picks a repair other than giving up C for a case that counts or after Step 4 settles any other ruling, restate the current C and the changed lemmas in one line, and raise the next case in the same message. After the third round, and not after later rounds, that message restates C and offers to stop instead of raising a case; continue if the user asks. If the repairs have turned into a list of exceptions, say so.
+A round is one case raised and ruled on, with its repair if it counted. When a round ends, after the user picks a repair other than giving up C for a case that counts or after Step 4 settles any other ruling, restate the current C (the last C′ adopted, which Steps 3 to 5 call C in the next round) and the changed lemmas in one line, and raise the next case in the same message. After the third round, and not after later rounds, that message restates C and offers to stop instead of raising a case; continue if the user asks. If the repairs have turned into a list of exceptions, say so.
 
 End when the user stops, when they give up C, when they accept the offer to stop, or when you find no further case you can check, and say which; never call C proved. Then print the record as plain Markdown, not a code block, translated into the user's language. Its result is the first of these that applies:
 
@@ -102,7 +102,7 @@ End when the user stops, when they give up C, when they accept the offer to stop
 Record:
 
 - **Result:** … · rounds: n
-- **Claim:** C "…" → C′ "…", one arrow per change, each with its reason (lemma-incorporation, hidden lemma built in, weaker lemma, deeper proof, exception-barring, monster-adjustment, definition change, "I meant …"); a lemma replacement that leaves C unchanged goes under Proof-analysis
+- **Claim:** C "…" → C′ "…", one arrow per change, each with its reason (lemma-incorporation, hidden lemma built in, weaker lemma, deeper proof, exception-barring, monster-adjustment, definition change); a lemma replacement that leaves C unchanged goes under Proof-analysis
 - **Proof-analysis:** L1 [T] "…"; L2 [A, accepted] …; L3 [A, hidden, added after case k] …; replaced: …
 - **Prior criterion:** the user's answer (Popper's; an addition) | not asked (C is not empirical)
 - **Cases:** one line each: kind (global only / local only, Lj / both, Lj), evidence class, ruling (counts / invalid / concept-stretching / monster-barring / disputed), response

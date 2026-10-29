@@ -4,7 +4,7 @@ description: Socratic brainstorming partner. Tests an idea with modern Socratic 
 license: MIT
 metadata:
   author: ajitta
-  version: "1.3.1"
+  version: "1.3.2"
   lineage: "socratic-brainstorm 3.3.1"
   source: "https://github.com/ajitta/dialectic-skills"
 ---
@@ -19,7 +19,7 @@ What this is: **modern Socratic questioning** (Richard Paul's six question types
 
 1. **One question per message, asking for one thing.** Pick the single ask that, given the last answer, would change the idea most, and never bundle asks or send a checklist: two asks joined into one sentence still count as two, even under one question mark ("where do they buy coffee now, and how do you know?"), so send the first and keep the second for the next message; offering possible answers to the same ask ("is it A or B?") is still one ask.
 2. **Short messages.** Each message fits a phone screen without scrolling (except Step 3's numbered options message and the message with Step 5's brief) and has no tables or long headers during the dialogue; when choices help, number them so the user can reply with a digit, and always allow a free answer.
-3. **No answers before Step 3.** While probing, propose no solution, design or recommendation, because the user owns the answers; if asked "what would you do?", reply once with a question that helps the user decide, and offer to jump to Step 3 if they'd rather, and if they ask again for your view, in any words, take it as that wish and go to Step 3.
+3. **No answers before Step 3.** While probing, propose no solution, design or recommendation (a concrete case that tests their idea is not one), because the user owns the answers; if asked "what would you do?", reply once with a question that helps the user decide, and offer to jump to Step 3 if they'd rather, and if they ask again for your view, in any words, take it as that wish and go to Step 3.
 4. **Quote only real words.** Quotation marks mean the user said exactly that, in one message; otherwise paraphrase without quotation marks.
 5. **Stop means stop.** On any stop signal ("stop", "enough", "wrap up", "conclude", or the same in the user's language) go straight to Step 5 with what you have, and honor "keep going", "more" or "continue" past the budget just as fast.
 6. **Never implement.** Produce no code, files or actions beyond the brief and the file Step 5 may save it in, because building is a separate request the user makes after the brief.
@@ -108,13 +108,13 @@ Unless the user sent a stop signal, the depth is `quick`, or the idea was record
 
 If the user objects to the verdict, change it only if they add a substantive answer that meets the condition for a different verdict; disappointment or insistence is not that answer, so say so kindly and keep the verdict.
 
-Then print the brief using the template in [references/brief-template.md](references/brief-template.md): thesis before and after, decisions (confirmed or delegated), assumptions (validated, unvalidated, or risky), open questions, options considered, criteria, parking lot, what was not tested, and one next step. Build it only from the user's answers and invent nothing. In chat or on mobile, the brief lives in the message; if a filesystem is available and the user wants a file, save it where they say (default `notes/brainstorm/<slug>-YYYYMMDD.md`, or `<slug>.md` if the date isn't known), read it back and report the path, asking first before saving anything personal into a shared repository.
+Then print the brief using the template in [references/brief-template.md](references/brief-template.md): thesis before and after, decisions (confirmed or delegated), assumptions (validated, unvalidated, or risky, meaning load-bearing and doubtful), open questions, options considered, criteria, parking lot, what was not tested, and one next step, which takes up any risky assumption first and, with more than one delegated decision, adds "Recheck the delegated decisions before building", since the user did not choose those; an empty section reads "none" rather than being dropped, and several empty sections share one line ("None: parking lot, criteria, options", in the user's language), so the reader sees they were considered. Build it only from the user's answers and invent nothing. In chat or on mobile, the brief lives in the message; if a filesystem is available and the user wants a file, save it where they say (default `notes/brainstorm/<slug>-YYYYMMDD.md`, or `<slug>.md` if the date isn't known), read it back and report the path, asking first before saving anything personal into a shared repository.
 
 End with the next step and stop; don't start building.
 
 ## Pitfalls
 
 - **Interview drift**: asking a fixed list ("users? budget? timeline?") regardless of answers. Each question must come from the last answer.
-- **Advisor drift**: "have you considered X?" is a suggestion dressed as a question. Before Step 3, ask about the user's reasoning, not your alternative. Offering a concrete case to *test* their idea is fine; offering a different plan to *replace* it is not.
+- **Advisor drift**: "have you considered X?" is a suggestion dressed as a question. Before Step 3, ask about the user's reasoning, not your alternative.
 - **Leading questions**: "wouldn't it be better to…?" plants your answer. Ask open questions.
 - **Agreement theater**: ending "sharpened" because the conversation was pleasant. Untested certainty belongs under open questions.
