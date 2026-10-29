@@ -2,16 +2,18 @@
 
 State of the work and what is left, for the next agent session. Read `AGENTS.md` and `docs/spec.md` first; probe evidence is in `docs/probes.md`.
 
-## Next session: start here (2026-10-29)
+## Next session: start here (2026-10-30)
 
-Released and live: plugin `dia` **1.9.0** (`v1.9.0`, `main`, 2026-10-29; the owner uploaded `dialectic-skills-openai.zip` on chatgpt.com and confirmed version 1.9.0 there). No branch or pull request is open. Nothing is pending a decision. What is left, by who acts:
+Released and live: plugin `dia` **1.11.1** (`v1.11.1`, `main`, 2026-10-29). Whether the owner re-uploaded the 1.11.x `dialectic-skills-openai.zip` on chatgpt.com is not recorded here (1.9.0 was confirmed). Open work: the output/outcome/proxy audit on branch `ooproxy-audit` (started 2026-10-30, no skill changed yet), which the owner moved to the build VM `claude-box`; its pull request brings this section up to date when it merges. What is left, by who acts:
 
 | What | Who | Where to start |
 |---|---|---|
+| Output/outcome/proxy audit: evaluation-system audit, then a ceiling check for naming condition fit in dia-refine and dia-ratchet (owner decisions 2026-10-30) | agent on claude-box | `docs/writing-for-models/audit-ooproxy-2026-10-30.md` § 7 (work order, setup on claude-box included); item 37. |
 | dia-negative Rules 3/4 (split findings): two resolutions tried, both lowered strict gaps on the vacation policy; the 1.8.0 text stays | agent, if asked | `docs/writing-for-models/ab-d43-2026-10-28.md` § Owner rulings after 1.8.0. |
 | Directory listings (Anthropic, OpenAI) | owner submits | Item 13; `docs/directory-submission.md` § Owner steps. |
 | Watch items: Codex claiming a check it did not run (item 10); dia-reductio's contrary/contradictory item after 1.8.0 (`ab-d43-2026-10-28.md`) | owner reports | Not seen in use so far. |
-| Optional probes: n>2; the three Part P cells whose prompts are only on the build VM (`claude-box:~/work/dia-review/`); output quality | agent, if asked | Harnesses and results: `C:/Users/ajitta/work/dia-probes/` on the owner's Windows PC (its README says how to re-run). |
+| Optional probes: n>2; the three Part P cells whose prompts are only on the build VM (`claude-box:~/work/dia-review/`); output quality | agent, if asked | Harnesses and results: `C:/Users/ajitta/work/dia-probes/` on the owner's Windows PC (its README says how to re-run), copied to `claude-box:~/work/dia-probes/` on 2026-10-30. |
+| 1.11.x ChatGPT zip on chatgpt.com | owner checks | Re-upload `releases/dialectic-skills-openai.zip` if the account still shows an older version (item 14). |
 
 How releases go now (owner's rule): `main` deploys at once (claude.ai sync, Pages), so all work, review, probes and site changes happen on a branch named unlike a tag (not `vX.Y.Z`), then one pull request with green CI, merge, annotated tag `vX.Y.Z`, then the owner re-uploads `dialectic-skills-openai.zip` on chatgpt.com. The page and `og.png` carry no skill count, so a new skill needs only its plate, list entry and picture.
 
@@ -79,9 +81,10 @@ How releases go now (owner's rule): `main` deploys at once (claude.ai sync, Page
 | 31 | Meaning changes surfaced by the D43 rewrite: resolved in 1.8.0 (D46, D47), with a list left for the owner | — | `docs/writing-for-models/rewrite-2026-10-28.md`, table. None applied; each needs the owner's request and, where an eval exercises it, an A/B (dia-instruct step 1). |
 | 32 | Codex on an account with an uploaded `dia`: resolved 2026-10-28 | — | Probes Part T: Codex synced the account's uploaded dia 1.4.0 into its plugin cache and ran its `dia-confirm` in 3 of 4 old-name runs. After the owner re-uploaded `dialectic-skills-openai.zip` (1.6.1) on chatgpt.com, the synced copy is `created-by-me-remote/dia/1.6.1` (13 skills, no dia-confirm), and `dia-confirm …` loaded no skill in 2 of 2 Codex runs ("I don't have a `dia-confirm` skill available"). Re-upload the zip on every release (item 14). |
 | 33 | 1.6.x on the owner's phone: passed 2026-10-28 (owner report) | — | The owner reported that 1.6.x works correctly on the phone; per-prompt and per-app results were not reported. |
-| 34 | dia-intent 1.5.0 (D45): released in 1.7.0; findings 1–7 settled in 1.6.0 (D46), finding 8 in 1.7.0 (D49) | — | Owner ruling 2026-10-28: ship the A/B-tested text as is. Eight findings of the independent review of the adopted text stay open (`docs/writing-for-models/ab-dia-intent.md`). Finding 8 (keep the result marked unverified when the finished work is reported after approval) is a further meaning change and would need its own A/B. One A/B item went the other way (Sonnet landing proxy labelling 8/12 → 3/12; a rubric question about sign-up conversion). |
+| 34 | dia-intent 1.5.0 (D45): released in 1.7.0; findings 1–7 settled in 1.6.0 (D46), finding 8 in 1.7.0 (D49) | — | Owner ruling 2026-10-28: ship the A/B-tested text as is. Eight findings of the independent review of the adopted text stay open (`docs/writing-for-models/ab-dia-intent.md`). Finding 8 (keep the result marked unverified when the finished work is reported after approval) is a further meaning change and would need its own A/B. One A/B item went the other way (Sonnet landing proxy labelling 8/12 → 3/12; a rubric question about sign-up conversion, settled in round 3: a sign-up count is a direct measure, `ab-dia-intent.md`). |
 | 35 | Plugin 1.8.0 (D46, D47, D48): merged and tagged `v1.8.0` 2026-10-28 | — | Pull request with green CI; after the merge, tag `v1.8.0` and re-upload the ChatGPT zip. Records: `docs/writing-for-models/ab-dia-intent.md` (round 3), `ab-d43-2026-10-28.md`, `ab-dia-adjudicate/README.md` (round 4), probes Part U. Harnesses: `C:/Users/ajitta/work/dia-probes/` (`intent-hypothesis-ab/`, `next-1.8/`, `d43-ab/`, `menu-1.8/`, `adjudicate-r4/`). |
 | 36 | Plugin 1.9.0 (D49): merged and tagged `v1.9.0` 2026-10-29; ChatGPT zip uploaded and checked by the owner | — | Records: `ab-dia-intent.md` round 4, `ab-d43-2026-10-28.md` § Owner rulings after 1.8.0. Harnesses: `C:/Users/ajitta/work/dia-probes/` (`next-1.9/`, `intent-report-ab/`, `neg-ab/`). |
+| 37 | Output/outcome/proxy audit (2026-10-30): analysis, two adversarial reviews and owner decisions recorded; evaluation-system audit and the A1 ceiling check open | agent on claude-box | `docs/writing-for-models/audit-ooproxy-2026-10-30.md`. Of the first pass, only condition fit in dia-refine and dia-ratchet (A1, gated on a ceiling check) and the evaluation-loop findings stand; A2, B1, B3, B4, C2 and C3 were withdrawn, B2 is on hold. Review reports: `~/work/dia-probes/ooproxy-2026-10-30/` on claude-box and the Windows PC. |
 
 Observations from P8 (n=1 each; see `docs/probes.md`):
 
