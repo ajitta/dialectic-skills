@@ -1,10 +1,10 @@
 ---
 name: dia-instruct
-description: Writing for models, rules for text a model reads and follows. Checks or writes such text against four rules and the structure they imply, and when only a review is asked, reports breaches without changing the text. Use when creating, editing or reviewing a skill file (SKILL.md), an agent or sub-agent prompt, an AGENTS.md or CLAUDE.md, a rules file, or a hook or tool message, or the same in any language. Not for checking an answer or a draft written for people for factual errors and logical leaps (dia-refine), or ruling on reports others wrote about a text (dia-adjudicate).
+description: Writing for models. Checks or writes text a model reads and follows against four rules; a review-only request gets the breaches without edits. Use when creating, editing or reviewing a skill file (SKILL.md), an agent or sub-agent prompt, an AGENTS.md or CLAUDE.md, a rules file, or a hook or tool message, or the same in any language. Not for checking an answer or a draft written for people for factual errors and logical leaps (dia-refine), or ruling on reports others wrote about a text (dia-adjudicate).
 license: MIT
 metadata:
   author: ajitta
-  version: "1.1.0"
+  version: "1.1.1"
   lineage: "new in plugin 1.6.0 (spec D41); the author's writing-for-models draft, record in docs/writing-for-models/ in the source repository"
   source: "https://github.com/ajitta/dialectic-skills"
 ---

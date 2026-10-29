@@ -1,10 +1,10 @@
 ---
 name: dia-ratchet
-description: Improve an output through repeated rounds in which only outside evidence counts; each round fixes only defects that an external check confirmed (a tool that ran, or the user's own material), never on your own re-derivation, and locks what passed, until a stop condition is met. Use only when the user's message begins with dia-ratchet, or when the skill is invoked explicitly by name (for example /dia:dia-ratchet, $dia:dia-ratchet, $dia-ratchet or @dia-ratchet, or dia-menu's selector dia 10 or dia ratchet). Without that marker do not activate, however close the request sounds. Not for single-pass review (dia-refine).
+description: Improves an output in repeated rounds that fix only defects an external check confirmed (a tool that ran, or the user's own material), never your own re-derivation, and lock what passed. Use only when the user's message begins with dia-ratchet, or when the skill is invoked explicitly by name (for example /dia:dia-ratchet, $dia:dia-ratchet, $dia-ratchet or @dia-ratchet, or dia-menu's selector dia 10 or dia ratchet). Without that marker do not activate, however close the request sounds. Not for single-pass review (dia-refine).
 license: MIT
 metadata:
   author: ajitta
-  version: "1.5.0"
+  version: "1.5.1"
   lineage: "recursive-refine (installed copy, unversioned), output mode only; named dia-iterate until plugin 1.4.0"
   source: "https://github.com/ajitta/dialectic-skills"
 ---
