@@ -1,6 +1,6 @@
 # Proposed fixes for the 2026-10-29 audit
 
-Text fixes for the findings in `audit-2026-10-29.md`, for the owner to pick from. The owner's picks are under Owner decisions; stage 1 is applied in plugin 1.10.2 (spec D50; 1.10.0 and 1.10.1 were never released), and stage 2 is not applied yet.
+Text fixes for the findings in `audit-2026-10-29.md`, for the owner to pick from. The owner's picks are under Owner decisions; stage 1 is applied in plugin 1.10.2 (spec D50; 1.10.0 and 1.10.1 were never released), and stage 2 in plugin 1.11.0 (spec D51, record in `ab-stage2-2026-10-29.md`).
 
 ## How these were made
 

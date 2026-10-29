@@ -4,7 +4,7 @@ description: Rule on reports that others (people or agents) wrote about a target
 license: MIT
 metadata:
   author: ajitta
-  version: "1.1.1"
+  version: "1.2.0"
   lineage: "new in plugin 1.5.0 (spec D40); rules drawn from adjudication trials, docs/research/dia-adjudicate.md"
   source: "https://github.com/ajitta/dialectic-skills"
 ---
@@ -23,7 +23,7 @@ Several hard rules below give as their reason a misruling that judges made in tr
 
 ## Inputs
 
-1. Label the reports R1…Rn in a shuffled order and drop author names and roles ("critic", "verifier") if they were given. Rule on content, not on who wrote it.
+1. Label the reports R1…Rn in a shuffled order, saying in the Inputs line which label is which report as the user gave it, and drop author names and roles ("critic", "verifier") if they were given. Rule on content, not on who wrote it.
 2. State in one line what independence the setup has: the reports were or were not written by the same model as you, and whether you saw anything besides T and the reports. If a report was written earlier in this same conversation by you, mark its items "not independent". Say whether this is a single run or one of two runs (see Running twice).
 
 ## Hard rules
@@ -50,10 +50,10 @@ Quote T's conclusion C with its location. If T has several conclusions, take the
 List every checkable claim in T: facts, numbers, calculations, quotations and attributions, inference steps, and C itself, each with its location and type. Build this list before reading the reports closely, so the reports do not set the scope. Where T is ambiguous, record the reading you fix (Rule 10).
 
 ### Step 3: Merge report items into issues
-Group the reports' items into unique issues, one issue for each point however many reports make it. Map each issue to an inventory claim, or mark it "beyond T" (an outside counter-example or new evidence). Note which reports raised each issue, for information only (Rule 2).
+Group the reports' items into unique issues, one issue for each point however many reports make it, except that items on that point that could get different verdicts (a different value, scope or qualifier) form separate issues, so that an issue's verdict is the verdict on every report item in it; a differing severity label alone does not split an issue, and an overstated label goes to Step 6 (Rule 7). Map each issue to an inventory claim, or mark it "beyond T" (an outside counter-example or new evidence). Note which reports raised each issue, for information only (Rule 2).
 
 ### Step 4: Check
-In this order: calculations (run code if a code tool is available; otherwise re-derive and label it so), quotations and attributions (open the source, Rule 5), facts, condition fit (Rule 6), inference steps (re-derive). Open sources the reports cite before searching elsewhere, and for claims about a person's or body's position, search beyond the cited document (Rules 3–4). One check per item is enough.
+In this order: calculations (run code if a code tool is available; otherwise re-derive and label it so), quotations and attributions (open the source, Rule 5), facts, condition fit (Rule 6), inference steps (re-derive). Open sources the reports cite before searching elsewhere, and for claims about a person's or body's position, search beyond the cited document (Rules 3–4). One check per item is enough, except that a report item is ruled wrong, overstated or unverifiable only after the checks Rules 3–4 require.
 
 ### Step 5: Verdicts
 - **Each report issue:** valid / partly valid / overstated / wrong / unverifiable; calibrated severity (Rule 7); basis; evidence class.
@@ -77,7 +77,7 @@ Then count the must-check rows against the qualifying rows in the tables; if the
 
 ## Running twice (recommended)
 
-If you can start separate agents, or the user can run the skill in two separate chats, run it twice on the same input and compare the two outputs whenever the result will be used for a decision, and whenever either run overturns a report item. If neither is possible, say so in the Inputs line. Check only the items where the verdicts differ, against the sources, putting each disputed claim to the source as a direct question (Rule 3). In trials, the judge's own errors gathered almost entirely in these differing items, and the minority verdict was sometimes the correct one; a verdict is not wrong for being in the minority, nor right for being shared. A single run is acceptable for low-stakes use; say in the Inputs line that only one run was made.
+Whenever the result will be used for a decision or a run overturns a report item, and you can start separate agents or the user can run the skill in two separate chats, run it once more on the same input (this run is the first) and compare the two outputs, matching report items by the report as the user gave it, not by R label, since each run shuffles the labels, and claims in T by their place in T; the second run gets a message beginning with `dia-adjudicate`, the target, the reports and any material or instructions the user supplied, as the user gave them, and word that it is the second of two runs and starts no run of its own, but nothing from this run's output (verdicts, fixed readings, inventory), because a run that has seen it anchors on it. If neither is possible, say so in the Inputs line. Check only the items where the verdicts differ, against the sources, putting each disputed claim to the source as a direct question (Rule 3). In trials, the judge's own errors gathered almost entirely in these differing items, and the minority verdict was sometimes the correct one; a verdict is not wrong for being in the minority, nor right for being shared. A single run is acceptable when neither condition holds; say in the Inputs line that only one run was made.
 
 ## Without tools
 

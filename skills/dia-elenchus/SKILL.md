@@ -4,7 +4,7 @@ description: Socratic dialogue (elenchus) as in Plato. Asks "what is X?" about t
 license: MIT
 metadata:
   author: ajitta
-  version: "1.3.3"
+  version: "1.4.0"
   lineage: "socratic-elenchus 1.3.1"
   source: "https://github.com/ajitta/dialectic-skills"
 ---
@@ -56,7 +56,7 @@ If dia-brainstorm is named in the same request, say in that first message that t
 
 ## Step 2 — A definition, not examples
 
-When an answer is an example or a list rather than a definition, as first answers often are, ask what all the cases share, the thing that makes them X: "That's one example. What makes all of them X?"; when the user gives examples again after you asked once, take the next ask from the row "Examples again after you asked once" in [references/elenchus-patterns.md](references/elenchus-patterns.md).
+When an answer is an example or a list of examples rather than a definition, as first answers often are, ask what all the cases share, the thing that makes them X: "That's one example. What makes all of them X?"; when it is a list of features or criteria, a synonym, "depends" or a refusal, or examples again after you asked once, take the next ask from the matching row of "Forcing a definition" in [references/elenchus-patterns.md](references/elenchus-patterns.md).
 
 Restate the definition in one sentence as a statement, not a question ("So a good recommendation is one that spares you the deliberating."), with the first premise question in the same message. The restatement must keep the user's own key words; if you had to paraphrase, say "in my words" so they can correct it (a flag, not a second question), and if they object, take their wording and continue. Never spend a message only on confirming ("So you mean …?", "Can I take it as …?"), because that stalls the examination.
 
@@ -83,9 +83,9 @@ When agreed premises conflict with the definition, lay out the argument in at mo
 > ② the same menu every day spares you deliberating but is not a good recommendation (agreed)
 > So ① and ② can't both stand as they are. Which would you change?
 
-The user may withdraw a premise instead of the definition; that is their call, and it counts as a revision, except a premise re-asked under Rule 3, since its refutation was void and the definition did not fall. If they say a step doesn't follow, check it honestly and withdraw it only if you can name what is wrong with it (a premise they never agreed to, a shifted word, a gap in the inference); if you cannot, show the step again and keep it, since disagreement alone is not a reason to withdraw.
+The user may withdraw a premise instead of the definition; that is their call, and it counts as a revision that keeps the definition's wording, so Step 5's asks do not apply: end that definition's item in the record with "user withdrew premise ②" (its number), as the record template does, start a new item with the same wording (the ended item did not fall), and go on to the next premise question (Step 3); the exception is a premise re-asked under Rule 3, which is no revision, since its refutation was void and the definition did not fall. If they say a step doesn't follow, check it honestly and withdraw it only if you can name what is wrong with it (a premise they never agreed to, a shifted word, a gap in the inference); if you cannot, show the step again and keep it, since disagreement alone is not a reason to withdraw.
 
-If several premises produce no contradiction, the definition is holding: say so, and test it from another side, the other breadth direction or a consequence.
+If several premises produce no contradiction with the definition, say so, and test it from another side, the other breadth direction or a consequence.
 
 ## Step 5 — A revision is a new idea
 
@@ -99,6 +99,6 @@ End when the user stops, when they can't produce a new definition (aporia), or w
 
 Then read [references/record-template.md](references/record-template.md) and print the record with **all** its sections, translated into the user's language, as plain Markdown, not a code block. Its result is exactly one of four labels, never another: **aporia** when at least one definition fell (one revised after a refutation Rule 3 withdrew counts as fallen only if the re-checked conflict still holds) and the user has no surviving definition or the current one is admittedly unclear, even when another label also fits; **holding (provisional)** when the current definition passed at least one real breadth test and one goal or consequence test (the holding bar); **partly tested** when the user stopped after the current definition passed some test but before it met the holding bar; **stopped before testing** when the user stopped while the current definition was still untested, and whenever no definition was ever given. If a filesystem exists and the user asks, save the record where they say, but ask before saving anything personal into a shared repository.
 
-## After the dialogue (not Socratic, only on request)
+## After the dialogue (not Socratic)
 
-If the user then asks for options or advice, say plainly that the Socratic part is over and you can now suggest things, label each suggestion as yours, and never mix suggestions into the dialogue; if they want a full options-and-plan session, point them to the `dia-brainstorm` skill and hand it the record.
+Once the record is printed, or once you stop at Step 1, and the user named dia-brainstorm in the request that started the dialogue, or whenever they later ask for options or advice, say plainly that the Socratic part is over; for the named dia-brainstorm or a full options-and-plan session, go on to the `dia-brainstorm` skill with the record as its input if that skill is available, or tell them to invoke it with the record, and for other advice, suggest things yourself, label each suggestion as yours, and never mix suggestions into the dialogue.

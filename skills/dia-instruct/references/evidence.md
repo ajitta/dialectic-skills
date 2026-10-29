@@ -25,15 +25,15 @@ cases are the three cases named release-notes, checkout and logo.
 | Rule 2 | One A/B in the source (below), 24 runs per arm: borderline, model version not recorded, traces deleted |
 | Rule 1's A/B | 8 runs per arm, model version not recorded, so below the A/B standard in SKILL.md |
 | Rule 3 | Published guidance and one benchmark on older models and verifiable instructions (below) |
-| Rule 4 | Practice, unmeasured |
+| Rule 4 | Practice, unmeasured; the clause on names for a changing value comes from a review finding (Review findings below) |
 | Functional-programming analogies (total function, `if` without braces, type signature, alias, separate function with explicit arguments, standard-library call) | The author's explanatory model, unmeasured |
-| Structure; By kind of text | Practice, unmeasured, extrapolated from the one measured file |
+| Structure; By kind of text | Practice, unmeasured, extrapolated from the one measured file; the hand-off clause on role and done-when comes from a review finding (Review findings below) |
 | Lead 1 (fewer files read) | Weak signals in the source (Leads below) |
 | Lead 2 (general instruction over a step-by-step plan; number only where order or completeness matters) | Anthropic's prompting guidance (below) |
 | Lead 3 (target behavior over the ban) | Anthropic's prompting guidance ("tell Claude what to do instead of what not to do"); the exceptions for prohibitions are practice |
 | Leads 4 and 5 (done-when, leading word) | Practice, unmeasured |
 | Lead 6 (examples) | Anthropic's prompting guidance: examples are among the most reliable ways to steer output, should be varied so the model does not pick up unintended patterns, and worked examples shape how the model approaches similar problems in its thinking. That a single example narrows reasoning in a judgment rule is the author's concern, unmeasured |
-| Writing, editing or reviewing text, step 1 | Keeping meaning changes only on request: practice, unmeasured. A/B conditions: lessons from the source's runs (Checking a change below) |
+| Writing, editing or reviewing text, step 1 | Keeping meaning changes only on request: practice, unmeasured. A/B conditions: lessons from the source's runs and later A/B runs (Checking a change below); comparing only runs that loaded the text is practice, unmeasured |
 | Writing, editing or reviewing text, steps 2 and 3 | Practice, unmeasured |
 
 ## Rules
@@ -43,7 +43,7 @@ cases are the three cases named release-notes, checkout and logo.
 | 1. Each paragraph an expression for its result (the condition stays with what it gates) | Sonnet, B1, 8 runs per arm. Release-notes: split 2/8, short 8/8 (p = 0.007). Checkout: 6/8 vs 8/8 (p = 0.47). Failing runs read the changelog and release notes, then wrote; in 37 of 38 runs, listing the folders went with reading the records and passing. Prose also failed release-notes once in 6 | One case significant, one model. On Opus (B3, 12 runs) split and short passed every run, on another build, so not a clean model comparison. That the effect comes from keeping the fallback (listing the folders) next to its condition is an inference made when this skill was written, not the source's |
 | 2. Scope word | Opus, same-day head-to-head; the instruction file changed by one word, "touches" → "edits". Out-of-scope edits 5/24 → 0/24 (p ≈ 0.05); logo alone 4/12 → 0/12 (p ≈ 0.09). The edited files were ones the task had only read, such as a README with a stale table | Borderline. In another Opus batch prose with "touches" made out-of-scope edits on logo 1 of 12 times, so the baseline varies. Traces were deleted |
 | 3. Fewer instructions, with reasons | External. Anthropic's prompting best practices: context or motivation behind an instruction helps, and Claude can generalize from the explanation. Harada et al., "When Instructions Multiply" (Findings of EMNLP 2025, arXiv 2509.21051): with ManyIFEval, accuracy falls as instructions per prompt rise to ten (objectively verifiable instructions such as keyword, length and formatting constraints) | Older models, verifiable instructions; applying it to judgment rules is an extrapolation |
-| 4. One name per thing | None | Practice |
+| 4. One name per thing | None; a review finding for the changing-value clause | Practice |
 
 The agent-prompt item's reason (a demand for facts its tools cannot read makes the model
 invent them) is the author's unmeasured observation.
@@ -93,6 +93,21 @@ Anthropic's prompting guidance supports a related point: a general instruction o
   hard cases.
 - Record the model version, not only the alias, and keep the traces until the result is
   written up.
+- Later A/B runs on other skills (Sonnet and Haiku chosen by alias, version not recorded,
+  so below the A/B standard in SKILL.md; 12 runs per arm, every run loaded the skill in
+  these cells; traces kept): three first-round differences of 3 runs in 12, written old
+  arm → new arm, did not come back on a same-day re-run
+  (8/12 → 5/12, then 4/12 and 4/12; 7/12 → 10/12, then 8/12 and 7/12; 7/12 → 4/12, then
+  10/12 and 10/12). Haiku loaded the skill under test in 1 of 4 runs of a baseline check
+  and in 7 of 12 runs of each arm of another task.
+
+## Review findings (unmeasured)
+
+- A name built from a step number kept being read as that step's value after the text
+  had made the value change.
+- A prompt handing a task to an independent sub-agent run gave its inputs but not its
+  role or done-when; review judged it likely to let that run decline the task, report
+  itself as the only run, or start another.
 
 ## Not measured
 
@@ -102,5 +117,6 @@ descriptions.
 ## Sources
 
 - The source: unpublished; raw data not public.
+- Later A/B runs and reviews: unpublished.
 - Anthropic, Claude prompting best practices: https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices
 - Harada et al., When Instructions Multiply: https://arxiv.org/abs/2509.21051

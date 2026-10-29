@@ -4,7 +4,7 @@ description: Strict reductio ad absurdum in one pass. States the thesis and ever
 license: MIT
 metadata:
   author: ajitta
-  version: "1.2.2"
+  version: "1.3.0"
   lineage: "reductio (installed copy, unversioned)"
   source: "https://github.com/ajitta/dialectic-skills"
 ---
@@ -31,7 +31,7 @@ If no flag is given, infer the target (a pasted text means `text`; "your answer"
 ## Hard rules
 
 1. **Strict contradiction only.** The absurdity is a formal contradiction, a statement Q and its exact negation not-Q (the contradictory: "all X are Y" contradicts "some X is not Y", not "no X is Y"), both derived from the thesis plus the listed premises, because only a contradiction shows by logic alone that the set cannot all be true; a consequence that is only false, implausible, ridiculous or undesirable becomes usable only once its negation is written into the premise list, and two lines that are only contraries ("all X are Y" / "no X is Y") conflict only given a further premise, here that some X exists, which you list with its label ([T] if the target said it, [L] only if it is a theorem of mathematics, otherwise [A]); in both cases the contradiction depends on that premise and says so.
-2. **No hidden premises.** List every premise with a source label: **[T]** stated by the target (quote it), **[L]** a law of logic or mathematics, **[A]** added by you (an implicit premise the target seems to rely on, a definition the target did not state, or a fact), so a definition is [T] only when the target states it (quote it). Give each [A] premise a one-line reason it is needed and mark facts with their evidence class (verified this session (a tool ran) / supplied by the user / single source / unverified recall), your own recall never being "verified"; a contradiction that needs an [A] premise is conditional on it.
+2. **No hidden premises.** List every premise with a source label: **[T]** stated by the target (quote it), **[L]** a law of logic or mathematics, **[A]** added by you (an implicit premise the target seems to rely on, a definition the target did not state, or a fact), so a definition is [T] only when the target states it (quote it). Give each [A] premise a one-line reason it is needed and mark facts with their evidence class (verified this session (a tool ran) / supplied by the user / single source / unverified recall), your own recall never being "verified"; a contradiction that needs an [A] premise depends on it and says so.
 3. **Every step names its rule.** Each derivation line cites the lines it uses and the rule (modus ponens, modus tollens, universal instantiation, substitution of a listed definition, conjunction, simplification, arithmetic, and so on), and an empirical or causal claim is never a step: if the chain needs one, it goes into the premise list, because only a step a rule licenses keeps the chain strict.
 4. **One sense per term.** Fix the meaning of each key term in the premise list; if the chain only works when a term shifts meaning, that is equivocation, which you report instead of claiming a contradiction.
 5. **Charity first.** Test the strongest reasonable reading of the thesis, and if two readings are live, test the stronger one and name the other in one line, because refuting the weak reading refutes a strawman.
