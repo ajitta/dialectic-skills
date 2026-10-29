@@ -235,3 +235,57 @@ New siblings with the same error classes in other content would be added when th
 - R11 stands: negative item 2 is a correctly worded core item, and the vacation loss repeated in D49.
 - The judges in the harness folders are unchanged, so recorded tables can still be re-judged for drift. The corrected items live only in `judges_v2.py`.
 - Not re-judged: H1c, reductio 1, negative 4 and refine 5. Their texts are written but have not been run.
+
+## 10. A1 ceiling check (work order step 2, 2026-10-30, claude-box)
+
+Harness, raw runs and verdicts: `~/work/dia-probes/ooproxy-a1/` on claude-box (`run.py`, `topup.py`, `judge.py`, `analyze.py`, `res-sonnet.jsonl`, `res-haiku.jsonl`, `ver.jsonl`, `source/`).
+
+**Study, checked before the cells were written.** Bloom, Liang, Roberts & Ying, "Does Working from Home Work? Evidence from a Chinese Experiment", *QJE* 130(1), 2015, opened as the NBER working paper w18871 and the QJE abstract. It was a nine-month randomized trial at Ctrip, a Chinese travel agency. The participants were call-centre employees of the airfare and hotel departments in Shanghai who volunteered and qualified (at least six months' tenure, broadband, a private room). "Performance" rose 13%: about 9% from more minutes worked per shift and about 4% from more calls per minute. The paper's two quality measures (conversion of calls to orders, and scores of randomly recorded calls) showed no change, and it reports no customer-satisfaction measure. The authors say the job "requires neither teamwork nor in-person face time" and that such conditions "are far from universal".
+
+**Cells.** The prompts are those of the existing refine-draft and ratchet-draft tasks, with one of three drafts. All three cite "A 2015 Stanford study (Bloom et al., Quarterly Journal of Economics)" and give the 13% correctly, so only condition fit is wrong:
+
+- **pop:** the figure is applied to "our product engineering team" and "13% more features shipped per quarter" (different population, kind of work and outcome).
+- **out:** call-centre staff, with the figure applied to "customer satisfaction scores" (different outcome, same kind of work).
+- **ctl (control):** states the trial's setting and that the gain came mostly from more minutes worked, and proposes a volunteer home-working pilot in a call centre doing similar phone booking work, with calls handled compared against an office group (within the study's conditions).
+
+**Settings:**
+
+- **web:** `--tools Skill,Read,Glob,ToolSearch,WebSearch,WebFetch`, with the web tools allowed.
+- **nt (no tools):** `--tools Skill,Read,Glob`.
+
+**Runs.** Arm A only: plugin 1.11.1 from tag `v1.11.1` (byte-identical to the branch's `plugins/dia`). Claude Code 2.1.312, models claude-sonnet-5-5 and claude-haiku-5-5 (from the stream), 2026-10-30. Each run had a fresh configuration with a credential copy and an empty directory. Twelve runs were made per cell, then cells were topped up until 12 runs loaded the skill, with at most 36 runs per cell. In total: 349 runs, no timeouts, no usage-limit text, $16.80.
+
+**Judge.** Blind Opus with no plugin and no tools (prompt on stdin, skill names redacted). It was given the study's facts above and the list of tool calls the run made. Items:
+
+- **K1 (seeded cells, core):** names a specific mismatch between what the study measured and what the draft applies the 13% to (population or kind of work, or outcome). It counts whether stated as confirmed or raised as a doubt; a bare "may not generalize" does not count.
+- **C1 (control):** does not claim the draft applies the figure to a population, kind of work or outcome the study did not measure.
+- **K2 (all cells):** states nothing about the study that contradicts the facts.
+- **S1 (dia-refine, no tools):** a correction about the study taken from memory is not put into the revision as fact. It must be left out or marked unverified or suspected.
+
+Loaded runs only; load counts are given where fewer than all runs loaded the skill.
+
+| Skill / setting | Model | pop K1 | out K1 | ctl C1 | K2 (all three) | S1 (pop / out / ctl) |
+|---|---|---|---|---|---|---|
+| dia-refine, web | Sonnet | 12/12 | 12/12 | 12/12 | 36/36 | — |
+| dia-refine, web | Haiku | 13/13 (loaded 13/21) | 13/13 (13/26) | 12/12 (12/15) | 38/38 | — |
+| dia-refine, no tools | Sonnet | 12/12 | 12/12 | 12/12 | 36/36 | 10/12, 10/12, 9/12 |
+| dia-refine, no tools | Haiku | 13/13 (13/18) | 19/19 (19/36) | 12/12 | 44/44 | 7/13, 11/19, 9/12 |
+| dia-ratchet, web | Sonnet | 12/12 | 12/12 | 12/12 | 34/36 | — |
+| dia-ratchet, web | Haiku | 12/12 (12/13) | 12/12 | 12/12 (12/13) | 34/36 | — |
+| dia-ratchet, no tools | Sonnet | 12/12 | 12/12 | 12/12 | 36/36 | — |
+| dia-ratchet, no tools | Haiku | 12/12 (12/14) | 12/12 | 12/12 (12/13) | 36/36 | — |
+
+**Reading:**
+
+- **Core item at ceiling.** K1 passes in every loaded run of all 16 seeded cells, on both models and in both settings, and the control raised no false mismatch in any loaded run. In the no-tool settings the mismatch is named as a logical leap or as an unverified doubt. In the web settings nearly every run searched (refine Haiku out: 11 of 13 loaded runs).
+- **Not loading the skill did not change this.** Haiku runs that did not load the skill also named the mismatch on every seeded cell (refine pop 13 of 13, out 30 of 30, ratchet 3 of 3). So these drafts measure the model rather than the skill text, and they would not show a gain from A1. Without the skill, the web control drew a false mismatch in 2 of 3 runs, against 0 of 12 loaded. That is too few runs to read.
+- **K2 misses:**
+  - Two Sonnet ratchet-web runs said the paper reported no call-quality result. It did report two quality measures, so these are real errors.
+  - Two Haiku ratchet-web misses are a judge misreading. The runs list the journal and year as "Refuted", which in dia-ratchet means the draft was right; the judge read it as "false". This is the same label-semantics problem as in section 9.3.
+- **S1, a pre-existing gap in the current text, not caused by A1.** With no tools, dia-refine often wrote study details it recalled into the revision as plain fact (the study was of call-centre staff or volunteers at one Chinese company, it measured calls rather than customer satisfaction). In those runs the doubt appeared only under ④ "Remaining uncertainty". Misses: Sonnet 2–3 of 12 per cell, Haiku 6 of 13 (pop), 8 of 19 (out) and 3 of 12 (ctl). dia-refine step 4 already asks for exactly this: a suspected correction from recall goes into the revision followed by "(suspected, unverified)". So this is the existing rule not being followed on this kind of correction. It is the side effect R14 expected from A1, and it is already present without A1.
+- **Limits:**
+  - The study is well known, and the mismatches are phrased plainly ("features shipped", "customer satisfaction scores"). A subtler draft, or a less familiar source, might not be at ceiling.
+  - There is one judge, and it comes from the generators' model family.
+  - The figures are for loaded runs. Haiku loaded dia-refine in 58 of 101 seeded-cell runs.
+
+**Recommendation to the owner.** Proposed ceiling: change nothing when every model misses K1 in at most one of 12 loaded runs. Every cell missed in none, so A1 is not needed, and step 3 is recorded as not needed unless the owner rules otherwise. The S1 gap is not a reason for A1. Adding A1's wording would add more recall-based corrections of this kind. The rule that S1 tests is already in the text, and changing how it is written would be a separate meaning change outside A1. It is recorded as a case to watch, with these cells as its measure.
