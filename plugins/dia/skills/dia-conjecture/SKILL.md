@@ -4,7 +4,7 @@ description: Lakatos's proofs and refutations as a dialogue. Takes a strictly un
 license: MIT
 metadata:
   author: ajitta
-  version: "1.1.5"
+  version: "1.1.6"
   lineage: "new in plugin 1.3.0 (docs/research/candidates/modern-dialectic.md)"
   source: "https://github.com/ajitta/dialectic-skills"
 ---
@@ -19,7 +19,7 @@ This skill runs the method of Lakatos's *Proofs and Refutations* on a strictly u
 2. **Every case shows its check,** condition by condition, so the user can fault it: that it meets C's antecedent (it is an A under the reading in force, defined in Step 1); for a case against C (global only or both), that it violates the consequent (it is not B); and for a case against a lemma (local only or both), which lemma it violates and how; a case whose check you cannot write is not raised.
 3. **Evidence classes.** Each case says what it rests on: logic or definition / supplied by the user / verified this session (a tool ran) / single source / unverified recall, and your own recall is never "verified"; if a search tool is available, you may check a fact a case rests on. A C′ forced by a case that rests only on unverified recall is **conditional** on that case.
 4. **The user rules; you classify.** Never rule for the user on whether a case counts; you classify their ruling by Step 4.
-5. **No silent redefinition.** An "I meant …" or a narrowed term is a change to C: state the old and the new wording and what the new one no longer covers, since Lakatos's Teacher refuses "surreptitious changes" of this kind.
+5. **No silent redefinition.** An "I meant …" or a narrowed term is a change to C: state the old and the new wording and what the new one no longer covers, since Lakatos's Teacher refuses "surreptitious changes" of this kind, except that, before the first case is raised, a correction that brings wording of yours in the Step 1 restatement back to the words of C's source (wording you added, replaced or left out, judged by the source's meaning when you translated it) is not a change to C: C as fixed in Step 1 becomes the restatement with only that wording brought back, because that wording was yours; any part of a correction that adds a restriction the source's words do not contain is a change to C, and so is every correction once a case is raised, because the user has then ruled under the restatement that Step 1 offered for correction before any case.
 6. **Withdraw only for a named defect.** Withdraw a case, a label or a recommendation only when you can name its defect (a condition the case fails, a misread term, a wrong evidence class); insistence is not a defect.
 7. **The user decides the repair.** Recommend one option, and never write C′ as adopted before the user picks.
 8. **Quote only real words.** Quotation marks mean the user (or the text) said exactly that, so drop them when you paraphrase.
@@ -42,9 +42,9 @@ If it is unclear whether the user means "every" strictly, make that your one que
 
 ## Step 1 — Fix C, ask for the proof
 
-Restate C as "every A is B" in the user's key words, saying what A covers and what B asserts, and if you had to paraphrase, say "in my words" (a flag, not a second question). In the same message ask one question: why they hold it, that is, their argument or proof, offering to reconstruct it as [A] lemmas if they have none.
+Restate C as "every A is B" in the key words of C's source, saying what A covers and what B asserts, and if you had to paraphrase, say "in my words" (a flag, not a second question). In the same message ask one question: why they hold it, that is, their argument or proof, offering to reconstruct it as [A] lemmas if they have none.
 
-The reading of C you state here, changed by each definition change the user adopts (hard rule 5, or a wider reading under Step 4), is the reading in force, and hard rule 2 and Step 4 check each case against it as it stood when that case was raised, so an adopted change applies from the next case on; the one exception is a wider reading adopted for a concept-stretching case, which also applies to that case, because the user widened the claim to take that case in; a narrowing never reaches back to a raised case that meets the reading in force, which stays monster-barring, because Lakatos's Rule 2 forbids dismissing a refutation as a monster.
+The reading of C you state here (as corrected under hard rule 5 before the first case), changed by each definition change the user adopts (hard rule 5, or a wider reading under Step 4), is the reading in force, and hard rule 2 and Step 4 check each case against it as it stood when that case was raised, so an adopted change applies from the next case on; the one exception is a wider reading adopted for a concept-stretching case, which also applies to that case, because the user widened the claim to take that case in; a narrowing never reaches back to a raised case that meets the reading in force, which stays monster-barring, because Lakatos's Rule 2 forbids dismissing a refutation as a monster.
 
 ## Step 2 — Proof-analysis
 
@@ -91,20 +91,20 @@ Number the options, saying for each in one line what it keeps and what it no lon
 
 ## Step 6 — Next round, ending, record
 
-A round is one case raised and ruled on, with its repair if it counted. When a round ends, after the user picks a repair other than giving up C for a case that counts or after Step 4 settles any other ruling, restate the current C (C as first stated in Step 1, changed by every repair and definition change the user has adopted, if any; Steps 3 to 5 call it C in the next round) and the changed lemmas in one line, and raise the next case in the same message. After the third round, and not after later rounds, that message restates C and offers to stop instead of raising a case; continue if the user asks. If the repairs have turned into a list of exceptions, say so.
+A round is one case raised and ruled on, with its repair if it counted. When a round ends, after the user picks a repair other than giving up C for a case that counts or after Step 4 settles any other ruling, restate the current C (C as fixed in Step 1, changed by every repair and definition change the user has adopted, if any; Steps 3 to 5 call it C in the next round) and the changed lemmas in one line, and raise the next case in the same message. After the third round, and not after later rounds, that message restates C and offers to stop instead of raising a case; continue if the user asks. If the repairs have turned into a list of exceptions, say so.
 
 End when the user stops, when they give up C, when they accept the offer to stop, or when you find no further case you can check, and say which; never call C proved. Then print the record as plain Markdown, not a code block, translated into the user's language. Its result is the first of these that applies:
 
 - **given up** (the user gave up C);
 - **stopped before testing** (no case was ruled on);
-- **open** (a case against the current C is disputed, or a counting case has no repair picked);
+- **open** (a counting case has no repair picked, or a disputed case's check, redone under the reading in force at the end, still holds against the current C or against a lemma the current proof still uses, not replaced and not built into C; a disputed case that a later repair excludes does not keep the result open, because the current C no longer claims anything about it, while one that a narrowing excludes is monster-barring (Step 1), and either way the case stays in the record);
 - **revised, holding against the cases tried** (C′ adopted);
 - **holding against the cases tried** (C unchanged).
 
 Record:
 
 - **Result:** … · rounds: n
-- **Claim:** C "…" (as first stated) → C′ "…", one arrow per change, each with its reason (lemma-incorporation, hidden lemma built in, weaker lemma, deeper proof, exception-barring, monster-adjustment, definition change); a lemma replacement that leaves C unchanged goes under Proof-analysis
+- **Claim:** C as fixed in Step 1, in quotation marks only when it is the exact words of C's source, and when Step 1 paraphrased them, followed by the source's exact words in quotation marks in their original language (hard rules 8 and 11) → C′, one arrow per change, each with its wording, unquoted when you worded it, and its reason (lemma-incorporation, hidden lemma built in, weaker lemma, deeper proof, exception-barring, monster-adjustment, definition change); a lemma replacement that leaves C unchanged goes under Proof-analysis
 - **Proof-analysis:** L1 [T] "…"; L2 [A, accepted] …; L3 [A, hidden, added after case k] …; replaced: …
 - **Prior criterion:** the user's answer (Popper's; an addition) | not asked (C is not empirical)
 - **Cases:** one line each: kind (global only / local only, Lj / both, Lj), evidence class, ruling (counts / invalid / concept-stretching / monster-barring / disputed), response

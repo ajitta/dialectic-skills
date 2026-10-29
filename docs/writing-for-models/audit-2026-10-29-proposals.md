@@ -1,6 +1,6 @@
 # Proposed fixes for the 2026-10-29 audit
 
-Text fixes for the findings in `audit-2026-10-29.md`, for the owner to pick from. The owner's picks are under Owner decisions; stage 1 is applied in plugin 1.10.1 (spec D50; 1.10.0 was never released), and stage 2 is not applied yet.
+Text fixes for the findings in `audit-2026-10-29.md`, for the owner to pick from. The owner's picks are under Owner decisions; stage 1 is applied in plugin 1.10.2 (spec D50; 1.10.0 and 1.10.1 were never released), and stage 2 is not applied yet.
 
 ## How these were made
 
@@ -700,6 +700,6 @@ New:
 - Sources live in the `method:` field of each judgment-log line, a log you keep while working and do not print (a URL, "code execution", "checked against the user's instructions");
 ```
 
-## After stage 1: dia-conjecture 1.1.5 (plugin 1.10.1)
+## After stage 1: dia-conjecture 1.1.5 and 1.1.6 (plugins 1.10.1 and 1.10.2)
 
-An independent re-read of the stage 1 branch found that L2 made C in Steps 3 to 5 the current claim while hard rule 2 and Step 4 still checked every case against "the Step 1 reading", which no adopted definition change updated, and that "the last C′ adopted" left out a wider reading adopted under concept-stretching and the case where nothing was adopted. The owner accepted the recommended fix; what changed, its review rounds and what was left as found are in spec D50.
+An independent re-read of the stage 1 branch found that L2 made C in Steps 3 to 5 the current claim while hard rule 2 and Step 4 still checked every case against "the Step 1 reading", which no adopted definition change updated, and that "the last C′ adopted" left out a wider reading adopted under concept-stretching and the case where nothing was adopted. Three gaps the re-read left as found (the **open** result, hard rule 5 and the Claim line) were closed in 1.1.6. The owner accepted the recommended fixes; what changed, its review rounds and what was left as found are in spec D50.
