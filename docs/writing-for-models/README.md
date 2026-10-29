@@ -42,6 +42,15 @@ pushed history.
    have a sub-agent that did not write them review `skills/dia-instruct/SKILL.md` and
    `skills/dia-menu/SKILL.md` once more against dia-instruct.
 
+## Rules for A/B records (spec D53)
+
+These apply to every A/B record in this folder from 2026-10-30 on. They are this repository's working rules, not text of a shipped skill.
+
+1. **Core items apart.** Classify each checklist item as core (the result is wrong without it), compliance (a form, label, procedure step or general impression is present) or label (a label is right against a key or the skill's own rule), and report the core items in their own table.
+2. **A compliance gain does not offset a core loss.** A cell where a compliance item gains while a core item loses counts as a loss for the change, whatever the size of the gain; the loss is then re-run like any other (spec D51: revert when the same-day re-run repeats it, keep when it does not).
+3. **Held-out cells.** Seeded cells in the held-out set are not run while a text is being written or revised; they are run once, on both arms, for the final acceptance of a meaning change. The set: dia-adjudicate case1 and case3 (`ab-dia-adjudicate/`, with the answer key) and the condition-fit cells of `audit-ooproxy-2026-10-30.md` section 10. A cell that is used to choose a text leaves the set; build a sibling (same error class, other content) when one is needed.
+4. **Judge keys.** A label is scored against a key, not for being present, where a key exists (`audit-ooproxy-2026-10-30.md` section 9.3). For dia-intent's measures: a count of sign-ups for the subscription is a direct measure of subscription sales; a conversion rate is an indirect one.
+
 ## What is here
 
 | Path | What |
