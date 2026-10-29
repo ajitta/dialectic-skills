@@ -1,6 +1,6 @@
 # Proposed fixes for the 2026-10-29 audit
 
-Text fixes for the findings in `audit-2026-10-29.md`, for the owner to pick from. Nothing here is applied; no skill file is changed.
+Text fixes for the findings in `audit-2026-10-29.md`, for the owner to pick from. The owner's picks are under Owner decisions; stage 1 is applied in plugin 1.10.1 (spec D50; 1.10.0 was never released), and stage 2 is not applied yet.
 
 ## How these were made
 
@@ -672,7 +672,7 @@ a meaning change stays only when the user asked for it or a finding requires it
    - **Stage 1 (plugin 1.10.0, unmeasured):**
      - wording: L5, L8, L11, L12, L13, L20, M4 edit 1
      - template-unread cases: M8, L4, L18
-     - skills with no eval: M9 (dia-counterplan), M10, L1, L2, L3 (dia-conjecture), M15 (dia-instruct), M13, L14 (dia-menu; routing probes exist but were not run)
+     - skills with no eval: M9 (dia-counterplan), M10, L1, L2, L3 (dia-conjecture), M15 (dia-instruct), M13, L14 (dia-menu; routing probes exist but were not run at the time of the decision; they ran afterwards, probes Part V)
      - The owner accepted the meaning changes as unmeasured.
    - **Stage 2 (A/B):** M1, M2, M3, M4 edit 2, M5, M6(b), M7, M11, M12, M14, L6, L9, L10, L16, L17, L21, L22, P3, P5.
 
@@ -699,3 +699,7 @@ New:
 ```text
 - Sources live in the `method:` field of each judgment-log line, a log you keep while working and do not print (a URL, "code execution", "checked against the user's instructions");
 ```
+
+## After stage 1: dia-conjecture 1.1.5 (plugin 1.10.1)
+
+An independent re-read of the stage 1 branch found that L2 made C in Steps 3 to 5 the current claim while hard rule 2 and Step 4 still checked every case against "the Step 1 reading", which no adopted definition change updated, and that "the last C′ adopted" left out a wider reading adopted under concept-stretching and the case where nothing was adopted. The owner accepted the recommended fix; what changed, its review rounds and what was left as found are in spec D50.
