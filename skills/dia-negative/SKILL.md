@@ -1,6 +1,6 @@
 ---
 name: dia-negative
-description: Internal critique (narrower than Adorno's immanent critique) adapted from his negative dialectics, in one pass. Shows with particular cases where a claim, concept, plan or policy fails its own standard and what it actually does, and leaves the decision to the user. Works on the user's claim, the assistant's earlier answer or a pasted text. Use when the user asks for negative dialectics, immanent critique, "what does this concept hide", "what is this claim or policy really for", "where does this claim fail its own standard", or wants the real purpose behind a stated goal examined, or the same in any language. Not for what code, a command or a setting does, a general review, logical consistency (dia-reductio) or a Socratic definition dialogue (dia-elenchus).
+description: Internal critique (narrower than Adorno's immanent critique) adapted from his negative dialectics, in one pass. Use when the user asks for negative dialectics, immanent critique, "what does this concept hide", "what is this claim or policy really for", "where does this claim fail its own standard", or wants the real purpose behind a stated goal examined, or the same in any language. Not for what code, a command or a setting does, a general review, logical consistency (dia-reductio) or a Socratic definition dialogue (dia-elenchus).
 license: MIT
 metadata:
   author: ajitta

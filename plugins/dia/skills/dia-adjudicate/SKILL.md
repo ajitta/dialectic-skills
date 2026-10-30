@@ -1,6 +1,6 @@
 ---
 name: dia-adjudicate
-description: Rules on reports that others (people or agents) wrote about a target text, answer or draft, such as critiques, reviews or verification reports, checking each item against outside evidence without rewriting the target. Use only when the message begins with dia-adjudicate, or when the skill is invoked explicitly by name (for example /dia:dia-adjudicate, $dia:dia-adjudicate or @dia-adjudicate, or dia-menu's selector dia 11 or dia adjudicate), with the target and at least one report. Without that marker do not activate, however close the request sounds. Not for reviewing and fixing a draft yourself (dia-refine), fixing through verified rounds (dia-ratchet), or testing how well an argument's reasons support its conclusion (dia-warrant).
+description: Rules on reports that others (people or agents) wrote about a target text, answer or draft, such as critiques, reviews or verification reports, checking each item against outside evidence without rewriting the target. Use only when the message begins with dia-adjudicate, or when the skill is invoked explicitly by name, with the target and at least one report. Without that marker do not activate, however close the request sounds. Not for reviewing and fixing a draft yourself (dia-refine), fixing through verified rounds (dia-ratchet), or testing how well an argument's reasons support its conclusion (dia-warrant).
 license: MIT
 metadata:
   author: ajitta

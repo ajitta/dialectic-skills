@@ -1,6 +1,6 @@
 ---
 name: dia-instruct
-description: Writing for models. Checks or writes text a model reads and follows against four rules; a review-only request gets the breaches without edits. Use when creating, editing or reviewing a skill file (SKILL.md), an agent or sub-agent prompt, an AGENTS.md or CLAUDE.md, a rules file, or a hook or tool message, or the same in any language. Not for checking an answer or a draft written for people for factual errors and logical leaps (dia-refine), or ruling on reports others wrote about a text (dia-adjudicate).
+description: Writing for models, rules for text a model reads and follows. Use when creating, editing or reviewing a skill file (SKILL.md), an agent or sub-agent prompt, an AGENTS.md or CLAUDE.md, a rules file, or a hook or tool message, or the same in any language. Not for checking an answer or a draft written for people for factual errors and logical leaps (dia-refine), or ruling on reports others wrote about a text (dia-adjudicate).
 license: MIT
 metadata:
   author: ajitta

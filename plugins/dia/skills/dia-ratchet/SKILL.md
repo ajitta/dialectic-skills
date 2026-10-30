@@ -1,6 +1,6 @@
 ---
 name: dia-ratchet
-description: Improves an output in repeated rounds that fix only defects an external check confirmed (a tool that ran, or the user's own material), never your own re-derivation, and lock what passed. Use only when the user's message begins with dia-ratchet, or when the skill is invoked explicitly by name (for example /dia:dia-ratchet, $dia:dia-ratchet, $dia-ratchet or @dia-ratchet, or dia-menu's selector dia 10 or dia ratchet). Without that marker do not activate, however close the request sounds. Not for single-pass review (dia-refine).
+description: Improves an output in repeated rounds that fix only defects an external check confirmed (a tool that ran, or the user's own material), never your own re-derivation, and lock what passed. Use only when the user's message begins with dia-ratchet, or when the skill is invoked explicitly by name. Without that marker do not activate, however close the request sounds. Not for single-pass review (dia-refine).
 license: MIT
 metadata:
   author: ajitta
