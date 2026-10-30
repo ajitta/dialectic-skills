@@ -1,10 +1,10 @@
 ---
 name: dia-adjudicate
-description: Rule on reports that others (people or agents) wrote about a target text, answer or draft, such as critiques, reviews or verification reports, by checking each report item and each claim in the target against outside evidence, without rewriting the target; it lists the verdicts a person should recheck. Use only when the message begins with dia-adjudicate, or when the skill is invoked explicitly by name (for example /dia:dia-adjudicate, $dia:dia-adjudicate or @dia-adjudicate, or dia-menu's selector dia 11 or dia adjudicate), with the target and at least one report. Without that marker do not activate, however close the request sounds. Not for reviewing and fixing a draft yourself (dia-refine), fixing through verified rounds (dia-ratchet), or testing how well an argument's reasons support its conclusion (dia-warrant).
+description: Rules on reports that others (people or agents) wrote about a target text, answer or draft, such as critiques, reviews or verification reports, checking each item against outside evidence without rewriting the target. Use only when the message begins with dia-adjudicate, or when the skill is invoked explicitly by name, with the target and at least one report. Without that marker do not activate, however close the request sounds. Not for reviewing and fixing a draft yourself (dia-refine), fixing through verified rounds (dia-ratchet), or testing how well an argument's reasons support its conclusion (dia-warrant).
 license: MIT
 metadata:
   author: ajitta
-  version: "1.2.0"
+  version: "1.2.1"
   lineage: "new in plugin 1.5.0 (spec D40); rules drawn from adjudication trials, docs/research/dia-adjudicate.md"
   source: "https://github.com/ajitta/dialectic-skills"
 ---

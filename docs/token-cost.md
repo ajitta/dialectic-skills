@@ -53,6 +53,23 @@ SKILL.md files total 17,487 cl100k after D24 (from 18,466 at D23, −979, −5.3
 - Per invocation, SKILL.md (cl100k, `main`): +13% to +18% for five skills, +36% for dia-reductio (worked example, prove-direction rules), and −27% for dia-refine (its old text was Korean, which costs more cl100k tokens for the same content).
 - The D23 batch adds about 1,180 tokens across the seven SKILL.md files (+6.8%) and about 1,150 across the references (+14.6%, mostly dia-reductio's and dia-negative's `theory.md`).
 
+## Description trim (plugin 1.12.0, D54)
+
+Measured 2026-10-30, Claude Code 2.1.312 (`claude --plugin-dir <plugins/dia> plugin details dia`, an estimate by Claude Code) and tiktoken over the descriptions; Codex CLI 0.166.0 listing from `codex debug prompt-input "hi"` in an isolated `CODEX_HOME` (no model call).
+
+| | 1.11.1 (`c8aae15`) | 1.12.0 |
+|---|---|---|
+| Description characters, 13 skills | 9,422 | 8,371 |
+| Descriptions, cl100k | 2,083 | 1,851 |
+| Claude Code always-on projection | 3,216 | **2,866** |
+| Codex listing, o200k, 13 entries | 1,928 | 1,903 |
+
+Per skill (Claude Code projection, always-on): dia-ratchet 210 → 140, dia-adjudicate 280 → 210, dia-negative 310 → 260, dia-counterplan 240 → 200, dia-refine 240 → 210, dia-instruct 200 → 180, dia-brainstorm 300 → 270, dia-warrant 300 → 270, dia-reductio 280 → 270; dia-conjecture, dia-elenchus, dia-intent and dia-menu unchanged. Per-invocation cost is unchanged: no body changed.
+
+Codex cuts each description to roughly 600–650 characters in the model-visible skill list, and the cut grows when the descriptions shrink, so its always-on cost barely moves. At 1.11.1 the cut fell inside the triggers or borders of ten of the thirteen descriptions; shorter descriptions put more of them before the cut, which can change routing on Codex (dia-elenchus, D54).
+
+The label-only variant that was gated and dropped (D54) projected 2,367.
+
 ## Not measured
 
 - Multi-turn sessions: SKILL.md stays in context after loading, so a long elenchus or brainstorm dialogue pays it once and then as cached input on every turn.

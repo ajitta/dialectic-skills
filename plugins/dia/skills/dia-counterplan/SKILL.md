@@ -1,10 +1,10 @@
 ---
 name: dia-counterplan
-description: Dialectical inquiry after Mason, adapted for one assistant in one chat. Turns the key assumptions of a plan or recommendation into plausible contraries, writes the counterplan on the same data, and asks which assumptions from each side the user holds; picks no winner and leaves the synthesis to the user. Use only when asked for a counterplan or a devil's advocate on a plan or decision ("make the case for the opposite plan", "what if our key assumptions are wrong"), or the same in any language. Not for a devil's advocate on a claim or question ("is X true?", "is X healthy?"); answer directly. Not for questioning the user to poke holes in or stress-test an idea (dia-brainstorm).
+description: Dialectical inquiry after Mason, adapted for one assistant in one chat. Writes a counterplan on the same data from contraries of a plan's key assumptions and leaves the synthesis to the user. Use only when asked for a counterplan or a devil's advocate on a plan or decision ("make the case for the opposite plan", "what if our key assumptions are wrong"), or the same in any language. Not for a devil's advocate on a claim or question ("is X true?", "is X healthy?"); answer directly. Not for questioning the user to poke holes in or stress-test an idea (dia-brainstorm).
 license: MIT
 metadata:
   author: ajitta
-  version: "1.1.2"
+  version: "1.1.3"
   lineage: "new in plugin 1.3.0 (docs/research/candidates/argumentation.md)"
   source: "https://github.com/ajitta/dialectic-skills"
 ---
