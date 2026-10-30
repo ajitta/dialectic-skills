@@ -4,7 +4,7 @@ State of the work and what is left, for the next agent session. Read `AGENTS.md`
 
 ## Next session: start here (2026-10-30)
 
-Released and live: plugin `dia` **1.12.0** (`v1.12.0`, `main`, 2026-10-30): nine descriptions shortened, always-on listing 3,216 → 2,866 tokens on Claude Code (spec D54; gate in probes Part X; `docs/token-cost.md`). The owner re-uploads `dialectic-skills-openai.zip` (1.12.0) on chatgpt.com; whether the 1.11.x zip was uploaded is not recorded here (1.9.0 was confirmed). The output/outcome/proxy audit (branch `ooproxy-audit`, 2026-10-30, docs only, no skill or version change) is done: the evaluation-system audit, the A1 ceiling check (not needed) and the owner's rulings are in `docs/writing-for-models/audit-ooproxy-2026-10-30.md` sections 9–11 and spec D53; the rules for A/B records are in `docs/writing-for-models/README.md`. What is left, by who acts:
+Released and live: plugin `dia` **1.12.0** (`v1.12.0`, `main`, 2026-10-30): nine descriptions shortened, always-on listing 3,216 → 2,866 tokens on Claude Code (spec D54; gate in probes Part X; `docs/token-cost.md`). The owner re-uploaded `dialectic-skills-openai.zip` (1.12.0) on chatgpt.com (2026-10-30). The output/outcome/proxy audit (branch `ooproxy-audit`, 2026-10-30, docs only, no skill or version change) is done: the evaluation-system audit, the A1 ceiling check (not needed) and the owner's rulings are in `docs/writing-for-models/audit-ooproxy-2026-10-30.md` sections 9–11 and spec D53; the rules for A/B records are in `docs/writing-for-models/README.md`. What is left, by who acts:
 
 | What | Who | Where to start |
 |---|---|---|
