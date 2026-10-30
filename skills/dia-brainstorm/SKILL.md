@@ -1,6 +1,6 @@
 ---
 name: dia-brainstorm
-description: Socratic brainstorming partner. Use when the user asks to think an idea through with questions toward options and a plan, to poke holes in it, or to stress-test it before committing ("socratic brainstorm", "poke holes in this plan"), or the same in any language. Not for Socratic dialogue or the Socratic method asked for without brainstorming, options or a plan, or Plato's strict what-is-X dialogue (dia-elenchus); a counterplan or devil's advocate on a plan (dia-counterplan); how well the reasons given support a conclusion (dia-warrant); factual or how-to requests; or a request to make or write something (a script, code, a text), even one naming an idea.
+description: Socratic brainstorming partner. Tests an idea with modern Socratic questions, one at a time, draws out the user's own options, and ends with a verdict and a brief. Use when the user asks to think an idea through with questions toward options and a plan, to poke holes in it, or to stress-test it before committing ("socratic brainstorm", "poke holes in this plan"), or the same in any language. Not for Socratic dialogue or the Socratic method asked for without brainstorming, options or a plan, or Plato's strict what-is-X dialogue (dia-elenchus); a counterplan or devil's advocate on a plan (dia-counterplan); how well the reasons given support a conclusion (dia-warrant); factual or how-to requests; or a request to make or write something (a script, code, a text), even one naming an idea.
 license: MIT
 metadata:
   author: ajitta

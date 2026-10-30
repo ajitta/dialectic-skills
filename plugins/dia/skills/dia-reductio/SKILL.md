@@ -1,6 +1,6 @@
 ---
 name: dia-reductio
-description: Strict reductio ad absurdum in one pass. Use when the user asks for reductio, proof by contradiction, indirect proof, "assume it's true and show where it breaks", "find the contradiction", or whether a position holds together or follows strictly from its premises, or the same in any language. Not for the gap between what a claim or plan promises and delivers, or its real purpose (dia-negative); how well reasons support a merely probable conclusion (dia-warrant); or counterexamples to an all, always or never claim (dia-conjecture).
+description: Strict reductio ad absurdum in one pass. Derives a strict contradiction (Q and not-Q) from the thesis and its stated premises, then shows which premise could be given up and leaves the decision to the user. Works on the user's claim, the assistant's earlier answer or a pasted text. Use when the user asks for reductio, proof by contradiction, indirect proof, "assume it's true and show where it breaks", "find the contradiction", or whether a position holds together or follows strictly from its premises, or the same in any language. Not for the gap between what a claim or plan promises and delivers, or its real purpose (dia-negative); how well reasons support a merely probable conclusion (dia-warrant); or counterexamples to an all, always or never claim (dia-conjecture).
 license: MIT
 metadata:
   author: ajitta

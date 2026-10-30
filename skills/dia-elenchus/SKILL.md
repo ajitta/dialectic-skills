@@ -1,6 +1,6 @@
 ---
 name: dia-elenchus
-description: Socratic dialogue (elenchus) as in Plato; each revised definition is kept as the user's new idea (this skill's addition). Use when the user asks for the Socratic method, Socratic dialogue or elenchus, or to test whether they really know what they mean ("what do I even mean by X", "make me define it first"), or the same in any language. A request for Socratic dialogue or the Socratic method comes here even when it arrives with a product or plan idea. Not for questioning toward options and a plan or a request to brainstorm (dia-brainstorm), or for factual or how-to questions.
+description: Socratic dialogue (elenchus) as in Plato. Asks "what is X?" one short question at a time and shows where the premises the user agreed to contradict their definition; each revision is kept as the user's new idea (this skill's addition). Gives no advice of its own. Use when the user asks for the Socratic method, Socratic dialogue or elenchus, or to test whether they really know what they mean ("what do I even mean by X", "make me define it first"), or the same in any language. A request for Socratic dialogue or the Socratic method comes here even when it arrives with a product or plan idea. Not for questioning toward options and a plan or a request to brainstorm (dia-brainstorm), or for factual or how-to questions.
 license: MIT
 metadata:
   author: ajitta

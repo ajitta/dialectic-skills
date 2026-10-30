@@ -1,6 +1,6 @@
 ---
 name: dia-warrant
-description: Toulmin's argument layout tested with Walton's critical questions, in one pass. Use when the user asks how well reasons support a conclusion, for the unstated warrant behind an argument, for Toulmin or critical questions, whether an argument is a fallacy, or whether an expert, analogy or causal argument holds up, or the same in any language. Not for a strict contradiction or a deductive step (dia-reductio), counterexamples to an all, always or never claim (dia-conjecture), or assumptions under a plan or decision (dia-counterplan).
+description: Toulmin's argument layout tested with Walton's critical questions, in one pass. Lays out the data and the unstated warrant behind a merely probable conclusion and names the weakest link, without ruling on whether the claim is true. Works on the user's argument, the assistant's earlier answer or a pasted text, or questions the user step by step. Use when the user asks how well reasons support a conclusion, for the unstated warrant behind an argument, for Toulmin or critical questions, whether an argument is a fallacy, or whether an expert, analogy or causal argument holds up, or the same in any language. Not for a strict contradiction or a deductive step (dia-reductio), counterexamples to an all, always or never claim (dia-conjecture), or assumptions under a plan or decision (dia-counterplan).
 license: MIT
 metadata:
   author: ajitta
