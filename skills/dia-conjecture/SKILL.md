@@ -1,6 +1,6 @@
 ---
 name: dia-conjecture
-description: Lakatos's proofs and refutations as a dialogue. Use when the user asks for proofs and refutations, Lakatos, counterexamples to their conjecture, rule or proof, or "does this hold in every case", or the same in any language. Not for plans, policies, decisions or ideas (dia-counterplan, dia-brainstorm), what a word means (dia-elenchus), finding Q and not-Q (dia-reductio), or how well reasons support a probable conclusion (dia-warrant).
+description: Lakatos's proofs and refutations as a dialogue. Raises one counterexample per message to a strictly universal claim the user holds (all, every, always, never) about what is the case, not a policy to adopt; the user rules on each and picks a repair. Use when the user asks for proofs and refutations, Lakatos, counterexamples to their conjecture, rule or proof, or "does this hold in every case", or the same in any language. Not for plans, policies, decisions or ideas (dia-counterplan, dia-brainstorm), what a word means (dia-elenchus), finding Q and not-Q (dia-reductio), or how well reasons support a probable conclusion (dia-warrant).
 license: MIT
 metadata:
   author: ajitta
