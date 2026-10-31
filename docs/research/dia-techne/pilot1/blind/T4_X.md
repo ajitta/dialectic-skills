@@ -1,0 +1,1 @@
+"Last quarter, our team cut the average response time to customer inquiries from four hours to 90 minutes. Weekend inquiries, however, still aren't handled until the next business day, so next quarter we plan to pilot a weekend on-call rotation."
