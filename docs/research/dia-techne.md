@@ -1,6 +1,6 @@
 # dia-techne: design session record
 
-Record of one design session (2026-10-31 to 2026-11-01) that started from the owner's proposal for a prompt-rewriting skill, went through five drafts and three small pilots, and ended with `skills/dia-techne/` on branch `techne`. Not merged, and not integrated into the plugin (see §1).
+Record of one design session (2026-10-31 to 2026-11-01) that started from the owner's proposal for a prompt-rewriting skill, went through five drafts and three small pilots, and ended with `skills/dia-techne/` on branch `techne`. §1 to §10 describe the branch's first commit; §11 records the review of 2026-11-01, the fixes and the integration into plugin 1.13.0 (not merged or released).
 
 Everything below was run by one assistant session (Claude Opus 5.5 in the Claude app, with web search, web fetch, a shell and sub-agents). Pilot executors and graders were sub-agents on the session model. Arms by run-folder letter: pilots 1 and 2, A = skill draft, B = no skill; pilot 3, A = 0.5.0, B = no skill, C = 0.4.1 (keys in each pilot's `*key.json` map blinded X/Y/Z to these letters). The graders' verdicts and rankings and the run times were not committed; they rest on this record. Web pages reached agents through a fetch tool that returns a model's summary of the page, not the raw page. Every pilot cell is n=1. Numbers are counts from these runs, not rates.
 
@@ -8,9 +8,9 @@ Everything below was run by one assistant session (Claude Opus 5.5 in the Claude
 
 The owner chose to add the skill and this record only (2026-11-01). The branch therefore does **not** touch dia-menu, `plugin-manifest.json`, the README files, `docs/spec.md`, `AGENTS.md`, the plugin version or the generated output, and `python tools/package.py --check` fails on purpose with `skill set [...] != spec §4 [...]`.
 
-In a scratch copy with dia-techne added to spec §4 and to `EXPECTED_IMPLICIT` in `tools/package.py`, the only remaining errors were the integration ones (plugin version not bumped; `plugins/dia/` and both zips lag the source). The skill's own checks passed: allowed frontmatter keys, `name` matches the folder, description 493 characters, body 36 lines as `tools/package.py` counts them (35 without the blank line after the frontmatter), no Hangul, every `dia-*` name it mentions exists, `agents/openai.yaml` in the §7.3 shape.
+In a scratch copy with dia-techne added to spec §4 and to `EXPECTED_IMPLICIT` in `tools/package.py`, the only remaining errors were the integration ones (plugin version not bumped; `plugins/dia/` and both zips lag the source). The skill's own checks passed: allowed frontmatter keys, `name` matches the folder, description 493 characters, body 36 lines as `tools/package.py` counts them at the first commit (39 after the review fixes), no Hangul, every `dia-*` name it mentions exists, `agents/openai.yaml` in the §7.3 shape.
 
-`python -m unittest discover -s tests` on this branch, with PyYAML installed: 6 of 19 tests fail (without PyYAML, 5 fail and the YAML test is skipped) (`test_skills_match_expected_table`, `test_implicit_invocation_table`, `test_validation_passes`, `test_committed_output_is_current`, `test_openai_zip_layout`, and an error in `test_frontmatter_and_openai_yaml_parse`, a `KeyError: 'dia-techne'` on `EXPECTED_IMPLICIT`), all from the same missing integration; without the new files all 19 pass.
+`python -m unittest discover -s tests` at the first commit: 6 of 19 tests fail with PyYAML installed (`test_skills_match_expected_table`, `test_implicit_invocation_table`, `test_validation_passes`, `test_committed_output_is_current`, `test_openai_zip_layout`, and an error in `test_frontmatter_and_openai_yaml_parse`, a `KeyError: 'dia-techne'` on `EXPECTED_IMPLICIT`), all from the same missing integration; without PyYAML, 5 fail and the YAML test is skipped; without the new files all 19 pass.
 
 Merging and integration are left for a later instruction from the owner; §9 lists what integration needs.
 
@@ -136,7 +136,7 @@ Changes from draft 0.5.0, all required by repository rules:
 ## 8. Things worth knowing before integration
 
 - The skill can override the user's stated conclusion. That is the owner's intent (§4); the tutorial itself is written for humans raising their own requests and does not say a model should override one; its closest basis is "Challenge what you know" (§3).
-- The skill is about 1,400 words. Rieseberg's depth prompt is about a hundred words, and his remark on skills debt argues for keeping it thin.
+- The skill is about 1,650 words after the review fixes (about 1,500 in the body). Rieseberg's depth prompt is about a hundred words, and his remark on skills debt argues for keeping it thin.
 - Codex budget: with all fourteen descriptions, Codex CLI 0.166.0 showed every description uncut (review of 2026-11-01, §11).
 - The pilots ran in a session where sub-agents could not start further agents, so the separate-agent outside check is untested.
 
@@ -158,6 +158,16 @@ Changes from draft 0.5.0, all required by repository rules:
 - The backup copies (`notice.orig-backup.md`, `bizdays.py.bak`) are byte-identical to the originals: they show the backup behaviour. The blinding scripts hard-code the session's paths and do not run from this repository.
 
 Paths inside the replies point to the session's working directory (`/home/claude/exp/…`), not to this repository.
+
+## 11. Review of 2026-11-01 and integration
+
+An independent review of the first commit (fresh sub-agents that had not written the skill; the probe and listing files are kept outside this repository) found, and the owner accepted as recommended:
+
+- **Sources.** The tutorial was fetched in full and compared with §3 point by point; the corrections are in §2, §3, §5 and the Sources list (role wording, the Codex budget sentence, the "story about cause and effect" quote, the techniques §3 left out, the separate-agent option's source). Pilot numbers reproduced from the committed files: pilot 2 Q1 p = 0.126, Q2 MH odds ratio 1.42 and CMH p = 0.0215, Q3 expected value 112 and the Fourier output (K = 5, 113.9, MAPE 3.02%); pilot 3's hidden test fails the original on 1,041 of 3,000 cases and passes all three fixes; R2's minimum detectable difference is 2.54 points by the replies' formula and 2.70 by the grader's.
+- **Skill text.** Running stops before any step the assistant could not reverse itself from what it holds, and always before sending, publishing, pushing, spending, changing a database it holds no copy of, installing outside the project, rewriting version-control history or deleting data held elsewhere; backups get a name no existing file has and their path is reported; when the user's own words say content must not survive, it is deleted without a copy; an unstated outcome is a point only the user can settle; nothing private leaves the session except opening a path or URL the user gave; an explicit invocation for a case the description sends to a sibling runs, keeps any limit on running and names the sibling; for another executor the material is still read. Where the method and the name come from moved to `references/theory.md`, read only when the user asks (owner: not in the body). A second independent review of these fixes (PASS WITH FIXES) led to the wording above; its fixes were applied and checked by the author, not independently.
+- **Smoke probes** (Claude Code 2.1.314, n = 2 to 16 per cell, not a measurement): explicit-only gating held (requests that only sound like the skill loaded it 0/6, and 0/9 on two description variants); a short Korean code-fix request starting with `dia-techne` loaded it 2/16 on Sonnet and 0/4 on Haiku, against 4/4 in English, 4/4 on Opus, 4/4 for a Korean non-code request, 4/4 with `dia-techne:` and 8/8 (Sonnet) and 4/4 (Haiku) for the same skill renamed `dia-deepen`; three description rewordings gave 0/8 each; dia-intent on the same prompt loaded 1/4. With the fixes: an existing backup was kept and a new name used (2/2), a requested push stopped (2/2), a secret was deleted without a copy (2/2, by slash invocation), another executor's prompt was written after reading the file (2/2); a requested local SQLite change stopped once and ran after a backup once (before the database wording above).
+- **Codex.** On a scratch integration copy, Codex CLI 0.166.0 listed all fourteen dia descriptions uncut.
+- **Integration.** Plugin 1.13.0 (spec D55): dia-menu row 13 (explicit-only), spec tables, manifest, listings and the four READMEs with an example from a recorded run. Not done: the project page, the routing probe set of §9 beyond the smoke cells, and the A/B the owner postponed.
 
 ## Sources
 

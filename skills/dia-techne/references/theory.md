@@ -13,7 +13,7 @@ Felix Rieseberg's "How to be more ambitious: A tutorial for humans with models" 
 - **No role-play:** "models often switch vocabulary without actually switching methods"; "Don't ask the model to write like a short seller, ask it to do what a short seller does."
 - **Challenge what you know:** ask the model "to adversarially check assumptions" against the raw data. This is the tutorial's closest basis for revising a request's stated conclusion.
 
-Not taken: "Pick unreasonable goals" and "Produce new knowledge" (showing a model predicts on data it has not seen) are depth techniques the skill does not ask for by name.
+Not taken by name: "Challenge what you know" (above), "Pick unreasonable goals" and "Produce new knowledge" (showing a model predicts on data it has not seen) are depth techniques the skill does not ask for by name.
 
 ## 2. What the skill adds
 
@@ -27,10 +27,10 @@ These are not in the tutorial, which is written for a person improving their own
 
 ## 3. The name
 
-The name borrows Aristotle's *technē* as a label only. In *Nicomachean Ethics* VI.4 technē is a state of making that involves true reasoning, about things whose origin is in the maker; *Metaphysics* I.1 adds that the person of art knows the why, not only the that. Making, unlike action, has an end beyond itself (NE VI.5), which is why the skill starts from the outcome a request serves and treats a creative task, whose point is the making, differently. The skill does not implement an Aristotelian procedure; its method is Rieseberg's.
+The name borrows Aristotle's *technē* as a label only. In *Nicomachean Ethics* VI.4 technē is a state of making that involves true reasoning, about things whose origin is in the maker; *Metaphysics* I.1 adds that the person of art knows the why, not only the that. Making, unlike action, has an end beyond itself (NE VI.5). The skill's start from the outcome a request serves fits that distinction, but it comes from Rieseberg's altitude, and its different handling of a creative task comes from the tutorial's limit on altitude. The skill does not implement an Aristotelian procedure; its method is Rieseberg's.
 
 ## Sources
 
 - Felix Rieseberg, "How to be more ambitious: A tutorial for humans with models", felixrieseberg.com, 2026-10-13. https://felixrieseberg.com/how-to-be-more-ambitious-a-tutorial-for-humans-with-models/
-- Yao Xiao, "Stop Telling Claude to Act Like an Expert", DEV Community, 2026-10-26 (secondary report of an interview). https://dev.to/blobxiaoyao/stop-telling-claude-to-act-like-an-expert-felix-rieseberg-on-costume-prompts-and-skills-debt-2pha
+- Yao Xiao, "Stop Telling Claude to Act Like an Expert", DEV Community, 26 October (year not shown; 2026 by context; secondary report of an interview). https://dev.to/blobxiaoyao/stop-telling-claude-to-act-like-an-expert-felix-rieseberg-on-costume-prompts-and-skills-debt-2pha
 - Aristotle, *Nicomachean Ethics* VI.4–5; *Metaphysics* I.1.
