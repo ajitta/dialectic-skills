@@ -4,7 +4,7 @@
 
 웹사이트: [ajitta.github.io/dialectic-skills](https://ajitta.github.io/dialectic-skills/)
 
-추론과 검토를 위한 스킬 열두 개를 하나의 플러그인에 담았습니다. Agent Skills를 불러오는 모든 어시스턴트, 즉 Claude(웹, 데스크톱, 모바일, Claude Code), Codex, ChatGPT에서 수정 없이 실행되도록 작성했습니다. 패키지는 지침(Markdown, YAML, JSON)으로만 이루어져 있으므로 도구가 없는 채팅에서도 모든 스킬이 작동합니다. 스킬 파일은 영어로 작성되어 있으며, 각 스킬은 사용자가 쓴 메시지의 언어로 답합니다. 휴대폰에서는 `dia`만 입력하면 됩니다. 메뉴 스킬(`dia-menu`, 1.4.0에서 추가)이 스킬 목록을 보여 주고, 번호나 이름의 앞 글자, 또는 요청 내용으로 스킬 하나를 골라 시작합니다.
+추론과 검토를 위한 스킬 열세 개를 하나의 플러그인에 담았습니다. Agent Skills를 불러오는 모든 어시스턴트, 즉 Claude(웹, 데스크톱, 모바일, Claude Code), Codex, ChatGPT에서 수정 없이 실행되도록 작성했습니다. 패키지는 지침(Markdown, YAML, JSON)으로만 이루어져 있으므로 도구가 없는 채팅에서도 모든 스킬이 작동합니다. 스킬 파일은 영어로 작성되어 있으며, 각 스킬은 사용자가 쓴 메시지의 언어로 답합니다. 휴대폰에서는 `dia`만 입력하면 됩니다. 메뉴 스킬(`dia-menu`, 1.4.0에서 추가)이 스킬 목록을 보여 주고, 번호나 이름의 앞 글자, 또는 요청 내용으로 스킬 하나를 골라 시작합니다.
 
 | 스킬 | 하는 일 | 시작 방식 |
 |---|---|---|
@@ -20,7 +20,8 @@
 | `dia-ratchet` | 검토 라운드를 반복하되, 외부 근거(검색, 도구 실행, 사용자가 준 자료)만 인정하고 어시스턴트 자신의 재도출은 인정하지 않습니다. 확인을 통과한 항목은 고정합니다. 퇴행, 결함 0건, 검증 수단 소진, 고정점 도달, `--max N`(기본값 3) 중 하나에 이르면 멈춥니다. 1.6.0 이전 이름은 `dia-iterate`입니다. | 첫 단어를 `dia-ratchet`으로, 또는 이름으로만 |
 | `dia-adjudicate` | 사람이나 다른 어시스턴트가 어떤 글에 대해 쓴 보고서(비판, 리뷰, 검증 보고서)를 판정합니다. 글의 주장과 보고서의 모든 지적을 출처와 대조해 항목마다 판정을 내리고, 사람이 다시 확인해야 할 판정을 목록으로 줍니다. 글을 고쳐 쓰지는 않습니다. | 첫 단어를 `dia-adjudicate`로, 또는 이름으로만 |
 | `dia-instruct` | 모델이 읽고 따를 글(스킬 파일, 에이전트 프롬프트, 에이전트 지침 파일)을 네 가지 규칙으로 점검하거나 씁니다: 조건과 대안을 품은 하나의 식인 문단, 뜻한 만큼만 좁은 범위 단어, 저마다 이유가 붙은 더 적은 지시, 한 대상에 한 이름. 검토만 요청하면 위반 사항을 나열하고, 사용자가 고를 때까지 아무것도 바꾸지 않습니다. | 이름으로, 또는 말로 요청해서 |
-| `dia-menu` | 방법이 아니라 짧은 진입점입니다. `dia`는 번호가 붙은 메뉴를 보여 주고, `dia 4 …`나 `dia red …`는 번호나 앞 글자로 스킬을 시작하며, `dia <request>`는 알맞은 스킬을 골라 어떤 스킬인지 밝힙니다. `dia-intent`, `dia-ratchet`, `dia-adjudicate`는 스스로 시작하지 않습니다. | 첫 단어를 `dia`로 |
+| `dia-techne` | 그 분야 최고 실무자처럼 요청을 깊게 만듭니다(요청이 이루려는 결과, 가장 원초적인 자료, 그 분야의 방법, 어시스턴트와 사용자가 아닌 것에 의한 확인, 다른 분야의 관점). 바꾼 곳마다 이유를 보여 주고 실행합니다. 백업으로 되돌릴 수 없는 단계 앞에서는 멈춥니다. | 첫 단어를 `dia-techne`로, 또는 이름으로만 |
+| `dia-menu` | 방법이 아니라 짧은 진입점입니다. `dia`는 번호가 붙은 메뉴를 보여 주고, `dia 4 …`나 `dia red …`는 번호나 앞 글자로 스킬을 시작하며, `dia <request>`는 알맞은 스킬을 골라 어떤 스킬인지 밝힙니다. `dia-intent`, `dia-ratchet`, `dia-adjudicate`, `dia-techne`는 스스로 시작하지 않습니다. | 첫 단어를 `dia`로 |
 
 ## 목차
 
@@ -69,7 +70,7 @@ claude.ai(웹): Customize › Plugins › Add › Add marketplace에 `ajitta/dia
 
    Git URL `https://github.com/ajitta/dialectic-skills.git`을 넣어도 되고, Claude 데스크톱에서는 로컬 폴더(이 저장소를 클론한 폴더)도 지정할 수 있습니다. 직접 타이핑하지 말고 복사해서 붙여 넣으십시오. `dialectric`처럼 철자가 틀리면 "Repository not found"로 실패합니다.
 3. **플러그인 추가.** 마켓플레이스를 추가한 것만으로는 아직 아무것도 설치되지 않습니다. Customize › Plugins에서 Discover를 열고 `dia`(Dialectic Skills)를 선택한 뒤 Add를 누릅니다.
-4. **확인.** 메시지 입력창에 `/dia`를 입력합니다. `dia:dia-adjudicate`부터 `dia:dia-warrant`까지 열세 개 항목(스킬 열두 개와 `dia:dia-menu`)이 나타나야 합니다. 업데이트는 마켓플레이스를 통해 받습니다(Check for updates 또는 Sync automatically).
+4. **확인.** 메시지 입력창에 `/dia`를 입력합니다. `dia:dia-adjudicate`부터 `dia:dia-warrant`까지 열네 개 항목(스킬 열세 개와 `dia:dia-menu`)이 나타나야 합니다. 업데이트는 마켓플레이스를 통해 받습니다(Check for updates 또는 Sync automatically).
 
 2·3단계 대신 플러그인을 업로드할 수도 있습니다. Customize › Plugins › Add › Upload plugin에서 최신 릴리스의 [`dialectic-skills.zip`](https://github.com/ajitta/dialectic-skills/releases/latest/download/dialectic-skills.zip)을 올립니다. Customize › Skills가 아니라 Customize › Plugins를 사용해야 합니다. Skills 화면은 플러그인 매니페스트가 들어 있는 zip을 거부합니다. 업로드한 플러그인은 스스로 업데이트되지 않으므로, 새 릴리스가 나올 때마다 다시 업로드해야 합니다.
 
@@ -118,9 +119,9 @@ Business와 Enterprise 워크스페이스에서는 관리자가 워크스페이�
 
 방법은 네 가지이며, 모든 환경에서 적어도 한 가지는 지원합니다.
 
-1. **메뉴: 메시지를 `dia`로 시작하기.** `dia`만 입력하면 번호가 붙은 스킬 목록이 나옵니다. `dia 4 <your text>`나 `dia red <your text>`는 그 스킬(여기서는 `dia-reductio`)을 시작합니다. 앞 글자가 둘 이상의 스킬에 해당하면 어느 쪽인지 묻습니다. `dia <your text>`는 알맞은 스킬을 골라 대개 먼저 한 줄로 이름을 밝히고 실행합니다. 두 스킬이 비슷하게 맞으면 묻습니다. 일반 요청으로는 `dia-intent`(1), `dia-ratchet`(10), `dia-adjudicate`(11)를 절대 시작하지 않으므로, 번호나 이름을 쓰십시오. 예: `dia 10 --max 2 <draft>`. 휴대폰에서 가장 빠른 방법입니다. 세 글자에 하이픈도 없습니다.
+1. **메뉴: 메시지를 `dia`로 시작하기.** `dia`만 입력하면 번호가 붙은 스킬 목록이 나옵니다. `dia 4 <your text>`나 `dia red <your text>`는 그 스킬(여기서는 `dia-reductio`)을 시작합니다. 앞 글자가 둘 이상의 스킬에 해당하면 어느 쪽인지 묻습니다. `dia <your text>`는 알맞은 스킬을 골라 대개 먼저 한 줄로 이름을 밝히고 실행합니다. 두 스킬이 비슷하게 맞으면 묻습니다. 일반 요청으로는 `dia-intent`(1), `dia-ratchet`(10), `dia-adjudicate`(11), `dia-techne`(13)를 절대 시작하지 않으므로, 번호나 이름을 쓰십시오. 예: `dia 10 --max 2 <draft>`. 휴대폰에서 가장 빠른 방법입니다. 세 글자에 하이픈도 없습니다.
 2. **말로 요청하기.** 방법을 직접 요청합니다: "…에 귀류법을 적용해 주세요", "…을 내재적 비판해 주세요", "소크라테스식 대화로 부탁합니다…", "이 근거가 결론을 얼마나 뒷받침하나요?", "내 규칙의 반례를 찾아 주세요…", "이 계획에 반대 입장을 맡아 주세요…", "에이전트에게 줄 이 프롬프트를 검토해 주세요…". 모든 환경에서 작동하며, 모바일에서는 이 방법이 가장 안전한 기본값입니다. `dia-reductio`, `dia-negative`, `dia-elenchus`, `dia-brainstorm`, `dia-warrant`, `dia-conjecture`, `dia-counterplan`, `dia-instruct`에 쓸 수 있습니다.
-3. **메시지에 이름 적기.** 메시지를 스킬 이름으로 시작합니다: `dia-intent …`, `dia-refine …`, `dia-ratchet …`, `dia-adjudicate …`. 1.2.0부터는 Codex에서 `$` 없이, ChatGPT에서 `@` 없이(모바일 앱에서 소유자 확인) 이렇게 시작할 수 있습니다. `dia-refine`, `dia-ratchet`, `dia-adjudicate`는 이 방식이나 명시적 선택으로 시작하도록 설계되었습니다. `dia-ratchet`과 `dia-adjudicate`는 일반 요청으로는 절대 시작되지 않으며, Claude Code에서는 "이 초안 고쳐 주세요" 같은 일반 요청으로 `dia-refine`이 로드되는 경우가 드뭅니다.
+3. **메시지에 이름 적기.** 메시지를 스킬 이름으로 시작합니다: `dia-intent …`, `dia-refine …`, `dia-ratchet …`, `dia-adjudicate …`, `dia-techne …`. 1.2.0부터는 Codex에서 `$` 없이, ChatGPT에서 `@` 없이(모바일 앱에서 소유자 확인) 이렇게 시작할 수 있습니다. `dia-refine`, `dia-ratchet`, `dia-adjudicate`, `dia-techne`는 이 방식이나 명시적 선택으로 시작하도록 설계되었습니다. `dia-ratchet`, `dia-adjudicate`, `dia-techne`는 일반 요청으로는 절대 시작되지 않으며, Claude Code에서는 "이 초안 고쳐 주세요" 같은 일반 요청으로 `dia-refine`이 로드되는 경우가 드뭅니다.
 4. **명시적 선택.** 환경마다 표기법이 다릅니다.
 
 | 환경 | 문법 | 예시 |
@@ -131,7 +132,7 @@ Business와 Enterprise 워크스페이스에서는 관리자가 워크스페이�
 | Codex (복사한 폴더) | `$dia-<x>` | `$dia-refine` |
 | ChatGPT | `@` 입력 후 스킬 선택 | `@dia-negative` |
 
-1.2.0부터 Codex와 ChatGPT에서도 Claude처럼 모든 스킬이 모델에 보입니다. `dia-reductio`, `dia-negative`, `dia-elenchus`, `dia-brainstorm`, `dia-warrant`, `dia-conjecture`, `dia-counterplan`, `dia-refine`, `dia-instruct`은 요청 내용이 맞으면 저절로 시작될 수 있고, `dia-intent`, `dia-ratchet`, `dia-adjudicate`는 메시지를 이름으로 시작하거나 직접 선택(`$dia:dia-<x>`, `@`)할 때만 시작하도록 되어 있습니다. 다만 Codex에서는 "먼저 내 목표를 정리하고 결정할 것들을 알려줘"처럼 `dia-intent`의 절차를 그대로 말로 요청하면 이 스킬이 로드되기도 합니다.
+1.2.0부터 Codex와 ChatGPT에서도 Claude처럼 모든 스킬이 모델에 보입니다. `dia-reductio`, `dia-negative`, `dia-elenchus`, `dia-brainstorm`, `dia-warrant`, `dia-conjecture`, `dia-counterplan`, `dia-refine`, `dia-instruct`은 요청 내용이 맞으면 저절로 시작될 수 있고, `dia-intent`, `dia-ratchet`, `dia-adjudicate`, `dia-techne`는 메시지를 이름으로 시작하거나 직접 선택(`$dia:dia-<x>`, `@`)할 때만 시작하도록 되어 있습니다. 다만 Codex에서는 "먼저 내 목표를 정리하고 결정할 것들을 알려줘"처럼 `dia-intent`의 절차를 그대로 말로 요청하면 이 스킬이 로드되기도 합니다.
 
 ### 옵션
 
@@ -166,6 +167,7 @@ Business와 Enterprise 워크스페이스에서는 관리자가 워크스페이�
 | 라운드를 거듭하며 꼼꼼하게 사실 확인하기 | `dia-ratchet` |
 | 한 글에 대한 여러 리뷰 가운데 어떤 지적이 맞는지 가리기 | `dia-adjudicate` |
 | 모델이 뜻한 대로 따르도록 프롬프트, 스킬, 에이전트 파일을 쓰거나 점검하기 | `dia-instruct` |
+| 그 분야 최고 실무자처럼 일을 하고, 어시스턴트가 아닌 것으로 결과를 확인하기 | `dia-techne` |
 | 어떤 스킬을 쓸지 모르겠을 때, 또는 휴대폰으로 입력할 때 | `dia` (`dia-menu`) |
 
 ### dia-intent: 일을 시작하기 전에 과제 합의하기
@@ -558,11 +560,38 @@ dia-adjudicate
 - "이 규칙은 근거가 얼마나 강한가요?"라고 물으면 각 규칙의 근거를 보여 줍니다. 그 파일은 그때만 읽습니다.
 - 어시스턴트가 별도 에이전트를 띄울 수 있으면, 계속 쓸 글의 변경은 그 변경을 쓰지 않은 에이전트가 검토합니다. 그렇지 않을 때, 그리고 테스트 명령처럼 사실이나 명령만 더하는 편집은 어시스턴트가 직접 점검하고 독립적이지 않은 점검이라고 밝힙니다.
 
+### dia-techne: 그 분야 최고 실무자처럼 일하기
+
+**쉽게 말하면.** 요청은 그 요청이 이루려는 목적보다 좁은 경우가 많습니다. `dia-techne`는 일을 시작하기 전에 다섯 가지를 묻습니다. 그 분야의 최고 실무자라면 여기서 요청에 없는 무엇을 할지, 요약 대신 어떤 원자료에서 출발할지, 어떤 방법과 도구를 쓸지, 어시스턴트와 사용자 말고 무엇이 결과가 맞음을 보여 줄지, 그리고 다른 분야의 어떤 아이디어나 어떤 반대 관점이 결과를 바꿀지입니다. 그런 다음 요청을 다시 쓰고, 바꾼 곳마다 이유를 보여 주어 되돌릴 수 있게 하며, 같은 턴에서 바로 실행합니다. 사용자가 요구사항이나 한도로 정한 것, 사용자의 데이터, 사용자가 허락한 범위는 바꾸지 않습니다. 덮어쓰라고 한 파일은 먼저 백업하고, 보내기, 게시, push처럼 백업으로 되돌릴 수 없는 일 앞에서는 멈춥니다. 방법은 Felix Rieseberg의 튜토리얼 "How to be more ambitious"를 따릅니다.
+
+**이럴 때 쓰세요.** 빠른 답보다 깊이 있는 버전이 필요할 만큼 중요한 일일 때입니다. 공개적으로 할 주장, 어시스턴트가 아닌 다른 것으로 확인받고 싶은 수정, 데이터에 기반한 결정 같은 경우입니다. 시간이 더 걸리고 답도 더 깁니다. 메시지를 `dia-techne`로 시작하거나 메뉴에서 13을 고르세요. 일반 요청으로는 절대 시작되지 않습니다.
+
+**해 보기:**
+
+```
+dia-techne 우리 모바일 퍼즐 게임의 D30 리텐션이 12%야. 다음 주 투자자 발표에서 '업계 평균보다 높다'고 말해도 될까?
+```
+
+**결과는 이렇습니다** (웹 검색을 쓴 실제 실행, 줄임; 영어 실행을 번역):
+
+> **짧은 답:** "아마 됩니다. 다만 어떤 벤치마크, 어떤 코호트를 말하는지 밝힐 때만입니다."
+> **결과와 수정:** "필요한 결과는 투자자가 리텐션 주장을 믿는 것입니다." 세 가지를 바꿨고 "각 변경은 되돌릴 수 있습니다". "업계 평균"을 이름이 있는 벤치마크로 바꿉니다. "하나뿐인 업계 평균은 없기" 때문입니다. 12%가 벤치마크와 같은 정의인지("정확히 30일째" 접속인지 "30일째 이후" 접속인지, 전체 설치인지 오가닉 설치만인지) 확인하는 단계를 넣습니다. 권장 문구를 덧붙입니다.
+> **다시 쓴 프롬프트** (코드 블록으로 보여 준 뒤 실행): 12%를 장르별 D30 벤치마크 각각과 비교하고 출처, 연도, 지역을 밝힐 것, 어느 비교가 가장 공정한지 말할 것, 투자자가 물을 질문을 나열할 것, "가장 강한 벤치마크로도 참이고 가장 약한 벤치마크로도 여전히 참인" 문장 하나를 줄 것.
+> **열린 항목:** "업계 평균"을 퍼즐·매치 장르로 본다는 가정, 12%의 정의·코호트 크기·설치 구성에 대한 빈칸, "검색 결과 요약만 봤고 보고서 원문은 보지 못했습니다."
+> **결과:** 퍼즐 5.35%, 매치 게임 7.15%, 미국 보드 게임 5.09%(Android)~8.13%(iOS), 전체 게임 중앙값 약 0.7%, 모두 2차 자료로 표시. 권장 문구: "우리 D30은 12%로, 공개 벤치마크의 퍼즐·매치 게임 약 5~8%보다 높습니다(Mistplay/AppsFlyer, 2025)." **사용자가 할 외부 확인:** "원시 설치·활동 로그로 D30을 다시 계산하고", 플랫폼·국가·오가닉/유료별로 나눠 보고, 벤치마크의 측정 방법을 읽습니다. "다시 계산한 값이 약 8% 아래로 내려가면 문구를 바꾸세요." *(출처 목록)*
+
+**팁**
+
+- 바꿀 것이 없으면 답이 짧습니다. 결과, 확인이 보여 준 것, 가정만 줍니다. 기록된 윤년 버그 수정에서는 새 함수를 Python의 `calendar.isleap`과 "1년부터 10000년까지 모든 해"에 대해 비교했고, "원본은 옆에 `leap.py.bak`으로 저장했습니다".
+- 다른 실행자를 지정하면("Codex에 줄 프롬프트만, 실행하지 마") 조사는 그대로 하되 프롬프트만 씁니다. 그 실행자가 닿지 못할 수 있는 것은 열린 항목에 적습니다.
+- 검색에는 일반적인 공개 용어만 쓰고, 사용자의 비공개 자료는 보내지 않습니다. 도구가 없으면 외부 확인을 사용자가 할 일로 적고, 기억에서 나온 사실은 기억이라고 표시합니다.
+- 형제 스킬에 맞는 요청(계속 둘 스킬 파일, 실행 없이 범위만 확인)으로 불러도 그대로 실행하고, 그 스킬 이름을 한 줄로 알려 줍니다.
+
 ### dia-menu: 짧은 한 단어로 모든 스킬 부르기
 
-**쉽게 말하면.** 그 자체로 하나의 방법은 아니고, 더 빨리 들어가는 길일 뿐입니다. 메시지를 `dia`로 시작하세요. `dia`만 쓰면 스킬 열두 개를 번호와 함께 보여 줍니다. 뒤에 번호나 이름의 앞 몇 글자를 붙이면 그 스킬이 시작되고, 원하는 일을 그냥 쓰면 알맞은 스킬을 골라 대개 먼저 한 줄로 어떤 스킬인지 알려 줍니다. 앞 글자가 두 스킬에 해당하거나 두 스킬이 요청에 비슷하게 맞으면, 짐작하지 않고 묻습니다.
+**쉽게 말하면.** 그 자체로 하나의 방법은 아니고, 더 빨리 들어가는 길일 뿐입니다. 메시지를 `dia`로 시작하세요. `dia`만 쓰면 스킬 열세 개를 번호와 함께 보여 줍니다. 뒤에 번호나 이름의 앞 몇 글자를 붙이면 그 스킬이 시작되고, 원하는 일을 그냥 쓰면 알맞은 스킬을 골라 대개 먼저 한 줄로 어떤 스킬인지 알려 줍니다. 앞 글자가 두 스킬에 해당하거나 두 스킬이 요청에 비슷하게 맞으면, 짐작하지 않고 묻습니다.
 
-**이럴 때 쓰세요.** 휴대폰으로 입력할 때, 또는 어떤 스킬이 필요한지 잘 모를 때입니다. `dia-intent`(1), `dia-ratchet`(10), `dia-adjudicate`(11)는 번호나 이름으로만 시작되며, `dia`가 짐작해서 시작하는 일은 없습니다.
+**이럴 때 쓰세요.** 휴대폰으로 입력할 때, 또는 어떤 스킬이 필요한지 잘 모를 때입니다. `dia-intent`(1), `dia-ratchet`(10), `dia-adjudicate`(11), `dia-techne`(13)는 번호나 이름으로만 시작되며, `dia`가 짐작해서 시작하는 일은 없습니다.
 
 **해 보기:**
 
@@ -578,11 +607,11 @@ dia 온보딩 이메일을 추가한 뒤 이탈률이 떨어졌으니, 이메일
 > `dia 4 …` → `dia-reductio`가 바로 시작됩니다: "**대상:** 사용자(추정). **논제 T:** ‘모든 소수는 홀수다’. **방향:** 반박. …"
 > `dia 온보딩 이메일을 …` → `dia-warrant`가 시작됩니다: "**구조** – **주장:** ‘이메일이 이탈을 줄였다’(명시됨). … **자료:** ‘온보딩 이메일을 추가한 뒤 이탈률이 떨어졌다’(명시됨). …"
 > `dia con …` (`dia-confirm`과 `dia-conjecture`에 모두 해당, 한국어로 실행한 원문 그대로) → "‘con’으로 시작하는 skill이 둘이라 하나를 고를 수 없습니다. 번호로 골라 주세요." 그리고 두 스킬을 함께 보여 줍니다.
-> *(1.4.0으로 기록한 실행이며, 당시 1번은 `dia-confirm`, 10번은 `dia-iterate`였습니다. 1.6.0부터 1번은 `dia-intent`이고 `con`은 `dia-conjecture`에만 해당합니다. 1.6.0부터 목록은 열두 줄이며 10번은 `dia-ratchet`, 11번은 `dia-adjudicate`, 12번은 `dia-instruct`입니다.)*
+> *(1.4.0으로 기록한 실행이며, 당시 1번은 `dia-confirm`, 10번은 `dia-iterate`였습니다. 1.6.0부터 1번은 `dia-intent`이고 `con`은 `dia-conjecture`에만 해당합니다. 1.6.0부터 목록은 열두 줄이며 10번은 `dia-ratchet`, 11번은 `dia-adjudicate`, 12번은 `dia-instruct`입니다. 1.13.0부터는 열세 줄이며 13번은 `dia-techne`입니다.)*
 
 **팁**
 
-- 번호는 바뀌지 않습니다: 1 intent, 2 brainstorm, 3 elenchus, 4 reductio, 5 negative, 6 warrant, 7 conjecture, 8 counterplan, 9 refine, 10 ratchet, 11 adjudicate, 12 instruct.
+- 번호는 바뀌지 않습니다: 1 intent, 2 brainstorm, 3 elenchus, 4 reductio, 5 negative, 6 warrant, 7 conjecture, 8 counterplan, 9 refine, 10 ratchet, 11 adjudicate, 12 instruct, 13 techne.
 - 옵션은 그대로 전달됩니다: `dia 10 --max 2 <draft>`는 `dia-ratchet --max 2 <draft>`와 같습니다.
 - `dia`는 단독으로 첫 단어여야 합니다. `dia-refine …`을 비롯한 전체 이름은 여전히 곧바로 해당 스킬로 갑니다.
 - 앞 글자는 세 글자 이상이어야 하고(`re`가 아니라 `red`), 문장의 일부임이 분명한 단어(`dia red flags in my plan?`)는 선택이 아니라 요청으로 읽습니다.
@@ -605,7 +634,7 @@ dia 온보딩 이메일을 추가한 뒤 이탈률이 떨어졌으니, 이메일
 - **claude.ai에 Skills 섹션이 없거나 비활성화되어 있습니다.** Settings › Capabilities › Code execution and file creation을 켭니다.
 - **`dia-confirm`을 찾을 수 없습니다.** 1.6.0에서 `dia-intent`로 이름이 되돌아갔습니다. 1.1.0부터 1.4.0까지는 `dia-confirm`이었습니다.
 - **`dia-iterate`를 찾을 수 없습니다.** 1.6.0에서 `dia-ratchet`으로 이름이 바뀌었습니다.
-- **`dia-ratchet`이나 `dia-adjudicate`가 시작되지 않습니다.** 메시지의 첫 단어가 스킬 이름이거나 명시적으로 선택했을 때(`/dia:dia-ratchet`, `$dia:dia-ratchet`, `@dia-ratchet`, `dia 10`, `dia ratchet`; `dia-adjudicate`도 같은 형식과 `dia 11`)에만 시작됩니다. `dia <request>`만으로는 절대 선택되지 않습니다.
+- **`dia-ratchet`, `dia-adjudicate`, `dia-techne`가 시작되지 않습니다.** 메시지의 첫 단어가 스킬 이름이거나 명시적으로 선택했을 때(`/dia:dia-ratchet`, `$dia:dia-ratchet`, `@dia-ratchet`, `dia 10`, `dia ratchet`; `dia-adjudicate`와 `dia-techne`도 같은 형식과 `dia 11`, `dia 13`)에만 시작됩니다. `dia <request>`만으로는 절대 선택되지 않습니다.
 - **Codex에서 `$dia:dia-intent:`이 인식되지 않습니다.** 스킬 이름 뒤에 콜론이 아니라 공백을 넣습니다.
 - **claude.ai에서 업로드가 거부됩니다.** Customize › Skills가 아니라 Customize › Plugins › Upload plugin을 사용합니다.
 - **claude.ai에서 Check for updates 후에도 예전 버전이 남아 있습니다.** Customize › Plugins에서 `dia`를 제거한 뒤 `dialectic-skills` 마켓플레이스에서 다시 설치합니다. 이후 릴리스를 자동으로 받으려면 Sync automatically를 켭니다.

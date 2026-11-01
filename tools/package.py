@@ -93,6 +93,7 @@ EXPECTED_IMPLICIT = {
     "dia-menu": True,
     "dia-adjudicate": True,
     "dia-instruct": True,
+    "dia-techne": True,
 }
 
 

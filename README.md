@@ -4,7 +4,7 @@
 
 Website: [ajitta.github.io/dialectic-skills](https://ajitta.github.io/dialectic-skills/)
 
-Twelve reasoning-and-review skills in one plugin, written to run unchanged on any assistant that loads Agent Skills: Claude (web, desktop, mobile, Claude Code), Codex and ChatGPT. The package is instructions only (Markdown, YAML, JSON), so every skill also works in a chat with no tools. Skill files are in English; each skill replies in the language of your message. On a phone, type just `dia`: a menu skill (`dia-menu`, new in 1.4.0) lists the skills and starts one by number, by the first letters of its name, or by what you ask for.
+Thirteen reasoning-and-review skills in one plugin, written to run unchanged on any assistant that loads Agent Skills: Claude (web, desktop, mobile, Claude Code), Codex and ChatGPT. The package is instructions only (Markdown, YAML, JSON), so every skill also works in a chat with no tools. Skill files are in English; each skill replies in the language of your message. On a phone, type just `dia`: a menu skill (`dia-menu`, new in 1.4.0) lists the skills and starts one by number, by the first letters of its name, or by what you ask for.
 
 | Skill | What it does | How it starts |
 |---|---|---|
@@ -20,7 +20,8 @@ Twelve reasoning-and-review skills in one plugin, written to run unchanged on an
 | `dia-ratchet` | Repeated review rounds in which only outside evidence counts (a search, a tool run or your own material, never the assistant's own re-derivation); what passed is locked; stops on regression, zero defects, verification exhausted, fixed point or `--max N` (default 3). Named `dia-iterate` before 1.6.0. | first word `dia-ratchet`, or by name only |
 | `dia-adjudicate` | Rules on reports that people or other assistants wrote about a text (critiques, reviews, verification reports): checks the text's claims and every report point against sources, gives a verdict for each, and lists the verdicts a person should recheck. Never rewrites the text. | first word `dia-adjudicate`, or by name only |
 | `dia-instruct` | Checks or writes text a model will follow (a skill file, an agent prompt, an agent instructions file) against four rules: each paragraph one expression with its conditions and fallback, scope words as narrow as meant, fewer instructions each with its reason, one name per thing. A review lists breaches and changes nothing until you pick. | by name, or in words |
-| `dia-menu` | Not a method: a short entry point. `dia` shows a numbered menu, `dia 4 …` or `dia red …` starts a skill by number or first letters, and `dia <request>` picks the skill that fits and says which. Never starts `dia-intent`, `dia-ratchet` or `dia-adjudicate` on its own. | first word `dia` |
+| `dia-techne` | Deepens a request the way a field's top practitioners would (the outcome it serves, the rawest material, the field's methods, a check by something other than the assistant and you, another field's view), shows each change with its reason, and runs it. Stops before any step a backup cannot undo. | first word `dia-techne`, or by name only |
+| `dia-menu` | Not a method: a short entry point. `dia` shows a numbered menu, `dia 4 …` or `dia red …` starts a skill by number or first letters, and `dia <request>` picks the skill that fits and says which. Never starts `dia-intent`, `dia-ratchet`, `dia-adjudicate` or `dia-techne` on its own. | first word `dia` |
 
 ## Contents
 
@@ -69,7 +70,7 @@ Then try: `Use proof by contradiction on this claim: remote work always raises p
 
    The Git URL `https://github.com/ajitta/dialectic-skills.git` works too, and Claude desktop also accepts a local folder (a clone of this repository). Copy the name rather than typing it: a misspelling such as `dialectric` fails with "Repository not found".
 3. **Add the plugin.** Adding the marketplace installs nothing yet. In Customize › Plugins, open Discover, select `dia` (Dialectic Skills), and select Add.
-4. **Check.** Type `/dia` in the message box. Thirteen entries, `dia:dia-adjudicate` to `dia:dia-warrant` (the twelve skills and `dia:dia-menu`), should appear. Updates arrive through the marketplace (Check for updates, or Sync automatically).
+4. **Check.** Type `/dia` in the message box. Fourteen entries, `dia:dia-adjudicate` to `dia:dia-warrant` (the thirteen skills and `dia:dia-menu`), should appear. Updates arrive through the marketplace (Check for updates, or Sync automatically).
 
 Instead of steps 2 and 3 you can upload the plugin: Customize › Plugins › Add › Upload plugin with [`dialectic-skills.zip`](https://github.com/ajitta/dialectic-skills/releases/latest/download/dialectic-skills.zip) from the latest release. Use Customize › Plugins, not Customize › Skills: the Skills screen rejects a zip that carries a plugin manifest. An upload does not update itself; upload each new release again.
 
@@ -118,9 +119,9 @@ All routes above work on Windows. The skills contain no scripts, so no Python or
 
 There are four ways, and every surface supports at least one of them:
 
-1. **The menu: start the message with `dia`.** `dia` alone lists the skills with numbers. `dia 4 <your text>` or `dia red <your text>` starts that skill (here `dia-reductio`); if the letters fit more than one skill, it asks which. `dia <your text>` picks the skill that fits, usually names it in one line first, and runs it; if two fit about equally, it asks. It never starts `dia-intent` (1), `dia-ratchet` (10) or `dia-adjudicate` (11) from a plain request; use their number or name, for example `dia 10 --max 2 <draft>`. This is the quickest route on a phone: three letters, no hyphen.
+1. **The menu: start the message with `dia`.** `dia` alone lists the skills with numbers. `dia 4 <your text>` or `dia red <your text>` starts that skill (here `dia-reductio`); if the letters fit more than one skill, it asks which. `dia <your text>` picks the skill that fits, usually names it in one line first, and runs it; if two fit about equally, it asks. It never starts `dia-intent` (1), `dia-ratchet` (10), `dia-adjudicate` (11) or `dia-techne` (13) from a plain request; use their number or name, for example `dia 10 --max 2 <draft>`. This is the quickest route on a phone: three letters, no hyphen.
 2. **In words.** Ask for the method: "use proof by contradiction on…", "do an immanent critique of…", "Socratic dialogue please…", "how well do the reasons support this?", "find counterexamples to my rule…", "devil's advocate on this plan…", "review this prompt I wrote for an agent…". This works on every surface and is the safe default on mobile. It works for `dia-reductio`, `dia-negative`, `dia-elenchus`, `dia-brainstorm`, `dia-warrant`, `dia-conjecture`, `dia-counterplan` and `dia-instruct`.
-3. **By name in the message.** Start the message with the skill name: `dia-intent …`, `dia-refine …`, `dia-ratchet …`, `dia-adjudicate …`. Since 1.2.0 this also works on Codex without `$` and on ChatGPT without `@` (owner-checked in the mobile app). `dia-refine`, `dia-ratchet` and `dia-adjudicate` are meant to start this way or by an explicit selection: `dia-ratchet` and `dia-adjudicate` never start from a plain request, and on Claude Code a plain "fix this draft" request rarely loads `dia-refine`.
+3. **By name in the message.** Start the message with the skill name: `dia-intent …`, `dia-refine …`, `dia-ratchet …`, `dia-adjudicate …`, `dia-techne …`. Since 1.2.0 this also works on Codex without `$` and on ChatGPT without `@` (owner-checked in the mobile app). `dia-refine`, `dia-ratchet`, `dia-adjudicate` and `dia-techne` are meant to start this way or by an explicit selection: `dia-ratchet`, `dia-adjudicate` and `dia-techne` never start from a plain request, and on Claude Code a plain "fix this draft" request rarely loads `dia-refine`.
 4. **Explicit selection**, written differently on each surface:
 
 | Surface | Syntax | Example |
@@ -131,7 +132,7 @@ There are four ways, and every surface supports at least one of them:
 | Codex (copied folder) | `$dia-<x>` | `$dia-refine` |
 | ChatGPT | `@` then pick the skill | `@dia-negative` |
 
-Since 1.2.0 every skill is visible to the model on Codex and ChatGPT, as on Claude. `dia-reductio`, `dia-negative`, `dia-elenchus`, `dia-brainstorm`, `dia-warrant`, `dia-conjecture`, `dia-counterplan`, `dia-refine` and `dia-instruct` may start when your request matches them; `dia-intent`, `dia-ratchet` and `dia-adjudicate` are meant to start only when the message begins with their name or when you select them (`$dia:dia-<x>`, `@`). On Codex, a request that spells out `dia-intent`'s steps ("restate my goal and list the open decisions first") can also load it.
+Since 1.2.0 every skill is visible to the model on Codex and ChatGPT, as on Claude. `dia-reductio`, `dia-negative`, `dia-elenchus`, `dia-brainstorm`, `dia-warrant`, `dia-conjecture`, `dia-counterplan`, `dia-refine` and `dia-instruct` may start when your request matches them; `dia-intent`, `dia-ratchet`, `dia-adjudicate` and `dia-techne` are meant to start only when the message begins with their name or when you select them (`$dia:dia-<x>`, `@`). On Codex, a request that spells out `dia-intent`'s steps ("restate my goal and list the open decisions first") can also load it.
 
 ### Options
 
@@ -166,6 +167,7 @@ The sessions were run on Claude Code (Sonnet) with this plugin, and the user rep
 | fact-check something thoroughly, round by round | `dia-ratchet` |
 | decide which points in reviews of a text actually hold | `dia-adjudicate` |
 | write or check a prompt, skill or agent file so a model follows it as meant | `dia-instruct` |
+| do a task the way the field's best would, checked by something other than the assistant | `dia-techne` |
 | not sure which, or typing on a phone | `dia` (`dia-menu`) |
 
 ### dia-intent: agree on the task before work starts
@@ -558,11 +560,38 @@ Only touch files the task needs.
 - Ask "how strong is this rule?" to see what each rule rests on; that file is read only then.
 - Where the assistant can start a separate agent, a change to text you will keep is reviewed by one that did not write it; otherwise, and for an edit that only adds a fact or command such as a test command, the assistant checks it itself and labels the check not independent.
 
+### dia-techne: do a task the way the field's best would
+
+**In plain words.** A request is often narrower than what it is for. Before it works, `dia-techne` asks five questions: what a top practitioner of the field would do here that you did not ask for, which raw material they would start from instead of a summary, which methods and tools they would use, what other than the assistant and you would show the result is right, and which idea from another field, or which opposing view, would change the result. It then rewrites your request, shows each change with its reason so you can take it back, and runs it in the same turn. It never changes what you set as a requirement or a limit, your data, or what you allowed it to do. A file you asked it to overwrite is backed up first, and it stops before anything a backup cannot undo, such as sending, publishing or pushing. The method follows Felix Rieseberg's tutorial "How to be more ambitious".
+
+**Use it when** a task matters enough to want the deeper version rather than the quick one: a claim you will make in public, a fix you want checked by something other than the assistant, a decision built on data. It takes longer and its replies are longer. Start the message with `dia-techne`, or pick 13 in the menu; it never starts from a plain request.
+
+**Try:**
+
+```
+dia-techne Our mobile puzzle game's D30 retention is 12%. Can I tell investors next week that it's above the industry average?
+```
+
+**What you get** (real run with web search, shortened):
+
+> **Short answer:** "Probably yes, but only if you say which benchmark and which cohort you mean."
+> **Outcome and revisions:** "The outcome you need is for investors to believe your retention claim." Three changes, and "each change can be taken back": "industry average" becomes a named benchmark, because "there is no single industry average"; a check that the 12% uses the benchmark's definition (active "on exactly day 30" or "on day 30 or later", blended or organic-only installs); a recommended wording.
+> **Rewritten prompt** (in a code block, then run): compare 12% with each genre-level D30 benchmark, naming source, year and region; say which is the fairest comparison; list the questions an investor will ask; give one sentence "that is true under the strongest benchmark and still true under the weakest".
+> **Open points:** the assumption that "industry average" means puzzle or match games; placeholders for how the 12% is defined, the cohort size and the install mix; "I saw only search snippets, not the full reports."
+> **Result:** puzzle 5.35%, match games 7.15%, board games in the US 5.09% (Android) to 8.13% (iOS), all games median about 0.7%, each marked secondary. Suggested wording: "Our D30 is 12%, against roughly 5–8% for puzzle and match games in public benchmarks (Mistplay/AppsFlyer, 2025)." **Outside check for you to run:** "Recompute D30 from raw install and activity logs", split it by platform, country and organic versus paid, and read the benchmarks' methods. "If the recomputed figure drops below roughly 8%, change the wording." *(sources listed)*
+
+**Tips**
+
+- When nothing needed changing, the reply is short: the result, what the check showed and the assumptions. In a recorded leap-year fix it compared the new function with Python's `calendar.isleap` "for every year from 1 to 10000", and "the original is saved beside it as `leap.py.bak`".
+- Name another executor ("a prompt for Codex, don't run it") and it still does the research but only writes the prompt; the open points list what that executor may not reach.
+- Searches carry general public terms only, never your private material. Without tools, the outside check is named for you to run, and facts from memory are marked as recall.
+- Asked for something that belongs to a sibling (a skill file to keep, a scope check without running), it runs anyway and names that sibling in one line.
+
 ### dia-menu: one short word for every skill
 
-**In plain words.** Not a method of its own, just a quicker way in. Start your message with `dia`. On its own, `dia` lists the twelve skills with numbers. Put a number or the first few letters of a name after it to start that skill, or just write what you want and it picks the skill that fits, usually telling you which in one line first. If the letters fit two skills, or two skills fit your request about equally, it asks instead of guessing.
+**In plain words.** Not a method of its own, just a quicker way in. Start your message with `dia`. On its own, `dia` lists the thirteen skills with numbers. Put a number or the first few letters of a name after it to start that skill, or just write what you want and it picks the skill that fits, usually telling you which in one line first. If the letters fit two skills, or two skills fit your request about equally, it asks instead of guessing.
 
-**Use it when** you are typing on a phone, or you are not sure which skill you need. `dia-intent` (1), `dia-ratchet` (10) and `dia-adjudicate` (11) start only by their number or name, never because `dia` guessed them.
+**Use it when** you are typing on a phone, or you are not sure which skill you need. `dia-intent` (1), `dia-ratchet` (10), `dia-adjudicate` (11) and `dia-techne` (13) start only by their number or name, never because `dia` guessed them.
 
 **Try:**
 
@@ -578,11 +607,11 @@ dia Our churn dropped after we added onboarding emails, so the emails reduced ch
 > `dia 4 …` → `dia-reductio` starts at once: "**Target:** user (inferred). **Thesis T:** "every prime is odd". **Direction:** refute. …"
 > `dia Our churn dropped …` → `dia-warrant` starts: "**Layout** – **Claim:** "the emails reduced churn" (stated). … **Data:** "Our churn dropped after we added onboarding emails" (stated). …"
 > `dia con …` (fits `dia-confirm` and `dia-conjecture`; a Korean run, translated) → "Two skills start with "con", so I can't pick one. Choose by number.", with both listed.
-> *(Recorded with 1.4.0, when 1 was `dia-confirm` and 10 was `dia-iterate`; since 1.6.0 1 is `dia-intent`, and `con` fits only `dia-conjecture`. From 1.6.0 the list has twelve rows: 10 is `dia-ratchet`, 11 `dia-adjudicate` and 12 `dia-instruct`.)*
+> *(Recorded with 1.4.0, when 1 was `dia-confirm` and 10 was `dia-iterate`; since 1.6.0 1 is `dia-intent`, and `con` fits only `dia-conjecture`. From 1.6.0 the list has twelve rows: 10 is `dia-ratchet`, 11 `dia-adjudicate` and 12 `dia-instruct`; from 1.13.0 it has thirteen, with 13 `dia-techne`.)*
 
 **Tips**
 
-- Numbers stay fixed: 1 intent, 2 brainstorm, 3 elenchus, 4 reductio, 5 negative, 6 warrant, 7 conjecture, 8 counterplan, 9 refine, 10 ratchet, 11 adjudicate, 12 instruct.
+- Numbers stay fixed: 1 intent, 2 brainstorm, 3 elenchus, 4 reductio, 5 negative, 6 warrant, 7 conjecture, 8 counterplan, 9 refine, 10 ratchet, 11 adjudicate, 12 instruct, 13 techne.
 - Options pass through: `dia 10 --max 2 <draft>` is the same as `dia-ratchet --max 2 <draft>`.
 - `dia` must be the first word on its own. `dia-refine …` and the other full names still go straight to their skill.
 - Letters need at least three (`red`, not `re`), and a word that is plainly part of your sentence (`dia red flags in my plan?`) is read as a request, not a pick.
@@ -605,7 +634,7 @@ dia Our churn dropped after we added onboarding emails, so the emails reduced ch
 - **Skills section missing or greyed out on claude.ai.** Turn on Settings › Capabilities › Code execution and file creation.
 - **`dia-confirm` is not found.** It was renamed back to `dia-intent` in 1.6.0; it was `dia-confirm` from 1.1.0 to 1.4.0.
 - **`dia-iterate` is not found.** It was renamed `dia-ratchet` in 1.6.0.
-- **`dia-ratchet` or `dia-adjudicate` does not start.** Each starts only when its name is the first word of the message or when it is selected explicitly (`/dia:dia-ratchet`, `$dia:dia-ratchet`, `@dia-ratchet`, `dia 10`, `dia ratchet`; for `dia-adjudicate` the same forms and `dia 11`). `dia <request>` alone never picks them.
+- **`dia-ratchet`, `dia-adjudicate` or `dia-techne` does not start.** Each starts only when its name is the first word of the message or when it is selected explicitly (`/dia:dia-ratchet`, `$dia:dia-ratchet`, `@dia-ratchet`, `dia 10`, `dia ratchet`; for `dia-adjudicate` and `dia-techne` the same forms and `dia 11` or `dia 13`). `dia <request>` alone never picks them.
 - **`$dia:dia-intent:` does not resolve on Codex.** Put a space, not a colon, after the skill name.
 - **The upload is rejected on claude.ai.** Use Customize › Plugins › Upload plugin, not Customize › Skills.
 - **claude.ai keeps an old version after Check for updates.** Remove `dia` in Customize › Plugins and install it again from the `dialectic-skills` marketplace; turn on Sync automatically for later releases.

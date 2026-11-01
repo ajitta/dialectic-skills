@@ -4,7 +4,7 @@
 
 网站: [ajitta.github.io/dialectic-skills](https://ajitta.github.io/dialectic-skills/)
 
-一个插件内含十二个推理与审查技能，无需修改即可在任何加载 Agent Skills 的助手上运行：Claude（网页版、桌面版、移动版、Claude Code）、Codex 和 ChatGPT。整个包只包含指令（Markdown、YAML、JSON），因此每个技能在没有任何工具的聊天中也能使用。技能文件用英文编写；每个技能都会用你消息所用的语言回复。在手机上只需输入 `dia`：一个菜单技能（`dia-menu`，1.4.0 新增）会列出各个技能，并按编号、名称的前几个字母或你的请求内容启动其中一个。
+一个插件内含十三个推理与审查技能，无需修改即可在任何加载 Agent Skills 的助手上运行：Claude（网页版、桌面版、移动版、Claude Code）、Codex 和 ChatGPT。整个包只包含指令（Markdown、YAML、JSON），因此每个技能在没有任何工具的聊天中也能使用。技能文件用英文编写；每个技能都会用你消息所用的语言回复。在手机上只需输入 `dia`：一个菜单技能（`dia-menu`，1.4.0 新增）会列出各个技能，并按编号、名称的前几个字母或你的请求内容启动其中一个。
 
 | 技能 | 作用 | 启动方式 |
 |---|---|---|
@@ -20,7 +20,8 @@
 | `dia-ratchet` | 多轮重复审查，但只承认外部证据（一次搜索、一次工具运行或你提供的资料），不承认助手自己的重新推导；通过核查的内容会被锁定；在出现退化、零缺陷、验证手段用尽、达到不动点或 `--max N`（默认 3）时停止。1.6.0 之前名为 `dia-iterate`。 | 首词为 `dia-ratchet`，或仅通过名称 |
 | `dia-adjudicate` | 对他人或其他助手就某段文字写下的报告（批评、评审、核查报告）作出裁决：把文字中的主张和报告中的每一处意见都与来源对照，逐项给出裁决，并列出需要由人复核的裁决。从不改写原文。 | 首词为 `dia-adjudicate`，或仅通过名称 |
 | `dia-instruct` | 按四条规则检查或撰写模型要阅读并遵循的文字（技能文件、给智能体的提示、智能体指令文件）：每段是一个包含条件与后备方案的表达式，范围词只取本意的宽度，指令更少且各附理由，一个事物只用一个名称。只要求审查时，它列出违规之处，在你挑选之前不做任何改动。 | 通过名称，或用文字描述 |
-| `dia-menu` | 不是一种方法，而是一个简短的入口：`dia` 显示带编号的菜单，`dia 4 …` 或 `dia red …` 按编号或开头字母启动技能，`dia <request>` 则挑选合适的技能并说明选了哪个。从不自行启动 `dia-intent`、`dia-ratchet` 或 `dia-adjudicate`。 | 首词为 `dia` |
+| `dia-techne` | 像该领域的顶尖从业者那样深化一个请求（请求要达成的结果、最原始的材料、该领域的方法、由助手和你以外的东西来核验、其他领域的视角），每处改动附上理由，然后执行。在备份无法撤销的步骤之前停下。 | 首词为 `dia-techne`，或仅通过名称 |
+| `dia-menu` | 不是一种方法，而是一个简短的入口：`dia` 显示带编号的菜单，`dia 4 …` 或 `dia red …` 按编号或开头字母启动技能，`dia <request>` 则挑选合适的技能并说明选了哪个。从不自行启动 `dia-intent`、`dia-ratchet`、`dia-adjudicate` 或 `dia-techne`。 | 首词为 `dia` |
 
 ## 目录
 
@@ -69,7 +70,7 @@ claude.ai（网页版）：Customize › Plugins › Add › Add marketplace，�
 
    也可以输入 Git URL `https://github.com/ajitta/dialectic-skills.git`，Claude 桌面版还可以指定本地文件夹（本仓库的克隆）。请复制粘贴而不要手动输入：像 `dialectric` 这样的拼写错误会以 "Repository not found" 失败。
 3. **添加插件。** 只添加 marketplace 还不会安装任何东西。在 Customize › Plugins 中打开 Discover，选择 `dia`（Dialectic Skills），然后选择 Add。
-4. **检查。** 在消息框中输入 `/dia`，应出现从 `dia:dia-adjudicate` 到 `dia:dia-warrant` 共十三项（十二个技能加上 `dia:dia-menu`）。更新通过 marketplace 获取（Check for updates，或 Sync automatically）。
+4. **检查。** 在消息框中输入 `/dia`，应出现从 `dia:dia-adjudicate` 到 `dia:dia-warrant` 共十四项（十三个技能加上 `dia:dia-menu`）。更新通过 marketplace 获取（Check for updates，或 Sync automatically）。
 
 也可以不走第 2、3 步，直接上传插件：在 Customize › Plugins › Add › Upload plugin 上传最新发布版中的 [`dialectic-skills.zip`](https://github.com/ajitta/dialectic-skills/releases/latest/download/dialectic-skills.zip)。请使用 Customize › Plugins，而不是 Customize › Skills：Skills 页面会拒绝带有插件清单的 zip。上传的插件不会自动更新；每个新版本都需重新上传。
 
@@ -118,9 +119,9 @@ codex plugin add dia@dialectic-skills
 
 共有四种方式，每个平台至少支持其中一种：
 
-1. **菜单：以 `dia` 开头发送消息。** 只输入 `dia` 会列出带编号的技能。`dia 4 <your text>` 或 `dia red <your text>` 启动对应的技能（这里是 `dia-reductio`）；如果开头字母符合不止一个技能，它会问你选哪个。`dia <your text>` 会挑选合适的技能，通常先用一行写出其名称，然后运行；如果有两个技能差不多同样合适，它会询问。它从不因普通请求而启动 `dia-intent`（1）、`dia-ratchet`（10）或 `dia-adjudicate`（11）；请使用它们的编号或名称，例如 `dia 10 --max 2 <draft>`。这是在手机上最快的方式：三个字母，没有连字符。
+1. **菜单：以 `dia` 开头发送消息。** 只输入 `dia` 会列出带编号的技能。`dia 4 <your text>` 或 `dia red <your text>` 启动对应的技能（这里是 `dia-reductio`）；如果开头字母符合不止一个技能，它会问你选哪个。`dia <your text>` 会挑选合适的技能，通常先用一行写出其名称，然后运行；如果有两个技能差不多同样合适，它会询问。它从不因普通请求而启动 `dia-intent`（1）、`dia-ratchet`（10）、`dia-adjudicate`（11）或 `dia-techne`（13）；请使用它们的编号或名称，例如 `dia 10 --max 2 <draft>`。这是在手机上最快的方式：三个字母，没有连字符。
 2. **用文字描述。** 直接要求使用某种方法："对……用反证法"、"对……做内在批判"、"请来一场苏格拉底式对话……"、"这些理由能在多大程度上支撑结论？"、"给我的规则找反例……"、"对这个计划唱唱反调……"、"审查一下我写给智能体的这段提示……"。这在所有平台上都有效，也是移动端的稳妥默认方式。适用于 `dia-reductio`、`dia-negative`、`dia-elenchus`、`dia-brainstorm`、`dia-warrant`、`dia-conjecture`、`dia-counterplan` 和 `dia-instruct`。
-3. **在消息中写出名称。** 以技能名称开头：`dia-intent …`、`dia-refine …`、`dia-ratchet …`、`dia-adjudicate …`。从 1.2.0 起，在 Codex 上无需 `$`、在 ChatGPT 上无需 `@`（已由所有者在手机应用中确认） 即可这样启动。`dia-refine`、`dia-ratchet` 和 `dia-adjudicate` 设计为以这种方式或显式选择来启动：`dia-ratchet` 和 `dia-adjudicate` 从不由普通请求触发；在 Claude Code 上，"修改一下这份草稿"这类普通请求也很少会加载 `dia-refine`。
+3. **在消息中写出名称。** 以技能名称开头：`dia-intent …`、`dia-refine …`、`dia-ratchet …`、`dia-adjudicate …`、`dia-techne …`。从 1.2.0 起，在 Codex 上无需 `$`、在 ChatGPT 上无需 `@`（已由所有者在手机应用中确认） 即可这样启动。`dia-refine`、`dia-ratchet`、`dia-adjudicate` 和 `dia-techne` 设计为以这种方式或显式选择来启动：`dia-ratchet`、`dia-adjudicate` 和 `dia-techne` 从不由普通请求触发；在 Claude Code 上，"修改一下这份草稿"这类普通请求也很少会加载 `dia-refine`。
 4. **显式选择**，各平台写法不同：
 
 | 平台 | 语法 | 示例 |
@@ -131,7 +132,7 @@ codex plugin add dia@dialectic-skills
 | Codex（复制的文件夹） | `$dia-<x>` | `$dia-refine` |
 | ChatGPT | 输入 `@` 后选择技能 | `@dia-negative` |
 
-从 1.2.0 起，Codex 和 ChatGPT 也与 Claude 一样，所有技能对模型可见。`dia-reductio`、`dia-negative`、`dia-elenchus`、`dia-brainstorm`、`dia-warrant`、`dia-conjecture`、`dia-counterplan`、`dia-refine` 和 `dia-instruct` 在你的请求与之匹配时可能自动启动；`dia-intent`、`dia-ratchet` 和 `dia-adjudicate` 设计为仅在消息以其名称开头或被显式选择（`$dia:dia-<x>`、`@`）时启动。不过在 Codex 上，如果用文字直接要求 `dia-intent` 的步骤（如“先整理我的目标并列出待决事项”），也可能加载该技能。
+从 1.2.0 起，Codex 和 ChatGPT 也与 Claude 一样，所有技能对模型可见。`dia-reductio`、`dia-negative`、`dia-elenchus`、`dia-brainstorm`、`dia-warrant`、`dia-conjecture`、`dia-counterplan`、`dia-refine` 和 `dia-instruct` 在你的请求与之匹配时可能自动启动；`dia-intent`、`dia-ratchet`、`dia-adjudicate` 和 `dia-techne` 设计为仅在消息以其名称开头或被显式选择（`$dia:dia-<x>`、`@`）时启动。不过在 Codex 上，如果用文字直接要求 `dia-intent` 的步骤（如“先整理我的目标并列出待决事项”），也可能加载该技能。
 
 ### 选项
 
@@ -166,6 +167,7 @@ codex plugin add dia@dialectic-skills
 | 一轮一轮地彻底核查事实 | `dia-ratchet` |
 | 判断一段文字的多份评审中哪些意见站得住 | `dia-adjudicate` |
 | 撰写或检查提示、技能或智能体文件，让模型按本意遵循 | `dia-instruct` |
+| 像该领域的顶尖从业者那样做事，并由助手以外的东西核验结果 | `dia-techne` |
 | 不确定该用哪个，或者正在用手机输入 | `dia` (`dia-menu`) |
 
 ### dia-intent：开始工作前先对齐任务
@@ -558,11 +560,38 @@ dia-adjudicate
 - 问"这条规则的依据有多强？"会显示每条规则的依据；那个文件只在这时读取。
 - 如果助手能启动另一个智能体，你要保留的文字的修改会交给没有写这次修改的智能体审查；否则，以及只是添加事实或命令（例如测试命令）的修改，由助手自己检查，并注明这次检查并不独立。
 
+### dia-techne：像该领域的顶尖从业者那样做事
+
+**通俗地说。** 一个请求往往比它要达成的目的更窄。`dia-techne` 在动手之前先问五个问题：该领域的顶尖从业者在这里会做哪些你没有要求的事；他们会从哪种原始材料而不是摘要入手；会用哪些方法和工具；除了助手和你之外，什么能证明结果是对的；以及其他领域的哪种思路、或哪种相反观点会改变结果。然后它改写你的请求，每处改动都附上理由，让你可以撤回，并在同一轮中直接执行。你设定为要求或限制的内容、你的数据、你允许的范围，它都不会改。你让它覆盖的文件会先备份；在发送、发布、push 这类备份无法撤销的操作之前，它会停下。方法依据 Felix Rieseberg 的教程“How to be more ambitious”。
+
+**适合使用的情况：** 事情重要到你需要深入的版本而不是快速的版本，例如要公开提出的主张、希望由助手以外的东西来核验的修复、基于数据的决定。它更耗时，回复也更长。消息以 `dia-techne` 开头，或在菜单中选 13；它从不由普通请求启动。
+
+**试试：**
+
+```
+dia-techne 我们的手机益智游戏 D30 留存率是 12%。下周向投资人介绍时，可以说“高于行业平均”吗？
+```
+
+**你会得到**（真实运行，使用了网页搜索，已删减；译自英文运行）：
+
+> **简短回答：**"大概可以，但前提是你说明指的是哪个基准、哪个用户群。"
+> **结果与修改：**"你需要的结果是让投资人相信你的留存主张。"做了三处改动，"每处改动都可以撤回"：把“行业平均”换成有名称的基准，因为"并不存在唯一的行业平均"；加入一步核对 12% 是否与基准的定义相同（是"恰好第 30 天"活跃还是"第 30 天及以后"活跃，是全部安装还是仅自然安装）；附上建议的说法。
+> **改写后的提示**（以代码块给出，然后执行）：把 12% 与各个按品类划分的 D30 基准逐一比较，写明来源、年份和地区；说明哪个比较最公平；列出投资人会问的问题；给出一句"在最强的基准下成立、在最弱的基准下仍然成立"的话。
+> **待定事项：** 假设“行业平均”指益智和消除类游戏；12% 的定义、用户群规模和安装构成留作空白；"我只看到了搜索摘要，没有看到报告全文。"
+> **结果：** 益智 5.35%，消除类游戏 7.15%，美国棋盘类游戏 5.09%（Android）至 8.13%（iOS），全部游戏中位数约 0.7%，均标为二手资料。建议说法："我们的 D30 是 12%，而公开基准中益智和消除类游戏约为 5–8%（Mistplay/AppsFlyer，2025）。"**需要你来做的外部核验：**"用原始安装和活跃日志重新计算 D30"，按平台、国家以及自然与付费拆分，并阅读各基准的统计方法。"如果重新计算的数字低于约 8%，就改掉这个说法。"*（附来源列表）*
+
+**小贴士**
+
+- 如果没有需要改的，回复会很短：结果、核验显示了什么、以及假设。在一次有记录的闰年修复中，它把新函数与 Python 的 `calendar.isleap` 在"从 1 年到 10000 年的每一年"上做了比较，并且"原文件已另存为旁边的 `leap.py.bak`"。
+- 指定另一个执行者时（“给 Codex 的提示，不要运行”），它仍会做调研，但只写出提示；那个执行者可能接触不到的东西会列入待定事项。
+- 搜索只使用一般的公开词语，绝不发送你的私有材料。没有工具时，外部核验会写成需要你来做的事，凭记忆给出的事实会标为记忆。
+- 用它来处理属于兄弟技能的请求（要长期保留的技能文件、不执行只确认范围）时，它照样运行，并用一行说出那个技能的名称。
+
 ### dia-menu：一个短词调用所有技能
 
-**通俗地说。** 它本身不是一种方法，只是一条更快的入口。消息以 `dia` 开头即可。单独输入 `dia` 会列出带编号的十二个技能。在后面加上编号或名称的前几个字母，就会启动那个技能；或者直接写出你想做的事，它会挑选合适的技能，通常先用一行告诉你选了哪个。如果开头字母同时符合两个技能，或者有两个技能与你的请求差不多同样契合，它会询问你，而不是去猜。
+**通俗地说。** 它本身不是一种方法，只是一条更快的入口。消息以 `dia` 开头即可。单独输入 `dia` 会列出带编号的十三个技能。在后面加上编号或名称的前几个字母，就会启动那个技能；或者直接写出你想做的事，它会挑选合适的技能，通常先用一行告诉你选了哪个。如果开头字母同时符合两个技能，或者有两个技能与你的请求差不多同样契合，它会询问你，而不是去猜。
 
-**适合使用的情况：** 你在用手机输入，或者不确定需要哪个技能。`dia-intent`（1）、`dia-ratchet`（10）和 `dia-adjudicate`（11）只能通过编号或名称启动，绝不会因为 `dia` 的猜测而启动。
+**适合使用的情况：** 你在用手机输入，或者不确定需要哪个技能。`dia-intent`（1）、`dia-ratchet`（10）、`dia-adjudicate`（11）和 `dia-techne`（13）只能通过编号或名称启动，绝不会因为 `dia` 的猜测而启动。
 
 **试试：**
 
@@ -578,11 +607,11 @@ dia 我们加了新用户引导邮件之后，流失率下降了，所以是这�
 > `dia 4 …` → `dia-reductio` 立即开始："**对象：** 用户（推断）。**论题 T：**“每个质数都是奇数”。**方向：** 反驳。……"
 > `dia 我们加了新用户引导邮件之后 …` → `dia-warrant` 开始："**结构** – **主张：** “是这些邮件降低了流失”（已陈述）。…… **资料：** “我们加了新用户引导邮件之后，流失率下降了”（已陈述）。……"
 > `dia con …`（同时符合 `dia-confirm` 和 `dia-conjecture`；这是一次韩语运行，此处为译文）→ "有两个技能以“con”开头，所以我无法只选一个。请按编号选择。"，并列出这两个技能。
-> *（这是用 1.4.0 记录的运行，当时第 1 项是 `dia-confirm`，第 10 项是 `dia-iterate`；从 1.6.0 起第 1 项是 `dia-intent`，`con` 只符合 `dia-conjecture`。从 1.6.0 起列表有十二行：第 10 项是 `dia-ratchet`，第 11 项是 `dia-adjudicate`，第 12 项是 `dia-instruct`。）*
+> *（这是用 1.4.0 记录的运行，当时第 1 项是 `dia-confirm`，第 10 项是 `dia-iterate`；从 1.6.0 起第 1 项是 `dia-intent`，`con` 只符合 `dia-conjecture`。从 1.6.0 起列表有十二行：第 10 项是 `dia-ratchet`，第 11 项是 `dia-adjudicate`，第 12 项是 `dia-instruct`；从 1.13.0 起有十三行，第 13 项是 `dia-techne`。）*
 
 **小贴士**
 
-- 编号固定不变：1 intent、2 brainstorm、3 elenchus、4 reductio、5 negative、6 warrant、7 conjecture、8 counterplan、9 refine、10 ratchet、11 adjudicate、12 instruct。
+- 编号固定不变：1 intent、2 brainstorm、3 elenchus、4 reductio、5 negative、6 warrant、7 conjecture、8 counterplan、9 refine、10 ratchet、11 adjudicate、12 instruct、13 techne。
 - 选项会原样传递：`dia 10 --max 2 <draft>` 等同于 `dia-ratchet --max 2 <draft>`。
 - `dia` 必须单独作为第一个词。`dia-refine …` 等完整名称仍会直接进入对应的技能。
 - 开头字母至少要三个（是 `red` 而不是 `re`）；明显属于句子一部分的词（`dia red flags in my plan?`）会被当作请求，而不是选择。
@@ -605,7 +634,7 @@ dia 我们加了新用户引导邮件之后，流失率下降了，所以是这�
 - **claude.ai 上的 Skills 部分缺失或显示为灰色。** 打开 Settings › Capabilities › Code execution and file creation。
 - **找不到 `dia-confirm`。** 它已在 1.6.0 中改回 `dia-intent`；从 1.1.0 到 1.4.0 它叫 `dia-confirm`。
 - **找不到 `dia-iterate`。** 它已在 1.6.0 中更名为 `dia-ratchet`。
-- **`dia-ratchet` 或 `dia-adjudicate` 无法启动。** 只有当技能名称是消息的第一个词，或被显式选择时（`/dia:dia-ratchet`、`$dia:dia-ratchet`、`@dia-ratchet`、`dia 10`、`dia ratchet`；`dia-adjudicate` 用同样的形式和 `dia 11`），它们才会启动。仅凭 `dia <request>` 从不会选中它们。
+- **`dia-ratchet`、`dia-adjudicate` 或 `dia-techne` 无法启动。** 只有当技能名称是消息的第一个词，或被显式选择时（`/dia:dia-ratchet`、`$dia:dia-ratchet`、`@dia-ratchet`、`dia 10`、`dia ratchet`；`dia-adjudicate` 和 `dia-techne` 用同样的形式和 `dia 11`、`dia 13`），它们才会启动。仅凭 `dia <request>` 从不会选中它们。
 - **在 Codex 上 `$dia:dia-intent:` 无法解析。** 技能名称后面应加空格，而不是冒号。
 - **在 claude.ai 上上传被拒绝。** 请使用 Customize › Plugins › Upload plugin，而不是 Customize › Skills。
 - **在 claude.ai 上 Check for updates 后仍是旧版本。** 在 Customize › Plugins 中移除 `dia`，再从 `dialectic-skills` 市场重新安装；如需自动获取后续版本，请打开 Sync automatically。

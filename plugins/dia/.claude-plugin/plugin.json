@@ -1,8 +1,8 @@
 {
   "name": "dia",
   "displayName": "Dialectic Skills",
-  "version": "1.12.0",
-  "description": "Twelve reasoning-and-review skills that run on any assistant, with or without tools: dia-intent confirms the goal before work, dia-elenchus and dia-brainstorm question an idea Socratically, dia-reductio tests a claim by strict contradiction, dia-negative critiques a claim by its own standard, dia-warrant tests how well an argument's reasons support its conclusion, dia-conjecture tests a universal claim by counterexamples, dia-counterplan builds the opposing plan from a plan's key assumptions, dia-refine reviews an answer once, dia-ratchet runs review rounds in which only external checks count, dia-adjudicate rules on reports others wrote about a text, and dia-instruct checks or writes text a model will follow against four rules. Typing dia alone opens a menu (dia-menu) that runs a skill by number, by the first letters of its name, or by what the request needs.",
+  "version": "1.13.0",
+  "description": "Thirteen reasoning-and-review skills that run on any assistant, with or without tools: dia-intent confirms the goal before work, dia-elenchus and dia-brainstorm question an idea Socratically, dia-reductio tests a claim by strict contradiction, dia-negative critiques a claim by its own standard, dia-warrant tests how well an argument's reasons support its conclusion, dia-conjecture tests a universal claim by counterexamples, dia-counterplan builds the opposing plan from a plan's key assumptions, dia-refine reviews an answer once, dia-ratchet runs review rounds in which only external checks count, dia-adjudicate rules on reports others wrote about a text, dia-instruct checks or writes text a model will follow against four rules, and dia-techne deepens a request the way a field's top practitioners would and runs it. Typing dia alone opens a menu (dia-menu) that runs a skill by number, by the first letters of its name, or by what the request needs.",
   "author": {
     "name": "ajitta",
     "url": "https://github.com/ajitta"

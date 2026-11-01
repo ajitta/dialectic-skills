@@ -4,7 +4,7 @@ description: Short entry point to the dia skills. Shows a numbered menu, runs th
 license: MIT
 metadata:
   author: ajitta
-  version: "1.2.2"
+  version: "1.3.0"
   lineage: "new in plugin 1.4.0 (spec D38)"
   source: "https://github.com/ajitta/dialectic-skills"
 ---
@@ -23,11 +23,11 @@ A short way to reach the other dia skills, made for phones: `dia` is three lette
 Read the first word after `dia` (call it the selector), then the rest (the request).
 
 1. **No text after `dia`, or only `help`, `menu` or `?`:** show the menu (below) and stop.
-2. **Selector is a number from 1 to 12:** run the skill with that number in the menu table, unless the number counts something in the sentence (`3 reasons …`, `1 thing …`, `10 ideas …`), in which case the whole text is a request (rule 4); if unsure, ask in one line.
+2. **Selector is a number from 1 to 13:** run the skill with that number in the menu table, unless the number counts something in the sentence (`3 reasons …`, `1 thing …`, `10 ideas …`), in which case the whole text is a request (rule 4); if unsure, ask in one line.
 3. **Selector is a full skill name or the start of one,** at least three letters, with or without the `dia-` prefix (`red`, `reductio`, `dia-reductio`): run the one skill whose name starts with it, or, if two or more names start with it, list those skills with their numbers in one line, ask which, and stop; but if the word reads as part of the request's sentence rather than a pick (`red flags …`, `war game …`, `count the …`, `negative feedback …`, `instruct me how …`), the whole text is a request (rule 4), and if unsure, ask in one line.
 4. **Anything else:** the whole text after `dia` is the request. Choose the skill as in "Choosing for a request".
 
-A selector that picks a skill by rule 2 or 3 is an explicit invocation of that skill by name, including for dia-intent, dia-ratchet and dia-adjudicate (the gate in "Choosing for a request" covers only a plain request); with no request after it, the chosen skill gets an empty request and takes its default target or asks for one, by its own rules.
+A selector that picks a skill by rule 2 or 3 is an explicit invocation of that skill by name, including for dia-intent, dia-ratchet, dia-adjudicate and dia-techne (the gate in "Choosing for a request" covers only a plain request); with no request after it, the chosen skill gets an empty request and takes its default target or asks for one, by its own rules.
 
 ## The menu
 
@@ -45,8 +45,9 @@ A selector that picks a skill by rule 2 or 3 is an explicit invocation of that s
 | 10 | dia-ratchet | Repeated review rounds; only outside checks count as evidence (only by name or number) |
 | 11 | dia-adjudicate | Rule on reports others wrote about a text or answer: which points hold (only by name or number) |
 | 12 | dia-instruct | Write or review text a model follows (a skill file, a prompt, an AGENTS.md) against four rules |
+| 13 | dia-techne | Deepen a one-off request as a field's top practitioners would, then run it (only by name or number) |
 
-When showing the menu, print the twelve rows as a numbered list with these fixed numbers in this order, because `dia <n>` selects by them, each skill name as written and each description translated into the user's language, then these three lines, translated:
+When showing the menu, print the thirteen rows as a numbered list with these fixed numbers in this order, because `dia <n>` selects by them, each skill name as written and each description translated into the user's language, then these three lines, translated:
 
 - `dia <number or first letters> <request>` runs that skill, for example `dia 4 …` or `dia red …`.
 - `dia <request>` picks the skill that fits.
@@ -63,11 +64,11 @@ Pick from skills 2 to 9 and 12 only, by what the user wants done, using the bord
 - A claim that something is the case in every instance (all, every, always, never) → dia-conjecture; a rule or policy to adopt → dia-counterplan if it is a plan or decision, dia-brainstorm if the user wants it questioned or stress-tested; a request for exceptions to a rule is a plain answer (none fits).
 - Whether something meets its own stated standard → dia-negative.
 - A previous answer, or a draft written for people, to check and fix once → dia-refine.
-- Text a model will read and follow (a skill file, a prompt for an agent or sub-agent, an AGENTS.md, a rules file, a hook or tool message) to write, edit or review → dia-instruct, unless the request is for a ruling on reports others wrote about such text, which takes the dia-adjudicate form below.
+- Text a model will read and follow (a skill file, a prompt for an agent or sub-agent, an AGENTS.md, a rules file, a hook or tool message) to write, edit or review → dia-instruct, unless the request is for a ruling on reports others wrote about such text, which takes the dia-adjudicate form below, or asks for a one-off request to be deepened and run, not for text a model keeps, which takes the dia-techne form below.
 
 Then:
 
-- **The request asks to confirm the goal first, for repeated verified rounds, or for a ruling on reports about a text:** do not start dia-intent, dia-ratchet or dia-adjudicate from a plain request; reply in one line with the form to send (`dia 1 <request>` or `dia-intent <request>`; `dia 10 <request>` or `dia-ratchet <request>`; `dia 11 <target and reports>` or `dia-adjudicate <target and reports>`) and stop.
+- **The request asks to confirm the goal first, for repeated verified rounds, for a ruling on reports about a text, or for a one-off request to be deepened the way a field's top practitioners would and then run:** do not start dia-intent, dia-ratchet, dia-adjudicate or dia-techne from a plain request; reply in one line with the form to send (`dia 1 <request>` or `dia-intent <request>`; `dia 10 <request>` or `dia-ratchet <request>`; `dia 11 <target and reports>` or `dia-adjudicate <target and reports>`; `dia 13 <request>` or `dia-techne <request>`) and stop.
 - **One fits:** say in one line which skill you are running and why, in the user's language (for example `→ dia-counterplan: the request asks for the case against the plan`), then run it.
 - **Two fit about equally:** name both with their numbers and the difference in one line each, ask which, and stop.
 - **None fits** (a plain task, a factual or how-to question, a request to write something that is not text for a model to follow): say so in one line, name a skill and its number only if one is close, and do the task without a dia skill.
