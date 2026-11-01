@@ -314,5 +314,27 @@
    "Long (2:21): a loop on a page wants 5 to 20 seconds. Prefer a shorter clip, or trim one with ffmpeg if it is installed."
   ],
   "saved": "2026-10-20T13:23:33.682Z"
+ },
+ {
+  "file": "assets/img/velazquez-forge-of-vulcan.jpg",
+  "media": "image",
+  "ref": "commons:15587792",
+  "title": "Apollo in the Forge of Vulcan",
+  "creator": "Diego Velázquez",
+  "creatorUrl": null,
+  "date": "1630",
+  "license": "public domain",
+  "licenseCode": "pd",
+  "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+  "creditRequired": false,
+  "page": "https://commons.wikimedia.org/wiki/File:Vel%C3%A1zquez_-_La_Fragua_de_Vulcano_(Museo_del_Prado,_1630).jpg",
+  "via": "Wikimedia Commons",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/a/ae/Vel%C3%A1zquez_-_La_Fragua_de_Vulcano_%28Museo_del_Prado%2C_1630%29.jpg",
+  "width": 2952,
+  "height": 2293,
+  "bytes": 6085779,
+  "credit": "\"Apollo in the Forge of Vulcan\" by Diego Velázquez, public domain, via Wikimedia Commons",
+  "notes": [],
+  "saved": "2026-11-01T08:59:10.226Z"
  }
 ]
