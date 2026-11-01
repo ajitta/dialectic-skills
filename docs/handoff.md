@@ -8,7 +8,7 @@ Released and live: plugin `dia` **1.12.0** (`v1.12.0`, `main`, 2026-10-30): nine
 
 | What | Who | Where to start |
 |---|---|---|
-| dia-techne on branch `techne` (plugin 1.13.0, draft pull request #15, not merged): the owner's ruling on the name (Korean first-word load, probes Part Y), the sibling line of the explicit Not-for rule, the project page (plate, list entry, picture), then merge and tag; the A/B waits for the owner | owner, then agent | Spec D55; probes Part Y; `docs/research/dia-techne.md` §11. |
+| dia-techne on branch `techne` (plugin 1.13.0, draft pull request #15, not merged): the project page (plate, list entry, picture), then merge and tag; the A/B waits for the owner | owner, then agent | Spec D55; probes Part Y; `docs/research/dia-techne.md` §11. |
 | Next A/B: follow the rules for A/B records (core items apart, held-out cells, judge keys) and use the corrected judge items | agent | `docs/writing-for-models/README.md` § Rules for A/B records; corrected items in `claude-box:~/work/dia-probes/ooproxy-eval-audit/judges_v2.py`; item 37. |
 | dia-negative Rules 3/4 (split findings): two resolutions tried, both lowered strict gaps on the vacation policy; the 1.8.0 text stays | agent, if asked | `docs/writing-for-models/ab-d43-2026-10-28.md` § Owner rulings after 1.8.0. |
 | Directory listings (Anthropic, OpenAI) | owner submits | Item 13; `docs/directory-submission.md` § Owner steps. |
