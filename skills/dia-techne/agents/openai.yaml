@@ -1,0 +1,7 @@
+interface:
+  display_name: "Dia: Techne"
+  short_description: "Deepen a request by a field's best practice, then run it"
+  default_prompt: "Use $dia:dia-techne to deepen and run this request the way top practitioners would: "
+
+policy:
+  allow_implicit_invocation: true

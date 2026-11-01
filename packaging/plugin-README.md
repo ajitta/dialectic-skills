@@ -1,6 +1,6 @@
 # Dialectic Skills (`dia`)
 
-Twelve reasoning-and-review skills for Claude, Codex and ChatGPT. Each skill is a set of written instructions that the assistant follows when you ask for it by name or, for most skills, describe the task.
+Thirteen reasoning-and-review skills for Claude, Codex and ChatGPT. Each skill is a set of written instructions that the assistant follows when you ask for it by name or, for most skills, describe the task.
 
 - `dia-intent`: before work starts, restates the goal, discloses assumptions, lists the decisions you must make, and waits for your approval.
 - `dia-elenchus`: Plato's elenchus. Asks what you mean by a key idea, one question at a time, and shows where your own premises contradict each other. Gives no advice.
@@ -14,12 +14,13 @@ Twelve reasoning-and-review skills for Claude, Codex and ChatGPT. Each skill is 
 - `dia-ratchet`: repeated review rounds with a round cap; only external checks count as evidence, and what passed is locked.
 - `dia-adjudicate`: rules on reports others wrote about a text (critiques, reviews), checking each point against sources, and lists the verdicts a person should recheck.
 - `dia-instruct`: checks or writes text a model will follow (a skill file, a prompt, an agent file) against four rules, so conditions stay with what they gate and each instruction carries its reason.
+- `dia-techne`: deepens a request the way a field's top practitioners would (the outcome it serves, the rawest material, the field's methods, a check by something other than the assistant and you), shows what it changed, and runs it, stopping before any step a backup cannot undo. Starts only by name.
 
 Start a message with `dia` to reach them quickly (`dia-menu`): `dia` alone lists them with numbers, `dia 4 …` or `dia red …` starts one by number or first letters, and `dia` followed by your request picks the skill that fits and names it.
 
 ## What the plugin does and does not do
 
-The plugin contains only Markdown, YAML and JSON files. It has no scripts, hooks, MCP servers or binaries, and it does not run, send or fetch anything by itself. It does not read or store personal data. Some skills tell the assistant to use a search or code tool if one is already available in your session, to check a fact or a calculation; without such a tool, the skills work from the conversation alone and mark what they could not verify.
+The plugin contains only Markdown, YAML and JSON files. It has no scripts, hooks, MCP servers or binaries, and it does not run, send or fetch anything by itself. It does not read or store personal data. Some skills tell the assistant to use a search or code tool if one is already available in your session, to check a fact or a calculation; without such a tool, the skills work from the conversation alone and mark what they could not verify. `dia-techne` carries out the request you give it with the tools your session already has, and stops before any step a backup cannot undo, such as sending, publishing or pushing.
 
 ## More
 

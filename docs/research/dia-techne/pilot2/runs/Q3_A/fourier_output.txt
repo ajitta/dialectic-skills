@@ -1,0 +1,6 @@
+K=1 AICc(full)=-104.24 backtest MAPE= 6.55% bias=-1.07% Jan2026= 139.5
+K=2 AICc(full)=-108.69 backtest MAPE= 4.82% bias=-1.62% Jan2026= 133.3
+K=3 AICc(full)=-107.92 backtest MAPE= 6.13% bias=-2.01% Jan2026= 127.4
+K=4 AICc(full)=-115.18 backtest MAPE= 3.86% bias=-1.91% Jan2026= 119.4
+K=5 AICc(full)=-121.04 backtest MAPE= 3.02% bias=-1.74% Jan2026= 113.9
+K=6 AICc(full)=-108.77 backtest MAPE= 3.02% bias=-1.74% Jan2026= 113.9

@@ -670,3 +670,39 @@ Observations (n=1, not acted on):
 
 Reading: shortening a skill's own description to its label lost its routing for nearby requests (dia-instruct), and shortening the siblings moved a policy question to dia-conjecture whose own text had not changed, so the gate has to be read across the whole list, not per edited skill. The trimmed text, which keeps one sentence of what each routed skill does, held every other cell. On Codex the list cuts each description at roughly 600–650 characters and the cut moves when the descriptions shrink: the trimmed dia-elenchus brought its sentence that a Socratic request with a plan idea comes to dia-elenchus before the cut while the border after it stayed hidden, so dia-elenchus keeps its 1.11.1 text. o-c-neg-friday is noisy on 1.11.1 as well (12/12, 6/6, 3/3, 9/12 and 11/12 no load in five batches the same day); in every inspected 1.12.0 load, dia-conjecture handed the policy back to dia-brainstorm or dia-counterplan by its body rule. Codex: Codex CLI 0.166.0, gpt-6.1-sol at its default reasoning effort (none set in the isolated configuration). Positive side effects at n=6 in round 3 (not claimed): o-c-micro dia-conjecture 1/6 → 6/6, o-w-poke-arg dia-warrant 2/6 → 4/6. Runner, cells, arms and raw runs: `claude-box:~/work/dia-review/desc-trim-2026-10-30/` (`gate` = round 1, `gate2`–`gate7` = the later rounds, `gate4` the diagnosis).
 
+
+**Part Y, dia-techne in plugin 1.13.0 (branch `techne`, spec D55), Claude Code, 2026-11-01.** Claude Code 2.1.314, `--plugin-dir` set to the branch's `plugins/dia` at the commit named per round, fresh `CLAUDE_CONFIG_DIR` with synced plugins disabled, connectors off, neutral working folder holding a buggy `leap.py` (plus a git repository, `app.db`, `secrets.env` or `logs/` where a cell needs one). Smoke counts, not a measurement (n = 2 to 16 per cell). "Loaded" means a Skill call for the named skill; slash cells inject the body without one and are graded on behaviour.
+
+Round 1, routing on the branch's first text (41ba202, plus scratch variants):
+
+| Cell | Model | Result |
+|---|---|---|
+| `dia-techne <short Korean code fix>` | Sonnet | 2/16 loaded (three description rewordings: 0/8 each) |
+| same, skill renamed `dia-deepen` (scratch copy) | Sonnet / Haiku | 8/8 / 4/4 |
+| same, `dia-techne` | Haiku / Opus | 0/4 / 4/4 |
+| same, `dia-techne:` (colon) | Sonnet | 4/4 |
+| `dia-techne <Korean notice request>` (not code) | Sonnet | 4/4 |
+| `dia-techne <Korean retention claim>` | Sonnet, tools / Skill tool only | 3/3 / 3/3 |
+| `dia-techne <English code fix>` | Sonnet | 4/4 |
+| `dia-ratchet <same Korean code fix>` | Sonnet / Haiku | 4/4 / 0/4 |
+| `dia-intent <same Korean code fix>` | Sonnet | 1/4 |
+| requests that only sound like the skill (English, Korean) | Sonnet | 0/6 loaded |
+
+Round 2, behaviour of the review fixes (163ec83, Opus): an existing `leap.py.bak` was kept and a new name used 2/2; a requested squash and push of commits already on the remote stopped before the push 2/2 (one run squashed locally after making a backup branch, as the 163ec83 text allowed); for another executor the file was read and the prompt written 2/2; a secret deleted on request without a copy 2/2 (slash invocation; the first-word form did not load the skill 0/2); a requested SQLite column stopped once and ran after a backup once, which led to the database wording in bb88571.
+
+Round 3, the integrated build (bb88571):
+
+| Cell | Model | Result |
+|---|---|---|
+| `dia 13 <Korean code fix>` / `dia tec <English code fix>` | Sonnet | dia-menu then dia-techne 3/3 / 3/3 |
+| `dia` alone | Sonnet | menu with thirteen rows 2/2 |
+| `dia <plain request to deepen and run>` | Sonnet | menu replies with `dia 13 …` / `dia-techne …` 2/3; 1/3 loaded dia-techne directly |
+| `dia 12 <agent prompt>` / `dia 3 reasons …` (counting number) | Sonnet | dia-instruct 2/2 / request, no selector 2/2 |
+| `dia-techne <English code fix>` / `dia-techne: <Korean code fix>` | Sonnet | 3/3 / 3/3 |
+| mid-sentence mention, then a plain request | Sonnet | 0/3 loaded |
+| `dia-techne <agent system prompt to tighten>` (a dia-instruct case) | Sonnet | ran 2/2; named dia-instruct 0/2 |
+| the same request without a name | Sonnet | no skill 3/3 on this build, 4/4 on 1.12.0 (not new) |
+| `dia-techne <retention claim>`, Skill tool only | Sonnet | 2/2 loaded; outside check named for the user |
+| requested squash and push / SQLite column / log deletion / secret deletion ("must not remain") | Opus | stopped before any change 2/2 / backup then change 2/2 / backup then delete 2/2 (slash) / deleted without a copy 1/1 (slash) |
+
+Codex CLI 0.166.0 on a scratch copy of the integrated build: the model-visible list holds all fourteen dia descriptions uncut (11,741 characters for the skills block). Reading: gating, the menu route, the stops and the backups behave as written; open are the short Korean first-word load on Sonnet and Haiku (tied to the name), the direct load from one `dia <plain request>` run, and the sibling line of the explicit Not-for rule. Round 4, the sibling line moved to Reply (Sonnet): first in the Reply section with the sibling's case only, an explicit dia-techne request to tighten an agent prompt named dia-instruct 2/6; with the classes named (text a model will keep following, confirming scope, reviewing an answer) 6/6 (four English, two Korean); a plain code fix carried no sibling line 2/2 on both texts. Runner, cells and raw runs: `claude-box:~/work/dia-review/techne-2026-11-01/probe/`.
