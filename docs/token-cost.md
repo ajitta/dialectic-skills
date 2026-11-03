@@ -70,6 +70,19 @@ Codex cuts each description to roughly 600–650 characters in the model-visible
 
 The label-only variant that was gated and dropped (D54) projected 2,367.
 
+## Router-only invocation (plugin 2.0.0, D56)
+
+Measured 2026-11-03, Claude Code 2.1.314 (`claude --plugin-dir <plugins/dia> plugin details dia`, an estimate by Claude Code), tiktoken over the router body, and Codex CLI with an isolated `HOME` and `CODEX_HOME` (`codex debug prompt-input "hi"`, the fourteen `dia:dia-*` entries counted with o200k, file paths included).
+
+| | 1.13.0 (`2172469`) | 2.0.0 |
+|---|---|---|
+| Description characters, 14 skills | 8,864 | 3,790 |
+| Claude Code always-on projection | 3,023 | **1,325** |
+| Codex listing, o200k, 14 entries | 2,268 | **1,123** |
+| dia-router (dia-menu) body, cl100k | 2,109 | 2,422 |
+
+Each description now holds a label and the first-word gate sentence. A label with a shorter gate projected 709 on Claude Code but let a natural counterexample request load dia-conjecture (D56). The router body grows by the code column and the former-name rules; it loads only when a message starts with `dia`. The other bodies are unchanged apart from the new names, so their per-invocation cost is the same.
+
 ## Not measured
 
 - Multi-turn sessions: SKILL.md stays in context after loading, so a long elenchus or brainstorm dialogue pays it once and then as cached input on every turn.

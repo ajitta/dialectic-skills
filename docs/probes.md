@@ -706,3 +706,32 @@ Round 3, the integrated build (bb88571):
 | requested squash and push / SQLite column / log deletion / secret deletion ("must not remain") | Opus | stopped before any change 2/2 / backup then change 2/2 / backup then delete 2/2 (slash) / deleted without a copy 1/1 (slash) |
 
 Codex CLI 0.166.0 on a scratch copy of the integrated build: the model-visible list holds all fourteen dia descriptions uncut (11,741 characters for the skills block). Reading: gating, the menu route, the stops and the backups behave as written; open are the short Korean first-word load on Sonnet and Haiku (tied to the name), the direct load from one `dia <plain request>` run, and the sibling line of the explicit Not-for rule. Round 4, the sibling line moved to Reply (Sonnet): first in the Reply section with the sibling's case only, an explicit dia-techne request to tighten an agent prompt named dia-instruct 2/6; with the classes named (text a model will keep following, confirming scope, reviewing an answer) 6/6 (four English, two Korean); a plain code fix carried no sibling line 2/2 on both texts. Runner, cells and raw runs: `claude-box:~/work/dia-review/techne-2026-11-01/probe/`.
+
+**Part Z, router-only invocation and five renames for plugin 2.0.0 (branch `router`, spec D56), Claude Code, 2026-11-03.** Claude Code 2.1.314, sonnet, fresh `CLAUDE_CONFIG_DIR` per run holding only a credentials copy, `ENABLE_CLAUDEAI_MCP_SERVERS=false`, empty working folder (a buggy `leap.py` in the all-tools cells), absolute `--plugin-dir`; no run listed an `@synced` plugin. `--tools Skill` unless a cell says all tools (`--permission-mode bypassPermissions`). "Loaded" means a Skill call. Base = 1.13.0 (`2172469`). Runners and raw runs are kept on the build machine, outside the repository.
+
+Smoke before the build (n=3; arms built from `2172469` with bodies renamed only): with the first draft's gate ("Use only on direct invocation or selection by dia-router.") six natural requests without `dia` loaded a dia skill 2/18 (dia-conjecture 2/3 on a counterexample request), with the measured gate sentence 0/18 (1.13.0: 18/18); a first word `dia-refine …` loaded nothing 0/6 on both (the assistant reviewed by hand) and 3/3 through the router once its description named the former names; `dia refine …` reached dia-emend 3/3 by meaning even without an alias. Record: `docs/research/router-redesign.md` §6.
+
+Gate on `2e989a6` (round 1, 250 runs) and `v2` = round 1 plus the router's warrant/reductio border sentence (round 2):
+
+| Cells | Expected | Result |
+|---|---|---|
+| 11 natural requests without `dia` (brainstorm, elenchus, refine, counterplan, instruct, conjecture, reductio, negative, warrant, ratchet, intent prompts), n=12 each | no dia skill (1.13.0 loaded the six prompts shared with the smoke 18/18; the ratchet and intent prompts were gated in 1.13.0 too; the reductio, negative and warrant prompts were not run on 1.13.0) | 0/132 loaded |
+| `dia <code> <request>` for all 13 codes, n=3 | router, then that skill | 39/39 |
+| `dia`, `dia negative <request>` | menu with codes / dia-negative | 2/2, 3/3 |
+| `dia tech stack for a small side-project …` | not dia-techne | 3/3 none fits (1.13.0: 3/3 none fits) |
+| `dia red flags in my plan? …`, `dia 3 reasons my plan … will fail?`, `dia war room checklist …` | not reductio / elenchus / warrant | 3/3 dia-quaestio, 3/3 dia-quaestio, 3/3 none fits |
+| `dia count the logical steps in this argument …` (a syllogism) | not counterplan | round 1: dia-warrant 3/3, which declined the deductive argument 2/3 and audited only its probable step 1/3 (1.13.0: none fits 3/3); round 2: dia-reductio 3/3 |
+| `dia intent <request>`, `dia-menu`, `dia-instruct <prompt>` | dia-skopos / menu / dia-regula | 3/3 each |
+| `dia poke holes in my argument …`, `dia` + a Socratic dialogue on a startup idea, `dia` + a macOS how-to, `dia` + a deepen-and-run request | warrant / elenchus / none fits / form handed back | 3/3 each (warrant also 3/3 in round 2) |
+| round 2: `dia` + reasons for a churn claim, + "does my conclusion follow", + a counterexample request | warrant / reductio / conjecture | 3/3 each |
+| first word, Korean, all tools: `dia-emend`, `dia-quaestio`, `dia-regula` (1.13.0: old names) | that skill | 4/4 each on both arms |
+| first word, Korean code fix, all tools: `dia-skopos leap.py의 is_leap …` (1.13.0: `dia-intent`) | dia-skopos | **3/12** (1.13.0: 12/12); the other nine fixed the file directly |
+| the same skill with a Korean non-code request, an English code fix, `dia-skopos:` (colon) | dia-skopos | 4/4 each (1.13.0: 4/4 each) |
+
+Reading: the gate holds natural requests out and every code, former name and collision cell behaved as written. One border lived only in dia-warrant's old description (a deductive step goes to dia-reductio); the router now states it. The dia-skopos miss is the name effect seen for dia-techne in Part Y: only the short Korean code-fix request is affected (rounds 3 to 5 below); on a non-code request with the Skill tool only `dia sko …` reached it 3/3. Accepted by the owner (spec D56). Codex: the model-visible list holds the fourteen new names, 1,124 o200k tokens with file paths on `2e989a6` and 1,123 on `45b46bc` (1.13.0: 2,268); no Codex runs. Not run: ChatGPT, Claude web, desktop and mobile (owner probes P2, P5), n of 12 for the router cells.
+
+Round 3 (all tools, n=4 per arm): the same skill with a Korean non-code request, an English code fix and `dia-skopos:` (colon) loaded 4/4 each on both arms (1.13.0 with `dia-intent`).
+
+Round 4 on `45b46bc` (fixes from the independent review), same harness: `dia sko` + the Korean code fix, all tools, 1/4 (the other three edited the file directly); `dia 1` + the same, 4/4; `dia-menu <draft review>` → dia-emend 3/3; `Dia-refine <draft>` and `dia dia-refine <draft>` → dia-emend 3/3 each; `dia-techne` + a system-prompt request named dia-regula 2/2; the natural instruction-review request without a name 0/6; `dia-regula` first word 3/3.
+
+Round 5, the router's short forms on the same Korean code fix with all tools, n=4 (n=8 for `dia sko`), 1.13.0 against `45b46bc`: three-letter code `dia int` 0/4 and `dia sko` 1/8 (the misses edited the file directly, the router never loaded); number `dia 1` 4/4 on both; full name `dia skopos` 4/4; a control on another skill, `dia ref` 0/4 against `dia eme` 3/4. So on a short code fix with all tools a three-letter code after `dia` is often skipped, as it was in 1.13.0; the number and the full name are not.

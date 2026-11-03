@@ -10,17 +10,13 @@
     { key: 'mobile', label: 'Claude mobile' },
     { key: 'chatgpt', label: 'ChatGPT' },
   ];
-  const startLine = (surface, skill, codex) => {
+  // Since 2.0.0 every skill starts the same ways: by its name or dia at the start of the message, or by selection.
+  const startLine = (surface, skill) => {
     switch (surface) {
       case 'code': return { code: `/dia:${skill}`, note: 'Type it in Claude Code.' };
-      case 'mobile': return { code: `/${skill}`, note: 'Type it in full: the / menu on mobile does not list plugin skills.' };
-      case 'codex': return {
-        code: `$dia:${skill}`,
-        note: codex === 'name'
-          ? 'Follow it with a space and your request, or start the message with the skill name. It is meant to start only these ways, not from a plain request.'
-          : 'Follow it with a space and your request. On Codex it may also start when your request matches it.',
-      };
-      case 'chatgpt': return { code: `@${skill}`, note: 'Type @, then pick the skill. Since 1.2.0 you can also start the message with the skill name.' };
+      case 'mobile': return { code: `/${skill}`, note: 'Type it in full: the / menu on mobile does not list plugin skills. Starting the message with the skill name or with dia is shorter.' };
+      case 'codex': return { code: `$dia:${skill}`, note: 'Follow it with a space and your request, or start the message with the skill name or with dia.' };
+      case 'chatgpt': return { code: `@${skill}`, note: 'Type @, then pick the skill, or start the message with the skill name or with dia.' };
       default: return { code: `/dia:${skill}`, note: 'Type it in the message box on claude.ai or Claude desktop.' };
     }
   };
@@ -50,8 +46,8 @@
   });
 
   const plates = [...document.querySelectorAll('.plate[data-skill]')];
-  // The prompt to try, as README writes it. Since 1.2.0 every prompt works unchanged on Codex too:
-  // the dia-intent and dia-ratchet prompts start with the skill name, which Codex now resolves.
+  // The prompt to try, as README writes it. Every prompt starts with the skill name or with dia, so it is the
+  // same on every surface.
   plates.forEach((plate) => {
     const code = plate.querySelector('.try code');
     if (code) plate.dataset.prompt = code.textContent;
@@ -69,7 +65,7 @@
       const copyButton = plate.querySelector('[data-copy]');
       if (tryCode && tryCode.textContent !== prompt) tryCode.textContent = prompt;
       if (copyButton) copyButton.dataset.copy = prompt;
-      const { code, note } = startLine(current, plate.dataset.skill, plate.dataset.codex);
+      const { code, note } = startLine(current, plate.dataset.skill);
       const el = plate.querySelector('.start__code');
       const noteEl = plate.querySelector('.start__note');
       if (el && el.textContent !== code) {

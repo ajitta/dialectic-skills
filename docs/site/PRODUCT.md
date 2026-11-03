@@ -24,9 +24,11 @@ web
 
 ## Product Purpose
 
-`dia` (Dialectic Skills) is one plugin of reasoning-and-review skills: `dia-intent`,
-`dia-elenchus`, `dia-brainstorm`, `dia-reductio`, `dia-negative`, `dia-warrant`, `dia-conjecture`,
-`dia-counterplan`, `dia-refine`, `dia-ratchet`, `dia-adjudicate`, `dia-instruct` (warrant, conjecture and counterplan added in 1.3.0; adjudicate and instruct in 1.6.0). Each
+`dia` (Dialectic Skills) is one plugin of reasoning-and-review skills: `dia-skopos`,
+`dia-elenchus`, `dia-quaestio`, `dia-reductio`, `dia-negative`, `dia-warrant`, `dia-conjecture`,
+`dia-counterplan`, `dia-emend`, `dia-ratchet`, `dia-adjudicate`, `dia-regula`, `dia-techne`, plus the
+`dia-router` entry point (warrant, conjecture and counterplan added in 1.3.0; adjudicate and regula in
+1.6.0; techne in 1.13.0). Each
 turns an old way of thinking (Socratic questioning, proof by contradiction, internal critique,
 Toulmin's argument layout, Lakatos's proofs and refutations, Mason's dialectical inquiry, an editor's
 review pass) into a routine the assistant follows step by step. Success for the page is an
@@ -50,14 +52,19 @@ install on the visitor's surface and a first skill started. **(success definitio
   (zip upload on the web, marketplace in the desktop app).
 - Where you install decides where dia shows up: web installs follow the account to mobile; desktop
   installs stay on that computer.
-- Three ways to start a skill: in words, by name as the first word, or explicit selection
-  (`/dia:dia-<x>`, `/dia-<x>` on Claude mobile, `$dia:dia-<x>` on Codex, `@dia-<x>` on ChatGPT).
+- Three ways to start a skill: `dia` as the first word (the router: a menu, a skill by number,
+  three-letter code or name, or a request it routes), the skill's full name as the first word, or
+  explicit selection (`/dia:dia-<x>`, `/dia-<x>` on Claude mobile, `$dia:dia-<x>` on Codex, `@dia-<x>`
+  on ChatGPT). Since 2.0.0 a request in plain words starts no skill.
 
 ## Capabilities and Constraints
 
-- Plugin version 1.6.1 on branch `v1.6.1`; the live page and `main` describe 1.6.0
+- Plugin version 2.0.0
   (`plugin-manifest.json`). License MIT. The page is published only from `main`.
-- `dia-intent` was renamed `dia-confirm` in 1.1.0 and back to `dia-intent` in 1.6.0; `dia-iterate` was renamed `dia-ratchet` in 1.6.0.
+- Renamed in 2.0.0: `dia-intent` → `dia-skopos`, `dia-brainstorm` → `dia-quaestio`, `dia-refine` →
+  `dia-emend`, `dia-instruct` → `dia-regula`, `dia-menu` → `dia-router`; the former names reach the new
+  skills through `dia` until 2.1.0. Earlier: `dia-iterate` became `dia-ratchet` in 1.6.0, and the
+  confirm-first skill was `dia-confirm` from 1.1.0 to 1.4.0.
 - The project page lives at `https://ajitta.github.io/dialectic-skills/` and is plain static
   HTML/CSS/JS in `site/`; all asset URLs must be relative. **(stack observed in the repository)**
 - Undecided: whether the page should ever carry translated versions (the README has Korean, Japanese

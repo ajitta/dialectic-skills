@@ -99,21 +99,21 @@
   <div class="wrap skills__head">
     <div class="skills__intro">
       <h2 class="head mask" id="skills-title" data-reveal><span>The skills</span></h2>
-      <p data-reveal style="--i:1">Each is a way of thinking people have used for a long time, turned into a routine the assistant follows. Pick one by what you want to do. The sessions are from the project’s README, run on Claude Code with this plugin and shortened; in the dialogues the user’s replies came from a simulated user. The wording you get will differ from run to run.</p>
+      <p data-reveal style="--i:1">Each is a way of thinking people have used for a long time, turned into a routine the assistant follows. Pick one by what you want to do. The sessions are from the project’s README, run on Claude Code with this plugin and shortened; in the dialogues the user’s replies came from a simulated user. They were recorded on 1.x, where the same requests started the skill without its name; the skills’ procedures did not change in 2.0.0. The wording you get will differ from run to run.</p>
     </div>
     <ul class="wants" aria-label="Pick a skill by what you want to do">
-      <li data-reveal style="--i:0"><a href="#dia-intent"><span class="dot"></span><span class="wants__goal">Make sure the assistant understood the task before it starts</span><code>dia-intent</code></a></li>
+      <li data-reveal style="--i:0"><a href="#dia-skopos"><span class="dot"></span><span class="wants__goal">Make sure the assistant understood the task before it starts</span><code>dia-skopos</code></a></li>
       <li data-reveal style="--i:1"><a href="#dia-elenchus"><span class="dot"></span><span class="wants__goal">Find out what you really mean by a word or an idea</span><code>dia-elenchus</code></a></li>
-      <li data-reveal style="--i:2"><a href="#dia-brainstorm"><span class="dot"></span><span class="wants__goal">Turn a rough idea into options and a plan</span><code>dia-brainstorm</code></a></li>
+      <li data-reveal style="--i:2"><a href="#dia-quaestio"><span class="dot"></span><span class="wants__goal">Turn a rough idea into options and a plan</span><code>dia-quaestio</code></a></li>
       <li data-reveal style="--i:3"><a href="#dia-reductio"><span class="dot"></span><span class="wants__goal">Check whether a claim holds together</span><code>dia-reductio</code></a></li>
       <li data-reveal style="--i:4"><a href="#dia-negative"><span class="dot"></span><span class="wants__goal">See whether a slogan, policy or promise lives up to its own words</span><code>dia-negative</code></a></li>
       <li data-reveal style="--i:5"><a href="#dia-warrant"><span class="dot"></span><span class="wants__goal">See how well the reasons behind a conclusion actually support it</span><code>dia-warrant</code></a></li>
       <li data-reveal style="--i:6"><a href="#dia-conjecture"><span class="dot"></span><span class="wants__goal">Test an “always” or “never” rule of yours against counterexamples</span><code>dia-conjecture</code></a></li>
       <li data-reveal style="--i:7"><a href="#dia-counterplan"><span class="dot"></span><span class="wants__goal">Hear the strongest case for a different plan before you commit</span><code>dia-counterplan</code></a></li>
-      <li data-reveal style="--i:8"><a href="#dia-refine"><span class="dot"></span><span class="wants__goal">Fix the mistakes in an answer or a draft, once</span><code>dia-refine</code></a></li>
+      <li data-reveal style="--i:8"><a href="#dia-emend"><span class="dot"></span><span class="wants__goal">Fix the mistakes in an answer or a draft, once</span><code>dia-emend</code></a></li>
       <li data-reveal style="--i:9"><a href="#dia-ratchet"><span class="dot"></span><span class="wants__goal">Fact-check something thoroughly, round by round</span><code>dia-ratchet</code></a></li>
       <li data-reveal style="--i:10"><a href="#dia-adjudicate"><span class="dot"></span><span class="wants__goal">Decide which points in reviews of a text actually hold</span><code>dia-adjudicate</code></a></li>
-      <li data-reveal style="--i:11"><a href="#dia-instruct"><span class="dot"></span><span class="wants__goal">Write or check a prompt, skill or agent file so a model follows it as meant</span><code>dia-instruct</code></a></li>
+      <li data-reveal style="--i:11"><a href="#dia-regula"><span class="dot"></span><span class="wants__goal">Write or check a prompt, skill or agent file so a model follows it as meant</span><code>dia-regula</code></a></li>
       <li data-reveal style="--i:12"><a href="#dia-techne"><span class="dot"></span><span class="wants__goal">Get the deeper version of a task, done the way the field’s best would do it</span><code>dia-techne</code></a></li>
     </ul>
   </div>
@@ -127,8 +127,8 @@
     </div>
   </div>
 
-  <!-- dia-intent -->
-  <article class="plate field-sand" id="dia-intent" data-skill="dia-intent" data-codex="name">
+  <!-- dia-skopos -->
+  <article class="plate field-sand" id="dia-skopos" data-skill="dia-skopos">
     <figure class="plate__pic pair pair--diag" data-reveal>
       <div class="pair__art">
         <span class="pair__b"></span>
@@ -143,15 +143,15 @@
       <figcaption class="small">François-André Vincent, Alcibiades Being Taught by Socrates, 1776.</figcaption>
     </figure>
     <div class="plate__text">
-      <h3 class="head plate__name mask" data-reveal style="--i:1"><span>dia-intent</span></h3>
+      <h3 class="head plate__name mask" data-reveal style="--i:1"><span>dia-skopos</span></h3>
       <p class="lead" data-reveal style="--i:2">Agree on the task before work starts.</p>
       <p data-reveal style="--i:3">Like a good contractor walking you through the job: here is what I’ll build, here is what I’m assuming, here is what only you can decide. Then it waits for your go-ahead instead of guessing.</p>
-      <p class="start" data-reveal style="--i:4"><span class="start__how">Starts by name only.</span> <span class="start__line">Start it with <code class="start__code">/dia:dia-intent</code></span> <span class="start__note"></span></p>
+      <p class="start" data-reveal style="--i:4"><span class="start__how">Starts with <code>dia-skopos</code> or <code>dia sko</code> at the start of the message; <code>dia</code> never picks it from a plain request.</span> <span class="start__line">Start it with <code class="start__code">/dia:dia-skopos</code></span> <span class="start__note"></span></p>
       <div class="try" data-reveal style="--i:5">
         <p class="try__label">Try this prompt</p>
-        <pre><code>dia-intent Write a short speech for my brother’s wedding.</code></pre>
+        <pre><code>dia-skopos Write a short speech for my brother’s wedding.</code></pre>
       </div>
-      <p class="plate__actions" data-reveal style="--i:6"><button class="button button--ink" type="button" data-copy="dia-intent Write a short speech for my brother’s wedding.">Copy the prompt</button> <a class="button button--tone" href="https://github.com/ajitta/dialectic-skills#dia-intent-agree-on-the-task-before-work-starts">Full guide</a></p>
+      <p class="plate__actions" data-reveal style="--i:6"><button class="button button--ink" type="button" data-copy="dia-skopos Write a short speech for my brother’s wedding.">Copy the prompt</button> <a class="button button--tone" href="https://github.com/ajitta/dialectic-skills#dia-skopos-agree-on-the-task-before-work-starts">Full guide</a></p>
       <details class="session" data-reveal style="--i:7">
         <summary>See the session</summary>
         <div class="session__body">
@@ -166,7 +166,7 @@
   </article>
 
   <!-- dia-elenchus -->
-  <article class="plate plate--flip" id="dia-elenchus" data-skill="dia-elenchus" data-codex="auto">
+  <article class="plate plate--flip" id="dia-elenchus" data-skill="dia-elenchus">
     <figure class="plate__pic pair pair--diag pair--flip" data-reveal>
       <div class="pair__art">
         <span class="pair__b"></span>
@@ -184,12 +184,12 @@
       <h3 class="head plate__name mask" data-reveal style="--i:1"><span>dia-elenchus</span></h3>
       <p class="lead" data-reveal style="--i:2">Find out what you really mean.</p>
       <p data-reveal style="--i:3">The method Socrates uses in Plato’s dialogues. You say what you think something is; the assistant asks about one concrete case at a time until your own answers pull against your definition. Often you end up stuck, in <i>aporia</i>, and that is a result: you now know exactly which part you don’t know. It gives no advice during the dialogue.</p>
-      <p class="start" data-reveal style="--i:4"><span class="start__how">Starts by name, or when you ask for a Socratic dialogue.</span> <span class="start__line">Start it with <code class="start__code">/dia:dia-elenchus</code></span> <span class="start__note"></span></p>
+      <p class="start" data-reveal style="--i:4"><span class="start__how">Starts with <code>dia-elenchus</code> or <code>dia ele</code> at the start of the message, or when <code>dia</code> picks it for your request.</span> <span class="start__line">Start it with <code class="start__code">/dia:dia-elenchus</code></span> <span class="start__note"></span></p>
       <div class="try" data-reveal style="--i:5">
         <p class="try__label">Try this prompt</p>
-        <pre><code>Socratic dialogue please. I think a good teacher is one whose students get high test scores.</code></pre>
+        <pre><code>dia ele I think a good teacher is one whose students get high test scores.</code></pre>
       </div>
-      <p class="plate__actions" data-reveal style="--i:6"><button class="button button--ink" type="button" data-copy="Socratic dialogue please. I think a good teacher is one whose students get high test scores.">Copy the prompt</button> <a class="button button--tone" href="https://github.com/ajitta/dialectic-skills#dia-elenchus-find-out-what-you-really-mean">Full guide</a></p>
+      <p class="plate__actions" data-reveal style="--i:6"><button class="button button--ink" type="button" data-copy="dia ele I think a good teacher is one whose students get high test scores.">Copy the prompt</button> <a class="button button--tone" href="https://github.com/ajitta/dialectic-skills#dia-elenchus-find-out-what-you-really-mean">Full guide</a></p>
       <details class="session" data-reveal style="--i:7">
         <summary>See the session</summary>
         <div class="session__body">
@@ -205,8 +205,8 @@
     </div>
   </article>
 
-  <!-- dia-brainstorm -->
-  <article class="plate field-sand" id="dia-brainstorm" data-skill="dia-brainstorm" data-codex="auto">
+  <!-- dia-quaestio -->
+  <article class="plate field-sand" id="dia-quaestio" data-skill="dia-quaestio">
     <figure class="plate__pic pair pair--diag" data-reveal>
       <div class="pair__art">
         <span class="pair__b"></span>
@@ -221,15 +221,15 @@
       <figcaption class="small">Agostino Veneziano, The Group, from Raphael’s School of Athens, 1523.</figcaption>
     </figure>
     <div class="plate__text">
-      <h3 class="head plate__name mask" data-reveal style="--i:1"><span>dia-brainstorm</span></h3>
+      <h3 class="head plate__name mask" data-reveal style="--i:1"><span>dia-quaestio</span></h3>
       <p class="lead" data-reveal style="--i:2">Grow a rough idea, then decide.</p>
       <p data-reveal style="--i:3">A coach who asks good questions, one at a time, before handing you options. Then you list options, it adds up to three of its own, you choose what matters, and it ends with a verdict and a short brief you can act on. It never builds the thing.</p>
-      <p class="start" data-reveal style="--i:4"><span class="start__how">Starts by name, or when you ask for a Socratic brainstorm.</span> <span class="start__line">Start it with <code class="start__code">/dia:dia-brainstorm</code></span> <span class="start__note"></span></p>
+      <p class="start" data-reveal style="--i:4"><span class="start__how">Starts with <code>dia-quaestio</code> or <code>dia qua</code> at the start of the message, or when <code>dia</code> picks it for your request.</span> <span class="start__line">Start it with <code class="start__code">/dia:dia-quaestio</code></span> <span class="start__note"></span></p>
       <div class="try" data-reveal style="--i:5">
         <p class="try__label">Try this prompt</p>
-        <pre><code>Socratic brainstorm with me, keep it quick: I want to earn some extra money on weekends.</code></pre>
+        <pre><code>dia qua keep it quick: I want to earn some extra money on weekends.</code></pre>
       </div>
-      <p class="plate__actions" data-reveal style="--i:6"><button class="button button--ink" type="button" data-copy="Socratic brainstorm with me, keep it quick: I want to earn some extra money on weekends.">Copy the prompt</button> <a class="button button--tone" href="https://github.com/ajitta/dialectic-skills#dia-brainstorm-grow-a-rough-idea-then-decide">Full guide</a></p>
+      <p class="plate__actions" data-reveal style="--i:6"><button class="button button--ink" type="button" data-copy="dia qua keep it quick: I want to earn some extra money on weekends.">Copy the prompt</button> <a class="button button--tone" href="https://github.com/ajitta/dialectic-skills#dia-quaestio-grow-a-rough-idea-then-decide">Full guide</a></p>
       <details class="session" data-reveal style="--i:7">
         <summary>See the session</summary>
         <div class="session__body">
@@ -247,7 +247,7 @@
   </article>
 
   <!-- dia-reductio -->
-  <article class="plate plate--flip" id="dia-reductio" data-skill="dia-reductio" data-codex="auto">
+  <article class="plate plate--flip" id="dia-reductio" data-skill="dia-reductio">
     <figure class="plate__pic pair pair--diag pair--flip" data-reveal>
       <div class="pair__art">
         <span class="pair__b"></span>
@@ -265,12 +265,12 @@
       <h3 class="head plate__name mask" data-reveal style="--i:1"><span>dia-reductio</span></h3>
       <p class="lead" data-reveal style="--i:2">Check whether a claim holds together.</p>
       <p data-reveal style="--i:3">Reductio ad absurdum, or proof by contradiction: take a claim at its word, follow it step by step, and see whether it leads to two statements that can’t both be true. The assistant lists every premise, marks the ones it added itself, and leaves the choice of what to give up to you.</p>
-      <p class="start" data-reveal style="--i:4"><span class="start__how">Starts by name, or in words.</span> <span class="start__line">Start it with <code class="start__code">/dia:dia-reductio</code></span> <span class="start__note"></span></p>
+      <p class="start" data-reveal style="--i:4"><span class="start__how">Starts with <code>dia-reductio</code> or <code>dia red</code> at the start of the message, or when <code>dia</code> picks it for your request.</span> <span class="start__line">Start it with <code class="start__code">/dia:dia-reductio</code></span> <span class="start__note"></span></p>
       <div class="try" data-reveal style="--i:5">
         <p class="try__label">Try this prompt</p>
-        <pre><code>Use proof by contradiction on this claim: the customer is always right.</code></pre>
+        <pre><code>dia red The customer is always right.</code></pre>
       </div>
-      <p class="plate__actions" data-reveal style="--i:6"><button class="button button--ink" type="button" data-copy="Use proof by contradiction on this claim: the customer is always right.">Copy the prompt</button> <a class="button button--tone" href="https://github.com/ajitta/dialectic-skills#dia-reductio-check-whether-a-claim-holds-together">Full guide</a></p>
+      <p class="plate__actions" data-reveal style="--i:6"><button class="button button--ink" type="button" data-copy="dia red The customer is always right.">Copy the prompt</button> <a class="button button--tone" href="https://github.com/ajitta/dialectic-skills#dia-reductio-check-whether-a-claim-holds-together">Full guide</a></p>
       <details class="session" data-reveal style="--i:7">
         <summary>See what you get</summary>
         <div class="session__body">
@@ -286,7 +286,7 @@
   </article>
 
   <!-- dia-negative -->
-  <article class="plate field-sand" id="dia-negative" data-skill="dia-negative" data-codex="auto">
+  <article class="plate field-sand" id="dia-negative" data-skill="dia-negative">
     <figure class="plate__pic pair pair--diag" data-reveal>
       <div class="pair__art">
         <span class="pair__b"></span>
@@ -304,12 +304,12 @@
       <h3 class="head plate__name mask" data-reveal style="--i:1"><span>dia-negative</span></h3>
       <p class="lead" data-reveal style="--i:2">Hold a claim to its own standard.</p>
       <p data-reveal style="--i:3">Judge a claim by its own words, not by your values: take what it promises and look for real cases where it doesn’t deliver, then ask what it actually does, as a guess you could check. Named after Adorno’s “negative dialectics”. His immanent critique also draws on norms a practice implies without stating them; this skill does the narrower part, called internal critique: it holds a claim to the standard the claim itself states.</p>
-      <p class="start" data-reveal style="--i:4"><span class="start__how">Starts by name, or in words.</span> <span class="start__line">Start it with <code class="start__code">/dia:dia-negative</code></span> <span class="start__note"></span></p>
+      <p class="start" data-reveal style="--i:4"><span class="start__how">Starts with <code>dia-negative</code> or <code>dia neg</code> at the start of the message, or when <code>dia</code> picks it for your request.</span> <span class="start__line">Start it with <code class="start__code">/dia:dia-negative</code></span> <span class="start__note"></span></p>
       <div class="try" data-reveal style="--i:5">
         <p class="try__label">Try this prompt</p>
-        <pre><code>Do an immanent critique of this claim: "We have an open-door policy, so anyone in the company can raise a problem with management at any time."</code></pre>
+        <pre><code>dia neg "We have an open-door policy, so anyone in the company can raise a problem with management at any time."</code></pre>
       </div>
-      <p class="plate__actions" data-reveal style="--i:6"><button class="button button--ink" type="button" data-copy='Do an immanent critique of this claim: "We have an open-door policy, so anyone in the company can raise a problem with management at any time."'>Copy the prompt</button> <a class="button button--tone" href="https://github.com/ajitta/dialectic-skills#dia-negative-hold-a-claim-to-its-own-standard">Full guide</a></p>
+      <p class="plate__actions" data-reveal style="--i:6"><button class="button button--ink" type="button" data-copy='dia neg "We have an open-door policy, so anyone in the company can raise a problem with management at any time."'>Copy the prompt</button> <a class="button button--tone" href="https://github.com/ajitta/dialectic-skills#dia-negative-hold-a-claim-to-its-own-standard">Full guide</a></p>
       <details class="session" data-reveal style="--i:7">
         <summary>See what you get</summary>
         <div class="session__body">
@@ -324,7 +324,7 @@
   </article>
 
   <!-- dia-warrant -->
-  <article class="plate plate--flip" id="dia-warrant" data-skill="dia-warrant" data-codex="auto">
+  <article class="plate plate--flip" id="dia-warrant" data-skill="dia-warrant">
     <figure class="plate__pic pair pair--diag pair--flip" data-reveal>
       <div class="pair__art">
         <span class="pair__b"></span>
@@ -342,12 +342,12 @@
       <h3 class="head plate__name mask" data-reveal style="--i:1"><span>dia-warrant</span></h3>
       <p class="lead" data-reveal style="--i:2">See how well the reasons support a conclusion.</p>
       <p data-reveal style="--i:3">Most everyday arguments make a conclusion likely rather than prove it: an expert said so, it worked for them, this causes that. The assistant lays the argument out in parts, after Stephen Toulmin: the claim, the data, the warrant (the rule that gets you from the data to the claim, usually left unsaid), its backing, the qualifier and the rebuttal. It asks Douglas Walton’s critical questions for that kind of argument and names the weakest link, in one pass. When the reasons pass through an in-between claim, each step gets its own warrant and the result says which step the weak link is on. It judges the support, never whether the claim is true.</p>
-      <p class="start" data-reveal style="--i:4"><span class="start__how">Starts by name, or in words.</span> <span class="start__line">Start it with <code class="start__code">/dia:dia-warrant</code></span> <span class="start__note"></span></p>
+      <p class="start" data-reveal style="--i:4"><span class="start__how">Starts with <code>dia-warrant</code> or <code>dia war</code> at the start of the message, or when <code>dia</code> picks it for your request.</span> <span class="start__line">Start it with <code class="start__code">/dia:dia-warrant</code></span> <span class="start__note"></span></p>
       <div class="try" data-reveal style="--i:5">
         <p class="try__label">Try this prompt</p>
-        <pre><code>How well do the reasons support this? "My friend is a personal trainer and she says running ruins your knees, so if I take up running I will get knee problems."</code></pre>
+        <pre><code>dia war "My friend is a personal trainer and she says running ruins your knees, so if I take up running I will get knee problems."</code></pre>
       </div>
-      <p class="plate__actions" data-reveal style="--i:6"><button class="button button--ink" type="button" data-copy='How well do the reasons support this? "My friend is a personal trainer and she says running ruins your knees, so if I take up running I will get knee problems."'>Copy the prompt</button> <a class="button button--tone" href="https://github.com/ajitta/dialectic-skills#dia-warrant-see-how-well-the-reasons-support-a-conclusion">Full guide</a></p>
+      <p class="plate__actions" data-reveal style="--i:6"><button class="button button--ink" type="button" data-copy='dia war "My friend is a personal trainer and she says running ruins your knees, so if I take up running I will get knee problems."'>Copy the prompt</button> <a class="button button--tone" href="https://github.com/ajitta/dialectic-skills#dia-warrant-see-how-well-the-reasons-support-a-conclusion">Full guide</a></p>
       <details class="session" data-reveal style="--i:7">
         <summary>See what you get</summary>
         <div class="session__body">
@@ -364,7 +364,7 @@
   </article>
 
   <!-- dia-conjecture -->
-  <article class="plate field-sand" id="dia-conjecture" data-skill="dia-conjecture" data-codex="auto">
+  <article class="plate field-sand" id="dia-conjecture" data-skill="dia-conjecture">
     <figure class="plate__pic pair pair--diag" data-reveal>
       <div class="pair__art">
         <span class="pair__b"></span>
@@ -382,12 +382,12 @@
       <h3 class="head plate__name mask" data-reveal style="--i:1"><span>dia-conjecture</span></h3>
       <p class="lead" data-reveal style="--i:2">Test an “always” rule against counterexamples.</p>
       <p data-reveal style="--i:3">A rule with “always”, “every” or “never” in it can be knocked down by one case that doesn’t fit. Following Imre Lakatos’s <i>Proofs and Refutations</i>, the assistant splits your reasons into numbered steps, then brings one counterexample per message and shows how it fits your rule and still breaks it. You decide whether each case counts; when one does, the assistant lists the repairs and recommends one, and you pick. It is for rules about what is the case, not for plans or policies.</p>
-      <p class="start" data-reveal style="--i:4"><span class="start__how">Starts by name, or in words.</span> <span class="start__line">Start it with <code class="start__code">/dia:dia-conjecture</code></span> <span class="start__note"></span></p>
+      <p class="start" data-reveal style="--i:4"><span class="start__how">Starts with <code>dia-conjecture</code> or <code>dia con</code> at the start of the message, or when <code>dia</code> picks it for your request.</span> <span class="start__line">Start it with <code class="start__code">/dia:dia-conjecture</code></span> <span class="start__note"></span></p>
       <div class="try" data-reveal style="--i:5">
         <p class="try__label">Try this prompt</p>
-        <pre><code>Find counterexamples to my rule: buying in bulk always saves money.</code></pre>
+        <pre><code>dia con Buying in bulk always saves money.</code></pre>
       </div>
-      <p class="plate__actions" data-reveal style="--i:6"><button class="button button--ink" type="button" data-copy="Find counterexamples to my rule: buying in bulk always saves money.">Copy the prompt</button> <a class="button button--tone" href="https://github.com/ajitta/dialectic-skills#dia-conjecture-test-an-always-rule-against-counterexamples">Full guide</a></p>
+      <p class="plate__actions" data-reveal style="--i:6"><button class="button button--ink" type="button" data-copy="dia con Buying in bulk always saves money.">Copy the prompt</button> <a class="button button--tone" href="https://github.com/ajitta/dialectic-skills#dia-conjecture-test-an-always-rule-against-counterexamples">Full guide</a></p>
       <details class="session" data-reveal style="--i:7">
         <summary>See the session</summary>
         <div class="session__body">
@@ -405,7 +405,7 @@
   </article>
 
   <!-- dia-counterplan -->
-  <article class="plate plate--flip" id="dia-counterplan" data-skill="dia-counterplan" data-codex="auto">
+  <article class="plate plate--flip" id="dia-counterplan" data-skill="dia-counterplan">
     <figure class="plate__pic pair pair--diag pair--flip" data-reveal>
       <div class="pair__art">
         <span class="pair__b"></span>
@@ -423,12 +423,12 @@
       <h3 class="head plate__name mask" data-reveal style="--i:1"><span>dia-counterplan</span></h3>
       <p class="lead" data-reveal style="--i:2">Hear the case for a different plan.</p>
       <p data-reveal style="--i:3">Dialectical inquiry, a planning method from management research (Richard Mason, 1969). The assistant lists the assumptions your plan rests on, keeps the ones that would change the decision if they were wrong, gives each a believable opposite, and builds the best rival plan on the same facts. Then you say which assumption of each pair you now hold; that mix is the result. If you only lean one way, the pair stays open with your lean noted. It gives no verdict on which plan wins, because it wrote both sides itself.</p>
-      <p class="start" data-reveal style="--i:4"><span class="start__how">Starts by name, or in words.</span> <span class="start__line">Start it with <code class="start__code">/dia:dia-counterplan</code></span> <span class="start__note"></span></p>
+      <p class="start" data-reveal style="--i:4"><span class="start__how">Starts with <code>dia-counterplan</code> or <code>dia cou</code> at the start of the message, or when <code>dia</code> picks it for your request.</span> <span class="start__line">Start it with <code class="start__code">/dia:dia-counterplan</code></span> <span class="start__note"></span></p>
       <div class="try" data-reveal style="--i:5">
         <p class="try__label">Try this prompt</p>
-        <pre><code>Devil's advocate on this plan: we want to move from our two-bedroom city apartment to a bigger house in the suburbs before our kids (6 and 3) start school next September. The monthly payment is about the same as our rent now, the kids would each get their own room and a yard, and the school there has good reviews. The catch: my commute goes from 20 minutes to about an hour each way.</code></pre>
+        <pre><code>dia cou We want to move from our two-bedroom city apartment to a bigger house in the suburbs before our kids (6 and 3) start school next September. The monthly payment is about the same as our rent now, the kids would each get their own room and a yard, and the school there has good reviews. The catch: my commute goes from 20 minutes to about an hour each way.</code></pre>
       </div>
-      <p class="plate__actions" data-reveal style="--i:6"><button class="button button--ink" type="button" data-copy="Devil's advocate on this plan: we want to move from our two-bedroom city apartment to a bigger house in the suburbs before our kids (6 and 3) start school next September. The monthly payment is about the same as our rent now, the kids would each get their own room and a yard, and the school there has good reviews. The catch: my commute goes from 20 minutes to about an hour each way.">Copy the prompt</button> <a class="button button--tone" href="https://github.com/ajitta/dialectic-skills#dia-counterplan-hear-the-case-for-a-different-plan">Full guide</a></p>
+      <p class="plate__actions" data-reveal style="--i:6"><button class="button button--ink" type="button" data-copy="dia cou We want to move from our two-bedroom city apartment to a bigger house in the suburbs before our kids (6 and 3) start school next September. The monthly payment is about the same as our rent now, the kids would each get their own room and a yard, and the school there has good reviews. The catch: my commute goes from 20 minutes to about an hour each way.">Copy the prompt</button> <a class="button button--tone" href="https://github.com/ajitta/dialectic-skills#dia-counterplan-hear-the-case-for-a-different-plan">Full guide</a></p>
       <details class="session" data-reveal style="--i:7">
         <summary>See the session</summary>
         <div class="session__body">
@@ -442,8 +442,8 @@
     </div>
   </article>
 
-  <!-- dia-refine -->
-  <article class="plate field-sand" id="dia-refine" data-skill="dia-refine" data-codex="auto">
+  <!-- dia-emend -->
+  <article class="plate field-sand" id="dia-emend" data-skill="dia-emend">
     <figure class="plate__pic pair pair--diag" data-reveal>
       <div class="pair__art">
         <span class="pair__b"></span>
@@ -458,15 +458,15 @@
       <figcaption class="small">Opening of Plato’s Euthyphro in the Clarke Plato, a manuscript copied in 895. Bodleian Library, Oxford.</figcaption>
     </figure>
     <div class="plate__text">
-      <h3 class="head plate__name mask" data-reveal style="--i:1"><span>dia-refine</span></h3>
+      <h3 class="head plate__name mask" data-reveal style="--i:1"><span>dia-emend</span></h3>
       <p class="lead" data-reveal style="--i:2">One careful review of an answer or a draft.</p>
       <p data-reveal style="--i:3">A careful editor’s single pass: factual errors, logical leaps, missing requirements, repetition. It fixes only the errors it could confirm; the ones it suspects but couldn’t confirm are listed separately with the likely correction, so nothing changes silently.</p>
-      <p class="start" data-reveal style="--i:4"><span class="start__how">Starts when <code>dia-refine</code> is the first word, or by name.</span> <span class="start__line">Start it with <code class="start__code">/dia:dia-refine</code></span> <span class="start__note"></span></p>
+      <p class="start" data-reveal style="--i:4"><span class="start__how">Starts with <code>dia-emend</code> or <code>dia eme</code> at the start of the message, or when <code>dia</code> picks it for your request.</span> <span class="start__line">Start it with <code class="start__code">/dia:dia-emend</code></span> <span class="start__note"></span></p>
       <div class="try" data-reveal style="--i:5">
         <p class="try__label">Try this prompt</p>
-        <pre><code>dia-refine check the facts: The Great Wall of China is the only man-made structure visible from the Moon with the naked eye, and it was built entirely during the Ming dynasty.</code></pre>
+        <pre><code>dia-emend check the facts: The Great Wall of China is the only man-made structure visible from the Moon with the naked eye, and it was built entirely during the Ming dynasty.</code></pre>
       </div>
-      <p class="plate__actions" data-reveal style="--i:6"><button class="button button--ink" type="button" data-copy="dia-refine check the facts: The Great Wall of China is the only man-made structure visible from the Moon with the naked eye, and it was built entirely during the Ming dynasty.">Copy the prompt</button> <a class="button button--tone" href="https://github.com/ajitta/dialectic-skills#dia-refine-one-careful-review-of-an-answer-or-a-draft">Full guide</a></p>
+      <p class="plate__actions" data-reveal style="--i:6"><button class="button button--ink" type="button" data-copy="dia-emend check the facts: The Great Wall of China is the only man-made structure visible from the Moon with the naked eye, and it was built entirely during the Ming dynasty.">Copy the prompt</button> <a class="button button--tone" href="https://github.com/ajitta/dialectic-skills#dia-emend-one-careful-review-of-an-answer-or-a-draft">Full guide</a></p>
       <details class="session" data-reveal style="--i:7">
         <summary>See what you get</summary>
         <div class="session__body">
@@ -481,7 +481,7 @@
   </article>
 
   <!-- dia-ratchet -->
-  <article class="plate plate--flip" id="dia-ratchet" data-skill="dia-ratchet" data-codex="name">
+  <article class="plate plate--flip" id="dia-ratchet" data-skill="dia-ratchet">
     <figure class="plate__pic pair pair--diag pair--flip" data-reveal>
       <div class="pair__art">
         <span class="pair__b"></span>
@@ -498,8 +498,8 @@
     <div class="plate__text">
       <h3 class="head plate__name mask" data-reveal style="--i:1"><span>dia-ratchet</span></h3>
       <p class="lead" data-reveal style="--i:2">Check and fix in rounds.</p>
-      <p data-reveal style="--i:3">Like <code>dia-refine</code>, but in rounds, and only outside checks count as evidence: a search, a tool run or a source you supplied, never the assistant’s own re-derivation. What passes is locked, as in a ratchet, so later rounds can’t undo it. It stops by itself on zero defects, when a round makes things worse, when nothing changes any more, when it can’t verify anything more, or at the round limit (<code>--max N</code>, default 3).</p>
-      <p class="start" data-reveal style="--i:4"><span class="start__how">Starts only when <code>dia-ratchet</code> is the first word, or by name.</span> <span class="start__line">Start it with <code class="start__code">/dia:dia-ratchet</code></span> <span class="start__note"></span></p>
+      <p data-reveal style="--i:3">Like <code>dia-emend</code>, but in rounds, and only outside checks count as evidence: a search, a tool run or a source you supplied, never the assistant’s own re-derivation. What passes is locked, as in a ratchet, so later rounds can’t undo it. It stops by itself on zero defects, when a round makes things worse, when nothing changes any more, when it can’t verify anything more, or at the round limit (<code>--max N</code>, default 3).</p>
+      <p class="start" data-reveal style="--i:4"><span class="start__how">Starts with <code>dia-ratchet</code> or <code>dia rat</code> at the start of the message; <code>dia</code> never picks it from a plain request.</span> <span class="start__line">Start it with <code class="start__code">/dia:dia-ratchet</code></span> <span class="start__note"></span></p>
       <div class="try" data-reveal style="--i:5">
         <p class="try__label">Try this prompt</p>
         <pre><code>dia-ratchet --max 2 check the dates and facts in this paragraph: "The first iPhone went on sale in 2008, and the App Store opened the same day with 500 apps."</code></pre>
@@ -519,7 +519,7 @@
   </article>
 
   <!-- dia-adjudicate -->
-  <article class="plate field-sand" id="dia-adjudicate" data-skill="dia-adjudicate" data-codex="name">
+  <article class="plate field-sand" id="dia-adjudicate" data-skill="dia-adjudicate">
     <figure class="plate__pic pair pair--diag" data-reveal>
       <div class="pair__art">
         <span class="pair__b"></span>
@@ -537,7 +537,7 @@
       <h3 class="head plate__name mask" data-reveal style="--i:1"><span>dia-adjudicate</span></h3>
       <p class="lead" data-reveal style="--i:2">Decide which review points hold.</p>
       <p data-reveal style="--i:3">A referee for reviews. You give it a text and one or more reviews of it, written by people or by other assistants. It relabels the reviews in a shuffled order, checks the text’s own claims and every point in the reviews against sources, says which points hold and which are wrong or overstated, and ends with the few verdicts a person should recheck. It never rewrites the text and adds no review of its own.</p>
-      <p class="start" data-reveal style="--i:4"><span class="start__how">Starts only when <code>dia-adjudicate</code> is the first word, or by name.</span> <span class="start__line">Start it with <code class="start__code">/dia:dia-adjudicate</code></span> <span class="start__note"></span></p>
+      <p class="start" data-reveal style="--i:4"><span class="start__how">Starts with <code>dia-adjudicate</code> or <code>dia adj</code> at the start of the message; <code>dia</code> never picks it from a plain request.</span> <span class="start__line">Start it with <code class="start__code">/dia:dia-adjudicate</code></span> <span class="start__note"></span></p>
       <div class="try" data-reveal style="--i:5">
         <p class="try__label">Try this prompt</p>
         <pre><code>dia-adjudicate
@@ -562,8 +562,8 @@ Review B: &quot;The 18 months was Moore&#x27;s own 1975 figure, and doubling eve
     </div>
   </article>
 
-  <!-- dia-instruct -->
-  <article class="plate plate--flip" id="dia-instruct" data-skill="dia-instruct" data-codex="auto">
+  <!-- dia-regula -->
+  <article class="plate plate--flip" id="dia-regula" data-skill="dia-regula">
     <figure class="plate__pic pair pair--diag pair--flip" data-reveal>
       <div class="pair__art">
         <span class="pair__b"></span>
@@ -578,21 +578,21 @@ Review B: &quot;The 18 months was Moore&#x27;s own 1975 figure, and doubling eve
       <figcaption class="small">Laurentius de Voltolina, Henricus de Alemannia lecturing to students in Bologna, second half of the 14th century.</figcaption>
     </figure>
     <div class="plate__text">
-      <h3 class="head plate__name mask" data-reveal style="--i:1"><span>dia-instruct</span></h3>
+      <h3 class="head plate__name mask" data-reveal style="--i:1"><span>dia-regula</span></h3>
       <p class="lead" data-reveal style="--i:2">Write text a model will follow.</p>
       <p data-reveal style="--i:3">A style check for instructions you give an AI: a skill file, a prompt for an agent, a project’s agent file, a rules file. It holds the text to four rules. Each paragraph says what result it wants, with its conditions and fallback in the same sentence. A word that sets a limit is as narrow as you meant it. There are fewer instructions, each with its reason. Each thing has one name. Asked only for a review, it lists what breaks a rule, most serious first, and changes nothing until you pick.</p>
-      <p class="start" data-reveal style="--i:4"><span class="start__how">Starts by name, or in words.</span> <span class="start__line">Start it with <code class="start__code">/dia:dia-instruct</code></span> <span class="start__note"></span></p>
+      <p class="start" data-reveal style="--i:4"><span class="start__how">Starts with <code>dia-regula</code> or <code>dia reg</code> at the start of the message, or when <code>dia</code> picks it for your request.</span> <span class="start__line">Start it with <code class="start__code">/dia:dia-regula</code></span> <span class="start__note"></span></p>
       <div class="try" data-reveal style="--i:5">
         <p class="try__label">Try this prompt</p>
-        <pre><code>Review this instruction I wrote for a coding agent:
+        <pre><code>dia reg Review this instruction I wrote for a coding agent:
 Update the docs for the new flag.
 Only touch files the task needs.
 - If the tests fail, stop.</code></pre>
       </div>
-      <p class="plate__actions" data-reveal style="--i:6"><button class="button button--ink" type="button" data-copy="Review this instruction I wrote for a coding agent:
+      <p class="plate__actions" data-reveal style="--i:6"><button class="button button--ink" type="button" data-copy="dia reg Review this instruction I wrote for a coding agent:
 Update the docs for the new flag.
 Only touch files the task needs.
-- If the tests fail, stop.">Copy the prompt</button> <a class="button button--tone" href="https://github.com/ajitta/dialectic-skills#dia-instruct-write-text-a-model-will-follow">Full guide</a></p>
+- If the tests fail, stop.">Copy the prompt</button> <a class="button button--tone" href="https://github.com/ajitta/dialectic-skills#dia-regula-write-text-a-model-will-follow">Full guide</a></p>
       <details class="session" data-reveal style="--i:7">
         <summary>See what you get</summary>
         <div class="session__body">
@@ -607,7 +607,7 @@ Only touch files the task needs.
   </article>
 
   <!-- dia-techne -->
-  <article class="plate field-sand" id="dia-techne" data-skill="dia-techne" data-codex="name">
+  <article class="plate field-sand" id="dia-techne" data-skill="dia-techne">
     <figure class="plate__pic pair pair--diag" data-reveal>
       <div class="pair__art">
         <span class="pair__b"></span>
@@ -625,7 +625,7 @@ Only touch files the task needs.
       <h3 class="head plate__name mask" data-reveal style="--i:1"><span>dia-techne</span></h3>
       <p class="lead" data-reveal style="--i:2">Do a task the way the field’s best would.</p>
       <p data-reveal style="--i:3">Named after <i lang="grc-Latn">technē</i>, the Greek word for craft. For Aristotle, a person of craft knows why, not only that, and so can teach it, and making serves an end beyond the thing made; Plato sets a craft, which can give an account of what it does, against a mere knack. In that spirit, before it works it asks what your request is for, what the field’s best would do that you did not ask for, the rawest material, their methods and tools, a check by something other than the assistant and you, and another field’s view. It shows each change to your request with its reason, then runs it in the same turn, stopping before any step it could not undo. Your stated requirements, your data and what you allowed never change.</p>
-      <p class="start" data-reveal style="--i:4"><span class="start__how">Starts only when <code>dia-techne</code> is the first word, or by name.</span> <span class="start__line">Start it with <code class="start__code">/dia:dia-techne</code></span> <span class="start__note"></span></p>
+      <p class="start" data-reveal style="--i:4"><span class="start__how">Starts with <code>dia-techne</code> or <code>dia tec</code> at the start of the message; <code>dia</code> never picks it from a plain request.</span> <span class="start__line">Start it with <code class="start__code">/dia:dia-techne</code></span> <span class="start__note"></span></p>
       <div class="try" data-reveal style="--i:5">
         <p class="try__label">Try this prompt</p>
         <pre><code>dia-techne Our mobile puzzle game's D30 retention is 12%. Can I tell investors next week that it's above the industry average?</code></pre>
@@ -697,7 +697,7 @@ Only touch files the task needs.
               <div class="code"><pre><code>ajitta/dialectic-skills</code></pre></div>
               Copy the name rather than typing it: a misspelling such as <code>dialectric</code> fails with “Repository not found”. The Git URL <code>https://<wbr>github.com/<wbr>ajitta/<wbr><span class="nobr">dialectic-skills.git</span></code> works too.</li>
             <li><strong>Add the plugin.</strong> Adding the marketplace installs nothing yet. In Customize › Plugins, open Discover, select <code>dia</code> (Dialectic Skills), and select Add.</li>
-            <li><strong>Check.</strong> Type <code>/dia</code> in the message box. The <code>dia</code> skills and <code>dia:dia-menu</code> should appear. Updates arrive through the marketplace.</li>
+            <li><strong>Check.</strong> Type <code>/dia</code> in the message box. The <code>dia</code> skills and <code>dia:dia-router</code> should appear. Updates arrive through the marketplace.</li>
           </ol>
           <ul class="notes">
             <li>Instead of steps 2 and 3 you can upload <a class="link-plain" href="https://github.com/ajitta/dialectic-skills/releases/latest/download/dialectic-skills.zip">dialectic-skills.zip</a> from the latest release: Customize › Plugins › Add › Upload plugin (not Customize › Skills). An upload does not update itself.</li>
@@ -713,7 +713,7 @@ Only touch files the task needs.
             <li>Add dia on claude.ai (the web), as in the claude.ai steps. There is no install step on the phone: a plugin added on the web is saved to your account and reaches the mobile app by itself. One added in Claude desktop does not.</li>
             <li>Start the message with <code>dia</code>, for example:
               <div class="code"><pre><code>dia 4 Every prime is odd.</code></pre></div>
-              <code>dia</code> alone lists the skills with numbers; a number or the first three letters of a name starts that skill; <code>dia</code> followed by your request picks the skill that fits. The mobile <code>/</code> menu does not list plugin skills, but the full name (<code>/dia-brainstorm</code>) and asking in words work too.</li>
+              <code>dia</code> alone lists the skills with numbers and three-letter codes; a number or a code (<code>dia red …</code>) starts that skill; <code>dia</code> followed by your request picks the skill that fits. The mobile <code>/</code> menu does not list plugin skills, but starting the message with the full name (<code>dia-quaestio …</code>) or typing <code>/dia-quaestio</code> works too. A request in plain words starts no skill.</li>
           </ol>
         </div>
       </section>
@@ -728,7 +728,7 @@ Only touch files the task needs.
               or the Git URL <code>https://<wbr>github.com/<wbr>ajitta/<wbr><span class="nobr">dialectic-skills.git</span></code>, then select <code>dia</code> in its plugin list and install it. Updates arrive through the marketplace.</li>
           </ol>
           <ul class="notes">
-            <li>On the phone, type <code>@</code> and pick the skill, or start the message with its name (such as <code>dia-brainstorm …</code>; 1.2.0 and later).</li>
+            <li>On the phone, type <code>@</code> and pick the skill, or start the message with its name or with <code>dia</code> (such as <code>dia-quaestio …</code> or <code>dia qua …</code>).</li>
             <li>On Business and Enterprise workspaces, an admin can also add the plugin for the whole workspace.</li>
           </ul>
         </div>
@@ -741,33 +741,28 @@ Only touch files the task needs.
   <div class="wrap invoke__grid">
     <div class="invoke__list">
       <h2 class="head mask" id="invoke-title" data-reveal><span>Start a skill</span></h2>
-      <p data-reveal style="--i:1">There are three ways. Since 1.2.0 the simplest, and the quickest on a phone, is to start the message with the skill name, with no <code>/</code>, <code>$</code> or <code>@</code>.</p>
+      <p data-reveal style="--i:1">There are three ways, and a request in plain words is none of them: since 2.0.0 it starts no skill. The quickest, also on a phone, is to start the message with <code>dia</code>.</p>
 
-      <h3 class="rows__group" data-reveal>In words</h3>
+      <h3 class="rows__group" data-reveal>With dia, as the first word</h3>
       <ul class="rows">
-        <li data-reveal style="--i:0"><span class="dot"></span><span class="rows__name">“use proof by contradiction on…”</span><span class="rows__value"><code>dia-reductio</code></span></li>
-        <li data-reveal style="--i:1"><span class="dot"></span><span class="rows__name">“do an immanent critique of…”</span><span class="rows__value"><code>dia-negative</code></span></li>
-        <li data-reveal style="--i:2"><span class="dot"></span><span class="rows__name">“Socratic dialogue please…”</span><span class="rows__value"><code>dia-elenchus</code></span></li>
-        <li data-reveal style="--i:3"><span class="dot"></span><span class="rows__name">“Socratic brainstorm with me…”</span><span class="rows__value"><code>dia-brainstorm</code></span></li>
-        <li data-reveal style="--i:4"><span class="dot"></span><span class="rows__name">“how well do the reasons support this?”</span><span class="rows__value"><code>dia-warrant</code></span></li>
-        <li data-reveal style="--i:5"><span class="dot"></span><span class="rows__name">“find counterexamples to my rule…”</span><span class="rows__value"><code>dia-conjecture</code></span></li>
-        <li data-reveal style="--i:6"><span class="dot"></span><span class="rows__name">“devil’s advocate on this plan…”</span><span class="rows__value"><code>dia-counterplan</code></span></li>
-        <li data-reveal style="--i:7"><span class="dot"></span><span class="rows__name">“review this prompt I wrote for an agent…”</span><span class="rows__value"><code>dia-instruct</code></span></li>
+        <li data-reveal style="--i:0"><span class="dot"></span><span class="rows__name">The menu, with numbers and three-letter codes</span><span class="rows__value"><code>dia</code></span></li>
+        <li data-reveal style="--i:1"><span class="dot"></span><span class="rows__name">A skill by number, code or full name</span><span class="rows__value"><code>dia 4 …</code> <code>dia red …</code></span></li>
+        <li data-reveal style="--i:2"><span class="dot"></span><span class="rows__name">Your request: <code>dia</code> picks the skill and names it in one line</span><span class="rows__value"><code>dia &lt;request&gt;</code></span></li>
+        <li data-reveal style="--i:3"><span class="dot"></span><span class="rows__name">The fixed codes, 1 to 13</span><span class="rows__value"><code>sko qua ele red neg war con cou eme rat adj reg tec</code></span></li>
       </ul>
 
       <h3 class="rows__group" data-reveal>By name, as the first word</h3>
       <ul class="rows">
-        <li data-reveal style="--i:0"><span class="dot"></span><span class="rows__name">Works for every skill</span><span class="rows__value"><code>dia-brainstorm …</code></span></li>
-        <li data-reveal style="--i:1"><span class="dot"></span><span class="rows__name">Meant to start this way or by selection</span><span class="rows__value"><code>dia-intent …</code> <code>dia-refine …</code></span></li>
-        <li data-reveal style="--i:2"><span class="dot"></span><span class="rows__name">Never starts from a plain request</span><span class="rows__value"><code>dia-ratchet …</code> <code>dia-adjudicate …</code> <code>dia-techne …</code></span></li>
+        <li data-reveal style="--i:0"><span class="dot"></span><span class="rows__name">Works for every skill</span><span class="rows__value"><code>dia-quaestio …</code></span></li>
+        <li data-reveal style="--i:1"><span class="dot"></span><span class="rows__name">Never picked by <code>dia</code> from a plain request; start them by name, number or code</span><span class="rows__value"><code>dia-skopos …</code> <code>dia-ratchet …</code> <code>dia-adjudicate …</code> <code>dia-techne …</code></span></li>
       </ul>
 
       <h3 class="rows__group" data-reveal>Selected, per surface</h3>
       <ul class="rows">
         <li data-reveal style="--i:0"><span class="dot"></span><span class="rows__name">claude.ai, Claude desktop, Claude Code</span><span class="rows__value"><code>/dia:dia-reductio</code></span></li>
-        <li data-reveal style="--i:1"><span class="dot"></span><span class="rows__name">Claude mobile, typed in full</span><span class="rows__value"><code>/dia-brainstorm</code></span></li>
-        <li data-reveal style="--i:2"><span class="dot"></span><span class="rows__name">Codex plugin, then a space</span><span class="rows__value"><code>$dia:dia-intent write a backup script</code></span></li>
-        <li data-reveal style="--i:3"><span class="dot"></span><span class="rows__name">Codex, copied folder</span><span class="rows__value"><code>$dia-refine</code></span></li>
+        <li data-reveal style="--i:1"><span class="dot"></span><span class="rows__name">Claude mobile, typed in full</span><span class="rows__value"><code>/dia-quaestio</code></span></li>
+        <li data-reveal style="--i:2"><span class="dot"></span><span class="rows__name">Codex plugin, then a space</span><span class="rows__value"><code>$dia:dia-skopos write a backup script</code></span></li>
+        <li data-reveal style="--i:3"><span class="dot"></span><span class="rows__name">Codex, copied folder</span><span class="rows__value"><code>$dia-emend</code></span></li>
         <li data-reveal style="--i:4"><span class="dot"></span><span class="rows__name">ChatGPT: type @, then pick</span><span class="rows__value"><code>@dia-negative</code></span></li>
       </ul>
 
@@ -777,10 +772,19 @@ Only touch files the task needs.
         <li data-reveal style="--i:1"><span class="dot"></span><span class="rows__name">Whose plan <code>dia-counterplan</code> examines: yours, the assistant’s earlier recommendation, or a pasted text</span><span class="rows__value"><code>--target=user|claude|text</code></span></li>
         <li data-reveal style="--i:2"><span class="dot"></span><span class="rows__name">Mode for <code>dia-warrant</code>: <code>audit</code> (default) lays out the whole check at once; <code>ask</code> has you fill in each part, one question per message</span><span class="rows__value"><code>--mode=ask</code></span></li>
         <li data-reveal style="--i:3"><span class="dot"></span><span class="rows__name">Round cap for <code>dia-ratchet</code>, default 3</span><span class="rows__value"><code>--max N</code></span></li>
-        <li data-reveal style="--i:4"><span class="dot"></span><span class="rows__name">Mode and depth for <code>dia-brainstorm</code>: <code>develop</code> (default) or <code>stress</code>; <code>quick</code>, <code>standard</code> (default) or <code>deep</code></span><span class="rows__value"><code>stress</code> <code>quick</code> <code>deep</code></span></li>
-        <li data-reveal style="--i:5"><span class="dot"></span><span class="rows__name">Criteria for <code>dia-refine</code> and <code>dia-ratchet</code>: anything after the name</span><span class="rows__value"><code>dia-refine for tone</code></span></li>
+        <li data-reveal style="--i:4"><span class="dot"></span><span class="rows__name">Mode and depth for <code>dia-quaestio</code>: <code>develop</code> (default) or <code>stress</code>; <code>quick</code>, <code>standard</code> (default) or <code>deep</code></span><span class="rows__value"><code>stress</code> <code>quick</code> <code>deep</code></span></li>
+        <li data-reveal style="--i:5"><span class="dot"></span><span class="rows__name">Criteria for <code>dia-emend</code> and <code>dia-ratchet</code>: anything after the name</span><span class="rows__value"><code>dia-emend for tone</code></span></li>
       </ul>
-      <p class="invoke__note" data-reveal>Starting with the name was tested for 1.2.0 on Codex and in the ChatGPT mobile app. <code>--target</code> applies to <code>dia-reductio</code>, <code>dia-negative</code> and <code>dia-warrant</code>, and without <code>all</code> to <code>dia-counterplan</code>.</p>
+
+      <h3 class="rows__group" data-reveal>Renamed in 2.0.0</h3>
+      <ul class="rows">
+        <li data-reveal style="--i:0"><span class="dot"></span><span class="rows__name"><code>dia-intent</code></span><span class="rows__value"><code>dia-skopos</code></span></li>
+        <li data-reveal style="--i:1"><span class="dot"></span><span class="rows__name"><code>dia-brainstorm</code></span><span class="rows__value"><code>dia-quaestio</code></span></li>
+        <li data-reveal style="--i:2"><span class="dot"></span><span class="rows__name"><code>dia-refine</code></span><span class="rows__value"><code>dia-emend</code></span></li>
+        <li data-reveal style="--i:3"><span class="dot"></span><span class="rows__name"><code>dia-instruct</code></span><span class="rows__value"><code>dia-regula</code></span></li>
+        <li data-reveal style="--i:4"><span class="dot"></span><span class="rows__name"><code>dia-menu</code></span><span class="rows__value"><code>dia-router</code></span></li>
+      </ul>
+      <p class="invoke__note" data-reveal>What each renamed skill does is unchanged. Until 2.1.0 the old names still reach it through <code>dia</code>: <code>dia-refine …</code>, <code>dia refine …</code> and <code>dia ref …</code> start <code>dia-emend</code>. Explicit selection uses the new names. Starting with the name was tested for 1.2.0 on Codex and in the ChatGPT mobile app. <code>--target</code> applies to <code>dia-reductio</code>, <code>dia-negative</code> and <code>dia-warrant</code>, and without <code>all</code> to <code>dia-counterplan</code>.</p>
     </div>
 
     <figure class="invoke__film pair" data-reveal>
@@ -805,12 +809,12 @@ Only touch files the task needs.
     </div>
     <div class="faq__list">
       <details class="tile" name="faq" data-reveal style="--i:0">
-        <summary><span>Can I ask for <code>dia-elenchus</code> and <code>dia-brainstorm</code> at once?</span></summary>
+        <summary><span>Can I ask for <code>dia-elenchus</code> and <code>dia-quaestio</code> at once?</span></summary>
         <div class="tile__body"><p>Yes. The definition dialogue comes first and the first message says so; brainstorming starts when you ask for options or the dialogue ends. The two are never interleaved.</p></div>
       </details>
       <details class="tile" name="faq" data-reveal style="--i:1">
-        <summary><span>And <code>dia-refine</code> with <code>dia-ratchet</code>?</span></summary>
-        <div class="tile__body"><p>They run as two separate passes with separate outputs. The refine pass’s own re-derivation does not count as verification for a ratchet round.</p></div>
+        <summary><span>And <code>dia-emend</code> with <code>dia-ratchet</code>?</span></summary>
+        <div class="tile__body"><p>They run as two separate passes with separate outputs. The emend pass’s own re-derivation does not count as verification for a ratchet round.</p></div>
       </details>
       <details class="tile" name="faq" data-reveal style="--i:2">
         <summary><span>And <code>dia-reductio</code> with <code>dia-negative</code>?</span></summary>
@@ -818,39 +822,43 @@ Only touch files the task needs.
       </details>
       <details class="tile" name="faq" data-reveal style="--i:3">
         <summary><span><code>dia-warrant</code>, <code>dia-conjecture</code> or <code>dia-counterplan</code> sent me to another skill</span></summary>
-        <div class="tile__body"><p>These three check what you gave them first. If the request belongs to a sibling, they say so in one line and name it: a rule you mean only as “usually” goes to <code>dia-warrant</code>, a strict “always” claim to <code>dia-conjecture</code>, a plan’s assumptions to <code>dia-counterplan</code>, and a request to be questioned about your plan to <code>dia-brainstorm</code>. Ask again with the skill they name.</p></div>
+        <div class="tile__body"><p>These three check what you gave them first. If the request belongs to a sibling, they say so in one line and name it: a rule you mean only as “usually” goes to <code>dia-warrant</code>, a strict “always” claim to <code>dia-conjecture</code>, a plan’s assumptions to <code>dia-counterplan</code>, and a request to be questioned about your plan to <code>dia-quaestio</code>. Ask again, starting the message with the skill they name.</p></div>
       </details>
       <details class="tile" name="faq" data-reveal style="--i:4">
         <summary><span>Can I get advice after <code>dia-elenchus</code>?</span></summary>
-        <div class="tile__body"><p>Ask, and the assistant says the Socratic part is over and labels each suggestion as its own. For a full options-and-plan session, name <code>dia-brainstorm</code> and it takes the record from there.</p></div>
+        <div class="tile__body"><p>Ask, and the assistant says the Socratic part is over and labels each suggestion as its own. For a full options-and-plan session, start a message with <code>dia-quaestio</code> and it takes the record from there.</p></div>
       </details>
       <details class="tile" name="faq" data-reveal style="--i:5">
         <summary><span>“Repository not found” when I add the marketplace</span></summary>
         <div class="tile__body"><p>Check the spelling: <code>ajitta/dialectic-skills</code> (dialectic, not dialectric). The repository is public and needs no GitHub login.</p></div>
       </details>
       <details class="tile" name="faq" data-reveal style="--i:6">
-        <summary><span>No dia skills under <code>/</code> on Claude mobile</span></summary>
-        <div class="tile__body"><p>Expected: the mobile menu does not list plugin skills. Start the message with <code>dia</code>, type the full name (such as <code>/dia-brainstorm</code>), ask in words, or start the message with the skill name.</p></div>
+        <summary><span>A skill did not start from my request</span></summary>
+        <div class="tile__body"><p>Since 2.0.0 a request in plain words starts no dia skill. Start the message with <code>dia</code> (<code>dia &lt;request&gt;</code>, or <code>dia red &lt;request&gt;</code> for a chosen skill) or with the skill’s full name (<code>dia-reductio …</code>). A skill name from 1.x reaches the renamed skill through <code>dia</code> until 2.1.0.</p></div>
       </details>
       <details class="tile" name="faq" data-reveal style="--i:7">
+        <summary><span>No dia skills under <code>/</code> on Claude mobile</span></summary>
+        <div class="tile__body"><p>Expected: the mobile menu does not list plugin skills. Start the message with <code>dia</code> or with the skill’s full name, or type the full selection (such as <code>/dia-quaestio</code>).</p></div>
+      </details>
+      <details class="tile" name="faq" data-reveal style="--i:8">
         <summary><span>It works on one device but not another</span></summary>
         <div class="tile__body"><p>Desktop installs stay on that computer; web installs are saved to your account and reach the mobile app. Install on the web for the web and mobile, and in each desktop app you use.</p></div>
       </details>
-      <details class="tile" name="faq" data-reveal style="--i:8">
+      <details class="tile" name="faq" data-reveal style="--i:9">
         <summary><span>Every skill appears twice</span></summary>
         <div class="tile__body"><p>The plugin is installed through two routes (for example <code>dia@dialectic-skills</code> and <code>dia@ajitta</code>, or an upload and a marketplace). Remove one.</p></div>
       </details>
-      <details class="tile" name="faq" data-reveal style="--i:9">
+      <details class="tile" name="faq" data-reveal style="--i:10">
         <summary><span>claude.ai keeps an old version</span></summary>
         <div class="tile__body"><p>If Check for updates leaves an old version, remove <code>dia</code> in Customize › Plugins and install it again from the <code>dialectic-skills</code> marketplace. Turn on Sync automatically for later releases.</p></div>
       </details>
-      <details class="tile" name="faq" data-reveal style="--i:10">
+      <details class="tile" name="faq" data-reveal style="--i:11">
         <summary><span>On ChatGPT, a skill starts only from <code>@</code></span></summary>
         <div class="tile__body"><p>Most likely your upload is older than 1.2.0, where four skills were hidden from the model. Upload the latest <code>dialectic-skills-openai.zip</code> again; uploads do not update themselves.</p></div>
       </details>
-      <details class="tile" name="faq" data-reveal style="--i:11">
+      <details class="tile" name="faq" data-reveal style="--i:12">
         <summary><span><code>dia-ratchet</code>, <code>dia-adjudicate</code> or <code>dia-techne</code> does not start</span></summary>
-        <div class="tile__body"><p>Each starts only when its name is the first word of the message or when it is selected explicitly (<code>/dia:dia-ratchet</code>, <code>$dia:dia-ratchet</code>, <code>@dia-ratchet</code>, <code>dia 10</code>; for <code>dia-adjudicate</code> and <code>dia-techne</code> the same forms and <code>dia 11</code> or <code>dia 13</code>). <code>dia</code> with a plain request never picks them. In 1.6.0 <code>dia-iterate</code> was renamed <code>dia-ratchet</code> and <code>dia-confirm</code> <code>dia-intent</code>; the old names no longer start them.</p></div>
+        <div class="tile__body"><p>Each starts only when its name is the first word of the message or when it is selected explicitly (<code>/dia:dia-ratchet</code>, <code>$dia:dia-ratchet</code>, <code>@dia-ratchet</code>, <code>dia 10</code>, <code>dia rat</code>; for <code>dia-adjudicate</code> and <code>dia-techne</code> the same forms and <code>dia 11</code>, <code>dia adj</code>, <code>dia 13</code> or <code>dia tec</code>). <code>dia</code> with a plain request never picks them; it replies with the form to send. <code>dia-iterate</code>, renamed <code>dia-ratchet</code> in 1.6.0, no longer starts it.</p></div>
       </details>
     </div>
   </div>

@@ -1,0 +1,7 @@
+interface:
+  display_name: "Dia: Emend"
+  short_description: "One review pass over an answer or draft; confirmed fixes only"
+  default_prompt: "Use $dia:dia-emend to review the previous answer as a draft: "
+
+policy:
+  allow_implicit_invocation: true

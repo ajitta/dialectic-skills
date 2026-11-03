@@ -42,7 +42,7 @@ Why list at all: on mobile, neither Claude nor ChatGPT lets a user add a marketp
 |---|---|---|
 | Manifest: `.codex-plugin/plugin.json`, or `.claude-plugin/plugin.json` (converted by the portal) | `.claude-plugin/plugin.json` in the zip's single top-level folder `dia/` | accepted, normalized |
 | `name` ASCII, at most 64; semantic `version`; `description` at most 1,024; `author.name` | all present | passes |
-| Skill identity `plugin:skill` at most 64 characters; unique skill names | `dia:dia-brainstorm` (18) is the longest | passes |
+| Skill identity `plugin:skill` at most 64 characters; unique skill names | `dia:dia-counterplan` (19) is the longest (at 2.0.0) | passes |
 | Each skill's `agents/openai.yaml`: `interface.display_name`, `interface.short_description` | present in all seven | passes |
 | `interface.displayName` at most 30 | "Dialectic Skills" (16) from `displayName` | likely passes after conversion |
 | `interface.shortDescription`, one line, **at most 30** for final submission | not set | **missing** |

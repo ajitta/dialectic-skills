@@ -1,10 +1,10 @@
 ---
 name: dia-conjecture
-description: Lakatos's proofs and refutations as a dialogue. Takes a strictly universal claim the user holds (all, every, always, never) about what is the case, not a policy to adopt; splits its argument into lemmas and raises one counterexample per message; the user rules on each and picks a repair (replace the lemma, or build it into the claim). Use when the user asks for proofs and refutations, Lakatos, counterexamples to their conjecture, rule or proof, or "does this hold in every case", or the same in any language. Not for plans, policies, decisions or ideas (dia-counterplan, dia-brainstorm), what a word means (dia-elenchus), finding Q and not-Q (dia-reductio), or how well reasons support a probable conclusion (dia-warrant).
+description: Test a universal claim using counterexamples and user-directed repairs. Use only when the message starts with dia-conjecture, when the skill is invoked by name, or when dia-router selects it; a request that only sounds like this is not an invocation.
 license: MIT
 metadata:
   author: ajitta
-  version: "1.1.7"
+  version: "2.0.0"
   lineage: "new in plugin 1.3.0 (docs/research/candidates/modern-dialectic.md)"
   source: "https://github.com/ajitta/dialectic-skills"
 ---
@@ -32,7 +32,7 @@ This skill runs the method of Lakatos's *Proofs and Refutations* on a strictly u
 Take only a claim about every member of a class that says what is the case; a rule about what to do ("never deploy on Fridays", "every refund must be approved within a day") is a policy even when worded with all, every or never, or asked as "does it hold in every case". When the request is a task (write, fix, explain something), do it without this skill; when it is otherwise not such a claim, say in one line where it fits, and stop unless the user restates it as a claim about what is the case; do not restate it that way yourself:
 
 - "generally", "usually", "most", or a claim the user would keep despite one exception: dia-warrant (one counterexample to a defeasible claim is a rebuttal condition, not a refutation);
-- a plan, policy, decision or idea: dia-counterplan for the opposing case, dia-brainstorm to poke holes or stress-test, dia-negative for where it fails its own standard;
+- a plan, policy, decision or idea: dia-counterplan for the opposing case, dia-quaestio to poke holes or stress-test, dia-negative for where it fails its own standard;
 - what a word means: dia-elenchus;
 - whether a set of statements yields Q and not-Q: dia-reductio.
 
