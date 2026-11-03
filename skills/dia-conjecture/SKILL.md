@@ -4,14 +4,14 @@ description: Test a universal claim using counterexamples and user-directed repa
 license: MIT
 metadata:
   author: ajitta
-  version: "2.0.0"
+  version: "2.2.0"
   lineage: "new in plugin 1.3.0 (docs/research/candidates/modern-dialectic.md)"
   source: "https://github.com/ajitta/dialectic-skills"
 ---
 
 # Proofs and Refutations
 
-This skill runs the method of Lakatos's *Proofs and Refutations* on a strictly universal claim C that the user holds: a conjecture, rule or generalization about what is the case (not a policy to adopt), of the form "every A is B" (all, always, never, no A is B). Label: Lakatos's *Proofs and Refutations*, ch. 1 sections 1-6 and Rules 1-4; of section 6 only its deeper-proof move (6a) is used; Rule 5 (section 7) and the concept-stretching analysis of sections 8-9 are not implemented (concept-stretching is only classified). Lakatos wrote about informal mathematics, and his classroom had many voices; here C may come from any field, the user owns it, and you raise the cases (counterexamples). Sources, lineage and the departures from Lakatos: [references/theory.md](references/theory.md); read it only when the user asks about the method or the sources.
+This skill runs the method of Lakatos's *Proofs and Refutations* on a strictly universal claim C that the user holds: a conjecture, rule or generalization about what is the case (not a policy to adopt), of the form "every A is B" (all, always, never, no A is B). Label: ch. 1 sections 1-6 (of section 6 only the deeper-proof move) and Rules 1-4. Sources, lineage and the departures from Lakatos: [references/theory.md](references/theory.md); read it only when the user asks about the method or the sources.
 
 ## Hard rules
 
@@ -19,7 +19,7 @@ This skill runs the method of Lakatos's *Proofs and Refutations* on a strictly u
 2. **Every case shows its check,** condition by condition, so the user can fault it: that it meets C's antecedent (it is an A under the reading in force, defined in Step 1); for a case against C (global only or both), that it violates the consequent (it is not B); and for a case against a lemma (local only or both), which lemma it violates and how; a case whose check you cannot write is not raised.
 3. **Evidence classes.** Each case says what it rests on: logic or definition / supplied by the user / verified this session (a tool ran) / single source / unverified recall, and your own recall is never "verified"; if a search tool is available, you may check a fact a case rests on. A C′ forced by a case that rests only on unverified recall is **conditional** on that case.
 4. **The user rules; you classify.** Never rule for the user on whether a case counts; you classify their ruling by Step 4.
-5. **No silent redefinition.** An "I meant …" or a narrowed term is a change to C: state the old and the new wording and what the new one no longer covers, since Lakatos's Teacher refuses "surreptitious changes" of this kind, except that a correction, or the part of one, that only brings wording of yours in the Step 1 restatement back to the words of C's source (wording you added, replaced or left out, judged by those words, or by their meaning when you translated them), which this file calls a restoring correction, is not a change to C at any point in the dialogue, because that wording was yours: C as fixed (your Step 1 restatement with every restoring correction applied) takes the restored wording, the record lists the correction when it came after a case was raised, and Step 1 says what happens to cases already raised; any part of a correction that adds a restriction the source's words do not contain is a change to C.
+5. **No silent redefinition.** An "I meant …" or a narrowed term is a change to C: state the old and the new wording and what the new one no longer covers, except that a correction, or the part of one, that only brings wording of yours in the Step 1 restatement back to the words of C's source (wording you added, replaced or left out, judged by those words, or by their meaning when you translated them), which this file calls a restoring correction, is not a change to C at any point in the dialogue, because that wording was yours: C as fixed (your Step 1 restatement with every restoring correction applied) takes the restored wording, the record lists the correction when it came after a case was raised, and Step 1 says what happens to cases already raised; any part of a correction that adds a restriction the source's words do not contain is a change to C.
 6. **Withdraw only for a named defect.** Withdraw a case, a label or a recommendation only when you can name its defect (a condition the case fails, a misread term, a wrong evidence class); insistence is not a defect.
 7. **The user decides the repair.** Recommend one option, and never write C′ as adopted before the user picks.
 8. **Quote only real words.** Quotation marks mean the user (or the text) said exactly that, so drop them when you paraphrase.
@@ -29,7 +29,7 @@ This skill runs the method of Lakatos's *Proofs and Refutations* on a strictly u
 
 ## Step 0 — Is it a strictly universal claim?
 
-Take only a claim about every member of a class that says what is the case; a rule about what to do ("never deploy on Fridays", "every refund must be approved within a day") is a policy even when worded with all, every or never, or asked as "does it hold in every case". When the request is a task (write, fix, explain something), do it without this skill; when it is otherwise not such a claim, say in one line where it fits, and stop unless the user restates it as a claim about what is the case; do not restate it that way yourself:
+Take only a claim about every member of a class that says what is the case; a rule about what to do ("never deploy on Fridays", "every refund must be approved within a day") is a policy even when worded with all, every or never, or asked as "does it hold in every case". When it is not such a claim, say in one line where it fits, and stop unless the user restates it as a claim about what is the case; do not restate it that way yourself:
 
 - "generally", "usually", "most", or a claim the user would keep despite one exception: dia-warrant (one counterexample to a defeasible claim is a rebuttal condition, not a refutation);
 - a plan, policy, decision or idea: dia-counterplan for the opposing case, dia-quaestio to poke holes or stress-test, dia-negative for where it fails its own standard;
@@ -80,10 +80,10 @@ Layout, one case per message (here C is "every sorted list can be binary-searche
 
 Branch on the case's label (Lakatos's Rules 2-4):
 
-- **Local only** (Lj fails, C survives the case): Lakatos's Rule 4. Replace Lj by a lemma the case does not refute and the proof can still use. C is unchanged, unless an earlier repair built Lj into C: then the replacement widens C to cover the case (Lakatos's deeper proof, ch. 1 section 6), and the user picks it like any C′.
+- **Local only** (Lj fails, C survives the case): Lakatos's Rule 4. Replace Lj by a lemma the case does not refute and the proof can still use. C is unchanged, unless an earlier repair built Lj into C: then the replacement widens C to cover the case (a deeper proof), and the user picks it like any C′.
 - **Global only** (C fails, no listed lemma fails): the proof hides a lemma, so name the hidden lemma the case refutes and add it to the proof-analysis as the next L-number, marked [A, hidden] (the user accepts it by picking this option); then, by Lakatos's Rule 2, C′ is C with that lemma built in as a condition ("every A that … is B").
 - **Both** (C and Lj fail): lemma-incorporation, Lakatos's Rule 2: C′ is "every A that meets Lj is B".
-- **Weaker lemma** (the "suitable lemma" of Lakatos's Rule 2), for a case that fails C (global only or both), if you can find one: a condition weaker than the one you would build in, still usable by the proof, that more of C's cases meet but the counting case fails (show that in one line). Never offer a condition the counting case meets, or one that only restates B ("every A that ends up B is B"), because that empties C (SEP's "empty tautology") and is not a repair.
+- **Weaker lemma** (the "suitable lemma" of Lakatos's Rule 2), for a case that fails C (global only or both), if you can find one: a condition weaker than the one you would build in, still usable by the proof, that more of C's cases meet but the counting case fails (show that in one line). Never offer a condition the counting case meets, or one that only restates B ("every A that ends up B is B"), because that empties C and is not a repair.
 - **Give up C** is an option whenever C itself fails (global only or both).
 - Exception-barring (listing the case as an exception) and monster-adjustment (reinterpreting the case so that it fits) only if the user asks for them, labelled as responses Lakatos rejects.
 
