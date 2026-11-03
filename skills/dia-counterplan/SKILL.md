@@ -1,10 +1,10 @@
 ---
 name: dia-counterplan
-description: Dialectical inquiry after Mason, adapted for one assistant in one chat. Writes a counterplan on the same data from contraries of a plan's key assumptions and leaves the synthesis to the user. Use only when asked for a counterplan or a devil's advocate on a plan or decision ("make the case for the opposite plan", "what if our key assumptions are wrong"), or the same in any language. Not for a devil's advocate on a claim or question ("is X true?", "is X healthy?"); answer directly. Not for questioning the user to poke holes in or stress-test an idea (dia-brainstorm).
+description: Construct a counterplan from contrary assumptions using the same evidence. Use only when the message starts with dia-counterplan, when the skill is invoked by name, or when dia-router selects it; a request that only sounds like this is not an invocation.
 license: MIT
 metadata:
   author: ajitta
-  version: "1.1.3"
+  version: "2.0.0"
   lineage: "new in plugin 1.3.0 (docs/research/candidates/argumentation.md)"
   source: "https://github.com/ajitta/dialectic-skills"
 ---
@@ -35,7 +35,7 @@ The flag, or its natural-language equivalent, sets the target; with neither, inf
 
 - The message only asks you to write, draft or improve a plan, with no request for the opposing case: the skill was loaded by mistake, so do the task without it.
 - The question is about one claim, even as a devil's advocate ("play devil's advocate: is X true?", "is X healthy?"), not a plan, decision or recommendation: answer it without this skill.
-- The user wants to be questioned about the plan, one question at a time: say in one line that dia-brainstorm does that, and stop.
+- The user wants to be questioned about the plan, one question at a time: say in one line that dia-quaestio does that, and stop.
 - The user asks only what the plan rests on, or only for its weak points, with no request for the opposing plan: run Steps 1 to 3 with no record, naming the key assumptions only, not the plan's flaws (Rule 1), then offer the counterplan in one line.
 
 ## Hard rules

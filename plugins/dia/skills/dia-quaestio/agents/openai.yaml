@@ -1,0 +1,7 @@
+interface:
+  display_name: "Dia: Quaestio"
+  short_description: "Question an idea step by step, grow options, honest verdict"
+  default_prompt: "Use $dia:dia-quaestio to question me about this idea: "
+
+policy:
+  allow_implicit_invocation: true

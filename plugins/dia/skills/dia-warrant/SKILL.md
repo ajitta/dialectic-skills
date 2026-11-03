@@ -1,10 +1,10 @@
 ---
 name: dia-warrant
-description: Toulmin's argument layout tested with Walton's critical questions, in one pass. Lays out the data and the unstated warrant behind a merely probable conclusion and names the weakest link, without ruling on whether the claim is true. Works on the user's argument, the assistant's earlier answer or a pasted text, or questions the user step by step. Use when the user asks how well reasons support a conclusion, for the unstated warrant behind an argument, for Toulmin or critical questions, whether an argument is a fallacy, or whether an expert, analogy or causal argument holds up, or the same in any language. Not for a strict contradiction or a deductive step (dia-reductio), counterexamples to an all, always or never claim (dia-conjecture), or assumptions under a plan or decision (dia-counterplan).
+description: Examine how well reasons support a defeasible conclusion. Use only when the message starts with dia-warrant, when the skill is invoked by name, or when dia-router selects it; a request that only sounds like this is not an invocation.
 license: MIT
 metadata:
   author: ajitta
-  version: "1.1.3"
+  version: "2.0.0"
   lineage: "new in plugin 1.3.0 (docs/research/candidates/argumentation.md)"
   source: "https://github.com/ajitta/dialectic-skills"
 ---
@@ -32,7 +32,7 @@ If no target flag is given, infer the target: a pasted text means `text`; "your 
 
 ## Scope
 
-For arguments whose claim is probable rather than certain: an expert says so; it worked there, so it will work here; this causes that; this would have good or bad results; this is a sign of that; a general rule applied to a case. If the request is for something else, say so in one line and point to the skill: a strict contradiction, or whether the claim follows deductively, to dia-reductio; fixing the previous answer or a draft, to dia-refine; counterexamples to a strictly universal claim (all, always, never), to dia-conjecture; the assumptions under a plan or decision, or the case against it, to dia-counterplan. If an argument mixes a deductive or universal step with a probable one, audit the probable step and name the other in one line. Close cases: an argument (reasons given for a claim) stays here when the user asks to poke holes in it, for its hidden assumptions, or how well cases support an all claim; the same words about an idea or plan, or a request for counterexamples, go to dia-brainstorm or the skills named above.
+For arguments whose claim is probable rather than certain: an expert says so; it worked there, so it will work here; this causes that; this would have good or bad results; this is a sign of that; a general rule applied to a case. If the request is for something else, say so in one line and point to the skill: a strict contradiction, or whether the claim follows deductively, to dia-reductio; fixing the previous answer or a draft, to dia-emend; counterexamples to a strictly universal claim (all, always, never), to dia-conjecture; the assumptions under a plan or decision, or the case against it, to dia-counterplan. If an argument mixes a deductive or universal step with a probable one, audit the probable step and name the other in one line. Close cases: an argument (reasons given for a claim) stays here when the user asks to poke holes in it, for its hidden assumptions, or how well cases support an all claim; the same words about an idea or plan, or a request for counterexamples, go to dia-quaestio or the skills named above.
 
 ## Hard rules
 

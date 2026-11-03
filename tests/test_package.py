@@ -67,14 +67,14 @@ class TestRules(unittest.TestCase):
     def test_short_description_length(self):
         import shutil, tempfile
         with tempfile.TemporaryDirectory() as d:
-            s = Path(d) / "dia-refine"
-            shutil.copytree(ROOT / "skills" / "dia-refine", s)
+            s = Path(d) / "dia-emend"
+            shutil.copytree(ROOT / "skills" / "dia-emend", s)
             y = s / "agents" / "openai.yaml"
             y.write_text(y.read_text(encoding="utf-8").replace('short_description: "', 'short_description: "' + "x" * 64, 1), encoding="utf-8", newline="\n")
             self.assertTrue(any("short_description" in e for e in pkg.validate_skill(s)))
 
     def test_prefix_rule(self):
-        errs = pkg.validate_names(["dia-refine", "dia-refine-loop"])
+        errs = pkg.validate_names(["dia-emend", "dia-emend-loop"])
         self.assertTrue(any("prefix" in e for e in errs))
 
     def test_hangul_boundary(self):
@@ -104,6 +104,50 @@ class TestRules(unittest.TestCase):
         errs = pkg.crossref_violations(files, ["dia-a"])
         self.assertTrue(any("old skill name 'dia-confirm'" in e for e in errs), errs)
         self.assertFalse([e for e in errs if ":2:" in e], errs)  # lineage line is exempt
+
+    def test_renamed_2_0_0(self):
+        for old in ("dia-intent", "dia-brainstorm", "dia-refine", "dia-instruct", "dia-menu"):
+            errs = pkg.crossref_violations({"skills/dia-a/SKILL.md": f"run {old} first".encode()}, ["dia-a"])
+            self.assertTrue(any(f"old skill name {old!r}" in e for e in errs), errs)
+
+    def test_former_names_only_on_router_alias_lines(self):
+        line = b"- Former names: a first word dia-refine reaches this skill"
+        self.assertTrue(pkg.crossref_violations({"skills/dia-emend/SKILL.md": line}, ["dia-emend"]))
+        self.assertTrue(pkg.crossref_violations({"skills/dia-router/SKILL.md": b"see dia-refine"}, ["dia-router"]))
+        version = pkg.plugin_version()
+        errs = pkg.crossref_violations({"skills/dia-router/SKILL.md": line}, ["dia-router"])
+        if pkg.version_tuple(version) < pkg.FORMER_NAMES_UNTIL:
+            self.assertEqual(errs, [])
+        else:
+            self.assertTrue(any("remove this line" in e for e in errs), errs)
+
+    def test_former_name_aliases_expire(self):
+        real = pkg.plugin_version
+        try:
+            pkg.plugin_version = lambda: "2.1.0"
+            errs = pkg.crossref_violations({"skills/dia-router/SKILL.md": b"former name dia-menu"}, ["dia-router"])
+            self.assertTrue(any("remove this line" in e for e in errs), errs)
+        finally:
+            pkg.plugin_version = real
+
+    def test_every_description_is_gated(self):
+        for s in pkg.skill_dirs():
+            fm, _, _ = pkg.frontmatter((s / "SKILL.md").read_text(encoding="utf-8"))
+            if s.name == "dia-router":
+                self.assertIn("first word of the message is dia on its own", fm["description"])
+            else:
+                self.assertIn(f"Use only when the message starts with {s.name},", fm["description"])
+                self.assertIn("when dia-router selects it", fm["description"])
+
+    def test_router_menu_codes(self):
+        body = (ROOT / "skills" / "dia-router" / "SKILL.md").read_text(encoding="utf-8")
+        rows = re.findall(r"^\| (\d+) \| (dia-[a-z]+) \| `([a-z]{3})` \|", body, re.M)
+        self.assertEqual([int(n) for n, _, _ in rows], list(range(1, 14)))
+        self.assertEqual({n for _, n, _ in rows}, set(pkg.EXPECTED_IMPLICIT) - {"dia-router"})
+        codes = [c for _, _, c in rows]
+        self.assertEqual(len(set(codes)), 13)
+        for _, name, code in rows:
+            self.assertTrue(name[4:].startswith(code), (name, code))
 
     def test_plain_scalar_guard(self):
         with self.assertRaises(ValueError):

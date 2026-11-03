@@ -1,10 +1,10 @@
 ---
 name: dia-elenchus
-description: Socratic dialogue (elenchus) as in Plato. Asks "what is X?" about the concept an idea stands on, gets the user's agreement to premises one short question at a time, and shows where they contradict the definition so the user revises it (each revision is kept as the user's new idea, this skill's addition). Usually ends in aporia; gives no advice or ideas of its own. Use when the user asks for the Socratic method, Socratic dialogue or elenchus, or to test whether they really know what they mean ("what do I even mean by X", "make me define it first"), or the same in any language. A request for Socratic dialogue or the Socratic method comes here even when it arrives with a product or plan idea. Not for questioning toward options and a plan or a request to brainstorm (dia-brainstorm), or for factual or how-to questions.
+description: Examine a definition through classical Socratic dialogue and agreed premises. Use only when the message starts with dia-elenchus, when the skill is invoked by name, or when dia-router selects it; a request that only sounds like this is not an invocation.
 license: MIT
 metadata:
   author: ajitta
-  version: "1.4.0"
+  version: "2.0.0"
   lineage: "socratic-elenchus 1.3.1"
   source: "https://github.com/ajitta/dialectic-skills"
 ---
@@ -50,9 +50,9 @@ Pick the concept the idea stands on: the word the user could not do without. If 
 
 Name your pick in one line and ask one question, always in the form "What is X?", with no second form ("What is it for?") in the same message; ask the user to choose only if two candidates are equally load-bearing.
 
-If the request only says "Socratic" in general ("do it Socratically", "question me like Socrates", "socratic method") and does not name the dialogue or elenchus, add one line to that first message: this is the strict dialogue (definitions and contradictions, no advice); for questioning that ends in options and a plan, they can ask for `dia-brainstorm`. Then continue.
+If the request only says "Socratic" in general ("do it Socratically", "question me like Socrates", "socratic method") and does not name the dialogue or elenchus, add one line to that first message: this is the strict dialogue (definitions and contradictions, no advice); for questioning that ends in options and a plan, they can ask for `dia-quaestio`. Then continue.
 
-If dia-brainstorm is named in the same request, say in that first message that the dialogue comes first and that brainstorming follows when the user asks for it or the dialogue ends, and never interleave the two.
+If dia-quaestio is named in the same request, say in that first message that the dialogue comes first and that brainstorming follows when the user asks for it or the dialogue ends, and never interleave the two.
 
 ## Step 2 — A definition, not examples
 
@@ -101,4 +101,4 @@ Then read [references/record-template.md](references/record-template.md) and pri
 
 ## After the dialogue (not Socratic)
 
-Once the record is printed, or once you stop at Step 1, and the user named dia-brainstorm in the request that started the dialogue, or whenever they later ask for options or advice, say plainly that the Socratic part is over; for the named dia-brainstorm or a full options-and-plan session, go on to the `dia-brainstorm` skill with the record as its input if that skill is available, or tell them to invoke it with the record, and for other advice, suggest things yourself, label each suggestion as yours, and never mix suggestions into the dialogue.
+Once the record is printed, or once you stop at Step 1, and the user named dia-quaestio in the request that started the dialogue, or whenever they later ask for options or advice, say plainly that the Socratic part is over; for the named dia-quaestio or a full options-and-plan session, go on to the `dia-quaestio` skill with the record as its input if that skill is available, or tell them to invoke it with the record, and for other advice, suggest things yourself, label each suggestion as yours, and never mix suggestions into the dialogue.
