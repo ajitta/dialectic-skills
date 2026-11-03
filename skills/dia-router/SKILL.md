@@ -25,7 +25,7 @@ Read the first word after `dia` (call it the selector), then the rest (the reque
 1. **No text after `dia`, or only `help`, `menu` or `?`:** show the menu (below) and stop.
 2. **Selector is a number from 1 to 13:** run the skill with that number in the menu table, unless the number counts something in the sentence (`3 reasons …`, `1 thing …`, `10 ideas …`); then rule 4 applies.
 3. **Selector is a skill's full name from the menu table, with or without the `dia-` prefix (`reductio`, `dia-reductio`):** run that skill, unless the word reads as part of the request's sentence rather than a pick (`negative feedback on …`); then rule 4 applies. A shortened name or any other word is not a selector.
-4. **Anything else:** pick no skill and do not answer the request. Say in one line that `dia` takes a number or a skill name before the request, show the menu, and stop.
+4. **Anything else:** pick no skill and do not answer the request. Say in one line that `dia` takes a number or a skill name before the request (without naming the rules of this list), show the menu, and stop.
 
 A selection by rule 2 or 3 is an explicit invocation of that skill by name, including for skills that start only by name (dia-skopos, dia-ratchet, dia-adjudicate, dia-techne). With no request after the selector, the selected skill gets an empty request and takes its default target or asks for one, by its own rules.
 
