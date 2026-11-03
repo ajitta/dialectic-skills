@@ -76,10 +76,10 @@ Measured 2026-11-03, Claude Code 2.1.314 (`claude --plugin-dir <plugins/dia> plu
 
 | | 1.13.0 (`2172469`) | 2.0.0 |
 |---|---|---|
-| Description characters, 14 skills | 8,864 | 3,801 |
-| Claude Code always-on projection | 3,023 | **1,327** |
-| Codex listing, o200k, 14 entries | 2,268 | **1,124** |
-| dia-router (dia-menu) body, cl100k | 2,109 | 2,365 |
+| Description characters, 14 skills | 8,864 | 3,790 |
+| Claude Code always-on projection | 3,023 | **1,325** |
+| Codex listing, o200k, 14 entries | 2,268 | **1,123** |
+| dia-router (dia-menu) body, cl100k | 2,109 | 2,422 |
 
 Each description now holds a label and the first-word gate sentence. A label with a shorter gate projected 709 on Claude Code but let a natural counterexample request load dia-conjecture (D56). The router body grows by the code column and the former-name rules; it loads only when a message starts with `dia`. The other bodies are unchanged apart from the new names, so their per-invocation cost is the same.
 
