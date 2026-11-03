@@ -52,18 +52,19 @@ install on the visitor's surface and a first skill started. **(success definitio
   (zip upload on the web, marketplace in the desktop app).
 - Where you install decides where dia shows up: web installs follow the account to mobile; desktop
   installs stay on that computer.
-- Three ways to start a skill: `dia` as the first word (the router: a menu, a skill by number,
-  three-letter code or name, or a request it routes), the skill's full name as the first word, or
+- Three ways to start a skill: `dia` as the first word (the router: a numbered menu, or a skill by
+  its number or full name; anything else after `dia` starts no skill and shows the menu), the skill's
+  full name as the first word, or
   explicit selection (`/dia:dia-<x>`, `/dia-<x>` on Claude mobile, `$dia:dia-<x>` on Codex, `@dia-<x>`
   on ChatGPT). Since 2.0.0 a request in plain words starts no skill.
 
 ## Capabilities and Constraints
 
-- Plugin version 2.0.0
+- Plugin version 2.1.0
   (`plugin-manifest.json`). License MIT. The page is published only from `main`.
 - Renamed in 2.0.0: `dia-intent` → `dia-skopos`, `dia-brainstorm` → `dia-quaestio`, `dia-refine` →
-  `dia-emend`, `dia-instruct` → `dia-regula`, `dia-menu` → `dia-router`; the former names reach the new
-  skills through `dia` until 2.1.0. Earlier: `dia-iterate` became `dia-ratchet` in 1.6.0, and the
+  `dia-emend`, `dia-instruct` → `dia-regula`, `dia-menu` → `dia-router`; the former names stopped
+  working in 2.1.0. Earlier: `dia-iterate` became `dia-ratchet` in 1.6.0, and the
   confirm-first skill was `dia-confirm` from 1.1.0 to 1.4.0.
 - The project page lives at `https://ajitta.github.io/dialectic-skills/` and is plain static
   HTML/CSS/JS in `site/`; all asset URLs must be relative. **(stack observed in the repository)**
