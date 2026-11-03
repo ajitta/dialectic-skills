@@ -1,6 +1,6 @@
 interface:
   display_name: "Dia: Router"
-  short_description: "Entry point: dia menu, picks or routes to the fitting skill"
+  short_description: "Entry point: dia menu, or picks or routes to the fitting skill"
   default_prompt: "Use $dia:dia-router to pick and run the dia skill that fits: "
 
 policy:

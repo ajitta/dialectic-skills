@@ -4,14 +4,14 @@ description: Deepen and execute a task using expert methods and outside checks. 
 license: MIT
 metadata:
   author: ajitta
-  version: "2.0.0"
+  version: "2.1.0"
   lineage: "new; drafts dia-reprompt 0.1.0 and dia-techne 0.2.0 to 0.5.0 (docs/research/dia-techne.md in the source repository); built on Felix Rieseberg, 'How to be more ambitious: A tutorial for humans with models' (felixrieseberg.com, 2026-10-13): altitude, depth, range and outside verification, with running in the same turn and revising the request's terms added by the owner, and stops, backups, source marks and report checks added from three pilots; sources in references/theory.md"
   source: "https://github.com/ajitta/dialectic-skills"
 ---
 
 ## Invocation
 
-Run only when the message starts with `dia-techne`, when the skill is invoked by name (`/dia:dia-techne`, `$dia:dia-techne`, `$dia-techne`, `@dia-techne`), or when the user picks it in dia-router by number, name or code; otherwise, and when the request is about this file's own text, work without it, because the skill revises the request and then acts, so the user decides when that happens. When the user invokes it for a request that belongs to a sibling (a standing instruction such as a skill file, confirming scope without running, reviewing an answer), run it all the same, keeping any limit the user set on running, a request not to run included, because the user chose this skill by name.
+Run only when the message starts with `dia-techne`, when the skill is invoked by name (`/dia:dia-techne`, `$dia:dia-techne`, `$dia-techne`, `@dia-techne`), or when the user picks it in dia-router by number or name; otherwise, and when the request is about this file's own text, work without it, because the skill revises the request and then acts, so the user decides when that happens. When the user invokes it for a request that belongs to a sibling (a standing instruction such as a skill file, confirming scope without running, reviewing an answer), run it all the same, keeping any limit the user set on running, a request not to run included, because the user chose this skill by name.
 
 Where the method and the name come from is in `references/theory.md`; read it only when the user asks about either.
 

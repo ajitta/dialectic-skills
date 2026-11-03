@@ -16,9 +16,9 @@ Thirteen reasoning-and-review skills for Claude, Codex and ChatGPT. Each skill i
 - `dia-regula`: checks or writes text a model will follow (a skill file, a prompt, an agent file) against four rules, so conditions stay with what they gate and each instruction carries its reason.
 - `dia-techne`: deepens a request the way a field's top practitioners would (the outcome it serves, the rawest material, the field's methods, a check by something other than the assistant and you), shows what it changed, and runs it, stopping before any step a backup cannot undo. Starts only by name.
 
-Start a message with `dia` to reach them quickly (`dia-router`): `dia` alone lists them with numbers and three-letter codes, `dia 4 …` or `dia red …` starts one by number or code, and `dia` followed by your request picks the skill that fits and names it. A request that does not start with `dia` or a skill name starts no skill.
+Start a message with `dia` to reach them quickly (`dia-router`): `dia` alone lists them with numbers, `dia 4 …` or `dia reductio …` starts one by number or name, and `dia` followed by your request picks the skill that fits and names it. A request that does not start with `dia` or a skill name starts no skill.
 
-Five skills were renamed in 2.0.0 and their old names still reach them through `dia` until 2.1.0; the repository README lists the old and new names.
+Five skills were renamed in 2.0.0; the repository README lists the old and new names.
 
 ## What the plugin does and does not do
 
