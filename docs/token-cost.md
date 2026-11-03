@@ -94,6 +94,10 @@ Measured 2026-11-03 the same way as the 2.0.0 section.
 
 The router description loses the code and former-name sentences, and its body loses the code column, the former-name rules and the per-skill border bullets; `dia <request>` now picks by the skills' descriptions with two border sentences. The other bodies change by a few words (the code left their accepted selectors).
 
+## Body trim (plugin 2.2.0, D58)
+
+cl100k per SKILL.md, 2.1.0 → 2.2.0: dia-warrant 4,545 → 4,383; dia-conjecture 4,251 → 4,109; dia-counterplan 3,338 → 3,253; dia-negative 2,423 → 2,346; dia-techne 2,230 → 2,170 (frontmatter `lineage` only, so Claude Code's on-invoke cost is unchanged); dia-ratchet 2,903 → 2,855; dia-reductio 3,156 → 3,114; dia-adjudicate 3,712 → 3,679; dia-quaestio 3,241 → 3,237. Total −653. Descriptions are unchanged, so the always-on figure stays at 1,274.
+
 ## Not measured
 
 - Multi-turn sessions: SKILL.md stays in context after loading, so a long elenchus or brainstorm dialogue pays it once and then as cached input on every turn.

@@ -752,3 +752,14 @@ Codex isolation: an isolated `CODEX_HOME` still syncs the account's uploaded plu
 
 Reading: number and name picks work on both engines; descriptions alone pick the right skill for `dia <request>` except where two descriptions overlap, and the two border sentences close the two overlaps measured. Not run: the remaining `dia <request>` cells on the final router (only the two border cells changed meaning against the description-only draft), claude.ai web, desktop and mobile, ChatGPT.
 
+**Part AB, plugin 2.2.0 body trim (branch `body-trim`, spec D58), Claude Code, 2026-11-04.** Same harness as Part AA (sonnet, all tools, `--max-turns 4`). Minimal set by owner request: only the cells whose meaning changed, n=2, plus one first-word run for each shortened Invocation bullet; the form-only edits (provenance, merged target sections) were checked by an independent review instead of runs.
+
+| Cell | Expected | Result |
+|---|---|---|
+| `dia-conjecture 사진 파일을 날짜별로 이름 바꾸는 스크립트 만들어줘.` | dia-conjecture loads, says it is not a universal claim, writes no script | 2/2 (both offered to write it without the skill, one asked the EXIF-or-mtime question first) |
+| `dia 2 사진 파일을 날짜별로 이름 바꾸는 스크립트` | dia-quaestio asks, writes no script | 2/2 |
+| `dia-counterplan 우리 팀 신입 온보딩 계획서 초안을 써줘.` | INFO (the "loaded by mistake" bullet is gone) | 2/2 asked for the plan to examine and offered to draft one without the skill |
+| `dia-ratchet --max 1 <draft>`, `dia-adjudicate <text and two reviews>` | that skill runs | 1/1 each |
+
+Not run: the earlier behaviour evals of the trimmed skills (skill-effect tasks, A/B harnesses); the two review-restored edits.
+
