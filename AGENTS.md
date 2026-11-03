@@ -29,6 +29,15 @@ All are stdlib-only. CI (`.github/workflows/check.yml`) runs them plus `claude p
 - Changing any skill file requires a new plugin `version` in `plugin-manifest.json` and the skill's `metadata.version` (spec §12.1). Before the first install or release, a change may keep the plugin at 0.1.0 and each skill's `metadata.version` at 1.0.0 (`docs/handoff.md`, State).
 - Text files use LF line endings (`.gitattributes`). On Windows, write files with LF explicitly.
 
+## Probes and evals (owner, 2026-11-04)
+
+- Before a probe or eval batch, write the plan: cells × runs × engines = total, and the decision it informs. Ask the owner first when the total is over 30 runs.
+- Runs per cell: 1 to confirm unchanged or expected behaviour, 2 for a changed behaviour. Raise to 5 only when results disagree with the expectation or between arms or engines; use 10 or more only for an arm-against-arm figure the release notes will quote.
+- Read results while the batch runs and stop it once the answer is clear.
+- One engine by default; add Codex, at 1 run per cell, only when Codex-specific text or the skill listing changed.
+- Rerun a baseline arm only when the record will compare arms; otherwise check the changed build against its expected behaviour and reuse earlier results.
+- Form-only edits (provenance moved out, sections merged) are checked by one independent review instead of runs.
+
 ## Working with the owner
 
 - The owner writes in Korean; reply in Korean, briefly. Repository files are written in English (spec D11).
