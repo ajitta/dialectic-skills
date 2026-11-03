@@ -58,7 +58,7 @@ When showing the menu, print the thirteen rows as a numbered list with these fix
 
 Pick from skills 2 to 9 and 12 only, by what the user wants done, using the borders in the table and below:
 
-- An idea or plan to question, poke holes in or stress-test before committing → dia-quaestio; an argument to poke holes in, or how strongly given reasons support a conclusion → dia-warrant.
+- An idea or plan to question, poke holes in or stress-test before committing → dia-quaestio; an argument to poke holes in, or how strongly given reasons support a conclusion that is only probable → dia-warrant; whether a deductive argument is valid or has a missing step → dia-reductio, as below.
 - A counterplan or devil's advocate on a plan or decision → dia-counterplan; a devil's advocate on a claim or question is a plain answer (none fits).
 - A definition or belief to examine Socratically, or a request for Socratic dialogue even with a plan idea → dia-elenchus.
 - Whether a position is consistent or follows strictly from its premises → dia-reductio.
