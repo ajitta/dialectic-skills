@@ -1,6 +1,6 @@
 ---
 name: dia-router
-description: Short entry point to the dia skills. Shows a numbered menu, or runs the skill picked by its menu number or its name. Use only when the first word of the message is dia on its own ("dia", "dia 4 ...", "dia reductio ..."), or when this skill is invoked by name. A first word that is a full skill name (dia-emend, dia-ratchet) goes to that skill, and dia mid-sentence is not an invocation.
+description: Short entry point to the dia skills. Shows a numbered menu, runs the skill picked by its menu number or its name, or picks the dia skill that fits a request. Use only when the first word of the message is dia on its own ("dia", "dia 4 ...", "dia reductio ...", or "dia" followed by a request), or when this skill is invoked by name. A first word that is a full skill name (dia-emend, dia-ratchet) goes to that skill, and dia mid-sentence is not an invocation.
 license: MIT
 metadata:
   author: ajitta
@@ -20,14 +20,14 @@ A short way to reach the other dia skills, made for phones: `dia` is three lette
 
 ## Reading the message
 
-Read the first word after `dia` (call it the selector), then the rest (the request).
+Read the first word after `dia`, then the rest (the request).
 
-1. **No text after `dia`, or only `help`, `menu` or `?`:** show the menu (below) and stop.
-2. **Selector is a number from 1 to 13:** run the skill with that number in the menu table, unless the number counts something in the sentence (`3 reasons …`, `1 thing …`, `10 ideas …`); then rule 4 applies.
-3. **Selector is a skill's full name from the menu table, with or without the `dia-` prefix (`reductio`, `dia-reductio`):** run that skill, unless the word reads as part of the request's sentence rather than a pick (`negative feedback on …`); then rule 4 applies. A shortened name or any other word is not a selector.
-4. **Anything else:** pick no skill and do not answer the request. Say in one line that `dia` takes a number or a skill name before the request (without naming the rules of this list), show the menu, and stop.
+- **Only `dia`, or `dia help`, `dia menu`, `dia ?`:** show the menu (below) and stop.
+- **A number from 1 to 13:** run the skill with that number in the menu table.
+- **A skill's full name from the menu table, with or without `dia-` (`reductio`, `dia-reductio`):** run that skill. A shortened name is not a name.
+- **Anything else, including a number that counts something (`3 reasons …`, `1 thing …`) or a skill-name word that is part of the sentence (`negative feedback on …`):** the whole text after `dia` is the request; choose as in "Choosing for a request".
 
-A selection by rule 2 or 3 is an explicit invocation of that skill by name, including for skills that start only by name (dia-skopos, dia-ratchet, dia-adjudicate, dia-techne). With no request after the selector, the selected skill gets an empty request and takes its default target or asks for one, by its own rules.
+A pick by number or name is an explicit invocation of that skill by name, including for skills that start only by name (dia-skopos, dia-ratchet, dia-adjudicate, dia-techne). With no request after it, the picked skill gets an empty request and takes its default target or asks for one, by its own rules.
 
 ## The menu
 
@@ -50,7 +50,22 @@ A selection by rule 2 or 3 is an explicit invocation of that skill by name, incl
 When showing the menu, print the thirteen rows as a numbered list with these fixed numbers in this order, because `dia <n>` selects by them, each skill name as written and each description translated into the user's language, then these two lines, translated:
 
 - `dia <number or name> <request>` runs that skill, for example `dia 4 …` or `dia reductio …`.
+- `dia <request>` picks the skill that fits.
 - `dia` alone shows this menu.
+
+## Choosing for a request
+
+Choose the one dia skill whose description in your skill list fits what the user wants done. Two borders the descriptions do not settle:
+
+- A request for Socratic dialogue or the Socratic method goes to dia-elenchus, even when its subject is a plan or an idea.
+- Whether a deductive argument is valid, follows from its premises or has a missing step goes to dia-reductio.
+
+Then:
+
+- **dia-skopos, dia-ratchet, dia-adjudicate and dia-techne** never start from a request: reply in one line with the form to send (`dia <number> <request>`) and stop.
+- **One fits:** say in one line which skill you are running and why (for example `→ dia-counterplan: the request asks for the case against the plan`), then run it.
+- **Two fit about equally:** name both with their numbers and the difference in one line each, ask which, and stop.
+- **None fits:** say so in one line and answer without a dia skill.
 
 ## Running the chosen skill
 
@@ -59,4 +74,4 @@ Load the chosen skill the way your host loads skills (for example the Skill tool
 ## Output
 
 - Write in the user's language: the language of the user's message, or of the conversation when the message is only `dia`.
-- Besides the menu and the one line of rule 4, add nothing; after a hand-off everything is the chosen skill's output.
+- Besides the menu, the one-line choice, a question or the form to send, add nothing; after a hand-off everything is the chosen skill's output. When none fits, answer as you would without this skill.

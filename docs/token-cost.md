@@ -83,16 +83,16 @@ Measured 2026-11-03, Claude Code 2.1.314 (`claude --plugin-dir <plugins/dia> plu
 
 Each description now holds a label and the first-word gate sentence. A label with a shorter gate projected 709 on Claude Code but let a natural counterexample request load dia-conjecture (D56). The router body grows by the code column and the former-name rules; it loads only when a message starts with `dia`. The other bodies are unchanged apart from the new names, so their per-invocation cost is the same.
 
-## Router by number or name only (plugin 2.1.0, D57)
+## Router without codes or border bullets (plugin 2.1.0, D57)
 
 Measured 2026-11-03 the same way as the 2.0.0 section.
 
 | | 2.0.0 | 2.1.0 |
 |---|---|---|
-| Claude Code always-on projection | 1,325 | **1,251** |
-| dia-router body, cl100k | 2,422 | **1,311** |
+| Claude Code always-on projection | 1,325 | **1,274** |
+| dia-router body, cl100k | 2,422 | **1,514** |
 
-The router description loses the code and former-name sentences, and its body loses the code column, the former-name rules and the section that chose a skill for a plain request. The other bodies change by a few words (the code left their accepted selectors).
+The router description loses the code and former-name sentences, and its body loses the code column, the former-name rules and the per-skill border bullets; `dia <request>` now picks by the skills' descriptions with two border sentences. The other bodies change by a few words (the code left their accepted selectors).
 
 ## Not measured
 
