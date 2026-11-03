@@ -564,6 +564,8 @@ Only touch files the task needs.
 > 3. **Line 1: "Update the docs for the new flag."** (Rule 2): "'The docs' and 'the new flag' are unnamed."
 > 4. **Across the lines** (Rule 4): "docs", "files" and "the task" may be read as different scopes.
 > "Tell me which findings to act on, and give me the flag name, the doc paths and the test command if you want me to draft the rewrite."
+>
+> *(Recorded on 1.x, when dia-regula was named dia-instruct.)*
 
 **Tips**
 

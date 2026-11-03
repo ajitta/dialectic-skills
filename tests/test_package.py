@@ -119,14 +119,22 @@ class TestRules(unittest.TestCase):
         if pkg.version_tuple(version) < pkg.FORMER_NAMES_UNTIL:
             self.assertEqual(errs, [])
         else:
-            self.assertTrue(any("remove this line" in e for e in errs), errs)
+            self.assertTrue(any("remove the former-name text" in e for e in errs), errs)
+
+    def test_former_name_lines_still_check_new_names(self):
+        if pkg.version_tuple(pkg.plugin_version()) >= pkg.FORMER_NAMES_UNTIL:
+            self.skipTest("aliases expired")
+        errs = pkg.crossref_violations({"skills/dia-router/SKILL.md": b"former names: dia-refine now dia-quaesto"}, ["dia-router"])
+        self.assertTrue(any("unknown skill 'dia-quaesto'" in e for e in errs), errs)
+        errs = pkg.crossref_violations({"skills/dia-router/SKILL.md": b"formerly dia-refine"}, ["dia-router"])
+        self.assertTrue(any("old skill name" in e for e in errs), errs)
 
     def test_former_name_aliases_expire(self):
         real = pkg.plugin_version
         try:
             pkg.plugin_version = lambda: "2.1.0"
             errs = pkg.crossref_violations({"skills/dia-router/SKILL.md": b"former name dia-menu"}, ["dia-router"])
-            self.assertTrue(any("remove this line" in e for e in errs), errs)
+            self.assertTrue(any("remove the former-name text" in e for e in errs), errs)
         finally:
             pkg.plugin_version = real
 

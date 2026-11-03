@@ -1,6 +1,6 @@
 ---
 name: dia-regula
-description: Write or review instructions for models against four structural rules. Use only when the message starts with dia-regula, when the skill is invoked by name, or when dia-router selects it; a request that only sounds like this is not an invocation.
+description: Write or review instructions for models against four rules. Use only when the message starts with dia-regula, when the skill is invoked by name, or when dia-router selects it; a request that only sounds like this is not an invocation.
 license: MIT
 metadata:
   author: ajitta

@@ -59,7 +59,7 @@ install on the visitor's surface and a first skill started. **(success definitio
 
 ## Capabilities and Constraints
 
-- Plugin version 2.0.0 on branch `router`; the live page and `main` describe 1.13.0
+Plugin version 2.0.0.
   (`plugin-manifest.json`). License MIT. The page is published only from `main`.
 - Renamed in 2.0.0: `dia-intent` → `dia-skopos`, `dia-brainstorm` → `dia-quaestio`, `dia-refine` →
   `dia-emend`, `dia-instruct` → `dia-regula`, `dia-menu` → `dia-router`; the former names reach the new
