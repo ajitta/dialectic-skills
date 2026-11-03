@@ -1,7 +1,7 @@
 interface:
   display_name: "Dia: Router"
-  short_description: "Entry point: dia menu, starts a skill by number or name"
-  default_prompt: "Use $dia:dia-router to show the dia menu or start a skill by number or name: "
+  short_description: "Entry point: dia menu, or picks or routes to the fitting skill"
+  default_prompt: "Use $dia:dia-router to pick and run the dia skill that fits: "
 
 policy:
   allow_implicit_invocation: true
