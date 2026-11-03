@@ -13,7 +13,7 @@ metadata:
 
 No concept captures its object without a remainder; this skill shows a remainder only through a strict gap (Rules 2 and 5).
 
-This skill is a practical adaptation of Adorno's method, not his own procedure: it runs internal critique, narrower than immanent critique, so its standard is only what the target itself states and it does not reconstruct norms a practice implies without stating them. Theory, sources and the limits of the adaptation are in [references/theory.md](references/theory.md); read it when the user asks about the method (then answer briefly) or when you are unsure whether a finding is strict or whether a standard is the target's own.
+This skill is a practical adaptation of Adorno's method, not his own procedure: it runs internal critique, narrower than immanent critique, so its standard is only what the target itself states and it does not reconstruct norms a practice implies without stating them. Theory, sources and the limits of the adaptation are in [references/theory.md](references/theory.md); read it when the user asks about the method or when you are unsure whether a finding is strict or whether a standard is the target's own.
 
 The output layout is in [references/output-template.md](references/output-template.md); read it before writing the first output, and if you cannot open it, follow the order of Steps 1–8.
 
@@ -94,6 +94,7 @@ Close with the record from references/output-template.md, or, if that file canno
 - **The user picks an option:** apply it, then examine the new claim the same way, since a revision is a new identification and has its own remainder, and add the decision to the record's history.
 - **The user disputes a finding:** recheck it against Rules 2–4, taking the user's clarified reading of C as the target's own terms for target user and testing a proposed reading under Rule 3 for claude and text. Withdraw it only if you can name what fails (C misquoted or misread, D not a real case, the argument does not show that both cannot hold, or a wrong evidence class), because disagreement alone is not a defect; if you withdraw it, recheck each other finding on its own and say which stand; if the disputed finding holds, give the reason in one line and keep it.
 - **The user says a standard is not theirs:** remove every finding that used it and rerun.
+- **The user asks about the method:** answer briefly from references/theory.md.
 
 ## Pitfalls
 

@@ -13,7 +13,7 @@ metadata:
 
 Dialectical inquiry after Mason, run by one assistant in one chat: the counterplan is yours, the synthesis is the user's. Take a plan, decision or recommendation; list the assumptions it rests on; keep those the decision turns on; give each a plausible contrary; write the counterplan those contraries support on the same data; set the two side by side; then ask which assumptions from each side the user now holds. That set is the result, and you give no verdict on which plan wins.
 
-One assistant writes both sides here, so the format obliges a counter-case but cannot ensure it is as strong as the plan, and hearing both sides is not evidence that the plan was tested. Sources, the evidence on dialectical inquiry and devil's advocacy, and the limits of this adaptation are in [references/theory.md](references/theory.md); read it only when the user asks about the method or its sources, then answer briefly. The output layout is in [references/output-template.md](references/output-template.md); read it before the first output if you can open it (Step 8 names the record fields in case you cannot).
+In Mason's field study the plan came from the company's planners. One assistant writes both sides here, so the format obliges a counter-case but cannot ensure it is as strong as the plan, and hearing both sides is not evidence that the plan was tested. Sources, the evidence on dialectical inquiry and devil's advocacy, and the limits of this adaptation are in [references/theory.md](references/theory.md); read it only when the user asks about the method or its sources, then answer briefly. The output layout is in [references/output-template.md](references/output-template.md); read it before the first output if you can open it (Step 8 names the record fields in case you cannot).
 
 ## Parameters
 
@@ -97,13 +97,13 @@ When the user has ruled on every pair, or stops, close with the record from the 
 - **plan side held:** the user holds the plan's assumption on every pair;
 - **counterplan side held:** the counterplan's on every pair;
 - **synthesis:** a mix, or assumptions in the user's own words, with no pair left open;
-- **undetermined:** at least one pair left open; the question stands;
+- **undetermined:** at least one pair left open; the question stands (named after *teyku*, "let it stand", borrowed loosely from the Talmud);
 - **no key assumption found** (Step 3);
 - **stopped:** the user stopped before ruling on any pair. If they stop after ruling on some, the result is **undetermined** and the unruled pairs are open.
 
 Unless the result is **no key assumption found**, the record always says:
 
-- **Kept for the side set aside:** for each pair, the strongest argument for the assumption the user did not hold, in one line, so a later decision can return to it. For an open pair, the strongest argument on each side and the observation that would decide it. For a pair answered in the user's own words, keep the strongest argument for whichever of Kn and Cn their wording departs from more.
+- **Kept for the side set aside:** for each pair, the strongest argument for the assumption the user did not hold, in one line, so a later decision can return to it (borrowed from the Mishnah's kept minority opinion, theory.md §6). For an open pair, the strongest argument on each side and the observation that would decide it. For a pair answered in the user's own words, keep the strongest argument for whichever of Kn and Cn their wording departs from more.
 - **Written by:** one assistant wrote both sides of this comparison.
 - **Not tested:** at least whether the shared data are accurate, assumptions not listed, alternatives other than these two, and how either plan would play out; then the line "Hearing both sides is not evidence that the plan was tested."
 

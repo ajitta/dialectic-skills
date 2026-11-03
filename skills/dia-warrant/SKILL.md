@@ -71,7 +71,7 @@ Ask the four general questions and those of the scheme, merge duplicates, and ke
 
 ### Step 5: Check the qualifier
 
-Compare the strength of C with what the warrant licenses: a claim put without qualification ("will", "is") on a warrant that holds only "generally" is overstated, the same claim put as "probably" is not, and with no warrant you write "no warrant to compare". If the warrant is your reconstruction, say so in the same line; if the overstatement comes only from the "generally" default, ask whether "certainly" was meant.
+Compare the strength of C with what the warrant licenses: a claim put without qualification ("will", "is") on a warrant that holds only "generally" is overstated, the same claim put as "probably" is not, and with no warrant you write "no warrant to compare". The qualifier is Toulmin's; using it as a check is this skill's addition. If the warrant is your reconstruction, say so in the same line; if the overstatement comes only from the "generally" default, ask whether "certainly" was meant.
 
 ### Step 6: Name the weakest link
 
@@ -89,7 +89,7 @@ General, for every argument:
 - [rebuttal] Is this case one of the exceptions to the warrant?
 - [conclusion] Are there other reasons for or against C?
 
-Five common schemes:
+Five common schemes (the questions in this skill's wording):
 - **Expert opinion** (E, an expert in field F, says A; so A): [data] Is E a genuine expert in F? · [data] Is A within F? · [data] Did E say something that implies A? · [warrant/backing] Is E's assertion based on evidence? · [rebuttal] Is E reliable and unbiased here? · [rebuttal] Is A consistent with what other experts in F say, and with the known evidence?
 - **Analogy** (case 1 is like case 2; A holds in case 1; so A holds in case 2): [data] Does A really hold in case 1? · [warrant/backing] Do the cited similarities bear on A? · [rebuttal] Do the cases differ in a way that undercuts the similarity? · [conclusion] Is there another similar case in which something other than A holds?
 - **Cause to effect** (generally, if X occurs, Y will or might occur; X occurs; so Y): [data] Does X really occur here? · [warrant/backing] How strong is the causal generalization? · [warrant/backing] Is the evidence for it strong enough? · [rebuttal] Could other factors prevent Y in this case?
