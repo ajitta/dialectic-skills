@@ -351,20 +351,6 @@ def shipped_violations(files: dict[str, bytes]) -> list[str]:
     return errors
 
 
-FORMER_NAMES_FILE = "dia-router/SKILL.md"
-FORMER_NAMES_UNTIL = (2, 1, 0)
-FORMER_NAMES = {"dia-intent", "dia-brainstorm", "dia-refine", "dia-instruct", "dia-menu"}
-FORMER_RE = re.compile(r"\bformer\b", re.I)
-
-
-def version_tuple(v: str) -> tuple:
-    return tuple(int(x) for x in re.findall(r"\d+", v)[:3])
-
-
-def plugin_version() -> str:
-    return json.loads(MANIFEST.read_text(encoding="utf-8"))["version"]
-
-
 def crossref_violations(files: dict[str, bytes], names: list[str]) -> list[str]:
     """Every dia-* name mentioned exists; old skill names appear only in metadata.lineage."""
     errors = []
@@ -376,15 +362,6 @@ def crossref_violations(files: dict[str, bytes], names: list[str]) -> list[str]:
             line = re.sub(r"https?://\S+", "", line)  # URLs are not skill references
             if line.lstrip().startswith("lineage:"):
                 continue  # lineage records former names, including dia-confirm and dia-iterate
-            if rel.endswith(FORMER_NAMES_FILE) and FORMER_RE.search(line):
-                if version_tuple(plugin_version()) < FORMER_NAMES_UNTIL:
-                    # dia-router routes the 1.x names until 2.1.0 (spec D56); other names are still checked
-                    for ref in SKILL_REF_RE.findall(line):
-                        if ref not in known | FORMER_NAMES:
-                            errors.append(f"{rel}:{lineno}: unknown skill {ref!r}")
-                    continue
-                errors.append(f"{rel}:{lineno}: former-name aliases end at plugin 2.1.0 (spec D56): remove the former-name text from this line")
-                continue
             for ref in SKILL_REF_RE.findall(line):
                 if ref not in known:
                     errors.append(f"{rel}:{lineno}: unknown skill {ref!r}")

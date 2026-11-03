@@ -4,14 +4,14 @@ description: Confirm the user's goal, assumptions and open decisions before work
 license: MIT
 metadata:
   author: ajitta
-  version: "2.0.0"
+  version: "2.1.0"
   lineage: "confirm-intent (installed copy, unversioned); named dia-intent until plugin 1.0.0, dia-confirm from plugin 1.1.0 to 1.4.0 and dia-intent again until 2.0.0"
   source: "https://github.com/ajitta/dialectic-skills"
 ---
 
 A request to analyze, review, or edit this skill is not a request to run it.
 
-Run the review only when the message starts with `dia-skopos`, when this skill was selected or invoked by name (dia-router's selector `dia 1 …`, `dia skopos …` or `dia sko …` counts, but not when the number or word belongs to the sentence, as in `dia 1 thing I keep forgetting: …`) for this task or a task that directly follows up on it (Recognizing Approval), or when the user explicitly asked, for this task, to confirm the goal, assumptions or open decisions first, and a reply to a review in progress follows Recognizing Approval; otherwise do the task without this skill and do not hold it for approval, because the skill's text stays in the conversation after the task it was invoked for ends.
+Run the review only when the message starts with `dia-skopos`, when this skill was selected or invoked by name (dia-router's selector `dia 1 …` or `dia skopos …` counts, but not when the number or word belongs to the sentence, as in `dia 1 thing I keep forgetting: …`) for this task or a task that directly follows up on it (Recognizing Approval), or when the user explicitly asked, for this task, to confirm the goal, assumptions or open decisions first, and a reply to a review in progress follows Recognizing Approval; otherwise do the task without this skill and do not hold it for approval, because the skill's text stays in the conversation after the task it was invoked for ends.
 
 ## Before Starting
 

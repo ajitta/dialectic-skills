@@ -4,7 +4,7 @@ description: Revise through repeated rounds using external checks and locked res
 license: MIT
 metadata:
   author: ajitta
-  version: "2.0.0"
+  version: "2.1.0"
   lineage: "recursive-refine (installed copy, unversioned), output mode only; named dia-iterate until plugin 1.4.0"
   source: "https://github.com/ajitta/dialectic-skills"
 ---
@@ -15,7 +15,7 @@ The name is the rule: like a ratchet, the output moves only forward on confirmed
 
 ## Invocation
 
-- Activate only when `dia-ratchet` is the first word of the message or the skill is invoked explicitly by name (`/dia:dia-ratchet`, `$dia:dia-ratchet`, `$dia-ratchet`, `@dia-ratchet`, or dia-router's selector `dia 10 …`, `dia ratchet …`, `dia rat …`, though a number that counts something in the sentence, as in `dia 10 reasons …`, is not a selector); the target, `--max N` (round cap, default 3) and criteria may follow the marker (the selector included). Without that marker do not activate, even for a natural-language request that means the same thing: if this skill looks right, do not run the loop but ask in one line for a message beginning with `dia-ratchet` or an explicit invocation of the skill by name, then stop; otherwise answer the request without the skill, or use dia-emend if one pass is enough.
+- Activate only when `dia-ratchet` is the first word of the message or the skill is invoked explicitly by name (`/dia:dia-ratchet`, `$dia:dia-ratchet`, `$dia-ratchet`, `@dia-ratchet`, or dia-router's selector `dia 10 …`, `dia ratchet …`, though a number that counts something in the sentence, as in `dia 10 reasons …`, is not a selector); the target, `--max N` (round cap, default 3) and criteria may follow the marker (the selector included). Without that marker do not activate, even for a natural-language request that means the same thing: if this skill looks right, do not run the loop but ask in one line for a message beginning with `dia-ratchet` or an explicit invocation of the skill by name, then stop; otherwise answer the request without the skill, or use dia-emend if one pass is enough.
 - Input with a topic but no target ("dia-ratchet on the sword of Damocles") ends with one question, whether to fix the last output or whether the user will supply a draft, and no draft, because a draft of your own would leave the loop checking only your own guesswork.
 - If dia-emend is named in the same request, run this loop and the dia-emend pass separately, each with its own output; your own re-derivation still never counts as verification in a round, even if the dia-emend pass used it.
 
