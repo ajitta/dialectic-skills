@@ -4,16 +4,16 @@ description: Construct a counterplan from contrary assumptions using the same ev
 license: MIT
 metadata:
   author: ajitta
-  version: "2.0.0"
+  version: "2.2.0"
   lineage: "new in plugin 1.3.0 (docs/research/candidates/argumentation.md)"
   source: "https://github.com/ajitta/dialectic-skills"
 ---
 
 # Dialectical Inquiry: Plan and Counterplan
 
-Dialectical inquiry after Mason (1969) in the Churchman lineage, run by one assistant in one chat: the counterplan is yours, the synthesis is the user's. Take a plan, decision or recommendation; list the assumptions it rests on; keep those the decision turns on; give each a plausible contrary; write the counterplan those contraries support on the same data; set the two side by side; then ask which assumptions from each side the user now holds. That set is the result, and you give no verdict on which plan wins.
+Dialectical inquiry after Mason, run by one assistant in one chat: the counterplan is yours, the synthesis is the user's. Take a plan, decision or recommendation; list the assumptions it rests on; keep those the decision turns on; give each a plausible contrary; write the counterplan those contraries support on the same data; set the two side by side; then ask which assumptions from each side the user now holds. That set is the result, and you give no verdict on which plan wins.
 
-In Mason's field study the plan came from the company's planners, the counterplan was built separately on opposite assumptions, and the two were debated before the managers. Here one assistant writes both sides, so the format obliges a counter-case but cannot ensure it is as strong as the plan, and hearing both sides is not evidence that the plan was tested. Sources, the evidence on dialectical inquiry and devil's advocacy, and the limits of this adaptation are in [references/theory.md](references/theory.md); read it only when the user asks about the method or its sources, then answer briefly. The output layout is in [references/output-template.md](references/output-template.md); read it before the first output if you can open it (Step 8 names the record fields in case you cannot).
+One assistant writes both sides here, so the format obliges a counter-case but cannot ensure it is as strong as the plan, and hearing both sides is not evidence that the plan was tested. Sources, the evidence on dialectical inquiry and devil's advocacy, and the limits of this adaptation are in [references/theory.md](references/theory.md); read it only when the user asks about the method or its sources, then answer briefly. The output layout is in [references/output-template.md](references/output-template.md); read it before the first output if you can open it (Step 8 names the record fields in case you cannot).
 
 ## Parameters
 
@@ -33,7 +33,6 @@ The flag, or its natural-language equivalent, sets the target; with neither, inf
 
 ## When this skill does not fit
 
-- The message only asks you to write, draft or improve a plan, with no request for the opposing case: the skill was loaded by mistake, so do the task without it.
 - The question is about one claim, even as a devil's advocate ("play devil's advocate: is X true?", "is X healthy?"), not a plan, decision or recommendation: answer it without this skill.
 - The user wants to be questioned about the plan, one question at a time: say in one line that dia-quaestio does that, and stop.
 - The user asks only what the plan rests on, or only for its weak points, with no request for the opposing plan: run Steps 1 to 3 with no record, naming the key assumptions only, not the plan's flaws (Rule 1), then offer the counterplan in one line.
@@ -63,7 +62,7 @@ Number the assumptions the recommendation rests on: A1, A2, …. Label each **[T
 
 ### Step 3: Keep the key assumptions
 
-Ask of each assumption the question from SAST (Mason & Mitroff 1981), "if the opposite of this assumption were true, would it change the decision?", and give the answer in one line per assumption. Keep those where it would, as K1, K2, … (at most five; if more pass, keep the five with the largest effect and list the rest in one line).
+Ask of each assumption the question from SAST, "if the opposite of this assumption were true, would it change the decision?", and give the answer in one line per assumption. Keep those where it would, as K1, K2, … (at most five; if more pass, keep the five with the largest effect and list the rest in one line).
 
 If none passes, say so, write no counterplan, and go to Step 8: the result is **no key assumption found**.
 
@@ -89,7 +88,7 @@ Then each side's recommendation in one line, and one line saying that one assist
 
 ### Step 7: Ask for the user's synthesis
 
-Ask one question: which assumption from each pair do they now hold? They may answer per pair with the plan's, the counterplan's, one in their own words, or "can't tell". The set they give is the result, because Mason's second criterion asks for new and more relevant assumptions and here the user forms them, not you, so do not suggest an answer. A leaning ("I lean toward …") counts as held only if the user says so; otherwise record the pair as open and note the lean in one word.
+Ask one question: which assumption from each pair do they now hold? They may answer per pair with the plan's, the counterplan's, one in their own words, or "can't tell". The set they give is the result, because the user, not you, forms the new assumptions, so do not suggest an answer. A leaning ("I lean toward …") counts as held only if the user says so; otherwise record the pair as open and note the lean in one word.
 
 ### Step 8: Record
 
@@ -98,13 +97,13 @@ When the user has ruled on every pair, or stops, close with the record from the 
 - **plan side held:** the user holds the plan's assumption on every pair;
 - **counterplan side held:** the counterplan's on every pair;
 - **synthesis:** a mix, or assumptions in the user's own words, with no pair left open;
-- **undetermined:** at least one pair left open; the question stands (named after *teyku*, "let it stand", borrowed loosely from the Talmud);
+- **undetermined:** at least one pair left open; the question stands;
 - **no key assumption found** (Step 3);
 - **stopped:** the user stopped before ruling on any pair. If they stop after ruling on some, the result is **undetermined** and the unruled pairs are open.
 
 Unless the result is **no key assumption found**, the record always says:
 
-- **Kept for the side set aside:** for each pair, the strongest argument for the assumption the user did not hold, in one line, so a later decision can return to it (borrowed from the Mishnah's kept minority opinion, theory.md §6). For an open pair, the strongest argument on each side and the observation that would decide it. For a pair answered in the user's own words, keep the strongest argument for whichever of Kn and Cn their wording departs from more.
+- **Kept for the side set aside:** for each pair, the strongest argument for the assumption the user did not hold, in one line, so a later decision can return to it. For an open pair, the strongest argument on each side and the observation that would decide it. For a pair answered in the user's own words, keep the strongest argument for whichever of Kn and Cn their wording departs from more.
 - **Written by:** one assistant wrote both sides of this comparison.
 - **Not tested:** at least whether the shared data are accurate, assumptions not listed, alternatives other than these two, and how either plan would play out; then the line "Hearing both sides is not evidence that the plan was tested."
 
