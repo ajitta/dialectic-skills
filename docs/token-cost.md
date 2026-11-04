@@ -102,3 +102,7 @@ cl100k per SKILL.md, 2.1.0 → 2.2.0: dia-warrant 4,545 → 4,383; dia-conjectur
 
 - Multi-turn sessions: SKILL.md stays in context after loading, so a long elenchus or brainstorm dialogue pays it once and then as cached input on every turn.
 - claude.ai web/desktop/mobile and ChatGPT: their skill listings and loading are not observable from here.
+
+## dia-regula handoff step (plugin 2.3.0, D59)
+
+cl100k of dia-regula's SKILL.md, 2.2.0 → 2.3.0: 2,257 → 2,351 (+94), from one added Writing step. The description is unchanged, so the always-on figure stays at 1,274.
