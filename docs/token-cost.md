@@ -105,4 +105,4 @@ cl100k per SKILL.md, 2.1.0 → 2.2.0: dia-warrant 4,545 → 4,383; dia-conjectur
 
 ## dia-regula handoff step (plugin 2.3.0, D59)
 
-cl100k of dia-regula's SKILL.md, 2.2.0 → 2.3.0: 2,257 → 2,351 (+94), from one added Writing step. The description is unchanged, so the always-on figure stays at 1,274.
+cl100k of dia-regula's SKILL.md, 2.2.0 → 2.3.0: 2,257 → 2,396 (+139), from one added Writing step. The description is unchanged, so the always-on figure stays at 1,274.
