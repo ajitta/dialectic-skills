@@ -2,7 +2,9 @@
 
 State of the work and what is left, for the next agent session. Read `AGENTS.md` and `docs/spec.md` first; probe evidence is in `docs/probes.md`.
 
-## Next session: start here (2026-11-04)
+## Next session: start here (2026-11-05)
+
+Built, not merged: plugin `dia` **2.3.0** on branch `regula-handoff` (pull request open, waiting for the owner's merge): dia-regula 2.1.0 adds Writing step 4, a prompt the request asks for goes back in the reply and its model starts only when the request also asks (spec D59; probes Part AC; two independent reviews, fixes applied). Docs on `main` the same day: A/B record rule 5, S/O/U/E/K tags for new records (`docs/writing-for-models/README.md`). When the old A/B harnesses are reused, their prompts still name the pre-2.0.0 skills and need the current names. After the merge: tag `v2.3.0`, check both install routes, and the owner re-uploads `releases/dialectic-skills-openai.zip` on chatgpt.com.
 
 Released and live: plugin `dia` **2.2.0** (`v2.2.0`, `main`, 2026-11-04 KST, pull request #19 from branch `body-trim`, squash-merged; release assets match the committed zips; both install routes checked in a clean config, 2.2.0 with fourteen skill folders): nine skill bodies trimmed, −653 cl100k, descriptions unchanged (spec D58; probes Part AB; independent review PASS WITH FIXES, fixes applied). Run budget for probes and evals: `AGENTS.md` § Probes and evals (owner, 2026-11-04). The owner re-uploaded `releases/dialectic-skills-openai.zip` (2.2.0) on chatgpt.com (2026-11-04); a fresh Codex home on the build machine synced `created-by-me-remote/dia/2.2.0` with the fourteen current skill folders, so the 1.x names are gone from the account.
 

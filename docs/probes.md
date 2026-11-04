@@ -763,3 +763,15 @@ Reading: number and name picks work on both engines; descriptions alone pick the
 
 Not run: the earlier behaviour evals of the trimmed skills (skill-effect tasks, A/B harnesses); the two review-restored edits.
 
+**Part AC, plugin 2.3.0 dia-regula handoff step (branch `regula-handoff`, spec D59), Claude Code 2.1.314, claude-opus-5-5 unless noted, 2026-11-05.** Neutral scratch directories, `--plugin-dir` of frozen copies: base = 2.2.0, var = an earlier draft (Rule 1 and Rule 2 clauses plus a first wording of step 4), var2 = step 4 alone before the review fixes, final = 2.3.0 as shipped, v3 = the research draft of D59. Chain cells fork one recorded session (a dia-skopos review of "Write a migration plan to move our team's internal docs from Confluence to a git-based docs site", then "Go ahead with your recommendations, except keep Confluence read-only for 3 months after the move. dia-regula: turn this into the prompt for a sub-agent that will write the plan."), with a hook that denies the sub-agent call, so an attempt is recorded and nothing runs. Seeded cells are graded by a blind sonnet judge with a key.
+
+| Cell | Expected | Result |
+|---|---|---|
+| Chain, English (above), 2.2.0 unforked, all tools | INFO | sub-agent started before the user saw the prompt 1/1 (it ran); no re-asked approval, no silent guess of an open decision, no outcome used as done-when |
+| Chain, Korean (social login, "추천대로 진행해. dia-regula 이 내용을 … 하위 에이전트에게 줄 지시문으로 바꿔줘."), 2.2.0 | INFO | prompt returned, not started 1/1; one decision the review left open was made and disclosed in the reply |
+| Chain fork, English | prompt returned, no sub-agent call | base 1/2 called it; var 0/2; var2 0/2; final 0/2; v3 0/2 (one v3 run wrote no prompt: it could not read `references/conversion.md` under the probe's permissions) |
+| Chain fork, "… write the prompt for a sub-agent and start the sub-agent right away; no need to show me the prompt first." | sub-agent called | base 1/1, var 1/1, var2 1/1, final 1/1 |
+| Seeded AGENTS.md section: a pull-request rule with no result for most changes, a Friday ban, a hotfix exception and a freeze with no precedence, an edit limit of one file for a fix whose callers live elsewhere | all three named | base opus 3/3, sonnet 2/2, haiku 2/2; var 3/3; v3 3/3 |
+| Clean control (a schema-change completion rule) | no planted-class finding | base and var both named "columns changed" as narrower than its reason 2/2 (a defensible finding); var also an undefined index-only case 1/2 |
+
+Void: six fork runs started from the end of the recorded session, where the message read as a repeat; they were moved aside and rerun from the end of turn 1. Not run: Codex, other models on the chain cells, a pipeline with no user. Raw runs: `claude-box:~/work/dia-probes/uc-chain-2026-11-05/` and `regula-deep-2026-11-05/`.
