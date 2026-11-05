@@ -1,7 +1,7 @@
 {
   "name": "dia",
   "displayName": "Dialectic Skills",
-  "version": "2.3.0",
+  "version": "2.4.0",
   "description": "Thirteen reasoning-and-review skills that run on any assistant, with or without tools: dia-skopos confirms the goal before work, dia-elenchus and dia-quaestio question an idea Socratically, dia-reductio tests a claim by strict contradiction, dia-negative critiques a claim by its own standard, dia-warrant tests how well an argument's reasons support its conclusion, dia-conjecture tests a universal claim by counterexamples, dia-counterplan builds the opposing plan from a plan's key assumptions, dia-emend reviews an answer once, dia-ratchet runs review rounds in which only external checks count, dia-adjudicate rules on reports others wrote about a text, dia-regula checks or writes text a model will follow against four rules, and dia-techne deepens a request the way a field's top practitioners would and runs it. Typing dia alone opens a menu (dia-router), dia followed by a menu number or a skill name runs that skill, and dia followed by a request picks the skill that fits; a skill runs only when its name or dia starts the message.",
   "author": {
     "name": "ajitta",

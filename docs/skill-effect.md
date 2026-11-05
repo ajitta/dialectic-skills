@@ -61,50 +61,81 @@ Same harness and judge. dia-refine and dia-iterate: S re-run at `562f336`, judge
 - Scripted multi-turn users do not react to the questions. The re-run above uses an adaptive simulated respondent for dia-elenchus and dia-brainstorm, but it is still one model playing a persona, not a person.
 - Raw sessions and judgments: `~/work/dia-review/eval/` on the build VM (`out/`, `judge2/`, `run.py`, `judge.py`).
 
-## Seeded keys and source fidelity: dia-warrant, dia-counterplan, dia-conjecture (2026-11-05, plugin 2.3.0)
+## Seeded keys and source alignment: dia-warrant, dia-counterplan, dia-conjecture (2026-11-05, plugin 2.3.0)
 
-Question (owner): how to evaluate the skills that were never compared with no skill, at the least run count that still decides.
+Question (owner): how to evaluate the skills never compared with no skill, at the least run count that still decides. Observations below are task-specific at one to three runs per arm; broader explanations are marked as hypotheses.
 
 ### Method
 
-- **Arms.** As above: S is plugin `dia` 2.3.0 with `dia-<x>` first; N is an empty plugin with the same request naming the method in words (Toulmin and Walton; Mason's dialectical inquiry; Lakatos's proofs and refutations).
-- **Runs.** Claude Code 2.1.314, claude-opus-5-5 at `--effort low` (owner), generator and judge; fresh `CLAUDE_CONFIG_DIR`, connectors off, empty working directory, tools `Skill,Read,Glob`. dia-conjecture: two scripted user turns.
-- **Items, fixed before the runs.** Core: seeded defects with an answer key. Fidelity: from the primary method, not from the skill text. Precision (round 2): a distractor that should not be flagged. E: every outside fact is marked by its basis. K as in A/B rule 5. One blind judge pass per run (skill names redacted), true/false with a quote.
-- **Minimum level.** Pilot (dia-warrant): each output judged twice, 18/18 items agreed; one later re-judge flipped one item, so judge noise is about one item per run. Rule: n=1 per arm, a second run when the S–N gap is two items or less or a K appears.
-- **Rounds.** Round 1: one task per skill, n=2 per arm. Round 2: harder seeds with a distractor (annual-billing churn; a Japan launch whose waitlist is one viral spike; a true conjecture whose proof has a false lemma, so the right case is local only), n=1 per arm. The round-2 gaps were one or two items, but the second run was not made: pooled with round 1 every skill had three runs per arm on the deciding items, all in the same direction (AGENTS.md: stop once the answer is clear).
-- Two harness defects were fixed during round 1: dia-conjecture's scripted turn accepted a case before one was raised (both runs discarded), and the counterplan K item had absorbed fidelity item f5 (re-judged).
+- **Arms.** S: plugin `dia` 2.3.0, `dia-<x>` first. N: empty plugin, the same request naming the method in words (Toulmin and Walton; Mason's dialectical inquiry; Lakatos). Naming the method is an expert-prompt baseline: it asks what the packaged text adds beyond knowing which method to request, and it understates the value for a user who would not name it.
+- **Runs.** Claude Code 2.1.314, claude-opus-5-5 at `--effort low` (owner), generator and first judge; fresh `CLAUDE_CONFIG_DIR`, connectors off, empty working directory, tools `Skill,Read,Glob`. dia-conjecture: two scripted user turns.
+- **Items, fixed before the runs.** Core: seeded defects with an answer key. Source-aligned procedure: items taken from the named method. Plugin design: items that are this plugin's adaptation (dia-counterplan leaving the synthesis to the user is listed under Departures in its `references/theory.md`, not a rule of Mason's). Precision (round 2): a distractor that should not be flagged. E: outside facts marked by their basis. K as in A/B rule 5.
+- **Judges.** Opus (one blind pass per run, skill names redacted). Then an independent re-score of the deciding items by Codex (GPT), blind: 28 transcripts under shuffled ids, pasted into the prompt, with the key held outside its reach. The two judges agreed on 51 of 64 item verdicts; Codex was stricter on E and x1.
+- **Run count.** Rule set before the runs: one run per arm, a second when the S–N gap is two items or less or a K appears. Round 1 (one task per skill) has two runs per arm. Round 2 (harder seeds with a distractor) has one: its planned second run was not made, and pooling it with round 1 (different tasks) does not replace it.
+- Harness defects fixed during the work: a dia-conjecture scripted turn accepted a case before one was raised (both runs discarded); the counterplan K item had absorbed a design item (re-judged); in round 4 a failed packaging step left the B2 runs on the B1 text (discarded and re-run, see Round 4).
 
-### Results (S / N, items true over runs)
+### Results, deciding items (S / N; Opus, then Codex)
 
-| Skill | Core | Precision | Fidelity | E | K | Cost per run (S / N) |
-|---|---|---|---|---|---|---|
-| dia-warrant (3 runs/arm) | 11/11 · 11/11 | 1/1 · 1/1 | 10/10 · 10/10 | 3/3 · 0/3 | 0 · 0 | $0.16 / $0.09 |
-| dia-counterplan (3) | 11/11 · 11/11 | 1/1 · 1/1 | 12/12 · 9/12 | 3/3 · 0/3 | 0 · 0 | $0.14 / $0.11 |
-| dia-conjecture (3) | 9/9 · 9/9 | 1/1 · 1/1 | 8/10 · 10/10 | 2/3 · 0/3 | 0 · 1 | $0.40 / $0.33 |
+| Skill (runs per arm) | Core and precision | E | Design: synthesis left to the user | K |
+|---|---|---|---|---|
+| dia-warrant (3) | all, both arms | Opus 3/3 · 0/3; Codex 1/3 · 0/3 | — | none |
+| dia-counterplan (3) | all, both arms | Opus 3/3 · 0/3; Codex 1/3 · 0/3 | 3/3 · 0/3 (both judges) | estimates only, counted under E |
+| dia-conjecture (3) | all, both arms | Opus 2/3 · 0/3; Codex 2/3 · 0/3 | — | S 0; N 1 (Opus) or 2 (Codex) |
 
-- **Core and precision: no effect at this model.** With the method named, Opus 5.5 found every seeded defect in both arms, also in round 2, and flagged no distractor. Harder seeds of this kind do not separate the arms.
-- **E: the clearest effect.** Every no-skill run asserted an outside fact without a mark ("UX research gives mixed results", "replacing an engineer can cost $50–100k+"); the skill's runs marked theirs or used none (8/9).
-- **dia-counterplan: Mason's synthesis rule.** All three no-skill runs ended with their own verdict or hybrid ("Why this is better than either original plan"); the skill's runs asked which assumptions the user holds (3/3). The judge marked two no-skill estimates as K; they are estimates, not fabricated checks or sources, so they count under E.
-- **dia-conjecture: one K without the skill.** A no-skill run offered "a kite with equal diagonals" A(0,1) B(2,0) C(0,−1) D(−1,0); its diagonals are 2 and 3. The skill's runs lost the item that asks for a survey of monster-barring and exception-barring: the skill names those moves only when the user makes them (Lakatos's Rule 2), so the item is stricter than the design.
-- dia-warrant costs about 1.9× more per run than no skill for the same core result; its gain here is E only.
+- **Core: no observed checklist advantage on these tasks.** With the method named, both arms found every seeded defect and flagged no distractor.
+- **E: same direction under both judges, smaller under Codex.** No no-skill run marked its outside facts; the skill's runs did in 8/9 runs by Opus, 4/9 by Codex (unmarked examples in skill runs: "At 40 people, losing 1 in 3 new hires is expensive"; cardiology being outside interface design).
+- **dia-counterplan:** every no-skill run ended with its own verdict or hybrid ("Why this is better than either original plan"); every skill run asked which assumptions the user holds. This is the plugin's design, not Mason's rule.
+- **dia-conjecture K:** a no-skill run offered "a kite with equal diagonals" A(0,1) B(2,0) C(0,−1) D(−1,0), whose diagonals are 2 and 3 (both judges, checked by hand). Codex also flagged a non-sequitur in another no-skill run ("OB = OD, meaning A lies on the perpendicular bisector of BD"). Two cases do not give an error rate.
+- Cost per run, S / N: dia-warrant $0.16 / $0.09, dia-counterplan $0.14 / $0.11, dia-conjecture $0.40 / $0.33.
+- **Judge errors found by the audit:** the Opus judge passed p1 for a plain-baseline run that says "The p-value is probably overstated", passed E for a Sonnet run that asserts "Annual customers are contractually locked in", and passed f4 for a counterplan run that relies on a "weak office market" not in the material. Item totals other than the deciding items above were not re-scored.
 
-### Follow-up: why dia-warrant showed no effect (2026-11-05, n=1 per cell)
+### Follow-up: why dia-warrant showed no checklist effect (one run per cell)
 
-Question (owner): is it because the model is Opus? Three cells on the round-2 warrant task, plus two items for rules only the skill has (s1: stated and reconstructed parts marked apart; s2: support judged, never truth). Opus S and N re-judged with the same items.
+Round-2 warrant task; Opus judge; two items for rules only the skill has (s1: stated and reconstructed parts marked apart; s2: support judged, never truth).
 
-| Cell | Core (3) | Precision | Toulmin/Walton (2) | s1 | s2 | E |
-|---|---|---|---|---|---|---|
-| Opus, skill | 2 (3 on the first pass) | yes | 2 | yes | yes | yes |
-| Opus, no skill, method named | 3 | yes | 2 | yes | yes | no |
-| Opus, no skill, plain "How strong is this argument?" | 3 | yes | 0 | no | yes | no |
-| Sonnet, skill | 2 | yes | 2 | yes | yes | yes |
-| Sonnet, no skill, method named | 3 | yes | 2 | no | yes | yes |
+| Cell | Core (3) | Toulmin/Walton (2) | s1 | s2 |
+|---|---|---|---|---|
+| Opus, skill | 2–3 (judge passes differ) | 2 | yes | yes |
+| Opus, no skill, method named | 3 | 2 | yes | yes |
+| Opus, no skill, plain "How strong is this argument?" | 3 | 0 | no | yes |
+| Sonnet, skill | 2 | 2 | yes | yes |
+| Sonnet, no skill, method named | 3 | 2 | no | yes |
 
-- **Not the model.** Sonnet without the skill also found every seeded defect, and it marked its outside facts; the core result does not depend on Opus.
-- **The baseline mattered more.** With the method named in the request, the no-skill arm already gets the layout and the critical questions. With a plain request (closer to real use), Opus found every defect but used neither Toulmin nor Walton and marked neither stated against reconstructed parts nor outside facts: the skill's gain there is four items, all form and evidence discipline, none on finding defects.
-- **A possible cost.** The skill asks its critical questions and leaves them **open** (hard rule 5), where the no-skill runs state the finding ("churn may have been postponed, not prevented"). The deferred-renewal defect (k3) was judged missing in both skill runs on this pass (the Opus run only on re-judging, where it stood as an open question; the Sonnet run only mentioned renewal in a list of costs). One run per cell, so this is a lead, not a finding.
+- Hypotheses, not findings (one task, one run per cell): the core result does not need Opus (Sonnet without the skill also found every seeded defect); with a plain request the skill's contribution is the method's structure and the marking of reconstructed parts, not defect-finding.
+- The skill's runs asked the deferred-renewal question and left it **open** (hard rule 5), where no-skill runs stated it. That led to Round 4.
+
+### Round 4: dia-warrant rule 5, answered from the argument's own words (spec D60)
+
+Texts: A = dia-warrant 2.2.0 (plugin 2.3.0); B1 = first D60 text ("by arithmetic, a definition or a term the argument states"); B2 = adopted text after the independent review ("plain meaning of a word it uses"; any further premise keeps the question open). SHA-256 of B2's packaged SKILL.md: `B2-text.sha256` in the eval directory. Runs, round-2 churn task + round-1 onboarding task: A 2 + 1 (A's churn run 1 is the round-2 S run, reused), B1 6 + 2, B2 2 + 1. Items: a1, the renewal defect stated as a finding from the argument's words; x1, no question settled with a premise the argument does not state.
+
+| Churn task | A | B1 | B2 |
+|---|---|---|---|
+| a1, Opus / Codex | 0/2 · 0/2 | 5/6 · 6/6 | 0/2 · 0/2 |
+| x1, Opus / Codex | 2/2 · 2/2 | 5/6 · 2/6 | 2/2 · 2/2 |
+
+- **B1 rejected:** it stated the finding by adding contract premises ("a contract they had prepaid"; "Prepaid customers who decide to leave would normally do so at renewal"), four of six runs by Codex.
+- **B2 adopted:** both churn runs derive the renewal limitation from "annual" and "three months" ("no renewal-time churn has been seen yet") and keep cancellation terms open ("depends on the contract terms, which aren't given"). Both judges score a1 false because the item demands a settled finding; the audit holds that an open question with the derivation stated is the right output here, and that the a1 and k1 keys themselves assumed the contract premise.
+- **Residual:** B2's first churn run over-reads its own arithmetic ("The whole drop is a mix shift", from group averages). Onboarding task: B2 keeps the four seeded concerns and says sample adequacy "needs a premise ... the argument doesn't supply".
+
+### Round 5: dia-warrant A vs B2 vs a plain request, corrected keys (2026-11-05)
+
+Before merging D60 (owner). Keys rewritten after the Codex audit so that no item assumes a premise the argument does not state: c1 counts asking about contract terms as well as asserting them; r1 credits the renewal derivation stated as derived even when the wider question stays open; u1 (no question settled with an unstated premise) and o1 (no conclusion the numbers cannot support) added. Arms: A (dia-warrant 2.2.0), B2 (D60 text, SHA in `B2-text.sha256`), N (no skill, the same request without a method name: "How well do the reasons support the conclusion of this argument?"). Two runs per arm on the churn and onboarding tasks; A and B2 churn runs and three onboarding runs reused from earlier rounds, five new runs. Both judges blind; they agreed on 107 of 114 verdicts.
+
+| Churn task, Opus / Codex | A | B2 | N |
+|---|---|---|---|
+| c1–c3, p1 (seeded concerns, distractor) | all | all | all |
+| r1 renewal derivation stated | 0/2 · 0/2 | 2/2 · 2/2 | 1/2 · 1/2 |
+| u1 no unstated premise | 1/2 · 1/2 | 2/2 · 2/2 | 0/2 · 0/2 |
+| o1 no over-read numbers | 2/2 · 2/2 | 1/2 · 1/2 | 1/2 · 1/2 |
+| s1 stated vs reconstructed | 2/2 | 2/2 | 0/2 |
+| E | 2/2 · 1/2 | 2/2 · 2/2 | 0/2 · 0/2 |
+
+- Onboarding task: A and B2 identical on every item under both judges. N: s1 0/2; o1 2/2 by Opus, 0/2 by Codex ("too small" without a stated standard); E 1/2; one Opus K for an unrun Fisher test whose conclusion is correct, not counted by Codex.
+- **B2 against A:** r1 +2 and u1 +1 on the churn task, o1 −1 (the run already recorded under Round 4, "The whole drop is a mix shift"; the second B2 run did not repeat it, spec D51). Nothing else changes. This supports merging D60.
+- **Skill against a plain request:** the seeded concerns are found either way; the skill adds the marked layout (s1), marked outside facts (E) and, on the churn task, fewer unstated premises (u1). Two runs per arm on two tasks.
 
 ### Limits
 
-- Three runs per arm at most; one judge model of the generator's family (owner's choice of model); the items and the harness were written by the agent that ran them.
-- Raw runs, judge outputs, `PLAN.md`, `RESULTS.md` and the scripts: `~/work/dia-review/eval3-2026-11-05/` on the build VM.
+- One to three runs per arm on one task per skill per round; the items, keys and harness were written by the agent that ran them, and two keys (warrant2 k1, round-4 a1) assumed an unstated premise.
+- Codex re-scored only the deciding items; the audit (Codex, read-only) is in `codex-audit.out`, the blind scores in `codex-blind.out`.
+- Raw runs, judgments, `PLAN.md`, `RESULTS.md` and scripts: `~/work/dia-review/eval3-2026-11-05/` on the build VM.
