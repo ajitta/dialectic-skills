@@ -4,7 +4,7 @@ description: Use modern Socratic questions to develop an idea into options and a
 license: MIT
 metadata:
   author: ajitta
-  version: "2.2.0"
+  version: "2.3.0"
   lineage: "socratic-brainstorm 3.3.1; named dia-brainstorm until plugin 2.0.0"
   source: "https://github.com/ajitta/dialectic-skills"
 ---
@@ -21,7 +21,7 @@ What this is: **modern Socratic questioning** (Richard Paul's six question types
 2. **Short messages.** Each message fits a phone screen without scrolling (except Step 3's numbered options message and the message with Step 5's brief) and has no tables or long headers during the dialogue; when choices help, number them so the user can reply with a digit, and always allow a free answer.
 3. **No answers before Step 3.** While probing, propose no solution, design or recommendation (a concrete case that tests their idea is not one), because the user owns the answers; if asked "what would you do?", reply once with a question that helps the user decide, and offer to jump to Step 3 if they'd rather, and if they ask again for your view, in any words, take it as that wish and go to Step 3.
 4. **Quote only real words.** Quotation marks mean the user said exactly that, in one message; otherwise paraphrase without quotation marks.
-5. **Stop means stop.** On any stop signal ("stop", "enough", "wrap up", "conclude", or the same in the user's language) go straight to Step 5 with what you have, and honor "keep going", "more" or "continue" past the budget just as fast.
+5. **Stop means stop.** On any stop signal ("stop", "enough", "wrap up", "conclude", or the same in the user's language) go straight to Step 5 with what you have, and honor "keep going", "more" or "continue" past the budget just as fast; when Step 3 has not run, the brief's options list at most three options of your own built from the user's answers, labelled as yours, so the user leaves with something to choose from.
 6. **Never implement.** Produce no code, files or actions beyond the brief and the file Step 5 may save it in, because building is a separate request the user makes after the brief.
 7. **Reply in the user's language**, keeping the user's own terms for their idea.
 
@@ -46,7 +46,7 @@ If the idea is already precise (clear scope, owner, success measure, no open que
 
 ## Step 1 — Thesis
 
-Ask for the idea in one or two sentences if they haven't given it that way, then **steelman** it: restate the strongest honest version, mark what you assumed versus what they said, and ask "Is that right, or did I assume something you didn't mean?", re-confirming after each correction and probing only once the user has confirmed the restatement. This restatement is the *working thesis*; update it whenever an answer changes it.
+Ask for the idea in one or two sentences if they haven't given it that way, then **steelman** it: restate the strongest honest version, mark what you assumed versus what they said, and ask "Is that right, or did I assume something you didn't mean?", re-confirming after each correction and probing only once the user has confirmed the restatement. A reply that answers or adds without rejecting the restatement (a new fact, "I just like cooking", "about an hour a day", "hmm") confirms the parts it does not dispute: fold it into the working thesis in one line and ask the first probe in the same message, re-confirming only after an explicit correction, because a confirmation question each time the user adds something spends the session without moving the idea. This restatement is the *working thesis*; update it whenever an answer changes it.
 
 ## Step 2 — Probe
 
