@@ -134,6 +134,34 @@ Before merging D60 (owner). Keys rewritten after the Codex audit so that no item
 - **B2 against A:** r1 +2 and u1 +1 on the churn task, o1 −1 (the run already recorded under Round 4, "The whole drop is a mix shift"; the second B2 run did not repeat it, spec D51). Nothing else changes. This supports merging D60.
 - **Skill against a plain request:** the seeded concerns are found either way; the skill adds the marked layout (s1), marked outside facts (E) and, on the churn task, fewer unstated premises (u1). Two runs per arm on two tasks.
 
+### Round 6: dia-counterplan and dia-conjecture against a plain request (2026-11-05)
+
+The comparison the Codex audit asked for. Same request in both arms, the skill name only in S: "What do you think of this plan?" with the round-2 Japan plan; "Is my proof right?" with the rhombus conjecture and its flawed proof (follow-ups "Go on.", "OK. What now?"). Keys reviewed so that none assumes a premise the material does not state; items labelled core, precision, source (from the named method), design (this plugin's adaptation), E and K. Plugin 2.4.0 (neither skill changed since 2.3.0); Opus 5.5 at effort low; two runs per arm; Opus and Codex judges, both blind, agreeing on 62 of 72 verdicts.
+
+| dia-counterplan, S / N (Opus; Codex) | |
+|---|---|
+| k1–k3, p1 (seeded readings, no datum disputed) | all, both arms |
+| u1 no unstated premise as established | 2/2 · 0/2; Codex 1/2 · 0/2 |
+| f1 assumptions listed (source) | 2/2 · 0/2 |
+| f3 full counterplan from contrary assumptions (source) | 2/2 · 0/2; Codex 2/2 · 2/2 (the plain runs propose a staged test instead) |
+| d1 choice left to the user (design) | 2/2 · 0/2 |
+| E | 2/2 · 0/2; Codex 1/2 · 0/2 |
+| cost per run | $0.14 · $0.06 |
+
+| dia-conjecture, S / N (Opus; Codex) | |
+|---|---|
+| k1, k3, k4, f1 (local case found, conjecture kept, proof repaired) | all, both arms |
+| k2 the case shown to keep perpendicular diagonals | 2/2 · 2/2; Codex 2/2 · 0/2 |
+| d1 repair offered, not imposed (design) | 2/2 · 0/2; Codex 1/2 · 0/2 |
+| E | 1/2 · 0/2; Codex 0/2 · 0/2 |
+| K | S 1 (Codex; checked by hand) · N 0 |
+| cost per run | $0.38 · $0.23 |
+
+- **Core: no difference.** With a plain request and no method named, Opus still found every seeded reading of the plan and, for the conjecture, the local counterexample, kept the conjecture and repaired the proof.
+- **dia-counterplan** adds the method's form (assumptions listed, the choice left to the user), and its runs used fewer unmarked outside premises. A Codex K on one skill run ("about 120 paying customers from the whole waitlist") is a contrary assumption labelled *(my choice)*; it is recorded as disputed, not counted.
+- **dia-conjecture K, from the skill:** in its proof-analysis one run labels the congruence of the four triangles "(follows from 1 and 2)", from equal diagonals that bisect each other, and adds "the proof never uses the fact that a rhombus has four equal sides". Equal bisecting diagonals give a rectangle, whose four triangles are not congruent unless it is a square; the step needs the equal sides. The Opus judge missed it. One run; recorded as a lead for the skill's proof-analysis step (an annotation of its own inside the user's steps), not yet a change.
+- Plain-request comparisons for the three skills now agree: at Opus 5.5 the skills do not change what is found; they change the form (the method's structure, the decision left to the user) and, in most runs, how outside facts and premises are marked, at 1.6–2.4× the cost per run.
+
 ### Limits
 
 - One to three runs per arm on one task per skill per round; the items, keys and harness were written by the agent that ran them, and two keys (warrant2 k1, round-4 a1) assumed an unstated premise.
