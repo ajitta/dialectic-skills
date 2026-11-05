@@ -88,6 +88,22 @@ Question (owner): how to evaluate the skills that were never compared with no sk
 - **dia-conjecture: one K without the skill.** A no-skill run offered "a kite with equal diagonals" A(0,1) B(2,0) C(0,−1) D(−1,0); its diagonals are 2 and 3. The skill's runs lost the item that asks for a survey of monster-barring and exception-barring: the skill names those moves only when the user makes them (Lakatos's Rule 2), so the item is stricter than the design.
 - dia-warrant costs about 1.9× more per run than no skill for the same core result; its gain here is E only.
 
+### Follow-up: why dia-warrant showed no effect (2026-11-05, n=1 per cell)
+
+Question (owner): is it because the model is Opus? Three cells on the round-2 warrant task, plus two items for rules only the skill has (s1: stated and reconstructed parts marked apart; s2: support judged, never truth). Opus S and N re-judged with the same items.
+
+| Cell | Core (3) | Precision | Toulmin/Walton (2) | s1 | s2 | E |
+|---|---|---|---|---|---|---|
+| Opus, skill | 2 (3 on the first pass) | yes | 2 | yes | yes | yes |
+| Opus, no skill, method named | 3 | yes | 2 | yes | yes | no |
+| Opus, no skill, plain "How strong is this argument?" | 3 | yes | 0 | no | yes | no |
+| Sonnet, skill | 2 | yes | 2 | yes | yes | yes |
+| Sonnet, no skill, method named | 3 | yes | 2 | no | yes | yes |
+
+- **Not the model.** Sonnet without the skill also found every seeded defect, and it marked its outside facts; the core result does not depend on Opus.
+- **The baseline mattered more.** With the method named in the request, the no-skill arm already gets the layout and the critical questions. With a plain request (closer to real use), Opus found every defect but used neither Toulmin nor Walton and marked neither stated against reconstructed parts nor outside facts: the skill's gain there is four items, all form and evidence discipline, none on finding defects.
+- **A possible cost.** The skill asks its critical questions and leaves them **open** (hard rule 5), where the no-skill runs state the finding ("churn may have been postponed, not prevented"). The deferred-renewal defect (k3) was judged missing in both skill runs on this pass (the Opus run only on re-judging, where it stood as an open question; the Sonnet run only mentioned renewal in a list of costs). One run per cell, so this is a lead, not a finding.
+
 ### Limits
 
 - Three runs per arm at most; one judge model of the generator's family (owner's choice of model); the items and the harness were written by the agent that ran them.
