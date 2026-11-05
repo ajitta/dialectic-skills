@@ -104,6 +104,19 @@ Question (owner): is it because the model is Opus? Three cells on the round-2 wa
 - **The baseline mattered more.** With the method named in the request, the no-skill arm already gets the layout and the critical questions. With a plain request (closer to real use), Opus found every defect but used neither Toulmin nor Walton and marked neither stated against reconstructed parts nor outside facts: the skill's gain there is four items, all form and evidence discipline, none on finding defects.
 - **A possible cost.** The skill asks its critical questions and leaves them **open** (hard rule 5), where the no-skill runs state the finding ("churn may have been postponed, not prevented"). The deferred-renewal defect (k3) was judged missing in both skill runs on this pass (the Opus run only on re-judging, where it stood as an open question; the Sonnet run only mentioned renewal in a list of costs). One run per cell, so this is a lead, not a finding.
 
+### Round 4: dia-warrant rule 5, answered from the argument's own words (2026-11-05, spec D60)
+
+A = 2.3.0 text, B = D60 text; Opus 5.5 at effort low; round-2 warrant task, 2 runs per arm; round-1 warrant task, B 1 run against the earlier A run. Two items added: a1, the deferred-renewal defect stated as a finding from the argument's words ("three months", annual billing) rather than only as an open question; x1, no critical question settled with a fact outside the argument.
+
+| Item | A | B |
+|---|---|---|
+| a1 (judge) | 0/2 | 1/2 |
+| x1 | 2/2 | 2/2 |
+| every other item (core, precision, fidelity, s1, s2, E, K) | same | same |
+
+- A's runs left "has any annual account reached its renewal date yet?" **open**. B's first run answered it against the step from the quoted window and made it the weakest link; the second stated the same derivation under "Open, but the argument's own words narrow it" (it kept the question open because the argument does not say whether annual accounts can cancel mid-term, which is correct under the rule), and the judge did not count that.
+- Round-1 task: B matches A on every item, x1 included.
+
 ### Limits
 
 - Three runs per arm at most; one judge model of the generator's family (owner's choice of model); the items and the harness were written by the agent that ran them.
