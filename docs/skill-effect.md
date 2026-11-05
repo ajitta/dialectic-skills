@@ -65,31 +65,38 @@ Same harness and judge. dia-refine and dia-iterate: S re-run at `562f336`, judge
 
 Question (owner): how to evaluate the skills never compared with no skill, at the least run count that still decides. Observations below are task-specific at one to three runs per arm; broader explanations are marked as hypotheses.
 
+### How to read these results
+
+- **Two kinds of item.** *Finding* items ask whether the seeded defects or readings were found (the item files call them core). *Method* items ask whether the named method was carried out: assumptions listed, a counterplan built from contrary assumptions, the decision left to the user, stated and reconstructed parts kept apart, outside facts and premises marked. For these skills the method is the purpose, not decoration; treating finding as the core was the evaluator's choice.
+- **Two baselines.** Rounds 1–2 name the method in the no-skill request ("Toulmin layout and Walton-style critical questions"): a prompt most users would not write, so they ask what the skill adds for an expert prompter. Rounds 5–6 use a plain request ("What do you think of this plan?"), which is what a user without the method's vocabulary types; they are the realistic comparison.
+- **Clean material.** Every task was written by the evaluator with its figures laid out and its defects planted, which makes finding easy. Vague or incomplete material from real users was not tested.
+- **Reading.** Against a plain request, Opus 5.5 finds the same problems without the skill but does not carry out the method: no listed assumptions or counterplan, its own verdict instead of the user's decision, unmarked outside facts. The skill gets the method from one word, the skill's name, at about 1.6–3× the cost per run.
+
 ### Method
 
 - **Arms.** S: plugin `dia` 2.3.0, `dia-<x>` first. N: empty plugin, the same request naming the method in words (Toulmin and Walton; Mason's dialectical inquiry; Lakatos). Naming the method is an expert-prompt baseline: it asks what the packaged text adds beyond knowing which method to request, and it understates the value for a user who would not name it.
 - **Runs.** Claude Code 2.1.314, claude-opus-5-5 at `--effort low` (owner), generator and first judge; fresh `CLAUDE_CONFIG_DIR`, connectors off, empty working directory, tools `Skill,Read,Glob`. dia-conjecture: two scripted user turns.
-- **Items, fixed before the runs.** Core: seeded defects with an answer key. Source-aligned procedure: items taken from the named method. Plugin design: items that are this plugin's adaptation (dia-counterplan leaving the synthesis to the user is listed under Departures in its `references/theory.md`, not a rule of Mason's). Precision (round 2): a distractor that should not be flagged. E: outside facts marked by their basis. K as in A/B rule 5.
+- **Items, fixed before the runs.** Finding (core in the item files): seeded defects with an answer key. Source-aligned procedure: items taken from the named method. Plugin design: items that are this plugin's adaptation (dia-counterplan leaving the synthesis to the user is listed under Departures in its `references/theory.md`, not a rule of Mason's). Precision (round 2): a distractor that should not be flagged. E: outside facts marked by their basis. K as in A/B rule 5.
 - **Judges.** Opus (one blind pass per run, skill names redacted). Then an independent re-score of the deciding items by Codex (GPT), blind: 28 transcripts under shuffled ids, pasted into the prompt, with the key held outside its reach. The two judges agreed on 51 of 64 item verdicts; Codex was stricter on E and x1.
 - **Run count.** Rule set before the runs: one run per arm, a second when the S–N gap is two items or less or a K appears. Round 1 (one task per skill) has two runs per arm. Round 2 (harder seeds with a distractor) has one: its planned second run was not made, and pooling it with round 1 (different tasks) does not replace it.
 - Harness defects fixed during the work: a dia-conjecture scripted turn accepted a case before one was raised (both runs discarded); the counterplan K item had absorbed a design item (re-judged); in round 4 a failed packaging step left the B2 runs on the B1 text (discarded and re-run, see Round 4).
 
 ### Results, deciding items (S / N; Opus, then Codex)
 
-| Skill (runs per arm) | Core and precision | E | Design: synthesis left to the user | K |
+| Skill (runs per arm) | Finding and distractor | E | Design: synthesis left to the user | K |
 |---|---|---|---|---|
 | dia-warrant (3) | all, both arms | Opus 3/3 · 0/3; Codex 1/3 · 0/3 | — | none |
 | dia-counterplan (3) | all, both arms | Opus 3/3 · 0/3; Codex 1/3 · 0/3 | 3/3 · 0/3 (both judges) | estimates only, counted under E |
 | dia-conjecture (3) | all, both arms | Opus 2/3 · 0/3; Codex 2/3 · 0/3 | — | S 0; N 1 (Opus) or 2 (Codex) |
 
-- **Core: no observed checklist advantage on these tasks.** With the method named, both arms found every seeded defect and flagged no distractor.
+- **Finding: no difference when the method is named.** Both arms found every seeded defect and flagged no distractor; with the method named in the request, the no-skill arm also carried out most of the method.
 - **E: same direction under both judges, smaller under Codex.** No no-skill run marked its outside facts; the skill's runs did in 8/9 runs by Opus, 4/9 by Codex (unmarked examples in skill runs: "At 40 people, losing 1 in 3 new hires is expensive"; cardiology being outside interface design).
 - **dia-counterplan:** every no-skill run ended with its own verdict or hybrid ("Why this is better than either original plan"); every skill run asked which assumptions the user holds. This is the plugin's design, not Mason's rule.
 - **dia-conjecture K:** a no-skill run offered "a kite with equal diagonals" A(0,1) B(2,0) C(0,−1) D(−1,0), whose diagonals are 2 and 3 (both judges, checked by hand). Codex also flagged a non-sequitur in another no-skill run ("OB = OD, meaning A lies on the perpendicular bisector of BD"). Two cases do not give an error rate.
 - Cost per run, S / N: dia-warrant $0.16 / $0.09, dia-counterplan $0.14 / $0.11, dia-conjecture $0.40 / $0.33.
 - **Judge errors found by the audit:** the Opus judge passed p1 for a plain-baseline run that says "The p-value is probably overstated", passed E for a Sonnet run that asserts "Annual customers are contractually locked in", and passed f4 for a counterplan run that relies on a "weak office market" not in the material. Item totals other than the deciding items above were not re-scored.
 
-### Follow-up: why dia-warrant showed no checklist effect (one run per cell)
+### Follow-up: why dia-warrant showed no effect against the method-named baseline (one run per cell)
 
 Round-2 warrant task; Opus judge; two items for rules only the skill has (s1: stated and reconstructed parts marked apart; s2: support judged, never truth).
 
@@ -101,7 +108,7 @@ Round-2 warrant task; Opus judge; two items for rules only the skill has (s1: st
 | Sonnet, skill | 2 | 2 | yes | yes |
 | Sonnet, no skill, method named | 3 | 2 | no | yes |
 
-- Hypotheses, not findings (one task, one run per cell): the core result does not need Opus (Sonnet without the skill also found every seeded defect); with a plain request the skill's contribution is the method's structure and the marking of reconstructed parts, not defect-finding.
+- Hypotheses, not findings (one task, one run per cell): the core result does not need Opus (Sonnet without the skill also found every seeded defect); with a plain request the no-skill run found the defects but did not carry out the method (no Toulmin layout or critical questions, stated and reconstructed parts not kept apart), which is what the skill supplies.
 - The skill's runs asked the deferred-renewal question and left it **open** (hard rule 5), where no-skill runs stated it. That led to Round 4.
 
 ### Round 4: dia-warrant rule 5, answered from the argument's own words (spec D60)
@@ -132,7 +139,7 @@ Before merging D60 (owner). Keys rewritten after the Codex audit so that no item
 
 - Onboarding task: A and B2 identical on every item under both judges. N: s1 0/2; o1 2/2 by Opus, 0/2 by Codex ("too small" without a stated standard); E 1/2; one Opus K for an unrun Fisher test whose conclusion is correct, not counted by Codex.
 - **B2 against A:** r1 +2 and u1 +1 on the churn task, o1 −1 (the run already recorded under Round 4, "The whole drop is a mix shift"; the second B2 run did not repeat it, spec D51). Nothing else changes. This supports merging D60.
-- **Skill against a plain request:** the seeded concerns are found either way; the skill adds the marked layout (s1), marked outside facts (E) and, on the churn task, fewer unstated premises (u1). Two runs per arm on two tasks.
+- **Skill against a plain request:** the seeded concerns are found either way; only the skill's runs carry out the method: the marked layout (s1), marked outside facts (E) and, on the churn task, no question settled by an unstated premise (u1). Two runs per arm on two tasks.
 
 ### Round 6: dia-counterplan and dia-conjecture against a plain request (2026-11-05)
 
@@ -157,10 +164,10 @@ The comparison the Codex audit asked for. Same request in both arms, the skill n
 | K | S 1 (Codex; checked by hand) · N 0 |
 | cost per run | $0.38 · $0.23 |
 
-- **Core: no difference.** With a plain request and no method named, Opus still found every seeded reading of the plan and, for the conjecture, the local counterexample, kept the conjecture and repaired the proof.
+- **Finding: no difference.** With a plain request and no method named, Opus still found every seeded reading of the plan and, for the conjecture, the local counterexample, kept the conjecture and repaired the proof.
 - **dia-counterplan** adds the method's form (assumptions listed, the choice left to the user), and its runs used fewer unmarked outside premises. A Codex K on one skill run ("about 120 paying customers from the whole waitlist") is a contrary assumption labelled *(my choice)*; it is recorded as disputed, not counted.
 - **dia-conjecture K, from the skill:** in its proof-analysis one run labels the congruence of the four triangles "(follows from 1 and 2)", from equal diagonals that bisect each other, and adds "the proof never uses the fact that a rhombus has four equal sides". Equal bisecting diagonals give a rectangle, whose four triangles are not congruent unless it is a square; the step needs the equal sides. The Opus judge missed it. One run; recorded as a lead for the skill's proof-analysis step (an annotation of its own inside the user's steps), not yet a change.
-- Plain-request comparisons for the three skills now agree: at Opus 5.5 the skills do not change what is found; they change the form (the method's structure, the decision left to the user) and, in most runs, how outside facts and premises are marked, at about 1.6–3× the cost per run (dia-warrant about 3× against the plain request in Round 5).
+- **Plain-request comparisons for the three skills agree.** Without the skill, Opus 5.5 finds the same problems in this clean material but does not carry out the method the user would have asked for by name: it lists no assumptions and builds no counterplan, decides for the user, and leaves outside facts and premises unmarked. With the skill's name alone the method is carried out in most runs, at about 1.6–3× the cost per run (dia-warrant about 3× in Round 5). How much finding itself gains on vague real-user material is not measured.
 
 ### Round 7: reproducing the dia-conjecture proof-analysis error (2026-11-05)
 
