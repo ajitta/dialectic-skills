@@ -117,6 +117,23 @@ Texts: A = dia-warrant 2.2.0 (plugin 2.3.0); B1 = first D60 text ("by arithmetic
 - **B2 adopted:** both churn runs derive the renewal limitation from "annual" and "three months" ("no renewal-time churn has been seen yet") and keep cancellation terms open ("depends on the contract terms, which aren't given"). Both judges score a1 false because the item demands a settled finding; the audit holds that an open question with the derivation stated is the right output here, and that the a1 and k1 keys themselves assumed the contract premise.
 - **Residual:** B2's first churn run over-reads its own arithmetic ("The whole drop is a mix shift", from group averages). Onboarding task: B2 keeps the four seeded concerns and says sample adequacy "needs a premise ... the argument doesn't supply".
 
+### Round 5: dia-warrant A vs B2 vs a plain request, corrected keys (2026-11-05)
+
+Before merging D60 (owner). Keys rewritten after the Codex audit so that no item assumes a premise the argument does not state: c1 counts asking about contract terms as well as asserting them; r1 credits the renewal derivation stated as derived even when the wider question stays open; u1 (no question settled with an unstated premise) and o1 (no conclusion the numbers cannot support) added. Arms: A (dia-warrant 2.2.0), B2 (D60 text, SHA in `B2-text.sha256`), N (no skill, the same request without a method name: "How well do the reasons support the conclusion of this argument?"). Two runs per arm on the churn and onboarding tasks; A and B2 churn runs and three onboarding runs reused from earlier rounds, five new runs. Both judges blind; they agreed on 107 of 114 verdicts.
+
+| Churn task, Opus / Codex | A | B2 | N |
+|---|---|---|---|
+| c1–c3, p1 (seeded concerns, distractor) | all | all | all |
+| r1 renewal derivation stated | 0/2 · 0/2 | 2/2 · 2/2 | 1/2 · 1/2 |
+| u1 no unstated premise | 1/2 · 1/2 | 2/2 · 2/2 | 0/2 · 0/2 |
+| o1 no over-read numbers | 2/2 · 2/2 | 1/2 · 1/2 | 1/2 · 1/2 |
+| s1 stated vs reconstructed | 2/2 | 2/2 | 0/2 |
+| E | 2/2 · 1/2 | 2/2 · 2/2 | 0/2 · 0/2 |
+
+- Onboarding task: A and B2 identical on every item under both judges. N: s1 0/2; o1 2/2 by Opus, 0/2 by Codex ("too small" without a stated standard); E 1/2; one Opus K for an unrun Fisher test whose conclusion is correct, not counted by Codex.
+- **B2 against A:** r1 +2 and u1 +1 on the churn task, o1 −1 (the run already recorded under Round 4, "The whole drop is a mix shift"; the second B2 run did not repeat it, spec D51). Nothing else changes. This supports merging D60.
+- **Skill against a plain request:** the seeded concerns are found either way; the skill adds the marked layout (s1), marked outside facts (E) and, on the churn task, fewer unstated premises (u1). Two runs per arm on two tasks.
+
 ### Limits
 
 - One to three runs per arm on one task per skill per round; the items, keys and harness were written by the agent that ran them, and two keys (warrant2 k1, round-4 a1) assumed an unstated premise.
