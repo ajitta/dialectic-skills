@@ -162,6 +162,14 @@ The comparison the Codex audit asked for. Same request in both arms, the skill n
 - **dia-conjecture K, from the skill:** in its proof-analysis one run labels the congruence of the four triangles "(follows from 1 and 2)", from equal diagonals that bisect each other, and adds "the proof never uses the fact that a rhombus has four equal sides". Equal bisecting diagonals give a rectangle, whose four triangles are not congruent unless it is a square; the step needs the equal sides. The Opus judge missed it. One run; recorded as a lead for the skill's proof-analysis step (an annotation of its own inside the user's steps), not yet a change.
 - Plain-request comparisons for the three skills now agree: at Opus 5.5 the skills do not change what is found; they change the form (the method's structure, the decision left to the user) and, in most runs, how outside facts and premises are marked, at about 1.6–3× the cost per run (dia-warrant about 3× against the plain request in Round 5).
 
+### Round 7: reproducing the dia-conjecture proof-analysis error (2026-11-05)
+
+Four more runs of the Round 6 skill arm, first turn only (where the proof-analysis is written), plugin 2.4.0, Opus 5.5 at effort low; read and checked by hand against the geometry (no model judge).
+
+- **Not reproduced, 0/4.** Three runs annotate the congruence step, and each annotation is true: "By SSS: each triangle has two half-diagonal sides, which are equal by L1 and L2, and one rhombus side as its third side"; "(this needs L1, L2 and the four equal sides)"; one run adds the equal sides as an [A] lemma ("I added this because steps 1 and 2 only give four triangles whose two shorter sides all match"). The fourth says only "Steps 2 to 5 follow standard reasoning".
+- With Round 6 the false annotation is 1 run in 6. No change to the skill: a rule against it would be tested on an error that four runs did not show.
+- Observation for a later edit: in two of the four runs the assistant's own note sits inside a line labelled [T] (the user's words), where Step 2 reserves [A] for what the assistant supplies; the run that used [A] kept them apart.
+
 ### Limits
 
 - One to three runs per arm on one task per skill per round; the items, keys and harness were written by the agent that ran them, and two keys (warrant2 k1, round-4 a1) assumed an unstated premise.
