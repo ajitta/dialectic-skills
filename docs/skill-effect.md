@@ -231,6 +231,24 @@ The Round 8 design for the skills not yet compared with a plain request: dia-red
 - **dia-elenchus** kept to the method with a casual user: asked "what is a true friend?", raised a case, and when asked "그럼 뭐라고 해야 돼요?" answered "저도 정답을 몰라요" and asked again. That is the elenchus (no answer from the questioner, aporia), and the plain reply's explanation was rated far more useful (4 · 8). Lead, not a defect: say in one line, when the user asks for the answer, that this method gives none, and name where an answer is (dia-quaestio or a plain question).
 - **dia-quaestio** spent its turns restating and confirming ("이렇게 이해한 게 맞을까요?" twice), then closed with "고려한 선택지 … 다루지 않은 것": no options were grown, against its own purpose (useful 4 · 6). Lead, like dia-conjecture before D61: a vague reply should move the dialogue on, not trigger another confirmation.
 
+### Round 11: dia-quaestio and dia-regula, A/B (2026-11-05, spec D62)
+
+A = plugin 2.5.0, B = 2.6.0 (SHA-256 of both changed SKILL.md files in `QR-text.sha256`). Opus 5.5 at effort low; Opus and Codex judges, blind (64 of 88 verdicts agree). Sibling tasks with new content guard against fitting the text to the Round 10 messages.
+
+| | A | B |
+|---|---|---|
+| dia-quaestio, YouTube (2 runs each): options by the end (Opus) | 0/2 | 2/2 |
+| dia-quaestio, flea-market sibling (1 each): no re-confirmation after a non-correcting reply (both judges) | 0/1 | 1/1 |
+| dia-quaestio, useful (Codex): YouTube; sibling | 5, 5; 3 | 7, 6; 7 |
+| dia-quaestio after the Codex review (B2: provisional thesis, options as a labelled exception), 2 + 1 runs: options by the end; no re-confirmation (both judges); decisions recorded from non-objection; useful (Codex) | | 3/3; 2/3; none; 6, 8; 7 |
+| dia-regula, marketing prompt (2 each) and HR-bot sibling (1 each): revised prompt returned (both judges) | 0/3 | 3/3 |
+| dia-regula, review-only control (1 each): no rewrite | 1/1 | 1/1 |
+| dia-regula, useful (Codex): marketing; sibling; control | 6, 6; 7; 6 | 8, 8; 8; 5 |
+
+- One B2 run lists "주제는 요리 (직접 정하심)" among decisions after the user answered the topic question with "그냥 요리하는 거 좋아해요"; Codex rated it K, but the user named the topic in answer to the question, which the skill's own rule counts as confirmed (Step 4), so it is recorded as disputed, not counted.
+- dia-quaestio still restates and asks once after the user's first answer (the steelman step, kept by design), so the YouTube runs fail the strict "no confirmation-only turn" item in both arms; the loop after it is gone (the third reply probes instead of re-confirming), and the closing brief lists three labelled options of its own ("선택지 (제 아이디어예요, 답해주신 내용을 바탕으로 만들었어요)").
+- dia-regula returned revisions with placeholders ("[제품명, 핵심 기능, 가격, 차별점, 검증된 수치 등]") but kept some unsupported assumptions of its own (audience behaviour; that the HR bot cannot authenticate the asker); the review-only request ("고치지는 마") still got findings only.
+
 ### Limits
 
 - One to three runs per arm on one task per skill per round; the items, keys and harness were written by the agent that ran them, and two keys (warrant2 k1, round-4 a1) assumed an unstated premise.
