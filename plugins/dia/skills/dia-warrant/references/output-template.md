@@ -24,14 +24,14 @@ Not audited: (other claims, or other reasons for C, one line, if any)
 expert opinion | analogy | cause to effect | consequences | sign (two if both fit) | none of these: (the step in one line)
 
 ## Critical questions
-1. [data] …? — answered (in the argument "…" | by the user | by a source you found, evidence class) for | against the step; or open
+1. [data] …? — answered (in the argument "…", or derived: "…" → [step] | by the user | by a source you found, evidence class) for | against the step; or open
 2. [warrant/backing] …? — …
 3. [rebuttal] …? — …
 4. [conclusion] …? — …
 Facts added: (each with its evidence class: verified this session (a tool ran) | supplied by the user | single source | unverified recall)
 
 ## Result
-Weakest link: [slot], because "[question]" is left open | is answered against the step ("quote")
+Weakest link: [slot], because "[question]" is left open | is answered against the step ("quote", and the step if derived)
 Weakest link: qualifier, because the claim says "…" where the warrant licenses "…" (only if every question is answered for the step)
 Qualifier check (always): the warrant (stated | my reconstruction) licenses "…"; the claim says "…" → matches | overstated (from the "generally" default? ask whether "certainly" was meant) | no warrant to compare
 Why it matters: (one line)
