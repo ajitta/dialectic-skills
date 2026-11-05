@@ -192,6 +192,22 @@ The test the clean material could not give. Three short, casual messages of the 
 - **dia-conjecture: friction for a casual user.** In both runs it restated the claim, reconstructed the argument into lemmas (L3, "운동을 해도 먹는 양은 늘지 않는다", marked most suspect), and by the third turn had raised no concrete case; asked "how should I say it then?", it declined to settle an answer before cases were checked and offered a candidate ("운동으로 늘어난 소비만큼 섭취가 늘지 않는다면…"). The no-skill replies gave the counterexample and the corrected claim at once ("먹는 양을 유지하면 살이 빠진다"). Both found the same thing; Codex rated both 5. A lead for the skill (raise the first case in the same message as an [A] reconstruction when the user offers no argument, and answer a direct request for the corrected claim with the candidate first), not yet a change.
 - Usefulness is one model's rating of one run per arm; the messages were written by the evaluator to read like real ones, not taken from users.
 
+### Round 9: dia-conjecture pace, A/B (2026-11-05, spec D61)
+
+A = dia-conjecture 2.2.0; B1 = first D61 text; B2 = adopted text (B1 plus the hard-rule-2 sentence on stating every condition a check needs); SHA-256 of both in `C2-text.sha256`. Opus 5.5 at effort low. Vague exercise claim (Round 8 messages): A 2 runs (Round 8's), B1 2, B2 2. Vague rain claim with no reason given: A 1, B1 1. Rhombus regression (clean proof): B1 1, B2 1 against Round 6's A. New items: t1, a concrete case by the second reply; t2, the candidate corrected claim given first when asked.
+
+| Exercise claim | A | B1 | B2 |
+|---|---|---|---|
+| t1 case by the second reply (Opus · Codex) | 0/2 · 0/2 | 2/2 · 2/2 | 2/2 · 2/2 |
+| t2 candidate first when asked | 2/2 · 0/2 | 2/2 · 2/2 | 2/2 · 2/2 |
+| K | 0 · 0 | 0 · 2 | 0 · 0 |
+| useful (Codex, 1–10) | 4, 4 | 6, 6 | 6, 6 |
+
+- B1's case had no starting balance ("운동으로 약 300kcal를 쓰고 400kcal를 더 먹으니, 하루 100kcal가 남아"); whether that person gains depends on what they ate before, so Codex rated the check K in both runs. B2's runs state it ("운동 전: 하루에 2,000kcal를 먹고 2,000kcal를 썼습니다"; "운동 전에는 하루 섭취와 소모가 똑같아서").
+- Rain claim: A asked for a reason, offered a reconstruction and, asked how to put it, asked which reading was meant (Codex 3); B1 reconstructed on the second reply and on the third gave the candidate and an indoor-venue case marked as recall (Codex 6). Not run on B2.
+- Rhombus: B1 and B2 match A on every item.
+- Both judges still mark the candidate wording as over-promising ("운동하면서 먹는 양을 늘리지 않는 사람은 살이 빠진다" leaves out a deficit); the skill labels it untested and keeps L2 open, which is the method's next round, not a defect of the change.
+
 ### Limits
 
 - One to three runs per arm on one task per skill per round; the items, keys and harness were written by the agent that ran them, and two keys (warrant2 k1, round-4 a1) assumed an unstated premise.
