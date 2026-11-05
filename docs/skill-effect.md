@@ -209,6 +209,28 @@ A = dia-conjecture 2.2.0; B1 = first D61 text; B2 = adopted text (B1 plus the ha
 - Rhombus: Opus core items match A; e1 is A 1/2, B1 0/1, B2 0/1. Codex's B1 scores match A; B2 was not scored by Codex.
 - Codex criticizes the candidates' weight-loss guarantee (a candidate such as "운동하면서 먹는 양을 늘리지 않는 사람은 살이 빠진다" leaves out a deficit), including in B2's explanations; its g3 scores are false for B1 and true for B2. Opus marks g3 true throughout. The candidates remain unadopted and untested, which is the method's next round.
 
+### Round 10: the remaining skills on vague messages, in Korean (2026-11-05)
+
+The Round 8 design for the skills not yet compared with a plain request: dia-reductio, dia-negative, dia-elenchus, dia-quaestio, dia-skopos, dia-emend, dia-ratchet, dia-regula, dia-adjudicate (dia-techne left out: its A/B waits on real use, D55; dia-router is a menu). One casual message each, two of them with three vague follow-ups; S is the same message with the skill's name in front. Plugin 2.5.0, Opus 5.5 at effort low, one run per arm (a survey: every difference below is a lead, not a measured effect). Opus and Codex judges, blind; they agreed on 81 of 108 verdicts. Codex marked K on most runs of both arms for unsourced general statements ("20대와 50대는 원하는 게 달라요"); those are E under A/B rule 5, and two it marked as invented were real checks (the empty working directory, read with a tool), so no K is counted.
+
+| Skill | Finding, S · N (Opus; Codex) | Method, S · N | Useful (Codex), S · N |
+|---|---|---|---|
+| dia-reductio | 2/2 · 2/2 | 2/2 · 0/2 | 6 · 7 |
+| dia-negative | 2/2 · 1/2 | 2/2 (Codex 1/2) · 0/2 | 6 · 6 |
+| dia-adjudicate | 2/2 · 1/2 | 2/2 (Codex 1/2) · 0/2 | 6 · 6 |
+| dia-skopos | 2/2 · 1/2 (Codex 0/2) | 2/2 · 1/2 | 5 · 6 |
+| dia-emend | 2/3 · 3/3 | 1/1 · 1/1 (Codex 0/1) | 8 · 6 |
+| dia-ratchet | 2/2 · 2/2 | 2/2 · 2/2 (Codex 1/2) | 7 · 7 |
+| dia-regula | 3/3 (Codex 2/3) · 3/3 | 0/1 · 1/1 | 6 · 8 |
+| dia-elenchus | 1/2 · 1/2 | 2/2 · 0/2 | 4 · 8 |
+| dia-quaestio | 1/2 (Codex 0/2) · 2/2 (Codex 1/2) | 1/2 · 0/2 | 4 · 6 |
+
+- **Analytical skills** (dia-reductio, dia-negative, dia-adjudicate, dia-skopos) carried out their method where the plain reply did not (numbered premises with sources, the company's own standard and a falsifier, item-by-item rulings, the work held until the open decisions are settled) and found as much or more; usefulness was rated about the same.
+- **dia-emend**: the plain reply changed the date to "9일" in its revision without saying it was unconfirmed; the skill's revision marked the date to check (useful 8 · 6). **dia-ratchet**: no difference; the plain reply also asked for the facts behind "30%".
+- **dia-regula** reviewed the prompt and stopped at findings ("원하는 항목을 골라 주시면 고쳐 드릴게요"); the plain reply also gave a revised prompt ready to use (useful 6 · 8). Lead: when the user asks to look at a prompt without saying review only, return the revision with the findings.
+- **dia-elenchus** kept to the method with a casual user: asked "what is a true friend?", raised a case, and when asked "그럼 뭐라고 해야 돼요?" answered "저도 정답을 몰라요" and asked again. That is the elenchus (no answer from the questioner, aporia), and the plain reply's explanation was rated far more useful (4 · 8). Lead, not a defect: say in one line, when the user asks for the answer, that this method gives none, and name where an answer is (dia-quaestio or a plain question).
+- **dia-quaestio** spent its turns restating and confirming ("이렇게 이해한 게 맞을까요?" twice), then closed with "고려한 선택지 … 다루지 않은 것": no options were grown, against its own purpose (useful 4 · 6). Lead, like dia-conjecture before D61: a vague reply should move the dialogue on, not trigger another confirmation.
+
 ### Limits
 
 - One to three runs per arm on one task per skill per round; the items, keys and harness were written by the agent that ran them, and two keys (warrant2 k1, round-4 a1) assumed an unstated premise.
