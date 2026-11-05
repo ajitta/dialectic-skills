@@ -202,11 +202,12 @@ A = dia-conjecture 2.2.0; B1 = first D61 text; B2 = adopted text (B1 plus the ha
 | t2 candidate first when asked | 2/2 · 0/2 | 2/2 · 2/2 | 2/2 · 2/2 |
 | K | 0 · 0 | 0 · 2 | 0 · 0 |
 | useful (Codex, 1–10) | 4, 4 | 6, 6 | 6, 6 |
+| B3 (after the Codex review: provisional lemmas accept nothing; criterion apart from the ruling), 2 runs | | | t1 2/2 · 2/2; t2 2/2 · 2/2; K 0 · 0; useful 7, 7 |
 
 - B1's case had no starting balance ("운동으로 약 300kcal를 쓰고 400kcal를 더 먹으니, 하루 100kcal가 남아"); whether that person gains depends on what they ate before, so Codex rated the check K in both runs. B2's runs state it ("운동 전: 하루에 2,000kcal를 먹고 2,000kcal를 썼습니다"; "운동 전에는 하루 섭취와 소모가 똑같아서").
-- Rain claim: A asked for a reason, offered a reconstruction and, asked how to put it, asked which reading was meant (Codex 3); B1 reconstructed on the second reply and on the third gave the candidate and an indoor-venue case marked as recall (Codex 6). Not run on B2.
-- Rhombus: B1 and B2 match A on every item.
-- Both judges still mark the candidate wording as over-promising ("운동하면서 먹는 양을 늘리지 않는 사람은 살이 빠진다" leaves out a deficit); the skill labels it untested and keeps L2 open, which is the method's next round, not a defect of the change.
+- Rain claim: A asked for a reason, offered a reconstruction and, asked how to put it, asked which reading was meant (Codex 3); B1 reconstructed on the second reply and on the third gave the candidate and an indoor-venue case marked as recall (Codex 6). Not run on B2; B3, one run: candidate and an indoor-venue (station convenience store) case on the third reply, marked as recall, the criterion asked apart from the ruling (Codex 6).
+- Rhombus: Opus core items match A; e1 is A 1/2, B1 0/1, B2 0/1. Codex's B1 scores match A; B2 was not scored by Codex.
+- Codex criticizes the candidates' weight-loss guarantee (a candidate such as "운동하면서 먹는 양을 늘리지 않는 사람은 살이 빠진다" leaves out a deficit), including in B2's explanations; its g3 scores are false for B1 and true for B2. Opus marks g3 true throughout. The candidates remain unadopted and untested, which is the method's next round.
 
 ### Limits
 
