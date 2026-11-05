@@ -60,3 +60,35 @@ Same harness and judge. dia-refine and dia-iterate: S re-run at `562f336`, judge
 - Headless runs could not use the shell or the web, which removes dia-iterate's normal verification path and dia-refine's tool checks.
 - Scripted multi-turn users do not react to the questions. The re-run above uses an adaptive simulated respondent for dia-elenchus and dia-brainstorm, but it is still one model playing a persona, not a person.
 - Raw sessions and judgments: `~/work/dia-review/eval/` on the build VM (`out/`, `judge2/`, `run.py`, `judge.py`).
+
+## Seeded keys and source fidelity: dia-warrant, dia-counterplan, dia-conjecture (2026-11-05, plugin 2.3.0)
+
+Question (owner): how to evaluate the skills that were never compared with no skill, at the least run count that still decides.
+
+### Method
+
+- **Arms.** As above: S is plugin `dia` 2.3.0 with `dia-<x>` first; N is an empty plugin with the same request naming the method in words (Toulmin and Walton; Mason's dialectical inquiry; Lakatos's proofs and refutations).
+- **Runs.** Claude Code 2.1.314, claude-opus-5-5 at `--effort low` (owner), generator and judge; fresh `CLAUDE_CONFIG_DIR`, connectors off, empty working directory, tools `Skill,Read,Glob`. dia-conjecture: two scripted user turns.
+- **Items, fixed before the runs.** Core: seeded defects with an answer key. Fidelity: from the primary method, not from the skill text. Precision (round 2): a distractor that should not be flagged. E: every outside fact is marked by its basis. K as in A/B rule 5. One blind judge pass per run (skill names redacted), true/false with a quote.
+- **Minimum level.** Pilot (dia-warrant): each output judged twice, 18/18 items agreed; one later re-judge flipped one item, so judge noise is about one item per run. Rule: n=1 per arm, a second run when the S–N gap is two items or less or a K appears.
+- **Rounds.** Round 1: one task per skill, n=2 per arm. Round 2: harder seeds with a distractor (annual-billing churn; a Japan launch whose waitlist is one viral spike; a true conjecture whose proof has a false lemma, so the right case is local only), n=1 per arm. The round-2 gaps were one or two items, but the second run was not made: pooled with round 1 every skill had three runs per arm on the deciding items, all in the same direction (AGENTS.md: stop once the answer is clear).
+- Two harness defects were fixed during round 1: dia-conjecture's scripted turn accepted a case before one was raised (both runs discarded), and the counterplan K item had absorbed fidelity item f5 (re-judged).
+
+### Results (S / N, items true over runs)
+
+| Skill | Core | Precision | Fidelity | E | K | Cost per run (S / N) |
+|---|---|---|---|---|---|---|
+| dia-warrant (3 runs/arm) | 11/11 · 11/11 | 1/1 · 1/1 | 10/10 · 10/10 | 3/3 · 0/3 | 0 · 0 | $0.16 / $0.09 |
+| dia-counterplan (3) | 11/11 · 11/11 | 1/1 · 1/1 | 12/12 · 9/12 | 3/3 · 0/3 | 0 · 0 | $0.14 / $0.11 |
+| dia-conjecture (3) | 9/9 · 9/9 | 1/1 · 1/1 | 8/10 · 10/10 | 2/3 · 0/3 | 0 · 1 | $0.40 / $0.33 |
+
+- **Core and precision: no effect at this model.** With the method named, Opus 5.5 found every seeded defect in both arms, also in round 2, and flagged no distractor. Harder seeds of this kind do not separate the arms.
+- **E: the clearest effect.** Every no-skill run asserted an outside fact without a mark ("UX research gives mixed results", "replacing an engineer can cost $50–100k+"); the skill's runs marked theirs or used none (8/9).
+- **dia-counterplan: Mason's synthesis rule.** All three no-skill runs ended with their own verdict or hybrid ("Why this is better than either original plan"); the skill's runs asked which assumptions the user holds (3/3). The judge marked two no-skill estimates as K; they are estimates, not fabricated checks or sources, so they count under E.
+- **dia-conjecture: one K without the skill.** A no-skill run offered "a kite with equal diagonals" A(0,1) B(2,0) C(0,−1) D(−1,0); its diagonals are 2 and 3. The skill's runs lost the item that asks for a survey of monster-barring and exception-barring: the skill names those moves only when the user makes them (Lakatos's Rule 2), so the item is stricter than the design.
+- dia-warrant costs about 1.9× more per run than no skill for the same core result; its gain here is E only.
+
+### Limits
+
+- Three runs per arm at most; one judge model of the generator's family (owner's choice of model); the items and the harness were written by the agent that ran them.
+- Raw runs, judge outputs, `PLAN.md`, `RESULTS.md` and the scripts: `~/work/dia-review/eval3-2026-11-05/` on the build VM.
