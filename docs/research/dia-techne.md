@@ -169,6 +169,11 @@ An independent review of the first commit (fresh sub-agents that had not written
 - **Codex.** On a scratch integration copy, Codex CLI 0.166.0 listed all fourteen dia descriptions uncut.
 - **Integration.** Plugin 1.13.0 (spec D55): dia-menu row 13 (explicit-only), spec tables, manifest, listings and the four READMEs with an example from a recorded run. Not done: the project page, the routing probe set of §9 beyond the smoke cells, and the A/B the owner postponed.
 
+
+## 12. Revision of 2026-11-07 (plugin 2.7.0, dia-techne 2.3.0)
+
+A comparison with a third-party skill built on the same tutorial (robonuggets/be-ambitious) and with no skill (probes Part AD, round 1) showed the cost side of four rules: a `.bak` copy beside a clean tracked file, a stop before a push the user asked for when nothing had been revised, a separate critic agent for a short poem, and a full reply whose result came after the meta sections. The owner accepted all four changes as recommended (spec D63). The same comparison supports a choice made in §3: the skill does not take "Pick unreasonable goals". On a request to raise conversion tenfold in a quarter with no data, the arm that treated the user's target as reasonable kept it unexamined and stated a wrong sample size, while dia-techne named the conflict with the benchmarks it found.
+
 ## Sources
 
 - Felix Rieseberg, [How to be more ambitious: A tutorial for humans with models](https://felixrieseberg.com/how-to-be-more-ambitious-a-tutorial-for-humans-with-models/), 2026-10-13 (read through a summarising fetch).
