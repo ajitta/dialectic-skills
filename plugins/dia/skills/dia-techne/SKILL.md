@@ -13,7 +13,7 @@ Where the method and the name come from is in `references/theory.md`; read it on
 
 ## Invocation
 
-Run only when the message starts with `dia-techne`, when the skill is invoked by name in any host's form (such as `/dia:dia-techne`, `$dia:dia-techne` or `@dia-techne`), or when dia-router selects it; otherwise, and when the request is about this file's own text, work without it, because the skill revises the request and then acts, so the user decides when that happens. When the user invokes it for a request that belongs to a sibling (a standing instruction such as a skill file, confirming scope without running, reviewing an answer), run it all the same, keeping any limit the user set on running, a request not to run included, because the user chose this skill by name.
+Run only when the message starts with `dia-techne`, when the skill is invoked by name in any host's form (such as `/dia:dia-techne`, `$dia:dia-techne` or `@dia-techne`), or when the user picks it by name in dia-router (`dia techne …`); otherwise, and when the request is about this file's own text, work without it, because the skill revises the request and then acts, so the user decides when that happens. When the user invokes it for a request that belongs to a sibling (a standing instruction such as a skill file, confirming scope without running, reviewing an answer), run it all the same, keeping any limit the user set on running, a request not to run included, because the user chose this skill by name.
 
 ## Inputs
 

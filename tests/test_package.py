@@ -133,8 +133,8 @@ class TestRules(unittest.TestCase):
         self.assertNotRegex(body, pkg.NUMBER_SELECTOR_RE)  # names only (spec D66)
 
     def test_number_selector_rejected(self):
-        errs = pkg.selector_violations({"skills/dia-x/SKILL.md": b"or `dia 4 ...` to pick it", "README.md": b"a numbered menu"})
-        self.assertEqual(len(errs), 2)
+        errs = pkg.selector_violations({"skills/dia-x/SKILL.md": b"or `dia 4 ...` to pick it", "README.md": b"a numbered menu", "x.md": b"Dia 4 works"})
+        self.assertEqual(len(errs), 3)
         self.assertEqual(pkg.selector_violations({"skills/dia-x/SKILL.md": b"Anything else, including a number (`4 ...`, `3 reasons ...`)"}), [])
 
     def test_plain_scalar_guard(self):

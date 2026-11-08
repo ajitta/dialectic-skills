@@ -15,7 +15,7 @@ A short way to reach the other dia skills, made for phones: `dia` is three lette
 
 ## Invocation
 
-Run only when `dia` is the first word of the message on its own, in any letter case (followed by a space, a line break or nothing), or when this skill is invoked by name in any host's form (such as `/dia:dia-router`, `$dia:dia-router` or `@dia-router`); a first word that is a full skill name (`dia-emend …`, `dia-ratchet …` and the others) is not this skill's marker, and the message belongs to the named skill.
+Run only when `dia` is the first word of the message on its own, in any letter case (followed by a space, a line break or nothing), or when this skill is invoked by name in any host's form (such as `/dia:dia-router`, `$dia:dia-router` or `@dia-router`); a first word that is a full skill name (`dia-emend …`, `dia-ratchet …` and the others) is not `dia` on its own, and the message belongs to the named skill.
 
 ## Reading the message
 

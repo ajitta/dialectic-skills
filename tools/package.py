@@ -77,7 +77,7 @@ KO_HEADER = ("Scope:", "Source:", "As of:", "Use when:")
 SKILL_REF_RE = re.compile(r"\bdia-[a-z]+(?:-[a-z]+)*\b")
 # Names of the skills dia was rebuilt from; they may appear only in metadata.lineage.
 # dia-router picks a skill by name only (spec D66); a number after dia is a request.
-NUMBER_SELECTOR_RE = re.compile(r"\bdia (?:\d+|<n>|<number)|menu number|numbered menu|by (?:its )?number")
+NUMBER_SELECTOR_RE = re.compile(r"\bdia (?:\d+|<n>|<number)|menu number|numbered menu|by (?:its )?number", re.I)
 OLD_NAMES_RE = re.compile(
     r"\b(socratic-brainstorm|socratic-elenchus|confirm-intent|dia-confirm|dia-iterate|negative-dialectics|self-refine|recursive-refine"
     r"|dia-intent|dia-brainstorm|dia-refine|dia-instruct|dia-menu)\b"
