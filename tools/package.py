@@ -76,8 +76,9 @@ KO_DIR = "/references/ko/"
 KO_HEADER = ("Scope:", "Source:", "As of:", "Use when:")
 SKILL_REF_RE = re.compile(r"\bdia-[a-z]+(?:-[a-z]+)*\b")
 # Menu numbers live only in dia-router (spec D66): another skill names no `dia <n> …` selector,
-# so renumbering the menu never touches a skill body. A counting example (`dia 1 thing …`) is fine.
-MENU_NUMBER_RE = re.compile(r"`dia \d+ …`|`dia \d+`|dia <n(?:umber)?>", re.I)
+# so renumbering the menu never touches a skill body. A number followed by a word is a counting
+# example (`dia 1 thing …`) and passes.
+MENU_NUMBER_RE = re.compile(r"\bdia \d+(?![ ]+[^\W\d_])|dia <n(?:umber)?>", re.I)
 # Names of the skills dia was rebuilt from; they may appear only in metadata.lineage.
 OLD_NAMES_RE = re.compile(
     r"\b(socratic-brainstorm|socratic-elenchus|confirm-intent|dia-confirm|dia-iterate|negative-dialectics|self-refine|recursive-refine"

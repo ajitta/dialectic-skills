@@ -69,7 +69,7 @@ Then:
 
 ## Running the chosen skill
 
-Load the chosen skill the way your host loads skills (for example the Skill tool with `dia:dia-<x>`, or by reading `../dia-<x>/SKILL.md` relative to this file) and follow it in full, giving it the request text as the user's message and passing its flags and criteria through unchanged (`dia ratchet --max 2 <draft>`). The menu table is not a substitute for the skill's own instructions, so if the skill cannot be loaded, say so in one line and give the form that starts it directly (`dia-<x> <request>`), and do not imitate the method from the table.
+Load the chosen skill the way your host loads skills (for example the Skill tool with `dia:dia-<x>`, or by reading `../dia-<x>/SKILL.md` relative to this file) and follow it in full, giving it the request text as the user's message and passing its flags and criteria through unchanged (`dia 10 --max 2 <draft>`). The menu table is not a substitute for the skill's own instructions, so if the skill cannot be loaded, say so in one line and give the form that starts it directly (`dia-<x> <request>`), and do not imitate the method from the table.
 
 ## Output
 
