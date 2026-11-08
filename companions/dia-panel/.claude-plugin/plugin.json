@@ -1,0 +1,13 @@
+{
+  "name": "dia-panel",
+  "version": "0.2.0",
+  "description": "Claude Code only: a workflow that runs the four dia review lenses on one document in parallel and has dia-adjudicate judge their whole reports twice, in two orders. Needs the dia plugin.",
+  "author": {
+    "name": "ajitta"
+  },
+  "license": "MIT",
+  "repository": "https://github.com/ajitta/dialectic-skills",
+  "dependencies": [
+    "dia"
+  ]
+}
