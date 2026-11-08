@@ -1,0 +1,46 @@
+# Review of the pipeline-use record (2026-11-09)
+
+Status: a review of `README.md` in this folder by the agent that maintains the plugin, written before any decision. The session's transcripts and returned objects are in the owner's private research project and were not available, so this review checks the record's claims about the skill text and the plugin's own documents, and the counts the record states. Not yet checked by an independent reviewer. Decisions: none yet (owner).
+
+## 1. What holds
+
+- The versions in Setting match the 2.10.0 skill files, and 19 + 28 + 1 = 48.
+- T1: the quoted text is in the skills: "state the inferred target in the first line so the user can correct it" (the target paragraph of dia-negative, dia-reductio, dia-warrant and dia-counterplan), "Recommend one option and do not decide for the user" (dia-negative Rule 8), and the phone layout (line 3 of each lens's `references/output-template.md`). No lens says what to do when a caller fixes the output format.
+- T3: dia-counterplan Rule 1 and "When this skill does not fit" cover a request for weak points only; nothing settles a request for both a defect list and a counterplan.
+- T5: dia-adjudicate Rule 1 ("Rule, don't rewrite") and its Guardrails ("no new work beyond the verdicts") conflict with a caller field that requires fix text, and the skill names no allowed form.
+- C4: dia-warrant Step 6 asks for "what kind of answer would strengthen the link; do not supply that answer as a fact", so replacement text breaks a stated step.
+- The dia-skopos execution observations match its text: the assistant's own default settles a material choice only when the choice was delegated or is minor (item 3); a material change asks approval for the changed portion and holds dependent work (Recognizing Approval, last paragraph); the Confirmation names what is sent and to whom, and any step that cannot be undone.
+
+## 2. Corrections
+
+1. Two of the six caller pitfalls go against advice the README already gives (since 2.8.0, spec D64, "Several skills as a review panel"): "do not prescribe an output table" (C1) and "Give the reports to `dia-adjudicate` twice, each time in a separate agent, and recheck the verdicts that differ" (C6, T4). The record mentions neither that item nor the 2026-11-08 field note, whose review (§2) measured the same effect: with a caller-imposed findings table, 1 of 8 lens runs carried out its method in full and in scope, against 8 of 8 without it. This session is a second observation of that effect, with a JSON schema in place of a Markdown table. What is new is where the advice failed: the caller was an agent that had not read the README, and only the skill text reaches the agents that run the skills.
+2. T4 is partly overstated. Shuffling the labels and dropping author names (Inputs, item 1) and ignoring the reports' own severity labels (Rule 7) are steps the judge applies to whatever input it gets, so a caller that passes names and severities in a fixed order does not by itself bypass them; the judge should have applied them. A judge that dropped names after reading them is still weaker than input the caller anonymized, which is a reason for README advice, not for a skill rule. On the second run: by default a Claude Code sub-agent can start sub-agents of its own, up to three layers below the main conversation (Claude Code sub-agent documentation, "Let subagents spawn their own subagents"), so "if you can start separate agents" was probably met; skipping the second run when the brief asks for one result is what the 2026-11-08 review saw in 9 of 9 runs. The incomplete must-check list in round 2 is against Step 9's own check ("count the must-check rows against the qualifying rows"). An overturn resting on an earlier approval is against Rule 3 (an overturn needs the source's words on the same point), although no rule names an earlier approval.
+3. T6: the split is left out only "when the finished deliverable cannot fail to bring a stated outcome about". Materials saying the outcome could fail put the case under the sentence before it, which requires the split. The record's verifier calls this mainly an execution error; this review agrees, and the first half of P5 restates the current text.
+4. T2 and P4: the rule "Write the whole output in the language of the user's latest message" is shared by seven skills (dia-adjudicate, dia-counterplan, dia-negative, dia-ratchet, dia-reductio, dia-skopos, dia-warrant). A clause in dia-reductio alone would make them differ, an explicit "Write in Korean" is the user's request under any reading, and one run does not justify a change in seven skills.
+5. dia-reductio's "conditional" grade: by Rule 2 a fact is an [A] premise, so a refutation resting on one verified fact is "conditional" unless that fact alone entails not-T, which makes it "carried by added premises". The record should say which of the two the run missed; from the record alone the grade may have been right.
+6. P1 alone would not have brought the lens output to the decision: in round 1 the caller forwarded only `findings` (C2), so a full output written into `notes` would still have stopped at the caller. P1 helps only together with forwarding (P6).
+
+## 3. The proposals
+
+- **P1** (the four lenses, "called by another agent"): the only proposal that acts where the failure happens, because the agent running a lens reads the skill text and not the README. Untested, and the effect it targets is large (1 of 8 against 8 of 8), so a smoke comes first (§4). Fold P3 into it (the method's output first and in full, then anything else the caller asks for in a separate labelled list), and extend it to dia-adjudicate for the parts T4 lost in the schema: the Inputs line with the single-run statement, the must-check list and the closing line.
+- **P2** (dia-adjudicate), in three parts. (i) Rule 1: when asked for a fix, give the condition the fix must meet (an acceptance condition), not replacement text; small, consistent with Rule 1, and it keeps the judge from co-writing the revision it will later judge. (ii) Rule 2: an earlier approval of T or of a report item is not evidence either; one clause. (iii) The caller checklist (anonymize before sending, two runs, a must-check field): README, not the body, because the caller never reads the body; the README already has the two-run part.
+- **P3**: folded into P1.
+- **P4**: not adopted (correction 4).
+- **P5**: not adopted (correction 3). T7 depends on one host's interface, and the Confirmation section already asks for the proceed instruction in the body.
+- **P6**: the README item already covers C1 and C6. Add only what it lacks, in the four READMEs: give the judge each report whole, not one field of it (C2); give each lens its own brief, naming the claim it examines (C3); pass a prompt for another engine verbatim and record the relay's model (C5); ask the judge for acceptance conditions, not replacement text (T5).
+
+## 4. Proposed smoke for P1 and P2 (not run)
+
+Target and harness from the 2026-11-08 probes (`claude-box:~/work/dia-probes/panel-2026-11-08/`, the same 11.5k-character design). The caller-fixed schema as in the record (`findings[]` of title, location, problem, evidence, severity, fix; `checked_claims`; `notes`), passed with `claude -p --json-schema`. Claude Code, Opus 5.5, one engine.
+
+| Cells | Arms | Runs | Total |
+|---|---|---|---|
+| Each of the four lenses under the schema | 2.10.0 / P1 | 1 / 2 | 12 |
+| dia-adjudicate on one fixed set of lens reports, schema with a required `required_fix`, one seeded report item that is correct but that T says was approved earlier | 2.10.0 / P1 + P2 | 1 / 2 | 3 |
+| | | | 15 |
+
+Grading, step by step against each body: dia-negative C, own-standard quotes and the firm/conditional split; dia-reductio the premise list, numbered derivation, result and strength; dia-warrant the warrant record and its questions; dia-counterplan A1…An and the pairs; dia-adjudicate the must-check list, the Inputs line, an acceptance condition rather than replacement text, and the seeded item left standing. Decision it informs: adopt P1 and P2 (i)–(ii) if the variant keeps each method in a field the caller can forward where the base drops it.
+
+## 5. Limits
+
+No transcripts or returned objects were available, so the record's statements about the runs are taken as given; only its statements about the skill text and the plugin's documents were checked. The record, its verifiers and this review are by the same model family as the runs.

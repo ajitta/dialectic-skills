@@ -1,6 +1,6 @@
 # dia skills inside an orchestrated review pipeline: usage audit
 
-Session date: 2026-11-09 (Asia/Seoul). Status: research record and unadopted proposals. The owner decides whether any proposal becomes a skill change; nothing here changes a skill.
+Session date: 2026-11-09 (Asia/Seoul). Status: research record and unadopted proposals. The owner decides whether any proposal becomes a skill change; nothing here changes a skill. Reviewed in [review.md](review.md), which checks the claims about the skill text and corrects §1 (T2, T4, T6), §2 (C1, C6) and §3; where they differ, the review wins.
 
 This record comes from one Claude Code session in a separate, private research project. That project reviews its own result documents with dia skills run by subagents. After the session, the owner asked for an audit of how the dia skills were used, and for this record so the findings can inform later dia changes. Project content is left out. Only how the skills were invoked, what they returned and where that went wrong is kept.
 
