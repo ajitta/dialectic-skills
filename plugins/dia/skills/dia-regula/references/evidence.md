@@ -24,7 +24,7 @@ cases are the three cases named release-notes, checkout and logo.
 | Rule 1 | The split result in the source (one A/B, below): on one case the arm that moved a condition to another step passed 2 of 8 runs, while numbered short sentences that kept each condition in its step passed 8 of 8; prose, which also keeps it together, failed once in 6. That short markdown commands tend to lose conditions in general is the author's unpublished observation (below). The paragraph-length figure is the author's working value, not a limit. What to report under Rule 1 (a condition, limit or fallback apart from what it gates) follows the split result, and reporting a paragraph that joins unrelated rules is practice; not reporting long sentences follows the null result between layouts that keep each rule whole (Form below), where differences under about 30 points could be missed |
 | Rule 2 | One A/B in the source (below), 24 runs per arm: borderline, model version not recorded, traces deleted |
 | Rule 1's A/B | 8 runs per arm, model version not recorded, so below the A/B standard in SKILL.md |
-| Rule 3 | Published guidance and one benchmark on older models and verifiable instructions (below) |
+| Rule 3 | Published guidance and one benchmark on older models and verifiable instructions (below); in one Codex ablation a rewritten section that gained reasons, a new duty and a new layout changed what the model posted before editing, with the reasons not isolated (Leads below) |
 | Rule 4 | Practice, unmeasured; the clause on names for a changing value comes from a review finding (Review findings below) |
 | Functional-programming analogies (total function, `if` without braces, type signature, alias, separate function with explicit arguments, standard-library call) | The author's explanatory model, unmeasured |
 | Structure; By kind of text | Practice, unmeasured, extrapolated from the one measured file; the hand-off clause on role and done-when comes from a review finding (Review findings below) |
@@ -33,7 +33,7 @@ cases are the three cases named release-notes, checkout and logo.
 | Lead 3 (target behavior over the ban) | Anthropic's prompting guidance ("tell Claude what to do instead of what not to do"); the exceptions for prohibitions are practice |
 | Leads 4 and 5 (done-when, leading word) | Practice, unmeasured |
 | Lead 6 (examples) | Anthropic's prompting guidance: examples are among the most reliable ways to steer output, should be varied so the model does not pick up unintended patterns, and worked examples shape how the model approaches similar problems in its thinking. That a single example narrows reasoning in a judgment rule is the author's concern, unmeasured |
-| Writing, editing or reviewing text, step 1 | Keeping meaning changes only on request: practice, unmeasured. A/B conditions: lessons from the source's runs and later A/B runs (Checking a change below); comparing only runs that loaded the text is practice, unmeasured |
+| Writing, editing or reviewing text, step 1 | Keeping meaning changes only on request: practice, unmeasured. Counting an added reason as a meaning change: Rule 3's own basis; the Codex ablation under Leads below is consistent with it but did not isolate the reason. A/B conditions: lessons from the source's runs and later A/B runs (Checking a change below); comparing only runs that loaded the text is practice, unmeasured |
 | Writing, editing or reviewing text, steps 2 and 3 | Practice, unmeasured |
 | Writing, editing or reviewing text, step 4 (a prompt for a model you can start goes back in the reply) | Smoke probe recorded in `docs/probes.md` Part AC of the plugin's source repository (2026-11-05, claude-opus-5-5), with the sub-agent call denied by a hook, so a run only shows whether the call was made: after an approved goal review, a request to turn it into a prompt for a sub-agent made the call before the user saw the prompt in 2 of 3 runs on dia-regula 2.0.0 (one run of the recorded session and two forks of it), 0 of 2 with each of three wordings of this step, the shipped one included; a request that also asked to start it made the call in 1 of 1 run on 2.0.0, on an earlier wording and on the shipped one. A few runs only, below the A/B standard in SKILL.md |
 
@@ -73,6 +73,23 @@ cannot show a form effect there.
   for prose and short. Not significant.
 - Guard position (the condition before the action in the sentence, or after it) was never
   varied alone.
+- Messages before the first edit, Codex (gpt-6.1-sol, effort high): a public coding skill
+  of bullets and slogans, rewritten under these Rules (Rule 1 paragraphs, Rule 3 reasons,
+  2.2 KB to 2.6 KB), passed the same functional checks as the original, both at the
+  ceiling (`docs/research/karpathy-regula-2026-11-08/` in the plugin's source
+  repository). The rewrite more often posted, between reading the task files and its
+  first edit, a message naming the edit and usually what it would leave alone and how it
+  would check: on a cleanup task 0/3 against 3/3 in that record (a measure chosen after
+  the runs) and 0/4 against 4/4 in a later run with the measure fixed before the runs
+  (Codex CLI 0.166.0; the record used 0.167.0), where the original with only the rewritten
+  first section gave 4/4 and the rewrite with the original first section 1/4
+  (`docs/probes.md` Part AF). That section also changed meaning: a slogan became a duty
+  before implementing, and both its paragraphs gained reasons, one that the user needs to
+  see these choices first. So the effect came with a section whose meaning had changed,
+  not with the layout of the other sections; which part of the section carries it (the
+  new duty, the added reasons or the layout) was not isolated. In the later run two other
+  differences the record reported (on a mean-bug task, and which files the cleanup runs
+  read and ran) did not recur; the others were not re-run.
 
 ## Author's observations (unpublished)
 
@@ -92,6 +109,10 @@ Anthropic's prompting guidance supports a related point: a general instruction o
   minutes later on the same build. Re-run a differing case at 12 or more.
 - Count timeouts apart from failures, and compare per case: pooled pass rates mix easy and
   hard cases.
+- Name the process measures (what the model posts, reads or runs before it edits) before
+  the runs, apart from the outcome checks; one chosen after the runs is a lead. Of the
+  three process differences from the Codex record under Leads that were re-run, two did
+  not recur in a later run.
 - Record the model version, not only the alias, and keep the traces until the result is
   written up.
 - Later A/B runs on other skills (Sonnet and Haiku chosen by alias, version not recorded,
