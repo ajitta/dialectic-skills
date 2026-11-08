@@ -822,3 +822,20 @@ Lens runs cost $0.32–0.77 and 1.4–3.4 minutes each, dia-adjudicate runs $0.7
 |---|---|---|
 | One-response document review | Steps 1 to 6, record, undetermined, question as last line | 4/4 Steps 1 to 6 (4 or 5 assumptions, 4 key pairs; in two runs parts of Steps 3 to 6 are folded into the pairs or left out of the side-by-side), record with every pair open and the result undetermined; question as the last line 0/4: each record leaves the user's rulings open (two say they do not decide for the user), and no run asks the question |
 | Plain chat plan | Step 7 question, no record | 2/2 |
+
+**Part AF, the karpathy-guidelines rewrite: which section carries the pre-edit message, and dia-regula 2.3.0 (branch `regula-added-reason`, spec D65), 2026-11-08.** Follows the research record `docs/research/karpathy-regula-2026-11-08/` (review: `review.md` there).
+
+Codex: codex-cli 0.166.0 (the record used 0.167.0), `-m gpt-6.1-sol`, `model_reasoning_effort="high"`, `--ignore-user-config`, project docs off, isolated `HOME` and `CODEX_HOME` with the account-synced plugin cache blocked, `--dangerously-bypass-approvals-and-sandbox` in a per-run copy (the bubblewrap sandbox fails on this host), 180-second limit. The record's common prompt, task prompts and fixtures (`data/cases.json`), the skill file at `.agents/skills/karpathy-guidelines/SKILL.md`. Arms: O, the original (SHA-256 `6e22cc54…`); R, the revision (`d99d3b1b…`); OxR1, the original with section 1 replaced by the revision's; RxO1, the revision with section 1 replaced by the original's. Measure, fixed before the runs: a public message after the task module was read and before the first source change. 28 runs in two rounds (the second added after arms differed); all read the skill file and passed the record's functional check.
+
+| Task | O | R | OxR1 | RxO1 |
+|---|---|---|---|---|
+| cleanup | 0/4 | 4/4 | 4/4 | 1/4 (the message cites the surgical-change guidance) |
+| verification | 4/4 | 4/4 | 2/2 | 2/2 |
+| cleanup, existing suite run | 4/4 | 4/4 | 4/4 | 4/4 |
+| cleanup, `helpers.py` read | 4/4 | 2/4 | 1/4 | 3/4 |
+
+Section 1 alone carries the cleanup message (record: 0/3 against 3/3). The verification difference (record: 0/3 and 0/6 against 3/3 and 5/5) and the cleanup reading and suite differences (record: 0/3 against 2/3) did not recur. 2.20M input tokens (1.98M cached) and 14.8k output for the 28 runs.
+
+dia-regula 2.3.0, Writing step 1 (an added reason is a meaning change): Claude Code 2.1.314, claude-opus-5-5 at effort medium, `claude -p` with default permissions, plugin 2.8.0 (dia-regula 2.2.0) against the branch build, 2 runs each. Prompt (Korean): rewrite `karpathy-guidelines/SKILL.md` (the original) to the rules, keep the intent, report what changed. The file write was denied in all 4 runs, so each returned the rewrite and the report in the reply. Every run added reasons. 2.3.0 reported them as a meaning change, unmeasured, for the user to accept, 2/2 (one run citing the Leads observation in `references/evidence.md`). 2.2.0 reported them as possibly changing meaning, unmeasured, for the user to accept, 2/2 (one under a "may change meaning" heading, one in a closing note). On this model the clause turns a hedge into a classification; whether another engine or model behaves like the session in the research record, which did not count its reasons as meaning changes, was not probed. $1.52 for the 4 runs.
+
+Raw runs, plans and results: `claude-box:~/work/dia-probes/karpathy-2026-11-08/` and `claude-box:~/work/dia-probes/regula-2.3.0/`.
