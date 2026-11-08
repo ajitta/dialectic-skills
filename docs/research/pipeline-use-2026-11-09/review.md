@@ -65,6 +65,10 @@ Pass rules, fixed before the runs and graded step by step against each body, not
 
 P8 spike, after the owner's ruling, as a companion plugin, 3 runs, pass rules set first: it loads and runs under `-p` with workflows allowed; each lens agent starts its skill; the judge runs twice on shuffled anonymous reports and the differing verdicts are listed; plus a listing-token check with `claude plugin details`. Budget: 19 + 3 = 22, under the owner's 30-run threshold.
 
-## 6. Limits
+## 6. Results (2026-11-09, owner: all as recommended)
+
+Run on branch `pipeline-caller` (pull request #29, draft); record in `docs/probes.md` Part AI there; 23 runs plus 2 workflow runs. Under the caller's format the 2.10.0 lenses kept their method in the forwarded items in 0 of 4 runs and the branch text in 8 of 8 (dia-counterplan after two rewordings of its paragraph: 0/2, 1/2, 2/2). Null result 1/1; the D64 regression without a format 2/2. The judge on item lists only: an acceptance condition in 2/2 against 0/2; the seeded earlier approval was refused as evidence by both arms (4/4), so P2 (ii) was dropped; the counterplan's item got "reject" in 4/4, the only fitting value in the caller's list, with a reason saying it was not ruled wrong. P8: the companion workflow ran end to end once in two runs (the first was stopped by `-p`'s background wait ceiling); every lens and judge agent started its dia skill by name, and the workflow appears in the skill listing, which `claude plugin details` does not count.
+
+## 7. Limits
 
 No transcripts or returned objects were available, so the record's statements about the runs are taken as given, including the inference that the caller was a workflow. The record, its verifiers, this review and its reviewer are by the same model family as the runs.
