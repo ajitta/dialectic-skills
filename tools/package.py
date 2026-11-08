@@ -271,8 +271,14 @@ def validate_marketplace() -> list[str]:
         entry = next(p for p in plugins if p.get("name") == name)
         if entry.get("version") != cdata.get("version"):
             errors.append(f"{name}: marketplace version {entry.get('version')!r} differs from plugin.json {cdata.get('version')!r}")
-        if "dia" not in cdata.get("dependencies", []):
-            errors.append(f"{name}: plugin.json must list the dependency \"dia\"")
+        def dep_names(deps):
+            return [d if isinstance(d, str) else (d or {}).get("name") for d in deps or []]
+        for where, deps in (("plugin.json", cdata.get("dependencies")), ("marketplace entry", entry.get("dependencies"))):
+            if "dia" not in dep_names(deps):
+                errors.append(f"{name}: the {where} must list the dependency dia")
+    names = [n for n, _ in pairs]
+    if len(set(names)) != len(names):
+        errors.append("a plugin is listed twice")
     return [f".claude-plugin/marketplace.json: {e}" for e in errors]
 
 
