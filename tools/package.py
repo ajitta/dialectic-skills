@@ -75,9 +75,10 @@ HANGUL_RE = re.compile("[\u1100-\u11ff\u3130-\u318f\ua960-\ua97f\uac00-\ud7ff]")
 KO_DIR = "/references/ko/"
 KO_HEADER = ("Scope:", "Source:", "As of:", "Use when:")
 SKILL_REF_RE = re.compile(r"\bdia-[a-z]+(?:-[a-z]+)*\b")
-# Names of the skills dia was rebuilt from; they may appear only in metadata.lineage.
-# dia-router picks a skill by name only (spec D66); a number after dia is a request.
+# dia-router picks a skill by name only (spec D66); a number after dia is a request. A quoted
+# negative example such as `dia 3 reasons` is matched too, so write it without dia.
 NUMBER_SELECTOR_RE = re.compile(r"\bdia (?:\d+|<n>|<number)|menu number|numbered menu|by (?:its )?number", re.I)
+# Names of the skills dia was rebuilt from; they may appear only in metadata.lineage.
 OLD_NAMES_RE = re.compile(
     r"\b(socratic-brainstorm|socratic-elenchus|confirm-intent|dia-confirm|dia-iterate|negative-dialectics|self-refine|recursive-refine"
     r"|dia-intent|dia-brainstorm|dia-refine|dia-instruct|dia-menu)\b"
