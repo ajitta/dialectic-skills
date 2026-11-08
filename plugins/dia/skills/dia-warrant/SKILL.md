@@ -4,7 +4,7 @@ description: Examine how well reasons support a defeasible conclusion. Use only 
 license: MIT
 metadata:
   author: ajitta
-  version: "2.3.0"
+  version: "2.4.0"
   lineage: "new in plugin 1.3.0 (docs/research/candidates/argumentation.md)"
   source: "https://github.com/ajitta/dialectic-skills"
 ---
@@ -80,6 +80,15 @@ Pick the slot where the support is thinnest: a question answered against the ste
 ### Step 7: Record
 
 Close with the record from the output template; if the template cannot be read, the record is: target and claim; mode; scheme; warrant (stated, reconstructed or none given; W2 if any; Wa and Wb for a chain); questions asked (n answered, m open); result; qualifier check (matches, overstated, or no warrant to compare); what would strengthen the link; checked by (rereading only, or the tool used); decision on the reconstructed warrant (pending, accepted or rejected by the user, or not needed); history. Print it as plain Markdown, not a code block. End with one line naming C: whether "C" is true is not decided by this audit (then, if Parameters call for it, the one-line ask-mode offer).
+
+## When another agent fixes the output format
+
+When the request comes from another agent or a script that fixes the output format (a schema or a set of fields) and no user will reply, carry out every step as usual and fit the result into that format as below, because such a caller may pass on only its list of items.
+
+1. Give the weakest link (Step 6) as one of the caller's items, with the warrant record (the data, the warrant stated or reconstructed, W2 if any) and the open or answered question in the item's evidence field; a fix field gets only the kind of answer that would strengthen the link, never the answer itself (Step 6).
+2. End the list with one item labelled "method result (not a finding)" that holds the Step 7 record; when no weak link is found, this item gives that result and the questions asked.
+3. Write "not given by this method" in a severity field.
+4. Put anything else the caller asks for in a separate list after these items, labelled as outside this method; if the format has a free-text field, put the whole output there as well, in the template's layout.
 
 ## Critical questions
 

@@ -4,7 +4,7 @@ description: Rule on reports about a target using evidence, without rewriting th
 license: MIT
 metadata:
   author: ajitta
-  version: "2.3.0"
+  version: "2.4.0"
   lineage: "new in plugin 1.5.0 (spec D40); rules drawn from adjudication trials, docs/research/dia-adjudicate.md"
   source: "https://github.com/ajitta/dialectic-skills"
 ---
@@ -28,8 +28,8 @@ The input must contain the **target** (T) and **one or more reports** (R). If th
 
 ## Hard rules
 
-1. **Rule, don't rewrite.** Give verdicts. Do not produce a revised target, and do not add a new critique beyond the claim inventory (Step 2).
-2. **Agreement is not evidence.** How many reports raised an item does not change its verdict, and an item raised by every report is checked like any other, because reports written by the same model tend to share errors: models agree on the same wrong answer far more often than chance, and a judge from the same family inflates the reports it agrees with (arXiv:2506.07962).
+1. **Rule, don't rewrite.** Give verdicts. Do not produce a revised target, and do not add a new critique beyond the claim inventory (Step 2). When asked for a fix, state the condition the fix must meet (what must be true after it), not replacement text, because a judge that writes the revision later rules on its own words.
+2. **Agreement is not evidence.** How many reports raised an item does not change its verdict, and an item raised by every report is checked like any other, because reports written by the same model tend to share errors: models agree on the same wrong answer far more often than chance, and a judge from the same family inflates the reports it agrees with (arXiv:2506.07962). An earlier approval of T or of a report item records a decision, not that a claim is true: it never supports a factual verdict (Rule 3), and it settles a choice only when the material shows the choice was the approver's to make.
 3. **Overturning needs the source's words, on the same point.** A report item is ruled wrong or overstated on a factual basis only when you quote the source span that contradicts it (one clause or less, with location) or show the recomputation, and the span addresses the report's own assertion, not a neighbouring one, because judges in trials "corrected" a report's accurate paraphrase without quoting the source, or quoted a passage on a neighbouring point; so before overturning, search the source for the report's key terms (for a report saying a regulation "bans" a practice, search "ban", "prohibit" and the practice's name), quote the passage closest to what the report said, and weigh every place where the source speaks to the point. Failing to find the claim in the sources you opened never makes it wrong or overstated, because judges ruled reports wrong when the documents they opened lacked the claim and another statement by the same author contained it; a claim about what a person or body holds (a position, a recommendation, an intention) may rest on statements outside the document cited, such as other publications or public statements by the same author or body, so search for those before ruling. When a fetch tool returns a model's summary rather than the raw page, put the report's claim to the tool as a direct question before overturning (for a report saying "the agency later withdrew that guidance", ask "Does the source say the agency withdrew that guidance?") and rule on that answer, because a summary can drop the very sentence the report relies on and keep a neighbouring one, and judges reading through a summarizing fetch overturned accurate report items for that reason; on "tool-checked via summary" evidence alone the strongest verdict against a report item is "unverifiable", unless the tool's answer to the direct question states the contrary in so many words, and absence of a sentence from a summary is never a contradiction.
 4. **Unverifiable is not false.** A verdict is "unverifiable" when nothing confirms or contradicts the claim, and a report item is ruled so only after you have opened the source the report itself cites and, for a claim about what a person or body holds, searched their other statements (Rule 3), as far as your tools or the user's material allow (Without tools), because judges marked as "unverifiable" a claim the cited source did state; record where you looked, what blocked you and what would settle it, and an unverifiable item keeps its content, neither endorsed nor rejected.
 5. **Quotations to the letter.** Every quotation or attribution in T and in the reports is compared with the source's wording, because judges passed a misquotation in the target that no report had raised. A changed qualifier ("all" for "many", "will" for "may", a narrower or wider group than the source names) is a finding even when the gist matches.
@@ -99,6 +99,10 @@ Print as plain Markdown, in this order. Omit empty sections.
 10. **For a human check** (Step 9).
 
 End with one line: this rules on the evidence for T's claims and the reports' items; it is not a proof that C is true or false.
+
+## When another agent fixes the output format
+
+When the request comes from another agent or a script that fixes the output format (a schema or a set of fields) and no user will reply, still produce every Output section and fit them into that format: each issue or verdict in the caller's items, with its basis and evidence class; the Inputs line, the must-check list (Step 9) and the closing line in its free-text or summary field, or, if it has none, as a last item labelled "for a human check". A fix field gets an acceptance condition (Rule 1).
 
 ## Follow-up turns
 

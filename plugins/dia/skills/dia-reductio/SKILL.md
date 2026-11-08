@@ -4,7 +4,7 @@ description: Test a thesis by deriving a strict contradiction from stated premis
 license: MIT
 metadata:
   author: ajitta
-  version: "2.2.0"
+  version: "2.3.0"
   lineage: "reductio (installed copy, unversioned)"
   source: "https://github.com/ajitta/dialectic-skills"
 ---
@@ -104,6 +104,15 @@ Close with the record from the output template, whose fields are Target / thesis
 ### When no contradiction appears
 
 Say so plainly: list the directions and premise sets you tried, write "no contradiction found with these premises; this does not show they are consistent, or settle whether the thesis is true", and name the premise that would decide it. Never build a contradiction from a loose consequence to have something to show.
+
+## When another agent fixes the output format
+
+When the request comes from another agent or a script that fixes the output format (a schema or a set of fields) and no user will reply, carry out every step as usual and fit the result into that format as below, because such a caller may pass on only its list of items.
+
+1. Give the contradiction (Step 5) as one of the caller's items, with its proof in the item's evidence field: the premises with their labels, the numbered derivation with its rules, the two lines that contradict each other, and the strength.
+2. End the list with one item labelled "method result (not a finding)" that holds the Step 8 record, with the result, what the contradiction depends on, the strength and the options with the recommended one; when no contradiction appears, this item says so as the section above requires, with the directions and premise sets tried.
+3. Write "not given by this method" in a severity or fix field; the options and the recommendation are in the method result.
+4. Put anything else the caller asks for in a separate list after these items, labelled as outside this method; if the format has a free-text field, put the whole output there as well, in the template's layout.
 
 ## Follow-up turns
 

@@ -4,7 +4,7 @@ description: Critique a claim or practice against its own stated standard. Use o
 license: MIT
 metadata:
   author: ajitta
-  version: "2.2.0"
+  version: "2.3.0"
   lineage: "negative-dialectics (installed copy, unversioned)"
   source: "https://github.com/ajitta/dialectic-skills"
 ---
@@ -88,6 +88,15 @@ Pick one option and give: the reason; the evidence class of the weakest finding 
 ### Step 8: Record
 
 Close with the record from references/output-template.md, or, if that file cannot be read, with this record: target and C; stated purpose; findings (n firm, m conditional); remainder; operative function; options and recommendation; decision; status; history. Its status is exactly one of: **open** (gaps found; by design nothing is closed) or **holding against the tested particulars**.
+
+## When another agent fixes the output format
+
+When the request comes from another agent or a script that fixes the output format (a schema or a set of fields) and no user will reply, carry out every step as usual and fit the result into that format as below, because such a caller may pass on only its list of items.
+
+1. Give each strict gap (Step 4) as one of the caller's items, with its proof in the item's evidence field: Ck quoted, case D, why both can't hold, the evidence class, and firm or conditional (Rule 4).
+2. End the list with one item labelled "method result (not a finding)" that holds the Step 8 record, with C, the options and the recommendation; when no strict gap appears, this item says that C holds against the particulars tested and lists them.
+3. Write "not given by this method" in a severity or fix field; the options and the recommendation are in the method result.
+4. Put anything else the caller asks for in a separate list after these items, labelled as outside this method; if the format has a free-text field, put the whole output there as well, in the template's layout.
 
 ## Follow-up turns
 
