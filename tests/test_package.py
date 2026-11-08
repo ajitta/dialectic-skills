@@ -131,6 +131,12 @@ class TestRules(unittest.TestCase):
         self.assertEqual({n for _, n in rows}, set(pkg.EXPECTED_IMPLICIT) - {"dia-router"})
         self.assertNotRegex(body, r"three-letter|\bcode\b")  # selectors are numbers and names only (spec D57)
 
+    def test_menu_numbers_only_in_router(self):
+        errs = pkg.selector_violations({"skills/dia-x/SKILL.md": "picked by `dia 11 \u2026` here".encode(), "skills/dia-y/SKILL.md": b"the form `dia <number> <request>`", "skills/dia-z/SKILL.md": b"send dia 10 --max 2 <draft>", "skills/dia-w/agents/openai.yaml": b"or dia 11 <reports>"})
+        self.assertEqual(len(errs), 4)
+        ok = {"skills/dia-router/SKILL.md": "`dia 4 \u2026` runs it".encode(), "skills/dia-skopos/SKILL.md": "as in `dia 1 thing I keep forgetting: \u2026`".encode(), "README.md": "`dia 4 \u2026`".encode()}
+        self.assertEqual(pkg.selector_violations(ok), [])
+
     def test_plain_scalar_guard(self):
         with self.assertRaises(ValueError):
             pkg.frontmatter("---\nname: x\ndescription: Delegated form: y\n---\nbody\n")

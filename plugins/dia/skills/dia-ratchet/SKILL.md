@@ -4,7 +4,7 @@ description: Revise through repeated rounds using external checks and locked res
 license: MIT
 metadata:
   author: ajitta
-  version: "2.2.0"
+  version: "2.3.0"
   lineage: "recursive-refine (installed copy, unversioned), output mode only; named dia-iterate until plugin 1.4.0"
   source: "https://github.com/ajitta/dialectic-skills"
 ---
@@ -15,11 +15,11 @@ The name is the rule: like a ratchet, the output moves only forward on confirmed
 
 ## Invocation
 
-- Run only when the message starts with `dia-ratchet`, when the skill is invoked by name in any host's form, or when dia-router selects it (`dia 10 …`, `dia ratchet …`; a number that counts something in the sentence, as in `dia 10 reasons …`, is not a selector); the target, `--max N` (round cap, default 3) and criteria may follow the name or selector. Loaded otherwise, do not run the loop: if this skill looks right, ask in one line for a message starting with `dia-ratchet` or an invocation by name, then stop; otherwise answer without the skill, or use dia-emend if one pass is enough.
-- Input with a topic but no target ("dia-ratchet on the sword of Damocles") ends with one question, whether to fix the last output or whether the user will supply a draft, and no draft, because a draft of your own would leave the loop checking only your own guesswork.
-- If dia-emend is named in the same request, run this loop and the dia-emend pass separately, each with its own output; your own re-derivation still never counts as verification in a round, even if the dia-emend pass used it.
+Run only when the message starts with `dia-ratchet`, when the skill is invoked by name in any host's form (such as `/dia:dia-ratchet`, `$dia:dia-ratchet` or `@dia-ratchet`), or when the user picks it in dia-router by number or name; otherwise do not run the loop: if this skill fits the request, ask in one line for a message starting with `dia-ratchet` and stop, and if it does not, answer without the skill, or use dia-emend if one pass is enough.
 
 ## Choosing the target
+
+The target, `--max N` (round cap, default 3) and criteria may follow the name. Input with a topic but no target ("dia-ratchet on the sword of Damocles") ends with one question, whether to fix the last output or whether the user will supply a draft, and no draft, because a draft of your own would leave the loop checking only your own guesswork.
 
 The target is the last output, a named draft or a file you can read, and text, code and computed results all count as targets; if the target is ambiguous, ask one question before editing anything.
 
@@ -77,6 +77,7 @@ Confirmed but not fixed: none
 
 ## Guardrails
 
+- If dia-emend is named in the same request, run this loop and the dia-emend pass separately, each with its own output; your own re-derivation still never counts as verification in a round, even if the dia-emend pass used it.
 - Being invoked is not a report of an error, because flipping a correct answer under unspecific pressure is the failure this procedure exists to prevent.
 - Changing a single-right-answer result (a calculation, a program's output) without external verification does not happen in this skill: unverifiable means unchanged.
 - If the only verification method is "on rereading it seems", that round has no verification and makes no edits beyond the round-1 exception in step 4.

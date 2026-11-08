@@ -4,7 +4,7 @@ description: Use modern Socratic questions to develop an idea into options and a
 license: MIT
 metadata:
   author: ajitta
-  version: "2.3.0"
+  version: "2.4.0"
   lineage: "socratic-brainstorm 3.3.1; named dia-brainstorm until plugin 2.0.0"
   source: "https://github.com/ajitta/dialectic-skills"
 ---
@@ -26,8 +26,6 @@ What this is: **modern Socratic questioning** (Richard Paul's six question types
 7. **Reply in the user's language**, keeping the user's own terms for their idea.
 
 ## Step 0 — Frame (one message)
-
-If this skill was neither invoked by name nor selected by dia-router, and the message only asks you to make or write something (a script, code, a text) or just names such a thing, this skill was loaded by mistake: do the task without it.
 
 Read the request for an idea, a mode and a depth, inferring the mode and depth from whatever wording and language they arrive in (`--mode stress`, "go hard", "quick", "keep it light"), since no parser exists.
 
