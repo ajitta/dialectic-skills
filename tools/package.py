@@ -76,6 +76,8 @@ KO_DIR = "/references/ko/"
 KO_HEADER = ("Scope:", "Source:", "As of:", "Use when:")
 SKILL_REF_RE = re.compile(r"\bdia-[a-z]+(?:-[a-z]+)*\b")
 # Names of the skills dia was rebuilt from; they may appear only in metadata.lineage.
+# dia-router picks a skill by name only (spec D66); a number after dia is a request.
+NUMBER_SELECTOR_RE = re.compile(r"\bdia (?:\d+|<n>|<number)|menu number|numbered menu|by (?:its )?number")
 OLD_NAMES_RE = re.compile(
     r"\b(socratic-brainstorm|socratic-elenchus|confirm-intent|dia-confirm|dia-iterate|negative-dialectics|self-refine|recursive-refine"
     r"|dia-intent|dia-brainstorm|dia-refine|dia-instruct|dia-menu)\b"
@@ -371,6 +373,19 @@ def crossref_violations(files: dict[str, bytes], names: list[str]) -> list[str]:
     return errors
 
 
+def selector_violations(files: dict[str, bytes]) -> list[str]:
+    """No shipped text offers a number selector after dia (spec D66)."""
+    errors = []
+    for rel, data in sorted(files.items()):
+        if not rel.endswith((".md", ".yaml", ".json")):
+            continue
+        for lineno, line in enumerate(data.decode("utf-8").split("\n"), 1):
+            m = NUMBER_SELECTOR_RE.search(line)
+            if m:
+                errors.append(f"{rel}:{lineno}: number selector text {m.group(0)!r} (dia picks by name only)")
+    return errors
+
+
 # ---------------------------------------------------------------- build
 
 
@@ -490,6 +505,8 @@ def collect_errors(skills: list[Path], files: dict[str, bytes]) -> list[str]:
         + validate_names(names)
         + shipped_violations(files)
         + crossref_violations(files, names)
+        + selector_violations(files)
+        + [f"openai zip: {e}" for e in selector_violations({k: v for k, v in openai_files(files).items() if not k.startswith("assets/")})]
         + validate_plugin_readme(files)
         + validate_openai_interface(*openai_parts())
         + [f"openai zip: {e}" for e in shipped_violations({k: v for k, v in openai_files(files).items() if not k.startswith("assets/")})]

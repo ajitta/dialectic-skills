@@ -126,10 +126,16 @@ class TestRules(unittest.TestCase):
 
     def test_router_menu(self):
         body = (ROOT / "skills" / "dia-router" / "SKILL.md").read_text(encoding="utf-8")
-        rows = re.findall(r"^\| (\d+) \| (dia-[a-z]+) \| [^`|]+\|$", body, re.M)
-        self.assertEqual([int(n) for n, _ in rows], list(range(1, 14)))
-        self.assertEqual({n for _, n in rows}, set(pkg.EXPECTED_IMPLICIT) - {"dia-router"})
-        self.assertNotRegex(body, r"three-letter|\bcode\b")  # selectors are numbers and names only (spec D57)
+        rows = re.findall(r"^\| (dia-[a-z]+) \| [^`|]+\|$", body, re.M)
+        self.assertEqual(len(rows), 13)
+        self.assertEqual(set(rows), set(pkg.EXPECTED_IMPLICIT) - {"dia-router"})
+        self.assertNotRegex(body, r"three-letter|\bcode\b")  # no codes (spec D57)
+        self.assertNotRegex(body, pkg.NUMBER_SELECTOR_RE)  # names only (spec D66)
+
+    def test_number_selector_rejected(self):
+        errs = pkg.selector_violations({"skills/dia-x/SKILL.md": b"or `dia 4 ...` to pick it", "README.md": b"a numbered menu"})
+        self.assertEqual(len(errs), 2)
+        self.assertEqual(pkg.selector_violations({"skills/dia-x/SKILL.md": b"Anything else, including a number (`4 ...`, `3 reasons ...`)"}), [])
 
     def test_plain_scalar_guard(self):
         with self.assertRaises(ValueError):
