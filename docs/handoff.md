@@ -32,6 +32,7 @@ Before 2.0.0, plugin `dia` **1.13.0** (`v1.13.0`, `main`, 2026-11-01): the new s
 
 | What | Who | Where to start |
 |---|---|---|
+| Pipeline-use audit (2026-11-09, unadopted): dia-negative, dia-reductio, dia-warrant, dia-counterplan and dia-adjudicate run by subagents under a caller-fixed schema lost their own output; dia-adjudicate's shuffle, second run and must-check list were not applied; proposals P1–P6 | owner decides | `docs/research/pipeline-use-2026-11-09/README.md` |
 | dia-techne (released in 1.13.0; project page plate live, pull request #16, no tutorial credit on the page or in the READMEs by owner ruling, 2026-11-01): the A/B against no skill stays postponed (owner, 2026-11-01: run it only if real use falls short) | owner | Spec D55; probes Part Y; `docs/research/dia-techne.md` §11. |
 | Next A/B: follow the rules for A/B records (core items apart, held-out cells, judge keys) and use the corrected judge items | agent | `docs/writing-for-models/README.md` § Rules for A/B records; corrected items in `claude-box:~/work/dia-probes/ooproxy-eval-audit/judges_v2.py`; item 37. |
 | dia-negative Rules 3/4 (split findings): two resolutions tried, both lowered strict gaps on the vacation policy; the 1.8.0 text stays | agent, if asked | `docs/writing-for-models/ab-d43-2026-10-28.md` § Owner rulings after 1.8.0. |
