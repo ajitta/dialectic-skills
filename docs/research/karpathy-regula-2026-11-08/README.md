@@ -1,6 +1,6 @@
 # Karpathy Guidelines rewrite: outcomes, process, and implications for dia-regula
 
-Session date: 2026-11-08 (Asia/Seoul). Status: research record and unadopted proposals. Reviewed in [review.md](review.md), which corrects the cause of the observed effect, the findings that recurred, and proposals P1 to P4, and records the decisions (spec D65); where they differ, the review wins.
+Session date: 2026-11-08 (Asia/Seoul). Status: research record and unadopted proposals. Reviewed in [review.md](review.md), which narrows where the observed effect sits, corrects which findings recurred and proposals P1 to P4, and records the decisions (spec D65); where they differ, the review wins.
 
 This folder records a session that applied installed dia-regula 2.2.0 to the public Karpathy Guidelines skill, revised the draft while preserving its intent, reviewed it in separate agent contexts, ran a small behavioral comparison, and then re-examined the execution process. The owner's eventual interest was instruction following and the assistant's visible choices during execution, rather than whether the final code was correct.
 
