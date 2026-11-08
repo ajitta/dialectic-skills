@@ -116,7 +116,7 @@ If the user then asks for a plan built on their set, sketch it after the record 
 When the request comes from another agent or a script that fixes the output format (a schema or a set of fields) and no user will reply, carry out every step as usual and fit the result into that format as below, because such a caller may pass on only its list of items.
 
 1. Give no item for the plan's flaws (Rule 1) and no severity or ranking (Rule 5): this method's result is not a list of defects. If the caller also asks for the plan's defects, say in the method result that this method gives none.
-2. Give one item labelled "method result (not a finding)" that holds the plan, the key assumptions with their contraries, the counterplan and the whole Step 8 record of a one-response run, with every line it requires (each pair open, the result undetermined, Kept for the side set aside, Written by, Not tested, and Step 7's question as the last line); write "not given by this method" in its severity and fix fields.
+2. Give one item labelled "method result (not a finding)" whose text is the whole output in the template's layout, not shortened: the plan, the key assumptions with their contraries, the counterplan, the pairs side by side, and the Step 8 record of a one-response run with every line it requires (each pair open, the result undetermined, Kept for the side set aside, Written by, Not tested, and Step 7's question as the last line); write "not given by this method" in its severity and fix fields.
 3. If the format has a free-text field, put the whole output there as well, in the template's layout.
 
 ## Follow-up turns
