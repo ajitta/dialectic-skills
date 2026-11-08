@@ -49,7 +49,7 @@ Which assumption from each pair do you now hold? Per pair: the plan's, the count
 
 ---
 
-Printed after the user rules on every pair, or stops, or when Step 3 finds no key assumption, or in place of "Your synthesis" in a run asked for in one response (SKILL.md, Procedure):
+Printed after the user rules on every pair, or stops, or when Step 3 finds no key assumption, or in place of "Your synthesis" in a one-response run (SKILL.md, Procedure):
 
 ## Record
 - Target / plan: (and the self-examination line for claude)
