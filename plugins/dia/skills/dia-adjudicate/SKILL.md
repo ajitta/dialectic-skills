@@ -102,7 +102,7 @@ End with one line: this rules on the evidence for T's claims and the reports' it
 
 ## When another agent fixes the output format
 
-When the request comes from another agent or a script that fixes the output format (a schema or a set of fields) and no user will reply, still produce every Output section and fit them into that format: each issue or verdict in the caller's items, with its basis and evidence class; the Inputs line, the must-check list (Step 9) and the closing line in its free-text or summary field, or, if it has none, as a last item labelled "for a human check". A fix field gets an acceptance condition (Rule 1).
+When the request comes from another agent or a script that fixes the output format (a schema or a set of fields) and no user will reply, still produce every Output section and fit them into that format, in the output's language (Rule 12): each issue or verdict in the caller's items, with its basis and evidence class; the Inputs line, the must-check list (Step 9) and the closing line in its free-text or summary field, or, if it has none, as a last item labelled for a human check. A fix field gets an acceptance condition (Rule 1). If a verdict field takes only fixed values, use the value that matches this skill's verdict; for a verdict the list lacks (unverifiable, or an item that makes no claim to rule on, such as a counterplan's open pairs), use the one that claims least and give this skill's own verdict at the start of the item's text.
 
 ## Follow-up turns
 

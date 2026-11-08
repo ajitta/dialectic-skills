@@ -83,11 +83,11 @@ Close with the record from the output template; if the template cannot be read, 
 
 ## When another agent fixes the output format
 
-When the request comes from another agent or a script that fixes the output format (a schema or a set of fields) and no user will reply, carry out every step as usual and fit the result into that format as below, because such a caller may pass on only its list of items.
+When the request comes from another agent or a script that fixes the output format (a schema or a set of fields) and no user will reply, carry out every step as usual and fit the result into that format as below, because such a caller may pass on only its list of items. Write every label and note below in the output's language (Rule 8).
 
 1. Give the weakest link (Step 6) as one of the caller's items, with the warrant record (the data, the warrant stated or reconstructed, W2 if any) and the open or answered question in the item's evidence field; a fix field gets only the kind of answer that would strengthen the link, never the answer itself (Step 6).
-2. End the list with one item labelled "method result (not a finding)" that holds the Step 7 record; when no weak link is found, this item gives that result and the questions asked.
-3. Write "not given by this method" in a severity field.
+2. End the list with one item labelled as this method's result, not a finding, that holds the Step 7 record, with each open question written out with its slot tag, and the line that this audit does not decide whether C is true; when no weak link is found, this item gives that result and the questions asked.
+3. In a severity field, write that this method does not give it. If a field takes only fixed values, use the one that claims least, and say at the start of the item's text that the format forced that value and that this method does not give it.
 4. Put anything else the caller asks for in a separate list after these items, labelled as outside this method; if the format has a free-text field, put the whole output there as well, in the template's layout.
 
 ## Critical questions

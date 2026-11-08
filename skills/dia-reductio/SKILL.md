@@ -107,11 +107,11 @@ Say so plainly: list the directions and premise sets you tried, write "no contra
 
 ## When another agent fixes the output format
 
-When the request comes from another agent or a script that fixes the output format (a schema or a set of fields) and no user will reply, carry out every step as usual and fit the result into that format as below, because such a caller may pass on only its list of items.
+When the request comes from another agent or a script that fixes the output format (a schema or a set of fields) and no user will reply, carry out every step as usual and fit the result into that format as below, because such a caller may pass on only its list of items. Write every label and note below in the output's language (Rule 8).
 
 1. Give the contradiction (Step 5) as one of the caller's items, with its proof in the item's evidence field: the premises with their labels, the numbered derivation with its rules, the two lines that contradict each other, and the strength.
-2. End the list with one item labelled "method result (not a finding)" that holds the Step 8 record, with the result, what the contradiction depends on, the strength and the options with the recommended one; when no contradiction appears, this item says so as the section above requires, with the directions and premise sets tried.
-3. Write "not given by this method" in a severity or fix field; the options and the recommendation are in the method result.
+2. End the list with one item labelled as this method's result, not a finding, that holds the Step 8 record, with the result, what the contradiction depends on, the strength and the options with the recommended one; when no contradiction appears, this item says so as the section above requires, with the directions and premise sets tried.
+3. In a severity or fix field, write that this method does not give it; the options and the recommendation are in the method result. If a field takes only fixed values, use the one that claims least, and say at the start of the item's text that the format forced that value and that this method does not give it.
 4. Put anything else the caller asks for in a separate list after these items, labelled as outside this method; if the format has a free-text field, put the whole output there as well, in the template's layout.
 
 ## Follow-up turns

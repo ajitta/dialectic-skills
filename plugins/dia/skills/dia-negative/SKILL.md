@@ -91,11 +91,11 @@ Close with the record from references/output-template.md, or, if that file canno
 
 ## When another agent fixes the output format
 
-When the request comes from another agent or a script that fixes the output format (a schema or a set of fields) and no user will reply, carry out every step as usual and fit the result into that format as below, because such a caller may pass on only its list of items.
+When the request comes from another agent or a script that fixes the output format (a schema or a set of fields) and no user will reply, carry out every step as usual and fit the result into that format as below, because such a caller may pass on only its list of items. Write every label and note below in the output's language (Rule 9).
 
 1. Give each strict gap (Step 4) as one of the caller's items, with its proof in the item's evidence field: Ck quoted, case D, why both can't hold, the evidence class, and firm or conditional (Rule 4).
-2. End the list with one item labelled "method result (not a finding)" that holds the Step 8 record, with C, the options and the recommendation; when no strict gap appears, this item says that C holds against the particulars tested and lists them.
-3. Write "not given by this method" in a severity or fix field; the options and the recommendation are in the method result.
+2. End the list with one item labelled as this method's result, not a finding, that holds the Step 8 record, with C, the options and the recommendation; when no strict gap appears, this item says that C holds against the particulars tested and lists them.
+3. In a severity or fix field, write that this method does not give it; the options and the recommendation are in the method result. If a field takes only fixed values, use the one that claims least, and say at the start of the item's text that the format forced that value and that this method does not give it.
 4. Put anything else the caller asks for in a separate list after these items, labelled as outside this method; if the format has a free-text field, put the whole output there as well, in the template's layout.
 
 ## Follow-up turns
