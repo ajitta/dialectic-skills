@@ -61,6 +61,7 @@ Choose the one dia skill whose description in your skill list fits what the user
 Then:
 
 - **dia-skopos, dia-ratchet, dia-adjudicate and dia-techne** never start from a request: reply in one line with the form to send (`dia <name> <request>`) and stop.
+- **Several skills, or reviewers or agents that use dia skills:** choose one skill per reviewer whose description fits the text (none of the four above), say in one line which, and have each reviewer start its skill by its full name (`dia:dia-negative`, or a message starting with `dia-negative`) and return its result in one response, because a reviewer that is only told to review uses no dia method; if you cannot start reviewers, give one `dia <name> <request>` line per skill instead.
 - **One fits:** say in one line which skill you are running and why (for example `→ dia-counterplan: the request asks for the case against the plan`), then run it.
 - **Two fit about equally:** name both and the difference in one line each, ask which, and stop.
 - **None fits:** say so in one line and answer without a dia skill.
