@@ -15,7 +15,7 @@ The name is the rule: like a ratchet, the output moves only forward on confirmed
 
 ## Invocation
 
-Run only when the message starts with `dia-ratchet`, when the skill is invoked by name in any host's form (such as `/dia:dia-ratchet`, `$dia:dia-ratchet` or `@dia-ratchet`), or when the user picks it by name in dia-router (`dia ratchet …`); otherwise do not run the loop: if this skill fits the request, ask in one line for a message starting with `dia-ratchet` and stop, and if it does not, answer without the skill, or use dia-emend if one pass is enough.
+Run only when the message starts with `dia-ratchet`, when the skill is invoked by name in any host's form (such as `/dia:dia-ratchet`, `$dia:dia-ratchet` or `@dia-ratchet`), or when the user picks it in dia-router by number or name; otherwise do not run the loop: if this skill fits the request, ask in one line for a message starting with `dia-ratchet` and stop, and if it does not, answer without the skill, or use dia-emend if one pass is enough.
 
 ## Choosing the target
 

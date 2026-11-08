@@ -75,9 +75,9 @@ HANGUL_RE = re.compile("[\u1100-\u11ff\u3130-\u318f\ua960-\ua97f\uac00-\ud7ff]")
 KO_DIR = "/references/ko/"
 KO_HEADER = ("Scope:", "Source:", "As of:", "Use when:")
 SKILL_REF_RE = re.compile(r"\bdia-[a-z]+(?:-[a-z]+)*\b")
-# dia-router picks a skill by name only (spec D66); a number after dia is a request. A quoted
-# negative example such as `dia 3 reasons` is matched too, so write it without dia.
-NUMBER_SELECTOR_RE = re.compile(r"\bdia (?:\d+|<n>|<number)|menu number|numbered menu|by (?:its )?number", re.I)
+# Menu numbers live only in dia-router (spec D66): another skill names no `dia <n> …` selector,
+# so renumbering the menu never touches a skill body. A counting example (`dia 1 thing …`) is fine.
+MENU_NUMBER_RE = re.compile(r"`dia \d+ …`|`dia \d+`|dia <n(?:umber)?>", re.I)
 # Names of the skills dia was rebuilt from; they may appear only in metadata.lineage.
 OLD_NAMES_RE = re.compile(
     r"\b(socratic-brainstorm|socratic-elenchus|confirm-intent|dia-confirm|dia-iterate|negative-dialectics|self-refine|recursive-refine"
@@ -375,15 +375,15 @@ def crossref_violations(files: dict[str, bytes], names: list[str]) -> list[str]:
 
 
 def selector_violations(files: dict[str, bytes]) -> list[str]:
-    """No shipped text offers a number selector after dia (spec D66)."""
+    """Menu numbers appear only in dia-router's own files (spec D66)."""
     errors = []
     for rel, data in sorted(files.items()):
-        if not rel.endswith((".md", ".yaml", ".json")):
+        if not rel.startswith("skills/") or rel.startswith("skills/dia-router/"):
             continue
         for lineno, line in enumerate(data.decode("utf-8").split("\n"), 1):
-            m = NUMBER_SELECTOR_RE.search(line)
+            m = MENU_NUMBER_RE.search(line)
             if m:
-                errors.append(f"{rel}:{lineno}: number selector text {m.group(0)!r} (dia picks by name only)")
+                errors.append(f"{rel}:{lineno}: menu number {m.group(0)!r} outside dia-router")
     return errors
 
 
@@ -507,7 +507,6 @@ def collect_errors(skills: list[Path], files: dict[str, bytes]) -> list[str]:
         + shipped_violations(files)
         + crossref_violations(files, names)
         + selector_violations(files)
-        + [f"openai zip: {e}" for e in selector_violations({k: v for k, v in openai_files(files).items() if not k.startswith("assets/")})]
         + validate_plugin_readme(files)
         + validate_openai_interface(*openai_parts())
         + [f"openai zip: {e}" for e in shipped_violations({k: v for k, v in openai_files(files).items() if not k.startswith("assets/")})]

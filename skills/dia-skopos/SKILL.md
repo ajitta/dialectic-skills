@@ -13,7 +13,7 @@ metadata:
 
 A request to analyze, review, or edit this skill is not a request to run it.
 
-Run the review only when the message starts with `dia-skopos`, when the skill is invoked by name in any host's form (such as `/dia:dia-skopos`, `$dia:dia-skopos` or `@dia-skopos`), or when the user picks it by name in dia-router (`dia skopos …`), for this task or a task that directly follows up on it (Recognizing Approval), or when the user explicitly asked, for this task, to confirm the goal, assumptions or open decisions first, and a reply to a review in progress follows Recognizing Approval; otherwise do the task without this skill and do not hold it for approval, because the skill's text stays in the conversation after the task it was invoked for ends.
+Run the review only when the message starts with `dia-skopos`, when the skill is invoked by name in any host's form (such as `/dia:dia-skopos`, `$dia:dia-skopos` or `@dia-skopos`), or when the user picks it in dia-router by number or name (a number that counts something in the sentence, as in `dia 1 thing I keep forgetting: …`, is not a pick), for this task or a task that directly follows up on it (Recognizing Approval), or when the user explicitly asked, for this task, to confirm the goal, assumptions or open decisions first, and a reply to a review in progress follows Recognizing Approval; otherwise do the task without this skill and do not hold it for approval, because the skill's text stays in the conversation after the task it was invoked for ends.
 
 ## Before Starting
 
