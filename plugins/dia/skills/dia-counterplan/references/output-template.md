@@ -49,7 +49,7 @@ Which assumption from each pair do you now hold? Per pair: the plan's, the count
 
 ---
 
-Printed after the user rules on every pair, or stops, or when Step 3 finds no key assumption:
+Printed after the user rules on every pair, or stops, or when Step 3 finds no key assumption, or in place of "Your synthesis" in a one-response run (SKILL.md, Procedure):
 
 ## Record
 - Target / plan: (and the self-examination line for claude)
@@ -61,5 +61,6 @@ Printed after the user rules on every pair, or stops, or when Step 3 finds no ke
 - Not tested: the accuracy of the shared data; assumptions not listed; alternatives other than these two; how either plan would play out; (anything else). Hearing both sides is not evidence that the plan was tested.
 - Rewrites: Cn rewritten because … (named defect) | none
 - History: (one line per follow-up turn)
+- Question for whoever decides (one-response run only): which assumption from each pair do you now hold? Per pair: the plan's, the counterplan's, your own wording, or "can't tell".
 
 For no key assumption found, the record has Target / plan, Key assumptions (0 of m listed), Result, and: Not tested: whether the shared data are accurate, assumptions not listed, and alternatives to the plan; no counterplan was written, which does not show the plan is sound.

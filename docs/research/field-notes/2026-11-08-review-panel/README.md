@@ -1,6 +1,6 @@
 # Field note: dia skills as a blind review panel (2026-11-08)
 
-Status: observation record, not a verified finding. Written by the assistant (Claude Opus 5.5) that ran the session, from its own records; this is a self-observation, not an independent evaluation. Nothing in `skills/` was changed. The proposals below are candidates to verify in this folder before any skill edit (`AGENTS.md`, Probes and evals).
+Status: observation record, not a verified finding. Written by the assistant (Claude Opus 5.5) that ran the session, from its own records; this is a self-observation, not an independent evaluation. Nothing in `skills/` was changed. The proposals below are candidates to verify in this folder before any skill edit (`AGENTS.md`, Probes and evals). Reviewed in [review.md](review.md), which corrects §2 and §3 (items 1, 4 and 5) and records the decisions (spec D64); where they differ, the review wins.
 
 ## 1. Setting
 

@@ -2,7 +2,9 @@
 
 State of the work and what is left, for the next agent session. Read `AGENTS.md` and `docs/spec.md` first; probe evidence is in `docs/probes.md`.
 
-## Next session: start here (2026-11-07)
+## Next session: start here (2026-11-08)
+
+Plugin `dia` **2.8.0** (branch `counterplan-one-response`, spec D64, probes Part AE): dia-counterplan 2.3.0 ends a run asked for in one response with its record (every pair open, undetermined, the question as the last line) instead of a question no one can answer; README "Using several skills together" gains a review-panel item. Source: the field note `docs/research/field-notes/2026-11-08-review-panel/` and its `review.md`. Open for the owner: dia-adjudicate Rule 8 for what the judge sees in its own session (two wordings tried: the first scoped the verdict in 1 of 2 runs, the second in 5 of 5; under both the judge stated its own run mode without a quote; neither released; next wording in `claude-box:~/work/dia-probes/panel-2026-11-08/RESULTS.md`, round 5). Owner step after the release: re-upload `releases/dialectic-skills-openai.zip` on chatgpt.com.
 
 Released and live: plugin `dia` **2.7.0** (`v2.7.0`, `main`, 2026-11-07 KST, pull request #24 from branch `techne-backup-push`, squash-merged; release assets match the committed zips; the GitHub marketplace route checked in a clean config, 2.7.0 with fourteen skill folders): dia-techne 2.3.0 uses a clean tracked file's commit as its backup, runs a push the user asked for when nothing revised changes it (no force, history rewrite or remote deletion), names the outside check for a creative task, and gives the result first (spec D63, probes Part AD). Owner step: re-upload `releases/dialectic-skills-openai.zip` on ChatGPT.
 
