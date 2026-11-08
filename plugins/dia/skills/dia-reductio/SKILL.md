@@ -112,7 +112,7 @@ When the request comes from another agent or a script that fixes the output form
 1. Give the contradiction (Step 5) as one of the caller's items, with its proof in the item's evidence field: the premises with their labels, the numbered derivation with its rules, the two lines that contradict each other, and the strength.
 2. End the list with one item labelled as this method's result, not a finding, that holds the Step 8 record, with the result, what the contradiction depends on, the strength and the options with the recommended one; when no contradiction appears, this item says so as the section above requires, with the directions and premise sets tried.
 3. In a severity or fix field, write that this method does not give it; the options and the recommendation are in the method result. If a field takes only fixed values, use the one that claims least, and say at the start of the item's text that the format forced that value and that this method does not give it.
-4. Put anything else the caller asks for in a separate list after these items, labelled as outside this method; if the format has a free-text field, put the whole output there as well, in the template's layout.
+4. Give nothing outside this method unless the caller names it in its request, and put what it names in a separate list after these items, labelled as outside this method; if the format has a free-text field, put the whole output there as well, in the template's layout.
 
 ## Follow-up turns
 

@@ -88,7 +88,7 @@ When the request comes from another agent or a script that fixes the output form
 1. Give the weakest link (Step 6) as one of the caller's items, with the warrant record (the data, the warrant stated or reconstructed, W2 if any) and the open or answered question in the item's evidence field; a fix field gets only the kind of answer that would strengthen the link, never the answer itself (Step 6).
 2. End the list with one item labelled as this method's result, not a finding, that holds the Step 7 record, with each open question written out with its slot tag, and the line that this audit does not decide whether C is true; when no weak link is found, this item gives that result and the questions asked.
 3. In a severity field, write that this method does not give it. If a field takes only fixed values, use the one that claims least, and say at the start of the item's text that the format forced that value and that this method does not give it.
-4. Put anything else the caller asks for in a separate list after these items, labelled as outside this method; if the format has a free-text field, put the whole output there as well, in the template's layout.
+4. Give nothing outside this method unless the caller names it in its request, and put what it names in a separate list after these items, labelled as outside this method; if the format has a free-text field, put the whole output there as well, in the template's layout.
 
 ## Critical questions
 
