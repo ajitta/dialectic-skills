@@ -4,7 +4,7 @@ description: Construct a counterplan from contrary assumptions using the same ev
 license: MIT
 metadata:
   author: ajitta
-  version: "2.2.0"
+  version: "2.3.0"
   lineage: "new in plugin 1.3.0 (docs/research/candidates/argumentation.md)"
   source: "https://github.com/ajitta/dialectic-skills"
 ---
@@ -50,7 +50,7 @@ The flag, or its natural-language equivalent, sets the target; with neither, inf
 
 ## Procedure
 
-The first message runs Steps 1 to 7 and ends with Step 7's question, unless it ends earlier: with Step 1's question, with the Step 8 record when Step 3 finds no key assumption on a counterplan request, or after Step 3, with no record, on an assumptions-only request. Later messages show only what changed (a new Cn, the counterplan steps on it, the changed pair) and fit a phone screen; a rerun or the record may be longer, in numbered lines, not tables.
+The first message runs Steps 1 to 7 and ends with Step 7's question, unless it ends earlier: with Step 1's question, with the Step 8 record when Step 3 finds no key assumption on a counterplan request, or after Step 3, with no record, on an assumptions-only request. When the message asks for the whole result in one response without questions, or says that no answer will come, those earlier endings still apply, and otherwise the message runs Steps 1 to 6 and ends with the Step 8 record in place of Step 7's question: every pair open, the result **undetermined**, and Step 7's question as the record's last line; such a run is not a stop. Later messages show only what changed (a new Cn, the counterplan steps on it, the changed pair) and fit a phone screen; a rerun or the record may be longer, in numbered lines, not tables.
 
 ### Step 1: State the plan
 
@@ -92,14 +92,14 @@ Ask one question: which assumption from each pair do they now hold? They may ans
 
 ### Step 8: Record
 
-When the user has ruled on every pair, or stops, close with the record from the output template. If you cannot open the template, the record is: target and plan (with the self-examination line for `claude`); key assumptions, and how many were listed; each pair with the user's ruling; result; kept for the side set aside; written by; not tested; rewrites; history. The result is exactly one of:
+When the user has ruled on every pair, or stops, or a one-response run (Procedure) reaches this step, close with the record from the output template. If you cannot open the template, the record is: target and plan (with the self-examination line for `claude`); key assumptions, and how many were listed; each pair with the user's ruling; result; kept for the side set aside; written by; not tested; rewrites; history. The result is exactly one of:
 
 - **plan side held:** the user holds the plan's assumption on every pair;
 - **counterplan side held:** the counterplan's on every pair;
 - **synthesis:** a mix, or assumptions in the user's own words, with no pair left open;
 - **undetermined:** at least one pair left open; the question stands (named after *teyku*, "let it stand", borrowed loosely from the Talmud);
 - **no key assumption found** (Step 3);
-- **stopped:** the user stopped before ruling on any pair. If they stop after ruling on some, the result is **undetermined** and the unruled pairs are open.
+- **stopped:** the user stopped before ruling on any pair (a run asked for in one response is not a stop). If they stop after ruling on some, the result is **undetermined** and the unruled pairs are open.
 
 Unless the result is **no key assumption found**, the record always says:
 
