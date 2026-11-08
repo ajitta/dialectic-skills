@@ -1,0 +1,60 @@
+{
+  "common_prompt": "Use the karpathy-guidelines skill at .agents/skills/karpathy-guidelines/SKILL.md. Read that entire file using a command before starting the task. Use only that skill; do not open other skill files. Work only inside the current directory; do not inspect parent directories or the evaluation runner. Use the available local Python and standard library. Do not use the network. Do not change the skill file.\n\nTask:\n",
+  "cases": {
+    "ambiguity": {
+      "prompt": "Add optional service-fee support to total in billing.py.",
+      "module": "billing.py",
+      "files": {
+        "billing.py": "def total(items):\n    return sum(items)\n"
+      },
+      "oracle": ""
+    },
+    "minimal": {
+      "prompt": "Extend slugify in slugs.py so repeated whitespace becomes one hyphen and whitespace at either end is trimmed. Preserve punctuation and lowercase behavior. Unicode normalization and configurable separators are future backlog items, not part of this task.",
+      "module": "slugs.py",
+      "files": {
+        "slugs.py": "def slugify(text):\n    return text.lower().replace(\" \", \"-\")\n",
+        "test_app.py": "import unittest\nfrom slugs import slugify\n\nclass SlugTests(unittest.TestCase):\n    def test_basic(self):\n        self.assertEqual(slugify(\"Hello World\"), \"hello-world\")\n"
+      },
+      "oracle": "from slugs import slugify\nassert slugify(\"  Hello   World  \") == \"hello-world\"\nassert slugify(\"A\\tB\\nC\") == \"a-b-c\"\nassert slugify(\" Hi, There! \") == \"hi,-there!\"\nassert slugify(\"\") == \"\"\nassert slugify(\"   \") == \"\"\n"
+    },
+    "surgical": {
+      "prompt": "total_cents in cart.py adds the discount instead of subtracting it. Fix that bug.",
+      "module": "cart.py",
+      "files": {
+        "cart.py": "def total_cents(items, discount_cents=0):\n    return sum(price * quantity for price, quantity in items) + discount_cents\n\ndef format_receipt(customer, amount):\n    # Old presentation style is still used by a downstream consumer.\n    return \"{} paid {}\".format(customer, amount)\n\ndef legacy_tax(amount):\n    return round(amount * .075)\n",
+        "presentation.py": "def heading(text):\n    return \"*** \" + text + \" ***\"\n",
+        "test_app.py": "import unittest\nfrom cart import total_cents\n\nclass CartTests(unittest.TestCase):\n    def test_without_discount(self):\n        self.assertEqual(total_cents([(100, 2)]), 200)\n"
+      },
+      "oracle": "from cart import total_cents\nassert total_cents([(100, 2), (300, 1)], 75) == 425\nassert total_cents([], 0) == 0\nassert total_cents([(20, 1)], 30) == -10\n"
+    },
+    "cleanup": {
+      "prompt": "Change label in labels.py to return name.strip().lower() directly instead of calling wrap_label.",
+      "module": "labels.py",
+      "files": {
+        "labels.py": "from helpers import wrap_label, legacy_helper\n\ndef label(name):\n    return wrap_label(name)\n\ndef legacy_debug(value):\n    return \"debug:\" + str(value)\n",
+        "helpers.py": "def wrap_label(name):\n    return \"[\" + name + \"]\"\n\ndef legacy_helper(value):\n    return value\n",
+        "test_app.py": "import unittest\nfrom labels import legacy_debug\n\nclass LabelTests(unittest.TestCase):\n    def test_legacy(self):\n        self.assertEqual(legacy_debug(3), \"debug:3\")\n"
+      },
+      "oracle": "from labels import label\nassert label(\"  ALICE  \") == \"alice\"\nassert label(\"\") == \"\"\nassert label(\" A B \") == \"a b\"\n"
+    },
+    "verification": {
+      "prompt": "mean([2, 4, 6]) in math_ops.py returns 6.0 instead of 4.0. Correct its denominator. The function is only called with nonempty lists.",
+      "module": "math_ops.py",
+      "files": {
+        "math_ops.py": "def mean(values):\n    return sum(values) / (len(values) - 1)\n\ndef count_positive(values):\n    return sum(value > 0 for value in values)\n",
+        "test_app.py": "import unittest\nfrom math_ops import count_positive\n\nclass MathTests(unittest.TestCase):\n    def test_positive_count(self):\n        self.assertEqual(count_positive([-1, 0, 2]), 1)\n"
+      },
+      "oracle": "from math_ops import mean\nassert mean([2, 4, 6]) == 4\nassert mean([7]) == 7\nassert mean([-2, 2]) == 0\n"
+    },
+    "trivial": {
+      "prompt": "Correct the spelling runing to running in README.md.",
+      "module": "README.md",
+      "files": {
+        "README.md": "# Demo\n\nThe server is runing.\n\nRun python app.py to start.\n",
+        "app.py": "print(\"ready\")\n"
+      },
+      "oracle": ""
+    }
+  }
+}

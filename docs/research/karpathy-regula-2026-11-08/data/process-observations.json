@@ -1,0 +1,1328 @@
+{
+  "method": "Exploratory, post-hoc coding of public messages and executed commands. Mid-messages checked before source mutation. No new model runs. Only eligible completed runs included; pilot and follow-up separate.",
+  "groups": [
+    {
+      "phase": "pilot",
+      "case": "ambiguity",
+      "arm": "original",
+      "n": 3,
+      "middle": 0,
+      "nonempty": 0,
+      "legacy": 0,
+      "test_file": 0,
+      "read_tests": 0,
+      "suite": 0,
+      "wrong_before": 0,
+      "red_before": 0,
+      "mean_reproduced_before_fix": 0,
+      "expected_failure_before_fix_any_task": 0
+    },
+    {
+      "phase": "pilot",
+      "case": "ambiguity",
+      "arm": "revised",
+      "n": 3,
+      "middle": 0,
+      "nonempty": 0,
+      "legacy": 0,
+      "test_file": 0,
+      "read_tests": 0,
+      "suite": 0,
+      "wrong_before": 0,
+      "red_before": 0,
+      "mean_reproduced_before_fix": 0,
+      "expected_failure_before_fix_any_task": 0
+    },
+    {
+      "phase": "pilot",
+      "case": "minimal",
+      "arm": "original",
+      "n": 3,
+      "middle": 3,
+      "nonempty": 0,
+      "legacy": 0,
+      "test_file": 2,
+      "read_tests": 3,
+      "suite": 3,
+      "wrong_before": 0,
+      "red_before": 0,
+      "mean_reproduced_before_fix": 0,
+      "expected_failure_before_fix_any_task": 1
+    },
+    {
+      "phase": "pilot",
+      "case": "minimal",
+      "arm": "revised",
+      "n": 3,
+      "middle": 3,
+      "nonempty": 0,
+      "legacy": 0,
+      "test_file": 3,
+      "read_tests": 3,
+      "suite": 3,
+      "wrong_before": 0,
+      "red_before": 0,
+      "mean_reproduced_before_fix": 0,
+      "expected_failure_before_fix_any_task": 2
+    },
+    {
+      "phase": "pilot",
+      "case": "surgical",
+      "arm": "original",
+      "n": 3,
+      "middle": 1,
+      "nonempty": 0,
+      "legacy": 0,
+      "test_file": 2,
+      "read_tests": 3,
+      "suite": 3,
+      "wrong_before": 0,
+      "red_before": 0,
+      "mean_reproduced_before_fix": 0,
+      "expected_failure_before_fix_any_task": 3
+    },
+    {
+      "phase": "pilot",
+      "case": "surgical",
+      "arm": "revised",
+      "n": 3,
+      "middle": 3,
+      "nonempty": 0,
+      "legacy": 0,
+      "test_file": 3,
+      "read_tests": 3,
+      "suite": 3,
+      "wrong_before": 0,
+      "red_before": 0,
+      "mean_reproduced_before_fix": 0,
+      "expected_failure_before_fix_any_task": 3
+    },
+    {
+      "phase": "pilot",
+      "case": "cleanup",
+      "arm": "original",
+      "n": 3,
+      "middle": 0,
+      "nonempty": 0,
+      "legacy": 0,
+      "test_file": 0,
+      "read_tests": 0,
+      "suite": 0,
+      "wrong_before": 0,
+      "red_before": 0,
+      "mean_reproduced_before_fix": 0,
+      "expected_failure_before_fix_any_task": 0
+    },
+    {
+      "phase": "pilot",
+      "case": "cleanup",
+      "arm": "revised",
+      "n": 3,
+      "middle": 3,
+      "nonempty": 0,
+      "legacy": 2,
+      "test_file": 0,
+      "read_tests": 2,
+      "suite": 2,
+      "wrong_before": 0,
+      "red_before": 0,
+      "mean_reproduced_before_fix": 0,
+      "expected_failure_before_fix_any_task": 0
+    },
+    {
+      "phase": "pilot",
+      "case": "verification",
+      "arm": "original",
+      "n": 3,
+      "middle": 0,
+      "nonempty": 0,
+      "legacy": 0,
+      "test_file": 0,
+      "read_tests": 0,
+      "suite": 0,
+      "wrong_before": 1,
+      "red_before": 1,
+      "mean_reproduced_before_fix": 2,
+      "expected_failure_before_fix_any_task": 1
+    },
+    {
+      "phase": "pilot",
+      "case": "verification",
+      "arm": "revised",
+      "n": 3,
+      "middle": 3,
+      "nonempty": 3,
+      "legacy": 0,
+      "test_file": 0,
+      "read_tests": 0,
+      "suite": 0,
+      "wrong_before": 3,
+      "red_before": 0,
+      "mean_reproduced_before_fix": 3,
+      "expected_failure_before_fix_any_task": 0
+    },
+    {
+      "phase": "pilot",
+      "case": "trivial",
+      "arm": "original",
+      "n": 3,
+      "middle": 0,
+      "nonempty": 0,
+      "legacy": 0,
+      "test_file": 0,
+      "read_tests": 0,
+      "suite": 0,
+      "wrong_before": 0,
+      "red_before": 0,
+      "mean_reproduced_before_fix": 0,
+      "expected_failure_before_fix_any_task": 0
+    },
+    {
+      "phase": "pilot",
+      "case": "trivial",
+      "arm": "revised",
+      "n": 3,
+      "middle": 0,
+      "nonempty": 0,
+      "legacy": 0,
+      "test_file": 0,
+      "read_tests": 0,
+      "suite": 0,
+      "wrong_before": 0,
+      "red_before": 0,
+      "mean_reproduced_before_fix": 0,
+      "expected_failure_before_fix_any_task": 0
+    },
+    {
+      "phase": "confirm",
+      "case": "verification",
+      "arm": "original",
+      "n": 6,
+      "middle": 0,
+      "nonempty": 0,
+      "legacy": 0,
+      "test_file": 0,
+      "read_tests": 1,
+      "suite": 1,
+      "wrong_before": 5,
+      "red_before": 0,
+      "mean_reproduced_before_fix": 5,
+      "expected_failure_before_fix_any_task": 0
+    },
+    {
+      "phase": "confirm",
+      "case": "verification",
+      "arm": "revised",
+      "n": 5,
+      "middle": 5,
+      "nonempty": 5,
+      "legacy": 0,
+      "test_file": 0,
+      "read_tests": 0,
+      "suite": 0,
+      "wrong_before": 4,
+      "red_before": 0,
+      "mean_reproduced_before_fix": 4,
+      "expected_failure_before_fix_any_task": 0
+    }
+  ],
+  "rows": [
+    {
+      "run_id": "confirm-verification-02-revised",
+      "phase": "confirm",
+      "case": "verification",
+      "arm": "revised",
+      "pre_action_policy_message": true,
+      "middle_messages": [
+        "The denominator is `len(values) - 1`; it should be `len(values)`. Since inputs are always nonempty, I’ll change only that expression and verify that `mean([2, 4, 6])` returns `4.0`."
+      ],
+      "explicit_nonempty_condition": true,
+      "explicit_legacy_boundary": false,
+      "persistent_test_change": false,
+      "existing_test_file_read": false,
+      "helpers_file_read": false,
+      "successful_suite_run": false,
+      "mean_wrong_value_check_before_fix": true,
+      "mean_expected_value_failure_before_fix": false,
+      "public_messages": [
+        "I’ll read the specified skill, check `math_ops.py`, and correct the denominator.",
+        "The denominator is `len(values) - 1`; it should be `len(values)`. Since inputs are always nonempty, I’ll change only that expression and verify that `mean([2, 4, 6])` returns `4.0`.",
+        "Corrected `math_ops.py` to divide by `len(values)`. Verified `mean([2, 4, 6]) == 4.0` and single-element input works."
+      ],
+      "expected_failure_before_fix_any_task": false,
+      "mean_bug_reproduction_before_fix": true
+    },
+    {
+      "run_id": "confirm-verification-03-original",
+      "phase": "confirm",
+      "case": "verification",
+      "arm": "original",
+      "pre_action_policy_message": false,
+      "middle_messages": [],
+      "explicit_nonempty_condition": false,
+      "explicit_legacy_boundary": false,
+      "persistent_test_change": false,
+      "existing_test_file_read": false,
+      "helpers_file_read": false,
+      "successful_suite_run": false,
+      "mean_wrong_value_check_before_fix": false,
+      "mean_expected_value_failure_before_fix": false,
+      "public_messages": [
+        "I’ll read the requested skill, correct the denominator, and verify the result with local Python.",
+        "Changed the denominator in `math_ops.py` to `len(values)`.\n\nVerified with local Python: `mean([2, 4, 6]) == 4.0` and `mean([5]) == 5.0`."
+      ],
+      "expected_failure_before_fix_any_task": false,
+      "mean_bug_reproduction_before_fix": false
+    },
+    {
+      "run_id": "confirm-verification-03-revised",
+      "phase": "confirm",
+      "case": "verification",
+      "arm": "revised",
+      "pre_action_policy_message": true,
+      "middle_messages": [
+        "The denominator is `len(values) - 1`; it should be `len(values)`. Given the nonempty-list constraint, I’ll change only that expression and verify the reported example and a single-item list."
+      ],
+      "explicit_nonempty_condition": true,
+      "explicit_legacy_boundary": false,
+      "persistent_test_change": false,
+      "existing_test_file_read": false,
+      "helpers_file_read": false,
+      "successful_suite_run": false,
+      "mean_wrong_value_check_before_fix": true,
+      "mean_expected_value_failure_before_fix": false,
+      "public_messages": [
+        "I’ll read the requested skill, then check `math_ops.py` and correct the denominator.",
+        "The denominator is `len(values) - 1`; it should be `len(values)`. Given the nonempty-list constraint, I’ll change only that expression and verify the reported example and a single-item list.",
+        "Changed the denominator in `math_ops.py` to `len(values)`.\n\nVerified `mean([2, 4, 6]) == 4.0` and `mean([7]) == 7.0`."
+      ],
+      "expected_failure_before_fix_any_task": false,
+      "mean_bug_reproduction_before_fix": true
+    },
+    {
+      "run_id": "confirm-verification-04-revised",
+      "phase": "confirm",
+      "case": "verification",
+      "arm": "revised",
+      "pre_action_policy_message": true,
+      "middle_messages": [
+        "The denominator is `len(values) - 1`; I’ll change it to `len(values)`. Given the nonempty-list guarantee, I’ll check the reported example and a single-element list."
+      ],
+      "explicit_nonempty_condition": true,
+      "explicit_legacy_boundary": false,
+      "persistent_test_change": false,
+      "existing_test_file_read": false,
+      "helpers_file_read": false,
+      "successful_suite_run": false,
+      "mean_wrong_value_check_before_fix": true,
+      "mean_expected_value_failure_before_fix": false,
+      "public_messages": [
+        "I’ll read the specified karpathy-guidelines skill, then fix the denominator and check the result with local Python.",
+        "The denominator is `len(values) - 1`; I’ll change it to `len(values)`. Given the nonempty-list guarantee, I’ll check the reported example and a single-element list.",
+        "Changed the denominator in `math_ops.py` to `len(values)`. Verified `mean([2, 4, 6]) == 4.0` and `mean([5]) == 5.0`."
+      ],
+      "expected_failure_before_fix_any_task": false,
+      "mean_bug_reproduction_before_fix": true
+    },
+    {
+      "run_id": "confirm-verification-05-original",
+      "phase": "confirm",
+      "case": "verification",
+      "arm": "original",
+      "pre_action_policy_message": false,
+      "middle_messages": [],
+      "explicit_nonempty_condition": false,
+      "explicit_legacy_boundary": false,
+      "persistent_test_change": false,
+      "existing_test_file_read": false,
+      "helpers_file_read": false,
+      "successful_suite_run": false,
+      "mean_wrong_value_check_before_fix": true,
+      "mean_expected_value_failure_before_fix": false,
+      "public_messages": [
+        "I’ll read the requested karpathy-guidelines skill, then check and fix the denominator in `math_ops.py`.",
+        "Changed the denominator in `math_ops.py` from `len(values) - 1` to `len(values)`.\n\nVerified `mean([2, 4, 6]) == 4.0`, plus singleton and mixed-sign inputs."
+      ],
+      "expected_failure_before_fix_any_task": false,
+      "mean_bug_reproduction_before_fix": true
+    },
+    {
+      "run_id": "confirm-verification-06-original",
+      "phase": "confirm",
+      "case": "verification",
+      "arm": "original",
+      "pre_action_policy_message": false,
+      "middle_messages": [],
+      "explicit_nonempty_condition": false,
+      "explicit_legacy_boundary": false,
+      "persistent_test_change": false,
+      "existing_test_file_read": true,
+      "helpers_file_read": false,
+      "successful_suite_run": true,
+      "mean_wrong_value_check_before_fix": true,
+      "mean_expected_value_failure_before_fix": false,
+      "public_messages": [
+        "I’ll read the requested karpathy-guidelines skill, then correct the denominator in `math_ops.py` and check the result with local Python.",
+        "Changed the denominator in `math_ops.py` to `len(values)`.\n\nVerified `mean([2, 4, 6]) == 4.0` and single-element input. Existing tests pass."
+      ],
+      "expected_failure_before_fix_any_task": false,
+      "mean_bug_reproduction_before_fix": true
+    },
+    {
+      "run_id": "confirm-verification-07-original",
+      "phase": "confirm",
+      "case": "verification",
+      "arm": "original",
+      "pre_action_policy_message": false,
+      "middle_messages": [],
+      "explicit_nonempty_condition": false,
+      "explicit_legacy_boundary": false,
+      "persistent_test_change": false,
+      "existing_test_file_read": false,
+      "helpers_file_read": false,
+      "successful_suite_run": false,
+      "mean_wrong_value_check_before_fix": true,
+      "mean_expected_value_failure_before_fix": false,
+      "public_messages": [
+        "I’ll read the specified karpathy-guidelines skill, then check and fix the denominator in `math_ops.py`.",
+        "Changed `mean` in `math_ops.py` to divide by `len(values)`.\n\nVerified `mean([2, 4, 6]) == 4.0`, plus singleton and mixed-sign cases."
+      ],
+      "expected_failure_before_fix_any_task": false,
+      "mean_bug_reproduction_before_fix": true
+    },
+    {
+      "run_id": "confirm-verification-07-revised",
+      "phase": "confirm",
+      "case": "verification",
+      "arm": "revised",
+      "pre_action_policy_message": true,
+      "middle_messages": [
+        "The denominator is `len(values) - 1`; I’ll change it to `len(values)`. Since inputs are always nonempty, no extra handling is needed. I’ll verify the reported example and a single-item list."
+      ],
+      "explicit_nonempty_condition": true,
+      "explicit_legacy_boundary": false,
+      "persistent_test_change": false,
+      "existing_test_file_read": false,
+      "helpers_file_read": false,
+      "successful_suite_run": false,
+      "mean_wrong_value_check_before_fix": false,
+      "mean_expected_value_failure_before_fix": false,
+      "public_messages": [
+        "I’ll read the requested karpathy-guidelines skill, then fix the denominator and check the example locally.",
+        "The denominator is `len(values) - 1`; I’ll change it to `len(values)`. Since inputs are always nonempty, no extra handling is needed. I’ll verify the reported example and a single-item list.",
+        "Fixed `math_ops.py` to divide by `len(values)`.\n\nVerified `mean([2, 4, 6]) == 4.0` and `mean([5]) == 5.0`."
+      ],
+      "expected_failure_before_fix_any_task": false,
+      "mean_bug_reproduction_before_fix": false
+    },
+    {
+      "run_id": "confirm-verification-08-original",
+      "phase": "confirm",
+      "case": "verification",
+      "arm": "original",
+      "pre_action_policy_message": false,
+      "middle_messages": [],
+      "explicit_nonempty_condition": false,
+      "explicit_legacy_boundary": false,
+      "persistent_test_change": false,
+      "existing_test_file_read": false,
+      "helpers_file_read": false,
+      "successful_suite_run": false,
+      "mean_wrong_value_check_before_fix": true,
+      "mean_expected_value_failure_before_fix": false,
+      "public_messages": [
+        "I’ll read the requested karpathy-guidelines skill, then inspect `math_ops.py` and correct the denominator.",
+        "Changed the denominator in `math_ops.py` to `len(values)`. Verified `mean([2, 4, 6]) == 4.0`, plus singleton and mixed-sign cases."
+      ],
+      "expected_failure_before_fix_any_task": false,
+      "mean_bug_reproduction_before_fix": true
+    },
+    {
+      "run_id": "confirm-verification-08-revised",
+      "phase": "confirm",
+      "case": "verification",
+      "arm": "revised",
+      "pre_action_policy_message": true,
+      "middle_messages": [
+        "The denominator is `len(values) - 1`; it should be `len(values)`. Since inputs are always nonempty, I’ll change only that expression and verify the reported example and a single-item list."
+      ],
+      "explicit_nonempty_condition": true,
+      "explicit_legacy_boundary": false,
+      "persistent_test_change": false,
+      "existing_test_file_read": false,
+      "helpers_file_read": false,
+      "successful_suite_run": false,
+      "mean_wrong_value_check_before_fix": true,
+      "mean_expected_value_failure_before_fix": false,
+      "public_messages": [
+        "I’ll read the requested karpathy-guidelines skill, then fix the denominator and check the result locally.",
+        "The denominator is `len(values) - 1`; it should be `len(values)`. Since inputs are always nonempty, I’ll change only that expression and verify the reported example and a single-item list.",
+        "Corrected `math_ops.py` to divide by `len(values)`. Verified `mean([2, 4, 6]) == 4.0` and a single-item list."
+      ],
+      "expected_failure_before_fix_any_task": false,
+      "mean_bug_reproduction_before_fix": true
+    },
+    {
+      "run_id": "confirm-verification-11-original",
+      "phase": "confirm",
+      "case": "verification",
+      "arm": "original",
+      "pre_action_policy_message": false,
+      "middle_messages": [],
+      "explicit_nonempty_condition": false,
+      "explicit_legacy_boundary": false,
+      "persistent_test_change": false,
+      "existing_test_file_read": false,
+      "helpers_file_read": false,
+      "successful_suite_run": false,
+      "mean_wrong_value_check_before_fix": true,
+      "mean_expected_value_failure_before_fix": false,
+      "public_messages": [
+        "I’ll read the specified karpathy-guidelines skill, then fix the denominator and verify the result locally.",
+        "Fixed `math_ops.py` to divide by `len(values)`. Verified `mean([2, 4, 6]) == 4.0`, plus single-element and mixed-sign cases."
+      ],
+      "expected_failure_before_fix_any_task": false,
+      "mean_bug_reproduction_before_fix": true
+    },
+    {
+      "run_id": "pilot-ambiguity-01-original",
+      "phase": "pilot",
+      "case": "ambiguity",
+      "arm": "original",
+      "pre_action_policy_message": false,
+      "middle_messages": [],
+      "explicit_nonempty_condition": false,
+      "explicit_legacy_boundary": false,
+      "persistent_test_change": false,
+      "existing_test_file_read": false,
+      "helpers_file_read": false,
+      "successful_suite_run": false,
+      "mean_wrong_value_check_before_fix": false,
+      "mean_expected_value_failure_before_fix": false,
+      "public_messages": [
+        "I’ll read the requested karpathy-guidelines skill, then inspect `billing.py` and any local tests before making the change.",
+        "Should the optional service fee be a flat amount added to `sum(items)`, or a percentage of it? I’ll preserve the current behavior when no fee is supplied."
+      ],
+      "expected_failure_before_fix_any_task": false,
+      "mean_bug_reproduction_before_fix": false
+    },
+    {
+      "run_id": "pilot-ambiguity-01-revised",
+      "phase": "pilot",
+      "case": "ambiguity",
+      "arm": "revised",
+      "pre_action_policy_message": false,
+      "middle_messages": [],
+      "explicit_nonempty_condition": false,
+      "explicit_legacy_boundary": false,
+      "persistent_test_change": false,
+      "existing_test_file_read": false,
+      "helpers_file_read": false,
+      "successful_suite_run": false,
+      "mean_wrong_value_check_before_fix": false,
+      "mean_expected_value_failure_before_fix": false,
+      "public_messages": [
+        "I’ll read the requested skill, then inspect `billing.py` and any local tests to determine how to add the optional fee.\n",
+        "Should the optional service fee be a fixed amount added to `sum(items)`, or a percentage of the subtotal?"
+      ],
+      "expected_failure_before_fix_any_task": false,
+      "mean_bug_reproduction_before_fix": false
+    },
+    {
+      "run_id": "pilot-ambiguity-02-original",
+      "phase": "pilot",
+      "case": "ambiguity",
+      "arm": "original",
+      "pre_action_policy_message": false,
+      "middle_messages": [],
+      "explicit_nonempty_condition": false,
+      "explicit_legacy_boundary": false,
+      "persistent_test_change": false,
+      "existing_test_file_read": false,
+      "helpers_file_read": false,
+      "successful_suite_run": false,
+      "mean_wrong_value_check_before_fix": false,
+      "mean_expected_value_failure_before_fix": false,
+      "public_messages": [
+        "I’ll read the full karpathy-guidelines skill, then inspect `billing.py` and any local tests before making the change.",
+        "Should `service_fee` be a fixed amount added to the total, or a percentage of the subtotal? I’ll default it to zero so existing calls keep their current behavior."
+      ],
+      "expected_failure_before_fix_any_task": false,
+      "mean_bug_reproduction_before_fix": false
+    },
+    {
+      "run_id": "pilot-ambiguity-02-revised",
+      "phase": "pilot",
+      "case": "ambiguity",
+      "arm": "revised",
+      "pre_action_policy_message": false,
+      "middle_messages": [],
+      "explicit_nonempty_condition": false,
+      "explicit_legacy_boundary": false,
+      "persistent_test_change": false,
+      "existing_test_file_read": false,
+      "helpers_file_read": false,
+      "successful_suite_run": false,
+      "mean_wrong_value_check_before_fix": false,
+      "mean_expected_value_failure_before_fix": false,
+      "public_messages": [
+        "I’ll read the requested skill, then check `billing.py` and the local tests to see how to add the optional fee.",
+        "Should the optional service fee be a fixed amount added to `sum(items)`, or a percentage of that subtotal? Omitting it will preserve the current behavior."
+      ],
+      "expected_failure_before_fix_any_task": false,
+      "mean_bug_reproduction_before_fix": false
+    },
+    {
+      "run_id": "pilot-ambiguity-03-original",
+      "phase": "pilot",
+      "case": "ambiguity",
+      "arm": "original",
+      "pre_action_policy_message": false,
+      "middle_messages": [],
+      "explicit_nonempty_condition": false,
+      "explicit_legacy_boundary": false,
+      "persistent_test_change": false,
+      "existing_test_file_read": false,
+      "helpers_file_read": false,
+      "successful_suite_run": false,
+      "mean_wrong_value_check_before_fix": false,
+      "mean_expected_value_failure_before_fix": false,
+      "public_messages": [
+        "I’ll read the requested karpathy-guidelines skill, then inspect `billing.py` and any local tests to determine how the optional service fee should work.",
+        "Should `total` accept the service fee as a fixed amount or a percentage of the subtotal? Omitting it would preserve the current behavior."
+      ],
+      "expected_failure_before_fix_any_task": false,
+      "mean_bug_reproduction_before_fix": false
+    },
+    {
+      "run_id": "pilot-ambiguity-03-revised",
+      "phase": "pilot",
+      "case": "ambiguity",
+      "arm": "revised",
+      "pre_action_policy_message": false,
+      "middle_messages": [],
+      "explicit_nonempty_condition": false,
+      "explicit_legacy_boundary": false,
+      "persistent_test_change": false,
+      "existing_test_file_read": false,
+      "helpers_file_read": false,
+      "successful_suite_run": false,
+      "mean_wrong_value_check_before_fix": false,
+      "mean_expected_value_failure_before_fix": false,
+      "public_messages": [
+        "I’ll read the requested skill, then check `billing.py` and its local tests to see how to add the optional fee.",
+        "Should the service fee be a fixed amount added once (`total(items, service_fee=0)`), or a percentage of the subtotal?"
+      ],
+      "expected_failure_before_fix_any_task": false,
+      "mean_bug_reproduction_before_fix": false
+    },
+    {
+      "run_id": "pilot-cleanup-01-original",
+      "phase": "pilot",
+      "case": "cleanup",
+      "arm": "original",
+      "pre_action_policy_message": false,
+      "middle_messages": [],
+      "explicit_nonempty_condition": false,
+      "explicit_legacy_boundary": false,
+      "persistent_test_change": false,
+      "existing_test_file_read": false,
+      "helpers_file_read": false,
+      "successful_suite_run": false,
+      "mean_wrong_value_check_before_fix": false,
+      "mean_expected_value_failure_before_fix": false,
+      "public_messages": [
+        "I’ll read the requested skill, make the change in `labels.py`, and verify it locally.",
+        "Updated `labels.py` so `label` returns `name.strip().lower()` directly. Removed the unused `wrap_label` import. Verified the return expression and behavior with local Python checks."
+      ],
+      "expected_failure_before_fix_any_task": false,
+      "mean_bug_reproduction_before_fix": false
+    },
+    {
+      "run_id": "pilot-cleanup-01-revised",
+      "phase": "pilot",
+      "case": "cleanup",
+      "arm": "revised",
+      "pre_action_policy_message": true,
+      "middle_messages": [
+        "I’ll return the normalized string directly and remove the now-unused `wrap_label` import. I’ll leave the existing `legacy_helper` import and `legacy_debug` function alone, then verify whitespace trimming and lowercase conversion."
+      ],
+      "explicit_nonempty_condition": false,
+      "explicit_legacy_boundary": true,
+      "persistent_test_change": false,
+      "existing_test_file_read": true,
+      "helpers_file_read": true,
+      "successful_suite_run": true,
+      "mean_wrong_value_check_before_fix": false,
+      "mean_expected_value_failure_before_fix": false,
+      "public_messages": [
+        "I’ll read the requested skill, then make the change in `labels.py` and check it locally.",
+        "I’ll return the normalized string directly and remove the now-unused `wrap_label` import. I’ll leave the existing `legacy_helper` import and `legacy_debug` function alone, then verify whitespace trimming and lowercase conversion.",
+        "Updated `labels.py` so `label` returns `name.strip().lower()` directly. Removed the unused `wrap_label` import.\n\nThe existing unit test and direct normalization checks passed."
+      ],
+      "expected_failure_before_fix_any_task": false,
+      "mean_bug_reproduction_before_fix": false
+    },
+    {
+      "run_id": "pilot-cleanup-02-original",
+      "phase": "pilot",
+      "case": "cleanup",
+      "arm": "original",
+      "pre_action_policy_message": false,
+      "middle_messages": [],
+      "explicit_nonempty_condition": false,
+      "explicit_legacy_boundary": false,
+      "persistent_test_change": false,
+      "existing_test_file_read": false,
+      "helpers_file_read": false,
+      "successful_suite_run": false,
+      "mean_wrong_value_check_before_fix": false,
+      "mean_expected_value_failure_before_fix": false,
+      "public_messages": [
+        "I’ll read the requested karpathy-guidelines skill, then make the change in `labels.py` and verify it locally.",
+        "Updated `labels.py` so `label` returns `name.strip().lower()` directly. Removed the unused `wrap_label` import.\n\nVerified whitespace trimming, lowercasing, and empty inputs with local Python."
+      ],
+      "expected_failure_before_fix_any_task": false,
+      "mean_bug_reproduction_before_fix": false
+    },
+    {
+      "run_id": "pilot-cleanup-02-revised",
+      "phase": "pilot",
+      "case": "cleanup",
+      "arm": "revised",
+      "pre_action_policy_message": true,
+      "middle_messages": [
+        "I’ll change the return expression and remove `wrap_label` from the import. I’ll leave the existing unused `legacy_helper` import in place and check that `label` strips whitespace and lowercases the name."
+      ],
+      "explicit_nonempty_condition": false,
+      "explicit_legacy_boundary": true,
+      "persistent_test_change": false,
+      "existing_test_file_read": false,
+      "helpers_file_read": false,
+      "successful_suite_run": false,
+      "mean_wrong_value_check_before_fix": false,
+      "mean_expected_value_failure_before_fix": false,
+      "public_messages": [
+        "I’ll read the requested karpathy-guidelines skill, then make the change in `labels.py`.",
+        "I’ll change the return expression and remove `wrap_label` from the import. I’ll leave the existing unused `legacy_helper` import in place and check that `label` strips whitespace and lowercases the name.",
+        "Updated `labels.py` so `label` returns `name.strip().lower()` directly. Removed the unused `wrap_label` import.\n\nSyntax and behavior checks passed."
+      ],
+      "expected_failure_before_fix_any_task": false,
+      "mean_bug_reproduction_before_fix": false
+    },
+    {
+      "run_id": "pilot-cleanup-03-original",
+      "phase": "pilot",
+      "case": "cleanup",
+      "arm": "original",
+      "pre_action_policy_message": false,
+      "middle_messages": [],
+      "explicit_nonempty_condition": false,
+      "explicit_legacy_boundary": false,
+      "persistent_test_change": false,
+      "existing_test_file_read": false,
+      "helpers_file_read": false,
+      "successful_suite_run": false,
+      "mean_wrong_value_check_before_fix": false,
+      "mean_expected_value_failure_before_fix": false,
+      "public_messages": [
+        "I’ll read the requested karpathy-guidelines skill, then update `labels.py` and check the change locally.",
+        "Updated `labels.py` so `label` returns `name.strip().lower()` directly. Removed the unused `wrap_label` import.\n\nSyntax validation and four behavior checks passed."
+      ],
+      "expected_failure_before_fix_any_task": false,
+      "mean_bug_reproduction_before_fix": false
+    },
+    {
+      "run_id": "pilot-cleanup-03-revised",
+      "phase": "pilot",
+      "case": "cleanup",
+      "arm": "revised",
+      "pre_action_policy_message": true,
+      "middle_messages": [
+        "I’ll change the return expression and remove the now-unused `wrap_label` import, then verify that `label` strips whitespace and lowercases the name."
+      ],
+      "explicit_nonempty_condition": false,
+      "explicit_legacy_boundary": false,
+      "persistent_test_change": false,
+      "existing_test_file_read": true,
+      "helpers_file_read": true,
+      "successful_suite_run": true,
+      "mean_wrong_value_check_before_fix": false,
+      "mean_expected_value_failure_before_fix": false,
+      "public_messages": [
+        "I’ll read the requested karpathy-guidelines skill, then update `labels.py` and check the change locally.",
+        "I’ll change the return expression and remove the now-unused `wrap_label` import, then verify that `label` strips whitespace and lowercases the name.",
+        "Updated `labels.py` so `label` returns `name.strip().lower()` directly. Removed the unused `wrap_label` import; left pre-existing unused code unchanged.\n\nExisting test and direct behavior checks passed."
+      ],
+      "expected_failure_before_fix_any_task": false,
+      "mean_bug_reproduction_before_fix": false
+    },
+    {
+      "run_id": "pilot-minimal-01-original",
+      "phase": "pilot",
+      "case": "minimal",
+      "arm": "original",
+      "pre_action_policy_message": true,
+      "middle_messages": [
+        "I’ll treat whitespace as Python’s `str.split()` does, including spaces, tabs, and newlines. Joining those words with hyphens will trim the ends and collapse repeated whitespace while preserving punctuation and lowercasing."
+      ],
+      "explicit_nonempty_condition": false,
+      "explicit_legacy_boundary": false,
+      "persistent_test_change": true,
+      "existing_test_file_read": true,
+      "helpers_file_read": false,
+      "successful_suite_run": true,
+      "mean_wrong_value_check_before_fix": false,
+      "mean_expected_value_failure_before_fix": false,
+      "public_messages": [
+        "I’ll read the requested skill, update `slugify`, and check the whitespace behavior with local Python.",
+        "I’ll treat whitespace as Python’s `str.split()` does, including spaces, tabs, and newlines. Joining those words with hyphens will trim the ends and collapse repeated whitespace while preserving punctuation and lowercasing.",
+        "Updated `slugify` to trim surrounding whitespace and collapse whitespace runs into one hyphen, preserving punctuation and lowercasing.\n\nAll 4 tests pass with `python -m unittest -v`. The skill file is unchanged."
+      ],
+      "expected_failure_before_fix_any_task": false,
+      "mean_bug_reproduction_before_fix": false
+    },
+    {
+      "run_id": "pilot-minimal-01-revised",
+      "phase": "pilot",
+      "case": "minimal",
+      "arm": "revised",
+      "pre_action_policy_message": true,
+      "middle_messages": [
+        "I’m treating whitespace as spaces, tabs, and line breaks. Python’s `split()` handles both collapsing runs and trimming the ends, so this can be a one-line change. I’ll add regression tests for those cases, empty input, punctuation, and lowercasing, then run them with `unittest`."
+      ],
+      "explicit_nonempty_condition": false,
+      "explicit_legacy_boundary": false,
+      "persistent_test_change": true,
+      "existing_test_file_read": true,
+      "helpers_file_read": false,
+      "successful_suite_run": true,
+      "mean_wrong_value_check_before_fix": false,
+      "mean_expected_value_failure_before_fix": false,
+      "public_messages": [
+        "I’ll read the requested skill, update `slugify`, and check that whitespace is handled while punctuation and lowercasing stay the same.",
+        "I’m treating whitespace as spaces, tabs, and line breaks. Python’s `split()` handles both collapsing runs and trimming the ends, so this can be a one-line change. I’ll add regression tests for those cases, empty input, punctuation, and lowercasing, then run them with `unittest`.",
+        "Updated `slugify` to collapse repeated whitespace into one hyphen and trim surrounding whitespace, preserving punctuation and lowercase behavior.\n\nAdded regression tests; `python -m unittest -v` passes all 3 tests. Unicode normalization and configurable separators remain unchanged."
+      ],
+      "expected_failure_before_fix_any_task": true,
+      "mean_bug_reproduction_before_fix": false
+    },
+    {
+      "run_id": "pilot-minimal-02-original",
+      "phase": "pilot",
+      "case": "minimal",
+      "arm": "original",
+      "pre_action_policy_message": true,
+      "middle_messages": [
+        "I’ll treat whitespace as spaces, tabs, and newlines. Using `split()` and `join()` will collapse each run and trim both ends while preserving punctuation and lowercasing."
+      ],
+      "explicit_nonempty_condition": false,
+      "explicit_legacy_boundary": false,
+      "persistent_test_change": false,
+      "existing_test_file_read": true,
+      "helpers_file_read": false,
+      "successful_suite_run": true,
+      "mean_wrong_value_check_before_fix": false,
+      "mean_expected_value_failure_before_fix": false,
+      "public_messages": [
+        "I’ll read the requested skill, update `slugify`, and check the behavior using local Python.",
+        "I’ll treat whitespace as spaces, tabs, and newlines. Using `split()` and `join()` will collapse each run and trim both ends while preserving punctuation and lowercasing.",
+        "Updated `slugs.py` to trim surrounding whitespace and collapse repeated whitespace into one hyphen. Punctuation and lowercase behavior are preserved.\n\nVerified: existing unit test and six edge-case checks passed."
+      ],
+      "expected_failure_before_fix_any_task": false,
+      "mean_bug_reproduction_before_fix": false
+    },
+    {
+      "run_id": "pilot-minimal-02-revised",
+      "phase": "pilot",
+      "case": "minimal",
+      "arm": "revised",
+      "pre_action_policy_message": true,
+      "middle_messages": [
+        "I’m using Python’s standard whitespace handling, including spaces, tabs, and newlines. Splitting and joining will trim the ends and collapse each whitespace run into one hyphen. I’ll add regression cases for that behavior and verify punctuation and lowercasing still work."
+      ],
+      "explicit_nonempty_condition": false,
+      "explicit_legacy_boundary": false,
+      "persistent_test_change": true,
+      "existing_test_file_read": true,
+      "helpers_file_read": false,
+      "successful_suite_run": true,
+      "mean_wrong_value_check_before_fix": false,
+      "mean_expected_value_failure_before_fix": false,
+      "public_messages": [
+        "I’ll read the requested skill, update `slugify`, and check the whitespace behavior with local Python.",
+        "I’m using Python’s standard whitespace handling, including spaces, tabs, and newlines. Splitting and joining will trim the ends and collapse each whitespace run into one hyphen. I’ll add regression cases for that behavior and verify punctuation and lowercasing still work.",
+        "Updated `slugs.py` to trim surrounding whitespace and collapse repeated whitespace into one hyphen, preserving punctuation and lowercase behavior.\n\nAdded regression cases; `python -m unittest -v` passes both tests."
+      ],
+      "expected_failure_before_fix_any_task": false,
+      "mean_bug_reproduction_before_fix": false
+    },
+    {
+      "run_id": "pilot-minimal-03-original",
+      "phase": "pilot",
+      "case": "minimal",
+      "arm": "original",
+      "pre_action_policy_message": true,
+      "middle_messages": [
+        "I’ll treat whitespace as spaces, tabs, and newlines. Using `split()` and `\"-\".join(...)` will collapse and trim it while preserving punctuation and lowercasing. I’ll add regression tests for mixed whitespace, whitespace-only input, and punctuation."
+      ],
+      "explicit_nonempty_condition": false,
+      "explicit_legacy_boundary": false,
+      "persistent_test_change": true,
+      "existing_test_file_read": true,
+      "helpers_file_read": false,
+      "successful_suite_run": true,
+      "mean_wrong_value_check_before_fix": false,
+      "mean_expected_value_failure_before_fix": false,
+      "public_messages": [
+        "I’ll read the full karpathy-guidelines skill, then update `slugify` and verify the whitespace behavior with local Python checks.",
+        "I’ll treat whitespace as spaces, tabs, and newlines. Using `split()` and `\"-\".join(...)` will collapse and trim it while preserving punctuation and lowercasing. I’ll add regression tests for mixed whitespace, whitespace-only input, and punctuation.",
+        "Updated `slugs.py` to collapse repeated whitespace into one hyphen and trim surrounding whitespace, preserving punctuation and lowercase behavior.\n\nAdded regression tests; all 4 tests pass with `python -m unittest -v`."
+      ],
+      "expected_failure_before_fix_any_task": true,
+      "mean_bug_reproduction_before_fix": false
+    },
+    {
+      "run_id": "pilot-minimal-03-revised",
+      "phase": "pilot",
+      "case": "minimal",
+      "arm": "revised",
+      "pre_action_policy_message": true,
+      "middle_messages": [
+        "I’m applying the karpathy-guidelines skill. I’ll treat whitespace as spaces, tabs, and newlines; Python’s `split()` and `\"-\".join(...)` handle collapsing and trimming directly. I’ll add regression checks and verify that punctuation and lowercasing still behave as before."
+      ],
+      "explicit_nonempty_condition": false,
+      "explicit_legacy_boundary": false,
+      "persistent_test_change": true,
+      "existing_test_file_read": true,
+      "helpers_file_read": false,
+      "successful_suite_run": true,
+      "mean_wrong_value_check_before_fix": false,
+      "mean_expected_value_failure_before_fix": false,
+      "public_messages": [
+        "I’ll read the requested skill, update `slugify`, and check the whitespace, punctuation, and lowercase behavior locally.",
+        "I’m applying the karpathy-guidelines skill. I’ll treat whitespace as spaces, tabs, and newlines; Python’s `split()` and `\"-\".join(...)` handle collapsing and trimming directly. I’ll add regression checks and verify that punctuation and lowercasing still behave as before.",
+        "Updated `slugify` to collapse repeated whitespace into one hyphen and trim whitespace at both ends, preserving punctuation and lowercasing.\n\nAdded regression coverage; all 3 tests pass with `python -m unittest -v`."
+      ],
+      "expected_failure_before_fix_any_task": true,
+      "mean_bug_reproduction_before_fix": false
+    },
+    {
+      "run_id": "pilot-surgical-01-original",
+      "phase": "pilot",
+      "case": "surgical",
+      "arm": "original",
+      "pre_action_policy_message": true,
+      "middle_messages": [
+        "The existing test covers only the default discount of zero. I’ll add a case where a 50-cent discount reduces a 200-cent subtotal to 150 cents, confirm it fails, then change the operator."
+      ],
+      "explicit_nonempty_condition": false,
+      "explicit_legacy_boundary": false,
+      "persistent_test_change": true,
+      "existing_test_file_read": true,
+      "helpers_file_read": false,
+      "successful_suite_run": true,
+      "mean_wrong_value_check_before_fix": false,
+      "mean_expected_value_failure_before_fix": false,
+      "public_messages": [
+        "I’ll read the karpathy-guidelines skill, then check `cart.py` and make the targeted fix.",
+        "The existing test covers only the default discount of zero. I’ll add a case where a 50-cent discount reduces a 200-cent subtotal to 150 cents, confirm it fails, then change the operator.",
+        "Fixed `total_cents` in `cart.py` to subtract the discount. Added a regression test that reproduced the bug before the fix.\n\nValidation: `python -B -m unittest` — both tests pass."
+      ],
+      "expected_failure_before_fix_any_task": true,
+      "mean_bug_reproduction_before_fix": false
+    },
+    {
+      "run_id": "pilot-surgical-01-revised",
+      "phase": "pilot",
+      "case": "surgical",
+      "arm": "revised",
+      "pre_action_policy_message": true,
+      "middle_messages": [
+        "The bug is the `+ discount_cents` in `total_cents`. I’ll add a regression test showing that a 50-cent discount reduces a 200-cent cart to 150 cents, change the operator, and run the tests."
+      ],
+      "explicit_nonempty_condition": false,
+      "explicit_legacy_boundary": false,
+      "persistent_test_change": true,
+      "existing_test_file_read": true,
+      "helpers_file_read": false,
+      "successful_suite_run": true,
+      "mean_wrong_value_check_before_fix": false,
+      "mean_expected_value_failure_before_fix": false,
+      "public_messages": [
+        "I’ll read the requested skill, then fix the discount calculation and check it with local Python.",
+        "The bug is the `+ discount_cents` in `total_cents`. I’ll add a regression test showing that a 50-cent discount reduces a 200-cent cart to 150 cents, change the operator, and run the tests.",
+        "Fixed `total_cents` in `cart.py` to subtract the discount. Added a regression test in `test_app.py`.\n\nVerified with `python -m unittest -v`: both tests pass."
+      ],
+      "expected_failure_before_fix_any_task": true,
+      "mean_bug_reproduction_before_fix": false
+    },
+    {
+      "run_id": "pilot-surgical-02-original",
+      "phase": "pilot",
+      "case": "surgical",
+      "arm": "original",
+      "pre_action_policy_message": false,
+      "middle_messages": [],
+      "explicit_nonempty_condition": false,
+      "explicit_legacy_boundary": false,
+      "persistent_test_change": false,
+      "existing_test_file_read": true,
+      "helpers_file_read": false,
+      "successful_suite_run": true,
+      "mean_wrong_value_check_before_fix": false,
+      "mean_expected_value_failure_before_fix": false,
+      "public_messages": [
+        "I’ll read the requested skill, fix the discount calculation in `cart.py`, and check it with local Python.",
+        "Fixed `cart.py` so `total_cents` subtracts the discount. The existing unit test and a discount regression check both pass."
+      ],
+      "expected_failure_before_fix_any_task": true,
+      "mean_bug_reproduction_before_fix": false
+    },
+    {
+      "run_id": "pilot-surgical-02-revised",
+      "phase": "pilot",
+      "case": "surgical",
+      "arm": "revised",
+      "pre_action_policy_message": true,
+      "middle_messages": [
+        "The calculation adds `discount_cents` to the subtotal. I’ll change it to subtraction and add a regression test: a 200-cent subtotal with a 50-cent discount should total 150 cents."
+      ],
+      "explicit_nonempty_condition": false,
+      "explicit_legacy_boundary": false,
+      "persistent_test_change": true,
+      "existing_test_file_read": true,
+      "helpers_file_read": false,
+      "successful_suite_run": true,
+      "mean_wrong_value_check_before_fix": false,
+      "mean_expected_value_failure_before_fix": false,
+      "public_messages": [
+        "I’ll read the requested karpathy-guidelines skill, then fix the discount calculation and verify it locally.",
+        "The calculation adds `discount_cents` to the subtotal. I’ll change it to subtraction and add a regression test: a 200-cent subtotal with a 50-cent discount should total 150 cents.",
+        "Fixed `cart.py` so `total_cents` subtracts the discount. Added a regression test that reproduced the bug before the fix.\n\nVerification: `python -B -m unittest -v` — both tests pass."
+      ],
+      "expected_failure_before_fix_any_task": true,
+      "mean_bug_reproduction_before_fix": false
+    },
+    {
+      "run_id": "pilot-surgical-03-original",
+      "phase": "pilot",
+      "case": "surgical",
+      "arm": "original",
+      "pre_action_policy_message": false,
+      "middle_messages": [],
+      "explicit_nonempty_condition": false,
+      "explicit_legacy_boundary": false,
+      "persistent_test_change": true,
+      "existing_test_file_read": true,
+      "helpers_file_read": false,
+      "successful_suite_run": true,
+      "mean_wrong_value_check_before_fix": false,
+      "mean_expected_value_failure_before_fix": false,
+      "public_messages": [
+        "I’ll read the requested karpathy-guidelines skill, then fix the discount calculation in `cart.py` and check it with local Python.",
+        "Fixed `total_cents` in `cart.py` to subtract the discount. Added a regression test.\n\nVerified with `python -B -m unittest -v`: both tests pass."
+      ],
+      "expected_failure_before_fix_any_task": true,
+      "mean_bug_reproduction_before_fix": false
+    },
+    {
+      "run_id": "pilot-surgical-03-revised",
+      "phase": "pilot",
+      "case": "surgical",
+      "arm": "revised",
+      "pre_action_policy_message": true,
+      "middle_messages": [
+        "The function adds `discount_cents`, and the existing test only covers no discount. I’ll add a test where a 50-cent discount reduces a 200-cent subtotal to 150, confirm it fails, then change the operator."
+      ],
+      "explicit_nonempty_condition": false,
+      "explicit_legacy_boundary": false,
+      "persistent_test_change": true,
+      "existing_test_file_read": true,
+      "helpers_file_read": false,
+      "successful_suite_run": true,
+      "mean_wrong_value_check_before_fix": false,
+      "mean_expected_value_failure_before_fix": false,
+      "public_messages": [
+        "I’ll read the requested karpathy-guidelines skill, then fix the discount calculation in `cart.py` and check it with local Python.",
+        "The function adds `discount_cents`, and the existing test only covers no discount. I’ll add a test where a 50-cent discount reduces a 200-cent subtotal to 150, confirm it fails, then change the operator.",
+        "Fixed `total_cents` in `cart.py` to subtract the discount. Added a regression test that failed before the fix.\n\nValidation: `python -m unittest -v` — both tests pass."
+      ],
+      "expected_failure_before_fix_any_task": true,
+      "mean_bug_reproduction_before_fix": false
+    },
+    {
+      "run_id": "pilot-trivial-01-original",
+      "phase": "pilot",
+      "case": "trivial",
+      "arm": "original",
+      "pre_action_policy_message": false,
+      "middle_messages": [],
+      "explicit_nonempty_condition": false,
+      "explicit_legacy_boundary": false,
+      "persistent_test_change": false,
+      "existing_test_file_read": false,
+      "helpers_file_read": false,
+      "successful_suite_run": false,
+      "mean_wrong_value_check_before_fix": false,
+      "mean_expected_value_failure_before_fix": false,
+      "public_messages": [
+        "I’ll read the karpathy-guidelines skill, then correct the spelling in README.md.",
+        "Corrected `runing` to `running` in README.md and verified the change."
+      ],
+      "expected_failure_before_fix_any_task": false,
+      "mean_bug_reproduction_before_fix": false
+    },
+    {
+      "run_id": "pilot-trivial-01-revised",
+      "phase": "pilot",
+      "case": "trivial",
+      "arm": "revised",
+      "pre_action_policy_message": false,
+      "middle_messages": [],
+      "explicit_nonempty_condition": false,
+      "explicit_legacy_boundary": false,
+      "persistent_test_change": false,
+      "existing_test_file_read": false,
+      "helpers_file_read": false,
+      "successful_suite_run": false,
+      "mean_wrong_value_check_before_fix": false,
+      "mean_expected_value_failure_before_fix": false,
+      "public_messages": [
+        "I’ll read the karpathy-guidelines skill, then correct the spelling in README.md.",
+        "Corrected `runing` to `running` in README.md and verified the change."
+      ],
+      "expected_failure_before_fix_any_task": false,
+      "mean_bug_reproduction_before_fix": false
+    },
+    {
+      "run_id": "pilot-trivial-02-original",
+      "phase": "pilot",
+      "case": "trivial",
+      "arm": "original",
+      "pre_action_policy_message": false,
+      "middle_messages": [],
+      "explicit_nonempty_condition": false,
+      "explicit_legacy_boundary": false,
+      "persistent_test_change": false,
+      "existing_test_file_read": false,
+      "helpers_file_read": false,
+      "successful_suite_run": false,
+      "mean_wrong_value_check_before_fix": false,
+      "mean_expected_value_failure_before_fix": false,
+      "public_messages": [
+        "I’ll read the requested skill, then correct the spelling in README.md.",
+        "Corrected `runing` to `running` in README.md and verified the change."
+      ],
+      "expected_failure_before_fix_any_task": false,
+      "mean_bug_reproduction_before_fix": false
+    },
+    {
+      "run_id": "pilot-trivial-02-revised",
+      "phase": "pilot",
+      "case": "trivial",
+      "arm": "revised",
+      "pre_action_policy_message": false,
+      "middle_messages": [],
+      "explicit_nonempty_condition": false,
+      "explicit_legacy_boundary": false,
+      "persistent_test_change": false,
+      "existing_test_file_read": false,
+      "helpers_file_read": false,
+      "successful_suite_run": false,
+      "mean_wrong_value_check_before_fix": false,
+      "mean_expected_value_failure_before_fix": false,
+      "public_messages": [
+        "I’ll read the requested karpathy-guidelines skill, then correct the spelling in README.md.",
+        "Corrected `runing` to `running` in README.md and verified the change."
+      ],
+      "expected_failure_before_fix_any_task": false,
+      "mean_bug_reproduction_before_fix": false
+    },
+    {
+      "run_id": "pilot-trivial-03-original",
+      "phase": "pilot",
+      "case": "trivial",
+      "arm": "original",
+      "pre_action_policy_message": false,
+      "middle_messages": [],
+      "explicit_nonempty_condition": false,
+      "explicit_legacy_boundary": false,
+      "persistent_test_change": false,
+      "existing_test_file_read": false,
+      "helpers_file_read": false,
+      "successful_suite_run": false,
+      "mean_wrong_value_check_before_fix": false,
+      "mean_expected_value_failure_before_fix": false,
+      "public_messages": [
+        "I’ll read the requested karpathy-guidelines skill, then correct the spelling in README.md.",
+        "Corrected `runing` to `running` in README.md and verified the change."
+      ],
+      "expected_failure_before_fix_any_task": false,
+      "mean_bug_reproduction_before_fix": false
+    },
+    {
+      "run_id": "pilot-trivial-03-revised",
+      "phase": "pilot",
+      "case": "trivial",
+      "arm": "revised",
+      "pre_action_policy_message": false,
+      "middle_messages": [],
+      "explicit_nonempty_condition": false,
+      "explicit_legacy_boundary": false,
+      "persistent_test_change": false,
+      "existing_test_file_read": false,
+      "helpers_file_read": false,
+      "successful_suite_run": false,
+      "mean_wrong_value_check_before_fix": false,
+      "mean_expected_value_failure_before_fix": false,
+      "public_messages": [
+        "I’ll read the karpathy-guidelines skill, then correct the spelling in README.md.",
+        "Corrected `runing` to `running` in README.md and verified the saved change."
+      ],
+      "expected_failure_before_fix_any_task": false,
+      "mean_bug_reproduction_before_fix": false
+    },
+    {
+      "run_id": "pilot-verification-01-original",
+      "phase": "pilot",
+      "case": "verification",
+      "arm": "original",
+      "pre_action_policy_message": false,
+      "middle_messages": [],
+      "explicit_nonempty_condition": false,
+      "explicit_legacy_boundary": false,
+      "persistent_test_change": false,
+      "existing_test_file_read": false,
+      "helpers_file_read": false,
+      "successful_suite_run": false,
+      "mean_wrong_value_check_before_fix": false,
+      "mean_expected_value_failure_before_fix": true,
+      "public_messages": [
+        "I’ll read the specified skill, then check `math_ops.py` and fix the denominator.",
+        "Changed `mean` in `math_ops.py` to divide by `len(values)`.\n\nVerified that `mean([2, 4, 6]) == 4.0` and single-element lists work."
+      ],
+      "expected_failure_before_fix_any_task": true,
+      "mean_bug_reproduction_before_fix": true
+    },
+    {
+      "run_id": "pilot-verification-01-revised",
+      "phase": "pilot",
+      "case": "verification",
+      "arm": "revised",
+      "pre_action_policy_message": true,
+      "middle_messages": [
+        "The denominator is `len(values) - 1`; I’ll change it to `len(values)`. Since lists are always nonempty, no guard is needed. I’ll verify that `[2, 4, 6]` returns `4.0` and that a single-item list works."
+      ],
+      "explicit_nonempty_condition": true,
+      "explicit_legacy_boundary": false,
+      "persistent_test_change": false,
+      "existing_test_file_read": false,
+      "helpers_file_read": false,
+      "successful_suite_run": false,
+      "mean_wrong_value_check_before_fix": true,
+      "mean_expected_value_failure_before_fix": false,
+      "public_messages": [
+        "I’ll read the requested karpathy-guidelines skill, then fix the denominator and check the result locally.",
+        "The denominator is `len(values) - 1`; I’ll change it to `len(values)`. Since lists are always nonempty, no guard is needed. I’ll verify that `[2, 4, 6]` returns `4.0` and that a single-item list works.",
+        "Fixed `math_ops.py` to divide by `len(values)`.\n\nVerified locally: `mean([2, 4, 6]) == 4.0` and `mean([5]) == 5.0`."
+      ],
+      "expected_failure_before_fix_any_task": false,
+      "mean_bug_reproduction_before_fix": true
+    },
+    {
+      "run_id": "pilot-verification-02-original",
+      "phase": "pilot",
+      "case": "verification",
+      "arm": "original",
+      "pre_action_policy_message": false,
+      "middle_messages": [],
+      "explicit_nonempty_condition": false,
+      "explicit_legacy_boundary": false,
+      "persistent_test_change": false,
+      "existing_test_file_read": false,
+      "helpers_file_read": false,
+      "successful_suite_run": false,
+      "mean_wrong_value_check_before_fix": true,
+      "mean_expected_value_failure_before_fix": false,
+      "public_messages": [
+        "I’ll read the specified skill, then check `math_ops.py` and correct the denominator.",
+        "Corrected `math_ops.py` to divide by `len(values)`. Verified `mean([2, 4, 6]) == 4.0`, plus single-element and mixed-sign cases."
+      ],
+      "expected_failure_before_fix_any_task": false,
+      "mean_bug_reproduction_before_fix": true
+    },
+    {
+      "run_id": "pilot-verification-02-revised",
+      "phase": "pilot",
+      "case": "verification",
+      "arm": "revised",
+      "pre_action_policy_message": true,
+      "middle_messages": [
+        "The denominator is `len(values) - 1`; I’ll change it to `len(values)`. Since inputs are always nonempty, no additional handling is needed. I’ll verify the reported example and a single-element list."
+      ],
+      "explicit_nonempty_condition": true,
+      "explicit_legacy_boundary": false,
+      "persistent_test_change": false,
+      "existing_test_file_read": false,
+      "helpers_file_read": false,
+      "successful_suite_run": false,
+      "mean_wrong_value_check_before_fix": true,
+      "mean_expected_value_failure_before_fix": false,
+      "public_messages": [
+        "I’ll read the specified karpathy-guidelines skill, then fix the denominator and check the result with local Python.",
+        "The denominator is `len(values) - 1`; I’ll change it to `len(values)`. Since inputs are always nonempty, no additional handling is needed. I’ll verify the reported example and a single-element list.",
+        "Changed the denominator in `math_ops.py` from `len(values) - 1` to `len(values)`.\n\nVerified with local Python: `mean([2, 4, 6]) == 4.0` and `mean([5]) == 5.0`."
+      ],
+      "expected_failure_before_fix_any_task": false,
+      "mean_bug_reproduction_before_fix": true
+    },
+    {
+      "run_id": "pilot-verification-03-original",
+      "phase": "pilot",
+      "case": "verification",
+      "arm": "original",
+      "pre_action_policy_message": false,
+      "middle_messages": [],
+      "explicit_nonempty_condition": false,
+      "explicit_legacy_boundary": false,
+      "persistent_test_change": false,
+      "existing_test_file_read": false,
+      "helpers_file_read": false,
+      "successful_suite_run": false,
+      "mean_wrong_value_check_before_fix": false,
+      "mean_expected_value_failure_before_fix": false,
+      "public_messages": [
+        "I’ll read the requested skill, fix the denominator, and verify the result with local Python.",
+        "Changed the denominator in `math_ops.py` to `len(values)`. Verified that `mean([2, 4, 6])` returns `4.0` and a single-element list works."
+      ],
+      "expected_failure_before_fix_any_task": false,
+      "mean_bug_reproduction_before_fix": false
+    },
+    {
+      "run_id": "pilot-verification-03-revised",
+      "phase": "pilot",
+      "case": "verification",
+      "arm": "revised",
+      "pre_action_policy_message": true,
+      "middle_messages": [
+        "The denominator is `len(values) - 1`; it should be `len(values)`. I’ll change only that expression and verify the reported example and a single-element list. Since inputs are always nonempty, no extra handling is needed."
+      ],
+      "explicit_nonempty_condition": true,
+      "explicit_legacy_boundary": false,
+      "persistent_test_change": false,
+      "existing_test_file_read": false,
+      "helpers_file_read": false,
+      "successful_suite_run": false,
+      "mean_wrong_value_check_before_fix": true,
+      "mean_expected_value_failure_before_fix": false,
+      "public_messages": [
+        "I’ll read the requested skill, then check and fix the denominator in `math_ops.py`.",
+        "The denominator is `len(values) - 1`; it should be `len(values)`. I’ll change only that expression and verify the reported example and a single-element list. Since inputs are always nonempty, no extra handling is needed.",
+        "Changed the denominator in `math_ops.py` to `len(values)`.\n\nVerified `mean([2, 4, 6]) == 4.0` and `mean([5]) == 5.0`."
+      ],
+      "expected_failure_before_fix_any_task": false,
+      "mean_bug_reproduction_before_fix": true
+    }
+  ]
+}

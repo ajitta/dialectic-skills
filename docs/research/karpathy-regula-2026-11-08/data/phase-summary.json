@@ -1,0 +1,58 @@
+[
+  {
+    "Phase": "pilot",
+    "Arm": "original",
+    "Attempted": 18,
+    "Eligible": 18,
+    "Loaded": 18,
+    "UsageLimitErrors": 0,
+    "FunctionalPass": 18,
+    "PrimaryPass": 15,
+    "RegressionFile": 0,
+    "PreFailure": 1,
+    "PostSuccess": 3,
+    "MedianSeconds": 23.46
+  },
+  {
+    "Phase": "pilot",
+    "Arm": "revised",
+    "Attempted": 18,
+    "Eligible": 18,
+    "Loaded": 18,
+    "UsageLimitErrors": 0,
+    "FunctionalPass": 18,
+    "PrimaryPass": 15,
+    "RegressionFile": 0,
+    "PreFailure": 0,
+    "PostSuccess": 3,
+    "MedianSeconds": 23.810000000000002
+  },
+  {
+    "Phase": "confirm",
+    "Arm": "original",
+    "Attempted": 12,
+    "Eligible": 6,
+    "Loaded": 7,
+    "UsageLimitErrors": 6,
+    "FunctionalPass": 6,
+    "PrimaryPass": 0,
+    "RegressionFile": 0,
+    "PreFailure": 0,
+    "PostSuccess": 6,
+    "MedianSeconds": 24.200000000000003
+  },
+  {
+    "Phase": "confirm",
+    "Arm": "revised",
+    "Attempted": 12,
+    "Eligible": 5,
+    "Loaded": 6,
+    "UsageLimitErrors": 7,
+    "FunctionalPass": 5,
+    "PrimaryPass": 0,
+    "RegressionFile": 0,
+    "PreFailure": 0,
+    "PostSuccess": 5,
+    "MedianSeconds": 24.37
+  }
+]

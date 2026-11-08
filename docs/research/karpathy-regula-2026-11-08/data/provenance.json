@@ -1,0 +1,28 @@
+{
+  "requested_model": "gpt-6.1-sol",
+  "requested_reasoning_effort": "high",
+  "backend_build_identifier": null,
+  "codex_cli_version": "0.167.0",
+  "pilot_attempts": 36,
+  "pilot_eligible": 36,
+  "followup_attempts": 24,
+  "followup_eligible": {
+    "original": 6,
+    "revised": 5
+  },
+  "account_usage_limit_interruptions": 13,
+  "timeouts": 0,
+  "skill_loads_observed": 49,
+  "skill_hashes_sha256": {
+    "original": "6e22cc54cb02a5e98ae42d06d9d7292db0c1b43894831b32879beb0166b2aea7",
+    "revised": "d99d3b1bd4d04bd866aca10479b24ecaf4864053f08db44f1d0715ab3275346d"
+  },
+  "phase_results_are_not_pooled_for_inference": true,
+  "followup_complete": false,
+  "task_language": "Python, standard library",
+  "session_date": "2026-11-08",
+  "timezone": "Asia/Seoul",
+  "full_local_execution_archive_sha256": "6331bf0353ce9c92e7f03021698ed0a1597355e04bd0659ce7caac68748cf50f",
+  "full_archive_published_in_this_folder": false,
+  "public_data_scope": "Input snapshots, exact task fixtures, summaries, public messages and selected trace excerpts. Full native events and private local paths are omitted."
+}
