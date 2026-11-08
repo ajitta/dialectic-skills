@@ -28,6 +28,7 @@ All are stdlib-only. CI (`.github/workflows/check.yml`) runs them plus `claude p
 - `plugins/dia/` and `releases/` are generated from `skills/`, `plugin-manifest.json` and `packaging/` (plugin README, OpenAI listing fields and images; spec D32). Edit the source, then regenerate; never hand-edit generated output.
 - Changing any skill file requires a new plugin `version` in `plugin-manifest.json` and the skill's `metadata.version` (spec §12.1). Before the first install or release, a change may keep the plugin at 0.1.0 and each skill's `metadata.version` at 1.0.0 (`docs/handoff.md`, State).
 - Editing a skill again on an unreleased branch after its version bump: `tools/package.py` refuses because `plugin-release.json` records the earlier digest, and with output silenced the failure is easy to miss. Delete `plugin-release.json`, rebuild, and confirm the new text is in `plugins/dia/` (grep or a hash) before any probe or eval run, since runs load `plugins/dia/`, not `skills/`.
+- `companions/dia-panel/` is a hand-maintained, Claude Code-only companion plugin (spec D69): a JavaScript workflow, outside the dia package and both zips. A change to it needs a new `version` in its `plugin.json` and in its marketplace entry (`tools/package.py --check` compares them) and a tag `dia-panel--v<version>`; it does not change the dia version.
 - Text files use LF line endings (`.gitattributes`). On Windows, write files with LF explicitly.
 
 ## Probes and evals (owner, 2026-11-04)

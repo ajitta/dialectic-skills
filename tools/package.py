@@ -252,8 +252,27 @@ def validate_marketplace() -> list[str]:
     if data.get("name") != "dialectic-skills":
         errors.append("name must be 'dialectic-skills'")
     plugins = data.get("plugins", [])
-    if [(p.get("name"), p.get("source")) for p in plugins] != [("dia", "./plugins/dia")]:
-        errors.append("must list exactly one plugin: dia -> ./plugins/dia")
+    pairs = [(p.get("name"), p.get("source")) for p in plugins]
+    if pairs[:1] != [("dia", "./plugins/dia")]:
+        errors.append("first plugin must be dia -> ./plugins/dia")
+    for name, source in pairs[1:]:
+        # Companion plugins (spec D69) are hand-maintained under companions/, Claude Code only.
+        if source != f"./companions/{name}":
+            errors.append(f"{name}: a companion's source must be ./companions/{name}")
+            continue
+        manifest = ROOT / "companions" / name / ".claude-plugin" / "plugin.json"
+        try:
+            cdata = json.loads(manifest.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError) as e:
+            errors.append(f"{name}: {e}")
+            continue
+        if cdata.get("name") != name:
+            errors.append(f"{name}: plugin.json name is {cdata.get('name')!r}")
+        entry = next(p for p in plugins if p.get("name") == name)
+        if entry.get("version") != cdata.get("version"):
+            errors.append(f"{name}: marketplace version {entry.get('version')!r} differs from plugin.json {cdata.get('version')!r}")
+        if "dia" not in cdata.get("dependencies", []):
+            errors.append(f"{name}: plugin.json must list the dependency \"dia\"")
     return [f".claude-plugin/marketplace.json: {e}" for e in errors]
 
 

@@ -1,7 +1,7 @@
 {
   "$schema": "https://code.claude.com/schemas/marketplace.json",
   "name": "dialectic-skills",
-  "description": "Marketplace for the dia plugin: thirteen instruction-only reasoning-and-review skills and the dia router.",
+  "description": "Marketplace for the dia plugin (thirteen instruction-only reasoning-and-review skills and the dia router) and dia-panel, a Claude Code workflow that runs the dia review lenses as a panel.",
   "owner": {
     "name": "ajitta",
     "url": "https://github.com/ajitta"
@@ -12,6 +12,16 @@
       "source": "./plugins/dia",
       "description": "Thirteen reasoning-and-review skills: goal confirmation before work (skopos), Socratic elenchus and inquiry (quaestio), reductio ad absurdum, negative dialectics, argument warrants, Lakatosian counterexamples, dialectical-inquiry counterplans, a single review pass (emend), review rounds gated by outside evidence (ratchet), rulings on others' reports about a text, rules for text a model follows (regula), and deepening a request by a field's best practice before running it, plus dia-router, a short entry point. A skill starts when the message begins with dia or the skill's name.",
       "category": "productivity"
+    },
+    {
+      "name": "dia-panel",
+      "source": "./companions/dia-panel",
+      "description": "Claude Code only: a workflow that runs the four dia review lenses on one document in parallel and has dia-adjudicate judge their whole reports twice, in two orders. Needs the dia plugin.",
+      "version": "0.2.0",
+      "category": "productivity",
+      "dependencies": [
+        "dia"
+      ]
     }
   ]
 }
