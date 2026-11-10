@@ -1,5 +1,6 @@
 #!/bin/bash
-# usage: u.sh CELL "reply" "reason"
-E=/tmp/claude-0/-home-claude/543eb0e4-0af5-5b32-9fc8-3978303f9208/scratchpad/exp2
-printf '\nUSER: %s\n' "$2" >> $E/t/$1.md
-echo "$1: $3 -> $2" >> $E/relay-log.md
+# Relay one simulated-user reply into a transcript and log it.
+# usage: u.sh CELL "reply" "reason"   (run from anywhere; paths are relative to this script)
+E=$(cd "$(dirname "$0")" && pwd)
+printf '\nUSER: %s\n' "$2" >> "$E/t/$1.md"
+echo "$1: $3 -> $2" >> "$E/relay-log.md"

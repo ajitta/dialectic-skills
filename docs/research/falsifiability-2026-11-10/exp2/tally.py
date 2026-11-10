@@ -1,5 +1,9 @@
 import sys,re
-E=sys.argv[1]; g=sys.argv[2]
+# usage: python3 -I tally.py GRADES_FILE [EXP_DIR]  e.g. tally.py grades-opus.md
+# Total is printed as earned/(39 - NA); a grader that writes NA for inapplicable
+# items (fable) needs the denominator read as 39 minus true NA only.
+import os
+E=sys.argv[2] if len(sys.argv)>2 else os.path.dirname(os.path.abspath(__file__)); g=os.path.join(E,sys.argv[1])
 key=dict(l.split()[0].replace('.md',''),) if False else {}
 for l in open(E+'/key.txt'):
     if l.strip(): a,b=l.split(); key[a[:-3]]=b[:-3]
