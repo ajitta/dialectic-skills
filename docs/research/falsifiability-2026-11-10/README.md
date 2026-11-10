@@ -1,6 +1,6 @@
 # Falsifiability audits: is a new dia skill needed?
 
-Session date: 2026-11-10. Status: research record. Nothing here is adopted; the light-fix patch was applied only to a scratch copy of the installed plugin (dia 2.11.0), never to `skills/`.
+Session date: 2026-11-10. Status: research record. Nothing here is adopted; the light-fix patch was applied only to a scratch copy of the installed plugin (dia 2.11.0), never to `skills/`. Reviewed in [review.md](review.md), which re-counts the data, re-runs the routing on a second harness and corrects the Gaps, the surviving changes and the resume steps below (it supports neither line and no regrade); where they differ, the review wins.
 
 The reports are written in Korean, the language of the session, and the dialogue transcripts are Korean because the test inputs were Korean. This README is the English index.
 
@@ -50,6 +50,7 @@ Can the falsifiability problems raised in the session be handled with the existi
 | [exp1/](exp1/) | v1 protocol, relay log, transcripts (`t/`, labeled), blinded copies (`blind/`), key, grades, `prompts.md` (each arm's and the grader's launch prompt), and `light-fix-B.patch` (arm B's four edits against dia 2.11.0) |
 | [experiment-v2-result.md](experiment-v2-result.md) | v2 comparison: 3 runs per cell, wrap-up after the 5th reply, two blind graders |
 | [exp2/](exp2/) | v2 protocol, relay log, transcripts, blinded copies, key, rubric and inputs given to graders, both graders' sheets, `prompts.md` (all 27 cell prompts and both graders' prompts), and the relay (`u.sh`), blinding (`mkblind.py`) and tally (`tally.py`) scripts, which default to their own folder |
+| [review.md](review.md) | Review of this record (2026-11-11): what holds, corrections, a 21-run routing re-run, a verdict per proposal |
 
 ## Session record (owner decisions, 2026-11-10)
 
