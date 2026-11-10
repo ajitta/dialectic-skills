@@ -1,6 +1,6 @@
 # Review of the falsifiability record (2026-11-11)
 
-Status: a review of this folder by the agent that maintains the plugin, written before any decision. It re-counts the grade sheets, reads all 36 transcripts and both relay logs, checks every claim about skill text against `skills/` at 2.11.0, checks the philosophy claims against primary text where it could be fetched (Popper's *The Logic of Scientific Discovery*; other works through the Stanford Encyclopedia), and re-runs the routing on a second harness (21 runs, section 3). An independent reviewer (a separate agent session, read-only) checked the draft: "sound with fixes"; its four blockers were two places where the basis for a verdict left out evidence pointing the other way, a pass rule described as written before runs it was written after, and a run described as answering when it had only classified. All are fixed below. Where this review and the record differ, the review wins. Nothing here changes a skill.
+Status: a review of this folder by the agent that maintains the plugin, written before any decision; the owner ruled on 2026-11-11, all as recommended (section 8, spec D70). It re-counts the grade sheets, reads all 36 transcripts and both relay logs, checks every claim about skill text against `skills/` at 2.11.0, checks the philosophy claims against primary text where it could be fetched (Popper's *The Logic of Scientific Discovery*; other works through the Stanford Encyclopedia), and re-runs the routing on a second harness (21 runs, section 3). An independent reviewer (a separate agent session, read-only) checked the draft: "sound with fixes"; its four blockers were two places where the basis for a verdict left out evidence pointing the other way, a pass rule described as written before runs it was written after, and a run described as answering when it had only classified. All are fixed below. Where this review and the record differ, the review wins. Nothing here changes a skill.
 
 Terms, as the record uses them:
 
@@ -107,3 +107,14 @@ The test that would justify one: a request cell where the base build makes a har
 - The points in corrections 2, 5, 6 and 7 about what a different relay or reading would have scored, or which arm a relay choice favoured, are reasoning from the transcripts, not measurements.
 - *Conjectures and Refutations* and Lakatos's own text were seen only through the Stanford Encyclopedia entries. The step from Popper's note to the delisted-asset case is this review's inference.
 - The reviewer, its independent checker and the record's authors are Claude models, as are all arms and graders.
+
+## 8. Owner's rulings (2026-11-11, all as recommended; spec D70)
+
+1. No new skill. The question is closed.
+2. The dia-router sentence is not adopted.
+3. The dia-conjecture Step 0 line is not adopted.
+4. The other three hunks of the patch are not adopted.
+5. No regrade.
+6. The rules of section 5, item 1 are adopted as rule 6 of `docs/writing-for-models/README.md` § Rules for A/B records, with a pointer in `AGENTS.md` § Probes and evals.
+7. This folder merges to `main` as documents only.
+8. The two stale lines of the `README.md` file list are fixed with the next README change.

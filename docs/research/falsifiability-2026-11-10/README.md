@@ -1,6 +1,6 @@
 # Falsifiability audits: is a new dia skill needed?
 
-Session date: 2026-11-10. Status: research record. Nothing here is adopted; the light-fix patch was applied only to a scratch copy of the installed plugin (dia 2.11.0), never to `skills/`. Reviewed in [review.md](review.md), which re-counts the data, re-runs the routing on a second harness and corrects the Gaps, the surviving changes and the resume steps below (it supports neither line and no regrade); where they differ, the review wins.
+Session date: 2026-11-10. Status: research record. Nothing here is adopted; the light-fix patch was applied only to a scratch copy of the installed plugin (dia 2.11.0), never to `skills/`. Reviewed in [review.md](review.md), which re-counts the data, re-runs the routing on a second harness and corrects the Gaps, the surviving changes and the resume steps below (it supports neither line and no regrade); where they differ, the review wins. The owner ruled on 2026-11-11, all as the review recommends (review.md §8, spec D70): no new skill, neither line, no regrade.
 
 The reports are written in Korean, the language of the session, and the dialogue transcripts are Korean because the test inputs were Korean. This README is the English index.
 
