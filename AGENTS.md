@@ -39,7 +39,7 @@ All are stdlib-only. CI (`.github/workflows/check.yml`) runs them plus `claude p
 - One engine by default; add Codex, at 1 run per cell, only when Codex-specific text or the skill listing changed.
 - Rerun a baseline arm only when the record will compare arms; otherwise check the changed build against its expected behaviour and reuse earlier results.
 - Form-only edits (provenance moved out, sections merged) are checked by one independent review instead of runs.
-- A comparison whose arms hold a dialogue with a simulated user follows rule 6 of `docs/writing-for-models/README.md` § Rules for A/B records, wherever its record sits (spec D70).
+- A comparison whose arms hold a dialogue with a simulated user follows rule 6 of `docs/writing-for-models/README.md` § Rules for A/B records, wherever its record sits (owner, 2026-11-11; spec D70).
 
 ## Working with the owner
 
