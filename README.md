@@ -679,7 +679,7 @@ README.<lang>.md                translations of this file (not shipped)
 docs/spec.md                    specification
 docs/probes.md                  surface and routing probe results
 docs/token-cost.md              measured token cost, always-on and per invocation (sections through plugin 2.3.0)
-docs/skill-effect.md            the skills against no skill or a plain request, blind-judged (rounds through 2026-11-05)
+docs/skill-effect.md            each skill but dia-techne and dia-router against no skill, blind-judged (rounds through 2026-11-05)
 docs/writing-for-models/        dia-regula's draft record and its A/B on dia-adjudicate; never shipped
 ```
 
