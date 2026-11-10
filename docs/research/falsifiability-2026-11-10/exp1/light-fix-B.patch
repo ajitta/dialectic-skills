@@ -1,0 +1,57 @@
+diff -ru '--exclude=.in_use' '--exclude=.claude-plugin' skills/dia-conjecture/SKILL.md dia-B/skills/dia-conjecture/SKILL.md
+--- skills/dia-conjecture/SKILL.md	1980-01-01 00:00:00.000000000 +0000
++++ dia-B/skills/dia-conjecture/SKILL.md	2026-11-10 13:43:35.247453873 +0000
+@@ -34,6 +34,7 @@
+ - "generally", "usually", "most", or a claim the user would keep despite one exception: dia-warrant (one counterexample to a defeasible claim is a rebuttal condition, not a refutation);
+ - a plan, policy, decision or idea: dia-counterplan for the opposing case, dia-quaestio to poke holes or stress-test, dia-negative for where it fails its own standard;
+ - what a word means: dia-elenchus;
++- a claim that something exists, a claim with no time bound ("eventually"), or a statistical claim, when the user asks whether it is falsifiable or what would count against it: dia-quaestio in stress mode;
+ - whether a set of statements yields Q and not-Q: dia-reductio.
+ 
+ If it is unclear whether the user means "every" strictly, make that your one question.
+@@ -53,7 +54,7 @@
+ - An [A] lemma counts only after the user accepts it. If you reconstructed the proof, say in that message that you are then arguing both sides: you wrote the proof you attack.
+ - A reply that neither corrects a line nor rejects the analysis ("go on", "I'm not sure", "hmm, really?", or the same in any language) lets you go on: say in one line that you test the lemmas as a working reading, which the user can still correct, and raise the first case (Step 3) in the same message. Such a reply accepts nothing, neither an [A] lemma nor a ruling on a case nor a C′: an [A] lemma is accepted only when the user says so or picks an option that states it, and a repair builds in no lemma the user has not accepted. In the record, a lemma tested this way is [A, provisional] until accepted.
+ - If the user gives no argument and declines a reconstruction, say that without a proof there is no lemma to repair, so a case that counts leaves only giving up C or a response Lakatos rejects, and continue only if the user wants that.
+-- **Prior criterion** (Popper's prior refutation criterion; an addition to Lakatos): if C is empirical, resting on observation (people, systems, markets, measurements), ask it with the first case: present that case as an observable situation, and make the message's one question whether observing it would count against C. Record the answer as the criterion later rulings are held to; agreeing to the criterion is not a ruling that this case counts, so ask that next, against the criterion. If the first case is local only (a lemma fails, C survives), it cannot show what refutes C: ask the criterion as a question of its own before the first case against C; for a mathematical or definitional C, the check of hard rule 2 is the criterion.
++- **Prior criterion** (Popper's prior refutation criterion; an addition to Lakatos): if C is empirical, resting on observation (people, systems, markets, measurements), ask it with the first case: present that case as an observable situation, and make the message's one question whether observing it would count against C. If the user accepts no observable situation as counting against C, record "refused: no observation counts" as the criterion and say that C, as held, cannot be refuted. Record the answer as the criterion later rulings are held to; agreeing to the criterion is not a ruling that this case counts, so ask that next, against the criterion. If the first case is local only (a lemma fails, C survives), it cannot show what refutes C: ask the criterion as a question of its own before the first case against C; for a mathematical or definitional C, the check of hard rule 2 is the criterion.
+ 
+ ## Step 3 — Raise one case
+ 
+diff -ru '--exclude=.in_use' '--exclude=.claude-plugin' skills/dia-quaestio/SKILL.md dia-B/skills/dia-quaestio/SKILL.md
+--- skills/dia-quaestio/SKILL.md	1980-01-01 00:00:00.000000000 +0000
++++ dia-B/skills/dia-quaestio/SKILL.md	2026-11-10 13:43:35.247574265 +0000
+@@ -67,7 +67,7 @@
+ - **Counterexample**: general claim ("everyone needs X") → one concrete case that strains it.
+ - **Contradiction surfacing**: two answers conflict → quote both back verbatim and ask which one yields, rather than smoothing it over yourself.
+ - **Definition pressure**: a key word used two ways → "define it once".
+-- **Falsification pull**: "what would you have to see to drop this?" A belief nothing could disconfirm is a finding, not a strength.
++- **Falsification pull**: "what would you have to see to drop this?" A belief nothing could disconfirm is a finding, not a strength. Record the answer in the brief under Refutation criterion: the observation; for a statistical claim, the decision rule (threshold) the user accepts; and the conditions held fixed; if the user accepts none, record that and say the idea as held cannot be refuted.
+ - **Necessity check**: for each requirement the user adds, "what breaks without it?" If nothing does, park it.
+ 
+ Rhythm:
+diff -ru '--exclude=.in_use' '--exclude=.claude-plugin' skills/dia-quaestio/references/brief-template.md dia-B/skills/dia-quaestio/references/brief-template.md
+--- skills/dia-quaestio/references/brief-template.md	1980-01-01 00:00:00.000000000 +0000
++++ dia-B/skills/dia-quaestio/references/brief-template.md	2026-11-10 13:43:35.247662250 +0000
+@@ -26,6 +26,10 @@
+ ## Criteria
+ - <the user's 2-3 criteria, their words>
+ 
++## Refutation criterion
++
++- observation · decision rule (statistical claims) · conditions held fixed | refused: no observation counts | not asked
++
+ ## Parking lot
+ - <tangent worth keeping>
+ 
+diff -ru '--exclude=.in_use' '--exclude=.claude-plugin' skills/dia-router/SKILL.md dia-B/skills/dia-router/SKILL.md
+--- skills/dia-router/SKILL.md	1980-01-01 00:00:00.000000000 +0000
++++ dia-B/skills/dia-router/SKILL.md	2026-11-10 13:43:35.246485873 +0000
+@@ -58,6 +58,7 @@
+ 
+ - A request for Socratic dialogue or the Socratic method goes to dia-elenchus, even when its subject is a plan or an idea.
+ - Whether a deductive argument is valid, follows from its premises or has a missing step goes to dia-reductio.
++- Whether an empirical claim is falsifiable, or what observation would show it wrong, goes to dia-quaestio in stress mode.
+ 
+ Then:
+ 
