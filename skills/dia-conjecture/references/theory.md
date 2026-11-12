@@ -1,6 +1,6 @@
 # Proofs and refutations: theory reference
 
-Read this only when the user asks about the method or the sources. The rules are in SKILL.md; this file says where they come from and where the skill departs from Lakatos. Sources are listed at the end; everything here is paraphrased from them unless quoted.
+The rules are in SKILL.md; this file says where they come from and where the skill departs from Lakatos. Sources are listed at the end; everything here is paraphrased from them unless quoted.
 
 ## 1. The method
 

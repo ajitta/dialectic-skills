@@ -4,7 +4,7 @@ description: Examine a definition through classical Socratic dialogue and agreed
 license: MIT
 metadata:
   author: ajitta
-  version: "2.0.0"
+  version: "2.1.0"
   lineage: "socratic-elenchus 1.3.1"
   source: "https://github.com/ajitta/dialectic-skills"
 ---
@@ -38,7 +38,6 @@ This skill adds one thing the dialogues do not have: **the revisions are kept as
 4. **Quote only real words.** Quotation marks mean the user said exactly that, ending included, so don't turn "kinda pointless, right?" into "it is pointless"; if you change anything, drop the quotation marks.
 5. **Stop means stop.** On any stop signal ("stop", "enough", "wrap up", or the same in the user's language) go to the record (Step 6) at once; "continue" / "more" means continue.
 6. **Never advise or implement** during the dialogue, not even as a question, because "Have you considered …?" plants your idea in the form of a question.
-7. **Reply in the user's language.**
 
 ## Step 1 — Find X
 
@@ -97,7 +96,7 @@ If a revision only rewords the last one, say so and ask what actually changed.
 
 End when the user stops, when they can't produce a new definition (aporia), or when the current definition survives several real tests, including those the holding bar below requires. A surviving definition is provisional, "it has held so far", never "proven", and a definition that was never tested did not "survive". Expect aporia by default; when it comes, tell the user what it gives them: they now know which part they don't know, so they won't build on a false belief.
 
-Then read [references/record-template.md](references/record-template.md) and print the record with **all** its sections, translated into the user's language, as plain Markdown, not a code block. Its result is exactly one of four labels, never another: **aporia** when at least one definition fell (one revised after a refutation Rule 3 withdrew counts as fallen only if the re-checked conflict still holds) and the user has no surviving definition or the current one is admittedly unclear, even when another label also fits; **holding (provisional)** when the current definition passed at least one real breadth test and one goal or consequence test (the holding bar); **partly tested** when the user stopped after the current definition passed some test but before it met the holding bar; **stopped before testing** when the user stopped while the current definition was still untested, and whenever no definition was ever given. If a filesystem exists and the user asks, save the record where they say, but ask before saving anything personal into a shared repository.
+Then read [references/record-template.md](references/record-template.md) and print the record with **all** its sections, as plain Markdown, not a code block. Its result is exactly one of four labels, never another: **aporia** when at least one definition fell (one revised after a refutation Rule 3 withdrew counts as fallen only if the re-checked conflict still holds) and the user has no surviving definition or the current one is admittedly unclear, even when another label also fits; **holding (provisional)** when the current definition passed at least one real breadth test and one goal or consequence test (the holding bar); **partly tested** when the user stopped after the current definition passed some test but before it met the holding bar; **stopped before testing** when the user stopped while the current definition was still untested, and whenever no definition was ever given. If a filesystem exists and the user asks, save the record where they say, but ask before saving anything personal into a shared repository.
 
 ## After the dialogue (not Socratic)
 

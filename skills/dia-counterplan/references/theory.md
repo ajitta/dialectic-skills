@@ -1,6 +1,6 @@
 # Dialectical inquiry: theory reference
 
-Read this only when the user asks about the method or its sources. The rules are in SKILL.md; this file says where they come from and where the skill departs from them. Everything is paraphrased from the sources at the end unless quoted. Mason's 1969 paper was read in abstract only; the procedure below comes from Schwenk's summary, so fidelity is medium-high and the procedure rests on secondary sources.
+The rules are in SKILL.md; this file says where they come from and where the skill departs from them. Everything is paraphrased from the sources at the end unless quoted. Mason's 1969 paper was read in abstract only; the procedure below comes from Schwenk's summary, so fidelity is medium-high and the procedure rests on secondary sources.
 
 ## 1. The method
 

@@ -4,14 +4,14 @@ description: Rule on reports about a target using evidence, without rewriting th
 license: MIT
 metadata:
   author: ajitta
-  version: "2.4.0"
+  version: "2.5.0"
   lineage: "new in plugin 1.5.0 (spec D40); rules drawn from adjudication trials, docs/research/dia-adjudicate.md"
   source: "https://github.com/ajitta/dialectic-skills"
 ---
 
 # dia-adjudicate
 
-Rule on what others said about a target. You do not write a new critique and do not revise the target; you decide, item by item, which report items hold, and you check every claim in the target whether or not a report raised it.
+Rule on what others said about a target. You decide, item by item, which report items hold, and you check every claim in the target whether or not a report raised it.
 
 Several hard rules below give as their reason a misruling that judges made in trials. Judging on the model's own rereading brings no reliable gain and can make things worse (Huang et al., ICLR 2024, arXiv:2310.01798), so verdicts rest on outside evidence. The aim is not a judge that never errs but one whose errors land where a person will look: the must-check list and the items on which two runs differ.
 
@@ -39,7 +39,7 @@ The input must contain the **target** (T) and **one or more reports** (R). If th
 9. **Material errors only.** A report item is an error only if correcting it changes a number that matters, a verdict, or the conclusion. A difference that changes none of these (a threshold stated loosely but correctly, a rounding) is not listed. **Exception:** a report that states what a cited source says, and gets it wrong (a different date, figure, name or qualifier than the source gives), is always listed in Step 6, as minor if it changes nothing else. Rule 5 takes precedence over this rule for anything attributed to a source.
 10. **One reading of T throughout.** Where T is ambiguous (what a figure applies to, how wide a group is), fix one reading, state it, and use it in every verdict, because judges used a premise to fault one report while rejecting the same premise in another; do not fault one report on a reading of T that you reject when another report uses it.
 11. **Every overturn goes in the tables.** If you rule against a report item anywhere in the output (in the decisive-issue section, a note, a parenthesis), it must also appear as a row in the report-issues table and in Step 6, and so reach the must-check list (Step 9). A judgment stated only in prose escapes the human check.
-12. **Language follows the user.** Write the output, headings included, in the language of the user's latest message. Quote T and sources in their original language.
+12. **Quote T and sources in their original language.**
 
 ## Procedure
 
@@ -102,7 +102,7 @@ End with one line: this rules on the evidence for T's claims and the reports' it
 
 ## When another agent fixes the output format
 
-When the request comes from another agent or a script that fixes the output format (a schema or a set of fields) and no user will reply, still produce every Output section and fit them into that format, in the output's language (Rule 12): each issue or verdict in the caller's items, with its basis and evidence class; the Inputs line, the must-check list (Step 9) and the closing line in its free-text or summary field, or, if it has none, as a last item labelled for a human check. A fix field gets an acceptance condition (Rule 1). If a verdict field takes only fixed values, use the value that matches this skill's verdict; for a verdict the list lacks (unverifiable, or an item that makes no claim to rule on, such as a counterplan's open pairs), use the one that claims least and give this skill's own verdict at the start of the item's text.
+When the request comes from another agent or a script that fixes the output format (a schema or a set of fields) and no user will reply, still produce every Output section and fit them into that format: each issue or verdict in the caller's items, with its basis and evidence class; the Inputs line, the must-check list (Step 9) and the closing line in its free-text or summary field, or, if it has none, as a last item labelled for a human check. A fix field gets an acceptance condition (Rule 1). If a verdict field takes only fixed values, use the value that matches this skill's verdict; for a verdict the list lacks (unverifiable, or an item that makes no claim to rule on, such as a counterplan's open pairs), use the one that claims least and give this skill's own verdict at the start of the item's text.
 
 ## Follow-up turns
 

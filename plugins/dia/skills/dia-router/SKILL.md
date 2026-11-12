@@ -4,7 +4,7 @@ description: Short entry point to the dia skills. Shows a numbered menu, runs th
 license: MIT
 metadata:
   author: ajitta
-  version: "2.2.0"
+  version: "2.3.0"
   lineage: "new in plugin 1.4.0 (spec D38); named dia-menu until plugin 2.0.0"
   source: "https://github.com/ajitta/dialectic-skills"
 ---
@@ -46,7 +46,7 @@ A pick by number or name is an explicit invocation of that skill by name, includ
 | 12 | dia-regula | Write or review text a model follows (a skill file, a prompt, an AGENTS.md) against four rules |
 | 13 | dia-techne | Deepen a one-off request as a field's top practitioners would, then run it |
 
-When showing the menu, print the thirteen rows as a numbered list with these fixed numbers in this order, because `dia <n>` selects by them, each skill name as written and each description translated into the user's language, then these lines, translated:
+When showing the menu, print the thirteen rows as a numbered list with these fixed numbers in this order, because `dia <n>` selects by them, each skill name as written, then these lines:
 
 - `dia <number or name> <request>` runs that skill, for example `dia 4 …` or `dia reductio …`.
 - `dia <request>` picks the skill that fits.
@@ -73,5 +73,4 @@ Load the chosen skill the way your host loads skills (for example the Skill tool
 
 ## Output
 
-- Write in the user's language: the language of the user's message, or of the conversation when the message is only `dia`.
 - Besides the menu, the one-line choice, a question or the form to send, add nothing; after a hand-off everything is the chosen skill's output. When none fits, answer as you would without this skill.

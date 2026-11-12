@@ -1,6 +1,6 @@
 # dia-techne: where the method and the name come from
 
-Read this only when the user asks where the method or the name comes from. The rules are in SKILL.md; this file says what they rest on and where the skill departs from its source. Quotations are from the sources listed at the end.
+The rules are in SKILL.md; this file says what they rest on and where the skill departs from its source. Quotations are from the sources listed at the end.
 
 ## 1. The method: Rieseberg's tutorial
 

@@ -4,7 +4,7 @@ description: Use modern Socratic questions to develop an idea into options and a
 license: MIT
 metadata:
   author: ajitta
-  version: "2.4.0"
+  version: "2.5.0"
   lineage: "socratic-brainstorm 3.3.1; named dia-brainstorm until plugin 2.0.0"
   source: "https://github.com/ajitta/dialectic-skills"
 ---
@@ -23,7 +23,7 @@ What this is: **modern Socratic questioning** (Richard Paul's six question types
 4. **Quote only real words.** Quotation marks mean the user said exactly that, in one message; otherwise paraphrase without quotation marks.
 5. **Stop means stop.** On any stop signal ("stop", "enough", "wrap up", "conclude", or the same in the user's language) go straight to Step 5 with what you have, and honor "keep going", "more" or "continue" past the budget just as fast; when Step 3 has not run, the brief's options list at most three options of your own built from the user's answers, labelled as yours, so the user leaves with something to choose from; these are an exception to building the brief only from the user's answers, untested and unchosen, never decisions, and they are left out when the user has declined options.
 6. **Never implement.** Produce no code, files or actions beyond the brief and the file Step 5 may save it in, because building is a separate request the user makes after the brief.
-7. **Reply in the user's language**, keeping the user's own terms for their idea.
+7. **Keep the user's own terms for their idea.**
 
 ## Step 0 — Frame (one message)
 

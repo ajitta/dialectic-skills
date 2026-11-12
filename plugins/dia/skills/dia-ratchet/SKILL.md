@@ -4,7 +4,7 @@ description: Revise through repeated rounds using external checks and locked res
 license: MIT
 metadata:
   author: ajitta
-  version: "2.3.0"
+  version: "2.4.0"
   lineage: "recursive-refine (installed copy, unversioned), output mode only; named dia-iterate until plugin 1.4.0"
   source: "https://github.com/ajitta/dialectic-skills"
 ---
@@ -46,11 +46,11 @@ Stop if any one holds, checking them in this order, and do not invent defects to
 2. **Zero defects**: no defect was named, or every named defect was refuted; if defects were named but none could be checked, the stop is "verification exhausted" instead. Say so and stop; this stop is not a clean bill.
 3. **Verification exhausted**: no defect named this round was confirmed, and at least one was unverifiable (any others were refuted). Stop and hand the unverified list to the user, one line per item naming what would make it checkable (survey figures, logs, a primary source); material the user then supplies becomes new external evidence and can reopen the loop, a pasted primary source, log or data as it stands, and a secondary source or a judgment or recollection about the world only once the method for its content type confirms it, as under Guardrails. If any unverified item is a calculation or a logical step you could re-derive yourself, add one line: a single dia-emend pass can fix such items by re-derivation, which this loop does not count as verification.
 4. **Fixed point**: this round changed nothing in the text, so its confirmed defects went unfixed. Stop and list each under "Confirmed but not fixed".
-5. **Round cap** (`--max N`, default 3) reached. Stop, and say so if confirmed defects remain.
+5. **Round cap** reached. Stop, and say so if confirmed defects remain.
 
 ## Output
 
-Write the output in the language of the user's latest message, headings included, as plain Markdown, not in a code block; the block below only shows the layout. The output is a change list unless the user asks for "full text" or "the final version in full", because a full reprint mostly re-emits the original, and for a third party's or widely copied text the host's content filter can block the whole response; when full text is requested, replace `## Changes` with `## Final version`, when "final version only" is requested, give only that, and if the full text is blocked, follow the content-filtering guardrail under Guardrails and, once the guardrail has reduced the output to a change list, tell the user to apply that list to the original by hand.
+Write the output as plain Markdown, not in a code block; the block below only shows the layout. The output is a change list unless the user asks for "full text" or "the final version in full", because a full reprint mostly re-emits the original, and for a third party's or widely copied text the host's content filter can block the whole response; when full text is requested, replace `## Changes` with `## Final version`, when "final version only" is requested, give only that, and if the full text is blocked, follow the content-filtering guardrail under Guardrails and, once the guardrail has reduced the output to a change list, tell the user to apply that list to the original by hand.
 
 ```
 ## Changes

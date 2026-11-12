@@ -1,6 +1,6 @@
 # Output template (dia-counterplan)
 
-Translate headings and labels per SKILL.md Rule 7. Use numbered lines, not wide tables, so it reads on a phone. Print plain Markdown, not a code block.
+Translate headings and labels. Use numbered lines, not wide tables, so it reads on a phone. Print plain Markdown, not a code block.
 
 ---
 

@@ -1,6 +1,6 @@
 # Reductio ad absurdum: theory reference
 
-Read this when the user asks about the method, or when you are unsure whether a step is strict. Sources are listed at the end; everything here is paraphrased from them unless quoted.
+Sources are listed at the end; everything here is paraphrased from them unless quoted.
 
 ## 1. What it is
 

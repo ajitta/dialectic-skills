@@ -1,6 +1,6 @@
 # Output template (dia-warrant)
 
-Translate headings, slot names, tags, statuses and the fixed results per SKILL.md Rule 8. Use lines, not wide tables, so it reads on a phone. Print plain Markdown, not a code block. Omit a section's optional lines when they do not apply; an empty slot is a result ("none given"), not a gap to fill.
+Translate headings, slot names, tags, statuses and the fixed results. Use lines, not wide tables, so it reads on a phone. Print plain Markdown, not a code block. Omit a section's optional lines when they do not apply.
 
 ---
 

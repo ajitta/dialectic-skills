@@ -1,6 +1,6 @@
 # Question bank
 
-Shapes, not scripts. Adapt each to the user's own words and the last answer, and ask in the user's language.
+Shapes, not scripts. Adapt each to the user's own words and the last answer.
 
 ## Six types
 
