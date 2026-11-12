@@ -158,7 +158,7 @@ Options go after the skill's name or the `dia` selector, as flags or in plain wo
 
 ### One rule for one conversation
 
-The dia skills are methods you call for one task; none of them sets a rule for a whole conversation. To hold one, paste a sentence such as this at the start of the chat; it makes the assistant say when an answer you asked it to check rests on its memory:
+The dia skills are methods you call for one task; none of them sets a rule for a whole conversation. To keep a rule for the whole conversation, paste a sentence such as this at the start of the chat; it makes the assistant say when an answer you asked it to check rests on its memory:
 
 ```
 For this conversation: only when I ask you to check or review something, say so when your answer rests on recall, never call recall "verified", and say what you did not check. Add no such note to a common fact asked in passing.
