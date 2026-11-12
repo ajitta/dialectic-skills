@@ -25,6 +25,8 @@ The last output, or another target the user names or pastes as the thing to revi
 
 A task with no draft yet (`dia-emend` followed by a task to do) means first write a candidate answer, check it once by the procedure below, and give only the final version, showing the review only if the user asks for it.
 
+The revision keeps the draft's language unless the user asks otherwise.
+
 ## Procedure
 
 1. **Requirements.** From the latest user instruction, build an internal checklist that you do not print: deliverable, format, scope, audience, constraints. Deliberate choices in the draft (tone, structure, terminology) are kept unless they conflict with the user's instructions or a confirmed fact.

@@ -57,8 +57,6 @@ Approval agrees the working understanding and authority, not that the explanatio
 
 Use the sections below for the initial or revised review, including only material items (the outcome hypothesis is always one when item 1 calls for it), omitting empty sections, and scaling it to the task (a few sentences may suffice); after approval, use the format appropriate to the task.
 
-
-
 **Goal and success conditions**
 
 **Evidence and assumptions**

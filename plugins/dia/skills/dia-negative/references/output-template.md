@@ -1,6 +1,6 @@
 # Output template (dia-negative)
 
-Use numbered items and short lines so it reads on a phone.
+Translate every heading and label into the user's language. Use numbered items and short lines so it reads on a phone.
 
 ---
 

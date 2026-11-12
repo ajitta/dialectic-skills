@@ -1,6 +1,6 @@
 # Brief template
 
-Lead with one plain line before the brief: the verdict and the next step. Fill every section from the user's answers only (the one exception: after an early stop, the options section may hold at most three options of your own, labelled as yours, per SKILL.md hard rule 5). In chat, print the brief as plain Markdown, not inside a code block (code blocks scroll sideways on phones); the block below only shows the structure.
+Lead with one plain line before the brief: the verdict and the next step. Fill every section from the user's answers only (the one exception: after an early stop, the options section may hold at most three options of your own, labelled as yours, per SKILL.md hard rule 5), and translate the section headers into the user's language. In chat, print the brief as plain Markdown, not inside a code block (code blocks scroll sideways on phones); the block below only shows the structure.
 
 ```markdown
 # Brief: <short name>  ·  <YYYY-MM-DD, if known>
