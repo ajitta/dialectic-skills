@@ -1,6 +1,6 @@
 # Socratic elenchus: theory reference
 
-Read this only when the user asks about the sources or the method. The rules are in SKILL.md; this file only says where they come from and where they depart from Plato. Plato is cited by Stephanus number from the Perseus translations listed under Sources.
+The rules are in SKILL.md; this file only says where they come from and where they depart from Plato. Plato is cited by Stephanus number from the Perseus translations listed under Sources.
 
 ## 1. The method and its scope
 

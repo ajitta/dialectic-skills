@@ -4,7 +4,7 @@ description: Review a draft once and correct confirmed defects while marking unc
 license: MIT
 metadata:
   author: ajitta
-  version: "2.1.0"
+  version: "2.2.0"
   lineage: "self-refine (installed copy, unversioned); named dia-refine until plugin 2.0.0"
   source: "https://github.com/ajitta/dialectic-skills"
 ---
@@ -25,6 +25,8 @@ The last output, or another target the user names or pastes as the thing to revi
 
 A task with no draft yet (`dia-emend` followed by a task to do) means first write a candidate answer, check it once by the procedure below, and give only the final version, showing the review only if the user asks for it.
 
+The revision keeps the draft's language unless the user asks otherwise.
+
 ## Procedure
 
 1. **Requirements.** From the latest user instruction, build an internal checklist that you do not print: deliverable, format, scope, audience, constraints. Deliberate choices in the draft (tone, structure, terminology) are kept unless they conflict with the user's instructions or a confirmed fact.
@@ -34,8 +36,6 @@ A task with no draft yet (`dia-emend` followed by a task to do) means first writ
 5. **Integrated revision.** Produce one revision, check it against the checklist from step 1, and finish, iterating further only on new evidence or specific feedback, because rechecking again and again on your own judgment alone adds cost and tends not to improve correctness, and on reasoning it can make it worse (Huang et al., ICLR 2024, arXiv:2310.01798).
 
 ## Output
-
-Write the output in the language of the user's own words in their latest message, not of a draft pasted in it, labels included, while the revision keeps the draft's language unless the user asks otherwise; if that message has none of the user's own words besides the invocation (the `dia-emend` name or one of the forms under Invocation) and any pasted draft, use the language of the conversation.
 
 - Default: **defect list, then revision**. The defect list has four parts: ① confirmed errors ② missing requirements ③ correct content kept ④ remaining uncertainty. Tag each ① item with its basis: (tool), (user's instructions or material) or (re-derived). List individually only the items that change the user's conclusion or next action, and group incidental fixes such as notation or style into one line. The list is a verdict on the draft, not a record of your thinking.
 - On a "final version only" request: give only the revision, with no review or change log. One closing line follows when there is something to name, and only then, naming what the user would otherwise not see: a single-right-answer result your own re-derivation changed (original and revised value, and the premise), each suspected correction step 4 put in the revision (original and the correction you suspect, one clause each), what else stayed unverified and bears on the user's conclusion (a group such as "three benchmark figures unverified"), a problem outside the scope or a matter of taste (see Safeguards), or, for a file target, the sources of verified items (see below). For a task with no draft yet (Target) there was no draft the user saw, so there is no original value to show, and a suspected correction is still named, without an original.

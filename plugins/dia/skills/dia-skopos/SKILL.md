@@ -4,7 +4,7 @@ description: Confirm the user's goal, assumptions and open decisions before work
 license: MIT
 metadata:
   author: ajitta
-  version: "2.2.0"
+  version: "2.3.0"
   lineage: "confirm-intent (installed copy, unversioned); named dia-intent until plugin 1.0.0, dia-confirm from plugin 1.1.0 to 1.4.0 and dia-intent again until 2.0.0"
   source: "https://github.com/ajitta/dialectic-skills"
 ---
@@ -56,8 +56,6 @@ Approval agrees the working understanding and authority, not that the explanatio
 ## Response Format
 
 Use the sections below for the initial or revised review, including only material items (the outcome hypothesis is always one when item 1 calls for it), omitting empty sections, and scaling it to the task (a few sentences may suffice); after approval, use the format appropriate to the task.
-
-Write the review and any questions in the language of the user's latest message, ignoring an invocation prefix such as the skill name or a prefilled prompt, and translate the labels consistently.
 
 **Goal and success conditions**
 

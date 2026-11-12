@@ -156,6 +156,16 @@ Options go after the skill's name or the `dia` selector, as flags or in plain wo
 - Mode and depth (`dia-quaestio`): `develop` (default) or `stress` ("poke holes"), and `quick`, `standard` (default) or `deep`.
 - Criteria (`dia-emend`, `dia-ratchet`): anything after the name, for example `dia-emend — check the numbers` or `dia-emend for tone`.
 
+### One rule for one conversation
+
+The dia skills are methods you call for one task; none of them sets a rule for a whole conversation. To keep a rule for the whole conversation, paste a sentence such as this at the start of the chat; it makes the assistant say when an answer you asked it to check rests on its memory:
+
+```
+For this conversation: only when I ask you to check or review something, say so when your answer rests on recall, never call recall "verified", and say what you did not check. Add no such note to a common fact asked in passing.
+```
+
+It lasts for that conversation only, so paste it again in a new one.
+
 ## Skill guide with examples
 
 You don't need any background in philosophy to use these skills. Each one is a way of thinking that people have used for a long time, turned into a routine the assistant follows step by step. Below, each skill gets a plain-language explanation, a prompt to try, and a real session, shortened.

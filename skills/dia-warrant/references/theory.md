@@ -1,6 +1,6 @@
 # dia-warrant: theory reference
 
-Read this when the user asks about the method or its sources, then answer briefly. Everything here is paraphrased from the sources at the end unless quoted. Bracketed numbers refer to the numbered sources at the end; the unnumbered sources there were added for this skill.
+Everything here is paraphrased from the sources at the end unless quoted. Bracketed numbers refer to the numbered sources at the end; the unnumbered sources there were added for this skill.
 
 ## 1. Toulmin's layout
 
