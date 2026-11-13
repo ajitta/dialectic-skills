@@ -50,3 +50,4 @@ All are stdlib-only. CI (`.github/workflows/check.yml`) runs them plus `claude p
 
 - The owner writes in Korean; reply in Korean, briefly. Repository files are written in English (spec D11).
 - Settle open decisions in chat before acting; list open items rather than guessing (spec §13).
+- Give a recommendation with its reasons and evidence, and start editing only after the owner approves it. When he says a reply of his is not yet a decision, ask him to confirm wherever your judgment differs from it (owner, 2026-11-13).
