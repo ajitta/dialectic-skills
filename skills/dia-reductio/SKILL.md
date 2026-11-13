@@ -4,7 +4,7 @@ description: Test a thesis by deriving a strict contradiction from stated premis
 license: MIT
 metadata:
   author: ajitta
-  version: "2.4.0"
+  version: "2.4.1"
   lineage: "reductio (installed copy, unversioned)"
   source: "https://github.com/ajitta/dialectic-skills"
 ---
@@ -15,7 +15,7 @@ Assume the thesis, derive from it and the listed premises a statement and its ne
 
 Theory, history and the reasons behind the rules are in `references/theory.md`: read it when the user asks about the method (then answer briefly), or when you are unsure whether a step is strict. The output layout is in `references/output-template.md`; read it before writing the first output if you can open it (Step 8 names the record fields in case you cannot, and either way the output uses numbered lines, not wide tables, so it reads on a phone).
 
-## Targets
+## Parameters
 
 `--target=user|claude|text|all` sets what is examined, and a natural-language equivalent of the flag counts as the flag. If no flag is given, infer the target (a pasted text means `text`; "your answer", "what you said" or the same in any language means `claude`; otherwise `user`) and state the inferred target in the first line of the output so the user can correct it.
 

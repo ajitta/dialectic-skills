@@ -4,7 +4,7 @@ description: Review a draft once and correct confirmed defects while marking unc
 license: MIT
 metadata:
   author: ajitta
-  version: "2.3.0"
+  version: "2.3.1"
   lineage: "self-refine (installed copy, unversioned); named dia-refine until plugin 2.0.0"
   source: "https://github.com/ajitta/dialectic-skills"
 ---
@@ -34,7 +34,7 @@ The revision keeps the draft's language unless the user asks otherwise.
 ## Output
 
 - Default: **defect list, then revision**. The defect list has four parts: ① confirmed errors ② missing requirements ③ correct content kept ④ remaining uncertainty. Tag each ① item with its basis: (tool), (user's instructions or material) or (re-derived). List individually only the items that change the user's conclusion or next action, and group incidental fixes such as notation or style into one line. The list is a verdict on the draft, not a record of your thinking.
-- On a "final version only" request: give only the revision, with no review or change log. One closing line follows when there is something to name, and only then, naming what the user would otherwise not see: a single-right-answer result your own re-derivation changed (original and revised value, and the premise), each suspected correction step 4 put in the revision (original and the correction you suspect, one clause each), what else stayed unverified and bears on the user's conclusion (a group such as "three benchmark figures unverified"), a problem outside the scope or a matter of taste (see Safeguards), or, for a file target, the sources of verified items (see below). For a task with no draft yet (Target) there was no draft the user saw, so there is no original value to show, and a suspected correction is still named, without an original.
+- On a "final version only" request: give only the revision, with no review or change log. One closing line follows when there is something to name, and only then, naming what the user would otherwise not see: a single-right-answer result your own re-derivation changed (original and revised value, and the premise), each suspected correction step 4 put in the revision (original and the correction you suspect, one clause each), what else stayed unverified and bears on the user's conclusion (a group such as "three benchmark figures unverified"), a problem outside the scope or a matter of taste (see Guardrails), or, for a file target, the sources of verified items (see below). For a task with no draft yet (Target) there was no draft the user saw, so there is no original value to show, and a suspected correction is still named, without an original.
 - If nothing needs fixing, say so and give the reason; do not make edits just to have something to show.
 - When your own re-derivation, not a tool, changes a single-right-answer result (such as a calculation or the output of a code run), present the original and the revised result side by side and state the premise the change rests on, without declaring the revised result better on your own judgment alone; the (re-derived) tag in ① is how the defect list shows this, since the basis is your own working, not an outside check.
 - Apart from added requirements (②) and necessary corrections, the revision has no reason to be longer than the draft. When shortening, drop content that does not affect the next action; do not break sentences into fragments or compress them into arrows and abbreviations.
@@ -59,7 +59,7 @@ Example defect list:
 
 Incidental: 2 notation fixes applied
 
-## Safeguards
+## Guardrails
 
 - Requests for several rounds belong to `dia-ratchet`, not to this skill; if dia-ratchet is named in the same request, run the two as separate passes with separate outputs and keep their bases apart, because a re-derivation in this pass is not verification for a ratchet round.
 - Being invoked is not a signal of error, and change is not improvement in itself, so do not read the request as "something must change": flipping a correct answer under pressure that has no specific grounds is the failure this procedure exists to prevent.

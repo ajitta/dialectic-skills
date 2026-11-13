@@ -4,7 +4,7 @@ description: Test a universal claim using counterexamples and user-directed repa
 license: MIT
 metadata:
   author: ajitta
-  version: "2.4.0"
+  version: "2.4.1"
   lineage: "new in plugin 1.3.0 (docs/research/candidates/modern-dialectic.md)"
   source: "https://github.com/ajitta/dialectic-skills"
 ---
@@ -26,7 +26,7 @@ This skill runs the method of Lakatos's *Proofs and Refutations* on a strictly u
 9. **Stop means stop.** On a stop signal ("stop", "enough", "wrap up", or the same in the user's language), go to the record (Step 6) at once.
 10. **Quote C in its original language.**
 
-## Step 0 — Is it a strictly universal claim?
+## Step 0: Is it a strictly universal claim?
 
 Take only a claim about every member of a class that says what is the case; a rule about what to do ("never deploy on Fridays", "every refund must be approved within a day") is a policy even when worded with all, every or never, or asked as "does it hold in every case". When it is not such a claim, say in one line where it fits, and stop unless the user restates it as a claim about what is the case; do not restate it that way yourself:
 
@@ -39,13 +39,13 @@ If it is unclear whether the user means "every" strictly, make that your one que
 
 **Whose claim.** Infer it: the user's own words make it theirs, and a pasted text, or "your answer" (or the same in any language), makes it that text's or your earlier answer's; say in your first line whose claim it is, so the user can correct you. For a text or your earlier answer, the user takes the claim up for this dialogue and still rules on the cases; for your earlier answer, also say that this is a self-examination, that you will not defend it, and that you are then arguing both sides.
 
-## Step 1 — Fix C, ask for the proof
+## Step 1: Fix C, ask for the proof
 
 Restate C as "every A is B" in the key words of C's source, saying what A covers and what B asserts, and if you had to paraphrase, say "in my words" (a flag, not a second question). In the same message ask one question: why they hold it, that is, their argument or proof, offering to reconstruct it as [A] lemmas if they have none. If the message that states C already gives a reason or proof, however short ("because it burns calories"), take it as the argument and do Step 2 in the same message instead of asking for it.
 
 The reading of C you state here, changed by any restoring correction and by each definition change the user adopts (hard rule 5, or a wider reading under Step 4), is the reading in force, and hard rule 2 and Step 4 check each case against it as it stood when that case was raised, so an adopted change applies from the next case on, with two exceptions: a wider reading adopted for a concept-stretching case also applies to that case, because the user widened the claim to take that case in; and a restoring correction, at whatever point it comes, also applies to the current round's case until a repair for it is adopted, because the misreading was yours, not a move by the user: if that case's check cannot be written under the corrected reading, withdraw it as resting on a misread term (hard rule 6), and if it can, show the check again and ask once more whether it counts, except that when the same correction also adds a restriction, the restoring part applies first and the restricting part is ruled on by Step 4 against the corrected reading, without asking again; cases of earlier rounds keep their rulings, because the user ruled on them as they were offered. A narrowing never reaches back to a raised case that meets the reading in force: the narrowing is monster-barring and the case keeps its ruling, because Lakatos's Rule 2 forbids dismissing a refutation as a monster.
 
-## Step 2 — Proof-analysis
+## Step 2: Proof-analysis
 
 Split the argument into numbered lemmas L1 … Ln, each a step the argument needs, labelled [T] for the words of C's source (the user, the pasted text or your earlier answer; quote them) or [A] for a step you supplied because the argument needs it (one-line reason). Keep it to about five lemmas, mark the one you suspect most, and ask one question: "Is this your argument? Correct any line." A lemma keeps its number for the rest of the dialogue and in the record.
 
@@ -54,7 +54,7 @@ Split the argument into numbered lemmas L1 … Ln, each a step the argument need
 - If the user gives no argument and declines a reconstruction, say that without a proof there is no lemma to repair, so a case that counts leaves only giving up C or a response Lakatos rejects, and continue only if the user wants that.
 - **Prior criterion** (Popper's prior refutation criterion; an addition to Lakatos): if C is empirical, resting on observation (people, systems, markets, measurements), ask it with the first case: present that case as an observable situation, and make the message's one question whether observing it would count against C. Record the answer as the criterion later rulings are held to; agreeing to the criterion is not a ruling that this case counts, so ask that next, against the criterion. If the first case is local only (a lemma fails, C survives), it cannot show what refutes C: ask the criterion as a question of its own before the first case against C; for a mathematical or definitional C, the check of hard rule 2 is the criterion.
 
-## Step 3 — Raise one case
+## Step 3: Raise one case
 
 Lakatos's Rule 1: look for cases both against C (**global**) and against the suspect lemmas (**local**). Aim first at the lemma marked most suspect, and choose the case most likely to be valid: from the user's own material first, then logical or definitional cases, then facts. Lakatos's Rule 3, applied to every case: before you send a case, check whether it fails C, a listed lemma or both, and label it **global only**, **local only** or **both**, because Step 5's repairs differ by that label. End the message with the one question: does the case count against C (for a local-only case, against Lj)?
 
@@ -67,7 +67,7 @@ Layout, one case per message (here C is "every sorted list can be binary-searche
 >
 > Rests on: definition. Does this case count against your claim?
 
-## Step 4 — Classify the ruling
+## Step 4: Classify the ruling
 
 - **Counts:** the user accepts the case; go to Step 5.
 - **Invalid:** the user names a condition the case fails under the reading in force (a case whose check cannot be written under a restoring correction is withdrawn by Step 1, not classified here). Check it: if the fault holds because the case's check read a term more widely than the reading in force, the ruling is concept-stretching (below); if it holds otherwise, withdraw the case ("invalid: fails [condition]"); if it does not hold, show the check's line for that condition once more, after which a reply that narrows the term is monster-barring and one that keeps the reading in force leaves the case disputed.
@@ -76,7 +76,7 @@ Layout, one case per message (here C is "every sorted list can be binary-searche
 - **Disputed:** a bare "no", or insistence, with no condition named. Ask once which condition fails; if none is named, record the case as disputed, neither withdrawn nor counted, and move on to the next case.
 - **The dispute turns into what a key term means:** say so and offer dia-elenchus for that question; the case stays disputed.
 
-## Step 5 — Repair (one message)
+## Step 5: Repair (one message)
 
 Branch on the case's label (Lakatos's Rules 2-4):
 
@@ -89,7 +89,7 @@ Branch on the case's label (Lakatos's Rules 2-4):
 
 Number the options, saying for each in one line what it keeps and what it no longer covers; recommend one in one line with its reason, then ask the user to pick.
 
-## Step 6 — Next round, ending, record
+## Step 6: Next round, ending, record
 
 A round is one case raised and then ruled on or withdrawn, with its repair if it counted. When a round ends, after the user picks a repair other than giving up C for a case that counts or after Step 4 settles any other ruling or the round's case is withdrawn, restate the current C (C as fixed, changed by every repair and definition change the user has adopted, if any; Steps 3 to 5 call it C in the next round) and the changed lemmas in one line, and raise the next case in the same message. After the third round, and not after later rounds, that message restates C and offers to stop instead of raising a case; continue if the user asks. If the repairs have turned into a list of exceptions, say so.
 
