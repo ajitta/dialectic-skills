@@ -41,6 +41,11 @@ All are stdlib-only. CI (`.github/workflows/check.yml`) runs them plus `claude p
 - Form-only edits (provenance moved out, sections merged) are checked by one independent review instead of runs.
 - A comparison whose arms hold a dialogue with a simulated user follows rule 6 of `docs/writing-for-models/README.md` § Rules for A/B records, wherever its record sits (owner, 2026-11-11; spec D70).
 
+## Review findings (owner, 2026-11-13)
+
+- Fix only a finding under which a model would act wrongly in an ordinary case; report the others with the change and leave their text as it is.
+- A fix that adds words names the words it removes, or says that it removes none and why the addition is still needed.
+
 ## Working with the owner
 
 - The owner writes in Korean; reply in Korean, briefly. Repository files are written in English (spec D11).

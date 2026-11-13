@@ -4,7 +4,7 @@ description: Revise through repeated rounds using external checks and locked res
 license: MIT
 metadata:
   author: ajitta
-  version: "2.4.0"
+  version: "2.5.0"
   lineage: "recursive-refine (installed copy, unversioned), output mode only; named dia-iterate until plugin 1.4.0"
   source: "https://github.com/ajitta/dialectic-skills"
 ---
@@ -15,7 +15,7 @@ The name is the rule: like a ratchet, the output moves only forward on confirmed
 
 ## Invocation
 
-Run only when the message starts with `dia-ratchet`, when the skill is invoked by name in any host's form (such as `/dia:dia-ratchet`, `$dia:dia-ratchet` or `@dia-ratchet`), or when the user picks it in dia-router by number or name; otherwise do not run the loop: if this skill fits the request, ask in one line for a message starting with `dia-ratchet` and stop, and if it does not, answer without the skill, or use dia-emend if one pass is enough.
+Run only when this skill is invoked by name or picked in dia-router; otherwise do not run the loop: if this skill fits the request, ask in one line for a message starting with `dia-ratchet` and stop, and if it does not, answer without the skill, or use dia-emend if one pass is enough.
 
 ## Choosing the target
 

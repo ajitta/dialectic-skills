@@ -4,7 +4,7 @@ description: Rule on reports about a target using evidence, without rewriting th
 license: MIT
 metadata:
   author: ajitta
-  version: "2.5.0"
+  version: "2.6.0"
   lineage: "new in plugin 1.5.0 (spec D40); rules drawn from adjudication trials, docs/research/dia-adjudicate.md"
   source: "https://github.com/ajitta/dialectic-skills"
 ---
@@ -17,7 +17,7 @@ Several hard rules below give as their reason a misruling that judges made in tr
 
 ## Invocation
 
-Run only when the message starts with `dia-adjudicate`, when the skill is invoked by name in any host's form (such as `/dia:dia-adjudicate`, `$dia:dia-adjudicate` or `@dia-adjudicate`), or when the user picks it in dia-router by number or name; otherwise, if this skill fits the request, ask in one line for a message starting with `dia-adjudicate` and stop, and if it does not, answer without it.
+Run only when this skill is invoked by name or picked in dia-router; otherwise, if this skill fits the request, ask in one line for a message starting with `dia-adjudicate` and stop, and if it does not, answer without it.
 
 ## Inputs
 

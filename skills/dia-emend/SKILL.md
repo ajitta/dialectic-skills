@@ -4,7 +4,7 @@ description: Review a draft once and correct confirmed defects while marking unc
 license: MIT
 metadata:
   author: ajitta
-  version: "2.2.0"
+  version: "2.3.0"
   lineage: "self-refine (installed copy, unversioned); named dia-refine until plugin 2.0.0"
   source: "https://github.com/ajitta/dialectic-skills"
 ---
@@ -12,10 +12,6 @@ metadata:
 # dia-emend
 
 Treat the target (the last output unless the user names or pastes another, see Target) as a draft, find its defects, and produce one integrated revision that fixes only the confirmed ones and marks the suspected ones (step 4). This is a single-pass procedure, not the iterative Self-Refine loop (Madaan et al., 2023, arXiv:2303.17651).
-
-## Invocation
-
-Run only when the message starts with `dia-emend`, when the skill is invoked by name in any host's form (such as `/dia:dia-emend`, `$dia:dia-emend` or `@dia-emend`), or when dia-router selects it; otherwise answer without it.
 
 ## Target
 
