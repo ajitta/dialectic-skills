@@ -4,7 +4,7 @@ description: Use modern Socratic questions to develop an idea into options and a
 license: MIT
 metadata:
   author: ajitta
-  version: "2.5.0"
+  version: "2.5.1"
   lineage: "socratic-brainstorm 3.3.1; named dia-brainstorm until plugin 2.0.0"
   source: "https://github.com/ajitta/dialectic-skills"
 ---
@@ -25,7 +25,7 @@ What this is: **modern Socratic questioning** (Richard Paul's six question types
 6. **Never implement.** Produce no code, files or actions beyond the brief and the file Step 5 may save it in, because building is a separate request the user makes after the brief.
 7. **Keep the user's own terms for their idea.**
 
-## Step 0 — Frame (one message)
+## Step 0: Frame (one message)
 
 Read the request for an idea, a mode and a depth, inferring the mode and depth from whatever wording and language they arrive in (`--mode stress`, "go hard", "quick", "keep it light"), since no parser exists.
 
@@ -42,11 +42,11 @@ If dia-elenchus is named in the same request, the definition dialogue comes firs
 
 If the idea is already precise (clear scope, owner, success measure, no open questions), say so and offer to record it as-is or to probe the one aspect they name; don't manufacture doubt. If the user signals they want answers, not questions, offer to jump to Step 3, because that is where you may offer options of your own, go there if they accept or repeat the signal, and otherwise continue with Step 1; when both hold, make it one choice: record as-is, probe one aspect, or go to options.
 
-## Step 1 — Thesis
+## Step 1: Thesis
 
 Ask for the idea in one or two sentences if they haven't given it that way, then **steelman** it: restate the strongest honest version, mark what you assumed versus what they said, and ask "Is that right, or did I assume something you didn't mean?", re-confirming after each correction and probing only once the user has confirmed the restatement. A reply that answers or adds without rejecting the restatement (a new fact, "I just like cooking", "about an hour a day", "hmm") lets the parts it does not dispute stand as the provisional working thesis, which confirms no assumption and makes no decision (an assumption it leaves uncorrected stays unconfirmed in the brief): fold the reply into the working thesis in one line and ask the first probe in the same message, re-confirming only after an explicit correction, because a confirmation question each time the user adds something spends the session without moving the idea. This restatement is the *working thesis*; update it whenever an answer changes it.
 
-## Step 2 — Probe
+## Step 2: Probe
 
 Ask only what the user can answer from their own experience or knowledge; a fact the idea turns on that they can't answer from what they know goes under open questions as something to find out, and is never put to them to guess.
 
@@ -78,7 +78,7 @@ Rhythm:
 - Every ~4 probes, open your next message with the working thesis in one line ("So far: …"); at `deep` depth that message asks only whether to keep probing or move on to options (Step 3), in place of its probe, so it still asks one thing (Hard rule 1), and at `quick` or `standard` depth, around half the budget, add a pacing cue ("almost there, two or three more") to that line, or give it on its own line if no "So far" line is due.
 - The lenses (premortem and expert lenses here, SCAMPER only in Step 3) are optional extras for when the idea calls for one, at most two; see the question bank.
 
-## Step 3 — Diverge
+## Step 3: Diverge
 
 If the session was pure stress-testing and the user doesn't want options, skip this step and Step 4's questions, record any decision already made as Step 4 describes, and go to Step 5.
 
@@ -86,7 +86,7 @@ If the session was pure stress-testing and the user doesn't want options, skip t
 2. Ask once about each edge, one edge per message: the cheapest version, the most extreme version, the do-nothing option; if the user named what matters during probing, also ask once: "What option would win on <their criterion>, even if it loses elsewhere?"
 3. Only then add **at most 3** options of your own, labeled as yours ("My ideas:"), each on one short line and each differing in kind from every option already listed and from each other (a different mechanism or owner, not a bigger, smaller or tweaked version), adding fewer if you can't find one that does; number every option so far in this one message, which may run past the phone-screen limit of Hard rule 2.
 
-## Step 4 — Converge
+## Step 4: Converge
 
 Converge with questions, not a recommendation:
 
@@ -96,7 +96,7 @@ Converge with questions, not a recommendation:
 
 Record each decision as **confirmed** (the user named the option or its words) or **delegated** (a bare "ok", "sure", "your call", or silent acceptance of your pick).
 
-## Step 5 — Verdict and brief
+## Step 5: Verdict and brief
 
 Unless the user sent a stop signal, the depth is `quick`, or the idea was recorded as-is, first ask one synthesizing question: "Putting it all together, how would you now state the idea?" The thesis after is their answer if they gave one, otherwise the working thesis, or the user's own statement if no working thesis was formed; mark any tightening of it as yours. Before the verdict, re-read the dialogue once for contradictions between turns that weren't adjacent, then state one verdict honestly:
 

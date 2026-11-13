@@ -4,7 +4,7 @@ description: Examine a definition through classical Socratic dialogue and agreed
 license: MIT
 metadata:
   author: ajitta
-  version: "2.1.0"
+  version: "2.1.1"
   lineage: "socratic-elenchus 1.3.1"
   source: "https://github.com/ajitta/dialectic-skills"
 ---
@@ -30,7 +30,7 @@ This skill adds one thing the dialogues do not have: **the revisions are kept as
 - **Short questions, short answers.** Most premise questions can be answered yes/no or in one line.
 - **Examine statements, not the person** (narrower than Socrates, who also tested how people lived): a contradiction belongs to the statements, so you show that statements conflict, never declare the user wrong, and the user decides what to give up.
 
-## Rules
+## Hard rules
 
 1. **One question per message, asking for one thing.** Two asks joined in one sentence count as two ("where do you buy it, and how do you know?" is bundling), while offering possible answers to the same ask ("is it A or B?") is fine.
 2. **Short messages: a message fits a phone screen without scrolling**, so cut any message that would need scrolling, and during the dialogue use no tables, no headers and no lists of questions.
@@ -39,7 +39,7 @@ This skill adds one thing the dialogues do not have: **the revisions are kept as
 5. **Stop means stop.** On any stop signal ("stop", "enough", "wrap up", or the same in the user's language) go to the record (Step 6) at once; "continue" / "more" means continue.
 6. **Never advise or implement** during the dialogue, not even as a question, because "Have you considered …?" plants your idea in the form of a question.
 
-## Step 1 — Find X
+## Step 1: Find X
 
 Pick the concept the idea stands on: the word the user could not do without. If the idea has no load-bearing concept (fully specified, measurable), say so and stop rather than fake an examination. Examples:
 
@@ -53,7 +53,7 @@ If the request only says "Socratic" in general ("do it Socratically", "question 
 
 If dia-quaestio is named in the same request, say in that first message that the dialogue comes first and that brainstorming follows when the user asks for it or the dialogue ends, and never interleave the two.
 
-## Step 2 — A definition, not examples
+## Step 2: A definition, not examples
 
 When an answer is an example or a list of examples rather than a definition, as first answers often are, ask what all the cases share, the thing that makes them X: "That's one example. What makes all of them X?"; when it is a list of features or criteria, a synonym, "depends" or a refusal, or examples again after you asked once, take the next ask from the matching row of "Forcing a definition" in [references/elenchus-patterns.md](references/elenchus-patterns.md).
 
@@ -61,7 +61,7 @@ Restate the definition in one sentence as a statement, not a question ("So a goo
 
 From then on, every message moves the examination: it forces a definition (this step), asks a premise question (Step 3), lays out a contradiction (Step 4), or answers a pushback ([references/elenchus-patterns.md](references/elenchus-patterns.md)). Every question must test the current definition or collect a premise toward a contradiction, so neither a question-type tour of clarification, assumption and evidence questions (modern Socratic questioning) nor the hints and evidence questions of an app's own study or learning mode is this method.
 
-## Step 3 — Collect premises
+## Step 3: Collect premises
 
 Ask for agreement to one statement per message, chosen to bear on the definition:
 
@@ -74,7 +74,7 @@ Example: "A retrospective where nobody spoke but every problem got solved: is th
 
 The agreed premises are the user's own answers in the conversation, not a private list of yours, so before laying out a contradiction re-read those answers and number them then; a premise keeps its number for the rest of the dialogue and in the record. Read [references/elenchus-patterns.md](references/elenchus-patterns.md) when you first reach this step, for the shapes of premise questions, laying out a contradiction, pushback, noticing a birth and signs of aporia.
 
-## Step 4 — Show the contradiction
+## Step 4: Show the contradiction
 
 When agreed premises conflict with the definition, lay out the argument in at most four short lines, then ask one question; when the user's own answer already conflicts with the definition (they call a case of the definition "not X"), that answer is the premise, and you lay out the contradiction in your **very next** message. Don't let the user patch the definition silently, because seeing the collision is the point.
 
@@ -86,13 +86,13 @@ The user may withdraw a premise instead of the definition; that is their call, a
 
 If several premises produce no contradiction with the definition, say so, and test it from another side, the other breadth direction or a consequence.
 
-## Step 5 — A revision is a new idea
+## Step 5: A revision is a new idea
 
 The revised definition becomes the current definition, and **the user writes it, not you**: this is stricter than Socrates, who sometimes worded the revision himself, because here the user's own wording is the point. Never offer a revised definition for approval ("So is a retrospective a time that creates change?"); ask "Which would you change?" and wait, and if they name only which one, ask in the next message how they would put it. Name the shift in one line, in the user's own key words on both sides and with no label of your own ("no deliberating → a choice you don't tire of"); that shift is an idea the user just gave birth to, so keep it on a list for the record's "Ideas born". Then, in the same message, ask the next premise question against the new definition (Step 3).
 
 If a revision only rewords the last one, say so and ask what actually changed.
 
-## Step 6 — Ending
+## Step 6: Ending
 
 End when the user stops, when they can't produce a new definition (aporia), or when the current definition survives several real tests, including those the holding bar below requires. A surviving definition is provisional, "it has held so far", never "proven", and a definition that was never tested did not "survive". Expect aporia by default; when it comes, tell the user what it gives them: they now know which part they don't know, so they won't build on a false belief.
 

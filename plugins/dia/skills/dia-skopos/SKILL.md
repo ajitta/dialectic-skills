@@ -4,12 +4,12 @@ description: Confirm the user's goal, assumptions and open decisions before work
 license: MIT
 metadata:
   author: ajitta
-  version: "2.4.0"
+  version: "2.4.1"
   lineage: "confirm-intent (installed copy, unversioned); named dia-intent until plugin 1.0.0, dia-confirm from plugin 1.1.0 to 1.4.0 and dia-intent again until 2.0.0"
   source: "https://github.com/ajitta/dialectic-skills"
 ---
 
-## Before Starting
+## Before starting
 
 Distinguish the deliverable and any stated outcome beyond it, reported observations, causal explanations, proposed means, and explicit constraints, treating explanations and means as hypotheses unless the user sets them as constraints or requests them as the deliverable, and preserving the user's constraints and authority boundaries; quote short exact constraints (such as a name, amount or date) in the user's words and still check them as item 2 says.
 
@@ -27,7 +27,7 @@ Use the request, context, and inspected evidence to present:
    - **Deliverable, as stated:** the user's own words for what to make or do, quoted, and shortened with an ellipsis when long, or "not named" when the request and conversation name none, as when the request only reports an observation.
    - **Deliverable, as read:** the deliverable and scope you will work to, naming what your reading adds to, narrows or leaves out of the stated words, or "same as stated" when it changes nothing, or "open", pointing to the decision under item 3, when what to make is itself that decision.
    - **Outcome, as stated:** the words in which the request, conversation, or materials state what the user wants the deliverable to bring about beyond itself, quoted, with their source when only the materials state it, or "not stated".
-   - **Outcome, as read:** when an outcome is stated, what your reading adds to or narrows in it, or "same as stated" when it changes nothing; when none is stated and the deliverable stays the same whichever outcome it serves, your outcome hypothesis, labelled as such, which names in one line the outcome the deliverable is most likely meant to bring about and invites the user to confirm or correct it, because a request names a deliverable and the outcome it serves usually goes unstated; and when none is stated and the outcomes the deliverable could serve differ enough to change it, "open", pointing to the decision under item 3 that chooses among them. Until the user confirms or corrects it, an outcome hypothesis gets no split and is not listed among the decisions, because a split built on it sets criteria the user never chose and it does not block the work (Recognizing Approval says how a reply to it counts).
+   - **Outcome, as read:** when an outcome is stated, what your reading adds to or narrows in it, or "same as stated" when it changes nothing; when none is stated and the deliverable stays the same whichever outcome it serves, your outcome hypothesis, labelled as such, which names in one line the outcome the deliverable is most likely meant to bring about and invites the user to confirm or correct it, because a request names a deliverable and the outcome it serves usually goes unstated; and when none is stated and the outcomes the deliverable could serve differ enough to change it, "open", pointing to the decision under item 3 that chooses among them. Until the user confirms or corrects it, an outcome hypothesis gets no split and is not listed among the decisions, because a split built on it sets criteria the user never chose and it does not block the work (Recognizing approval says how a reply to it counts).
 
    After the four lines, state observable completion criteria, presenting any criterion that the request or conversation does not state as your proposal, except one taken from the materials, which you present with its source, because the user approves these criteria and needs to see which ones are theirs; infer a necessary condition only when you can explain its evidence, necessity, and how to check it, and keep optional improvements separate.
 
@@ -39,7 +39,7 @@ If open decisions depend on each other (one answer would remove, add, or change 
 
 Until approval (the original task request does not itself count as approval of this review), present only this review and necessary questions: do not implement the task, substantively draft its deliverable, change user assets, publish, send, purchase, or make external commitments, and judge an inspection by its actual effects, not its tool name. Do not include a preliminary deliverable in the review; when the deliverable is itself a calculation or analysis, show only the parts of it that decide its scope or a decision in the review.
 
-## Recognizing Approval
+## Recognizing approval
 
 A clear proceed instruction is approval, regardless of its exact wording, and corrections accompanied by one are approval of the revised task, so apply the corrections without requesting the same approval again; corrections alone update the review, which then waits for approval. General praise, ambiguous reactions, silence, and elapsed time are not approval; for an ambiguous reaction with no new information, briefly request a clear proceed instruction instead of repeating the unchanged review.
 
@@ -53,7 +53,7 @@ Approval agrees the working understanding and authority, not that the explanatio
 
 Beyond the task this skill was invoked for and its direct follow-ups, the review is over: any later task is done without this skill, unless the user invokes the skill again, because the skill's text stays in the conversation. A task about this skill's own text is done without the review.
 
-## Response Format
+## Output
 
 Use the sections below for the initial or revised review, with their headings and the four labels of item 1 written in the user's language, including only material items, omitting empty sections, and scaling it to the task (a few sentences beyond the four lines of item 1 may suffice), except those four lines, which every review carries; after approval, use the format appropriate to the task.
 
