@@ -75,9 +75,8 @@ HANGUL_RE = re.compile("[\u1100-\u11ff\u3130-\u318f\ua960-\ua97f\uac00-\ud7ff]")
 KO_DIR = "/references/ko/"
 KO_HEADER = ("Scope:", "Source:", "As of:", "Use when:")
 SKILL_REF_RE = re.compile(r"\bdia-[a-z]+(?:-[a-z]+)*\b")
-# Menu numbers live only in dia-router (spec D66): another skill names no `dia <n> …` selector,
-# so renumbering the menu never touches a skill body. A number followed by a word is a counting
-# example (`dia 1 thing …`) and passes.
+# dia-router picks a skill by name only (spec D72): no skill file names a `dia <n> …` selector.
+# A number followed by a word is a counting example (`dia 3 reasons …`) and passes.
 MENU_NUMBER_RE = re.compile(r"\bdia \d+(?![ ]+[^\W\d_])|dia <n(?:umber)?>", re.I)
 # Names of the skills dia was rebuilt from; they may appear only in metadata.lineage.
 OLD_NAMES_RE = re.compile(
@@ -401,15 +400,15 @@ def crossref_violations(files: dict[str, bytes], names: list[str]) -> list[str]:
 
 
 def selector_violations(files: dict[str, bytes]) -> list[str]:
-    """Menu numbers appear only in dia-router's own files (spec D66)."""
+    """No skill file offers a menu number after dia (spec D72)."""
     errors = []
     for rel, data in sorted(files.items()):
-        if not rel.startswith("skills/") or rel.startswith("skills/dia-router/"):
+        if not rel.startswith("skills/"):
             continue
         for lineno, line in enumerate(data.decode("utf-8").split("\n"), 1):
             m = MENU_NUMBER_RE.search(line)
             if m:
-                errors.append(f"{rel}:{lineno}: menu number {m.group(0)!r} outside dia-router")
+                errors.append(f"{rel}:{lineno}: menu number {m.group(0)!r} (dia-router picks by name only)")
     return errors
 
 

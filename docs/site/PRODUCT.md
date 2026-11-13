@@ -52,8 +52,8 @@ install on the visitor's surface and a first skill started. **(success definitio
   (zip upload on the web, marketplace in the desktop app).
 - Where you install decides where dia shows up: web installs follow the account to mobile; desktop
   installs stay on that computer.
-- Three ways to start a skill: `dia` as the first word (the router: a numbered menu, a skill by its
-  number or full name, or `dia <request>`, which picks the fitting skill by its description and never
+- Three ways to start a skill: `dia` as the first word (the router: a menu, a skill by its
+  full name, or `dia <request>`, which picks the fitting skill by its description and never
   starts `dia-skopos`, `dia-ratchet`, `dia-adjudicate` or `dia-techne`), the skill's full name as the
   first word, or explicit selection (`/dia:dia-<x>`, `/dia-<x>` on Claude mobile, `$dia:dia-<x>` on Codex, `@dia-<x>`
   on ChatGPT). Since 2.0.0 a request in plain words starts no skill.
