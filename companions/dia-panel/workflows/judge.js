@@ -1,17 +1,20 @@
 export const meta = {
   name: 'judge',
   description: 'Judge reports that reviewers or agents already wrote about a document: dia-adjudicate twice in separate agents, with the reports in two orders, then the verdicts that differ',
-  whenToUse: 'When reports about a document exist (from review agents, another assistant or people) and need a ruling. Use this instead of starting one dia-adjudicate agent yourself: it makes the two runs and the comparison that dia-adjudicate asks its caller for. args: {target: "path/to/doc.md", reports: ["path/to/report-1.md", "path/to/report-2.md"], claim: "optional conclusion to judge"}. Several documents: targets: [...] with claim.',
+  whenToUse: 'When reports about a document exist (from review agents, another assistant or people) and need a ruling. Use this instead of starting one dia-adjudicate agent yourself: it makes the two runs and the comparison that dia-adjudicate asks its caller for. args: {target: "path/to/doc.md", reports: ["path/to/report-1.md", "path/to/report-2.md"], claim: "optional conclusion to judge"}. A report held in memory: {text: "..."} in place of a path. Several documents: targets: [...] with claim.',
   phases: [{ title: 'Judge' }, { title: 'Compare' }],
 }
 
 let a = args || {}
 if (typeof a === 'string') {
-  // A Skill-tool call may pass the arguments as text that is not strict JSON ({target: 'x', reports: [...]}).
+  // A Skill-tool call may pass the arguments as text that is not strict JSON: unquoted keys, or single quotes.
+  // Single quotes are turned into double quotes only when the text has no double quote, so an apostrophe
+  // inside a double-quoted claim is left alone.
   const s = a.trim()
-  const loose = s.replace(/([{,]\s*)([A-Za-z_]\w*)\s*:/g, '$1"$2":').replace(/'/g, '"')
+  const keyed = s.replace(/([{,]\s*)([A-Za-z_]\w*)\s*:/g, '$1"$2":')
+  const forms = s.includes('"') ? [s, keyed] : [s, keyed, keyed.replace(/'/g, '"')]
   let parsed = null
-  for (const t of [s, loose]) {
+  for (const t of forms) {
     try { parsed = JSON.parse(t); break } catch (e) { /* try the next form */ }
   }
   if (!parsed || typeof parsed !== 'object') {
@@ -19,22 +22,26 @@ if (typeof a === 'string') {
   }
   a = parsed
 }
-const list = v => (Array.isArray(v) ? v : v ? [v] : []).filter(Boolean)
-const targets = [...list(a.target), ...list(a.targets)]
+const list = v => (Array.isArray(v) ? v : v ? [v] : [])
+const targets = [...new Set([...list(a.target), ...list(a.targets)].map(t => String(t).trim()).filter(Boolean))]
 if (targets.length === 0) throw new Error('judge needs args.target (path of the document the reports are about)')
 if (targets.length > 1 && !a.claim) {
   throw new Error('judge needs args.claim when there are several target documents: the conclusion the reports are judged against')
 }
 
-// A report is a file path, or the report's own text when the caller holds it in memory.
-// A string with a line break, or a long one, is taken as text.
-const asReport = r => {
-  if (r && typeof r === 'object') return r.text ? { text: String(r.text) } : r.path ? { path: String(r.path) } : null
-  if (typeof r !== 'string' || !r.trim()) return null
-  return r.includes('\n') || r.length > 400 ? { text: r } : { path: r.trim() }
+// A report is a file path (a string, or {path}), or the report's own text when the caller holds it in
+// memory ({text}, or a string with a line break). An entry that is neither stops the run, so that no
+// report is left out without the caller knowing.
+const asReport = (r, i) => {
+  if (r && typeof r === 'object' && typeof r.text === 'string' && r.text.trim()) return { text: r.text }
+  if (r && typeof r === 'object' && typeof r.path === 'string' && r.path.trim()) return { path: r.path.trim() }
+  if (typeof r === 'string' && r.trim()) return r.includes('\n') ? { text: r } : { path: r.trim() }
+  throw new Error(`judge cannot read report ${i + 1} in args.reports: give a file path, {path: "..."} or {text: "..."}`)
 }
-const reports = list(a.reports).map(asReport).filter(Boolean)
-if (reports.length === 0) throw new Error('judge needs args.reports (paths of the report files, or the reports\' text)')
+const reports = list(a.reports).map(asReport)
+if (reports.length === 0) throw new Error('judge needs args.reports (paths of the report files, or {text: "..."} for a report held in memory)')
+const paths = reports.filter(r => r.path).map(r => r.path)
+if (new Set(paths).size !== paths.length) throw new Error('judge was given the same report file twice in args.reports')
 const LETTERS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 if (reports.length > LETTERS.length) throw new Error(`judge takes at most ${LETTERS.length} reports`)
 
@@ -60,7 +67,7 @@ const judgePrompt = (order, k) =>
   `Use the /dia:dia-adjudicate skill. Target T: ${targetText}.${claim} ` +
   `The reports below are given whole and carry letters only; rule on what a report says, not on its file name. ` +
   `This is run ${k} of two separate runs on the same input; the caller compares the two, so start no run of your own. ` +
-  `No person will answer: give the whole result in one response, in the skill's own layout with every section.\n\n` +
+  `No person will answer: give the whole result in one response, in the skill's own layout.\n\n` +
   block(order)
 
 phase('Judge')
@@ -78,7 +85,9 @@ if (okJudges < 2) {
   return {
     ...result,
     differences_and_must_check: null,
-    note: `Only ${okJudges} of 2 dia-adjudicate runs returned, so no comparison was made. Run dia-adjudicate again on the reports in a separate agent, then compare the two runs (dia-adjudicate, Running twice).`,
+    note: okJudges === 0
+      ? 'Neither dia-adjudicate run returned, so there is no ruling. Start the workflow again.'
+      : 'Only 1 of 2 dia-adjudicate runs returned, so no comparison was made. Run dia-adjudicate again on the reports in a separate agent, then compare the two runs (dia-adjudicate, Running twice).',
   }
 }
 
@@ -97,6 +106,6 @@ return {
   ...result,
   differences_and_must_check: diff,
   note: diff
-    ? 'The verdicts that differ between the two runs have not been checked against the sources. Check each against the source it rests on before relying on it, and pass the must-check list to the person who decides (dia-adjudicate, Running twice).'
+    ? 'Report every item on which the two runs differ, and the must-check list, to the person who decides. The differing verdicts have not been checked against the sources: check each against the source it rests on before relying on it, and say which reading is your own (dia-adjudicate, Running twice).'
     : 'The comparison agent returned nothing. Compare the two judge runs above yourself, and check each verdict that differs against the source it rests on (dia-adjudicate, Running twice).',
 }

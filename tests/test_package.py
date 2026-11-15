@@ -8,6 +8,8 @@ from __future__ import annotations
 import importlib.util
 import io
 import re
+import shutil
+import subprocess
 import unittest
 import zipfile
 from pathlib import Path
@@ -166,6 +168,13 @@ class TestRules(unittest.TestCase):
                 self.assertIn(part, text, path.name)
             self.assertIn("Do not judge the items yourself.", text, path.name)
         self.assertEqual(names, {"judge.js": "judge", "review-panel.js": "review-panel"})
+
+    @unittest.skipUnless(shutil.which("node"), "node not installed")
+    def test_judge_workflow_with_a_stubbed_runtime(self):
+        script = ROOT / "companions" / "dia-panel" / "workflows" / "judge.js"
+        run = subprocess.run(["node", str(ROOT / "tests" / "dia_panel_judge_harness.js"), str(script)], capture_output=True, text=True)
+        self.assertEqual(run.returncode, 0, run.stdout + run.stderr)
+        self.assertIn("ALL OK", run.stdout)
 
     def test_plain_scalar_guard(self):
         with self.assertRaises(ValueError):
