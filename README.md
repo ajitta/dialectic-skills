@@ -4,7 +4,7 @@
 
 Website: [ajitta.github.io/dialectic-skills](https://ajitta.github.io/dialectic-skills/)
 
-Thirteen reasoning-and-review skills in one plugin, written to run unchanged on any assistant that loads Agent Skills: Claude (web, desktop, mobile, Claude Code), Codex and ChatGPT. The package is instructions only (Markdown, YAML, JSON), so every skill also works in a chat with no tools. Skill files are in English; each skill replies in the language of your message. A skill starts only when your message begins with `dia` or with the skill's full name, or when you select it explicitly; a request in plain words starts none. On a phone, type just `dia`: the router skill (`dia-router`) lists the skills, `dia` with a skill's name starts it, and `dia` with a request picks the skill that fits. Five skills were renamed in 2.0.0; How to invoke lists the old and new names.
+Thirteen reasoning-and-review skills in one plugin, written to run unchanged on any assistant that loads Agent Skills: Claude (web, desktop, mobile, Claude Code), Codex and ChatGPT. The package is instructions only (Markdown, YAML, JSON), so every skill also works in a chat with no tools. Skill files are in English; each skill replies in the language of your message. A skill starts only when your message begins with `dia` or with the skill's full name, or when you select it explicitly; a request in plain words starts none. On a phone, type just `dia`: the router skill (`dia-router`) lists the skills, `dia` with a skill's name starts it, and `dia` with a request picks the skill that fits.
 
 | Skill | What it does | How it starts |
 |---|---|---|
