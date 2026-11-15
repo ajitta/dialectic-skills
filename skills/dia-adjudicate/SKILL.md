@@ -4,7 +4,7 @@ description: Rule on reports about a target using evidence, without rewriting th
 license: MIT
 metadata:
   author: ajitta
-  version: "2.6.0"
+  version: "2.7.0"
   lineage: "new in plugin 1.5.0 (spec D40); rules drawn from adjudication trials, docs/research/dia-adjudicate.md"
   source: "https://github.com/ajitta/dialectic-skills"
 ---
@@ -77,7 +77,7 @@ Then count the must-check rows against the qualifying rows in the tables; if the
 
 ## Running twice (recommended)
 
-Whenever the result will be used for a decision or a run overturns a report item, and you can start separate agents or the user can run the skill in two separate chats, run it once more on the same input (this run is the first) and compare the two outputs, matching report items by the report as the user gave it, not by R label, since each run shuffles the labels, and claims in T by their place in T; the second run gets a message beginning with `dia-adjudicate`, the target, the reports and any material or instructions the user supplied, as the user gave them, and word that it is the second of two runs and starts no run of its own, but nothing from this run's output (verdicts, fixed readings, inventory), because a run that has seen it anchors on it. If neither is possible, say so in the Inputs line. Check only the items where the verdicts differ, against the sources, putting each disputed claim to the source as a direct question (Rule 3). In trials, the judge's own errors gathered almost entirely in these differing items, and the minority verdict was sometimes the correct one; a verdict is not wrong for being in the minority, nor right for being shared. A single run is acceptable when neither condition holds; say in the Inputs line that only one run was made.
+Whenever the result will be used for a decision or a run overturns a report item, and you can start separate agents or the user can run the skill in two separate chats, run it once more on the same input (this run is the first) and compare the two outputs, matching report items by the report as the user gave it, not by R label, since each run shuffles the labels, and claims in T by their place in T; the second run gets a message beginning with `dia-adjudicate`, the target, the reports and any material or instructions the user supplied, as the user gave them, and word that it is the second of two runs and starts no run of its own, but nothing from this run's output (verdicts, fixed readings, inventory), because a run that has seen it anchors on it. If you can do neither because an agent or a script called you and no user will reply, say in the Inputs line that this is a single run and that the caller is to start the second run and compare the two by report and item, not by R label; if no one can make a second run, say so in the Inputs line. Check only the items where the verdicts differ, against the sources, putting each disputed claim to the source as a direct question (Rule 3). In trials, the judge's own errors gathered almost entirely in these differing items, and the minority verdict was sometimes the correct one; a verdict is not wrong for being in the minority, nor right for being shared. A single run is acceptable when neither condition holds; say in the Inputs line that only one run was made.
 
 ## Without tools
 
