@@ -18,8 +18,6 @@ Thirteen reasoning-and-review skills for Claude, Codex and ChatGPT. Each skill i
 
 Start a message with `dia` to reach them quickly (`dia-router`): `dia` alone lists them, `dia reductio …` starts one by name, and `dia` followed by your request picks the skill that fits and names it. A request that does not start with `dia` or a skill name starts no skill.
 
-Five skills were renamed in 2.0.0; the repository README lists the old and new names.
-
 ## What the plugin does and does not do
 
 The plugin contains only Markdown, YAML and JSON files. It has no scripts, hooks, MCP servers or binaries, and it does not run, send or fetch anything by itself. It does not read or store personal data. Some skills tell the assistant to use a search or code tool if one is already available in your session, to check a fact or a calculation; without such a tool, the skills work from the conversation alone and mark what they could not verify. `dia-techne` carries out the request you give it with the tools your session already has, and stops before any step a backup cannot undo, such as sending, publishing or pushing.

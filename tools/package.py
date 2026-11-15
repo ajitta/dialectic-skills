@@ -86,7 +86,8 @@ OLD_NAMES_RE = re.compile(
 # User-facing docs name only the forms that work (spec D77): no former dia skill name, no three-letter
 # code or number after dia, and no wording about codes or menu numbers. The escaped terms are "short code"
 # and "menu number" in Korean, Japanese and Chinese, as the README translations wrote them.
-DOC_PATHS = ("README.md", "README.ko.md", "README.ja.md", "README.zh-CN.md", "site/index.html")
+DOC_PATHS = ("README.md", "README.ko.md", "README.ja.md", "README.zh-CN.md", "site/index.html",
+             "plugin-manifest.json", ".claude-plugin/marketplace.json", "packaging/plugin-README.md")
 DOC_RETIRED = (
     # Lookarounds, not \b: a CJK character after a name counts as a word character.
     (re.compile(r"(?<![\w-])dia-(?:confirm|iterate|intent|brainstorm|refine|instruct|menu)(?![a-z-])|\bdia (?:confirm|iterate|intent|brainstorm|refine|instruct)(?![a-z-])"), "former skill name"),
