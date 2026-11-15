@@ -151,6 +151,22 @@ class TestRules(unittest.TestCase):
         self.assertEqual(pkg.docs_violations({"README.md": "\n".join(ok).encode()}), [])
         self.assertEqual(len(pkg.docs_violations({"site/index.html": b"> dia-instruct"})), 1)  # the quote exemption is for Markdown
 
+    def test_companion_workflows(self):
+        folder = ROOT / "companions" / "dia-panel" / "workflows"
+        names = {}
+        for path in sorted(folder.glob("*.js")):
+            text = path.read_text(encoding="utf-8")
+            self.assertTrue(text.startswith("export const meta = {"), path.name)  # the runtime drops a workflow whose meta is not first
+            names[path.name] = re.search(r"^  name: '([a-z-]+)',$", text, re.M).group(1)
+            self.assertNotRegex(text, r"\bimport\b|\brequire\(|Date\.now|Math\.random\(|new Date\(\)", path.name)  # not available in workflows
+            titles = set(re.findall(r"\{ title: '([^']+)' \}", text))
+            self.assertEqual(titles, set(re.findall(r"^phase\('([^']+)'\)", text, re.M)), path.name)
+            # every judge is told it is one of two runs, and the comparison never rules on the items itself
+            for part in ("of two separate runs on the same input;", "the caller compares the two, so start no run of your own."):
+                self.assertIn(part, text, path.name)
+            self.assertIn("Do not judge the items yourself.", text, path.name)
+        self.assertEqual(names, {"judge.js": "judge", "review-panel.js": "review-panel"})
+
     def test_plain_scalar_guard(self):
         with self.assertRaises(ValueError):
             pkg.frontmatter("---\nname: x\ndescription: Delegated form: y\n---\nbody\n")
