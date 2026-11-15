@@ -135,8 +135,21 @@ class TestRules(unittest.TestCase):
     def test_no_menu_numbers_in_skills(self):
         errs = pkg.selector_violations({"skills/dia-x/SKILL.md": "picked by `dia 11 \u2026` here".encode(), "skills/dia-y/SKILL.md": b"the form `dia <number> <request>`", "skills/dia-z/SKILL.md": b"send dia 10 --max 2 <draft>", "skills/dia-w/agents/openai.yaml": b"or dia 11 <reports>", "skills/dia-router/SKILL.md": "`dia 4 \u2026` runs it".encode()})
         self.assertEqual(len(errs), 5)
-        ok = {"skills/dia-router/SKILL.md": "a number (`3 reasons \u2026`) is a request".encode(), "skills/dia-skopos/SKILL.md": "as in `dia 1 thing I keep forgetting: \u2026`".encode(), "README.md": "`dia 4 \u2026`".encode()}
+        ok = {"skills/dia-router/SKILL.md": "a number (`3 reasons \u2026`) is a request".encode(), "skills/dia-skopos/SKILL.md": "as in `dia 1 thing I keep forgetting: \u2026`".encode(), "docs/probes.md": "`dia 4 \u2026`".encode()}
         self.assertEqual(pkg.selector_violations(ok), [])
+
+    def test_docs_name_only_working_forms(self):
+        self.assertEqual(pkg.docs_violations(pkg.doc_files()), [])  # spec D77
+        self.assertEqual(set(pkg.doc_files()), set(pkg.DOC_PATHS))
+        bad = ["`dia-intent` is now `dia-skopos`", "send `dia refine \u2026`", "a code (`dia red \u2026`)", "`dia 3 reasons \u2026`",
+               "the form `dia <number> <request>`", "Short codes were removed", "menu numbers stopped in 2.13.0", "\uc9e7\uc740 \ucf54\ub4dc", "\uba54\ub274 \ubc88\ud638", "\u77ed\u3044\u30b3\u30fc\u30c9", "\u30e1\u30cb\u30e5\u30fc\u756a\u53f7", "\u7b80\u77ed\u4ee3\u7801", "\u83dc\u5355\u7f16\u53f7", "a three-letter code", "the code `dia int \u2026`", "dia-refine\uc744 \uc4f0\uba74", "dia-instruct\u306e\u30eb\u30fc\u30eb", "dia 3", "dia 12 items"]
+        for line in bad:
+            self.assertEqual(len(pkg.docs_violations({"README.md": line.encode()})), 1, line)
+            self.assertEqual(len(pkg.docs_violations({"site/index.html": line.encode()})), 1, line)
+        ok = ["`dia menu` lists the skills", "`dia reductio \u2026` or `dia dia-reductio \u2026`", "`dia negative feedback on my draft?`", "`dia ratchet --max 2 <draft>`",
+              "three letters, no hyphen", "> \"against the dia-instruct rules\"", "`dia-regula` reads a prompt", "media consumption", "`dia redo the outline`", "dia 2.16.0 adds a skill", "dia 12.5 is not a release", "`dia interview notes into themes`"]
+        self.assertEqual(pkg.docs_violations({"README.md": "\n".join(ok).encode()}), [])
+        self.assertEqual(len(pkg.docs_violations({"site/index.html": b"> dia-instruct"})), 1)  # the quote exemption is for Markdown
 
     def test_plain_scalar_guard(self):
         with self.assertRaises(ValueError):

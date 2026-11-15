@@ -748,14 +748,13 @@ Only touch files the task needs.
         <li data-reveal style="--i:0"><span class="dot"></span><span class="rows__name">The menu of the thirteen skills</span><span class="rows__value"><code>dia</code></span></li>
         <li data-reveal style="--i:1"><span class="dot"></span><span class="rows__name">A skill by its full name, with or without <code>dia-</code></span><span class="rows__value"><code>dia reductio …</code> <code>dia dia-reductio …</code></span></li>
         <li data-reveal style="--i:2"><span class="dot"></span><span class="rows__name">Your request: <code>dia</code> picks the skill that fits and names it in one line</span><span class="rows__value"><code>dia &lt;request&gt;</code></span></li>
-        <li data-reveal style="--i:3"><span class="dot"></span><span class="rows__name">A number (a menu number picked a skill until 2.13.0), a name that is part of your sentence, a short code or a former name is read as a request</span><span class="rows__value"><code>dia 3 reasons …</code></span></li>
+        <li data-reveal style="--i:3"><span class="dot"></span><span class="rows__name">A name that is part of your sentence is read as a request</span><span class="rows__value"><code>dia negative feedback on my draft?</code></span></li>
       </ul>
 
       <h3 class="rows__group" data-reveal>By name, as the first word</h3>
       <ul class="rows">
         <li data-reveal style="--i:0"><span class="dot"></span><span class="rows__name">Works for every skill</span><span class="rows__value"><code>dia-quaestio …</code></span></li>
         <li data-reveal style="--i:1"><span class="dot"></span><span class="rows__name">Never picked by <code>dia</code> from a plain request; start them by name</span><span class="rows__value"><code>dia-skopos …</code> <code>dia-ratchet …</code> <code>dia-adjudicate …</code> <code>dia-techne …</code></span></li>
-        <li data-reveal style="--i:2"><span class="dot"></span><span class="rows__name">Former names stopped working in 2.1.0; use the new ones</span><span class="rows__value"><code>dia-emend …</code> <code>dia-regula …</code></span></li>
       </ul>
 
       <h3 class="rows__group" data-reveal>Selected, per surface</h3>
@@ -776,16 +775,7 @@ Only touch files the task needs.
         <li data-reveal style="--i:4"><span class="dot"></span><span class="rows__name">Mode and depth for <code>dia-quaestio</code>: <code>develop</code> (default) or <code>stress</code>; <code>quick</code>, <code>standard</code> (default) or <code>deep</code></span><span class="rows__value"><code>stress</code> <code>quick</code> <code>deep</code></span></li>
         <li data-reveal style="--i:5"><span class="dot"></span><span class="rows__name">Criteria for <code>dia-emend</code> and <code>dia-ratchet</code>: anything after the name</span><span class="rows__value"><code>dia-emend for tone</code></span></li>
       </ul>
-
-      <h3 class="rows__group" data-reveal>Renamed in 2.0.0</h3>
-      <ul class="rows">
-        <li data-reveal style="--i:0"><span class="dot"></span><span class="rows__name"><code>dia-intent</code></span><span class="rows__value"><code>dia-skopos</code></span></li>
-        <li data-reveal style="--i:1"><span class="dot"></span><span class="rows__name"><code>dia-brainstorm</code></span><span class="rows__value"><code>dia-quaestio</code></span></li>
-        <li data-reveal style="--i:2"><span class="dot"></span><span class="rows__name"><code>dia-refine</code></span><span class="rows__value"><code>dia-emend</code></span></li>
-        <li data-reveal style="--i:3"><span class="dot"></span><span class="rows__name"><code>dia-instruct</code></span><span class="rows__value"><code>dia-regula</code></span></li>
-        <li data-reveal style="--i:4"><span class="dot"></span><span class="rows__name"><code>dia-menu</code></span><span class="rows__value"><code>dia-router</code></span></li>
-      </ul>
-      <p class="invoke__note" data-reveal>What each renamed skill does is unchanged. The old names stopped working in 2.1.0: <code>dia-refine …</code> starts no skill, and after <code>dia</code> an old name is read as part of a request, so use the new names everywhere. Starting with the name was tested for 1.2.0 on Codex and in the ChatGPT mobile app. <code>--target</code> applies to <code>dia-reductio</code>, <code>dia-negative</code> and <code>dia-warrant</code>, and without <code>all</code> to <code>dia-counterplan</code>.</p>
+      <p class="invoke__note" data-reveal>Starting with the name was tested for 1.2.0 on Codex and in the ChatGPT mobile app. <code>--target</code> applies to <code>dia-reductio</code>, <code>dia-negative</code> and <code>dia-warrant</code>, and without <code>all</code> to <code>dia-counterplan</code>.</p>
     </div>
 
     <figure class="invoke__film pair" data-reveal>
@@ -859,7 +849,7 @@ Only touch files the task needs.
       </details>
       <details class="tile" name="faq" data-reveal style="--i:12">
         <summary><span><code>dia-ratchet</code>, <code>dia-adjudicate</code> or <code>dia-techne</code> does not start</span></summary>
-        <div class="tile__body"><p>Each starts only when its name is the first word of the message or when it is selected explicitly (<code>/dia:dia-ratchet</code>, <code>$dia:dia-ratchet</code>, <code>@dia-ratchet</code>, <code>dia ratchet</code>; for <code>dia-adjudicate</code> and <code>dia-techne</code> the same forms and <code>dia adjudicate</code> or <code>dia techne</code>). <code>dia</code> with a plain request never picks them; it replies with the form to send. <code>dia-iterate</code>, renamed <code>dia-ratchet</code> in 1.6.0, no longer starts it.</p></div>
+        <div class="tile__body"><p>Each starts only when its name is the first word of the message or when it is selected explicitly (<code>/dia:dia-ratchet</code>, <code>$dia:dia-ratchet</code>, <code>@dia-ratchet</code>, <code>dia ratchet</code>; for <code>dia-adjudicate</code> and <code>dia-techne</code> the same forms and <code>dia adjudicate</code> or <code>dia techne</code>). <code>dia</code> with a plain request never picks them; it replies with the form to send.</p></div>
       </details>
     </div>
   </div>

@@ -4,7 +4,7 @@
 
 网站: [ajitta.github.io/dialectic-skills](https://ajitta.github.io/dialectic-skills/)
 
-一个插件内含十三个推理与审查技能，无需修改即可在任何加载 Agent Skills 的助手上运行：Claude（网页版、桌面版、移动版、Claude Code）、Codex 和 ChatGPT。整个包只包含指令（Markdown、YAML、JSON），因此每个技能在没有任何工具的聊天中也能使用。技能文件用英文编写；每个技能都会用你消息所用的语言回复。只有当消息以 `dia` 或技能的完整名称开头，或你显式选择某个技能时，技能才会启动；用普通文字提出的请求不会启动任何技能。在手机上只需输入 `dia`：路由技能（`dia-router`）会列出各个技能，在 `dia` 后加上技能的名称即可启动它，在 `dia` 后写出请求则会挑选合适的技能。2.0.0 中有五个技能改了名，新旧名称见"调用方式"。
+一个插件内含十三个推理与审查技能，无需修改即可在任何加载 Agent Skills 的助手上运行：Claude（网页版、桌面版、移动版、Claude Code）、Codex 和 ChatGPT。整个包只包含指令（Markdown、YAML、JSON），因此每个技能在没有任何工具的聊天中也能使用。技能文件用英文编写；每个技能都会用你消息所用的语言回复。只有当消息以 `dia` 或技能的完整名称开头，或你显式选择某个技能时，技能才会启动；用普通文字提出的请求不会启动任何技能。在手机上只需输入 `dia`：路由技能（`dia-router`）会列出各个技能，在 `dia` 后加上技能的名称即可启动它，在 `dia` 后写出请求则会挑选合适的技能。
 
 | 技能 | 作用 | 启动方式 |
 |---|---|---|
@@ -17,7 +17,7 @@
 | `dia-conjecture` | 以对话形式，把拉卡托斯的"证明与反驳"用在你持有的"所有／总是／从不"论断上：把你的论证拆成步骤，每条消息只提一个附带核查的反例，由你裁定每个案例并选择修补方式。 | `dia-conjecture …`、`dia conjecture …` 或 `dia <request>` |
 | `dia-counterplan` | 把梅森的辩证探究用在一项计划或决定上：关键假设、每个假设的合理对立假设、基于同样事实的反方案，然后由你说出现在认同哪些假设。不评选胜者。 | `dia-counterplan …`、`dia counterplan …` 或 `dia <request>` |
 | `dia-emend` | 对上一个回答或草稿做一轮审查：事实错误、逻辑跳跃、遗漏的需求、重复。只修正已确认的缺陷。 | `dia-emend …`、`dia emend …` 或 `dia <request>` |
-| `dia-ratchet` | 多轮重复审查，但只承认外部证据（一次搜索、一次工具运行或你提供的资料），不承认助手自己的重新推导；通过核查的内容会被锁定；在出现退化、零缺陷、验证手段用尽、达到不动点或 `--max N`（默认 3）时停止。1.6.0 之前名为 `dia-iterate`。 | `dia-ratchet …` 或 `dia ratchet …`；不会被普通的 `dia <request>` 选中 |
+| `dia-ratchet` | 多轮重复审查，但只承认外部证据（一次搜索、一次工具运行或你提供的资料），不承认助手自己的重新推导；通过核查的内容会被锁定；在出现退化、零缺陷、验证手段用尽、达到不动点或 `--max N`（默认 3）时停止。 | `dia-ratchet …` 或 `dia ratchet …`；不会被普通的 `dia <request>` 选中 |
 | `dia-adjudicate` | 对他人或其他助手就某段文字写下的报告（批评、评审、核查报告）作出裁决：把文字中的主张和报告中的每一处意见都与来源对照，逐项给出裁决，并列出需要由人复核的裁决。从不改写原文。 | `dia-adjudicate …` 或 `dia adjudicate …`；不会被普通的 `dia <request>` 选中 |
 | `dia-regula` | 按四条规则检查或撰写模型要阅读并遵循的文字（技能文件、给智能体的提示、智能体指令文件）：每段是一个包含条件与后备方案的表达式，范围词只取本意的宽度，指令更少且各附理由，一个事物只用一个名称。只要求审查时，它列出违规之处，在你挑选之前不做任何改动。 | `dia-regula …`、`dia regula …` 或 `dia <request>` |
 | `dia-techne` | 像该领域的顶尖从业者那样深化一个请求（请求要达成的结果、最原始的材料、该领域的方法、由助手和你以外的东西来核验、其他领域的视角），每处改动附上理由，然后执行。在备份无法撤销的步骤之前停下。 | `dia-techne …` 或 `dia techne …`；不会被普通的 `dia <request>` 选中 |
@@ -119,7 +119,7 @@ codex plugin add dia@dialectic-skills
 
 共有三种方式，每个平台至少支持其中一种。不以这些方式开头的消息不会启动任何 dia 技能，即使它用文字要求某个技能的方法（"对……用反证法"）；在 1.x 中，有九个技能也会因这类请求而启动。
 
-1. **路由：以 `dia` 开头发送消息。** 只输入 `dia`（或 `dia help`、`dia menu`、`dia ?`）会列出各个技能。`dia reductio <your text>`（也可写 `dia dia-reductio …`）启动对应的技能（这里是 `dia-reductio`）。`dia <your text>` 会挑选描述相符的技能，用一行说明选了哪个，然后运行；如果有两个差不多同样契合，它会询问；如果都不契合，它不用 dia 技能直接回答。它从不因普通请求启动 `dia-skopos`、`dia-ratchet`、`dia-adjudicate` 或 `dia-techne`，而是回复应发送的形式，例如 `dia ratchet --max 2 <draft>`。简短代码已在 2.1.0 中移除，菜单编号已在 2.13.0 中移除。这是在手机上最快的方式：三个字母，没有连字符。
+1. **路由：以 `dia` 开头发送消息。** 只输入 `dia`（或 `dia help`、`dia menu`、`dia ?`）会列出各个技能。`dia reductio <your text>`（也可写 `dia dia-reductio …`）启动对应的技能（这里是 `dia-reductio`）。`dia <your text>` 会挑选描述相符的技能，用一行说明选了哪个，然后运行；如果有两个差不多同样契合，它会询问；如果都不契合，它不用 dia 技能直接回答。它从不因普通请求启动 `dia-skopos`、`dia-ratchet`、`dia-adjudicate` 或 `dia-techne`，而是回复应发送的形式，例如 `dia ratchet --max 2 <draft>`。这是在手机上最快的方式：三个字母，没有连字符。
 2. **在消息中写出名称。** 以技能的完整名称开头：`dia-skopos …`、`dia-emend …`、`dia-ratchet …`、`dia-adjudicate …`、`dia-techne …`，十三个技能都一样。从 1.2.0 起，在 Codex 上无需 `$`、在 ChatGPT 上无需 `@`（已由所有者在手机应用中确认） 即可这样启动。
 3. **显式选择**，各平台写法不同：
 
@@ -131,19 +131,7 @@ codex plugin add dia@dialectic-skills
 | Codex（复制的文件夹） | `$dia-<x>` | `$dia-emend` |
 | ChatGPT | 输入 `@` 后选择技能 | `@dia-negative` |
 
-在 `dia` 之后，只有技能的完整名称（带不带 `dia-` 均可）会选中技能；缩短的名称不行。简短代码（`dia red …`）、旧名称（`dia intent …`）、数字（在 2.13.0 之前，菜单编号可以选中技能）或读起来属于句子一部分的名称（`dia negative feedback on my draft?`）都会被当作请求，由 `dia` 挑选与之相符的技能。
-
-### 2.0.0 中的改名
-
-五个技能有了新名称；每个技能做的事没有变：
-
-- `dia-intent` → `dia-skopos`（希腊语 *skopos*，目标）
-- `dia-brainstorm` → `dia-quaestio`（拉丁语 *quaestio*，以提问进行的探究）
-- `dia-refine` → `dia-emend`（英语 *emend*，订正文本中的错误）
-- `dia-instruct` → `dia-regula`（拉丁语 *regula*，规则）
-- `dia-menu` → `dia-router`
-
-从 2.1.0 起，旧名称在任何地方都不再可用：以 `dia-refine …` 开头的消息不会启动任何技能，`dia` 后面的旧名称会被当作请求的一部分。请使用新名称，显式选择（`/dia:dia-<x>`、`$dia:dia-<x>`、`@dia-<x>`）也一样。
+在 `dia` 之后，只有技能的完整名称（带不带 `dia-` 均可）会选中技能；缩短的名称不行。读起来属于句子一部分的名称（`dia negative feedback on my draft?`）会被当作请求，由 `dia` 挑选与之相符的技能。
 
 ### 选项
 
@@ -526,7 +514,6 @@ dia-ratchet --max 2 核查这段话里的日期和事实："第一代 iPhone 于
 
 - `--max N` 设置轮数上限（默认 3）。
 - 在没有搜索或工具的聊天中，它会在第 1 轮后停止，列出无法核实的内容，而不是去猜。
-- 1.6.0 之前名为 `dia-iterate`；旧名称已无法启动它。
 
 ### dia-adjudicate：判断评审意见哪些站得住
 
@@ -643,8 +630,7 @@ dia 我们加了新用户引导邮件之后，流失率下降了，所以是这�
 - 技能的完整名称可以选中它，带不带 `dia-` 均可（`dia reductio …`、`dia dia-reductio …`）；缩短的名称不行。
 - 选项会原样传递：`dia ratchet --max 2 <draft>` 等同于 `dia-ratchet --max 2 <draft>`。
 - `dia` 必须单独作为第一个词。`dia-emend …` 等完整名称会直接进入对应的技能。
-- 明显属于句子一部分的名称（`dia negative feedback on my draft?`）或数字（`dia 3 reasons …`）不算选择，整段文字会被当作请求。
-- 简短代码（`dia red …`）和五个旧名称（见"调用方式"）自 2.1.0 起不再选中技能，菜单编号自 2.13.0 起也不再选中技能；在 `dia` 之后它们会被当作请求。
+- 明显属于句子一部分的名称（`dia negative feedback on my draft?`）不算选择，整段文字会被当作请求。
 - 在助手无法打开第二个技能的环境中，`dia` 仍会显示菜单，并回复应发送的完整形式（例如 `dia-reductio …`）；这种情况尚未测试。
 
 ## 组合使用多个技能
@@ -662,12 +648,9 @@ dia 我们加了新用户引导邮件之后，流失率下降了，所以是这�
 - **添加 marketplace 时出现 `Repository not found`。** 检查拼写：`ajitta/dialectic-skills`（是 dialectic，不是 dialectric）。该仓库是公开的，无需登录 GitHub。
 - **Claude 移动版的 `/` 下没有 dia 技能。** 这是预期行为：移动版菜单不会列出插件技能。请以 `dia` 或技能的完整名称开头发送消息，或完整输入选择形式（例如 `/dia-quaestio`）。
 - **技能没有启动。** 从 2.0.0 起，用普通文字提出的请求不会启动任何 dia 技能。请以 `dia`（`dia <request>`，或指定技能的 `dia <name> <request>`，例如 `dia reductio …`）或技能的完整名称（`dia-reductio …`）开头发送消息。如果消息确实以技能名称开头，技能却仍然没有启动，可能是助手把这个名称读成了你句子的一部分（在韩语中见过一次：紧跟在名称后面的名词被读成了一个叫这个名字的文件夹）；请在名称后面换行，或使用显式选择。
-- **找不到 1.x 的技能名称。** 2.0.0 中有五个技能改了名（见"调用方式"），旧名称自 2.1.0 起不再可用。请使用新名称。
 - **dia 在一台设备上能用，在另一台上不能用。** 在桌面应用安装的只留在那台电脑上；在网页版安装的会保存到账号，并同步到移动应用。请在网页版安装一次（供网页版和移动版使用），并在你使用的每个桌面应用中各安装一次（见“安装”）。
 - **每个技能都出现了两次。** 插件通过两种途径安装了（例如 `dia@dialectic-skills` 和 `dia@ajitta`，或一次上传加一次 marketplace）。删除其中一个。
 - **claude.ai 上的 Skills 部分缺失或显示为灰色。** 打开 Settings › Capabilities › Code execution and file creation。
-- **找不到 `dia-confirm`。** 它现在叫 `dia-skopos`；从 1.1.0 到 1.4.0 它叫 `dia-confirm`。
-- **找不到 `dia-iterate`。** 它已在 1.6.0 中更名为 `dia-ratchet`。
 - **`dia-ratchet`、`dia-adjudicate` 或 `dia-techne` 无法启动。** 只有当技能名称是消息的第一个词，或被显式选择时（`/dia:dia-ratchet`、`$dia:dia-ratchet`、`@dia-ratchet`、`dia ratchet`；`dia-adjudicate` 和 `dia-techne` 用同样的形式和 `dia adjudicate` 或 `dia techne`），它们才会启动。仅凭 `dia <request>` 从不会选中它们，而是回复应发送的形式。
 - **在 Codex 上 `$dia:dia-skopos:` 无法解析。** 技能名称后面应加空格，而不是冒号。
 - **在 claude.ai 上上传被拒绝。** 请使用 Customize › Plugins › Upload plugin，而不是 Customize › Skills。

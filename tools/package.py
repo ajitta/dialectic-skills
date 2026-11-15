@@ -83,6 +83,18 @@ OLD_NAMES_RE = re.compile(
     r"\b(socratic-brainstorm|socratic-elenchus|confirm-intent|dia-confirm|dia-iterate|negative-dialectics|self-refine|recursive-refine"
     r"|dia-intent|dia-brainstorm|dia-refine|dia-instruct|dia-menu)\b"
 )
+# User-facing docs name only the forms that work (spec D77): no former dia skill name, no three-letter
+# code or number after dia, and no wording about codes or menu numbers. The escaped terms are "short code"
+# and "menu number" in Korean, Japanese and Chinese, as the README translations wrote them.
+DOC_PATHS = ("README.md", "README.ko.md", "README.ja.md", "README.zh-CN.md", "site/index.html")
+DOC_RETIRED = (
+    # Lookarounds, not \b: a CJK character after a name counts as a word character.
+    (re.compile(r"(?<![\w-])dia-(?:confirm|iterate|intent|brainstorm|refine|instruct|menu)(?![a-z-])|\bdia (?:confirm|iterate|intent|brainstorm|refine|instruct)(?![a-z-])"), "former skill name"),
+    # The thirteen codes of 2.0.0 (spec D56) and the two that dia-menu 1.x read for skills since renamed.
+    (re.compile(r"\bdia (?:sko|qua|ele|red|neg|war|con|cou|eme|rat|adj|reg|tec|int|ins)(?![a-z-])"), "three-letter code"),
+    (re.compile(r"\bdia \d+(?!\d|\.\d)|dia <n(?:umber)?>", re.I), "number after dia"),  # a version such as dia 2.16.0 passes
+    (re.compile("short codes?|three-letter codes?|menu numbers?|\uc9e7\uc740 \ucf54\ub4dc|\uba54\ub274 \ubc88\ud638|\u77ed\u3044\u30b3\u30fc\u30c9|\u30e1\u30cb\u30e5\u30fc\u756a\u53f7|\u7b80\u77ed\u4ee3\u7801|\u83dc\u5355\u7f16\u53f7", re.I), "wording about a removed form"),
+)
 EXPECTED_IMPLICIT = {
     "dia-skopos": True,
     "dia-elenchus": True,
@@ -412,6 +424,24 @@ def selector_violations(files: dict[str, bytes]) -> list[str]:
     return errors
 
 
+def doc_files() -> dict[str, bytes]:
+    return {rel: (ROOT / rel).read_bytes() for rel in DOC_PATHS if (ROOT / rel).is_file()}
+
+
+def docs_violations(files: dict[str, bytes]) -> list[str]:
+    """The READMEs and the site show no removed way to name a skill (spec D77)."""
+    errors = []
+    for rel, data in sorted(files.items()):
+        for lineno, line in enumerate(data.decode("utf-8").split("\n"), 1):
+            if rel.endswith(".md") and line.startswith(">"):
+                continue  # recorded output is quoted as it was produced
+            for pattern, what in DOC_RETIRED:
+                m = pattern.search(line)
+                if m:
+                    errors.append(f"{rel}:{lineno}: {what} {m.group(0)!r} (docs name only the forms that work)")
+    return errors
+
+
 # ---------------------------------------------------------------- build
 
 
@@ -532,6 +562,8 @@ def collect_errors(skills: list[Path], files: dict[str, bytes]) -> list[str]:
         + shipped_violations(files)
         + crossref_violations(files, names)
         + selector_violations(files)
+        + docs_violations(doc_files())
+        + [f"{rel}: missing, so the docs check (spec D77) cannot read it" for rel in DOC_PATHS if not (ROOT / rel).is_file()]
         + validate_plugin_readme(files)
         + validate_openai_interface(*openai_parts())
         + [f"openai zip: {e}" for e in shipped_violations({k: v for k, v in openai_files(files).items() if not k.startswith("assets/")})]
