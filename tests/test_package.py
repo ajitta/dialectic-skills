@@ -8,6 +8,8 @@ from __future__ import annotations
 import importlib.util
 import io
 import re
+import shutil
+import subprocess
 import unittest
 import zipfile
 from pathlib import Path
@@ -150,6 +152,29 @@ class TestRules(unittest.TestCase):
               "three letters, no hyphen", "> \"against the dia-instruct rules\"", "`dia-regula` reads a prompt", "media consumption", "`dia redo the outline`", "dia 2.16.0 adds a skill", "dia 12.5 is not a release", "`dia interview notes into themes`"]
         self.assertEqual(pkg.docs_violations({"README.md": "\n".join(ok).encode()}), [])
         self.assertEqual(len(pkg.docs_violations({"site/index.html": b"> dia-instruct"})), 1)  # the quote exemption is for Markdown
+
+    def test_companion_workflows(self):
+        folder = ROOT / "companions" / "dia-panel" / "workflows"
+        names = {}
+        for path in sorted(folder.glob("*.js")):
+            text = path.read_text(encoding="utf-8")
+            self.assertTrue(text.startswith("export const meta = {"), path.name)  # the runtime drops a workflow whose meta is not first
+            names[path.name] = re.search(r"^  name: '([a-z-]+)',$", text, re.M).group(1)
+            self.assertNotRegex(text, r"\bimport\b|\brequire\(|Date\.now|Math\.random\(|new Date\(\)", path.name)  # not available in workflows
+            titles = set(re.findall(r"\{ title: '([^']+)' \}", text))
+            self.assertEqual(titles, set(re.findall(r"^phase\('([^']+)'\)", text, re.M)), path.name)
+            # every judge is told it is one of two runs, and the comparison never rules on the items itself
+            for part in ("of two separate runs on the same input;", "the caller compares the two, so start no run of your own."):
+                self.assertIn(part, text, path.name)
+            self.assertIn("Do not judge the items yourself.", text, path.name)
+        self.assertEqual(names, {"judge.js": "judge", "review-panel.js": "review-panel"})
+
+    @unittest.skipUnless(shutil.which("node"), "node not installed")
+    def test_judge_workflow_with_a_stubbed_runtime(self):
+        script = ROOT / "companions" / "dia-panel" / "workflows" / "judge.js"
+        run = subprocess.run(["node", str(ROOT / "tests" / "dia_panel_judge_harness.js"), str(script)], capture_output=True, text=True)
+        self.assertEqual(run.returncode, 0, run.stdout + run.stderr)
+        self.assertIn("ALL OK", run.stdout)
 
     def test_plain_scalar_guard(self):
         with self.assertRaises(ValueError):

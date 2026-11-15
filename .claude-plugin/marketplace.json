@@ -1,7 +1,7 @@
 {
   "$schema": "https://code.claude.com/schemas/marketplace.json",
   "name": "dialectic-skills",
-  "description": "Marketplace for the dia plugin (thirteen instruction-only reasoning-and-review skills and the dia router) and dia-panel, a Claude Code workflow that runs the dia review lenses as a panel.",
+  "description": "Marketplace for the dia plugin (thirteen instruction-only reasoning-and-review skills and the dia router) and dia-panel, Claude Code workflows that run the dia review lenses as a panel and judge reports twice.",
   "owner": {
     "name": "ajitta",
     "url": "https://github.com/ajitta"
@@ -16,8 +16,8 @@
     {
       "name": "dia-panel",
       "source": "./companions/dia-panel",
-      "description": "Claude Code only: a workflow that runs the four dia review lenses on one document in parallel and has dia-adjudicate judge their whole reports twice, in two orders. Needs the dia plugin.",
-      "version": "0.2.0",
+      "description": "Claude Code only: two workflows. review-panel runs the four dia review lenses on one document in parallel and has dia-adjudicate judge their whole reports twice, in two orders; judge makes the same two judgments on reports written elsewhere. Needs the dia plugin.",
+      "version": "0.3.0",
       "category": "productivity",
       "dependencies": [
         "dia"
