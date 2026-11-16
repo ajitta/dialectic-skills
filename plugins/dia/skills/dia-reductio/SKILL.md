@@ -4,7 +4,7 @@ description: Test a thesis by deriving a strict contradiction from stated premis
 license: MIT
 metadata:
   author: ajitta
-  version: "2.4.1"
+  version: "2.5.0"
   lineage: "reductio (installed copy, unversioned)"
   source: "https://github.com/ajitta/dialectic-skills"
 ---
@@ -26,8 +26,13 @@ Theory, history and the reasons behind the rules are in `references/theory.md`: 
 
 ## Hard rules
 
-1. **Strict contradiction only.** The absurdity is a formal contradiction, a statement Q and its exact negation not-Q (the contradictory: "all X are Y" contradicts "some X is not Y", not "no X is Y"), both derived from the thesis plus the listed premises, because only a contradiction shows by logic alone that the set cannot all be true; a consequence that is only false, implausible, ridiculous or undesirable becomes usable only once its negation is written into the premise list, and two lines that are only contraries ("all X are Y" / "no X is Y") conflict only given a further premise, here that some X exists, which you list with its label ([T] if the target said it, [L] only if it is a theorem of mathematics, otherwise [A]); in both cases the contradiction depends on that premise and says so.
-2. **No hidden premises.** List every premise with a source label: **[T]** stated by the target (quote it), **[L]** a law of logic or mathematics, **[A]** added by you (an implicit premise the target seems to rely on, a definition the target did not state, or a fact), so a definition is [T] only when the target states it (quote it). Give each [A] premise a one-line reason it is needed and mark facts with their evidence class (verified this session (a tool ran) / supplied by the user / single source / unverified recall), your own recall never being "verified"; a contradiction that needs an [A] premise depends on it and says so.
+1. **Strict contradiction only.** The absurdity is a formal contradiction, a statement Q and its exact negation not-Q (the contradictory: "all X are Y" contradicts "some X is not Y", not "no X is Y"), both derived from the thesis plus the listed premises, because only a contradiction shows by logic alone that the set cannot all be true. Two weaker conflicts count only through a premise you list, and a contradiction reached that way depends on that premise and says so:
+   - **A consequence that is only false, implausible, ridiculous or undesirable:** usable only once its negation is written into the premise list.
+   - **Two lines that are only contraries** ("all X are Y" / "no X is Y"): they conflict only given that some X exists, which you list with its label ([T] if the target said it, [L] only if it is a theorem of mathematics, otherwise [A]).
+2. **No hidden premises.** List every premise with one of three source labels, and mark every fact among them with its evidence class (verified this session (a tool ran) / supplied by the user / single source / unverified recall), your own recall never being "verified":
+   - **[T]** stated by the target (quote it); a definition is [T] only when the target states it (quote it).
+   - **[L]** a law of logic or mathematics.
+   - **[A]** added by you: an implicit premise the target seems to rely on, a definition the target did not state, or a fact. Give it a one-line reason it is needed; a contradiction that needs an [A] premise depends on it and says so.
 3. **Every step names its rule.** Each derivation line cites the lines it uses and the rule (modus ponens, modus tollens, universal instantiation, substitution of a listed definition, conjunction, simplification, arithmetic, and so on), and an empirical or causal claim is never a step: if the chain needs one, it goes into the premise list, because only a step a rule licenses keeps the chain strict.
 4. **One sense per term.** Fix the meaning of each key term in the premise list; if the chain only works when a term shifts meaning, that is equivocation, which you report instead of claiming a contradiction.
 5. **Charity first.** Test the strongest reasonable reading of the thesis, and if two readings are live, test the stronger one and name the other in one line, because refuting the weak reading refutes a strawman.
@@ -40,7 +45,12 @@ Theory, history and the reasons behind the rules are in `references/theory.md`: 
 
 ### Step 1: Fix the target and the thesis
 
-State the target and the thesis T in one sentence, with a quote; if the input contains several claims, T is the one the rest depend on, and the others are listed in one line as not tested. If the user supposes something known to be impossible only to see what follows from it, not to test it, call it *per impossibile* reasoning, claim no refutation, and give the result as **stopped**.
+State the target, then the thesis in two lines, because the user can correct a reading only when it is shown apart from the words it reads:
+
+- **Thesis, as stated:** the target's words, quoted (with their location, for a text).
+- **Thesis, as read:** T in one sentence, always, the reading you test (Rule 5), followed by what it adds to or narrows in the quoted words, or "same as stated"; when two readings are live, the other one in one line.
+
+If the input contains several claims, T is the one the rest depend on, and the others are listed in one line as not tested. If the user supposes something known to be impossible only to see what follows from it, not to test it, call it *per impossibile* reasoning, claim no refutation, and give the result as **stopped**.
 
 ### Step 2: Choose the direction
 
@@ -91,7 +101,10 @@ Lines 5 and 6: Q and not-Q. Depends on T, P1, P2. Strength: internal. Options: g
 
 ### Step 6: Lay out the options
 
-Give one option per member of the set the contradiction depends on that could be given up, each with what giving it up means and what else has to go with it: when refuting, T is one of them; when proving, giving up the assumption not-T means accepting T, so that option reads "accept T"; when the result is premise set inconsistent, neither T nor not-T is an option (see Step 5). When refuting, add a repair option where one exists: a narrowed thesis T′ that blocks the step that produced the contradiction, stated exactly, and say whether it still does the job the original T was meant to do.
+Give one option per member of the set the contradiction depends on that could be given up, each with what giving it up means and what else has to go with it; how the assumption appears among them depends on the direction:
+- **Refuting:** T is one of the options. Add a repair option where one exists: a narrowed thesis T′ that blocks the step that produced the contradiction, stated exactly, and say whether it still does the job the original T was meant to do.
+- **Proving:** giving up the assumption not-T means accepting T, so that option reads "accept T".
+- **Both directions, when the result is premise set inconsistent:** neither T nor not-T is an option and no repair is added, whatever the two cases above say, because the fault is in the premises (see Step 5).
 
 ### Step 7: Recommend
 
