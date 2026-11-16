@@ -7,7 +7,8 @@ Translate headings and labels.
 **Target:** user | claude | text | all (inferred from … — correct me if wrong)
 
 ## Thesis
-T: one sentence. Quote: "…"
+Thesis, as stated: "…" (location, for a text)
+Thesis, as read: T in one sentence; what the reading adds or narrows, or "same as stated" (other live reading: …)
 Direction: refute | prove | both
 Not tested: (other claims in the input, one line, if any)
 
