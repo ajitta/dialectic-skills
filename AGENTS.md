@@ -36,7 +36,8 @@ All are stdlib-only. CI (`.github/workflows/check.yml`) runs them plus `claude p
 - Before a probe or eval batch, write the plan: cells × runs × engines = total, and the decision it informs. Ask the owner first when the total is over 30 runs.
 - Runs per cell: 1 to confirm unchanged or expected behaviour, 2 for a changed behaviour. Raise to 5 only when results disagree with the expectation or between arms or engines; use 10 or more only for an arm-against-arm figure the release notes will quote.
 - Read results while the batch runs and stop it once the answer is clear.
-- One engine by default; add Codex, at 1 run per cell, only when Codex-specific text or the skill listing changed.
+- One engine by default, and no Codex run while a change is being worked on. At a release a Codex run is optional and separate: propose it when Codex-specific text or the skill listing changed, at 1 run per changed cell, and run it only when the owner chooses it (owner, 2026-11-17).
+- The default engine is claude-opus-5-5 at effort medium, or low. A higher effort or claude-fable-5-2 is for work that verifies, audits or needs deep reasoning, or for a cell the owner asks for, and no Sonnet or Haiku cell is run, because a high-end model at low effort does better than a lower model at high effort (owner, 2026-11-17).
 - Rerun a baseline arm only when the record will compare arms; otherwise check the changed build against its expected behaviour and reuse earlier results.
 - Form-only edits (provenance moved out, sections merged) are checked by one independent review instead of runs.
 - A comparison whose arms hold a dialogue with a simulated user follows rule 6 of `docs/writing-for-models/README.md` § Rules for A/B records, wherever its record sits (owner, 2026-11-11; spec D70).
