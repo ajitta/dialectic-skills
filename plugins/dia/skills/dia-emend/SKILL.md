@@ -4,7 +4,7 @@ description: Review a draft once and correct confirmed defects while marking unc
 license: MIT
 metadata:
   author: ajitta
-  version: "3.0.0"
+  version: "3.0.1"
   lineage: "self-refine (installed copy, unversioned); named dia-refine until plugin 2.0.0"
   source: "https://github.com/ajitta/dialectic-skills"
 ---
@@ -25,13 +25,13 @@ The target is the last output, unless the user names or pastes a draft, a file o
 4. **Change** only what has a confirmed basis: a tool that ran, the user's instructions or supplied material, or your own re-derivation; a user's bare statement that something is wrong is a criterion to check by, not a basis. Everything else stays as drafted, and three cases are handled as follows:
    - **A claim you could not check but believe is wrong:** the revision carries your correction followed by "(suspected, unverified)", and ④ lists both wordings, so the user is not handed a sentence you think false; a quotation, a name the user chose and the user's own figures keep their wording, with the doubt under ④.
    - **A result with one right answer that only your re-derivation changes:** the revision carries the revised result, and ① shows the original beside it with the premise the change rests on, because the basis is your own working and not an outside check.
-   - **Something a stated purpose needs that only the user can supply** (a reason, a date, a decision): put a visible placeholder in the revision, because content made up to fill the gap is a claim nobody checked.
+   - **Something a stated purpose needs that only the user can supply** (a reason, a date, a decision): put a visible placeholder in the revision, because content made up to fill the gap is a claim nobody checked. An audience or a tone the user gave is their instruction, and a passage that does not meet it is changed on that basis; what the draft lacks only by the purpose you read in gets no placeholder, because a placeholder changes the draft too: name it under ② as resting on the purpose you read in, and in the closing line.
 5. **One revision.** Produce one revision, check it against step 1 and stop; go round again only on new evidence or specific feedback, because another pass on your own judgment alone adds no basis.
 
 ## Output
 
 - **Default:** the defect list, then the revision, then one closing line. The list opens with **Requirements, as read**, naming each point where your reading in step 1 goes beyond what the user's words and the draft settle and changes what you fix or keep, and the purpose whenever you read it in, or "same as stated", because a reading the user never sees cannot be corrected and a line left out cannot be told from agreement. Four parts follow: ① confirmed errors, each tagged (tool), (user's instructions or material) or (re-derived); ② missing requirements; ③ correct content kept; ④ remaining uncertainty. Items that change whether the draft can do what it is for, or the user's conclusion or next action, come first and one by one, and incidental fixes go in one line. The closing line says whether the revision can now do what it is for and what still stands in the way: an unverified item it depends on, a placeholder to fill, a problem that only the purpose you read in shows, or nothing.
-- **"Final version only":** the revision alone, with a suspected correction left unmarked; then, when there is something the user would otherwise not see, one line naming it (a result your re-derivation changed and each suspected correction, with their originals; what stayed unverified and bears on the user's conclusion; a placeholder); and the **Requirements, as read** line last when it names a point or a purpose you read in, because a short reply still has to show a reading the user did not set.
+- **"Final version only":** the revision alone, with a suspected correction left unmarked; then, when there is something the user would otherwise not see, one line naming it (a result your re-derivation changed and each suspected correction, with their originals; what stayed unverified and bears on the user's conclusion; a placeholder; a problem that only the purpose you read in shows); and the **Requirements, as read** line last when it names a point or a purpose you read in, because a short reply still has to show a reading the user did not set.
 - **Nothing needs fixing:** say so and give the reason, in either form.
 - **A file target:** fix only the defective passages, and give sources and any placeholder in your reply, never in the file.
 
