@@ -39,6 +39,7 @@ All are stdlib-only. CI (`.github/workflows/check.yml`) runs them plus `claude p
 - One engine by default, and no Codex run while a change is being worked on. At a release a Codex run is optional and separate: propose it when Codex-specific text or the skill listing changed, at 1 run per changed cell, and run it only when the owner chooses it (owner, 2026-11-17).
 - The default engine is claude-opus-5-5 at effort medium, or low. A higher effort or claude-fable-5-2 is for work that verifies, audits or needs deep reasoning, or for a cell the owner asks for, and no Sonnet or Haiku cell is run, because a high-end model at low effort does better than a lower model at high effort (owner, 2026-11-17).
 - Rerun a baseline arm only when the record will compare arms; otherwise check the changed build against its expected behaviour and reuse earlier results.
+- Checks cover Claude Code on those models only; ChatGPT and Codex are outside the checks, and a text released without a run there is recorded as unverified on them (owner, 2026-11-18; spec D90).
 - Form-only edits (provenance moved out, sections merged) are checked by one independent review instead of runs.
 - A comparison whose arms hold a dialogue with a simulated user follows rule 6 of `docs/writing-for-models/README.md` § Rules for A/B records, wherever its record sits (owner, 2026-11-11; spec D70).
 
