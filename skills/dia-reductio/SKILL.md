@@ -4,14 +4,14 @@ description: Test a thesis by deriving a strict contradiction from stated premis
 license: MIT
 metadata:
   author: ajitta
-  version: "2.5.0"
+  version: "3.0.0"
   lineage: "reductio (installed copy, unversioned)"
   source: "https://github.com/ajitta/dialectic-skills"
 ---
 
 # Reductio ad Absurdum
 
-Assume the thesis, derive from it and the listed premises a statement and its negation, and show that the set cannot all be true.
+Assume the thesis, derive from it and the listed premises a statement and its negation, and show that the set cannot all be true, so that the user sees which of the target's commitments cannot stand together and what each way out costs what the thesis is for.
 
 Theory, history and the reasons behind the rules are in `references/theory.md`: read it when the user asks about the method (then answer briefly), or when you are unsure whether a step is strict. The output layout is in `references/output-template.md`; read it before writing the first output if you can open it (Step 8 names the record fields in case you cannot, and either way the output uses numbered lines, not wide tables, so it reads on a phone).
 
@@ -20,7 +20,7 @@ Theory, history and the reasons behind the rules are in `references/theory.md`: 
 `--target=user|claude|text|all` sets what is examined, and a natural-language equivalent of the flag counts as the flag. If no flag is given, infer the target (a pasted text means `text`; "your answer", "what you said" or the same in any language means `claude`; otherwise `user`) and state the inferred target in the first line of the output so the user can correct it.
 
 - **user:** a claim, belief, plan or argument the user states.
-- **claude:** your own earlier answer in this conversation (the most recent one unless the user names another; the value is `claude` on every assistant). Quote it and examine it with the same strictness, saying in one line that this is a self-examination and not independent. If the answer turns out inconsistent, say so directly instead of defending it, and do not invent a contradiction to look self-critical either.
+- **claude:** your own earlier answer in this conversation (the most recent one unless the user names another; the value is `claude` on every assistant). Quote it and examine it with the same strictness, saying in one line that this is a self-examination and not independent. If the answer turns out inconsistent, say so directly instead of defending it.
 - **text:** a pasted or attached text by someone else. Quote with location (paragraph or line), and attribute claims to the text, not to the author's motives.
 - **all:** every one of the above that is present, each run through the procedure separately in the order user, claude, text, then the combined record (Step 8). Skip absent targets with one line.
 
@@ -49,8 +49,9 @@ State the target, then the thesis in two lines, because the user can correct a r
 
 - **Thesis, as stated:** the target's words, quoted (with their location, for a text).
 - **Thesis, as read:** T in one sentence, always, the reading you test (Rule 5), followed by what it adds to or narrows in the quoted words, or "same as stated"; when two readings are live, the other one in one line.
+- **What T is for:** the job the target relies on T to do (the decision, rule or conclusion it supports): the target's own words for it where it gives them, quoted, or an outcome the user stated or approved earlier in this conversation; otherwise "not stated", with your own reading in one line, labelled as yours, when the input makes one plain. A stated purpose decides which premises the derivation tries first; your own reading only weighs the options; neither changes what counts as a contradiction.
 
-If the input contains several claims, T is the one the rest depend on, and the others are listed in one line as not tested. If the user supposes something known to be impossible only to see what follows from it, not to test it, call it *per impossibile* reasoning, claim no refutation, and give the result as **stopped**.
+If the input contains several claims, T is the one the rest depend on, and the others are listed in one line as not tested, except a reason the target gives for T or a statement of what T is for, which is a premise (Step 3). If the user supposes something known to be impossible only to see what follows from it, not to test it, call it *per impossibile* reasoning, claim no refutation, and give the result as **stopped**.
 
 ### Step 2: Choose the direction
 
@@ -66,11 +67,11 @@ Concluding T because not-T led to a contradiction is indirect proof, which intui
 
 ### Step 3: List the premises
 
-Number the premises P1, P2, … with labels [T], [L], [A] (Rule 2), keeping the list to what the derivation uses. A key term's meaning that the derivation relies on is a premise too: [T] if the target stated it (quote it), otherwise [A]. For a rule or practice, list its stated aim or another stated rule as a premise, which its generalized application must contradict.
+Number the premises P1, P2, … with labels [T], [L], [A] (Rule 2), keeping the list to what the derivation uses. A key term's meaning that the derivation relies on is a premise too: [T] if the target stated it (quote it), otherwise [A]. The reason the target gives for T and a stated purpose of T are premises and stay listed even when the derivation does not use them, [T] when the target states them and otherwise [A]; for a rule or practice so is its stated aim or another stated rule, which its generalized application must contradict. Your own reading of what T is for is not a premise.
 
 ### Step 4: Derive
 
-Derive in numbered lines (Rule 3), stopping at the first contradiction unless one that depends on fewer [A] premises is also within reach, in which case report that one even if its chain is longer; otherwise keep the chain as short as the logic allows. Before stating the contradiction, reread each line with the content words replaced by letters and confirm its rule still applies, because a step that holds only through an unlisted meaning is not strict, and record how the derivation was checked: by rereading only, or by a tool that ran (name it).
+Derive in numbered lines (Rule 3). Try first a derivation through the premises that state the reason for T or its stated purpose, because a contradiction between T and its own reason tells the user more than one between T and a side remark; when none comes that way, say so in one line and derive from the other premises. Stop at the first contradiction unless one that depends on fewer [A] premises is also within reach, in which case report that one even if its chain is longer; otherwise keep the chain as short as the logic allows. Before stating the contradiction, reread each line with the content words replaced by letters and confirm its rule still applies, because a step that holds only through an unlisted meaning is not strict, and record how the derivation was checked: by rereading only, or by a tool that ran (name it).
 
 ### Step 5: State the contradiction
 
@@ -84,39 +85,24 @@ Then grade its **strength** in this skill's own scheme (not a standard classific
 
 When the direction is both, state and grade each contradiction separately, and the record gives one line per direction. For **premise set inconsistent**, one derivation's premises entail T and the other's entail not-T, so the premises of both derivations together (apart from T and not-T) cannot all hold. The options are the premises of either derivation, not T; a premise both derivations use breaks both at once, so name it if there is one.
 
-Worked example (refute direction; the target said all three sentences):
-
-- T: "the hotfix is a feature"
-- P1 [T] "every feature that shipped was reviewed before it shipped"
-- P2 [T] "the hotfix shipped and was not reviewed before it shipped"
-
-1. the hotfix is a feature — T, assumption
-2. the hotfix shipped — P2, simplification
-3. the hotfix is a feature that shipped — 1, 2, conjunction
-4. if the hotfix is a feature that shipped, it was reviewed before it shipped — P1, universal instantiation
-5. the hotfix was reviewed before it shipped — 3, 4, modus ponens
-6. the hotfix was not reviewed before it shipped — P2, simplification
-
-Lines 5 and 6: Q and not-Q. Depends on T, P1, P2. Strength: internal. Options: give up T; give up or narrow P1 ("every feature except emergency fixes"); give up P2.
-
 ### Step 6: Lay out the options
 
-Give one option per member of the set the contradiction depends on that could be given up, each with what giving it up means and what else has to go with it; how the assumption appears among them depends on the direction:
-- **Refuting:** T is one of the options. Add a repair option where one exists: a narrowed thesis T′ that blocks the step that produced the contradiction, stated exactly, and say whether it still does the job the original T was meant to do.
+Give one option per member of the set the contradiction depends on that could be given up, each with what giving it up means, what else has to go with it and what it costs what T is for; how the assumption appears among them depends on the direction:
+- **Refuting:** T is one of the options. Add a repair option where one exists: a narrowed thesis T′ that blocks the step that produced the contradiction, stated exactly, and say whether it still does what T is for.
 - **Proving:** giving up the assumption not-T means accepting T, so that option reads "accept T".
 - **Both directions, when the result is premise set inconsistent:** neither T nor not-T is an option and no repair is added, whatever the two cases above say, because the fault is in the premises (see Step 5).
 
 ### Step 7: Recommend
 
-Pick one option and give the reason, the evidence class of the weakest premise the recommendation rests on, and the observation that would change the recommendation, then end with a sentence that the decision is the user's.
+Pick one option and give the reason, the evidence class of the weakest premise the recommendation rests on, and the observation that would change the recommendation; then say in one line what the result lets the user decide now and what it leaves open (an [A] premise unverified, a reading not settled), and end with a sentence that the decision is the user's.
 
 ### Step 8: Record
 
-Close with the record from the output template, whose fields are Target / thesis, Result, Contradiction depends on, Strength, Checked by, Options (with the recommended one), Decision and History; for `--target=all` give one combined record whose lines carry one entry per target, and whose History has one line per follow-up turn, naming its target. Its result is exactly one of: **untenable on these premises**, **follows from these premises**, **premise set inconsistent**, **no contradiction found**, **stopped**.
+Close with the record from the output template, whose fields are Target / thesis / what T is for, Result, Contradiction depends on, Strength, Checked by, Options (with the recommended one), Decision and History; for `--target=all` give one combined record whose lines carry one entry per target, and whose History has one line per follow-up turn, naming its target. Its result is exactly one of: **untenable on these premises**, **follows from these premises**, **premise set inconsistent**, **no contradiction found**, **stopped**.
 
 ### When no contradiction appears
 
-Say so plainly: list the directions and premise sets you tried, write "no contradiction found with these premises; this does not show they are consistent, or settle whether the thesis is true", and name the premise that would decide it. Never build a contradiction from a loose consequence to have something to show.
+Say so plainly: list the directions and premise sets you tried, write "no contradiction found with these premises; this does not show they are consistent, or settle whether the thesis is true", and name the premise that would decide it.
 
 ## When another agent fixes the output format
 
@@ -135,8 +121,5 @@ When the request comes from another agent or a script that fixes the output form
 
 ## Pitfalls
 
-- Loose absurdity: "then society would collapse" is a prediction, not a contradiction.
-- A slippery slope presented as a deduction: each "would lead to" is a causal premise and must be listed as one.
 - A chain of small steps over a vague term ("one more grain does not make a heap"): each step may be valid, and the tolerance premise is the usual weak point. List it as a premise and offer it as an option.
-- Treating "no contradiction found" as "true" or as "consistent".
 - Quoting words the target did not say, or tidying a quote. If you paraphrase, drop the quotation marks.

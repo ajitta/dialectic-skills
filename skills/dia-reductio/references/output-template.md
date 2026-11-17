@@ -9,8 +9,9 @@ Translate headings and labels.
 ## Thesis
 Thesis, as stated: "…" (location, for a text)
 Thesis, as read: T in one sentence; what the reading adds or narrows, or "same as stated" (other live reading: …)
+What T is for: "…" (the target's words) | as approved earlier: … | not stated (my reading: …, if the input makes one plain)
 Direction: refute | prove | both
-Not tested: (other claims in the input, one line, if any)
+Not tested: (other claims in the input, one line, if any; the reason given for T and a stated purpose are premises, not listed here)
 
 ## Premises
 - P1 [T] … — "quote"
@@ -30,21 +31,22 @@ n. Q and not-Q — lines a and b
 ## Contradiction
 Lines a and b. Depends on: T (or not-T), P1, P3 [A].
 Strength: internal | conditional | carried by added premises (if the last: "P3 [A] alone already entails not-T (T, when proving), so this only restates my assumption; the question is whether P3 is true.")
-(If a direction found none, say so here.)
+(If a direction found none, or the derivation through the reason or the stated purpose found none, say so here.)
 
 ## Options
-- A. Give up T (when proving: accept T; omit when the result is premise set inconsistent) → what that means; what else goes.
+- A. Give up T (when proving: accept T; omit when the result is premise set inconsistent) → what that means; what else goes; what it costs what T is for.
 - B. Give up P3 → …
-- C. (refuting only) Narrow T to T′ = "…" → blocks step k; does T′ still do T's job? …
+- C. (refuting only) Narrow T to T′ = "…" → blocks step k; does T′ still do what T is for? …
 
 ## Recommendation
 Option X, because …
 Rests on: P3 [A, evidence class].
 Would change if: …
+Lets the user decide now: … Leaves open: …
 The decision is yours.
 
 ## Record
-- Target / thesis:
+- Target / thesis / what T is for:
 - Result: untenable on these premises | follows from these premises | premise set inconsistent | no contradiction found | stopped
 - Contradiction depends on: (one line per direction when both)
 - Strength: internal | conditional (P…) | carried by added premises (P…) (one per direction when both)
