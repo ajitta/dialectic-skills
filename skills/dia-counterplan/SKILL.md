@@ -4,14 +4,14 @@ description: Construct a counterplan from contrary assumptions using the same ev
 license: MIT
 metadata:
   author: ajitta
-  version: "2.5.0"
+  version: "3.0.0"
   lineage: "new in plugin 1.3.0 (docs/research/candidates/argumentation.md)"
   source: "https://github.com/ajitta/dialectic-skills"
 ---
 
 # Dialectical Inquiry: Plan and Counterplan
 
-Dialectical inquiry after Mason, run by one assistant in one chat: the counterplan is yours, the synthesis is the user's. Take a plan, decision or recommendation; list the assumptions it rests on; keep those the decision turns on; give each a plausible contrary; write the counterplan those contraries support on the same data; set the two side by side; then ask which assumptions from each side the user now holds. That set is the result, and you give no verdict on which plan wins.
+Dialectical inquiry after Mason, run by one assistant in one chat: the counterplan is yours, the synthesis is the user's. Take a plan, decision or recommendation; list the assumptions it rests on; keep those the decision turns on; give each a plausible contrary; write the counterplan those contraries support on the same data; set the two side by side; then ask which assumptions from each side the user now holds. That set is the result, and you give no verdict on which plan wins. The inquiry is for whoever decides to see which assumptions the decision turns on and the observation that would decide each, so that they decide knowing what they hold.
 
 In Mason's field study the plan came from the company's planners. One assistant writes both sides here, so the format obliges a counter-case but cannot ensure it is as strong as the plan, and hearing both sides is not evidence that the plan was tested. Sources, the evidence on dialectical inquiry and devil's advocacy, and the limits of this adaptation are in [references/theory.md](references/theory.md); read it only when the user asks about the method or its sources, then answer briefly. The output layout is in [references/output-template.md](references/output-template.md); read it before the first output if you can open it (Step 8 names the record fields in case you cannot).
 
@@ -28,7 +28,7 @@ In Mason's field study the plan came from the company's planners. One assistant 
 The flag, or its natural-language equivalent, sets the target; with neither, infer it: a pasted text means `text`, "your recommendation" or "what you suggested" (or the same in any language) means `claude`, and anything else means `user`, so you never infer `claude` unless the user points to your answer. State the target in the first line of the output so the user can correct it. If several plans are present, take the one the user is deciding on and list the others in one line as not examined; if no plan is given, ask for it in one line.
 
 - **user:** the user's own statement of their plan counts as [T].
-- **claude:** quote your earlier recommendation, and say in one line that this is a self-examination and not independent: the same assistant wrote the plan and the counterplan. Do not write a weak counterplan to protect the answer, or an inflated one to look self-critical; Rule 3 holds as for any plan.
+- **claude:** quote your earlier recommendation, and say in one line that this is a self-examination and not independent: the same assistant wrote the plan and the counterplan. Rule 3 holds as for any plan.
 - **text:** quote with location, and attribute assumptions to the text, not to the author's motives.
 
 ## When this skill does not fit
@@ -55,6 +55,8 @@ The first message runs Steps 1 to 7 and ends with Step 7's question, unless it e
 
 If the user has options but no recommendation, ask in one line which one to treat as the plan, and stop. Otherwise state the plan and its recommendation in one or two sentences, with an exact quote (copy the target's words; never reword inside quotation marks), and list the data it cites as D1, D2, …, each with its evidence class.
 
+Then say in one line what the plan is for, the outcome it is meant to bring about: the user's words for it, from this request or as stated or approved earlier in this conversation for this plan, or for target `text` the text's own words, quoted; otherwise "not stated", with your own reading in one line, labelled as yours, when the input makes one plain (for target `claude`, an outcome that only your earlier recommendation names is your own reading). A stated outcome is still an assumption about what counts as success: list it in Step 2 and test it in Step 3 like any other. Neither it nor your own reading binds the counterplan or is a reason to prefer a side (Rule 5); your reading appears only where it is labelled.
+
 ### Step 2: List the assumptions
 
 Number the assumptions the recommendation rests on: A1, A2, …. Label each **[T]** stated by the target (quote it) or **[A]** reconstructed by you, with a one-line reason the plan needs it; a line you had to reword or infer is [A], even if it restates what the target said. Cover the situation (demand, people, costs, timing), what others will do, and what counts as success. A datum the decision turns on that is only single source or unverified recall is also an assumption, so list it. Keep to what the recommendation uses, usually five to ten.
@@ -74,7 +76,7 @@ For each Kn write Cn, a specific, plausible contrary (Rule 2), marked "my choice
 
 ### Step 5: Write the counterplan
 
-Write the course of action that follows from C1 … Cn and the same data, under Rule 3, marking which Cn each part rests on. It must be a different course of action, not the plan with a part removed; waiting or doing nothing counts if that is what follows.
+Write the course of action that follows from C1 … Cn and the same data, under Rule 3, marking which Cn each part rests on. It must be a different course of action, not the plan with a part removed; waiting or doing nothing counts if that is what follows. When what the plan is for is stated, say in one line whether the counterplan is another way to it or, where the course that follows from C1 … Cn is not, what the counterplan is for instead, because a reader comparing the two has to know whether they aim at the same thing.
 
 ### Step 6: Set them side by side
 
@@ -91,7 +93,7 @@ Ask one question: which assumption from each pair do they now hold? They may ans
 
 ### Step 8: Record
 
-When the user has ruled on every pair, or stops, or a one-response run (Procedure) reaches this step, close with the record from the output template. If you cannot open the template, the record is: target and plan (with the self-examination line for `claude`); key assumptions, and how many were listed; each pair with the user's ruling; result; kept for the side set aside; written by; not tested; rewrites; history; and, in a one-response run, Step 7's question as the last line. The result is exactly one of:
+When the user has ruled on every pair, or stops, or a one-response run (Procedure) reaches this step, close with the record from the output template. If you cannot open the template, the record is: target and plan (with the self-examination line for `claude`); key assumptions, and how many were listed; each pair with the user's ruling; result; turns on; kept for the side set aside; written by; not tested; rewrites; history; and, in a one-response run, Step 7's question as the last line. The result is exactly one of:
 
 - **plan side held:** the user holds the plan's assumption on every pair;
 - **counterplan side held:** the counterplan's on every pair;
@@ -102,6 +104,7 @@ When the user has ruled on every pair, or stops, or a one-response run (Procedur
 
 Unless the result is **no key assumption found**, the record always says:
 
+- **Turns on:** in your judgment and labelled so, the open pair the decision turns on most, with the observation that would decide it (every pair is open in a one-response run, and the unruled pairs are open after a stop); or, with no pair open, the fact not supplied, or the datum of the weakest evidence class, that the user's set rests on most. It names a pair or a fact and never which plan to choose (Rule 5), and the Not tested line holds whatever it names.
 - **Kept for the side set aside:** for each pair, the strongest argument for the assumption the user did not hold, in one line, so a later decision can return to it (borrowed from the Mishnah's kept minority opinion, theory.md §6). For an open pair, the strongest argument on each side and the observation that would decide it. For a pair answered in the user's own words, keep the strongest argument for whichever of Kn and Cn their wording departs from more.
 - **Written by:** one assistant wrote both sides of this comparison.
 - **Not tested:** at least whether the shared data are accurate, assumptions not listed, alternatives other than these two, and how either plan would play out; then the line "Hearing both sides is not evidence that the plan was tested."
@@ -115,7 +118,7 @@ If the user then asks for a plan built on their set, sketch it after the record 
 When the request comes from another agent or a script that fixes the output format (a schema or a set of fields) and no user will reply, carry out every step as usual and fit the result into that format as below, because such a caller may pass on only its list of items.
 
 1. Give no item for the plan's flaws (Rule 1) and no severity or ranking (Rule 5): this method's result is not a list of defects. If the caller also asks for the plan's defects, say in the method result that this method gives none.
-2. Give one item labelled as this method's result, not a finding, whose text is the whole output in the template's layout, not shortened: the plan, the key assumptions with their contraries, the counterplan, the pairs side by side, and the Step 8 record of a one-response run with every line it requires (each pair open, the result undetermined, Kept for the side set aside, Written by, Not tested, and Step 7's question as the last line). When Step 3 finds no key assumption, the item holds that result with its Not tested line; on a request for the assumptions only, it holds the key assumptions, with no record and no counterplan.
+2. Give one item labelled as this method's result, not a finding, whose text is the whole output in the template's layout, not shortened: the plan, the key assumptions with their contraries, the counterplan, the pairs side by side, and the Step 8 record of a one-response run with every line it requires (each pair open, the result undetermined, Turns on, Kept for the side set aside, Written by, Not tested, and Step 7's question as the last line). When Step 3 finds no key assumption, the item holds that result with its Not tested line; on a request for the assumptions only, it holds the key assumptions, with no record and no counterplan.
 3. In its severity and fix fields, write that this method does not give them. If a field takes only fixed values, use the one that claims least, and say at the start of the item's text that the format forced that value and that this method gives no severity or ranking (Rule 5).
 4. The method-result item holds the whole output even when the format also has a free-text field; never point from the item to another field, because the caller may not pass that field on.
 
@@ -128,8 +131,3 @@ When the request comes from another agent or a script that fixes the output form
 - **The user adds an assumption:** it goes through Steps 3 to 7, and you ask for their ruling on the new pair before the record; if it would make more than five key pairs, say which pair it displaces, or list it as passed but not paired.
 - **The user changes the plan:** treat it as a new plan, rerun, and add it to the history.
 - **Stop signal** ("stop", "enough", "wrap up", or the same in the user's language): go to the record with what you have.
-
-## Pitfalls
-
-- A strawman counterplan: shorter, vaguer, or missing the plan's data.
-- The side-by-side treated as proof that the plan was tested.

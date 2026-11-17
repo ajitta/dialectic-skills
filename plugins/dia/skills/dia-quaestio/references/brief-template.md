@@ -1,6 +1,6 @@
 # Brief template
 
-Lead with one plain line before the brief: the verdict and the next step. Fill every section from the user's answers only (the one exception: after an early stop, the options section may hold at most three options of your own, labelled as yours, per SKILL.md hard rule 5), and translate the section headers into the user's language. In chat, print the brief as plain Markdown, not inside a code block (code blocks scroll sideways on phones); the block below only shows the structure.
+Lead with one plain line before the brief: the verdict, what the user's answers leave them ready to decide now (named from the brief's decisions and options as their choice, never a pick of yours beyond one Step 4 recorded, or "nothing yet"), the open question or risky assumption to settle first (or "none"), and the next step. Fill every section from the user's answers only (the one exception: after an early stop, the options section may hold at most three options of your own, labelled as yours, per SKILL.md hard rule 5), and translate the section headers into the user's language. In chat, print the brief as plain Markdown, not inside a code block (code blocks scroll sideways on phones); the block below only shows the structure.
 
 ```markdown
 # Brief: <short name>  ·  <YYYY-MM-DD, if known>
@@ -10,6 +10,9 @@ Lead with one plain line before the brief: the verdict and the next step. Fill e
 ## Thesis
 - Before: <user's first statement, paraphrased>
 - After: <the user's restatement from Step 5, or else the working thesis (the user's own statement if none was formed); any tightening marked as yours; any live risky assumption written in as a condition, e.g. "…, piloted for one month first">
+
+## What the idea is for
+- <the user's words for it, or "not stated">
 
 ## Decisions
 - <decision> (confirmed | delegated)
