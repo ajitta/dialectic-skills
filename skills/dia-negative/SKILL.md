@@ -4,14 +4,14 @@ description: Critique a claim or practice against its own stated standard. Use o
 license: MIT
 metadata:
   author: ajitta
-  version: "2.4.0"
+  version: "3.0.0"
   lineage: "negative-dialectics (installed copy, unversioned)"
   source: "https://github.com/ajitta/dialectic-skills"
 ---
 
 # Negative Dialectics
 
-No concept captures its object without a remainder; this skill shows a remainder only through a strict gap (Rules 2 and 5).
+No concept captures its object without a remainder; this skill shows a remainder only through a strict gap (Rules 2 and 5), and looks for it first where the claim's own stated purpose is at stake, so that the user can decide what to do about the claim and not only learn that it leaks.
 
 This skill is a practical adaptation of Adorno's method, not his own procedure: it runs internal critique, narrower than immanent critique, so its standard is only what the target itself states and it does not reconstruct norms a practice implies without stating them. Theory, sources and the limits of the adaptation are in [references/theory.md](references/theory.md); read it when the user asks about the method or when you are unsure whether a finding is strict or whether a standard is the target's own.
 
@@ -47,11 +47,11 @@ State C, the place where something is identified as something, and quote it; typ
 
 ### Step 2: State its own standard
 
-List what C commits to, C1 … Cn, each with a quote: what it promises, what it says it measures or includes, what it says it is for. A purpose the target states is the **stated purpose**.
+List what C commits to, C1 … Cn, each with a quote: what it promises, what it says it measures or includes, what it says it is for. A purpose the target states is the **stated purpose**; when the target is the user's own claim, an outcome the user stated or approved for this claim earlier in this conversation counts as stated. With none stated, write "none stated" and read none in, because Rule 1 allows only the target's own standard.
 
 ### Step 3: Gather particulars
 
-Collect the cases C claims to cover, and check each against C1 … Cn.
+Collect the cases C claims to cover, and check each against C1 … Cn, starting, when a purpose is stated, with the cases it depends on most, because a gap there tells the user more than one at the margin.
 
 ### Step 4: Findings (determinate negations)
 
@@ -63,7 +63,7 @@ For each strict gap, write:
 - **Evidence:** source and class
 - **What escapes:** the specific content C leaves out (the nonidentical remainder)
 
-If no strict gap appears, say that C holds against the particulars tested, list them, and say where a gap would most likely show up if there is one; do not invent findings.
+If no strict gap appears, say that C holds against the particulars tested, list them, and say where a gap would most likely show up if there is one.
 
 ### Step 5: Function and purpose
 
@@ -73,7 +73,7 @@ Optionally, set C beside two or three concepts it depends on (for example "merit
 
 ### Step 6: Options
 
-Offer only the responses below that fit, each with what it keeps and what remainder it leaves; if no strict gap was found, the options are keeping C as it is or examining the most likely gap next, and you invent no others.
+Offer only the responses below that fit, each with what it keeps, what remainder it leaves and, when a purpose is stated, whether it is still met; if no strict gap was found, the options are keeping C as it is or examining the most likely gap next.
 
 - narrow C to the scope where it holds (state C′ exactly; if the gap comes from how the practice works rather than from how C is worded, say that narrowing moves the gap rather than closing it)
 - keep C and state the remainder openly
@@ -83,7 +83,7 @@ Offer only the responses below that fit, each with what it keeps and what remain
 
 ### Step 7: Recommend
 
-Pick one option and give: the reason; the evidence class of the weakest finding it rests on (with no strict finding: "no strict finding; rests on the tested particulars"), saying so when every finding it rests on is conditional; the observation that would change the recommendation. End with a sentence that the decision is the user's.
+Pick one option and give: the reason; the evidence class of the weakest finding it rests on (with no strict finding: "no strict finding; rests on the tested particulars"), saying so when every finding it rests on is conditional; the observation that would change the recommendation. Then say in one line what the findings let the user decide now and what they do not settle (a conditional finding, a particular not tested; with no strict finding, only that C held against the particulars tested), and end with a sentence that the decision is the user's.
 
 ### Step 8: Record
 
@@ -107,7 +107,4 @@ When the request comes from another agent or a script that fixes the output form
 
 ## Pitfalls
 
-- Abstract negation (Rule 5): "everything is socially constructed", "nothing captures reality".
-- Jargon (Rule 9): Adorno's vocabulary standing in for an argument.
-- Dismissal by default: if C holds against the particulars, say so (Step 4).
 - Filling the template: an empty section is a result, not a gap to fill.

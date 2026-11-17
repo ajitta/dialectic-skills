@@ -10,6 +10,7 @@ Translate headings, slot names, tags, statuses and the fixed results. Use lines,
 ## Claim
 C: "…" (location). Qualifier: "…" | none
 Not audited: (other claims, or other reasons for C, one line, if any)
+What C is for: "…" (the target's or the user's words) | as approved earlier: … | not stated (my reading: …, if the input makes one plain)
 
 ## Layout
 - Data: … — stated "…" | reconstructed
@@ -34,8 +35,9 @@ Facts added: (each with its evidence class: verified this session (a tool ran) |
 Weakest link: [slot], because "[question]" is left open | is answered against the step ("quote", and the step if derived)
 Weakest link: qualifier, because the claim says "…" where the warrant licenses "…" (only if every question is answered for the step)
 Qualifier check (always): the warrant (stated | my reconstruction) licenses "…"; the claim says "…" → matches | overstated (from the "generally" default? ask whether "certainly" was meant) | no warrant to compare
-Why it matters: (one line)
+Why it matters: (one line; for what C is for, when that is given)
 What would strengthen it: (the kind of answer or evidence, not a fact supplied by you)
+(when what C is for is given) What you can and cannot rely on C for, as the support stands: …
 
 or
 

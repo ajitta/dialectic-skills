@@ -115,8 +115,11 @@ list.
 - Compare the old text with the new on the same build, with everything else the model loads unchanged,
   the same day. Pooling a batch from another session turned the scope-word result from p ≈ 0.05 into
   p ≈ 0.006.
-- Use a model that does not already pass every case; Opus sat at the ceiling on the purpose cases, so a
-  form change needs Sonnet or Haiku.
+- Use the model that will follow the text, and check first whether it already passes every case with the
+  old text: at that ceiling an A/B can show that the change broke a case but not that it helped (Opus
+  sat at the ceiling on the purpose cases). At the ceiling, make the cases harder, or run the A/B and
+  report a result without a drop as nothing broken and any gain as unmeasured; another model's result
+  does not stand in for that model's.
 - Confirm the eval reaches the changed condition; a pass that never reaches it measures
   nothing.
 - Compare per case, over only the runs in which the text was loaded, since a run that did not load

@@ -4,7 +4,7 @@ description: Write or review instructions for models against four rules. Use onl
 license: MIT
 metadata:
   author: ajitta
-  version: "2.10.0"
+  version: "3.0.0"
   lineage: "new in plugin 1.6.0 (spec D41); the author's writing-for-models draft, record in docs/writing-for-models/ in the source repository; named dia-instruct until plugin 2.0.0"
   source: "https://github.com/ajitta/dialectic-skills"
 ---

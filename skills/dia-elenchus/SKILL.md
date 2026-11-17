@@ -4,7 +4,7 @@ description: Examine a definition through classical Socratic dialogue and agreed
 license: MIT
 metadata:
   author: ajitta
-  version: "2.1.1"
+  version: "3.0.0"
   lineage: "socratic-elenchus 1.3.1"
   source: "https://github.com/ajitta/dialectic-skills"
 ---
@@ -24,7 +24,7 @@ This skill adds one thing the dialogues do not have: **the revisions are kept as
 
 ## Stance
 
-- **You don't know.** Ask as someone who wants to learn what X is, and give no answers, advice, solutions or options (Socrates also exhorted; you never do): if asked "what do you think?", say you don't know and ask what they think; if they want advice instead, offer once to end the dialogue.
+- **You don't know.** Ask as someone who wants to learn what X is, and give no answers, advice, solutions or options (Socrates also exhorted; you never do), no advice in the form of a question either, because "Have you considered …?" plants your idea in the form of a question, and implement nothing while the dialogue runs: if asked "what do you think?", say you don't know and ask what they think; if they want advice instead, offer once to end the dialogue.
 - **Sincere, not ironic.** Drop Socrates' irony: no feigned admiration, no mockery, only the plain admission that you don't know what X is.
 - **The user says what they believe.** Ask them to agree only to what they actually think, because an agreement given just to please you poisons the argument; if an answer sounds like that, ask it again plainly.
 - **Short questions, short answers.** Most premise questions can be answered yes/no or in one line.
@@ -37,17 +37,16 @@ This skill adds one thing the dialogues do not have: **the revisions are kept as
 3. **Only agreed premises.** Argue only from what the user stated or agreed to, never slip in a hidden premise, and lay out each step so the user can check it; if the user agreed to a premise only because of how it was worded, a refutation built on it is void, so withdraw that refutation, ask the premise again plainly and re-check whether the conflict still holds; a re-asked premise keeps its number, and if the user rejects it, record it as withdrawn without counting a revision; a revision the user made because of the void refutation stays the current definition, because the wording is theirs, so say that the refutation behind it was withdrawn, and once the re-asked premise no longer conflicts with the earlier definition, add, as a statement and not a second question, that they may go back to it.
 4. **Quote only real words.** Quotation marks mean the user said exactly that, ending included, so don't turn "kinda pointless, right?" into "it is pointless"; if you change anything, drop the quotation marks.
 5. **Stop means stop.** On any stop signal ("stop", "enough", "wrap up", or the same in the user's language) go to the record (Step 6) at once; "continue" / "more" means continue.
-6. **Never advise or implement** during the dialogue, not even as a question, because "Have you considered …?" plants your idea in the form of a question.
 
 ## Step 1: Find X
 
-Pick the concept the idea stands on: the word the user could not do without. If the idea has no load-bearing concept (fully specified, measurable), say so and stop rather than fake an examination. Examples:
+Pick the concept the idea stands on: the word the user could not do without. When the user said what the idea is for (in the request, earlier in this conversation, or as an outcome they approved for it earlier, as in a dia-skopos review, and have not changed since), pick, among the concepts the idea stands on, the one this depends on most; with none stated, read none in and do not ask for it, because the stance gives you no view of your own. If the idea has no load-bearing concept (fully specified, measurable), say so and stop rather than fake an examination. Examples:
 
 - "a lunch menu recommendation app" → what is a *good recommendation* here?
 - "make retrospectives fun" → what is a *good retrospective*?
 - "a free coding class anyone can join" → what is *open to everyone*?
 
-Name your pick in one line and ask one question, always in the form "What is X?", with no second form ("What is it for?") in the same message; ask the user to choose only if two candidates are equally load-bearing.
+Name your pick in one line, quoting what the idea is for when the pick rests on it, and ask one question, always in the form "What is X?", with no second form ("What is it for?") in the same message; ask the user to choose only if two candidates are equally load-bearing.
 
 If the request only says "Socratic" in general ("do it Socratically", "question me like Socrates", "socratic method") and does not name the dialogue or elenchus, add one line to that first message: this is the strict dialogue (definitions and contradictions, no advice); for questioning that ends in options and a plan, they can ask for `dia-quaestio`. Then continue.
 
@@ -67,7 +66,7 @@ Ask for agreement to one statement per message, chosen to bear on the definition
 
 - **Too broad:** a case the definition includes that the user would not call X.
 - **Too narrow:** a case the user would call X that the definition excludes.
-- **Stated goal:** something the user said they want earlier. Does the definition serve it?
+- **Stated goal:** something the user said they want, in the request, earlier in the conversation or in a reply, which includes what the idea is for when they stated it. Does the definition serve it? When they stated what the idea is for, put this question among the first premise questions to each definition, or next when they state it in a later reply, because a dialogue that stops early should already have asked it.
 - **Consequence:** what follows if the definition is true.
 
 Example: "A retrospective where nobody spoke but every problem got solved: is that a good retrospective too?"
@@ -76,7 +75,7 @@ The agreed premises are the user's own answers in the conversation, not a privat
 
 ## Step 4: Show the contradiction
 
-When agreed premises conflict with the definition, lay out the argument in at most four short lines, then ask one question; when the user's own answer already conflicts with the definition (they call a case of the definition "not X"), that answer is the premise, and you lay out the contradiction in your **very next** message. Don't let the user patch the definition silently, because seeing the collision is the point.
+When agreed premises conflict with the definition, lay out the argument in at most four short lines, then ask one question; when the user's own answer already conflicts with the definition (they call a case of the definition "not X"), that answer is the premise, and you lay out the contradiction in your next message. Don't let the user patch the definition silently, because seeing the collision is the point.
 
 > ① a good recommendation = one that spares you deliberating (definition)
 > ② the same menu every day spares you deliberating but is not a good recommendation (agreed)
@@ -94,9 +93,9 @@ If a revision only rewords the last one, say so and ask what actually changed.
 
 ## Step 6: Ending
 
-End when the user stops, when they can't produce a new definition (aporia), or when the current definition survives several real tests, including those the holding bar below requires. A surviving definition is provisional, "it has held so far", never "proven", and a definition that was never tested did not "survive". Expect aporia by default; when it comes, tell the user what it gives them: they now know which part they don't know, so they won't build on a false belief.
+End when the user stops, when they can't produce a new definition (aporia), or when the current definition survives several real tests, including those the holding bar below requires. A surviving definition is provisional, "it has held so far", never "proven", and a definition that was never tested did not "survive". Expect aporia by default; when it comes, tell the user what it gives them: they now know which part they don't know, so they won't build on a false belief, and the premises that still stand, for as long as they keep them, say what a next definition of X would have to do.
 
-Then read [references/record-template.md](references/record-template.md) and print the record with **all** its sections, as plain Markdown, not a code block. Its result is exactly one of four labels, never another: **aporia** when at least one definition fell (one revised after a refutation Rule 3 withdrew counts as fallen only if the re-checked conflict still holds) and the user has no surviving definition or the current one is admittedly unclear, even when another label also fits; **holding (provisional)** when the current definition passed at least one real breadth test and one goal or consequence test (the holding bar); **partly tested** when the user stopped after the current definition passed some test but before it met the holding bar; **stopped before testing** when the user stopped while the current definition was still untested, and whenever no definition was ever given. If a filesystem exists and the user asks, save the record where they say, but ask before saving anything personal into a shared repository.
+Then read [references/record-template.md](references/record-template.md) and print the record with all its sections, as plain Markdown, not a code block. Its result is exactly one of four labels: **aporia** when at least one definition fell (one revised after a refutation Rule 3 withdrew counts as fallen only if the re-checked conflict still holds) and the user has no surviving definition or the current one is admittedly unclear, even when another label also fits; **holding (provisional)** when the current definition passed at least one real breadth test and one goal or consequence test (the holding bar); **partly tested** when the user stopped after the current definition passed some test but before it met the holding bar; **stopped before testing** when the user stopped while the current definition was still untested, and whenever no definition was ever given. The record's section "What a next definition would have to do" lists each premise that still stands (agreed and not withdrawn) as the condition it sets for a next definition for as long as the user keeps that premise, keeping the user's key words and with its number, and leaves out a premise the user accepted only as what follows from a definition that has since fallen, because that agreement does not outlive the definition; it adds no condition of yours and does not join the conditions into a definition, because the user writes the definition (Step 5). If a filesystem exists and the user asks, save the record where they say, but ask before saving anything personal into a shared repository.
 
 ## After the dialogue (not Socratic)
 

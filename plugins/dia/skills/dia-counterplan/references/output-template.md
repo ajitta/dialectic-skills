@@ -9,6 +9,7 @@ Translate headings and labels. Use numbered lines, not wide tables, so it reads 
 
 ## Plan
 Recommendation: one or two sentences. Quote: "…"
+What the plan is for: "…" (the user's words; for target text, the text's) | as approved earlier: … | not stated (my reading: …, if the input makes one plain)
 Data:
 - D1 … — evidence: verified this session (a tool ran) | supplied by the user | single source | unverified recall
 - D2 …
@@ -33,6 +34,7 @@ Same data: no contrary contradicts D1 … Dn | C2 reads D2 as …
 
 ## Counterplan
 Recommendation: one or two sentences, at the plan's level of detail.
+(when what the plan is for is stated) Another way to it | not a way to it; what the counterplan is for instead: …
 1. … (rests on C1; cites D1)
 2. … (rests on C2)
 
@@ -56,6 +58,7 @@ Printed after the user rules on every pair, or stops, or when Step 3 finds no ke
 - Key assumptions: n of m listed
 - Pairs and rulings: K1 plan | counterplan | own: "…" | open — one line per pair
 - Result: plan side held | counterplan side held | synthesis | undetermined | no key assumption found | stopped
+- Turns on (my judgment): the open pair the decision turns on most and the observation that would decide it | (no pair open) the fact not supplied, or the datum of the weakest evidence class, that the set rests on most
 - Kept for the side set aside: one line per pair with the strongest argument for the assumption not held (for a ruling in the user's own words, for whichever of Kn and Cn it departs from more); for an open pair, the strongest argument on each side and the observation that would decide it
 - Written by: one assistant wrote both sides of this comparison
 - Not tested: the accuracy of the shared data; assumptions not listed; alternatives other than these two; how either plan would play out; (anything else). Hearing both sides is not evidence that the plan was tested.

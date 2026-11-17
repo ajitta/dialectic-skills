@@ -4,7 +4,7 @@ description: Confirm the user's goal, assumptions and open decisions before work
 license: MIT
 metadata:
   author: ajitta
-  version: "2.6.0"
+  version: "3.0.0"
   lineage: "confirm-intent (installed copy, unversioned); named dia-intent until plugin 1.0.0, dia-confirm from plugin 1.1.0 to 1.4.0 and dia-intent again until 2.0.0"
   source: "https://github.com/ajitta/dialectic-skills"
 ---
@@ -13,7 +13,7 @@ metadata:
 
 Distinguish the deliverable and any stated outcome beyond it, reported observations, causal explanations, proposed means, and explicit constraints, treating explanations and means as hypotheses unless the user sets them as constraints or requests them as the deliverable, and preserving the user's constraints and authority boundaries; quote short exact constraints (such as a name, amount or date) in the user's words and still check them as item 2 says.
 
-Before presenting the review, resolve material factual uncertainties with bounded investigation of relevant supplied artifacts and project state, using only reads and safe isolated probes and preferring the smallest decisive one, and never offer pre-approval investigation as an option: if a decisive read or probe is available and permitted, do it, and if it is not, say what is missing and how that affects the review. Stop when enough evidence supports the review or the remaining uncertainty requires user judgment, execution, or unavailable access; do not investigate exhaustively.
+Before presenting the review, resolve material factual uncertainties with bounded investigation of relevant supplied artifacts and project state, using only reads and safe isolated probes and preferring the smallest decisive one, and never offer pre-approval investigation as an option: if a decisive read or probe is available and permitted, do it, and if it is not, say what is missing and how that affects the review. Stop when enough evidence supports the review or the remaining uncertainty requires user judgment, execution, or unavailable access.
 
 A safe isolated probe runs in a separate temporary location, such as a copy of the relevant files, and may create copies, caches, and test output there, but must leave unchanged the user's originals and any external state (together, user assets, as used below, whether or not the user owns that external state), including their workspace, accounts, and shared systems, and if that isolation cannot be ensured, inspect by reading only and report the remaining uncertainty; running the user's code or scripts counts as a probe even if it seems only to read, so run it against the copy, not in the original location. A probe's result is evidence for the review, not a draft deliverable, so report what it showed, not the change it used, and remove or report what the probe created.
 
@@ -36,8 +36,8 @@ Use the request, context, and inspected evidence to present:
    After the four lines, state observable completion criteria, presenting any criterion that the request or conversation does not state as your proposal, except one taken from the materials, which you present with its source, because the user approves these criteria and needs to see which ones are theirs; infer a necessary condition only when you can explain its evidence, necessity, and how to check it, and keep optional improvements separate.
 
    When an outcome is stated and the finished deliverable could fail to bring it about, add the split: list the deliverable's completion criteria apart from the criteria that would show that outcome happened, call any indirect measure of that outcome a proxy and say what it cannot show, say for each of these criteria whether it can be checked now, once the deliverable exists, or only by later or outside observation, and mark that outcome unverified unless a criterion that would show it, not a proxy, can be checked now or once the deliverable exists, because a finished deliverable or a passing proxy does not show that the outcome happened. Leave the split out when the finished deliverable cannot fail to bring the stated outcome about, because its completion criteria already show that outcome.
-2. **Evidence and assumptions:** State decisive observations, including calculations or contrary evidence that could change the decision, rather than merely promising to analyze them later, and distinguish inspected facts, inferences, and unverified assumptions, labelling a value you worked out without a tool as re-derived and treating a fact you only remember as an unverified assumption, not an inspected fact. Check facts you will repeat or act on against a quick computation when one is available (such as a date's weekday or a total) rather than copying them from the materials. Points the request, conversation, or materials settle, and choices delegated to you, belong here with their source or the option you will use, not in questions.
-3. **Decisions needed from the user:** Only preferences, trade-offs, authority, or facts only the user can supply (ones no available source holds, such as what their team handles or a booking they made) that remain open after the above and could materially change the result; explain each one's effect. An empty decision list is normal; do not add items to fill it. Investigate available factual questions instead of asking them. Before listing an item, check these cases in order; the first that fits decides, and your own default settles an item only under the third:
+2. **Evidence and assumptions:** State decisive observations, including calculations or contrary evidence that could change the decision, and distinguish inspected facts, inferences, and unverified assumptions, labelling a value you worked out without a tool as re-derived and treating a fact you only remember as an unverified assumption, not an inspected fact. Check facts you will repeat or act on against a quick computation when one is available (such as a date's weekday or a total) rather than copying them from the materials. Points the request, conversation, or materials settle, and choices delegated to you, belong here with their source or the option you will use, not in questions.
+3. **Decisions needed from the user:** Only preferences, trade-offs, authority, or facts only the user can supply (ones no available source holds, such as what their team handles or a booking they made) that remain open after the above and could materially change the result; explain each one's effect. An empty decision list is normal. Before listing an item, check these cases in order; the first that fits decides, and your own default settles an item only under the third:
    - **The request, conversation, or materials already settle it** (a request to send settles sending without a preview): not a decision.
    - **A safeguard for a step the request itself asks for** (such as a backup before a requested deletion): not a decision, even when the step cannot be undone, because the request settles the step; say instead, in the Confirmation, that the step cannot be undone and that the user can ask for the safeguard.
    - **The choice was delegated to you, or is minor:** your own default settles it, and it is not a decision.
@@ -67,7 +67,7 @@ Beyond the task this skill was invoked for and its direct follow-ups, the review
 
 ## Output
 
-Use the sections below for the initial or revised review, with their headings and the four labels of item 1 written in the user's language, including only material items, omitting empty sections, and scaling it to the task (a few sentences beyond the four lines of item 1 may suffice), except those four lines, which every review carries; after approval, use the format appropriate to the task.
+Use the sections below for the initial or revised review, including only material items, omitting empty sections, and scaling it to the task (a few sentences beyond the four lines of item 1 may suffice), except those four lines, which every review carries; after approval, use the format appropriate to the task.
 
 **Goal and success conditions**
 - Deliverable, as stated:
@@ -77,7 +77,7 @@ Use the sections below for the initial or revised review, with their headings an
 [Then the completion criteria, and the split when item 1 calls for it.]
 
 **Evidence and assumptions**
-[As item 2; mark values worked out without a tool as re-derived.]
+[As item 2.]
 
 **Decisions needed from the user**
 

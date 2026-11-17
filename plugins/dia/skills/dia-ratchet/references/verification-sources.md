@@ -1,6 +1,6 @@
 # Verification method assignment
 
-Which methods count as "external verification" for each type of content. One criterion governs: information or execution results that differ from what the model used while drafting.
+Which methods count as "external verification" for each type of content. One criterion governs: information or execution results that differ from what the model used while drafting. A search snippet alone, or several pages that repeat one origin, is a single source for every content type: open the primary source before writing "confirmed" or "refuted", or class the defect unverifiable.
 
 | Content type | Accepted external method | When no method exists |
 |---|---|---|
@@ -8,7 +8,7 @@ Which methods count as "external verification" for each type of content. One cri
 | Code | Execution, tests, type checking, linter. Tests you write yourself share your blind spots: prefer existing or user-supplied tests, and say in the log which kind ran | Unverifiable without a run environment. In round 1 only, fix what is settled without running, such as syntax errors, marked "(not verified)" |
 | Library APIs, versions, config keys | An official-documentation lookup tool (for example Context7), or a fetch of official docs | Unverifiable |
 | Facts, dates, a person's current position, recent events | Web search, then fetch a primary source | Unverifiable |
-| Quotations, citations, paper titles and authors | Fetch the original, or open a bibliographic record (publisher, DOI or library catalogue page); a search snippet alone is a single source | Unverifiable. Exact titles and numbers in particular stay unverified however fluently they came to mind |
+| Quotations, citations, paper titles and authors | Fetch the original, or open a bibliographic record (publisher, DOI or library catalogue page) | Unverifiable. Exact titles and numbers in particular stay unverified however fluently they came to mind |
 | Statements about the user's system, code, or situation | Compare against files, logs, and user statements in the conversation | Unverifiable if there is nothing to compare against |
 | Missing requirements | Compare against the user's latest instructions | The instructions are themselves external evidence, so almost always possible |
 | Logical leaps | Build a counterexample as concrete input and check it by calculation or execution | Unverifiable. A counterexample you cannot run is not grounds for an edit; list the leap under Unverified with the counterexample |
@@ -25,9 +25,3 @@ One line per defect, within the limits of SKILL.md step 3.
 [defect 4] "announced March 2024" - method: web search - result: refuted (draft was right) - action: locked
 [defect 5] "this approach is faster" - method: none - result: unverifiable - action: unverified list
 ```
-
-## Common misjudgments
-
-- Writing "confirmed" on the strength of one search snippet. Secondary coverage repeating a single origin is not independent confirmation. Open the primary source, or mark it "single source" if only the snippet was seen.
-- Editing because a different value came to mind than the draft's. When two recollections conflict, both are unverified.
-- Softening a sentence by appending "needs checking" to an unverifiable item. Leave the text as it is and record it in the unverified list only.
