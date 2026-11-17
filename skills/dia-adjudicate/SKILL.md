@@ -4,7 +4,7 @@ description: Rule on reports about a target using evidence, without rewriting th
 license: MIT
 metadata:
   author: ajitta
-  version: "2.9.0"
+  version: "3.0.0"
   lineage: "new in plugin 1.5.0 (spec D40); rules drawn from adjudication trials, docs/research/dia-adjudicate.md"
   source: "https://github.com/ajitta/dialectic-skills"
 ---
@@ -13,7 +13,7 @@ metadata:
 
 Rule on what others said about a target. You decide, item by item, which report items hold, and you check every claim in the target whether or not a report raised it.
 
-Several hard rules below give as their reason a misruling that judges made in trials. Judging on the model's own rereading brings no reliable gain and can make things worse (Huang et al., ICLR 2024, arXiv:2310.01798), so verdicts rest on outside evidence. The aim is not a judge that never errs but one whose errors land where a person will look: the must-check list and the items on which two runs differ.
+Several hard rules below give as their reason a misruling that judges made in trials. Judging on the model's own rereading brings no reliable gain and can make things worse, so verdicts rest on outside evidence. The aim is not a judge that never errs but one whose errors land where a person will look: the must-check list and the items on which two runs differ.
 
 ## Invocation
 
@@ -25,11 +25,12 @@ The input must contain the **target** (T) and **one or more reports** (R). If th
 
 1. Label the reports R1…Rn in a shuffled order, saying in the Inputs line which label is which report as the user gave it, and drop author names and roles ("critic", "verifier") if they were given. Rule on content, not on who wrote it.
 2. State in one line what independence the setup has: the reports were or were not written by the same model as you, and whether you saw anything besides T and the reports. If a report was written earlier in this same conversation by you, mark its items "not independent". Say whether this is a single run or one of two runs (see Running twice).
+3. State in one line what the result will be used for when the user or the caller said it (whether T is published, which report to trust), in their words, and "not stated" otherwise; read none in, because a judge that guesses what the user hopes to decide leans its verdicts toward it. It changes no verdict, no severity (Rule 7 measures by T's conclusion), not which conclusion is C (Step 1) and not the must-check order; it is used only in Step 10, and "not stated" does not show that no decision will be made from the result (Running twice).
 
 ## Hard rules
 
 1. **Rule, don't rewrite.** Give verdicts. Do not produce a revised target, and do not add a new critique beyond the claim inventory (Step 2). When asked for a fix, state the condition the fix must meet (what must be true after it), not replacement text, because a judge that writes the revision later rules on its own words.
-2. **Agreement is not evidence.** How many reports raised an item does not change its verdict, and an item raised by every report is checked like any other, because reports written by the same model tend to share errors: models agree on the same wrong answer far more often than chance, and a judge from the same family inflates the reports it agrees with (arXiv:2506.07962).
+2. **Agreement is not evidence.** How many reports raised an item does not change its verdict, and an item raised by every report is checked like any other, because reports written by the same model tend to share errors: models agree on the same wrong answer far more often than chance, and a judge from the same family inflates the reports it agrees with.
 3. **Overturning needs the source's words, on the same point.** A report item is ruled wrong or overstated on a factual basis only when you quote the source span that contradicts it (one clause or less, with location) or show the recomputation, and the span addresses the report's own assertion, not a neighbouring one, because judges in trials "corrected" a report's accurate paraphrase without quoting the source, or quoted a passage on a neighbouring point. Before overturning, search each source for the report's key terms (for a report saying a regulation "bans" a practice, search "ban", "prohibit" and the practice's name), quote the passage closest to what the report said, and weigh every place where the source speaks to the point. Three cases add to this, and more than one can apply:
    - **The claim is not in the sources you opened:** that never makes it wrong or overstated, because judges ruled reports wrong when the documents they opened lacked the claim and another statement by the same author contained it.
    - **A claim about what a person or body holds** (a position, a recommendation, an intention), whether or not the opened sources contain it: it may rest on statements outside the document cited, such as other publications or public statements by the same author or body, so search for those before ruling.
@@ -78,6 +79,15 @@ Two tiers, built from the tables, not from memory.
 
 Then count the must-check rows against the qualifying rows in the tables; if they differ, fix the list. Before printing, reread the whole output once for any judgment against a report item that is not in the tables (Rule 11) and add it.
 
+### Step 10: What the verdicts leave of C
+One line built from the two tables, not from memory, giving the first of these cases that fits, then how many verdicts in the tables have the evidence class recall or tool-checked via summary, then the number of must-check items (Step 9), which this line neither repeats nor shortens:
+- **A report issue ruled valid or partly valid is fatal, or the claims table rules C or a claim C depends on "fails":** C fails unless that is fixed; name each.
+- **Otherwise, a fatal or major report issue, C, or a claim C depends on is "unverifiable":** what these verdicts leave of C is not settled; name each, and any valid major issue beside it.
+- **Otherwise, a report issue ruled valid or partly valid is major, or a claim C depends on "partly holds":** C stands with that supporting claim failed, or only narrowed or qualified, as that row's basis says; name each.
+- **Otherwise:** no verdict here goes against C as written.
+
+When Inputs gave what the result will be used for, open the line with it in the user's words; the line reports what the verdicts carry and neither advises that decision nor says whether C is true. When two runs were compared (Running twice), give the line once, after the comparison, from the verdicts as settled.
+
 ## Running twice (recommended)
 
 Whenever the result will be used for a decision or a run overturns a report item, the judgment is made twice and the two outputs compared, because in trials the judge's own errors gathered almost entirely in the items where two runs differ, and the minority verdict was sometimes the correct one. A single run is acceptable when neither condition holds; say in the Inputs line that only one run was made. A run told that it is one of two starts no run of its own and says in the Inputs line which of the two it is. For any other run, who makes the second run depends on the setup, and the first of these cases that fits decides:
@@ -90,13 +100,13 @@ When there are two outputs, compare them by matching report items by the report 
 
 ## Without tools
 
-When no search, fetch or code tool is available, the only outside evidence is the user's instructions and the material in the conversation. Calculations and logic can still be re-derived (evidence class "re-derived"); most factual report items become "unverifiable", and none of them may be overturned (Rules 3–4). State this in the Inputs line. This is expected behavior, not a failure.
+When no search, fetch or code tool is available, the only outside evidence is the user's instructions and the material in the conversation. Calculations and logic can still be re-derived (evidence class "re-derived"); most factual report items become "unverifiable", and none of them may be overturned (Rules 3–4). State this in the Inputs line.
 
 ## Output
 
 Print as plain Markdown, in this order. Omit empty sections.
 
-1. **Inputs**: number of reports, shuffled order, independence line (Inputs §2).
+1. **Inputs**: number of reports, shuffled order, independence line (Inputs §2), what the result will be used for (Inputs §3).
 2. **Conclusion**: C, quoted, then on a line of its own **T, as read**: each reading fixed under Rule 10, or "no reading fixed" when T needed none, because a fixed reading the user never sees cannot be checked.
 3. **Claims in the target**: table — # / location / claim (short) / type / verdict / raised by / basis / evidence class.
 4. **Report issues**: table — issue / raised by / verdict / severity / basis / evidence class.
@@ -106,24 +116,24 @@ Print as plain Markdown, in this order. Omit empty sections.
 8. **Not verified**: item / where you looked / what blocked you / what would settle it.
 9. **Decisive issue** (Step 8).
 10. **For a human check** (Step 9).
+11. **What the verdicts leave of C** (Step 10).
 
 End with one line: this rules on the evidence for T's claims and the reports' items; it is not a proof that C is true or false.
 
 ## When another agent fixes the output format
 
-When the request comes from another agent or a script that fixes the output format (a schema or a set of fields) and no user will reply, still produce every Output section and fit them into that format: each issue or verdict in the caller's items, with its basis and evidence class; the Inputs line, the T, as read line, the must-check list (Step 9) and the closing line in its free-text or summary field, or, if it has none, as a last item labelled for a human check. A fix field gets an acceptance condition (Rule 1). If a verdict field takes only fixed values, use the value that matches this skill's verdict; for a verdict the list lacks (unverifiable, or an item that makes no claim to rule on, such as a counterplan's open pairs), use the one that claims least and give this skill's own verdict at the start of the item's text.
+When the request comes from another agent or a script that fixes the output format (a schema or a set of fields) and no user will reply, still produce every Output section and fit them into that format: each issue or verdict in the caller's items, with its basis and evidence class; the Inputs line, the T, as read line, the must-check list (Step 9), the line on what the verdicts leave of C (Step 10) and the closing line in its free-text or summary field, or, if it has none, as a last item labelled for a human check. A fix field gets an acceptance condition (Rule 1). If a verdict field takes only fixed values, use the value that matches this skill's verdict; for a verdict the list lacks (unverifiable, or an item that makes no claim to rule on, such as a counterplan's open pairs), use the one that claims least and give this skill's own verdict at the start of the item's text.
 
 ## Follow-up turns
 
-- **The user disputes a verdict:** recheck it. Withdraw it only if you can name its defect (a misread source, a wrong calculation, a condition you missed, a wrong evidence class); insistence is not a defect, so a verdict is not flipped under unspecific pressure. If it holds, give the reason in one line. If it changes, redo Steps 7–9.
+- **The user disputes a verdict:** recheck it. Withdraw it only if you can name its defect (a misread source, a wrong calculation, a condition you missed, a wrong evidence class); insistence is not a defect, so a verdict is not flipped under unspecific pressure. If it holds, give the reason in one line. If it changes, redo Steps 7–10.
 - **The user supplies material** (a source, a figure, a judgment): mark it "supplied by the user" and recheck the items it bears on.
-- **New reports arrive:** label them after the existing ones and run Steps 3–9 for their items only.
+- **New reports arrive:** label them after the existing ones and run Steps 3–9 for their items only, then Step 10.
 
 ## Borders
 
 - **dia-emend** reviews and fixes a draft once, on your own re-derivation as well as tools. **dia-ratchet** fixes through rounds gated by outside checks. **dia-adjudicate** fixes nothing: it rules on what others said.
 - **dia-warrant** asks how well T's reasons support C; its critical questions may inform Step 4, but this skill's output is verdicts on claims and reports, not a weakest link.
-- dia-emend's advice not to launch subagents concerns checking your own work. Running this skill as a separate agent, or on a different model from the report writers, is consistent with it and strengthens independence.
 
 ## Guardrails
 
