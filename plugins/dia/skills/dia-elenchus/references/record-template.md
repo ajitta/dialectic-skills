@@ -23,6 +23,9 @@ Lead with one plain line: the result, and the question the user takes away. Tran
 ## What we now know we don't know
 - <the part of X the user could not define>
 
+## What a next definition would have to do
+- <a listed premise, as the condition it sets: "leave out …" | "take in …"> (②)
+
 ## Not examined
 - <sides of the definition never tested, e.g. "too-narrow side never tried">
 
@@ -37,5 +40,6 @@ Rules:
 
 - Result: use the criteria in SKILL.md Step 6. For partly tested, name the tests it passed; for stopped before testing, name which definitions fell before that.
 - A definition the user revised after a refutation that Rule 3 withdrew: write "revised after a withdrawn refutation" instead of "fell on …", and add "fell on …" only if the re-checked conflict still holds.
+- What a next definition would have to do: by the rule in SKILL.md Step 6, one line per listed premise; "none" when none is listed.
 - Quote definitions verbatim when the user stated them in one message. Otherwise paraphrase without quotation marks.
 - If an empirical fact would settle part of X (counts, costs, who actually comes), put it under "To check": the fact, not a plan.
