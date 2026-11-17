@@ -4,7 +4,7 @@ description: Rule on reports about a target using evidence, without rewriting th
 license: MIT
 metadata:
   author: ajitta
-  version: "2.8.0"
+  version: "2.9.0"
   lineage: "new in plugin 1.5.0 (spec D40); rules drawn from adjudication trials, docs/research/dia-adjudicate.md"
   source: "https://github.com/ajitta/dialectic-skills"
 ---
@@ -80,9 +80,10 @@ Then count the must-check rows against the qualifying rows in the tables; if the
 
 ## Running twice (recommended)
 
-Whenever the result will be used for a decision or a run overturns a report item, the judgment is made twice and the two outputs compared, because in trials the judge's own errors gathered almost entirely in the items where two runs differ, and the minority verdict was sometimes the correct one. A single run is acceptable when neither condition holds; say in the Inputs line that only one run was made. Who makes the second run depends on the setup:
-- **You can start separate agents, or the user can run the skill in two separate chats:** run it once more on the same input (this run is the first). The second run gets a message beginning with `dia-adjudicate`, the target, the reports and any material or instructions the user supplied, as the user gave them, and word that it is the second of two runs and starts no run of its own, but nothing from this run's output (verdicts, fixed readings, inventory), because a run that has seen it anchors on it.
-- **You can do neither, because an agent or a script called you and no user will reply:** say in the Inputs line that this is a single run and that the caller is to start the second run and compare the two by report and item, not by R label.
+Whenever the result will be used for a decision or a run overturns a report item, the judgment is made twice and the two outputs compared, because in trials the judge's own errors gathered almost entirely in the items where two runs differ, and the minority verdict was sometimes the correct one. A single run is acceptable when neither condition holds; say in the Inputs line that only one run was made. A run told that it is one of two starts no run of its own and says in the Inputs line which of the two it is. For any other run, who makes the second run depends on the setup, and the first of these cases that fits decides:
+- **You can start a separate agent:** start the second run yourself on the same input (this run is the first) and compare the two outputs before you reply, because the comparison can then be made in this reply. The second run gets a message beginning with `dia-adjudicate`, the target, the reports and any material or instructions the user supplied, as the user gave them, and word that it is the second of two runs and starts no run of its own, but nothing from this run's output (verdicts, fixed readings, inventory), because a run that has seen it anchors on it.
+- **You cannot start one, and a user will reply:** say in the Inputs line that this is a single run, and ask the user to send the same message in a separate chat, adding that it is the second of two runs, and to bring that output back to be compared.
+- **You cannot start one, because an agent or a script called you and no user will reply:** say in the Inputs line that this is a single run and that the caller is to start the second run and compare the two by report and item, not by R label.
 - **No one can make a second run:** say so in the Inputs line.
 
 When there are two outputs, compare them by matching report items by the report as the user gave it, not by R label, since each run shuffles the labels, and claims in T by their place in T, and check only the items where the verdicts differ, against the sources, putting each disputed claim to the source as a direct question (Rule 3); a verdict is not wrong for being in the minority, nor right for being shared.
