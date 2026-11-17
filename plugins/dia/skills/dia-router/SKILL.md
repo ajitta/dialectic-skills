@@ -4,7 +4,7 @@ description: Short entry point to the dia skills. Shows a menu, runs the skill p
 license: MIT
 metadata:
   author: ajitta
-  version: "2.4.0"
+  version: "3.0.0"
   lineage: "new in plugin 1.4.0 (spec D38); named dia-menu until plugin 2.0.0"
   source: "https://github.com/ajitta/dialectic-skills"
 ---
@@ -53,10 +53,7 @@ When showing the menu, print the thirteen rows in this order, each skill name as
 
 ## Choosing for a request
 
-Choose the one dia skill whose description in your skill list fits what the user wants done, or one per reviewer for a request for several dia skills or for reviewers (below). Two borders the descriptions do not settle:
-
-- A request for Socratic dialogue or the Socratic method goes to dia-elenchus, even when its subject is a plan or an idea.
-- Whether a deductive argument is valid, follows from its premises or has a missing step goes to dia-reductio.
+Choose the one dia skill whose description in your skill list fits what the user wants done, or one per reviewer for a request for several dia skills or for reviewers (below). One border the descriptions do not settle: a request for Socratic dialogue or the Socratic method goes to dia-elenchus, even when its subject is a plan or an idea.
 
 Then:
 
