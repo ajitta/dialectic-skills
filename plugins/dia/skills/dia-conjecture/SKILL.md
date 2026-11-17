@@ -4,14 +4,14 @@ description: Test a universal claim using counterexamples and user-directed repa
 license: MIT
 metadata:
   author: ajitta
-  version: "2.5.0"
+  version: "3.0.0"
   lineage: "new in plugin 1.3.0 (docs/research/candidates/modern-dialectic.md)"
   source: "https://github.com/ajitta/dialectic-skills"
 ---
 
 # Proofs and Refutations
 
-This skill runs the method of Lakatos's *Proofs and Refutations* on a strictly universal claim C that the user holds: a conjecture, rule or generalization about what is the case (not a policy to adopt), of the form "every A is B" (all, always, never, no A is B). Label: ch. 1 sections 1-6 (of section 6 only the deeper-proof move) and Rules 1-4. Sources, lineage and the departures from Lakatos: [references/theory.md](references/theory.md); read it only when the user asks about the method or the sources.
+This skill runs the method of Lakatos's *Proofs and Refutations* on a strictly universal claim C that the user holds: a conjecture, rule or generalization about what is the case (not a policy to adopt), of the form "every A is B" (all, always, never, no A is B). The dialogue is for the user to leave knowing what they can assert for what C is for: the claim as it stands or as repaired, or that it fails, with the cases it has faced and what was not tried. Label: ch. 1 sections 1-6 (of section 6 only the deeper-proof move) and Rules 1-4. Sources, lineage and the departures from Lakatos: [references/theory.md](references/theory.md); read it only when the user asks about the method or the sources.
 
 ## Hard rules
 
@@ -51,6 +51,8 @@ The reading of C you state here, changed by any restoring correction and by each
   - **The same correction also adds a restriction:** the restoring part applies first, and the restricting part is ruled on by Step 4 against the corrected reading, without asking again.
 - **A narrowing, against a raised case that meets the reading in force:** it never reaches back; the narrowing is monster-barring and the case keeps its ruling, because Lakatos's Rule 2 forbids dismissing a refutation as a monster.
 
+In the Step 1 message, say in one line what C is for, that is, what the user means to conclude, decide or build on it, in their words where they gave them: in this request, earlier in this conversation about this claim, or as an outcome they approved for it earlier (as in a dia-skopos review); with none from the user and a claim from a text or your earlier answer, in the words in which C's source uses C. Otherwise say in one line what you take it to be for, labelled as yours, when the request makes that plain, and say nothing when it does not; do not ask for it, because the message's one question is for the proof. A later reply in which the user states, confirms or corrects what C is for makes it stated from then on. What C is for, once stated, breaks the tie between two cases in Step 3 and is what each repair option is measured against in Step 5. What you only take it to be for appears labelled as yours, in that line and in the record, and decides nothing in Steps 3 and 5. Neither changes what your restatement takes A to cover or B to assert, and so neither decides whether a case counts or how a ruling is classified, and neither makes exception-barring or monster-adjustment an option you offer unasked or recommend, because whether a case refutes C does not depend on what C is for.
+
 ## Step 2: Proof-analysis
 
 Split the argument into numbered lemmas L1 … Ln, each a step the argument needs, labelled [T] for the words of C's source (the user, the pasted text or your earlier answer; quote them) or [A] for a step you supplied because the argument needs it (one-line reason). Keep it to about five lemmas, mark the one you suspect most, and ask one question: "Is this your argument? Correct any line." A lemma keeps its number for the rest of the dialogue and in the record.
@@ -62,7 +64,7 @@ Split the argument into numbered lemmas L1 … Ln, each a step the argument need
 
 ## Step 3: Raise one case
 
-Lakatos's Rule 1: look for cases both against C (**global**) and against the suspect lemmas (**local**). Aim first at the lemma marked most suspect, and choose the case most likely to be valid: from the user's own material first, then logical or definitional cases, then facts. Lakatos's Rule 3, applied to every case: before you send a case, check whether it fails C, a listed lemma or both, and label it **global only**, **local only** or **both**, because Step 5's repairs differ by that label. End the message with the one question: does the case count against C (for a local-only case, against Lj)?
+Lakatos's Rule 1: look for cases both against C (**global**) and against the suspect lemmas (**local**). Aim first at the lemma marked most suspect, and choose the case most likely to be valid: from the user's own material first, then logical or definitional cases, then facts. Where that order leaves two cases tied, raise first the one that falls where what C is for, once stated (Step 1), relies on C; this breaks a tie and nothing more, because a case's place in the order comes from how well it tests C. Lakatos's Rule 3, applied to every case: before you send a case, check whether it fails C, a listed lemma or both, and label it **global only**, **local only** or **both**, because Step 5's repairs differ by that label. End the message with the one question: does the case count against C (for a local-only case, against Lj)?
 
 Layout, one case per message (here C is "every sorted list can be binary-searched in O(log n) time", and L1 is "you can jump to the middle item in one step"):
 
@@ -79,7 +81,7 @@ Layout, one case per message (here C is "every sorted list can be binary-searche
 - **Invalid:** the user names a condition the case fails under the reading in force (a case whose check cannot be written under a restoring correction is withdrawn by Step 1, not classified here). Check it: if the fault holds because the case's check read a term more widely than the reading in force, the ruling is concept-stretching (below); if it holds otherwise, withdraw the case ("invalid: fails [condition]"); if it does not hold, show the check's line for that condition once more, after which a reply that narrows the term is monster-barring and one that keeps the reading in force leaves the case disputed.
 - **Concept-stretching:** the case meets C only under a reading of a term wider than the reading in force, other than your own wording that a restoring correction replaced (Step 1), so it does not count unless the user adopts the wider reading (a change to C: state the old and the new reading); if they adopt it, show the case's check again under the new reading, ask once more whether it counts, and record that answer as its ruling.
 - **Monster-barring:** the user excludes a case that meets the reading in force by narrowing a term ("that's not a real A", "by A I meant …"), and a restoring correction is not this (Step 1). Name the move and accept it only as a definition change: the new definition, the content lost, and that Lakatos's Rule 2 forbids it ("Do not allow a refutation to be dismissed as a monster"). The changed claim becomes C′.
-- **Disputed:** a bare "no", or insistence, with no condition named. Ask once which condition fails; if none is named, record the case as disputed, neither withdrawn nor counted, and move on to the next case.
+- **Disputed:** a bare "no", insistence, or a reply that the case does not matter for what C is for, with no condition named. Ask once which condition fails; if none is named, record the case as disputed, neither withdrawn nor counted, and move on to the next case.
 - **The dispute turns into what a key term means:** say so and offer dia-elenchus for that question; the case stays disputed.
 
 ## Step 5: Repair (one message)
@@ -93,11 +95,11 @@ Branch on the case's label (Lakatos's Rules 2-4):
 - **Give up C** is an option whenever C itself fails (global only or both).
 - Exception-barring (listing the case as an exception) and monster-adjustment (reinterpreting the case so that it fits) only if the user asks for them, labelled as responses Lakatos rejects.
 
-Number the options, saying for each in one line what it keeps and what it no longer covers; recommend one in one line with its reason, then ask the user to pick.
+Number the options, saying for each in one line what it keeps and what it no longer covers, and, when what C is for was stated, whether the claim it leaves still carries that; recommend one in one line with its reason, then ask the user to pick.
 
 ## Step 6: Next round, ending, record
 
-A round is one case raised and then ruled on or withdrawn, with its repair if it counted. When a round ends, after the user picks a repair other than giving up C for a case that counts or after Step 4 settles any other ruling or the round's case is withdrawn, restate the current C (C as fixed, changed by every repair and definition change the user has adopted, if any; Steps 3 to 5 call it C in the next round) and the changed lemmas in one line, and raise the next case in the same message. After the third round, and not after later rounds, that message restates C and offers to stop instead of raising a case; continue if the user asks. If the repairs have turned into a list of exceptions, say so.
+A round is one case raised and then ruled on or withdrawn, with its repair if it counted. When a round ends, after the user picks a repair other than giving up C for a case that counts or after Step 4 settles any other ruling or the round's case is withdrawn, restate the current C (C as fixed, changed by every repair and definition change the user has adopted, if any; Steps 3 to 5 call it C in the next round) and the changed lemmas in one line, and raise the next case in the same message. After the third round, and not after later rounds, that message restates C and offers to stop instead of raising a case; continue if the user asks. If the repairs have turned into a list of exceptions (conditions that exclude cases one by one instead of naming the lemma that explains them), say so and look for the hidden lemma, or a weaker lemma.
 
 End when the user stops, when they give up C, when they accept the offer to stop, or when you find no further case you can check, and say which; never call C proved. Then print the record as plain Markdown, not a code block. Its result is the first of these that applies:
 
@@ -112,6 +114,7 @@ Record:
 - **Result:** … · rounds: n
 - **Claim, as stated:** whose claim it is (the user's, a text's, your earlier answer's), then the exact words of C's source in quotation marks in their original language, shortened with an ellipsis when long (hard rules 8 and 10)
 - **Claim, as read:** C as fixed, unquoted when you worded it, naming what your restatement adds to or narrows in the source's words (such as what A was taken to cover), or "same as stated" only when C as fixed is the source's exact words → C′, one arrow per change, each with its wording, unquoted when you worded it, and its reason (lemma-incorporation, hidden lemma built in, weaker lemma, deeper proof, exception-barring, monster-adjustment, definition change); a lemma replacement that leaves C unchanged goes under Proof-analysis
+- **What C is for:** the user's or the source's words for it, quoted in their language | as approved or confirmed by the user: … | not stated, or "not stated" and then what you took it to be for, labelled as yours, when the Step 1 message said that
 - **Proof-analysis:** L1 [T] "…"; L2 [A, accepted] …; L4 [A, provisional] …; L3 [A, hidden, added after case k] …; replaced: …
 - **Prior criterion:** the user's answer (Popper's; an addition) | not asked (C is not empirical)
 - **Cases:** one line each: kind (global only / local only, Lj / both, Lj), evidence class, ruling (counts / invalid / concept-stretching / monster-barring / disputed / withdrawn: the defect, for a case withdrawn under hard rule 6 other than by an Invalid ruling in Step 4, including one withdrawn under Step 1), response
@@ -119,10 +122,9 @@ Record:
 - **Conditional on:** cases resting only on unverified recall | none
 - **Tried:** the lemmas and the kinds of case tried; the most suspect lemma now; "C′ not yet tested" if no case was raised against the last repair
 - **Decision history:** one line per repair picked
+- **What you can assert now:** what the record supports and no more, by its result (below), then what was not tried that could most change it, and, when what C is for was stated, whether the current claim still carries it (said as yours when you only took it to be for something, and left out with neither):
+  - **holding, or revised and holding:** the current claim against the cases tried, or, when no case was raised against the last C′, that C′ has faced no case yet;
+  - **given up:** that C fails by the case that counted, or that the user gave it up before any case counted;
+  - **open or stopped before testing:** no claim yet, and the ruling or the pick that is missing.
 
 A holding result must fill **Tried**: a claim nobody pressed has not held. If a filesystem exists and the user asks, save the record where they say.
-
-## Pitfalls
-
-- **Exception lists:** repairs that exclude cases one by one instead of naming the lemma that explains them. Look for the hidden lemma, or a weaker lemma.
-- **Unnamed monster-barring:** yours or the user's. Reinterpreting a case so that it fits is monster-adjustment, offered only on request.
