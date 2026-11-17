@@ -4,14 +4,14 @@ description: Examine how well reasons support a defeasible conclusion. Use only 
 license: MIT
 metadata:
   author: ajitta
-  version: "2.5.0"
+  version: "3.0.0"
   lineage: "new in plugin 1.3.0 (docs/research/candidates/argumentation.md)"
   source: "https://github.com/ajitta/dialectic-skills"
 ---
 
 # Argument Warrant (Toulmin and critical questions)
 
-Lay out how the reasons given support a conclusion that is only probable or defeasible (this file calls that conclusion the claim, C), find the step that carries the weight, and test it with critical questions.
+Lay out how the reasons given support a conclusion that is only probable or defeasible (this file calls that conclusion the claim, C), find the step that carries the weight, and test it with critical questions, so that the user knows how far the claim can be relied on for what it has to carry.
 
 This is a reconstruction aid after Toulmin's layout and Walton's critical questions, not Toulmin's own critique of formal logic, and a one-sided audit, not the two-party critical discussion of pragma-dialectics. Sources, lineage and departures: [references/theory.md](references/theory.md); read it only when the user asks about the method or its sources, and then answer from it briefly. The output template is in [references/output-template.md](references/output-template.md); read it before the first audit if you can open it, and if you cannot, use the record fields Step 7 lists.
 
@@ -20,7 +20,7 @@ This is a reconstruction aid after Toulmin's layout and Walton's critical questi
 Two flags set the run, and a natural-language equivalent of a flag counts as the flag. `--target=user|claude|text|all` sets what is examined; if no target flag is given, infer the target: a pasted text means `text`; "your answer", "what you said" (or the same in any language) means `claude`; otherwise `user`. State the target you inferred in the first line of the output so the user can correct it.
 
 - **user:** an argument the user states.
-- **claude:** your own earlier answer in this conversation (the most recent one unless the user names another; the value is `claude` on every assistant). Quote it and audit it with the same strictness. Say in one line that this is a self-examination and not independent. Do not defend the answer, and do not invent a weak link to look self-critical.
+- **claude:** your own earlier answer in this conversation (the most recent one unless the user names another; the value is `claude` on every assistant). Quote it and audit it with the same strictness. Say in one line that this is a self-examination and not independent. Do not defend the answer.
 - **text:** a pasted or attached text by someone else. Quote with location (paragraph or line). Attribute the argument to the text, not to the author's motives.
 - **all:** run the procedure separately for each target present, in the order user, claude, text, then give one combined record. Skip absent targets with one line.
 
@@ -47,6 +47,8 @@ For arguments whose claim is probable rather than certain: an expert says so; it
 ### Step 1: Fix the claim
 
 Quote the claim C, with its qualifier if it has one. If the input makes several claims, pick the one the others support and list the rest in one line as not audited. If several separate reasons support C, audit the one that carries most weight and name the others in one line.
+
+Then say in one line what C is for, the decision or action the claim has to carry: the target's own words for it where it gives them, quoted, or an outcome the user stated in this request or stated or approved earlier in this conversation; otherwise "not stated", with your own reading in one line, labelled as yours, when the input makes one plain. It is used only in Step 6's why-it-matters line and closing line, and never decides which questions are asked, which link is the weakest or how strong the support is (Rule 1).
 
 If the reasons reach C through an intermediate claim (data, then C1, then C), name C1 in one line and give each step its own warrant, labelled by step (Wa: data to C1; Wb: C1 to C), while W1 and W2 remain rival warrants for one step. Ask the questions of both steps within Step 4's limit of about eight, check the qualifier on the step that reaches C, and say in the result which step the weakest link is on.
 
@@ -75,7 +77,7 @@ Compare the strength of C with what the warrant licenses: a claim put without qu
 
 ### Step 6: Name the weakest link
 
-Pick the slot where the support is thinnest: a question answered against the step outweighs an open one; among open ones, take the one whose bad answer would leave C with least support; on a tie, the earlier slot (data, warrant, backing, qualifier, rebuttal, claim). Give the slot, the question, why it matters (one line), and what kind of answer would strengthen the link; do not supply that answer as a fact. If every question asked is answered for the step, the result is **weakest link: qualifier** when Step 5 found an overstatement, and otherwise **no weak link found among the questions asked; not a proof** (list the questions and name the one you would ask next). Never invent a weak link. Give the Step 5 result next to the result in every case.
+Pick the slot where the support is thinnest: a question answered against the step outweighs an open one; among open ones, take the one whose bad answer would leave C with least support; on a tie, the earlier slot (data, warrant, backing, qualifier, rebuttal, claim). Give the slot, the question, why it matters (one line; for what C is for, when Step 1 gave that), and what kind of answer would strengthen the link. If every question asked is answered for the step, the result is **weakest link: qualifier** when Step 5 found an overstatement, and otherwise **no weak link found among the questions asked; not a proof** (list the questions and name the one you would ask next). Never invent a weak link. Give the Step 5 result next to the result in every case, and, when a weak link is named and Step 1 gave what C is for, close the audit with one line saying what the user can and cannot rely on C for as the support stands, which is the answer the weak link still needs put in terms of that purpose and not a second grade.
 
 ### Step 7: Record
 
@@ -85,7 +87,7 @@ Close with the record from the output template; if the template cannot be read, 
 
 When the request comes from another agent or a script that fixes the output format (a schema or a set of fields) and no user will reply, carry out every step as usual and fit the result into that format as below, because such a caller may pass on only its list of items.
 
-1. Give the weakest link (Step 6) as one of the caller's items, with the warrant record (the data, the warrant stated or reconstructed, W2 if any) and the open or answered question in the item's evidence field; a fix field gets only the kind of answer that would strengthen the link, never the answer itself (Step 6).
+1. Give the weakest link (Step 6) as one of the caller's items, with the warrant record (the data, the warrant stated or reconstructed, W2 if any) and the open or answered question in the item's evidence field; a fix field gets only the kind of answer that would strengthen the link, never the answer itself (Rule 5).
 2. End the list with one item labelled as this method's result, not a finding, that holds the Step 7 record, with each open question written out with its slot tag, and the line that this audit does not decide whether C is true; when no weak link is found, this item gives that result and the questions asked.
 3. In a severity field, write that this method does not give it. If a field takes only fixed values, use the one that claims least, and say at the start of the item's text that the format forced that value and that this method does not give it.
 4. Give nothing outside this method unless the caller names it in its request, and put what it names in a separate list after these items, labelled as outside this method; if the format has a free-text field, put the whole output there as well, in the template's layout.
@@ -135,5 +137,4 @@ Worked example (target text: "Remote work worked at Acme, so it will work for us
 ## Pitfalls
 
 - Do not put a fallacy label ("appeal to authority") in place of the open question, because an appeal to an expert is weak only where its questions fail.
-- Do not present the layout as the argument itself: it is your reading, and the reconstructed parts are yours.
 - Do not quote words the target did not say, or tidy a quote; if you paraphrase, drop the quotation marks, and keep a derived step outside them.
