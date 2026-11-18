@@ -4,7 +4,7 @@ description: Critique a claim or practice against its own stated standard. Use o
 license: MIT
 metadata:
   author: ajitta
-  version: "3.1.0"
+  version: "3.1.1"
   lineage: "negative-dialectics (installed copy, unversioned)"
   source: "https://github.com/ajitta/dialectic-skills"
 ---
@@ -88,7 +88,7 @@ Pick one option and give: the reason; the evidence class of the weakest finding 
 
 ### Step 8: Record
 
-Close with the record: target and C; stated purpose; findings (n firm, m conditional, one line each: what C claims against what it delivers); remainder (what C does not capture); operative function (marked as an inference, with its evidence class); the options offered and the recommended one; decision (pending until the user chooses); status; history (one line per follow-up turn). Its status is exactly one of: **open** (gaps found; by design nothing is closed) or **holding against the tested particulars**.
+Close with the record: target and C; stated purpose; findings (n firm, m conditional, one line each: what C claims against what it delivers); remainder (what C does not capture); operative function (marked as an inference, with its evidence class); the options offered and the recommended one; decision (pending until the user chooses); status; history (one line per follow-up turn). Its status is exactly one of: **open** when at least one finding, firm or conditional, is listed (by design nothing is closed), or **holding against the tested particulars** when none is, because a status that says C held beside a listed finding contradicts the list.
 
 ## When another agent fixes the output format
 
