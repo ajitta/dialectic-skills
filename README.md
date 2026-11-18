@@ -306,14 +306,16 @@ dia reductio The customer is always right.
 
 **What you get** (real run, shortened):
 
-> **Reading tested:** "right" means true, so whatever a customer says is correct.
-> **Premises:** P1 [A] "right" means "true"; P2 [A] customer C1 says the coat was bought here and customer C2 says it was not, about the same coat; P3 [L] if not-p is true, p is not true.
-> **Derivation:** 1. every customer's assertion is true (the claim). … 4. p is true. … 6. p is not true.
-> **Contradiction:** lines 4 and 6. **Strength:** it rests on added premises P1 and P2, which are ordinary facts, not logic.
-> **Options:** give up "always"; give "right" another meaning; deny that customers ever disagree; or repair the claim: "a customer's good-faith complaint deserves a fair hearing and, where the business can, a remedy."
-> **Recommendation:** the repaired claim, because it keeps what the slogan is for. The decision is yours.
+> **Target:** user (inferred, since no flag was given and nothing was pasted; tell me if you meant something else)
+> **Thesis.** **As stated:** "The customer is always right." **As read (T):** In every dispute between a customer and the business, the position the customer takes is true. This adds the scope "in a dispute with the business" and reads "right" as "true". … **Direction:** refute.
+> **Result:** **Untenable on these premises.** Two customers who take opposite positions would both have to be right. The contradiction depends on {T, P2 [A], P3 [A], P4 [L]}. P2 and P3 alone already rule out T (strength: carried by added premises).
+> **Premises:** P1 [T] "The customer is always right." … P2 [A] "Right" means "the position is true." … P3 [A] There are customers a and b and a claim p such that a's position in a dispute is p and b's position is not-p. Example: a says "I booked table 5 for 8 pm," and b says "a did not book table 5 for 8 pm; I did." … P4 [L] A claim and its negation are not both true.
+> **Derivation:** 1. ∀c∀q (Pos(c,q) → True(q)) (P1, with P2 substituted) … 5. True(p) (3, 4, modus ponens) … 10. ¬True(p) (8, 9, modus ponens) **Checked by:** rereading only. …
+> **Contradiction:** lines 5 and 10. **Strength: carried by added premises.** … So the reductio only restates what I added. The real question is whether P2 (right means true) and P3 (customers sometimes take opposite positions) hold.
+> **Options:** **A. Give up T.** Customers are sometimes wrong. … **B. Give up P3.** … **C. Give up P2.** "Right" would mean "gets their way," not "is correct." … **D. Repair it (T′):** "In a dispute between one customer and the business about that customer's own transaction, settle in the customer's favour unless the business has evidence to the contrary or another customer is harmed."
+> **Recommendation:** I recommend **D (T′)** … **What you can decide now:** T, read as "the customer's position is always true," can't stand. … The choice is yours. *(then a record: target and thesis, result, what the contradiction depends on, strength, how it was checked, the options, decision: pending)*
 
-The labels mean: **[T]** stated by the claim, **[L]** a rule of logic, **[A]** added by the assistant. A contradiction that needs an [A] premise is only as strong as that premise, and the assistant says so.
+The result comes right after the thesis, before the proof that delivers it. The labels mean: **[T]** stated by the claim, **[L]** a rule of logic, **[A]** added by the assistant. A contradiction that needs an [A] premise is only as strong as that premise, and the assistant says so.
 
 **Tips**
 

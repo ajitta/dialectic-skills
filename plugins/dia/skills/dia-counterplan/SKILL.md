@@ -4,7 +4,7 @@ description: Construct a counterplan from contrary assumptions using the same ev
 license: MIT
 metadata:
   author: ajitta
-  version: "3.0.0"
+  version: "3.1.0"
   lineage: "new in plugin 1.3.0 (docs/research/candidates/argumentation.md)"
   source: "https://github.com/ajitta/dialectic-skills"
 ---
@@ -13,7 +13,7 @@ metadata:
 
 Dialectical inquiry after Mason, run by one assistant in one chat: the counterplan is yours, the synthesis is the user's. Take a plan, decision or recommendation; list the assumptions it rests on; keep those the decision turns on; give each a plausible contrary; write the counterplan those contraries support on the same data; set the two side by side; then ask which assumptions from each side the user now holds. That set is the result, and you give no verdict on which plan wins. The inquiry is for whoever decides to see which assumptions the decision turns on and the observation that would decide each, so that they decide knowing what they hold.
 
-In Mason's field study the plan came from the company's planners. One assistant writes both sides here, so the format obliges a counter-case but cannot ensure it is as strong as the plan, and hearing both sides is not evidence that the plan was tested. Sources, the evidence on dialectical inquiry and devil's advocacy, and the limits of this adaptation are in [references/theory.md](references/theory.md); read it only when the user asks about the method or its sources, then answer briefly. The output layout is in [references/output-template.md](references/output-template.md); read it before the first output if you can open it (Step 8 names the record fields in case you cannot).
+In Mason's field study the plan came from the company's planners. One assistant writes both sides here, so the format obliges a counter-case but cannot ensure it is as strong as the plan, and hearing both sides is not evidence that the plan was tested. Sources, the evidence on dialectical inquiry and devil's advocacy, and the limits of this adaptation are in [references/theory.md](references/theory.md); read it only when the user asks about the method or its sources, then answer briefly.
 
 ## Parameters
 
@@ -49,7 +49,9 @@ The flag, or its natural-language equivalent, sets the target; with neither, inf
 
 ## Procedure
 
-The first message runs Steps 1 to 7 and ends with Step 7's question, unless it ends earlier: with Step 1's question (or, when no plan is given, the one-line request for one), with the Step 8 record when Step 3 finds no key assumption on a counterplan request, or after Step 3, with no record, on an assumptions-only request. When the first message asks for the whole result in one response without questions, or says that no answer will come (a one-response run), those earlier endings still apply; otherwise it runs Steps 1 to 6 and ends with the Step 8 record in place of Step 7's question: every pair open, the result **undetermined**, and Step 7's question as the record's last line. A one-response run is not a stop. Later messages show only what changed (a new Cn, the counterplan steps on it, the changed pair) and fit a phone screen; a rerun or the record may be longer, in numbered lines, not tables.
+The first message runs Steps 1 to 7 and ends with Step 7's question, unless it ends earlier: with Step 1's question (or, when no plan is given, the one-line request for one), with the Step 8 record when Step 3 finds no key assumption on a counterplan request, or after Step 3, with no record, on an assumptions-only request. When the first message asks for the whole result in one response without questions, or says that no answer will come (a one-response run), those earlier endings still apply; otherwise it runs Steps 1 to 6 and ends with the Step 8 record in place of Step 7's question: every pair open, the result **undetermined**, and Step 7's question as the record's last line. A one-response run is not a stop, and when it ends with the record it also gives that record's Result line, and its Turns on line when it has one, right after the target, because no one will answer and the reader should meet first what the decision turns on. Later messages show only what changed (a new Cn, the counterplan steps on it, the changed pair) and fit a phone screen; a rerun or the record may be longer.
+
+The output opens with a Target line, which says when the target was inferred and asks to be corrected, and then has the headings Plan, Assumptions, Key assumptions, Contraries, Counterplan, Side by side and Your synthesis, in the order of the steps; Plan and Counterplan each open with their recommendation in one or two sentences, and Record stands where Step 8 calls for it, in a one-response run in place of Your synthesis. Translate headings and labels into the user's language, use numbered lines, not wide tables, so that it reads on a phone, and print plain Markdown, not a code block.
 
 ### Step 1: State the plan
 
@@ -59,11 +61,11 @@ Then say in one line what the plan is for, the outcome it is meant to bring abou
 
 ### Step 2: List the assumptions
 
-Number the assumptions the recommendation rests on: A1, A2, …. Label each **[T]** stated by the target (quote it) or **[A]** reconstructed by you, with a one-line reason the plan needs it; a line you had to reword or infer is [A], even if it restates what the target said. Cover the situation (demand, people, costs, timing), what others will do, and what counts as success. A datum the decision turns on that is only single source or unverified recall is also an assumption, so list it. Keep to what the recommendation uses, usually five to ten.
+Number the assumptions the recommendation rests on: A1, A2, …. Label each **[T]** stated by the target (quote it) or **[A]** reconstructed by you, with a one-line reason the plan needs it; a line you had to reword or infer is [A], even if it restates what the target said. Cover the situation (demand, people, costs, timing), what others will do, and what counts as success. A datum the decision turns on that is only single source or unverified recall is also an assumption, so list it, as [A]. Keep to what the recommendation uses, usually five to ten.
 
 ### Step 3: Keep the key assumptions
 
-Ask of each assumption the question from SAST, "if the opposite of this assumption were true, would it change the decision?", and give the answer in one line per assumption. Keep those where it would, as K1, K2, … (at most five; if more pass, keep the five with the largest effect and list the rest in one line).
+Ask of each assumption the question from SAST, "if the opposite of this assumption were true, would it change the decision?", and give the answer in one line per assumption. Keep those where it would, as K1, K2, … (at most five; if more pass, keep the five with the largest effect and list the rest in one line as passed but not paired).
 
 If none passes, say so, write no counterplan, and go to Step 8: the result is **no key assumption found**.
 
@@ -76,7 +78,7 @@ For each Kn write Cn, a specific, plausible contrary (Rule 2), marked "my choice
 
 ### Step 5: Write the counterplan
 
-Write the course of action that follows from C1 … Cn and the same data, under Rule 3, marking which Cn each part rests on. It must be a different course of action, not the plan with a part removed; waiting or doing nothing counts if that is what follows. When what the plan is for is stated, say in one line whether the counterplan is another way to it or, where the course that follows from C1 … Cn is not, what the counterplan is for instead, because a reader comparing the two has to know whether they aim at the same thing.
+Write the course of action that follows from C1 … Cn and the same data, under Rule 3, marking which Cn each part rests on and the data it cites. It must be a different course of action, not the plan with a part removed; waiting or doing nothing counts if that is what follows. When what the plan is for is stated, say in one line whether the counterplan is another way to it or, where the course that follows from C1 … Cn is not, what the counterplan is for instead, because a reader comparing the two has to know whether they aim at the same thing.
 
 ### Step 6: Set them side by side
 
@@ -93,7 +95,7 @@ Ask one question: which assumption from each pair do they now hold? They may ans
 
 ### Step 8: Record
 
-When the user has ruled on every pair, or stops, or a one-response run (Procedure) reaches this step, close with the record from the output template. If you cannot open the template, the record is: target and plan (with the self-examination line for `claude`); key assumptions, and how many were listed; each pair with the user's ruling; result; turns on; kept for the side set aside; written by; not tested; rewrites; history; and, in a one-response run, Step 7's question as the last line. The result is exactly one of:
+When the user has ruled on every pair, or stops, or a one-response run (Procedure) reaches this step, close with the record: target and plan (with the self-examination line for `claude`); key assumptions, and how many were listed; each pair with the user's ruling (the plan's, the counterplan's, their own wording, quoted, or open); result; turns on; kept for the side set aside; written by; not tested; rewrites (the Cn and its named defect, or none); history (one line per follow-up turn); and, in a one-response run, Step 7's question with its four answers as the last line, labelled as the question for whoever decides. The result is exactly one of:
 
 - **plan side held:** the user holds the plan's assumption on every pair;
 - **counterplan side held:** the counterplan's on every pair;
@@ -109,7 +111,7 @@ Unless the result is **no key assumption found**, the record always says:
 - **Written by:** one assistant wrote both sides of this comparison.
 - **Not tested:** at least whether the shared data are accurate, assumptions not listed, alternatives other than these two, and how either plan would play out; then the line "Hearing both sides is not evidence that the plan was tested."
 
-For **no key assumption found**, the record says instead: Not tested: whether the shared data are accurate, assumptions not listed, and alternatives to the plan; no counterplan was written, which does not show the plan is sound.
+For **no key assumption found**, the record holds the target and plan, the count (0 of those listed), the result and, in place of those four lines: Not tested: whether the shared data are accurate, assumptions not listed, and alternatives to the plan; no counterplan was written, which does not show the plan is sound.
 
 If the user then asks for a plan built on their set, sketch it after the record and label it as yours; the set, not the sketch, is the result.
 
@@ -118,7 +120,7 @@ If the user then asks for a plan built on their set, sketch it after the record 
 When the request comes from another agent or a script that fixes the output format (a schema or a set of fields) and no user will reply, carry out every step as usual and fit the result into that format as below, because such a caller may pass on only its list of items.
 
 1. Give no item for the plan's flaws (Rule 1) and no severity or ranking (Rule 5): this method's result is not a list of defects. If the caller also asks for the plan's defects, say in the method result that this method gives none.
-2. Give one item labelled as this method's result, not a finding, whose text is the whole output in the template's layout, not shortened: the plan, the key assumptions with their contraries, the counterplan, the pairs side by side, and the Step 8 record of a one-response run with every line it requires (each pair open, the result undetermined, Turns on, Kept for the side set aside, Written by, Not tested, and Step 7's question as the last line). When Step 3 finds no key assumption, the item holds that result with its Not tested line; on a request for the assumptions only, it holds the key assumptions, with no record and no counterplan.
+2. Give one item labelled as this method's result, not a finding, whose text is the whole output under its headings, not shortened: the plan, the key assumptions with their contraries, the counterplan, the pairs side by side, and the Step 8 record of a one-response run with every line it requires (each pair open, the result undetermined, Turns on, Kept for the side set aside, Written by, Not tested, and Step 7's question as the last line). When Step 3 finds no key assumption, the item holds that result with its Not tested line; on a request for the assumptions only, it holds the key assumptions, with no record and no counterplan.
 3. In its severity and fix fields, write that this method does not give them. If a field takes only fixed values, use the one that claims least, and say at the start of the item's text that the format forced that value and that this method gives no severity or ranking (Rule 5).
 4. The method-result item holds the whole output even when the format also has a free-text field; never point from the item to another field, because the caller may not pass that field on.
 
