@@ -167,6 +167,8 @@ class TestRules(unittest.TestCase):
             for part in ("of two separate runs on the same input;", "the caller compares the two, so start no run of your own."):
                 self.assertIn(part, text, path.name)
             self.assertIn("Do not judge the items yourself.", text, path.name)
+            # 0.4.0: the comparison also gives each run's line on what its verdicts leave of C
+            self.assertIn('"What the verdicts leave of C" section, word for word', text, path.name)
         self.assertEqual(names, {"judge.js": "judge", "review-panel.js": "review-panel"})
 
     @unittest.skipUnless(shutil.which("node"), "node not installed")

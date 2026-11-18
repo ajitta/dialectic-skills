@@ -1,6 +1,6 @@
 {
   "name": "dia-panel",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Claude Code only: two workflows. review-panel runs the four dia review lenses on one document in parallel and has dia-adjudicate judge their whole reports twice, in two orders; judge makes the same two judgments on reports written elsewhere. Needs the dia plugin.",
   "author": {
     "name": "ajitta"
