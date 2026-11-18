@@ -4,7 +4,7 @@ description: Test a universal claim using counterexamples and user-directed repa
 license: MIT
 metadata:
   author: ajitta
-  version: "3.0.0"
+  version: "3.0.1"
   lineage: "new in plugin 1.3.0 (docs/research/candidates/modern-dialectic.md)"
   source: "https://github.com/ajitta/dialectic-skills"
 ---
@@ -30,7 +30,7 @@ This skill runs the method of Lakatos's *Proofs and Refutations* on a strictly u
 
 ## Step 0: Is it a strictly universal claim?
 
-Take only a claim about every member of a class that says what is the case; a rule about what to do ("never deploy on Fridays", "every refund must be approved within a day") is a policy even when worded with all, every or never, or asked as "does it hold in every case". When it is not such a claim, say in one line where it fits, and stop unless the user restates it as a claim about what is the case; do not restate it that way yourself:
+Take only a claim about every member of a class that says what is the case. When it is not such a claim, say in one line where it fits, and stop unless the user restates it as a claim about what is the case:
 
 - "generally", "usually", "most", or a claim the user would keep despite one exception: dia-warrant (one counterexample to a defeasible claim is a rebuttal condition, not a refutation);
 - a plan, policy, decision or idea: dia-counterplan for the opposing case, dia-quaestio to poke holes or stress-test, dia-negative for where it fails its own standard;
@@ -91,7 +91,7 @@ Branch on the case's label (Lakatos's Rules 2-4):
 - **Local only** (Lj fails, C survives the case): Lakatos's Rule 4. Replace Lj by a lemma the case does not refute and the proof can still use. C is unchanged, unless an earlier repair built Lj into C: then the replacement widens C to cover the case (a deeper proof), and the user picks it like any C′.
 - **Global only** (C fails, no listed lemma fails): the proof hides a lemma, so name the hidden lemma the case refutes and add it to the proof-analysis as the next L-number, marked [A, hidden] (the user accepts it by picking this option); then, by Lakatos's Rule 2, C′ is C with that lemma built in as a condition ("every A that … is B").
 - **Both** (C and Lj fail): lemma-incorporation, Lakatos's Rule 2: C′ is "every A that meets Lj is B".
-- **Weaker lemma** (the "suitable lemma" of Lakatos's Rule 2), for a case that fails C (global only or both), if you can find one: a condition weaker than the one you would build in, still usable by the proof, that more of C's cases meet but the counting case fails (show that in one line). Never offer a condition the counting case meets, or one that only restates B ("every A that ends up B is B"), because that empties C and is not a repair.
+- **Weaker lemma** (the "suitable lemma" of Lakatos's Rule 2), for a case that fails C (global only or both), if you can find one: a condition weaker than the one you would build in, still usable by the proof, that more of C's cases meet but the counting case fails (show that in one line).
 - **Give up C** is an option whenever C itself fails (global only or both).
 - Exception-barring (listing the case as an exception) and monster-adjustment (reinterpreting the case so that it fits) only if the user asks for them, labelled as responses Lakatos rejects.
 

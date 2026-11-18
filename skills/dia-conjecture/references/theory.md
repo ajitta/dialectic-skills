@@ -25,7 +25,7 @@ SKILL.md Step 3 applies Rules 1 and 3; Step 5 branches on Rules 2 and 4.
 Chapter 1 section 4 ("Criticism of the conjecture by global counterexamples") names surrender, monster-barring, exception-barring, monster-adjustment and lemma-incorporation (CUP contents).
 
 - **Monster-barring** claims the counterexample "never was a member of the domain"; **exception-barring** shrinks the domain to exclude it (Easwaran). Easwaran calls these "unproductive responses to counterexamples that he rejects". SKILL.md offers exception-barring and monster-adjustment only on request, labelled that way. Monster-adjustment (ch. 1 section 4d) is not in Easwaran's list; the skill groups it with them because, like monster-barring, it saves C by reinterpreting the case instead of improving the proof. That grouping is the skill's reading, not a quoted source.
-- Restriction without explanation risks "an empty tautology" (SEP), as in "For all Eulerian polyhedra … V − E + F = 2". SKILL.md Step 5 refuses a weaker lemma that only restates B for this reason.
+- Restriction without explanation risks "an empty tautology" (SEP), as in "For all Eulerian polyhedra … V − E + F = 2".
 - The Teacher refuses "surreptitious changes in my position by sentences starting with 'I meant …'" (*Proofs and Refutations* I). This is SKILL.md hard rule 5.
 - **Surrender** is voiced by the "Popperian" student Gamma (SEP). SKILL.md keeps it as "give up C".
 
