@@ -4,7 +4,7 @@ description: Critique a claim or practice against its own stated standard. Use o
 license: MIT
 metadata:
   author: ajitta
-  version: "3.0.0"
+  version: "3.1.0"
   lineage: "negative-dialectics (installed copy, unversioned)"
   source: "https://github.com/ajitta/dialectic-skills"
 ---
@@ -15,7 +15,7 @@ No concept captures its object without a remainder; this skill shows a remainder
 
 This skill is a practical adaptation of Adorno's method, not his own procedure: it runs internal critique, narrower than immanent critique, so its standard is only what the target itself states and it does not reconstruct norms a practice implies without stating them. Theory, sources and the limits of the adaptation are in [references/theory.md](references/theory.md); read it when the user asks about the method or when you are unsure whether a finding is strict or whether a standard is the target's own.
 
-The output layout is in [references/output-template.md](references/output-template.md); read it before writing the first output, and if you cannot open it, follow the order of Steps 1–8.
+The output opens with a Target line, which says when the target was inferred and from what and asks to be corrected, and has the headings Claim, Result, Its own standard, Findings (with Conditional findings under it), Function and purpose, Options, Recommendation and Record. Claim also holds the reading tested, with any other reading named and said to be tested separately or not tested, and what was not examined. Result comes right after Claim, because the reader should meet first what the examination found: work the findings through and check each against Rules 2 and 4 before you write Result, and give there the status Step 8 fixes with the number of firm and of conditional findings in one line and, in one more, each firm finding in a few words (what C claims against what it delivers); with no firm finding, the conditional ones in a few words each, named as conditional; and with no finding at all, the particulars C held against. The rest follows in the order of Steps 2–8; Function and purpose and Recommendation give each of their points on a line of its own under its label (Stated purpose, Operative function, Evidence, Would be falsified by; Rests on, Would change if, You can decide now, Not settled); and with `--target=all` each target has its own parts up to Recommendation, before the one combined record. Translate every heading and label into the user's language, and use numbered items and short lines so that it reads on a phone.
 
 ## Parameters
 
@@ -62,6 +62,7 @@ For each strict gap, write:
 - **Why both can't hold:** the short argument, by C's own terms
 - **Evidence:** source and class
 - **What escapes:** the specific content C leaves out (the nonidentical remainder)
+- **Conditional on:** for a conditional finding only (Rule 4), what it rests on
 
 If no strict gap appears, say that C holds against the particulars tested, list them, and say where a gap would most likely show up if there is one.
 
@@ -73,7 +74,7 @@ Optionally, set C beside two or three concepts it depends on (for example "merit
 
 ### Step 6: Options
 
-Offer only the responses below that fit, each with what it keeps, what remainder it leaves and, when a purpose is stated, whether it is still met; if no strict gap was found, the options are keeping C as it is or examining the most likely gap next.
+Offer only the responses below that fit, lettered A, B, … in the order given, each with what it keeps, what remainder it leaves and, when a purpose is stated, whether it is still met (yes, no or in part); if no strict gap was found, the options are keeping C as it is or examining the most likely gap next.
 
 - narrow C to the scope where it holds (state C′ exactly; if the gap comes from how the practice works rather than from how C is worded, say that narrowing moves the gap rather than closing it)
 - keep C and state the remainder openly
@@ -87,7 +88,7 @@ Pick one option and give: the reason; the evidence class of the weakest finding 
 
 ### Step 8: Record
 
-Close with the record from references/output-template.md, or, if that file cannot be read, with this record: target and C; stated purpose; findings (n firm, m conditional); remainder; operative function; options and recommendation; decision; status; history. Its status is exactly one of: **open** (gaps found; by design nothing is closed) or **holding against the tested particulars**.
+Close with the record: target and C; stated purpose; findings (n firm, m conditional, one line each: what C claims against what it delivers); remainder (what C does not capture); operative function (marked as an inference, with its evidence class); the options offered and the recommended one; decision (pending until the user chooses); status; history (one line per follow-up turn). Its status is exactly one of: **open** (gaps found; by design nothing is closed) or **holding against the tested particulars**.
 
 ## When another agent fixes the output format
 
@@ -96,7 +97,7 @@ When the request comes from another agent or a script that fixes the output form
 1. Give each strict gap (Step 4) as one of the caller's items, with its proof in the item's evidence field: Ck quoted, case D, why both can't hold, the evidence class, and firm or conditional (Rule 4).
 2. End the list with one item labelled as this method's result, not a finding, that holds the Step 8 record, with C, the options and the recommendation; when no strict gap appears, this item says that C holds against the particulars tested and lists them.
 3. In a severity or fix field, write that this method does not give it; the options and the recommendation are in the method result. If a field takes only fixed values, use the one that claims least, and say at the start of the item's text that the format forced that value and that this method does not give it.
-4. Give nothing outside this method unless the caller names it in its request, and put what it names in a separate list after these items, labelled as outside this method; if the format has a free-text field, put the whole output there as well, in the template's layout.
+4. Give nothing outside this method unless the caller names it in its request, and put what it names in a separate list after these items, labelled as outside this method; if the format has a free-text field, put the whole output there as well.
 
 ## Follow-up turns
 
@@ -107,4 +108,4 @@ When the request comes from another agent or a script that fixes the output form
 
 ## Pitfalls
 
-- Filling the template: an empty section is a result, not a gap to fill.
+- Filling the layout: an empty section is a result, not a gap to fill.
