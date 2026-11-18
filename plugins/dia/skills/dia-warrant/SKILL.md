@@ -4,137 +4,78 @@ description: Examine how well reasons support a defeasible conclusion. Use only 
 license: MIT
 metadata:
   author: ajitta
-  version: "3.0.0"
+  version: "3.1.0"
   lineage: "new in plugin 1.3.0 (docs/research/candidates/argumentation.md)"
   source: "https://github.com/ajitta/dialectic-skills"
 ---
 
 # Argument Warrant (Toulmin and critical questions)
 
-Lay out how the reasons given support a conclusion that is only probable or defeasible (this file calls that conclusion the claim, C), find the step that carries the weight, and test it with critical questions, so that the user knows how far the claim can be relied on for what it has to carry.
+Audit how well the reasons given support a conclusion that is only probable (the claim, C): lay the argument out in Toulmin's terms, test the step that carries the weight with Walton's critical questions and name the weakest link, so that the user knows how far C can be relied on for what it has to carry. You judge support only, and whether C is true is never decided here. Sources and departures from them are in [references/theory.md](references/theory.md); read it only when the user asks about the method or its sources, and then answer from it briefly.
 
-This is a reconstruction aid after Toulmin's layout and Walton's critical questions, not Toulmin's own critique of formal logic, and a one-sided audit, not the two-party critical discussion of pragma-dialectics. Sources, lineage and departures: [references/theory.md](references/theory.md); read it only when the user asks about the method or its sources, and then answer from it briefly. The output template is in [references/output-template.md](references/output-template.md); read it before the first audit if you can open it, and if you cannot, use the record fields Step 7 lists.
+## What is audited
 
-## Parameters
-
-Two flags set the run, and a natural-language equivalent of a flag counts as the flag. `--target=user|claude|text|all` sets what is examined; if no target flag is given, infer the target: a pasted text means `text`; "your answer", "what you said" (or the same in any language) means `claude`; otherwise `user`. State the target you inferred in the first line of the output so the user can correct it.
+The target is what is examined. `--target=user|claude|text|all`, or the same in words, sets it; otherwise infer it and say in the first line of the reply which you inferred, so that the user can correct it: a pasted or attached text means `text`, "your answer" or "what you said" (in any language) means `claude`, anything else means `user`.
 
 - **user:** an argument the user states.
-- **claude:** your own earlier answer in this conversation (the most recent one unless the user names another; the value is `claude` on every assistant). Quote it and audit it with the same strictness. Say in one line that this is a self-examination and not independent. Do not defend the answer.
-- **text:** a pasted or attached text by someone else. Quote with location (paragraph or line). Attribute the argument to the text, not to the author's motives.
-- **all:** run the procedure separately for each target present, in the order user, claude, text, then give one combined record. Skip absent targets with one line.
+- **claude:** your own earlier answer in this conversation, the most recent unless the user names another: audit it as strictly as any other, say in one line that this is a self-examination and not independent, and do not defend it.
+- **text:** a text by someone else: quote it with its location and attribute the argument to the text, not to its author's motives.
+- **all:** each target present in the order user, claude, text, each with parts 1 to 4 of the reply to itself and an absent target with one line, then one last line that names each C.
 
-`--mode=audit|ask` sets how. **audit** (default): the whole layout, questions and result in one response. **ask**: the user fills each slot, one question per message (see Ask mode). Use ask, and say in one line that you start in ask mode, when the user names it, asks to be questioned about their own argument, or wants to build one that does not exist yet. When the target is `user` and the user wants to check their own argument without naming a mode, run the audit and end with one line offering ask mode.
-
-## Scope
-
-For arguments whose claim is probable rather than certain: an expert says so; it worked there, so it will work here; this causes that; this would have good or bad results; this is a sign of that; a general rule applied to a case. If the request is for something else, say so in one line and point to the skill: a strict contradiction, or whether the claim follows deductively, to dia-reductio; fixing the previous answer or a draft, to dia-emend; counterexamples to a strictly universal claim (all, always, never), to dia-conjecture; the assumptions under a plan or decision, or the case against it, to dia-counterplan. If an argument mixes a deductive or universal step with a probable one, audit the probable step and name the other in one line. Close cases: an argument (reasons given for a claim) stays here when the user asks to poke holes in it, for its hidden assumptions, or how well cases support an all claim; the same words about an idea or plan, or a request for counterexamples, go to dia-quaestio or the skills named above.
+This skill audits reasons given for a claim that is probable rather than certain. If the request is for something else, say so in one line and name the skill: a strict contradiction, or whether the claim follows deductively, dia-reductio; fixing the previous answer or a draft, dia-emend; counterexamples to a strictly universal claim, dia-conjecture; the assumptions under a plan or decision, or the case against it, dia-counterplan. Where an argument mixes a deductive or universal step with a probable one, audit the probable step and name the other in one line. Reasons given for a claim stay here when the user asks to poke holes in them, for their hidden assumptions, or how well cases support an "all" claim; the same words about an idea or a plan, or a request for counterexamples, go to dia-quaestio or the skills just named.
 
 ## Hard rules
 
-1. **Support, not truth.** You judge how well the reasons support the claim, never whether the claim is true, so write "the support given is weak at …", never "the claim is false", since weak support does not make a claim false. Do not call a defeasible argument "invalid", since it does not claim deductive validity. If the user asks whether the claim is true, say that this audit does not decide it.
-2. **Stated or reconstructed, always marked.** Mark every slot **stated** (quote it, with location) or **reconstructed** (supplied by you), so that the target's words stay apart from your reading. An empty slot reads "none given"; do not fill backing or rebuttal to complete the layout.
-3. **The least warrant.** The warrant is usually unstated. Supply the least general rule that, with the data, takes the step to the claim: keep the arguer's terms and add no content the step does not need. Give it the strength the target's own words give the rule itself (the claim's qualifier does not count); if they give none, write it as holding "generally" (Toulmin's usual warrant), never "all" or "always" unless the target says so. Label it reconstructed. If two warrants are plausible, write both (W1, W2), test the one the arguer more plausibly relies on, and say whether the other changes the result.
-4. **Three discussion rules (from pragma-dialectics).** *Standpoint:* test the claim the target actually made, at its own strength, not a stronger or weaker one. *Unexpressed premise:* never present a reconstructed warrant or premise as the target's own; if the user is the arguer and disowns it, remove it, because the user's word is the only evidence of what they left implicit (see Follow-up turns; a departure from the source rule). *Usage:* read the wording as carefully as it allows; if a key word is unclear or ambiguous, say so in one line and fix one reading before testing.
-5. **Ask, don't assert.** Critical questions ask, and you do not settle an open one with counter-facts of your own, because a question needs no outside knowledge while a counter-fact you supply may be invented. Each question is **answered in the argument** (quote it; this includes an answer that follows from the argument's own words by arithmetic, by the plain meaning of a word it uses (annual: twelve months) or by a term it states (a contract length, a time window): quote those words and show the step in one line; if the step needs any further premise, such as how a contract works or what sample is large enough, that premise is a fact of your own, so the question stays open and you may say in one line how the argument's words narrow it), **answered by the user**, **answered by a source you found** (only if a search tool is available and the user asked you to check), or **open**. An answered question is answered for or against the step; say which. An answer counts only if it supplies what the question asks for (a measure, a similarity, a reason, a source); a bare "yes" or "trust me" leaves it open. Any fact you add carries its evidence class: verified this session (a tool ran) / supplied by the user / single source / unverified recall; your own recall is never "verified".
-6. **Each question names its slot.** Tag every critical question [data], [warrant/backing], [rebuttal] or [conclusion].
-7. **Fixed results.** The slot is one of data, warrant, backing, qualifier, rebuttal, claim. The result is exactly one of: **weakest link: [slot], because [critical question] is left open** (or "is answered against the step", with the quote); **weakest link: qualifier, because the claim says "[strength]" where the warrant licenses "[strength]"**; **no weak link found among the questions asked; not a proof**; **stopped**. In the result, a [warrant/backing] question gives the slot warrant, or backing if it doubts a stated backing, and a [conclusion] question gives the slot claim. A warrant that reads "none given" leaves Toulmin's "How do you get there?" open.
-8. **Quote the target in its original language.**
-9. **One pass in audit mode.** Lay out the whole audit at once; ask slot questions one at a time only in ask mode. **Stopped** is the result only in the case "Stop means stop" (Ask mode) names.
+1. **Support, not truth.** You judge how well the reasons support C, never whether C is true, since weak support does not make a claim false: write "the support given is weak at …", never "the claim is false" or "invalid", and if the user asks whether C is true, say that this audit does not decide it.
+2. **The target's words stay apart from yours.** Each slot of the layout is marked **stated** (quoted in the target's original language with its location, never tidied; a paraphrase or a step you derive stands outside the quotation marks) or **reconstructed** (supplied by you), and a backing, qualifier or rebuttal the target does not give reads "none given" instead of being filled to complete the layout, because the user can correct your reading only where they can see whose words are whose. A reconstruction is never presented as the target's own, and one that the user disowns as the arguer is removed, because their word is the only evidence of what they left implicit.
+3. **The claim as made, on the least warrant.** Test C at the strength the target gave it, after fixing in one line one reading of any unclear or ambiguous key word. The warrant is usually unstated: supply the least general rule that, with the data, takes the step to C, in the arguer's terms, holding "generally" unless the target's own words give the rule itself another strength (the claim's qualifier does not count), because a warrant stronger than the step needs is not the arguer's and is easier to fault. Where two warrants are plausible, give both (W1, W2), test the one the arguer more plausibly relies on and say whether the other changes the result.
+4. **Ask, don't assert.** A critical question asks, and you never settle an open one with a fact of your own or put a fallacy label in its place, because a question needs no outside knowledge while a counter-fact you supply may be invented. Each question carries the tag of the slot it questions and one status; an answered one is answered for or against the step, and whoever answers, an answer counts only if it supplies what the question asks for (a measure, a similarity, a reason, a source), so a bare assertion, "yes" or "trust me" leaves the question open:
+   - **Tags:** [data] for a fact of this case and how it is known (whether the expert is one and said it, whether the sign is present, how likely the predicted results are and on what evidence); [warrant/backing] for whether the rule holds and what backs it (the expert's basis, the strength of a causal or sign link, whether the similarities bear on the claim); [rebuttal] for whether this case is an exception (a bias, a difference that matters, another factor or a better explanation); [conclusion] for other reasons for or against C (a similar case that went otherwise, opposite results to weigh).
+   - **Answered in the argument:** quote it. This includes what follows from the argument's own words by arithmetic, by the plain meaning of a word it uses (annual: twelve months) or by a term it states (a contract length, a time window): quote those words and show the step in one line; if the step needs any further premise, such as how a contract works or what sample is large enough, that premise is a fact of your own, so the question stays open, and you may say in one line how the argument's words narrow it, without working out a figure on a premise of your own, because a number computed from a supposition is read as a finding.
+   - **Answered by the user**, or **by a source you found** (only when a search tool is available and the user asked you to check).
+   - **Open.**
 
-## Procedure (audit)
+   A fact that enters the audit carries its evidence class: verified this session (a tool ran), supplied by the user, single source, or unverified recall; your own recall is never "verified".
+5. **Fixed results.** The slot is one of, in this order, data, warrant, backing, qualifier, rebuttal, claim. The fixed result is exactly one of: **weakest link: [slot], because [critical question] is left open** (or "is answered against the step", with the quote); **weakest link: qualifier, because the claim says "[strength]" where the warrant licenses "[strength]"**; **no weak link found among the questions asked; not a proof**; **stopped**, only in the case Ask mode names. A [warrant/backing] question gives the slot warrant, or backing if it doubts a stated backing; a [conclusion] question gives the slot claim; a warrant that reads "none given" leaves Toulmin's "How do you get there?" open.
 
-### Step 1: Fix the claim
+## The audit
 
-Quote the claim C, with its qualifier if it has one. If the input makes several claims, pick the one the others support and list the rest in one line as not audited. If several separate reasons support C, audit the one that carries most weight and name the others in one line.
+Audit the claim the other claims support and, of several separate reasons for it, the one that carries most weight, and name the rest in one line as not audited. Say in one line what C is for, the decision or action the claim has to carry: the target's own words for it, quoted, or an outcome the user stated in this request or stated or approved earlier in this conversation; otherwise "not stated", with your own reading, labelled as yours, when the input makes one plain. What C is for is used only to say why the weakest link matters and what C can be relied on for, and never decides which questions are asked, which link is the weakest or how strong the support is (Rule 1).
 
-Then say in one line what C is for, the decision or action the claim has to carry: the target's own words for it where it gives them, quoted, or an outcome the user stated in this request or stated or approved earlier in this conversation; otherwise "not stated", with your own reading in one line, labelled as yours, when the input makes one plain. It is used only in Step 6's why-it-matters line and closing line, and never decides which questions are asked, which link is the weakest or how strong the support is (Rule 1).
+Lay out Toulmin's six slots; where data and warrant cannot be told apart, say so in one line and treat the general statement as the warrant. Name the argumentation scheme of the step (expert opinion, analogy, cause to effect, consequences, sign; two when both fit; when none fits, the step in one line and the general questions only) and ask at most about eight questions in all, duplicates merged, those that bear on this step: the scheme's own critical questions and the general ones (are the data true, and how are they known; does the warrant hold in this field, and what backs it; is this case an exception to it; are there other reasons for or against C). Where the reasons reach C through an intermediate claim, name it (C1), give each step its own warrant (Wa: data to C1; Wb: C1 to C, while W1 and W2 remain rival warrants for one step), ask the questions of both steps within the same limit and say which step the weakest link is on.
 
-If the reasons reach C through an intermediate claim (data, then C1, then C), name C1 in one line and give each step its own warrant, labelled by step (Wa: data to C1; Wb: C1 to C), while W1 and W2 remain rival warrants for one step. Ask the questions of both steps within Step 4's limit of about eight, check the qualifier on the step that reaches C, and say in the result which step the weakest link is on.
+Then check the qualifier, on the step that reaches C, and give the check as **matches**, **overstated** or **no warrant to compare**: a claim put as "will" or "is" on a warrant that holds only "generally" is overstated and the same claim put as "probably" matches; say when the warrant compared is your reconstruction, and ask whether "certainly" was meant when the overstatement comes only from the "generally" default.
 
-### Step 2: Lay out the argument
+The weakest link is the slot where the support is thinnest, and you never invent one: a question answered against the step outweighs an open one; among open ones, take the one whose bad answer would leave C with least support, and when that ties, the earlier slot in Rule 5's order, except that the warrant comes before the data when the argument cites nothing for the warrant (no similarity, no backing), since stated data are at least asserted. If every question asked is answered for the step, the fixed result is **weakest link: qualifier** when the check reads overstated and otherwise **no weak link found among the questions asked; not a proof**.
 
-- **Claim:** C, quoted.
-- **Data:** the facts C rests on, Toulmin's "What have you got to go on?"
-- **Warrant:** the general rule that takes the data to C, Toulmin's "How do you get there?" (Rule 3 when unstated).
-- **Backing:** why the warrant holds (statute, statistics, studies, experience); it depends on the field.
-- **Qualifier:** how strongly C is put ("certainly", "probably", or nothing).
-- **Rebuttal:** the circumstances, as stated, in which the warrant would be set aside.
+## The reply
 
-If data and warrant cannot be told apart (a known weakness of the layout), say so in one line and treat the general statement as the warrant.
+An audit is one reply that names the target and then gives the fixed result before the working, because the result is what the user acts on and the layout is how they check it. It is lines and no wide tables, so that it reads on a phone, plain Markdown outside any code block, with headings, slot names, tags, statuses and the fixed results in the user's language, and it closes with part 5, with no summary or record after it:
 
-### Step 3: Name the scheme
-
-Name the scheme, from the five under Critical questions, that fits the step. If two fit, name both and use both question sets, since real arguments often fit more than one. If none fits, describe the step in one line and use the general questions only.
-
-### Step 4: Ask the critical questions
-
-Ask the four general questions and those of the scheme, merge duplicates, and keep at most about eight, choosing those that bear on this step. Give each its tag (Rule 6) and its status (Rule 5).
-
-### Step 5: Check the qualifier
-
-Compare the strength of C with what the warrant licenses: a claim put without qualification ("will", "is") on a warrant that holds only "generally" is overstated, the same claim put as "probably" is not, and with no warrant you write "no warrant to compare". The qualifier is Toulmin's; using it as a check is this skill's addition. If the warrant is your reconstruction, say so in the same line; if the overstatement comes only from the "generally" default, ask whether "certainly" was meant.
-
-### Step 6: Name the weakest link
-
-Pick the slot where the support is thinnest: a question answered against the step outweighs an open one; among open ones, take the one whose bad answer would leave C with least support; on a tie, the earlier slot (data, warrant, backing, qualifier, rebuttal, claim). Give the slot, the question, why it matters (one line; for what C is for, when Step 1 gave that), and what kind of answer would strengthen the link. If every question asked is answered for the step, the result is **weakest link: qualifier** when Step 5 found an overstatement, and otherwise **no weak link found among the questions asked; not a proof** (list the questions and name the one you would ask next). Never invent a weak link. Give the Step 5 result next to the result in every case, and, when a weak link is named and Step 1 gave what C is for, close the audit with one line saying what the user can and cannot rely on C for as the support stands, which is the answer the weak link still needs put in terms of that purpose and not a second grade.
-
-### Step 7: Record
-
-Close with the record from the output template; if the template cannot be read, the record is: target and claim; mode; scheme; warrant (stated, reconstructed or none given; W2 if any; Wa and Wb for a chain); questions asked (n answered, m open); result; qualifier check (matches, overstated, or no warrant to compare); what would strengthen the link; checked by (rereading only, or the tool used); decision on the reconstructed warrant (pending, accepted or rejected by the user, or not needed); history. Print it as plain Markdown, not a code block. End with one line naming C: whether "C" is true is not decided by this audit (then, if Parameters call for it, the one-line ask-mode offer).
-
-## When another agent fixes the output format
-
-When the request comes from another agent or a script that fixes the output format (a schema or a set of fields) and no user will reply, carry out every step as usual and fit the result into that format as below, because such a caller may pass on only its list of items.
-
-1. Give the weakest link (Step 6) as one of the caller's items, with the warrant record (the data, the warrant stated or reconstructed, W2 if any) and the open or answered question in the item's evidence field; a fix field gets only the kind of answer that would strengthen the link, never the answer itself (Rule 5).
-2. End the list with one item labelled as this method's result, not a finding, that holds the Step 7 record, with each open question written out with its slot tag, and the line that this audit does not decide whether C is true; when no weak link is found, this item gives that result and the questions asked.
-3. In a severity field, write that this method does not give it. If a field takes only fixed values, use the one that claims least, and say at the start of the item's text that the format forced that value and that this method does not give it.
-4. Give nothing outside this method unless the caller names it in its request, and put what it names in a separate list after these items, labelled as outside this method; if the format has a free-text field, put the whole output there as well, in the template's layout.
-
-## Critical questions
-
-General, for every argument:
-- [data] Are the data true, and how are they known?
-- [warrant/backing] Does the warrant hold in this field, and what backs it?
-- [rebuttal] Is this case one of the exceptions to the warrant?
-- [conclusion] Are there other reasons for or against C?
-
-Five common schemes (the questions in this skill's wording):
-- **Expert opinion** (E, an expert in field F, says A; so A): [data] Is E a genuine expert in F? · [data] Is A within F? · [data] Did E say something that implies A? · [warrant/backing] Is E's assertion based on evidence? · [rebuttal] Is E reliable and unbiased here? · [rebuttal] Is A consistent with what other experts in F say, and with the known evidence?
-- **Analogy** (case 1 is like case 2; A holds in case 1; so A holds in case 2): [data] Does A really hold in case 1? · [warrant/backing] Do the cited similarities bear on A? · [rebuttal] Do the cases differ in a way that undercuts the similarity? · [conclusion] Is there another similar case in which something other than A holds?
-- **Cause to effect** (generally, if X occurs, Y will or might occur; X occurs; so Y): [data] Does X really occur here? · [warrant/backing] How strong is the causal generalization? · [warrant/backing] Is the evidence for it strong enough? · [rebuttal] Could other factors prevent Y in this case?
-- **Consequences** (doing X would plausibly bring good, or bad, results; so X should, or should not, be done): [data] How likely are those results? · [data] What evidence says they will happen, and is it enough? · [conclusion] Are there opposite results that should be weighed too?
-- **Sign** (S is present; S generally indicates B; so B): [data] Is S really present? · [warrant/backing] How strong is the link between S and B? · [rebuttal] Could something else better explain S?
-
-Worked example (target text: "Remote work worked at Acme, so it will work for us."):
-
-- Claim: "it will work for us" (stated; qualifier none, "will")
-- Data: "Remote work worked at Acme" (stated)
-- Warrant W1 (reconstructed): a practice that worked at a company like ours will generally work for us
-- Backing: none given. Rebuttal: none given. Scheme: analogy.
-- [data] Did it really work at Acme, and by what measure? open
-- [warrant/backing] Do the cited similarities bear on remote work? open: no similarity is cited
-- [rebuttal] Do we differ from Acme in a way that matters? open
-- [conclusion] Is there a similar company where remote work failed? open
-- Qualifier (compared with the reconstructed W1): W1 licenses "probably"; the claim says "will", so it is overstated; that follows from the "generally" default, so say if "certainly" was meant.
-- Result: weakest link: warrant, because "Do the cited similarities bear on remote work?" is left open.
+1. **Target**, as What is audited sets it, and the mode.
+2. **Result:** the fixed result in Rule 5's wording, then for a chain the step it is on; why it matters, for what C is for when that is given; the kind of answer that would strengthen the link, never the answer itself (Rule 4); the qualifier check, in every case; and, when a weak link is named and what C is for is given, one line on what the user can and cannot rely on C for as the support stands, which is the answer the weak link still needs put in terms of that purpose and not a second grade. With no weak link, the question you would ask next.
+3. **Argument:** C quoted with its qualifier, what C is for, what was not audited or was read in one of two ways, each slot with its mark, the scheme, and W2 with whether it changes the result; a warrant you reconstructed is marked as waiting for the user's word, or as accepted or rejected by them.
+4. **Questions:** each with its tag and status, then the facts that entered the audit, each with its evidence class, or "none".
+5. A last line naming C: whether "C" is true is not decided by this audit, which was checked by rereading only (or by the tool that ran). An audit of the user's own argument with no mode named then offers ask mode in one line.
 
 ## Ask mode
 
-- **One question per message, asking for one thing.** A turn fits a phone screen without scrolling: no tables, headers or lists of questions while asking.
-- **Order:** claim ("What exactly do you claim?"), data ("What have you got to go on?"), warrant ("How do you get there?"), backing ("Why does that rule hold?"), qualifier ("How sure: always, usually, presumably?"), rebuttal ("When would that rule not apply?"), then name the scheme in one line and ask its open critical questions, most important first.
-- **The user's answers are the material.** Each answer fills its slot as stated by the user. Restate it in one line in the user's key words, together with the next question; never spend a turn only on confirming. Do not argue or answer the questions yourself. A bare yes or no (Rule 5): ask once for the content, then mark it open.
-- **No warrant from the user:** offer the least warrant (Rule 3) once, labelled as your reconstruction, and ask whether they hold it; a "no" removes it, and with no other rule the warrant stays "none given" and the result is **weakest link: warrant, because "How do you get there?" is left open** (Rule 7).
-- **Stop means stop.** On any stop signal ("stop", "enough", "wrap up", or the same in the user's language) go to Steps 5 to 7 with what you have: at any stop, a reconstruction the user rejected, with no rule of their own named after it, reads "none given" and gives **weakest link: warrant, because "How do you get there?" is left open** (Rule 7); otherwise the result is **stopped** when, and only when, the stop comes before the user stated or accepted a warrant, or before any critical question was asked, because without both a warrant and a question there is nothing to judge. When the questions run out, do Steps 5 to 7 in one message. If the user asks for the full audit midway, switch to audit mode with what you have.
+Ask mode (`--mode=ask`, or the same in words) is for a user who names it, asks to be questioned about their own argument or wants to build one that does not exist yet; say in one line that you start in it. The user fills the slots and you ask, because the argument is theirs to state: one question per message, asking for one thing and short enough for a phone screen (no tables, headers or lists of questions while asking), in the order claim ("What exactly do you claim?"), data ("What have you got to go on?"), warrant ("How do you get there?"), backing ("Why does that rule hold?"), qualifier ("How sure: always, usually, presumably?"), rebuttal ("When would that rule not apply?"); then name the scheme in one line and ask its open critical questions, most important first. Each answer fills its slot in the user's words; restate it in one line together with the next question, never spend a turn only on confirming, and neither argue nor answer the questions yourself; a bare yes or no gets one request for its content and is then open. If the user gives no warrant, offer the least warrant once, labelled as your reconstruction, and ask whether they hold it; a "no" removes it.
+
+Ask mode ends in the audit reply, given with what you have, and at every ending a reconstruction the user rejected, with no rule of their own named after it, leaves the warrant "none given" and the fixed result **weakest link: warrant, because "How do you get there?" is left open**:
+
+- **The questions run out:** the reply as above.
+- **The user asks for the full audit midway:** switch to audit mode with what you have.
+- **A stop signal** ("stop", "enough", "wrap up", or the same in the user's language): the fixed result is **stopped** when, and only when, the stop comes before the user stated or accepted a warrant or before any critical question was asked, because without both there is nothing to judge; the rejected reconstruction of the lead sentence is not that case.
 
 ## Follow-up turns
 
-- **The user disputes a finding** (a slot, a warrant, a tag, a status or the weakest link): recheck it. Withdraw it only if you can name its defect (a misquote, a warrant stronger than the least one, a question the argument does answer, a wrong tag or evidence class); insistence is not a defect. If it holds, give the reason in one line and keep it. If it is withdrawn, redo Step 6 and say whether the result changes.
-- **The user answers an open question:** mark it answered by the user, label any fact in the answer "supplied by the user", and redo Steps 5 to 7.
-- **The user rejects a reconstructed warrant:** for target `user`, remove it, test W2 if there was one, otherwise ask in one line which rule they rely on; if they name none, the warrant reads "none given" and the result is **weakest link: warrant, because "How do you get there?" is left open** (Rule 7), not **stopped**. For `claude` or `text` the user is not the arguer: the rejection is a dispute (above); a rule they propose becomes W2. Then redo Steps 4 to 7.
+A follow-up reply gives what changed, then part 2 of the reply again (the fixed result with its lines, the qualifier check among them) and the last line, and says whether the fixed result changed.
 
-## Pitfalls
+- **The user disputes part of the audit:** recheck it, and withdraw it only for a defect you can name (a misquote, a warrant stronger than the least one, a question the argument does answer, a wrong tag or evidence class), because insistence is not a defect; if it holds, keep it and give the reason in one line, and if it is withdrawn, work out the weakest link again.
+- **The user answers an open question:** it is answered by the user when Rule 4 lets the answer count, a fact in it is "supplied by the user", and the qualifier check and the weakest link are redone.
+- **The user rejects a reconstructed warrant:** as the arguer (target `user`) they remove it: test W2 if there was one, otherwise ask in one line which rule they rely on; a rule they name is the stated warrant, and the questions are asked of it afresh; if they name none, the warrant reads "none given" and the fixed result is **weakest link: warrant, because "How do you get there?" is left open**, not **stopped**. For `claude` or `text` the user is not the arguer, so the rejection is a dispute and a rule they propose becomes W2.
 
-- Do not put a fallacy label ("appeal to authority") in place of the open question, because an appeal to an expert is weak only where its questions fail.
-- Do not quote words the target did not say, or tidy a quote; if you paraphrase, drop the quotation marks, and keep a derived step outside them.
+## When another agent fixes the output format
+
+When another agent or a script fixes the output format (a schema or a set of fields) and no user will reply, do the audit as usual and fit it into that format, because such a caller may pass on only its list of items. The weakest link is one of the caller's items, with the data, the warrant (stated or reconstructed, and W2 if any) and the question in its evidence field, and a fix field holds only the kind of answer that would strengthen the link (Rule 4); when no weak link is found there is no such item. The last item is labelled as this method's result, not a finding, and holds the target, the fixed result with the qualifier check, the questions asked with every open one written out with its tag, how the audit was checked, and the line that this audit does not decide whether C is true. A severity field says that this method gives none; a field that takes only fixed values gets the one that claims least, and the item's text opens by saying that the format forced that value and that this method does not give it. Nothing outside this method is given unless the caller names it, and then in a separate list after these items, labelled as outside this method; a free-text field gets the whole reply.
