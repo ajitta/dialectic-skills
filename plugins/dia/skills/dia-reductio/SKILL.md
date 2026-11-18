@@ -4,7 +4,7 @@ description: Test a thesis by deriving a strict contradiction from stated premis
 license: MIT
 metadata:
   author: ajitta
-  version: "3.0.0"
+  version: "3.1.0"
   lineage: "reductio (installed copy, unversioned)"
   source: "https://github.com/ajitta/dialectic-skills"
 ---
@@ -13,7 +13,7 @@ metadata:
 
 Assume the thesis, derive from it and the listed premises a statement and its negation, and show that the set cannot all be true, so that the user sees which of the target's commitments cannot stand together and what each way out costs what the thesis is for.
 
-Theory, history and the reasons behind the rules are in `references/theory.md`: read it when the user asks about the method (then answer briefly), or when you are unsure whether a step is strict. The output layout is in `references/output-template.md`; read it before writing the first output if you can open it (Step 8 names the record fields in case you cannot, and either way the output uses numbered lines, not wide tables, so it reads on a phone).
+Theory, history and the reasons behind the rules are in `references/theory.md`: read it when the user asks about the method (then answer briefly), or when you are unsure whether a step is strict.
 
 ## Parameters
 
@@ -42,6 +42,8 @@ Theory, history and the reasons behind the rules are in `references/theory.md`: 
 9. **Whole chain in one response.** Lay out the complete argument at once instead of asking premise questions one at a time.
 
 ## Procedure
+
+The output opens with a Target line, which says when the target was inferred, and has the headings Thesis, Result, Premises, Derivation, Contradiction, Options, Recommendation and Record. Thesis also holds the direction and what was not tested. Result comes right after it, because the reader should meet first what the derivation below establishes: work the derivation through and check it (Step 4) before you write Result, and give there the result Step 8 fixes in one line and, in one more, the full set the contradiction depends on, each [A] member marked (for no contradiction found, the directions and premise sets tried; for stopped, why). The rest follows in the order of the steps: Derivation numbers its lines from the assumption (T, or not-T when proving) to the line that names Q and not-Q, with the derivation from not-T as a second one when the direction is both; Options carry letters (A, B, C), so that they are not taken for lines of the derivation; a rerun in a follow-up turn gives Result again; and with `--target=all` each target has its own parts up to Recommendation. Translate headings and labels into the user's language, and use numbered lines, not wide tables, so that it reads on a phone.
 
 ### Step 1: Fix the target and the thesis
 
@@ -98,7 +100,7 @@ Pick one option and give the reason, the evidence class of the weakest premise t
 
 ### Step 8: Record
 
-Close with the record from the output template, whose fields are Target / thesis / what T is for, Result, Contradiction depends on, Strength, Checked by, Options (with the recommended one), Decision and History; for `--target=all` give one combined record whose lines carry one entry per target, and whose History has one line per follow-up turn, naming its target. Its result is exactly one of: **untenable on these premises**, **follows from these premises**, **premise set inconsistent**, **no contradiction found**, **stopped**.
+Close with the record, whose fields are Target / thesis / what T is for, Result, Contradiction depends on, Strength (with the [A] premises it turns on), Checked by, Options (with the recommended one), Decision (pending until the user chooses) and History (one line per follow-up turn); for `--target=all` give one combined record whose lines carry one entry per target, and whose History has one line per follow-up turn, naming its target. Its result is exactly one of: **untenable on these premises**, **follows from these premises**, **premise set inconsistent**, **no contradiction found**, **stopped**.
 
 ### When no contradiction appears
 
@@ -111,7 +113,7 @@ When the request comes from another agent or a script that fixes the output form
 1. Give the contradiction (Step 5) as one of the caller's items, with its proof in the item's evidence field: the premises with their labels, the numbered derivation with its rules, the two lines that contradict each other, and the strength.
 2. End the list with one item labelled as this method's result, not a finding, that holds the Step 8 record, with the result, what the contradiction depends on, the strength and the options with the recommended one; when no contradiction appears, this item says so as the section above requires, with the directions and premise sets tried.
 3. In a severity or fix field, write that this method does not give it; the options and the recommendation are in the method result. If a field takes only fixed values, use the one that claims least, and say at the start of the item's text that the format forced that value and that this method does not give it.
-4. Give nothing outside this method unless the caller names it in its request, and put what it names in a separate list after these items, labelled as outside this method; if the format has a free-text field, put the whole output there as well, in the template's layout.
+4. Give nothing outside this method unless the caller names it in its request, and put what it names in a separate list after these items, labelled as outside this method; if the format has a free-text field, put the whole output there as well.
 
 ## Follow-up turns
 
