@@ -4,7 +4,7 @@ A Claude Code plugin with two workflows. `review-panel` reviews one document wit
 
 1. Four agents run in parallel, each with one skill: `dia-negative`, `dia-reductio`, `dia-warrant` and `dia-counterplan`. Each returns its whole report in the skill's own layout.
 2. Two agents run `dia-adjudicate` on the whole reports, each with the reports in a different order (the second order reverses the first).
-3. A last agent lists the items on which the two judgments differ. Check those against the sources yourself; the workflow does not.
+3. A last agent lists the items on which the two judgments differ, and gives each judgment's line on what its verdicts leave of the claim, saying whether the two agree. Check the differing items against the sources yourself; the workflow does not.
 
 `judge` is steps 2 and 3 alone, for reports that already exist: review agents you started yourself, another assistant, or people. `dia-adjudicate` asks whoever calls it to make a second, separate run and to compare the two; a judge that runs inside an agent cannot start that run, and a caller that writes its own orchestration tends to leave it out. This workflow makes both runs and the comparison.
 

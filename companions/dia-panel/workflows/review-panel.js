@@ -85,7 +85,8 @@ const [diff] = await parallel([() => agent(
   `Each run may relabel the reports again (R1, R2, ...); its Inputs line maps its labels to the letters. ` +
   `Match report items by lens (not by any label) and claims in the target by their place in it. ` +
   `List every item whose verdict differs between the runs, with both verdicts and their stated basis, ` +
-  `then the union of both must-check lists. Do not judge the items yourself.\n\n` +
+  `then the union of both must-check lists, then the whole of each run's "What the verdicts leave of C" section, word for word (every line of it, its list and its counts included), ` +
+  `and whether the two give the same outcome for C (say so if a run has no such section). Do not judge the items yourself.\n\n` +
   `## Run 1\n\n${judged[0]}\n\n## Run 2\n\n${judged[1]}`,
   { label: 'compare', phase: 'Compare' })])
 
