@@ -41,6 +41,7 @@ All are stdlib-only. CI (`.github/workflows/check.yml`) runs them plus `claude p
 - Rerun a baseline arm only when the record will compare arms; otherwise check the changed build against its expected behaviour and reuse earlier results.
 - Checks cover Claude Code on those models only; ChatGPT and Codex are outside the checks, and a text released without a run there is recorded as unverified on them (owner, 2026-11-18; spec D90).
 - Form-only edits (provenance moved out, sections merged) are checked by one independent review instead of runs.
+- Report a result by what the reply achieves for the outcome the user is ultimately after, against a target reply written before the runs, on a task with an end that can be checked. Word counts, reply length and whether a labelled line was printed are not measures of a skill (owner, 2026-11-19; spec D113).
 - A comparison whose arms hold a dialogue with a simulated user follows rule 6 of `docs/writing-for-models/README.md` § Rules for A/B records, wherever its record sits (owner, 2026-11-11; spec D70).
 
 ## Review findings (owner, 2026-11-13)
@@ -52,4 +53,5 @@ All are stdlib-only. CI (`.github/workflows/check.yml`) runs them plus `claude p
 
 - The owner writes in Korean; reply in Korean, briefly. Repository files are written in English (spec D11).
 - Settle open decisions in chat before acting; list open items rather than guessing (spec §13).
+- The session owns the skills' outcome (owner, 2026-11-19; spec D113): bring one whole plan with its decisions made, not a list of rulings for him, and hold your own work to the measure the skills are held to. The specification and stale documents may be brought up to date without asking; runs, edits to a skill and releases wait for his approval of the plan.
 - Give a recommendation with its reasons and evidence, and start editing only after the owner approves it. When he says a reply of his is not yet a decision, ask him to confirm wherever your judgment differs from it (owner, 2026-11-13).
