@@ -8,7 +8,7 @@ Thirteen reasoning-and-review skills in one plugin, written to run unchanged on 
 
 | Skill | What it does | How it starts |
 |---|---|---|
-| `dia-skopos` | Before work starts: restates the goal, discloses material assumptions, lists only the decisions you must make, then waits for your approval. | `dia-skopos …` or `dia skopos …`; never picked from a plain `dia <request>` |
+| `dia-skopos` | Before work starts: shows what you asked for as it reads it and the result it takes the work to be for, lists only what you alone can decide, and asks whether to make the thing you asked for or to work for the result. Then waits for your word. | `dia-skopos …` or `dia skopos …`; never picked from a plain `dia <request>` |
 | `dia-elenchus` | Plato's elenchus: "what is X?", premises agreed one question at a time, contradictions shown, each revision is your new idea. Usually ends in aporia; gives no advice. | `dia-elenchus …`, `dia elenchus …`, or `dia <request>` |
 | `dia-quaestio` | Modern Socratic questioning one question at a time, then your options plus up to three labeled ones, convergence by criteria, a verdict and a brief. Never implements. | `dia-quaestio …`, `dia quaestio …`, or `dia <request>` |
 | `dia-reductio` | Strict reductio ad absurdum in one pass: labeled premises, a Q and not-Q derivation with a rule per line, graded strength, options and a record. | `dia-reductio …`, `dia reductio …`, or `dia <request>` |
@@ -20,7 +20,7 @@ Thirteen reasoning-and-review skills in one plugin, written to run unchanged on 
 | `dia-ratchet` | Repeated review rounds in which only outside evidence counts (a search, a tool run or your own material, never the assistant's own re-derivation); what passed is locked; stops on regression, zero defects, verification exhausted, fixed point or `--max N` (default 3). | `dia-ratchet …` or `dia ratchet …`; never picked from a plain `dia <request>` |
 | `dia-adjudicate` | Rules on reports that people or other assistants wrote about a text (critiques, reviews, verification reports): checks the text's claims and every report point against sources, gives a verdict for each, and lists the verdicts a person should recheck. Never rewrites the text. | `dia-adjudicate …` or `dia adjudicate …`; never picked from a plain `dia <request>` |
 | `dia-regula` | Checks or writes text a model will follow (a skill file, an agent prompt, an agent instructions file) against four rules: each paragraph one expression with its conditions and fallback, scope words as narrow as meant, fewer instructions each with its reason, one name per thing. A review lists breaches and changes nothing until you pick. | `dia-regula …`, `dia regula …`, or `dia <request>` |
-| `dia-techne` | Deepens a request the way a field's top practitioners would (the outcome it serves, the rawest material, the field's methods, a check by something other than the assistant and you, another field's view), shows each change with its reason, and runs it. Stops before any step a backup cannot undo. | `dia-techne …` or `dia techne …`; never picked from a plain `dia <request>` |
+| `dia-techne` | Takes a request to the result it is for, the way a field's top practitioners would: compares the thing you asked for with other ways of getting there, makes what the result needs, and has it checked by something other than the assistant. Stops before any step it could not take back. | `dia-techne …` or `dia techne …`; never picked from a plain `dia <request>` |
 | `dia-router` | Not a method: a short entry point. `dia` shows a menu, `dia reductio …` starts a skill by its name, and `dia <request>` picks the skill that fits and says which. Never starts `dia-skopos`, `dia-ratchet`, `dia-adjudicate` or `dia-techne` from a plain request. | first word `dia` |
 
 ## Contents
@@ -181,9 +181,9 @@ The sessions were run on Claude Code (Sonnet) with this plugin, and the user rep
 
 ### dia-skopos: agree on the task before work starts
 
-**In plain words.** Before a contractor starts work, a good one walks you through the job: here is what I'll build, here is what I'm assuming, here is what only you can decide. `dia-skopos` makes the assistant do that, and then wait for your go-ahead instead of guessing.
+**In plain words.** Before a contractor starts work, a good one walks you through the job: here is what I understood, here is what I think it is for, here is what only you can decide. `dia-skopos` makes the assistant do that, and then asks one thing: should it make the thing you asked for, or work for the result you are after? It waits for your word instead of guessing.
 
-**Use it when** a request is short but the result depends on things only you know: a speech, a plan, a script, an email to someone important. **Skip it** for quick questions with one obvious answer.
+**Use it when** a request is short but what you are after is bigger than its words: a speech, a plan, a test, an email to someone important. **Skip it** for quick questions with one obvious answer.
 
 **Try:**
 
@@ -194,27 +194,23 @@ dia-skopos Write a short speech for my brother's wedding.
 **What a session looks like** (shortened):
 
 > **Assistant:**
-> **Goal and success conditions**
-> - Deliverable, as stated: "Write a short speech for my brother's wedding."
-> - Deliverable, as read: A written speech of about 2 minutes, meant to be spoken aloud. It would be a warm, lightly humorous sibling toast that ends with a toast to the couple. The draft uses placeholders for anything I don't know.
-> - Outcome, as stated: not stated.
-> - Outcome, as read: Hypothesis: you want a speech you can give at the wedding that feels personal and goes over well with the room. Please confirm or correct this.
+> **1. What you asked for:** "Write a short speech for my brother's wedding." I'd write a 2–3 minute toast for you to give as his sibling. … My reading adds a length, a spoken style and a toast at the end.
+> **2. The result it's for (my guess, since you didn't say):** The couple, especially your brother, should feel that someone who really knows him is speaking. The room should laugh once and feel moved once. … **The main limit:** without real names, stories and details, any speech I write would fit any wedding.
+> **4. What only you can decide or tell me:** names; one or two real stories or traits; tone; limits; length, each with what I'd do without it.
+> **5. The choice.** **As asked:** a polished short toast written here in the chat. … **For the result (my proposal):** "Help me give a toast at my brother's wedding that makes him and his partner feel truly known, gets a laugh and a lump in the throat, and that I can deliver comfortably." …
+> If my sentence doesn't match what you're after, tell me the result in your own words. Replying "proceed" means I'll go with my sentence, and "as asked" means I'll just write the speech.
 >
-> **Evidence and assumptions:** no personal details about your brother, his partner or you are available to me. … Unverified assumptions: you are the speaker, the setting is a typical reception, and English is the language.
-> **Decisions needed from the user:** 1. names, and your relationship to each of them; 2. one or two real memories or traits; 3. tone; 4. any topics to avoid. If you'd rather not answer, I'll use my defaults.
-> **Confirmation:** Approving means I'll write one speech draft in this chat. … Please reply with a proceed instruction.
+> **You:** dia-techne Go ahead. My brother is Minho, marrying Sara; I'm the best man. He taught me to ride a bike, even though he's younger. Warm, one light joke, about 3 minutes. What I'm after is that the room laughs once and Minho is moved.
 >
-> **You:** My brother is Minho, marrying Sara; I'm the best man. He taught me to ride a bike, even though he's younger. Warm, one light joke, about 3 minutes. proceed
->
-> **Assistant:** *(the speech follows, built around the bike story)* … **Outcome:** The speech was approved so you can give it at the wedding and have it land well with the room. That is still unverified. The draft is done, but only delivering it will show whether it works.
-> *(Recorded on 2.13.0.)*
+> **Assistant:** You … said what you want from it: "the room laughs once and Minho is moved." I wrote it for that. … I considered the usual structure, which is a few separate qualities and stories followed by a toast. Instead, I built the whole speech around the bike story, because that one fact can do both jobs you want: **the laugh** ("Minho is my *younger* brother… No, I won't be taking questions.") and **the moving moment** ("I've got you," which is what he said while holding the bike seat, comes back three times). … You'll only know if it worked on the day itself.
+> *(Recorded on 4.0.0, Claude Opus 5.5.)*
 
 **Tips**
 
-- Answer only the questions you care about and add "proceed". Corrections plus "proceed" count as approval of the corrected task.
-- Every review opens with four lines: what you asked for in your own words, how the assistant reads it, the result you said you want from it (or that you named none), and how the assistant reads that. If you don't say what the work is for, the fourth line is a one-line guess, marked as its hypothesis; correct it or just say "proceed". If you name a result beyond the work itself, such as "a landing page that will increase sales", it keeps the criteria for finishing the page apart from those that would show sales rose, labels indirect measures as proxies, and marks the result unverified until something can check it. When it reports the finished work, it says in one line what the work was for and what has shown that so far.
-- "Looks good", silence or a thumbs-up do not count as approval; the assistant keeps waiting.
-- It covers that one task and its direct follow-ups. Start a new task with `dia-skopos` again if you want the same check.
+- **Say what you are after in one sentence of your own** ("What I'm after is …"). The work is then done for that sentence, and it is the largest single lever on the result: in our runs the same request reached a clearly better result when the user added it. A bare "proceed" takes the assistant's guess, which on a precise request is often narrower than what you want.
+- "As asked" keeps to the thing you named, made as its best practitioner would make it. Corrections plus "proceed" count as approval of the corrected request.
+- "Looks good", a question or silence do not count as approval; the assistant keeps waiting and does none of the task.
+- On your go-ahead the work passes to `dia-techne` where it is installed; start your reply with `dia-techne` to be sure. The review covers that one task; start a new task with `dia-skopos` again if you want the same check.
 
 ### dia-elenchus: find out what you really mean
 
@@ -577,9 +573,9 @@ Only touch files the task needs.
 
 ### dia-techne: do a task the way the field's best would
 
-**In plain words.** A request is often narrower than what it is for. Before it works, `dia-techne` asks five questions: what a top practitioner of the field would do here that you did not ask for, which raw material they would start from instead of a summary, which methods and tools they would use, what other than the assistant and you would show the result is right, and which idea from another field, or which opposing view, would change the result. It then rewrites your request, shows each change with its reason so you can take it back, and runs it in the same turn. It never changes what you set as a requirement or a limit, your data, or what you allowed it to do. A file you asked it to overwrite is backed up first (for a file git already holds unchanged, the last commit is the backup), and it stops before anything a backup cannot undo, such as sending or publishing; a push you asked for runs only when it changed nothing in what is pushed and the push forces, rewrites and deletes nothing.
+**In plain words.** A request is often narrower than what it is for. `dia-techne` first says what it takes the request to be for, then treats the thing you asked for as one way of getting there: it sets it beside at least one other way, compares them by the result's own measure, and takes the one that comes out best, telling you what the comparison showed. It does the work as a top practitioner of the field would, makes now what can be made now instead of offering it, and has the result checked by something other than itself: it runs what it built, recomputes its figures and reads its sources. It never changes your data or a limit you set. It keeps a copy before it changes or deletes a file of yours, works inside the folder you gave it, installs nothing without your word, and stops before anything it could not take back, such as sending, publishing or spending.
 
-**Use it when** a task matters enough to want the deeper version rather than the quick one: a claim you will make in public, a fix you want checked by something other than the assistant, a decision built on data. It takes longer and its replies are longer. Start the message with `dia-techne`, or use `dia techne`; `dia <request>` never picks it.
+**Use it when** a task matters enough to want the deeper version rather than the quick one: a claim you will make in public, a decision built on data, a fix you want checked by something other than the assistant. It takes longer. Start the message with `dia-techne`, or use `dia techne`; `dia <request>` never picks it. Add `--aim=request`, or say "as asked", when you want only the thing you named.
 
 **Try:**
 
@@ -589,19 +585,20 @@ dia-techne Our mobile puzzle game's D30 retention is 12%. Can I tell investors n
 
 **What you get** (real run with web search, shortened):
 
-> **Short answer:** "Probably yes, but only if you say which benchmark and which cohort you mean."
-> **Outcome and revisions:** "The outcome you need is for investors to believe your retention claim." Three changes, and "each change can be taken back": "industry average" becomes a named benchmark, because "there is no single industry average"; a check that the 12% uses the benchmark's definition (active "on exactly day 30" or "on day 30 or later", blended or organic-only installs); a recommended wording.
-> **Rewritten prompt** (in a code block, then run): compare 12% with each genre-level D30 benchmark, naming source, year and region; say which is the fairest comparison; list the questions an investor will ask; give one sentence "that is true under the strongest benchmark and still true under the weakest".
-> **Open points:** the assumption that "industry average" means puzzle or match games; placeholders for how the 12% is defined, the cohort size and the install mix; "I saw only search snippets, not the full reports."
-> **Result:** puzzle 5.35%, match games 7.15%, board games in the US 5.09% (Android) to 8.13% (iOS), all games median about 0.7%, each marked secondary. Suggested wording: "Our D30 is 12%, against roughly 5–8% for puzzle and match games in public benchmarks (Mistplay/AppsFlyer, 2025)." **Outside check for you to run:** "Recompute D30 from raw install and activity logs", split it by platform, country and organic versus paid, and read the benchmarks' methods. "If the recomputed figure drops below roughly 8%, change the wording." *(sources listed)*
-> *(Recorded on 1.13.0. From 2.7.0 the full reply gives the result first and the rewritten prompt last.)*
+> **What I take the outcome to be:** investors leave convinced your retention is a real strength, and the claim still holds when they check it in diligence. Correct me if it's something else.
+> **Recommendation:** If your 12% is classic D30, it is well above average, and "above average" is too weak a way to say it. … Two ways compared: "above industry average" (vague, breaks if your definition differs from the benchmark's) against a specific number with its definition and source (concrete, holds in diligence).
+> **Suggested slide line (beyond what you asked):** "D30 retention: 12% (classic day-30, [iOS/Android], cohorts [month–month 2026], n = [installs]). That's about 2× the typical puzzle-game D30 (~5–7%) and well above the all-genre mobile median (<1%, GameAnalytics 2026)."
+> **The comparison (each ratio recomputed):** all mobile genres, median 0.69–0.79%, so 12% is about 15–17×, "read in a secondary summary of the report"; puzzle genre about 5.35%, about 2.2×, "secondary, original source not found"; …
+> **Check these before you say it:** the definition (classic or rolling: "Rolling retention can be several times higher. Benchmarks use classic."); the cohort mix; the sample size ("At 1,000 installs, 12% has a 95% range of about ±2 points"); consistency across cohorts; mature cohorts only.
+> **Limits of this check:** "I couldn't open a primary GameAnalytics or genre-level report. The figures come from secondary summaries." **Left for you:** confirm the definition, n, cohorts and platform; decide whether to show the cohort table up front. *(sources listed)*
+> *(Recorded on 4.0.0, Claude Opus 5.5.)*
 
 **Tips**
 
-- When nothing needed changing, the reply is short: the result, what the check showed and the assumptions. In a recorded leap-year fix it compared the new function with Python's `calendar.isleap` "for every year from 1 to 10000", and "the original is saved beside it as `leap.py.bak`".
-- Name another executor ("a prompt for Codex, don't run it") and it still does the research but only writes the prompt; the open points list what that executor may not reach.
-- Searches carry general public terms only, never your private material. Without tools, the outside check is named for you to run, and facts from memory are marked as recall.
-- Asked for something that belongs to a sibling (a skill file to keep, a scope check without running), it runs anyway and names that sibling in one line.
+- **Tell it what you are after** ("What I'm after is investors who still believe the number after diligence") and it works for that. Otherwise it reads a purpose in and says so first, so that you can correct it.
+- What it makes beyond the thing you asked for is marked as such, and `--aim=request` keeps to the thing named.
+- It leaves you only what you alone can do: a decision that is yours, a fact only you have, an act in the world. What it could not check, it tells you how to check; it does not check a tool against an outside library unless you allow the install.
+- Name another executor ("a prompt for Codex, don't run it") and it writes the prompt instead of running. Without tools it cannot run or look anything up: it says what rests on recall and what you should check.
 
 ### dia-router: one short word for every skill
 
