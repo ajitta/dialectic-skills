@@ -2,7 +2,7 @@
 
 Thirteen reasoning-and-review skills for Claude, Codex and ChatGPT. Each skill is a set of written instructions that the assistant follows when your message starts with the skill's name or with `dia`.
 
-- `dia-skopos`: before work starts, restates the goal, discloses assumptions, lists the decisions you must make, and waits for your approval.
+- `dia-skopos`: before work starts, shows what you asked for as it reads it and the result it takes the work to be for, lists what only you can decide, and asks whether to make the thing you asked for or to work for the result; then waits for your word.
 - `dia-elenchus`: Plato's elenchus. Asks what you mean by a key idea, one question at a time, and shows where your own premises contradict each other. Gives no advice.
 - `dia-quaestio`: Socratic questions one at a time, then options, a comparison by your criteria, a verdict and a brief.
 - `dia-reductio`: strict reductio ad absurdum. Lists every premise with its source and derives a contradiction line by line.
@@ -14,7 +14,7 @@ Thirteen reasoning-and-review skills for Claude, Codex and ChatGPT. Each skill i
 - `dia-ratchet`: repeated review rounds with a round cap; only external checks count as evidence, and what passed is locked.
 - `dia-adjudicate`: rules on reports others wrote about a text (critiques, reviews), checking each point against sources, and lists the verdicts a person should recheck.
 - `dia-regula`: checks or writes text a model will follow (a skill file, a prompt, an agent file) against four rules, so conditions stay with what they gate and each instruction carries its reason.
-- `dia-techne`: deepens a request the way a field's top practitioners would (the outcome it serves, the rawest material, the field's methods, a check by something other than the assistant and you), shows what it changed, and runs it, stopping before any step a backup cannot undo. Starts only by name.
+- `dia-techne`: takes a request to the result it is for, the way a field's top practitioners would: compares the thing you asked for with other ways of getting there, makes what the result needs, and has it checked by something other than the assistant, stopping before any step it could not take back. Starts only by name.
 
 Start a message with `dia` to reach them quickly (`dia-router`): `dia` alone lists them, `dia reductio …` starts one by name, and `dia` followed by your request picks the skill that fits and names it. A request that does not start with `dia` or a skill name starts no skill.
 
