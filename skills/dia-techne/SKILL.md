@@ -4,7 +4,7 @@ description: Deepen and execute a task using expert methods and outside checks. 
 license: MIT
 metadata:
   author: ajitta
-  version: "4.0.0"
+  version: "4.1.0"
   lineage: "new; drafts dia-reprompt 0.1.0 and dia-techne 0.2.0 to 0.5.0 (docs/research/dia-techne.md in the source repository); built on Felix Rieseberg's tutorial 'How to be more ambitious'; method, additions and sources in references/theory.md"
   source: "https://github.com/ajitta/dialectic-skills"
 ---
@@ -43,4 +43,4 @@ Before reporting, test the result against something outside you, if the tools fo
 
 ## The reply
 
-After that opening comes the result, leading with what the user should do or decide; what went beyond the request, marked as such; what the check showed and what still limits the result; and what is left for the user alone. End there.
+After that opening comes the result, leading with what the user should do or decide; what went beyond the request, marked as such; what the check showed and what still limits the result; what is left for the user alone; and last, in one line, which request the work was done for and what has shown the outcome so far, or that it is not yet shown, with how and when it can be checked. End there.

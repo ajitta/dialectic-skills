@@ -4,7 +4,7 @@ description: Confirm the user's goal, assumptions and open decisions before work
 license: MIT
 metadata:
   author: ajitta
-  version: "4.0.0"
+  version: "4.1.0"
   lineage: "confirm-intent (installed copy, unversioned); named dia-intent until plugin 1.0.0, dia-confirm from plugin 1.1.0 to 1.4.0 and dia-intent again until 2.0.0"
   source: "https://github.com/ajitta/dialectic-skills"
 ---
@@ -24,13 +24,11 @@ Write the review to be answered in one reading, and leave out any part that has 
 3. **What you found and what you assume,** kept apart.
 4. **What only the user can decide:** a preference, a trade-off, an authority, a fact no source holds, each with what it changes and the answer you would give.
 5. **The choice,** last. There are two requests the user can give you:
-   - **As asked:** the thing the request names, made as its best practitioner would make it. Say what stays when you are done (files, things that run), anything that would be sent or spent, and any step that cannot be undone with its safeguard.
-   - **For the result:** the result becomes the request. Write it as one sentence the user could have sent. The work is then whatever gets them furthest toward that result from here, so say in a line or two what of the thing asked for it would keep, change or drop, and what it would do about the limit you named. Do not design it further: it is planned when it is approved, and it stops for the user's word before anything is sent or spent or anything that exists is changed.
+   - **As asked:** the thing the request names, made as its best practitioner would make it. Say anything it would send or spend, and any step that cannot be undone with its safeguard.
+   - **For the result:** the result becomes the request. Write it as one sentence the user could have sent. The work is then whatever gets them furthest toward that result from here, so say that the thing asked for becomes one way to it among others and may be changed or replaced. Do not design that work or say what form it will take: it is planned when it is approved, and it stops for the user's word before anything is sent or spent or anything that exists is changed.
 
    Propose the second, unless it would spend the user's money or change something that already exists and that the request does not point to; where the result needs nothing but the thing asked for, say so and offer the one. Then ask for the user's word, and first for the result in their own sentence if yours is not it, because a result they state carries what you cannot know. Say that a bare proceed takes your sentence and that "as asked" keeps to the thing named.
 
 ## Their word
 
 Until the user clearly tells you to proceed, do none of the task: no draft of the deliverable, no change to their files, nothing sent or spent. Praise, a question or silence is not a proceed. A proceed that comes with corrections, or with the user's own sentence for the result, approves the request so corrected, and a bare proceed approves the one you proposed. When the user proceeds, the approved request goes to dia-techne where that skill is available, with what the user said in their own words and without the answers you only suggested. When something found later would widen the approved work or change its goal, hold that part and ask about it only.
-
-When the work is done, say in one line which request it was done for and what has shown the result so far, or that the work is done and the result is not yet shown, with how and when it can be checked.
