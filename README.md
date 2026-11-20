@@ -194,16 +194,16 @@ dia-skopos Write a short speech for my brother's wedding.
 **What a session looks like** (shortened):
 
 > **Assistant:**
-> **1. What you asked for:** "Write a short speech for my brother's wedding." I'd write a 2–3 minute toast for you to give as his sibling. … My reading adds a length, a spoken style and a toast at the end.
-> **2. The result it's for (my guess, since you didn't say):** The couple, especially your brother, should feel that someone who really knows him is speaking. The room should laugh once and feel moved once. … **The main limit:** without real names, stories and details, any speech I write would fit any wedding.
-> **4. What only you can decide or tell me:** names; one or two real stories or traits; tone; limits; length, each with what I'd do without it.
-> **5. The choice.** **As asked:** a polished short toast written here in the chat. … **For the result (my proposal):** "Help me give a toast at my brother's wedding that makes him and his partner feel truly known, gets a laugh and a lump in the throat, and that I can deliver comfortably." …
-> If my sentence doesn't match what you're after, tell me the result in your own words. Replying "proceed" means I'll go with my sentence, and "as asked" means I'll just write the speech.
+> **What I'd make:** a toast you can deliver in about 2–3 minutes … It would mix warmth and light humour, open with who you are, tell one personal story about your brother, welcome his partner, and end with a raised glass. My reading adds that "short" means under 3 minutes spoken and that the tone is mixed. It leaves out formal roles (best man, officiant) unless you hold one. …
+> **The result (my reading):** your brother and his partner feel truly seen and celebrated by you, the room warms to them as a couple, and you stand up feeling confident rather than dreading it. What limits this most is material only you have: real names, a true story, and how comfortable you are speaking in public.
+> **What only you can decide** (with my default): names; a story or two; tone; your role and length limit; anything to avoid.
+> **The choice.** **As asked:** a short wedding speech, as polished as I can make it with what I have. Nothing gets sent or spent. **For the result (proposed):** "Help me give a toast at my brother's wedding that makes him and his partner feel truly celebrated and that I can deliver with confidence." With this, the written speech becomes one way to get there among others. …
+> If my sentence doesn't fit, tell me the result in your own words. A plain "proceed" takes my sentence, and "as asked" keeps to the speech alone.
 >
 > **You:** dia-techne Go ahead. My brother is Minho, marrying Sara; I'm the best man. He taught me to ride a bike, even though he's younger. Warm, one light joke, about 3 minutes. What I'm after is that the room laughs once and Minho is moved.
 >
-> **Assistant:** You … said what you want from it: "the room laughs once and Minho is moved." I wrote it for that. … I considered the usual structure, which is a few separate qualities and stories followed by a toast. Instead, I built the whole speech around the bike story, because that one fact can do both jobs you want: **the laugh** ("Minho is my *younger* brother… No, I won't be taking questions.") and **the moving moment** ("I've got you," which is what he said while holding the bike seat, comes back three times). … You'll only know if it worked on the day itself.
-> *(Recorded on 4.0.0, Claude Opus 5.5.)*
+> **Assistant:** **Outcome I worked toward (yours):** the room laughs once and Minho is moved. I judged everything below by those two moments. … I compared a full script with speaking from bullet-point cue cards. Cue cards can sound more natural, but the line meant to move Minho only works if it's worded exactly right, and nerves tend to blur it. So I wrote the full script. … **The laugh:** the younger brother teaching the older one is the only joke, as you asked. … **The moving moment:** "I've got you" comes back at the end, said back to him. … Whether the room laughs once and Minho is moved can't be known until the wedding; the read-aloud test above is the best check before then.
+> *(Recorded on 4.2.0, Claude Opus 5.5.)*
 
 **Tips**
 

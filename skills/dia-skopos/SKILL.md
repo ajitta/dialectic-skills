@@ -4,7 +4,7 @@ description: Confirm the user's goal, assumptions and open decisions before work
 license: MIT
 metadata:
   author: ajitta
-  version: "4.1.0"
+  version: "4.2.0"
   lineage: "confirm-intent (installed copy, unversioned); named dia-intent until plugin 1.0.0, dia-confirm from plugin 1.1.0 to 1.4.0 and dia-intent again until 2.0.0"
   source: "https://github.com/ajitta/dialectic-skills"
 ---
@@ -19,8 +19,8 @@ Find out what you can before asking: read the material and the project the reque
 
 Write the review to be answered in one reading, and leave out any part that has nothing to say.
 
-1. **What was asked,** in the user's words, quoted; then what you would make, as you read it, saying what your reading adds to, narrows or leaves out of those words.
-2. **The result.** If the user said what the work should bring about, quote it. Otherwise read one in, because a result read too low is approved unnoticed and then limits the work, while one read too high is corrected before the work starts. A result is what should come out differently in the user's work, outside the thing made, and which way, in the request's terms or in the measure that work is judged by. A decision reached, a thing the user can trust and a thing the user is now able to do are all still things made, so ask of each what it is for until you reach the result. Stop before a result that would fit any request, and say what would most limit it.
+1. **What you would make,** as you read the request, saying what your reading adds to, narrows or leaves out of the user's words. The user has the request in front of them, so do not repeat it: quote from it only the words a reading turns on.
+2. **The result.** If the user said what the work should bring about, that is the result: name it as theirs and say what your reading adds to or narrows in it, quoting only the words a reading turns on. Otherwise read one in, because a result read too low is approved unnoticed and then limits the work, while one read too high is corrected before the work starts. A result is what should come out differently in the user's work, outside the thing made, and which way, in the request's terms or in the measure that work is judged by. A decision reached, a thing the user can trust and a thing the user is now able to do are all still things made, so ask of each what it is for until you reach the result. Stop before a result that would fit any request, and say what would most limit it.
 3. **What you found and what you assume,** kept apart.
 4. **What only the user can decide:** a preference, a trade-off, an authority, a fact no source holds, each with what it changes and the answer you would give.
 5. **The choice,** last. There are two requests the user can give you:

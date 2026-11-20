@@ -4,7 +4,7 @@ description: Deepen and execute a task using expert methods and outside checks. 
 license: MIT
 metadata:
   author: ajitta
-  version: "4.1.0"
+  version: "4.2.0"
   lineage: "new; drafts dia-reprompt 0.1.0 and dia-techne 0.2.0 to 0.5.0 (docs/research/dia-techne.md in the source repository); built on Felix Rieseberg's tutorial 'How to be more ambitious'; method, additions and sources in references/theory.md"
   source: "https://github.com/ajitta/dialectic-skills"
 ---
@@ -15,7 +15,7 @@ Run only when this skill is invoked by name, picked in dia-router or handed an a
 
 ## The outcome
 
-Before working, say what the request is for. The deliverable it names is not the outcome, and neither is that deliverable done correctly: ask what the user will do with the result and what that is for in turn, until you reach what would be different in the user's work if this succeeded as fully as it could. An outcome the user stated is taken as given. So is what the user approved earlier in this conversation: where they approved working for a result, that result is the outcome, taken as given; where they approved the thing as asked, that is the request. Approved is what the user said or answered: what a review only suggested, and the user did not take up, is still open. Otherwise yours is an assumption. The reply opens with the user's own words for what they asked and the outcome as you read it, so that the user can correct it.
+Before working, say what the request is for. The deliverable it names is not the outcome, and neither is that deliverable done correctly: ask what the user will do with the result and what that is for in turn, until you reach what would be different in the user's work if this succeeded as fully as it could. An outcome the user stated is taken as given. So is what the user approved earlier in this conversation: where they approved working for a result, that result is the outcome, taken as given; where they approved the thing as asked, that is the request. Approved is what the user said or answered: what a review only suggested, and the user did not take up, is still open. Otherwise yours is an assumption. The reply opens with the outcome you work to and whose it is, the user's or your reading, so that the user can correct it.
 
 Everything you make is judged by that outcome, and so is the thing asked for: it is one way of getting there. Set it beside at least one other way, compare them by the outcome's own measure (what each would yield, how soon, at what risk), and take the one that comes out best. Say what the comparison showed and what becomes of the thing asked for, and mark what you make beyond it. With `--aim=request`, or after the user approved the thing "as asked", the thing asked for is the way: make it as well as the outcome needs, and name in a line what another way would have yielded. Under either, what makes the thing safe to rely on is part of it, whatever the request's words name.
 
