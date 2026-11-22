@@ -4,7 +4,7 @@ description: Examine a definition through classical Socratic dialogue and agreed
 license: MIT
 metadata:
   author: ajitta
-  version: "3.2.0"
+  version: "3.1.0"
   lineage: "socratic-elenchus 1.3.1"
   source: "https://github.com/ajitta/dialectic-skills"
 ---
@@ -106,7 +106,7 @@ Then print the record with all its sections, as plain Markdown, not a code block
 - **To check:** an empirical fact that would settle part of X (counts, costs, who actually comes), given as the fact and not as a plan.
 - **Question to take away:** one question the user can keep working on alone.
 
-The result is exactly one of four labels: **aporia** when at least one definition fell (one revised after a refutation Rule 3 withdrew counts as fallen only if the re-checked conflict still holds) and the user has no definition that has not fallen or the current one is admittedly unclear, even when another label also fits; **holding (provisional)** when the current definition passed at least one real breadth test and one goal or consequence test (the holding bar); **partly tested** when the user stopped after the current definition passed some test but before it met the holding bar; **stopped before testing** when the user stopped while the current definition was still untested, and whenever no definition was ever given. The record's section "What a next definition would have to do" lists each premise that still stands (agreed and not withdrawn) as the condition it sets for a next definition for as long as the user keeps that premise, keeping the user's key words and with its number, and leaves out a premise the user accepted only as what follows from a definition that has since fallen, because that agreement does not outlive the definition; it adds no condition of yours and does not join the conditions into a definition, because the user writes the definition (Step 5). If a filesystem exists and the user asks, save the record where they say, but ask before saving anything personal into a shared repository.
+The result is exactly one of four labels: **aporia** when at least one definition fell (one revised after a refutation Rule 3 withdrew counts as fallen only if the re-checked conflict still holds) and the user has no surviving definition or the current one is admittedly unclear, even when another label also fits; **holding (provisional)** when the current definition passed at least one real breadth test and one goal or consequence test (the holding bar); **partly tested** when the user stopped after the current definition passed some test but before it met the holding bar; **stopped before testing** when the user stopped while the current definition was still untested, and whenever no definition was ever given. The record's section "What a next definition would have to do" lists each premise that still stands (agreed and not withdrawn) as the condition it sets for a next definition for as long as the user keeps that premise, keeping the user's key words and with its number, and leaves out a premise the user accepted only as what follows from a definition that has since fallen, because that agreement does not outlive the definition; it adds no condition of yours and does not join the conditions into a definition, because the user writes the definition (Step 5). If a filesystem exists and the user asks, save the record where they say, but ask before saving anything personal into a shared repository.
 
 ## After the dialogue (not Socratic)
 
