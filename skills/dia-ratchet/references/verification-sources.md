@@ -14,7 +14,7 @@ Which methods count as "external verification" for each type of content. One cri
 | Logical leaps | Build a counterexample as concrete input and check it by calculation or execution | Unverifiable. A counterexample you cannot run is not grounds for an edit; list the leap under Unverified with the counterexample |
 | Style, concision, tone | Compare against criteria the user supplied | Not verifiable. Apply once, in round 1 |
 | Human feedback: requirements, scope, tone, audience, facts about the user's own system, code, or situation | Evidence in itself. If it conflicts with material in the conversation (pasted code, logs, docs), show the conflict before adopting it | - |
-| Human feedback: claims about the world ("I remember it was from 3.6") | Single source. Verify by the method for that content type above, then adopt. If it conflicts with a primary source, show the source and keep the draft. If the user produces a different primary source, that is new evidence | Unverifiable. Keep the draft and note the user's claim alongside it in the unverified list |
+| Human feedback: claims about the world ("I remember it was from 3.6") | Single source. Verify by the method for that content type above, then adopt. If a primary source contradicts it, that source settles the draft's claim like any other defect and is shown in one line. If the user produces a different primary source, that is new evidence | Unverifiable. Keep the draft and note the user's claim alongside it in the unverified list |
 
 ## Judgment log format
 
