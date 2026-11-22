@@ -4,7 +4,7 @@ description: Deepen and execute a task using expert methods and outside checks. 
 license: MIT
 metadata:
   author: ajitta
-  version: "4.2.0"
+  version: "4.2.1"
   lineage: "new; drafts dia-reprompt 0.1.0 and dia-techne 0.2.0 to 0.5.0 (docs/research/dia-techne.md in the source repository); built on Felix Rieseberg's tutorial 'How to be more ambitious'; method, additions and sources in references/theory.md"
   source: "https://github.com/ajitta/dialectic-skills"
 ---

@@ -4,7 +4,7 @@ description: Revise through repeated rounds using external checks and locked res
 license: MIT
 metadata:
   author: ajitta
-  version: "3.0.0"
+  version: "3.0.1"
   lineage: "recursive-refine (installed copy, unversioned), output mode only; named dia-iterate until plugin 1.4.0"
   source: "https://github.com/ajitta/dialectic-skills"
 ---
