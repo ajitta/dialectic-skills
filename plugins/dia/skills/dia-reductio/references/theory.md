@@ -14,7 +14,7 @@ Rescher distinguishes three kinds of untenable result:
 
 Logicians and mathematicians usually mean the first. The other two are looser, attenuated uses (IEP).
 
-**This skill allows only the first** (SKILL.md Rule 1 says how a falsehood or implausibility is made strict).
+**This skill allows only the first** (SKILL.md, The derivation: a consequence that is only unwelcome, implausible or odd is no contradiction unless its denial is among the commitments, and a fact the assistant adds to make it so is its own premise).
 
 ## 2. The logical form
 
@@ -29,7 +29,7 @@ So when the skill proves T by refuting not-T and T is not itself a negation, not
 
 ## 3. Which premise goes
 
-When a set of statements is collectively inconsistent, the reductio shows that they cannot all hold together (IEP, section on "doctrinal annihilation"). Which member to give up is not settled by logic alone; that point comes from Duhem and Quine, not from the IEP entry, and this skill holds classical logic itself fixed. Choosing which to give up is a further judgment about which premises are best supported. That is why the skill presents options and a recommendation instead of a verdict, unless every other premise is a law of logic or mathematics.
+When a set of statements is collectively inconsistent, the reductio shows that they cannot all hold together (IEP, section on "doctrinal annihilation"). Which member to give up is not settled by logic alone; that point comes from Duhem and Quine, not from the IEP entry, and this skill holds classical logic itself fixed. Choosing which to give up is a further judgment about which premises are best supported. That is why the skill does not stop at the contradiction: it puts each way out (a commitment given up, or the position narrowed just far enough) to the same test as the position, says what each way out that passed costs what the position is for, and says which it would take and why, on the evidence there is (SKILL.md, Your judgment).
 
 ## 4. What reductio can be applied to
 
@@ -40,7 +40,7 @@ Rescher lists propositions, sets of propositions (doctrines), modes of reasoning
 - A rule that self-destructs when applied across the board: a will letting the sister pick "any three" valuables, read so that she could take the house, bank account and business and leave the daughter nothing.
 - Kant's universalizability test treats maxims like lying as self-defeating when generalized (IEP's reading).
 
-Applying reductio to a rule or practice still needs a strict contradiction in this skill: the rule's own stated aim or another stated rule must be written as a premise, and the generalized application must contradict it.
+Applying reductio to a rule or practice still needs a strict contradiction in this skill: the rule's own aim or a rule beside it must be among the listed commitments, and the generalized application must contradict it (SKILL.md, The derivation). An aim the assistant reads in, rather than one the target states, is the assistant's own premise, and the contradiction holds only as far as that premise is true.
 
 ## 5. Classic example
 
@@ -57,8 +57,8 @@ Plato used reductio dialectically (IEP cites *Republic* I, 338c–343a and *Parm
 ## 8. Hard cases
 
 - **A local reductio is not an indirect proof.** Euclid's proof that there are infinitely many primes (*Elements* IX.20) is often retold as a proof by contradiction, but it is direct: from any finite list of primes it constructs another. Only one sub-step ("If possible, let it be so … which is absurd") is a reductio, a negation-introduction step (Joyce; Hardy and Woodgold).
-- **A premise that looks like mathematics can be false.** On one reconstruction, Zeno's argument that the parts of a body make it "so large as to be unlimited" assumes that an infinite sum of finite quantities must be infinite; some such sums are finite (SEP, "Zeno's Paradoxes"). A mathematical-sounding premise is [L] only if it is a theorem; otherwise it is [T] if the target stated it (quote it) and [A] if you supplied it, as Zeno's premise is on this reconstruction.
-- **Paradoxes.** For a paradox such as the Liar, the classical result is "premise set inconsistent". Dialetheists hold that some such contradictions are true, and paraconsistent logics keep a contradiction from implying everything (SEP); this skill holds classical logic fixed.
+- **A premise that looks like mathematics can be false.** On one reconstruction, Zeno's argument that the parts of a body make it "so large as to be unlimited" assumes that an infinite sum of finite quantities must be infinite; some such sums are finite (SEP, "Zeno's Paradoxes"). A mathematical-sounding premise is given by logic or arithmetic only if it is a theorem; otherwise it is said by the target (quote it) or added by you, as Zeno's premise is on this reconstruction, and a contradiction that goes through it holds only as far as it is true (SKILL.md, The derivation).
+- **Paradoxes.** For a paradox such as the Liar, the classical result is that the premise set is inconsistent. Dialetheists hold that some such contradictions are true, and paraconsistent logics keep a contradiction from implying everything (SEP); this skill holds classical logic fixed.
 
 ## Sources
 

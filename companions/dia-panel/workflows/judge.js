@@ -1,7 +1,7 @@
 export const meta = {
   name: 'judge',
   description: 'Judge reports that reviewers or agents already wrote about a document: dia-adjudicate twice in separate agents, with the reports in two orders, then the verdicts that differ',
-  whenToUse: 'When reports about a document exist (from review agents, another assistant or people) and need a ruling. Use this instead of starting one dia-adjudicate agent yourself: it makes the two runs and the comparison that dia-adjudicate asks its caller for. args: {target: "path/to/doc.md", reports: ["path/to/report-1.md", "path/to/report-2.md"], claim: "optional conclusion to judge"}. A report held in memory: {text: "..."} in place of a path. Several documents: targets: [...] with claim.',
+  whenToUse: 'When reports about a document exist (from review agents, another assistant or people) and need a ruling. Use this instead of starting one dia-adjudicate agent yourself: it makes the two runs and the comparison that a judge inside an agent often cannot start itself. args: {target: "path/to/doc.md", reports: ["path/to/report-1.md", "path/to/report-2.md"], claim: "optional conclusion to judge"}. A report held in memory: {text: "..."} in place of a path. Several documents: targets: [...] with claim.',
   phases: [{ title: 'Judge' }, { title: 'Compare' }],
 }
 
@@ -51,7 +51,7 @@ const targetText = targets.length === 1
 const claim = a.claim ? ` The conclusion to judge: "${a.claim}".` : ''
 
 // Two fixed orders (Math.random is not available in workflows): the caller's order and its reverse, a counterbalance, not a random shuffle.
-// Reports carry letters, not R numbers, because dia-adjudicate relabels its reports R1..Rn itself.
+// Reports carry letters, not R numbers, so that a judge's own labels (if it gives any) cannot be confused with the caller's.
 const order1 = reports.map((_, i) => i)
 const order2 = [...order1].reverse()
 const name = idx => reports[idx].path || `report ${idx + 1} as given`
@@ -87,7 +87,7 @@ if (okJudges < 2) {
     differences_and_must_check: null,
     note: okJudges === 0
       ? 'Neither dia-adjudicate run returned, so there is no ruling. Start the workflow again.'
-      : 'Only 1 of 2 dia-adjudicate runs returned, so no comparison was made. Run dia-adjudicate again on the reports in a separate agent, then compare the two runs (dia-adjudicate, Running twice).',
+      : 'Only 1 of 2 dia-adjudicate runs returned, so no comparison was made. Run dia-adjudicate again on the reports in a separate agent, then compare the two runs (dia-adjudicate, Where the ruling may be wrong).',
   }
 }
 
@@ -95,11 +95,11 @@ phase('Compare')
 const [diff] = await parallel([() => agent(
   `Two independent runs of dia-adjudicate judged the same reports on ${targetText}. ` +
   `The caller gave the reports letters: run 1 ${JSON.stringify(mapOf(order1))}, run 2 ${JSON.stringify(mapOf(order2))}. ` +
-  `Each run may relabel the reports again (R1, R2, ...); its Inputs line maps its labels to the letters. ` +
+  `Each run may relabel the reports again (R1, R2, ...); its opening lines say what it took as each report. ` +
   `Match report items by report (not by any label) and claims in the target by their place in it. ` +
   `List every item whose verdict differs between the runs, with both verdicts and their stated basis, ` +
-  `then the union of both must-check lists, then the whole of each run's "What the verdicts leave of C" section, word for word (every line of it, its list and its counts included), ` +
-  `and whether the two give the same outcome for C (say so if a run has no such section). Do not judge the items yourself.\n\n` +
+  `then the union of both runs' lists of where the ruling may be wrong, then each run's statement of what its rulings leave of the target's conclusion, word for word (every line of it), ` +
+  `and whether the two give the same outcome for the conclusion (say so if a run gives no such statement). Do not judge the items yourself.\n\n` +
   `## Run 1\n\n${judged[0]}\n\n## Run 2\n\n${judged[1]}`,
   { label: 'compare', phase: 'Compare' })])
 
@@ -107,6 +107,6 @@ return {
   ...result,
   differences_and_must_check: diff,
   note: diff
-    ? 'Report every item on which the two runs differ, and the must-check list, to the person who decides, together with each run\'s line on what its verdicts leave of C. The differing verdicts have not been checked against the sources: check each against the source it rests on before relying on it, and say which reading is your own (dia-adjudicate, Running twice).'
-    : 'The comparison agent returned nothing. Compare the two judge runs above yourself, and check each verdict that differs against the source it rests on (dia-adjudicate, Running twice).',
+    ? 'Report every item on which the two runs differ, and the lists of where the ruling may be wrong, to the person who decides, together with each run\'s statement of what its rulings leave of the target\'s conclusion. The differing verdicts have not been checked against the sources: check each against the source it rests on before relying on it, and say which reading is your own (dia-adjudicate, Where the ruling may be wrong).'
+    : 'The comparison agent returned nothing. Compare the two judge runs above yourself, and check each verdict that differs against the source it rests on (dia-adjudicate, Where the ruling may be wrong).',
 }

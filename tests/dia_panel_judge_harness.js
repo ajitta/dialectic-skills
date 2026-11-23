@@ -42,7 +42,7 @@ const ok = (cond, name, extra) => { if (!cond) { fails++; console.log('FAIL', na
   ok(j1.prompt.includes('The conclusion to judge: "X holds"') && j1.prompt.includes('the document doc.md'), '1 target and claim reach the judge')
   ok(j1.prompt.includes("in the skill's own layout.") && !/table|schema|format wins/i.test(j1.prompt), '1 asks for the skill layout and fixes no format')
   ok(cmp.prompt.includes('OUT[judge:1]') && cmp.prompt.includes('OUT[judge:2]') && cmp.prompt.includes('"report":"r3.md"'), '1 compare gets both outputs and the maps')
-  ok(cmp.prompt.includes('"What the verdicts leave of C" section, word for word') && cmp.prompt.indexOf('leave of C') < cmp.prompt.indexOf('Do not judge the items yourself'), '1 compare is asked for both lines on what the verdicts leave of C')
+  ok(cmp.prompt.includes("statement of what its rulings leave of the target's conclusion, word for word") && cmp.prompt.indexOf("leave of the target's conclusion") < cmp.prompt.indexOf('Do not judge the items yourself'), '1 compare is asked for both statements of what the rulings leave of the conclusion')
   ok(r.out.differences_and_must_check === 'OUT[compare]' && r.out.judge_runs.length === 2 && r.out.judge_runs[1].map[0].report === 'r3.md', '1 result shape', r.out)
   ok(/have not been checked against the sources/.test(r.out.note), '1 note tells the caller to check')
   ok(r.calls.every(c => !/OUT\[judge:[12]\]/.test(c.prompt) || c.opts.label === 'compare'), '1 no judge sees the other run')
@@ -116,7 +116,7 @@ const ok = (cond, name, extra) => { if (!cond) { fails++; console.log('FAIL', na
 
   // 14. the note on a complete run
   r = await run({ target: 'doc.md', reports: ['a.md', 'b.md'] })
-  ok(/Report every item on which the two runs differ, and the must-check list/.test(r.out.note), '14 the note asks for every differing item and the must-check list')
+  ok(/Report every item on which the two runs differ, and the lists of where the ruling may be wrong/.test(r.out.note), '14 the note asks for every differing item and the lists of where the ruling may be wrong')
 
   // 9. too many reports
   r = await run({ target: 'doc.md', reports: Array.from({ length: 27 }, (_, i) => `r${i}.md`) })

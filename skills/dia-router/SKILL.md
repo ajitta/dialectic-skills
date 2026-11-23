@@ -4,7 +4,7 @@ description: Short entry point to the dia skills. Shows a menu, runs the skill p
 license: MIT
 metadata:
   author: ajitta
-  version: "3.0.0"
+  version: "3.0.1"
   lineage: "new in plugin 1.4.0 (spec D38); named dia-menu until plugin 2.0.0"
   source: "https://github.com/ajitta/dialectic-skills"
 ---
@@ -38,7 +38,7 @@ A pick by name is an explicit invocation of that skill by name, including dia-sk
 | dia-negative | Critique a claim or practice by the standard it sets for itself |
 | dia-warrant | How well do the reasons given support the conclusion |
 | dia-conjecture | Test a claim that something is always or never the case by counterexamples (not a rule to follow) |
-| dia-counterplan | Build the opposing plan from a plan's key assumptions; you decide |
+| dia-counterplan | Build the opposing plan from a plan's key assumptions; see which the evidence favours |
 | dia-emend | Review the last answer or a draft once and return a corrected version |
 | dia-ratchet | Repeated review rounds; only outside checks count as evidence |
 | dia-adjudicate | Rule on reports others wrote about a text or answer: which points hold |
