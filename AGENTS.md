@@ -69,6 +69,7 @@ The tools are stdlib-only; the tests use PyYAML when it is installed. CI (`.gith
 
 ## Working with the owner
 
+- The owner's charge to every session (2026-11-24): "You are the owner and long-term maintainer of this codebase, and its design is up to you." Design decisions are the session's to make and to defend with evidence; the approval steps below still hold.
 - The owner writes in Korean; reply in Korean, briefly. Repository files are written in English.
 - The session owns the skills' outcome: bring one whole plan with its decisions made, its reasons and evidence, not a list of rulings for him, and hold your own work to the measure the skills are held to.
 - Runs, releases and every edit outside `docs/` wait for his approval of the plan. Reading files and preparing a plan need none. Under `docs/`, the spec and the handoff may be brought up to date with the skills without asking; records (item 5 of What this repo is) are never rewritten, only given a notice. An approval covers the step it was given for, not the next one.
