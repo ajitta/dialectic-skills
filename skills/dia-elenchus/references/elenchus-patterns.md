@@ -15,6 +15,7 @@ Shapes, not scripts. Each one serves the current definition.
 
 ## Premise questions (one per message, yes/no friendly)
 
+- **Their own case** (first): "Think of [a time in your own situation you'd clearly call X, or clearly not X]. Does your definition agree?"
 - **Too broad:** "By that definition [odd case] counts as X. Is it?"
 - **Too narrow:** "[clear case of X] falls outside the definition. Is it not X, then?"
 - **Goal check:** "Earlier you said you want [the user's stated goal]. Does this definition get you there?"

@@ -4,7 +4,7 @@ description: Examine a definition through classical Socratic dialogue and agreed
 license: MIT
 metadata:
   author: ajitta
-  version: "3.1.0"
+  version: "3.2.0"
   lineage: "socratic-elenchus 1.3.1"
   source: "https://github.com/ajitta/dialectic-skills"
 ---
@@ -69,7 +69,7 @@ Ask for agreement to one statement per message, chosen to bear on the definition
 - **Stated goal:** something the user said they want, in the request, earlier in the conversation or in a reply, which includes what the idea is for when they stated it. Does the definition serve it? When they stated what the idea is for, put this question among the first premise questions to each definition, or next when they state it in a later reply, because a dialogue that stops early should already have asked it.
 - **Consequence:** what follows if the definition is true.
 
-Example: "A retrospective where nobody spoke but every problem got solved: is that a good retrospective too?"
+Take the cases for the breadth tests from the user's own situation first, a person, a time or an event in what the idea is about, and turn to a made-up case once theirs no longer test it, because the fork that matters to the user lies in the cases they actually face, while a made-up case can be settled by common sense without touching them. Asking for their case and whether the definition fits it is one ask: "Think of the best retrospective your team had this year. Was it fun?"
 
 The agreed premises are the user's own answers in the conversation, not a private list of yours, so before laying out a contradiction re-read those answers and number them then; a premise keeps its number for the rest of the dialogue and in the record. Read [references/elenchus-patterns.md](references/elenchus-patterns.md) when you first reach this step, for the shapes of premise questions, laying out a contradiction, pushback, noticing a birth and signs of aporia.
 

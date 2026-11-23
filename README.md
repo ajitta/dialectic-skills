@@ -246,6 +246,7 @@ dia elenchus I think a good teacher is one whose students get high test scores.
 **Tips**
 
 - Short, honest answers work best. "I'm not sure" is a fine answer.
+- It asks first for cases from your own situation (your team, your last month, the people involved). Real cases are where it finds the most; it turns to made-up ones when yours no longer test the definition.
 - When it points out a "shift", it is only showing you how your wording changed. You decide what to keep.
 - Say "stop" at any time to get the record. If you then want suggestions, ask; the assistant will say the Socratic part is over and label its ideas as its own.
 
