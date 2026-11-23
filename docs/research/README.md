@@ -1,5 +1,7 @@
 # Research
 
+**Record.** Written against plugin 0.1.0; dia-intent became dia-skopos, dia-brainstorm dia-quaestio, dia-refine dia-emend, dia-iterate dia-ratchet, dia-instruct dia-regula and dia-menu dia-router (D39, D56), and every skill has been rewritten since. Its proposals and open items are history, not a work list.
+
 One document per skill: the method in its primary sources, relevant LLM research, a fidelity audit of the skill text, its lineage from `upstream/`, risks per surface, and numbered proposals. Written 2026-10-20 against plugin `dia` 0.1.0 (`main` at `cae2e4d`), so line references point at that tree. Each document was then checked by an independent reviewer (all seven verdicts: sound with fixes); the reports are in [review/](review/). Where a review corrects a document, the review wins.
 
 | Skill | Document | Sources | Findings (high) |

@@ -1,5 +1,7 @@
 # Token cost
 
+**Record.** The figures are for plugin 1.x to 2.3.0, under former names (dia-intent became dia-skopos, dia-brainstorm dia-quaestio, dia-refine dia-emend, dia-iterate dia-ratchet, dia-instruct dia-regula and dia-menu dia-router (D39, D56)). The descriptions and bodies have changed since, and the cost has not been measured again.
+
 Measured 2026-10-20. Two trees: `main` at `1b3f139` (D22 text) and the D23 batch (`6882022`, the remaining low research findings after their diff review), called "D23" below. The old skills (`upstream/`) are the baseline.
 
 ## Method

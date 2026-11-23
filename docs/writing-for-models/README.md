@@ -4,7 +4,9 @@ Work folder of branch `writing-for-models`, at `docs/writing-for-models/`: the r
 draft became the `dia-instruct` skill, and its A/B on `dia-adjudicate`. Read this file
 first; the decision history is in `SESSION.md`. Nothing here is shipped.
 
-## Start here (next session)
+**Record, not instructions.** The branch closed in 1.6.0 (2026-10-28); `dia-instruct` is now `dia-regula`, the branch no longer exists, and the work items below are closed or replaced. The A/B rules below apply to records in this folder; the rules for runs now are in `AGENTS.md` § Probes and evals.
+
+## State of the branch when it closed
 
 Merged to `main` in plugin 1.6.0 (2026-10-28), together with `adjudicate-ratchet` and
 `intent`; see `docs/handoff.md`, State. The owner's rulings on the items below are recorded
@@ -152,7 +154,7 @@ case re-run at 12 or more runs) 1.1.0 stands (spec D48).
 | 4 | Check the B-arm downgrades by hand: done in round 4 | — | Read why B judges capped F1 at "partly valid" in r3-01/08/12: real condition-fit reasoning or noise. Full replies were not kept, so this needs new runs. |
 | 5 | Review findings left unchanged (2026-10-28 review of dia-instruct) | owner | On text from the reviewed draft, so not changed under the skill's own step 2: (a) step 1 does not say outright that, with no eval at all, a meaning change stays only if the user accepts it as unmeasured, and "unless a repository rule asks for more" attaches to no clear clause; (b) step 2 does not say whether a fix needs another review before the change is finished; (c) "Replies are in the user's language" could be read to cover a skill file written for a Korean user, against this repository's English-only and no-Hangul rules; (d) "a general-purpose sub-agent" uses one host's agent-type name, and the description names CLAUDE.md. Routing risks for the probes (`docs/handoff.md` item 27): dia-refine's description has no border toward dia-instruct, so "recheck my draft system prompt" may go there; routine edits such as "add the test command to CLAUDE.md" may load dia-instruct and its review step. |
 
-## How to resume
+## How the branch was resumed (record)
 
 1. `git checkout writing-for-models`, then read this file, `SESSION.md` and
    `ab-dia-adjudicate/README.md`.
