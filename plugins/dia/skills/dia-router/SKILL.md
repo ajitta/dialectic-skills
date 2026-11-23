@@ -4,7 +4,7 @@ description: Short entry point to the dia skills. Shows a menu, runs the skill p
 license: MIT
 metadata:
   author: ajitta
-  version: "3.0.1"
+  version: "3.0.2"
   lineage: "new in plugin 1.4.0 (spec D38); named dia-menu until plugin 2.0.0"
   source: "https://github.com/ajitta/dialectic-skills"
 ---
@@ -31,7 +31,7 @@ A pick by name is an explicit invocation of that skill by name, including dia-sk
 
 | Skill | For |
 |---|---|
-| dia-skopos | Restate the goal, assumptions and open decisions before work starts |
+| dia-skopos | Before work: your request as read and the result it is for; you choose which to do |
 | dia-quaestio | Think an idea through with questions, poke holes in it, end with options and a plan |
 | dia-elenchus | Socratic dialogue: test a definition or belief against your own other beliefs |
 | dia-reductio | Proof by contradiction: does a position hold together or follow from its premises |
