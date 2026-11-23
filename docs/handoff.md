@@ -7,7 +7,7 @@ The current state and what is open, for the next session. Each fact is stated on
 - Plugin `dia` 5.1.1: tag `v5.1.1` on `main` at `5c83adb` (pull request #124, spec D121, probes Parts CD and CE). Release assets match the committed zips (sha256). 5.1.0 (`v5.1.0`, #121, D120) is the release before it.
 - Skill versions: dia-adjudicate, dia-conjecture, dia-counterplan, dia-reductio 4.0.0; dia-warrant 4.0.1; dia-skopos 4.2.0; dia-techne 4.2.1; dia-elenchus, dia-quaestio, dia-regula 3.1.0; dia-negative 3.1.1; dia-router 3.0.2; dia-emend, dia-ratchet 3.0.1.
 - Companion `dia-panel` 0.5.0: tag `dia-panel--v0.5.0` at `694f159` (unchanged since).
-- Last decision row D121, last probes part CE. **Next free: D122 and Part CF.**
+- Last decision row D121, last probes part CF. **Next free: D122 and Part CG.**
 - OpenAI zip on chatgpt.com: the last upload recorded is 4.1.0; the 5.1.1 zip (which carries 5.1.0's new sample prompts) is the owner's to upload.
 
 ## Open
@@ -15,7 +15,7 @@ The current state and what is open, for the next session. Each fact is stated on
 Each waits for the owner's approval of a plan before any run or edit.
 
 - **claude-fable-5-2 on the five 4.0.0 texts:** one cell each on a task that exists, 5 runs, when the owner says Fable is available.
-- **dia-elenchus against the plain model (Part CE):** the measure is ruled (AGENTS.md § Judging a skill). dia-quaestio beat the plain model 2 of 2 on its task and stays. dia-elenchus was mixed: it lets the user find the fork herself, but asks only about made-up cases and never about the user's own situation, so her facts surfaced only from its record. The owner approved preparing a plan to remake it from its purpose with that cause in view (2026-11-24); the plan comes next.
+- **dia-elenchus 3.2.0 candidate (Parts CE, CF):** dia-quaestio stays (ahead of the plain model 2 of 2, Part CE). The dia-elenchus candidate takes its test cases from the user's own situation first; where it did (3 runs of 4) it ranked first on both tasks, but one run used made-up cases as 3.1.0 does and ranked last, so the rule fixed before the runs is not met. Candidate in `C:/Users/ajitta/work/dia-probes/elenchus-cand-2026-11-24/cand/`; the next step waits for the owner.
 - **Reported and left in the repository:** none since D121, which ruled the list D119 left (README examples recorded again, the dia-conjecture figures, dia-warrant's theory source fixed, dia-adjudicate's doubt closed with no change, the review-panel figures kept, dia-panel run whole once).
 - **Held back:** one run of the pilot's A/B request with the end stated and no skill, beside the floor reply (`outcome-pilot-2026-11-19/out/e-abtest-chain-run1-turn2.md`).
 - **Directory listings (owner's):** the account steps in `docs/directory-submission.md` § Owner steps.
