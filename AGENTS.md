@@ -11,7 +11,7 @@ What is true, in this order:
 1. `skills/*/SKILL.md` and their `references/` define what each skill does. Nothing else does.
 2. `plugin-manifest.json`, `packaging/`, `tools/package.py` and `tests/` define the package and what is enforced.
 3. `docs/handoff.md` (top section) holds the current state, the open items and the next free decision and probe numbers.
-4. `docs/spec.md` is the decision record: why things are as they are. Where it disagrees with 1 or 2, the skill or the code holds and the spec is corrected. Search it for earlier rulings on a topic (grep with several synonyms, including "not done", "dropped", "declined"); do not read it whole.
+4. `docs/spec.md` holds the package rules in force (§4 names, §6 language, §7 package format, §8 layout; read the section before changing descriptions, references or packaging) and the decision record (§3): why things are as they are. Where it disagrees with 1 or 2, the skill or the code holds and the spec is corrected. Search §3 for earlier rulings on a topic (grep with several synonyms, including "not done", "dropped", "declined"); do not read it whole.
 5. `docs/probes.md`, `docs/skill-effect.md`, `docs/token-cost.md`, `docs/research/`, `docs/writing-for-models/` and `docs/history/` are records of past versions. They are evidence about the text they measured, not instructions and not a description of the current skills.
 
 ## Commands
@@ -31,7 +31,7 @@ The tools are stdlib-only; the tests use PyYAML when it is installed. CI (`.gith
 - Skill text stays assistant-neutral: write "you" or "the assistant", not a product name, and make every tool use conditional ("if a search tool is available"). No references to other projects or their commands.
 - `upstream/` is read-only provenance. Never edit it; its SHA-256 values in `upstream/README.md` must stay valid. It is never shipped, and it is not a baseline for current behaviour.
 - The shipped package (`plugins/dia/`, both zips in `releases/`) is instructions only: Markdown, YAML, JSON and the listing images. No scripts, hooks, binaries, MCP or LSP config.
-- No Hangul in `skills/`, `packaging/`, manifests or `plugins/` (`tools/package.py` allows it only under `skills/<skill>/references/ko/`, which no skill uses now). The README translations (`README.ko.md`, `README.ja.md`, `README.zh-CN.md`) and the owner's quoted words in `docs/` are the exceptions.
+- No Hangul in `skills/`, `packaging/`, manifests or `plugins/` (`tools/package.py` allows it only under `skills/<skill>/references/ko/`, which no skill uses now). The README translations (`README.ko.md`, `README.ja.md`, `README.zh-CN.md`) and, in `docs/`, the owner's words and the verbatim prompts and outputs of runs are the exceptions.
 - When `README.md` changes, update the three translations in the same commit; `tests/test_package.py` checks that they keep its structure.
 - `plugins/dia/` and `releases/` are generated from `skills/`, `plugin-manifest.json` and `packaging/`. Edit the source, then regenerate; never hand-edit generated output.
 - Changing any shipped file (a skill file or `packaging/`) requires a new plugin `version` in `plugin-manifest.json`, and a changed skill also needs a new `metadata.version`.
@@ -70,5 +70,6 @@ The tools are stdlib-only; the tests use PyYAML when it is installed. CI (`.gith
 
 - The owner writes in Korean; reply in Korean, briefly. Repository files are written in English.
 - The session owns the skills' outcome: bring one whole plan with its decisions made, its reasons and evidence, not a list of rulings for him, and hold your own work to the measure the skills are held to.
-- Runs, edits to a skill or to `packaging/`, and releases wait for his approval of the plan. Reading files and preparing a plan need none, and documentation under `docs/` may be brought up to date with the skills without asking. An approval covers the step it was given for, not the next one.
+- Runs, releases and every edit outside `docs/` wait for his approval of the plan. Reading files and preparing a plan need none. Under `docs/`, the spec and the handoff may be brought up to date with the skills without asking; records (item 5 of What this repo is) are never rewritten, only given a notice. An approval covers the step it was given for, not the next one.
+- A fact only the owner holds (a preference, an account step, what he observed) is asked, not guessed.
 - When he says a reply of his is not yet a decision, ask him to confirm wherever your judgment differs from it.

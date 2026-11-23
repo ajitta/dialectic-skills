@@ -24,12 +24,12 @@ Each waits for the owner's approval of a plan before any run or edit.
 ## Where the work is
 
 - Probe batches and their records are on the owner's PC under `C:/Users/ajitta/work/dia-probes/`. The latest is `verify-six-2026-11-20/` (`REMAKE.md`; `run_six.py`; the task method in `newtasks/`; `gen_requests.py` has the simulated user write first messages).
-- Runs load `plugins/dia` from the main checkout `C:/Users/ajitta/Repos/ajitta/dialectic-skills`. `run_six.py` stops unless the checkout is on `main` with no changes under `plugins/` (`DIA_ALLOW_BRANCH=1` overrides): edit on a branch, return to `main` before a run.
+- `run_six.py` loads `plugins/dia` from the main checkout `C:/Users/ajitta/Repos/ajitta/dialectic-skills` and stops unless it is on `main` with no changes under `plugins/`, so a run on `main` tests the released build. To check a branch build, stay on the branch and set `DIA_ALLOW_BRANCH=1` (or point `--plugin-dir` at that branch's `plugins/dia`), and confirm in the run's events which text loaded.
 
 ## How a run is set up (Claude Code)
 
 - `claude -p` with `--plugin-dir <absolute path to plugins/dia>`, `--model claude-opus-5-5 --effort medium`, `--output-format stream-json --verbose`, started in an empty folder outside the repository (at the repository root `CLAUDE.md` loads `AGENTS.md`, which confounds routing and language).
-- Every run gets a fresh `CLAUDE_CONFIG_DIR` holding only a copy of `.credentials.json`, deleted afterwards; check `out/` for `cfg-*` folders after a crash. Set `ENABLE_CLAUDEAI_MCP_SERVERS=false`. The account's plugins and skills sync into a run's config during a turn: remove `<config>/plugins/synced` and `<config>/skills/synced` before each resumed turn, and discard a run whose `system/init` event lists an `@synced` plugin.
+- Every run gets a fresh `CLAUDE_CONFIG_DIR` holding only a copy of `.credentials.json`, deleted afterwards; check `out/` for `cfg-*` folders after a crash. Set `ENABLE_CLAUDEAI_MCP_SERVERS=false`. The account's plugins and skills sync into a run's config during a turn: remove `<config>/plugins/synced` and `<config>/skills/synced` before each resumed turn, and discard a run whose `system/init` event, in any turn, lists an `@synced` plugin.
 - Never run on the home configuration: its hook `~/.claude/hooks/dia-lab-before.py` changes how dia skills start.
 - Reference files: with the plugin outside the working folder, a skill's `Read` of its `references/` file is denied (probes Part AL). dia-elenchus, dia-quaestio, dia-ratchet and dia-regula read references in ordinary runs; for those, pass `--add-dir` with a copy of `plugins/dia` outside the repository (never the repository folder, which shows the repository to the run) and check in the events that the read succeeded.
 - A resumed `claude -p` reports cost cumulatively; tool-less runs use `--tools Skill`; cells that act on files need `--max-turns` 12 or more.

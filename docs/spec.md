@@ -321,7 +321,7 @@ policy:
 - OpenAI manifest: only in `releases/dialectic-skills-openai.zip`, as `.codex-plugin/plugin.json`, generated from `plugin-manifest.json` and `packaging/openai/interface.json` (D32). `plugins/dia/` carries no portable root `plugin.json`; Codex and ChatGPT desktop load it through the marketplace (P3).
 - `.claude-plugin/marketplace.json` at the repository root:
   - `name: dialectic-skills`;
-  - one plugin entry `dia` with source `./plugins/dia`.
+  - two plugin entries: `dia` with source `./plugins/dia`, and the companion `dia-panel` with source `./companions/dia-panel` (D69).
   - ChatGPT desktop reads this file as a legacy-compatible marketplace (same OpenAI page).
 
 ### 7.5 Source folders stay plain skills
@@ -371,7 +371,9 @@ A one-time step of 1.0.0: the material the first skills were rebuilt from was im
 
 ## 12. Verification and acceptance
 
-### 12.1 Build checks (`tools/package.py --check`, run in CI and before each release)
+### 12.1 Build checks
+
+`tools/package.py --check` runs the checks below except the two marked *tests* (in `tests/test_package.py`) and the one marked *CI* (`.github/workflows/check.yml`); run all three before a release.
 
 - Allowed and forbidden frontmatter keys (§7.2). `name` matches the folder. Description length.
 - No skill name is a prefix of another (§4).
@@ -380,9 +382,9 @@ A one-time step of 1.0.0: the material the first skills were rebuilt from was im
 - `plugins/dia/` and both zips in `releases/` match the source byte for byte. Reproducible zip: fixed timestamps, modes and `create_system`, LF line endings, and stored entries (D15).
 - Version rule: changed skill files under an unchanged plugin `version` fail. This is the `plugin-release.json` digest rule carried over from `superclaude`. Claude Code updates an installed plugin only when its version changes.
 - Cross-references: every skill name mentioned exists, and no former name is used. No skill file offers a menu number after `dia`, and the READMEs and the site show no retired way to name a skill (D77).
-- Every description carries its gate sentence (§7.2), and the README translations keep `README.md`'s structure (D31).
+- *Tests:* every description carries its gate sentence (§7.2), and the README translations keep `README.md`'s structure (D31).
 - `companions/dia-panel` has the same version in its `plugin.json` and its marketplace entry.
-- `claude plugin validate --strict plugins/dia` passes.
+- *CI:* `claude plugin validate --strict plugins/dia` passes.
 
 ### 12.2 Probes and runs
 
