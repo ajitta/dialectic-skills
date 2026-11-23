@@ -4,11 +4,11 @@ The current state and what is open, for the next session. Each fact is stated on
 
 ## Released (2026-11-24)
 
-- Plugin `dia` 5.1.1: tag `v5.1.1` on `main` at `5c83adb` (pull request #124, spec D121, probes Parts CD and CE). Release assets match the committed zips (sha256). 5.1.0 (`v5.1.0`, #121, D120) is the release before it.
-- Skill versions: dia-adjudicate, dia-conjecture, dia-counterplan, dia-reductio 4.0.0; dia-warrant 4.0.1; dia-skopos 4.2.0; dia-techne 4.2.1; dia-elenchus, dia-quaestio, dia-regula 3.1.0; dia-negative 3.1.1; dia-router 3.0.2; dia-emend, dia-ratchet 3.0.1.
+- Plugin `dia` 5.2.0: tag `v5.2.0` on `main` at `2d7c634` (pull request #128, spec D122, probes Part CF). Release assets match the committed zips (sha256). The tag message says "ahead of 3.0-series dia-elenchus" where it means 3.1.0; the GitHub release notes were corrected, the tag was left. 5.1.1 (`v5.1.1`, #124, D121) is the release before it.
+- Skill versions: dia-adjudicate, dia-conjecture, dia-counterplan, dia-reductio 4.0.0; dia-warrant 4.0.1; dia-skopos 4.2.0; dia-techne 4.2.1; dia-elenchus 3.2.0; dia-quaestio, dia-regula 3.1.0; dia-negative 3.1.1; dia-router 3.0.2; dia-emend, dia-ratchet 3.0.1.
 - Companion `dia-panel` 0.5.0: tag `dia-panel--v0.5.0` at `694f159` (unchanged since).
 - Last decision row D122, last probes part CF. **Next free: D123 and Part CG.**
-- OpenAI zip on chatgpt.com: the last upload recorded is 4.1.0; the 5.1.1 zip (which carries 5.1.0's new sample prompts) is the owner's to upload.
+- OpenAI zip on chatgpt.com: the last upload recorded is 4.1.0; the 5.2.0 zip (which carries 5.1.0's new sample prompts) is the owner's to upload.
 
 ## Open
 
