@@ -5,14 +5,14 @@ Thirteen reasoning-and-review skills for Claude, Codex and ChatGPT. Each skill i
 - `dia-skopos`: before work starts, shows what you asked for as it reads it and the result it takes the work to be for, lists what only you can decide, and asks whether to make the thing you asked for or to work for the result; then waits for your word.
 - `dia-elenchus`: Plato's elenchus. Asks what you mean by a key idea, one question at a time, and shows where your own premises contradict each other. Gives no advice.
 - `dia-quaestio`: Socratic questions one at a time, then options, a comparison by your criteria, a verdict and a brief.
-- `dia-reductio`: strict reductio ad absurdum. Lists every premise with its source and derives a contradiction line by line.
+- `dia-reductio`: holds a position against its own commitments. Lists what it relies on, including what nobody said, derives any strict contradiction line by line, tests each way out and says which it would take.
 - `dia-negative`: internal critique. Holds a claim to its own standard and shows where it falls short, with cases.
-- `dia-warrant`: lays out an argument's claim, data and warrant (Toulmin) and tests the warrant with critical questions. Says which link is weakest, not whether the claim is true.
-- `dia-conjecture`: tests a claim of the form "all X are Y" by counterexamples, one at a time; you rule on each and repair the claim (Lakatos).
-- `dia-counterplan`: builds the opposing plan from your plan's key assumptions and asks which assumptions you now hold. Gives no verdict.
+- `dia-warrant`: finds the unstated rule that carries an argument from its reasons to its conclusion (Toulmin), tests it with critical questions and the exceptions nobody looked at, and says how far the conclusion can be relied on for what it has to carry.
+- `dia-conjecture`: tests a claim of the form "all X are Y" against cases, finds the condition it needs and does not state, and says whether the claim and the decision built on it stand (Lakatos).
+- `dia-counterplan`: builds the opposing plan from your plan's key assumptions, says which of the two the evidence favours now and what observation would decide.
 - `dia-emend`: one review pass over an answer or draft. Fixes only defects with a confirmed basis.
 - `dia-ratchet`: repeated review rounds with a round cap; only external checks count as evidence, and what passed is locked.
-- `dia-adjudicate`: rules on reports others wrote about a text (critiques, reviews), checking each point against sources, and lists the verdicts a person should recheck.
+- `dia-adjudicate`: rules on reports others wrote about a text (critiques, reviews), checking each point against sources; says what no report raised, what the rulings leave of the conclusion, and where its own ruling may be wrong.
 - `dia-regula`: checks or writes text a model will follow (a skill file, a prompt, an agent file) against four rules, so conditions stay with what they gate and each instruction carries its reason.
 - `dia-techne`: takes a request to the result it is for, the way a field's top practitioners would: compares the thing you asked for with other ways of getting there, makes what the result needs, and has it checked by something other than the assistant, stopping before any step it could not take back. Starts only by name.
 

@@ -168,7 +168,8 @@ class TestRules(unittest.TestCase):
                 self.assertIn(part, text, path.name)
             self.assertIn("Do not judge the items yourself.", text, path.name)
             # 0.4.0: the comparison also gives each run's line on what its verdicts leave of C
-            self.assertIn('"What the verdicts leave of C" section, word for word', text, path.name)
+            # 0.5.0 (dia-adjudicate 4.0.0, which prints no fixed sections): each run's statement, word for word
+            self.assertIn("statement of what its rulings leave of the target's conclusion, word for word", text, path.name)
         self.assertEqual(names, {"judge.js": "judge", "review-panel.js": "review-panel"})
 
     @unittest.skipUnless(shutil.which("node"), "node not installed")

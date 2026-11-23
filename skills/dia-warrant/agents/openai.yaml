@@ -1,6 +1,6 @@
 interface:
   display_name: "Dia: Warrant"
-  short_description: "Toulmin layout and critical questions; names the weakest link"
+  short_description: "The unstated rule behind a step, and how far it carries"
   default_prompt: "Use $dia:dia-warrant to audit how well this argument supports its conclusion: "
 
 policy:

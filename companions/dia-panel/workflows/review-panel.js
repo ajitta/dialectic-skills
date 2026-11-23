@@ -44,7 +44,7 @@ if (missing.length) log(`No report from: ${missing.join(', ')}`)
 if (got.length === 0) throw new Error('no lens returned a report')
 
 // Two fixed orders (Math.random is not available in workflows): the second reverses the first, a counterbalance, not a random shuffle.
-// Reports carry letters, not R numbers, because dia-adjudicate relabels its reports R1..Rn itself.
+// Reports carry letters, not R numbers, so that a judge's own labels (if it gives any) cannot be confused with the caller's.
 const LETTERS = 'ABCD'
 const order1 = got.map((_, i) => i).sort((x, y) => ((x * 7 + 3) % 5) - ((y * 7 + 3) % 5))
 const order2 = [...order1].reverse()
@@ -74,7 +74,7 @@ if (okJudges < 2) {
   return {
     ...result,
     differences_and_must_check: null,
-    note: `Only ${okJudges} of 2 dia-adjudicate runs returned, so no comparison was made. Run dia-adjudicate again on the lens reports in a separate agent, then compare the two runs (dia-adjudicate, Running twice).`,
+    note: `Only ${okJudges} of 2 dia-adjudicate runs returned, so no comparison was made. Run dia-adjudicate again on the lens reports in a separate agent, then compare the two runs (dia-adjudicate, Where the ruling may be wrong).`,
   }
 }
 
@@ -82,11 +82,11 @@ phase('Compare')
 const [diff] = await parallel([() => agent(
   `Two independent runs of dia-adjudicate judged the same reports on ${target}. ` +
   `The caller gave the reports letters: run 1 ${JSON.stringify(mapOf(order1))}, run 2 ${JSON.stringify(mapOf(order2))}. ` +
-  `Each run may relabel the reports again (R1, R2, ...); its Inputs line maps its labels to the letters. ` +
+  `Each run may relabel the reports again (R1, R2, ...); its opening lines say what it took as each report. ` +
   `Match report items by lens (not by any label) and claims in the target by their place in it. ` +
   `List every item whose verdict differs between the runs, with both verdicts and their stated basis, ` +
-  `then the union of both must-check lists, then the whole of each run's "What the verdicts leave of C" section, word for word (every line of it, its list and its counts included), ` +
-  `and whether the two give the same outcome for C (say so if a run has no such section). Do not judge the items yourself.\n\n` +
+  `then the union of both runs' lists of where the ruling may be wrong, then each run's statement of what its rulings leave of the target's conclusion, word for word (every line of it), ` +
+  `and whether the two give the same outcome for the conclusion (say so if a run gives no such statement). Do not judge the items yourself.\n\n` +
   `## Run 1\n\n${judged[0]}\n\n## Run 2\n\n${judged[1]}`,
   { label: 'compare', phase: 'Compare' })])
 
@@ -94,6 +94,6 @@ return {
   ...result,
   differences_and_must_check: diff,
   note: diff
-    ? 'The verdicts that differ between the two runs have not been checked against the sources. Check each against the source it rests on before relying on it (dia-adjudicate, Running twice).'
-    : 'The comparison agent returned nothing. Compare the two judge runs above yourself, and check each verdict that differs against the source it rests on (dia-adjudicate, Running twice).',
+    ? 'The verdicts that differ between the two runs have not been checked against the sources. Check each against the source it rests on before relying on it (dia-adjudicate, Where the ruling may be wrong).'
+    : 'The comparison agent returned nothing. Compare the two judge runs above yourself, and check each verdict that differs against the source it rests on (dia-adjudicate, Where the ruling may be wrong).',
 }
