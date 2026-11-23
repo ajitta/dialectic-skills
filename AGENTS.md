@@ -46,6 +46,7 @@ The tools are stdlib-only; the tests use PyYAML when it is installed. CI (`.gith
 - A skill that examines a position or a text is judged by what the examination brings out that was not known (verified, false alarms counted), whether its judgment at the end is right, whether it holds under insistence and yields to a real correction, and what it cost.
 - Word counts, reply length, whether a labelled line was printed and whether the skill's own steps were followed are not measures of a skill. Compression means cutting waste (what the model does anyway, what is said twice, needless examples), not making text or replies shorter.
 - When a run or a review shows a fault, change what in the design causes it; do not add a sentence, case or exception per symptom. If the cause cannot be named, leave the fault and report it. A small imperfection is acceptable. Each skill carries only what belongs to its own purpose; what belongs to another skill's work goes there by a hand-over.
+- dia-elenchus and dia-quaestio (owner, 2026-11-24) are judged as skills that examine: dia-elenchus by whether it brings to the surface a fork in the user's own thinking that the user did not know of and leaves it in its record, dia-quaestio by whether its brief's next step tests the assumption that most threatens what the idea is for.
 - For dia-skopos and dia-techne, the owner's floor of excellence (2026-11-19, set for now) is the reply in `C:/Users/ajitta/work/dia-probes/outcome-pilot-2026-11-19/out/e-abtest-chain-run1-turn2.md`.
 
 ## Probes and evals

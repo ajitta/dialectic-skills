@@ -99,7 +99,7 @@
   <div class="wrap skills__head">
     <div class="skills__intro">
       <h2 class="head mask" id="skills-title" data-reveal><span>The skills</span></h2>
-      <p data-reveal style="--i:1">Each is a way of thinking people have used for a long time, turned into a routine the assistant follows. Pick one by what you want to do. The sessions are from the project’s README, run on Claude Code with this plugin and shortened; in the dialogues the user’s replies came from a simulated user. Most were recorded on 1.x, where the same requests started the skill without its name; the skills’ procedures did not change in 2.0.0. Those for dia-reductio, dia-warrant, dia-conjecture, dia-counterplan and dia-adjudicate were recorded in Korean with the 5.0.0 texts on Claude Opus 5.5, and translated. The wording you get will differ from run to run.</p>
+      <p data-reveal style="--i:1">Each is a way of thinking people have used for a long time, turned into a routine the assistant follows. Pick one by what you want to do. The sessions are from the project’s README, run on Claude Code with this plugin and shortened; in the dialogues the user’s replies came from a simulated user. All were recorded on Claude Opus 5.5: those for dia-reductio, dia-warrant, dia-conjecture, dia-counterplan and dia-adjudicate in Korean with the 5.0.0 texts, and translated; dia-skopos on 4.2.0, dia-techne on 4.0.0, and the rest on 5.1.0. The wording you get will differ from run to run.</p>
     </div>
     <ul class="wants" aria-label="Pick a skill by what you want to do">
       <li data-reveal style="--i:0"><a href="#dia-skopos"><span class="dot"></span><span class="wants__goal">Make sure the assistant understood the task before it starts</span><code>dia-skopos</code></a></li>
@@ -145,7 +145,7 @@
     <div class="plate__text">
       <h3 class="head plate__name mask" data-reveal style="--i:1"><span>dia-skopos</span></h3>
       <p class="lead" data-reveal style="--i:2">Agree on the task before work starts.</p>
-      <p data-reveal style="--i:3">Like a good contractor walking you through the job: here is what I’ll build, here is what I’m assuming, here is what only you can decide. Then it waits for your go-ahead instead of guessing.</p>
+      <p data-reveal style="--i:3">Like a good contractor walking you through the job: here is what I understood, here is what I think it is for, here is what only you can decide. Then it asks one thing: should it make what you asked for, or work for the result you are after? It waits for your word instead of guessing.</p>
       <p class="start" data-reveal style="--i:4"><span class="start__how">Starts with <code>dia-skopos</code> or <code>dia skopos</code> at the start of the message; <code>dia</code> never picks it from a plain request.</span> <span class="start__line">Start it with <code class="start__code">/dia:dia-skopos</code></span> <span class="start__note"></span></p>
       <div class="try" data-reveal style="--i:5">
         <p class="try__label">Try this prompt</p>
@@ -156,9 +156,9 @@
         <summary>See the session</summary>
         <div class="session__body">
           <ol class="talk" aria-label="A session, shortened">
-            <li class="talk__turn is-assistant"><b>Assistant</b> <span>Goal and success conditions. Deliverable, as stated: “Write a short speech for my brother’s wedding.” Deliverable, as read: A written speech of about 2 minutes, meant to be spoken aloud. … Outcome, as stated: not stated. Outcome, as read: Hypothesis: you want a speech you can give at the wedding that feels personal and goes over well with the room. Please confirm or correct this. … Confirmation: … Please reply with a proceed instruction.</span></li>
-            <li class="talk__turn is-you"><b>You</b> <span>My brother is Minho, marrying Sara; I’m the best man. He taught me to ride a bike, even though he’s younger. Warm, one light joke, about 3 minutes. proceed</span></li>
-            <li class="talk__turn is-assistant"><b>Assistant</b> <span><i>(the speech follows, built around the bike story)</i> … Outcome: The speech was approved so you can give it at the wedding and have it land well with the room. That is still unverified. The draft is done, but only delivering it will show whether it works. <i>(Recorded on 2.13.0.)</i></span></li>
+            <li class="talk__turn is-assistant"><b>Assistant</b> <span><b>What I’d make:</b> a toast you can deliver in about 2–3 minutes … <b>The result (my reading):</b> your brother and his partner feel truly seen and celebrated by you, the room warms to them as a couple, and you stand up feeling confident rather than dreading it. … <b>The choice.</b> As asked: a short wedding speech, as polished as I can make it with what I have. For the result (proposed): “Help me give a toast at my brother’s wedding that makes him and his partner feel truly celebrated and that I can deliver with confidence.” …</span></li>
+            <li class="talk__turn is-you"><b>You</b> <span>dia-techne Go ahead. My brother is Minho, marrying Sara; I’m the best man. He taught me to ride a bike, even though he’s younger. Warm, one light joke, about 3 minutes. What I’m after is that the room laughs once and Minho is moved.</span></li>
+            <li class="talk__turn is-assistant"><b>Assistant</b> <span>Outcome I worked toward (yours): the room laughs once and Minho is moved. … I compared a full script with speaking from bullet-point cue cards … So I wrote the full script. … Whether the room laughs once and Minho is moved can’t be known until the wedding; the read-aloud test above is the best check before then. <i>(Recorded on 4.2.0.)</i></span></li>
           </ol>
         </div>
       </details>
@@ -194,11 +194,12 @@
         <summary>See the session</summary>
         <div class="session__body">
           <ol class="talk" aria-label="A real session, shortened">
-            <li class="talk__turn is-assistant"><b>Assistant</b> <span>I don’t know what makes a good teacher, so I’ll test your definition. Suppose a teacher gives the students the exam questions and answers the day before, and they all score high. Is that a good teacher?</span></li>
-            <li class="talk__turn is-you"><b>You</b> <span>No, that’s basically cheating. Maybe a good teacher is one whose students get high scores <i>because they actually learned the material</i>.</span></li>
-            <li class="talk__turn is-gap"><span></span><i>…five more cases later…</i></li>
-            <li class="talk__turn is-you"><b>You</b> <span>They could have, they just chose not to, so by my new idea that teacher isn’t good. That contradicts what I said earlier. I’m stuck. Where does that leave me?</span></li>
-            <li class="talk__turn is-assistant"><b>Assistant</b> <span>You’ve reached aporia, and that’s a result, not a failure.</span></li>
+            <li class="talk__turn is-assistant"><b>Assistant</b> <span>We’re looking at good teacher. … Suppose a teacher gets a class of students who already scored at the top before the year began. The teacher does very little, and the students score just as high at the end of the year. Is that a good teacher?</span></li>
+            <li class="talk__turn is-you"><b>You</b> <span>Hmm, not really, they’d have scored high anyway. I guess it’s more about whether the scores go up because of the teacher?</span></li>
+            <li class="talk__turn is-assistant"><b>Assistant</b> <span>① A good teacher is one whose students get high test scores (definition) ② A teacher who does little, with students who would have scored high anyway, is not a good teacher (agreed). So ① and ② can’t both stand. You’ve chosen to change ①. …</span></li>
+            <li class="talk__turn is-gap"><span></span><i>…six more definitions, each in your own words, and the cases they fell on…</i></li>
+            <li class="talk__turn is-you"><b>You</b> <span>No, that’s wrong, that teacher is good, those three are exactly the kids who needed a teacher. So “most of the students” doesn’t work either, it’s more like the ones who actually depended on them, and now I’m stuck again.</span></li>
+            <li class="talk__turn is-assistant"><b>Assistant</b> <span>Result: aporia. You no longer hold any definition of a good teacher, and the question you take away is which students’ difference counts, and why. <i>(then the record; recorded on 5.1.0)</i></span></li>
           </ol>
         </div>
       </details>
@@ -234,12 +235,10 @@
         <summary>See the session</summary>
         <div class="session__body">
           <ol class="talk" aria-label="A real session, shortened">
-            <li class="talk__turn is-assistant"><b>Assistant</b> <span>Quick mode, about 4 questions. Your idea is to earn some extra money on weekends, alongside your current job. Is that right, or did I assume something you didn’t mean?</span></li>
-            <li class="talk__turn is-you"><b>You</b> <span>Right. About 8 hours each weekend, roughly $300 a month, no more than $200 to start.</span></li>
-            <li class="talk__turn is-assistant"><b>Assistant</b> <span>Eight hours a weekend is about 32 hours a month, so $300 comes to about $9 an hour. What do you already know how to do that someone would plausibly pay for?</span></li>
-            <li class="talk__turn is-you"><b>You</b> <span>I’m good at photography and own a decent camera. Maybe photos for small local shops.</span></li>
-            <li class="talk__turn is-gap"><span></span><i>…more questions, options, criteria…</i></li>
-            <li class="talk__turn is-assistant"><b>Assistant</b> <span>Verdict: open. … Next step: this week, post in two neighborhood groups offering 3–4 park slots, and track bookings, price paid and editing minutes per client.</span></li>
+            <li class="talk__turn is-assistant"><b>Assistant</b> <span>This will be a quick session of about 4 questions. … Here’s how I understand your idea: you want to earn extra income using your weekends, alongside what you already do. … Is that right, or did I assume something you didn’t mean?</span></li>
+            <li class="talk__turn is-you"><b>You</b> <span>Yes, that’s right, I work full time in an office on weekdays. The money is for a trip next summer so I don’t have to touch my savings.</span></li>
+            <li class="talk__turn is-gap"><span></span><i>…$300 a month, 8 weekend hours, photography; your options, the assistant’s three, your three criteria…</i></li>
+            <li class="talk__turn is-assistant"><b>Assistant</b> <span>Verdict: Open. You’re ready to decide which of your top two to try first: photos for local shops or second-shooting. Settle one thing first: will the bakery or florist actually pay for photos? … Next step: Next Saturday, give the bakery or florist a few free photos as you planned. When you hand them over, ask whether they would pay for photos like these every month, and roughly how much. <i>(Recorded on 5.1.0.)</i></span></li>
           </ol>
         </div>
       </details>
@@ -315,9 +314,10 @@
         <summary>See what you get</summary>
         <div class="session__body">
           <dl class="output" aria-label="What you get, shortened">
-            <dt>F1. “Anyone” fails for problems about management.</dt><dd>If your problem is with your manager, the open door opens onto the person you are complaining about, and the policy names no second path.</dd>
-            <dt>What it actually does (an inference)</dt><dd>it moves the blame for silence onto whoever didn’t walk through the door. What would prove this wrong: a record of complaints about managers raised through the policy and acted on.</dd>
-            <dt>Recommendation</dt><dd>change the practice. The decision is yours.</dd>
+            <dt>Result: open</dt><dd>1 firm finding, 1 conditional. Firm: the claim says anyone can raise a problem at any time, but the open-door policy only gives access while a manager is actually there.</dd>
+            <dt>F2 (conditional): “anyone” and the door</dt><dd>remote or off-site staff, or people on other shifts: the only route the claim names is a door. Conditional on whether such staff exist and whether “open-door” also covers email, chat or calls.</dd>
+            <dt>What it does in practice (an inference)</dt><dd>it turns “you’re allowed to” into “you’re able to”, and makes a problem never raised look like the employee’s choice. Would be falsified by a named deputy, set hours or a written channel that someone checks.</dd>
+            <dt>Recommended</dt><dd>change the practice: a route that doesn’t depend on someone being present. The decision is yours. <i>(Recorded on 5.1.0.)</i></dd>
           </dl>
         </div>
       </details>
@@ -472,9 +472,9 @@
         <summary>See what you get</summary>
         <div class="session__body">
           <dl class="output" aria-label="What you get, with web search, shortened">
-            <dt>Confirmed errors</dt><dd>“visible from the Moon” is false (checked by search). “Built entirely during the Ming dynasty” is false: walls were joined under the Qin around 220 BC, and other dynasties added sections.</dd>
-            <dt>Correct content kept</dt><dd>the Ming built most of the stone wall seen today.</dd>
-            <dt>Remaining uncertainty</dt><dd>exact Qin and Han dates vary by source; only secondary sources were checked.</dd>
+            <dt>Requirements, as read</dt><dd>“Check the facts” is the criterion. You didn’t say what the sentence is for, so I assumed it is meant to leave a reader with accurate facts about the Great Wall.</dd>
+            <dt>Confirmed errors</dt><dd>“visible from the Moon” is false (search): NASA calls this a myth. “Built entirely during the Ming dynasty” is false (search): around 220 BC, Qin Shi Huang joined the existing northern walls into one system; the Ming rebuilt much of it in brick and stone.</dd>
+            <dt>Remaining uncertainty</dt><dd>sources give different lengths for the Han walls, so the revision gives no figure. <i>(Recorded on 5.1.0.)</i></dd>
           </dl>
         </div>
       </details>
@@ -510,9 +510,9 @@
         <summary>See what you get</summary>
         <div class="session__body">
           <dl class="output" aria-label="What you get, with web search, shortened">
-            <dt>Changes</dt><dd>“went on sale in 2008” → “2007” (on sale June 29, 2007). “the App Store opened the same day” → “about a year later, in July 2008”.</dd>
-            <dt>Round summary</dt><dd>round 1: 3 claims checked, 2 confirmed wrong, 1 correct, by web search. Stopped because no defects remained, so round 2 was not needed.</dd>
-            <dt>Corrected paragraph</dt><dd>“The first iPhone went on sale in 2007, and the App Store opened about a year later, in July 2008, with 500 apps.”</dd>
+            <dt>Changes</dt><dd>“went on sale in 2008” → “2007”; “opened the same day” → “opened on July 10, 2008”; “with 500 apps” → “with more than 500 apps”, each from Apple’s own press releases.</dd>
+            <dt>Round summary</dt><dd>round 1: 3 named, 3 confirmed. Round 2: none. Locked: 3 items. Stopped because: zero defects in round 2, before the 2-round cap.</dd>
+            <dt>Corrected paragraph</dt><dd>“The first iPhone went on sale in 2007, and the App Store opened on July 10, 2008 with more than 500 apps.” <i>(Recorded on 5.1.0.)</i></dd>
           </dl>
         </div>
       </details>
@@ -593,9 +593,9 @@ Only touch files the task needs.
         <summary>See what you get</summary>
         <div class="session__body">
           <dl class="output" aria-label="What you get, real run, shortened">
-            <dt>Line 3, “If the tests fail, stop”</dt><dd>Rules 1 and 3: “The condition sits in its own bullet, apart from the action it guards.” “Stop” “could mean halt edits, revert edits, or report and wait”, and no reason is given.</dd>
-            <dt>Line 2, “Only touch files the task needs”</dt><dd>Rules 2, 1 and 3: “‘Touch’ can be read as read, edit or create, and ‘needs’ is the agent’s own judgment.” No paths are named.</dd>
-            <dt>Line 1 and across the lines</dt><dd>“‘The docs’ and ‘the new flag’ are unnamed” (Rule 2); “docs”, “files” and “the task” may be read as different scopes (Rule 4). The text is unchanged: “Tell me which findings to act on…”</dd>
+            <dt>1. The edit limit depends on the agent’s own judgment</dt><dd>Rule 2. Line 2, “Only touch files the task needs”: the agent decides what the task “needs,” so this sentence lets it widen its own permission.</dd>
+            <dt>2. The test condition is on its own bullet</dt><dd>Rule 1. Line 3, “If the tests fail, stop”: when to run the tests, which tests, and what “stop” means are left open.</dd>
+            <dt>3 and 4</dt><dd>no instruction gives a reason (Rule 3); “the new flag” may be something the agent can’t find. “You asked only for a review, so I haven’t rewritten anything.” <i>(Recorded on 5.1.0.)</i></dd>
           </dl>
         </div>
       </details>
@@ -620,7 +620,7 @@ Only touch files the task needs.
     <div class="plate__text">
       <h3 class="head plate__name mask" data-reveal style="--i:1"><span>dia-techne</span></h3>
       <p class="lead" data-reveal style="--i:2">Do a task the way the field’s best would.</p>
-      <p data-reveal style="--i:3">Named after <i lang="grc-Latn">technē</i>, the Greek word for craft. For Aristotle, a person of craft knows why, not only that, and so can teach it, and making serves an end beyond the thing made; Plato sets a craft, which can give an account of what it does, against a mere knack. In that spirit, before it works it asks what your request is for, what the field’s best would do that you did not ask for, the rawest material, their methods and tools, a check by something other than the assistant and you, and another field’s view. It shows each change to your request with its reason, then runs it in the same turn, stopping before any step it could not undo. Your stated requirements, your data and what you allowed never change.</p>
+      <p data-reveal style="--i:3">Named after <i lang="grc-Latn">technē</i>, the Greek word for craft. A request is often narrower than what it is for. The assistant first says what it takes the request to be for, then treats the thing you asked for as one way of getting there: it sets it beside at least one other way, compares them by the result’s own measure, and takes the one that comes out best. It does the work as a top practitioner of the field would, makes now what can be made now, and has the result checked by something other than itself. It never changes your data or a limit you set, and stops before anything it could not take back, such as sending, publishing or spending.</p>
       <p class="start" data-reveal style="--i:4"><span class="start__how">Starts with <code>dia-techne</code> or <code>dia techne</code> at the start of the message; <code>dia</code> never picks it from a plain request.</span> <span class="start__line">Start it with <code class="start__code">/dia:dia-techne</code></span> <span class="start__note"></span></p>
       <div class="try" data-reveal style="--i:5">
         <p class="try__label">Try this prompt</p>
@@ -631,10 +631,10 @@ Only touch files the task needs.
         <summary>See what you get</summary>
         <div class="session__body">
           <dl class="output" aria-label="What you get, real run with web search, shortened">
-            <dt>Outcome and changes</dt><dd>“Probably yes, but only if you say which benchmark and which cohort you mean.” “The outcome you need is for investors to believe your retention claim.” Three changes, and “each change can be taken back”: “industry average” becomes a named benchmark, since “there is no single industry average”; a check that the 12% uses the benchmark’s definition of D30; a recommended wording.</dd>
-            <dt>Rewritten prompt, then run</dt><dd>Compare the 12% with each genre-level D30 benchmark, naming source, year and region; list the questions an investor will ask; give one sentence “that is true under the strongest benchmark and still true under the weakest”. Open points: how the 12% is defined, the cohort size and the install mix; “I saw only search snippets, not the full reports.”</dd>
-            <dt>Result</dt><dd>Puzzle 5.35%, match games 7.15%, board games in the US 5.09% (Android) to 8.13% (iOS), each marked secondary. Suggested wording: “Our D30 is 12%, against roughly 5–8% for puzzle and match games in public benchmarks (Mistplay/AppsFlyer, 2025).”</dd>
-            <dt>Outside check for you to run</dt><dd>“Recompute D30 from raw install and activity logs”, split by platform, country and organic versus paid, and read the benchmarks’ methods. “If the recomputed figure drops below roughly 8%, change the wording…”</dd>
+            <dt>The outcome it takes</dt><dd>“investors leave convinced your retention is a real strength, and the claim still holds when they check it in diligence. Correct me if it’s something else.”</dd>
+            <dt>Recommendation</dt><dd>If your 12% is classic D30, it is well above average, and “above average” is too weak a way to say it. Two ways compared: “above industry average” (vague, breaks if your definition differs from the benchmark’s) against a specific number with its definition and source (concrete, holds in diligence).</dd>
+            <dt>The comparison, each ratio recomputed</dt><dd>all mobile genres, median 0.69–0.79%, so 12% is about 15–17×; puzzle genre about 5.35%, about 2.2×, each marked secondary.</dd>
+            <dt>Check these before you say it</dt><dd>the definition (classic or rolling), the cohort mix, the sample size, consistency across cohorts, mature cohorts only. <i>(Recorded on 4.0.0.)</i></dd>
           </dl>
         </div>
       </details>
