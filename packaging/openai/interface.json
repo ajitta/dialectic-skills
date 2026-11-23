@@ -20,9 +20,9 @@
     "Deepen a request by a field's best practice, then run it with an outside check"
   ],
   "defaultPrompt": [
-    "Use proof by contradiction on this claim: remote work always raises productivity.",
-    "Do an immanent critique of this claim: our company is flat, so anyone can speak up freely.",
-    "Socratic brainstorm with me: I need a weekend side-project idea."
+    "dia-reductio remote work always raises productivity",
+    "dia-negative our company is flat, so anyone can speak up freely",
+    "dia-quaestio I need a weekend side-project idea"
   ],
   "websiteURL": "https://github.com/ajitta/dialectic-skills",
   "supportURL": "https://github.com/ajitta/dialectic-skills/issues",
