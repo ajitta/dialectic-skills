@@ -1,5 +1,7 @@
 # Skill effect: each skill against no skill (2026-10-20)
 
+**Record, not a description of the current skills.** The rounds below measured plugin versions up to 2.3.0 (2026-10-20 to 2026-11-05), mostly on claude-sonnet-5-5, under former names: dia-intent became dia-skopos, dia-brainstorm dia-quaestio, dia-refine dia-emend, dia-iterate dia-ratchet, dia-instruct dia-regula and dia-menu dia-router (D39, D56). Every skill measured here has been rewritten since (3.0.0, 4.0.0, 5.0.0), and its checklist items are a measure the owner has since replaced (D113; `AGENTS.md` § Judging a skill). Cite it as evidence about the text it measured, not about the current skills.
+
 Question (owner): how much does each skill change the result, compared with no skill and only the method's name in the request?
 
 ## Method

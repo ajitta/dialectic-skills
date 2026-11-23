@@ -1,6 +1,6 @@
 # Surface probes
 
-Results of the probes in `docs/spec.md` §12.2. Each run is n=1 unless stated; any generalization from it is marked as such.
+Record of probe and run results, each Part dated with the plugin version it ran on; a Part describes the text of its version, not the current skills. The setup of the 1.0.0 surface probes (P1 to P8) is in `docs/history/spec-sections-to-5.0.0.md`. Each run is n=1 unless stated; any generalization from it is marked as such.
 
 ## Setup (2026-10-20)
 

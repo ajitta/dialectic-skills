@@ -2,7 +2,7 @@
 
 What listing `dia` in each vendor's public plugin directory requires, checked against the repository at 1.1.0. Researched 2026-10-20 from the vendors' current documentation (sources at the end). Nothing has been submitted.
 
-**Status at 1.1.1 (spec D32):** the package gaps are closed. `plugins/dia/README.md` ships, and `releases/dialectic-skills-openai.zip` carries the OpenAI listing fields and draft images. What remains is the owner's: the account steps in [Owner steps](#owner-steps) below.
+**Status:** the requirement tables below were checked against the repository at 1.1.0 and the vendors' documentation of 2026-10-20; neither has been checked again. Since 1.1.1 (spec D32) the package gaps they show are closed. `plugins/dia/README.md` ships, and `releases/dialectic-skills-openai.zip` carries the OpenAI listing fields and draft images. What remains is the owner's: the account steps in [Owner steps](#owner-steps) below.
 
 Why list at all: on mobile, neither Claude nor ChatGPT lets a user add a marketplace or upload a zip. A directory listing is the only way to install from a phone. ChatGPT mobile has a Plugins page that browses the directory. Whether the Claude mobile app can browse the directory is not documented and not yet checked.
 
