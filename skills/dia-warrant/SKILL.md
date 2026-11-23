@@ -4,7 +4,7 @@ description: Examine how well reasons support a defeasible conclusion. Use only 
 license: MIT
 metadata:
   author: ajitta
-  version: "4.0.0"
+  version: "4.0.1"
   lineage: "new in plugin 1.3.0 (docs/research/candidates/argumentation.md)"
   source: "https://github.com/ajitta/dialectic-skills"
 ---

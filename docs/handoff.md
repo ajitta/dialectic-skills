@@ -7,16 +7,17 @@ The current state and what is open, for the next session. Each fact is stated on
 - Plugin `dia` 5.1.0: tag `v5.1.0` on `main` at `3dda184` (pull request #121, spec D120, probes Part CC). Release assets match the committed zips (sha256). The documentation cleanup that made the skills the source of truth is pull request #119.
 - Skill versions: dia-adjudicate, dia-conjecture, dia-counterplan, dia-reductio, dia-warrant 4.0.0; dia-skopos 4.2.0; dia-techne 4.2.1; dia-elenchus, dia-quaestio, dia-regula 3.1.0; dia-negative 3.1.1; dia-router 3.0.2; dia-emend, dia-ratchet 3.0.1.
 - Companion `dia-panel` 0.5.0: tag `dia-panel--v0.5.0` at `694f159` (unchanged since).
-- Last decision row D120, last probes part CC. **Next free: D121 and Part CD.**
-- OpenAI zip on chatgpt.com: the last upload recorded is 4.1.0; the 5.1.0 zip (new sample prompts) is the owner's to upload.
+- Last decision row D121, last probes part CD. **Next free: D122 and Part CE.**
+- **Not yet released:** plugin 5.1.1 (dia-warrant 4.0.1, its theory reference only; README examples recorded on 5.1.0; D121) on branch `readme-examples-5.1.1`. The tag waits for the owner.
+- OpenAI zip on chatgpt.com: the last upload recorded is 4.1.0; once 5.1.1 is tagged, its zip (which carries 5.1.0's new sample prompts) is the owner's to upload.
 
 ## Open
 
 Each waits for the owner's approval of a plan before any run or edit.
 
 - **claude-fable-5-2 on the five 4.0.0 texts:** one cell each on a task that exists, 5 runs, when the owner says Fable is available.
-- **What "for the result" means for dia-elenchus and dia-quaestio**, the two skills that only ask: not yet planned.
-- **Reported and left in the repository:** the README's example sessions for dia-elenchus, dia-quaestio, dia-negative, dia-emend and dia-ratchet predate the 3.x rewrites, and its dia-router subsection and review-panel figures quote 2.x outputs (all labelled with their version); the dia-conjecture example repeats the run's own mismatch (89 phone bookings against 66 + 26); `dia-warrant/references/theory.md` places Walton's cause-to-effect questions under the body's step from a change back to its cause; dia-adjudicate once made decisive a doubt the material already answered (D119 (4), seen in one run of two); dia-panel was not run on 5.0.0, and its dia-reductio lens has no clause for a run where no user will reply; the project page (`site/index.html`) shows a dia-skopos exchange with the labelled lines dropped in 4.x.
+- **What "for the result" means for dia-elenchus and dia-quaestio**, the two skills that only ask: the session's reading is that the two-level choice of dia-skopos does not carry over (dia-elenchus has no view to propose, dia-quaestio asks for the purpose), so the question is how to judge them. Target dialogues are written in `C:/Users/ajitta/work/dia-probes/ask-two-2026-11-24/targets.md` with one question for the owner; the plan after his answer: 2 skills x plain and 5.1.x x 2 dialogues, one blind reader.
+- **Reported and left in the repository:** none since D121, which ruled the list D119 left (README examples recorded again, the dia-conjecture figures, dia-warrant's theory source fixed, dia-adjudicate's doubt closed with no change, the review-panel figures kept, dia-panel run whole once).
 - **Held back:** one run of the pilot's A/B request with the end stated and no skill, beside the floor reply (`outcome-pilot-2026-11-19/out/e-abtest-chain-run1-turn2.md`).
 - **Directory listings (owner's):** the account steps in `docs/directory-submission.md` § Owner steps.
 

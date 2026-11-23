@@ -158,7 +158,7 @@ It lasts for that conversation only, so paste it again in a new one.
 
 You don't need any background in philosophy to use these skills. Each one is a way of thinking that people have used for a long time, turned into a routine the assistant follows step by step. Below, each skill gets a plain-language explanation, a prompt to try, and a real session, shortened.
 
-The sessions were run on Claude Code with this plugin, and the user replies in the dialogue examples came from a simulated user, not a scripted one. Unless a note under a session gives its version and model, it was recorded on 1.x with Sonnet, where the same requests started the skill without its name; the skills' procedures did not change in 2.0.0. The wording you get will differ from run to run. Every prompt works in any language, and the assistant replies in the language you write in.
+The sessions were run on Claude Code with this plugin, and the user replies in the dialogue examples came from a simulated user, not a scripted one. A note under each session gives the version and model it was recorded on. The wording you get will differ from run to run. Every prompt works in any language, and the assistant replies in the language you write in.
 
 **Pick a skill by what you want to do**
 
@@ -226,25 +226,22 @@ dia elenchus I think a good teacher is one whose students get high test scores.
 
 **What a session looks like** (real run, shortened):
 
-> **Assistant:** I don't know what makes a good teacher, so I'll test your definition. Suppose a teacher gives the students the exam questions and answers the day before, and they all score high. Is that a good teacher?
+> **Assistant:** We're looking at **good teacher**. So in your words, a good teacher is one whose students get high test scores. Suppose a teacher gets a class of students who already scored at the top before the year began. The teacher does very little, and the students score just as high at the end of the year. Is that a good teacher?
 >
-> **You:** No, that's basically cheating. Maybe a good teacher is one whose students get high scores *because they actually learned the material*.
+> **You:** Hmm, not really, they'd have scored high anyway. I guess it's more about whether the scores go up because of the teacher?
 >
-> **Assistant:** Your wording has shifted from "high test scores" to "high scores because they actually learned the material." Now take a teacher whose students really did learn, but the test was badly made, so the scores came out low. Is that a good teacher?
+> **Assistant:** ① A good teacher is one whose students get high test scores (definition) ② A teacher who does little, with students who would have scored high anyway, is not a good teacher (agreed). So ① and ② can't both stand. You've chosen to change ①. The shift: "high test scores" → "the scores go up because of the teacher". … Suppose a teacher raises scores by drilling the test format and answer tricks. A month after the test, the students remember almost nothing … Is that a good teacher?
 >
-> **You:** Yes, the bad test is the test's fault. So scores aren't really what makes a teacher good.
+> *…a badly made test, a teacher who teaches through fear, the user's daughter's maths teacher who "barely moved her scores but she started loving maths", the class that would have done well anyway…*
 >
-> **Assistant:** … Take a class where every student learned everything, but entirely on their own, from a book and a private tutor. The teacher contributed nothing. Is that a good teacher?
+> **You:** A rough try: a good teacher is one whose teaching makes students learn something real and want to keep going, more than they would have without that teacher. But I honestly don't know how you'd ever tell that for kids with tutors, so I think I'm stuck there.
 >
-> **You:** No. So a good teacher is one whose teaching actually helps the students learn.
+> *…the definition passes one test, then falls on a teacher who reaches three of thirty; its repair, "most of the students", falls on a class where the teacher reaches only the three who had nobody else…*
 >
-> *…three more cases: a teacher whose students skip class, two equally clear teachers with different classes, a teacher who tries everything and nothing works…*
+> **You:** No, that's wrong, that teacher is good, those three are exactly the kids who needed a teacher. So "most of the students" doesn't work either, it's more like the ones who actually depended on them, and now I'm stuck again.
 >
-> **Assistant:** Earlier you called the teacher with the skipping students still good. Were those students "reasonably able to take part"?
->
-> **You:** They could have, they just chose not to, so by my new idea that teacher isn't good. That contradicts what I said earlier. I'm stuck. Where does that leave me?
->
-> **Assistant:** You've reached aporia, and that's a result, not a failure. Whether a good teacher is defined by what the students end up learning or by what the teacher does is still open for you… *(then a record: how your definition changed, the premises you agreed to, what you now know you don't know, and a question to take away; result: aporia)*
+> **Assistant:** … It seems we've found out that we don't know what a good teacher is. That's the result, not a failure. You now know which part you can't yet say, so you won't build on "high test scores" as if it settled the question. … **Result: aporia. You no longer hold any definition of a good teacher, and the question you take away is which students' difference counts, and why.** *(then the record: eight definitions and how each fell, the ten agreed premises, the ideas born, what you now know you don't know, what a next definition would have to do (for example "⑩ Take in a teacher who reaches the three with nobody else when the rest had other help"), what was not examined, what to check, and the question to take away)*
+> *(Recorded on 5.1.0, Claude Opus 5.5 at effort medium; the user was simulated.)*
 
 **Tips**
 
@@ -266,21 +263,20 @@ dia quaestio keep it quick: I want to earn some extra money on weekends.
 
 **What a session looks like** (real run, shortened):
 
-> **Assistant:** Quick mode, about 4 questions. Your idea is to earn some extra money on weekends, alongside your current job. Is that right, or did I assume something you didn't mean?
+> **Assistant:** This will be a quick session of about 4 questions. … Here's how I understand your idea: you want to earn extra income using your weekends, alongside what you already do. … You haven't said how much you want to earn, what kind of work, or what the money is for, so I've left those open. Is that right, or did I assume something you didn't mean?
 >
-> **You:** Right. About 8 hours each weekend, roughly $300 a month, no more than $200 to start.
+> **You:** Yes, that's right, I work full time in an office on weekdays. The money is for a trip next summer so I don't have to touch my savings.
 >
-> **Assistant:** Eight hours a weekend is about 32 hours a month, so $300 comes to about $9 an hour. What do you already know how to do that someone would plausibly pay for?
+> *…about $300 a month, about 8 hours a weekend, mostly Saturday…*
 >
-> **You:** I'm good at photography and own a decent camera. Maybe photos for small local shops.
+> **Assistant:** Almost there, two more questions. What's something you already know how to do that someone has paid you for, or regularly asks you to help with?
 >
-> **Assistant:** Compliments are a good sign, but nobody has paid you yet, so the biggest unknown is whether a shop would… Suppose you approach shops over the next few weekends. What would you have to see to decide this isn't working?
+> **You:** Nobody's ever paid me, but I'm good at photography and have a decent camera and two lenses. Friends always compliment my photos.
 >
-> **You:** If I pitch about 10 shops over three weekends and none say yes to even a cheap trial shoot, I'd call it not working.
+> *…you list your own options (photos for local shops, prints at a weekend market, pet portraits in the park), the cheapest, boldest and do-nothing versions, and two limits: no selling face to face to strangers, no long evenings of editing; the assistant adds three of its own (second shooter for an event photographer, stock licensing, a Saturday shift job); you pick three criteria: startup cost under $200, about $300 without loads of unpaid editing, and enjoying it…*
 >
-> *…you add more options (prints at weekend markets, stock photos, headshots, a "pet photo morning"); the assistant adds its own (second shooter at weddings, a beginner photo walk, do nothing); you pick three criteria: low startup cost, about $300 without much unpaid editing, and enjoying the work…*
->
-> **Assistant:** **Verdict: open.** The idea held up where I tested it, but the central assumption, that someone will pay you for these photos, hasn't been tested yet… **Next step:** this week, post in two neighborhood groups offering 3–4 park slots, and track bookings, price paid and editing minutes per client.
+> **Assistant:** **Verdict: Open.** You're ready to decide which of your top two to try first: photos for local shops or second-shooting. Settle one thing first: will the bakery or florist actually pay for photos? … **Risky:** the bakery and florist want photos and will pay for them, beyond liking your work. … **Not tested this session:** I didn't press the idea with counterexamples or ask what would make you drop it. … **Next step:** Next Saturday, give the bakery or florist a few free photos as you planned. When you hand them over, ask whether they would pay for photos like these every month, and roughly how much.
+> *(Recorded on 5.1.0, Claude Opus 5.5 at effort medium; the user was simulated.)*
 
 **Tips**
 
@@ -351,12 +347,15 @@ dia negative "We have an open-door policy, so anyone in the company can raise a 
 
 **What you get** (real run, shortened):
 
-> **Its own standard:** "anyone" (no exceptions), "at any time" (no time limit), "raise a problem with management" (it reaches management), and "so" (the policy alone is enough).
-> **F1. "Anyone" fails for problems about management.** If your problem is with your manager, the open door opens onto the person you are complaining about, and the policy names no second path. *What escapes:* the problems least likely to be raised.
-> **F2. "At any time" fails against real working hours.** A night-shift or remote worker can't raise it *with* a manager at 3 a.m.
-> **F3. The "so" overreaches.** A policy grants permission; whether people can speak also depends on what happens afterwards, such as no response or retaliation.
-> **What it actually does (an inference):** it moves the blame for silence onto whoever didn't walk through the door. *What would prove this wrong:* a record of complaints about managers raised through the policy and acted on.
-> **Options:** narrow the claim; change the practice (a second channel, after-hours reporting, a no-retaliation commitment); keep it and say its limits openly; withdraw it; test it on one real case. **Recommendation:** change the practice. The decision is yours.
+> **Target:** a quoted statement, read as `text` (someone else's policy statement). If it's your own claim, say so and I'll rerun it as `user`.
+> **Claim:** … **Reading tested:** "can" means "is actually able to": there is a route that is open to them. The sentence's own "so" points to this reading. …
+> **Result: open.** 1 firm finding, 1 conditional. Firm: the claim says anyone can raise a problem **at any time**, but the open-door policy only gives access while a manager is actually there.
+> **Its own standard:** "anyone in the company" (everyone, no exceptions); "at any time" (every moment); "We have an open-door policy, **so**…" (the policy alone is enough to produce both).
+> **F1 (firm): the policy can't deliver "at any time".** A time when no manager is reachable: night shift, everyone in a meeting, on leave or travelling. … One possible time with the policy in place and no manager reachable is enough to break the "so". *What escapes:* some problems come up when nobody is behind the door, and they may be the urgent ones.
+> **F2 (conditional): "anyone" and the door.** Remote or off-site staff, or people on other shifts: the only route the claim names is a door … *Conditional on* whether the company has such staff and whether "open-door" also covers email, chat or calls.
+> **What the sentence does in practice (an inference):** it turns "you're allowed to" into "you're able to". … It also shifts responsibility onto employees: if a problem was never raised, the sentence suggests it could have been. *Would be falsified by:* a named deputy, set hours, an escalation path, or a written channel that someone checks.
+> **Options:** A. narrow the claim; B. keep it and state what it leaves out; C. change the practice (a route that doesn't depend on someone being present); D. look further at F2. **Recommended: C**, resting on F1. … The decision is yours.
+> *(Recorded on 5.1.0, Claude Opus 5.5 at effort medium.)*
 
 **Tips**
 
@@ -446,6 +445,7 @@ dia conjecture Minsu wrote memo_minsu_deposit.txt proposing we drop the booking 
 >
 > **Assistant:** **The conclusion stands. Minsu's claim is false, and I'd not approve the plan as it stands. What you told me makes the grounds clearer.**
 > **1. No deposit on phone bookings:** then the phone ledger is three months of actual results for "no deposit, reminder only", which is exactly what Minsu proposes from December. 5 no-shows in 89 bookings: 2–4 people, 0; 5 or more, 5 of 26. A text you sent yourself still meets "got a reminder".
+> *(The run mixed two counts here: 89 is the phone bookings that got a text, while 26, like the 66 below, counts all 92 phone bookings by party size. Of the 89, 64 were for 2–4 people and 25 for 5 or more.)*
 > **2. The typhoon on 10/2:** even if those three are put down to the weather and left out, Minsu's claim doesn't hold. Two remain, 10/23 Seo○○ (Electronics) 8 people and 11/12 Lim○○ (Trading) 5. Both got the text and were no-shows. "Not one" is false if there is one. …
 > **3. Online on the same day:** … the 5 online bookings with a deposit: 1 team came, 4 were cancelled in the system. Kim○○, a phone booking for 2: called to cancel that day. The 3 company groups with no deposit (23 people): "unreachable". The typhoon explains why they didn't come. It doesn't explain why they didn't get in touch. …
 > **4. "Minsu looked at all three months":** Minsu's figures aren't wrong; I checked, and they match the online file without a single difference. But going by the memo's attachment, he looked only at online bookings. … And however carefully anyone looked, the five entries in the ledger remain.
@@ -459,7 +459,7 @@ dia conjecture Minsu wrote memo_minsu_deposit.txt proposing we drop the booking 
 > **You:** Okay, I'll tell Minsu that and check those three things when he changes the settings. Thanks, that's all.
 > *(Recorded with the 5.0.0 text of the skill, Claude Opus 5.5 at effort medium; the user was simulated.)*
 
-The cases that decided it were already in the user's own ledger, which the claim's author had not looked at. Leaving out the typhoon day removed three of them and not the other two, so the claim still fell. "He looked at three months of records" moved nothing; the assistant said what Minsu's figures did get right. In place of "every", the assistant said what the evidence does support (no no-shows in 66 reminded bookings of 2–4 without a deposit; all five in groups of 5 or more) and rebuilt the decision on that.
+The cases that decided it were already in the user's own ledger, which the claim's author had not looked at. Leaving out the typhoon day removed three of them and not the other two, so the claim still fell. "He looked at three months of records" moved nothing; the assistant said what Minsu's figures did get right. In place of "every", the assistant said what the evidence does support (no no-shows in 64 reminded phone bookings of 2–4 without a deposit; all five in groups of 5 or more) and rebuilt the decision on that.
 
 **Tips**
 
@@ -531,11 +531,13 @@ dia-emend check the facts: The Great Wall of China is the only man-made structur
 
 **What you get** (real run with web search, shortened):
 
-> **① Confirmed errors:** "visible from the Moon" is false (checked by search): from about 384,000 km no single man-made structure can be seen, and astronauts have said the wall can't be seen unaided from space. "Built entirely during the Ming dynasty" is false: walls were joined under the Qin around 220 BC, and other dynasties added sections.
+> **Requirements, as read:** The thing reviewed is the sentence you gave. "Check the facts" is the criterion. You didn't say what the sentence is for, so I assumed it is meant to leave a reader with accurate facts about the Great Wall.
+> **① Confirmed errors:** 1. "the only man-made structure visible from the Moon with the naked eye" is false (search). NASA calls this a myth … The Wall is only about 6 m wide, and the Moon is about 384,400 km away. … 2. "built entirely during the Ming dynasty" is false (search). Walls were built from about the 7th century BC onward. Around 220 BC, Qin Shi Huang joined the existing northern walls into one system. … The Ming rebuilt much of the Wall in brick and stone.
 > **② Missing requirements:** none.
-> **③ Correct content kept:** the Ming built most of the stone wall seen today.
-> **④ Remaining uncertainty:** exact Qin and Han dates vary by source; only secondary sources were checked.
-> **Revised statement:** The Great Wall of China is not visible from the Moon with the naked eye, and no single man-made structure is. It was not built entirely under the Ming… *(sources listed)*
+> **③ Correct content kept:** the Ming dynasty did build a large part of it, including most of what is standing today.
+> **④ Remaining uncertainty:** sources give different lengths for the Han walls, so the revision gives no figure. I did not check whether any man-made structure at all can be seen from the Moon, so the revision makes no claim about that.
+> **Revision:** The Great Wall of China is not visible from the Moon with the naked eye. NASA calls that idea a myth … It was also not built entirely during the Ming dynasty. … *(sources listed)*
+> *(Recorded on 5.1.0, Claude Opus 5.5 at effort medium.)*
 
 **Tips**
 
@@ -556,10 +558,13 @@ dia-ratchet --max 2 check the dates and facts in this paragraph: "The first iPho
 
 **What you get** (real run with web search, shortened):
 
-> **Changes:** "went on sale in 2008" → "2007" (on sale June 29, 2007). "the App Store opened the same day" → "about a year later, in July 2008".
-> **Round summary:** round 1: 3 claims checked, 2 confirmed wrong, 1 correct, by web search. Locked: the iPhone date, the App Store date, about 500 apps at launch. Stopped because no defects remained, so round 2 was not needed.
-> **Unverified:** the exact launch app count (sources say 500 to 552) and whether the App Store opened on July 10 or 11, 2008.
-> **Corrected paragraph:** "The first iPhone went on sale in 2007, and the App Store opened about a year later, in July 2008, with 500 apps."
+> I checked the paragraph against Apple's own press releases and found three errors. I fixed all three.
+> **Corrected paragraph:** "The first iPhone went on sale in 2007, and the App Store opened on July 10, 2008 with more than 500 apps."
+> **Changes:** 1. "went on sale in 2008" → "2007" (June 29, 2007; Apple, June 28, 2007). 2. "opened the same day" → "opened on July 10, 2008" (Apple, July 10, 2008). 3. "with 500 apps" → "with more than 500 apps": Apple's release says "over 500 native applications."
+> **Round summary:** round 1: 3 named, 3 confirmed, by web search and the fetched Apple press releases. Round 2: none. Locked: 3 items. Stopped because: zero defects in round 2, before the 2-round cap.
+> **Unverified:** none.
+> **One detail:** … July 10, 2008 is the date the store opened in iTunes 7.7. iPhones could reach it on July 11, when the iPhone 3G went on sale … *(sources listed)*
+> *(Recorded on 5.1.0, Claude Opus 5.5 at effort medium.)*
 
 **Tips**
 
@@ -628,14 +633,13 @@ Only touch files the task needs.
 
 **What you get** (real run, shortened):
 
-> "Review of the three lines against the dia-instruct rules, most severe first. I haven't changed the text."
-> 1. **Line 3: "- If the tests fail, stop."** (Rule 1, Rule 3): "The condition sits in its own bullet, apart from the action it guards." "Stop" "could mean halt edits, revert edits, or report and wait", and no reason is given.
-> 2. **Line 2: "Only touch files the task needs."** (Rule 2, Rule 1, Rule 3): "'Touch' can be read as read, edit or create, and 'needs' is the agent's own judgment." No paths are named.
-> 3. **Line 1: "Update the docs for the new flag."** (Rule 2): "'The docs' and 'the new flag' are unnamed."
-> 4. **Across the lines** (Rule 4): "docs", "files" and "the task" may be read as different scopes.
-> "Tell me which findings to act on, and give me the flag name, the doc paths and the test command if you want me to draft the rewrite."
->
-> *(Recorded on 1.x, when dia-regula was named dia-instruct.)*
+> I found four problems, listed from most to least severe. You asked only for a review, so I haven't rewritten anything. Pick the findings you want fixed and I'll revise it.
+> 1. **The edit limit depends on the agent's own judgment** (Rule 2). Line 2: `Only touch files the task needs.` The agent decides what the task "needs," so this sentence lets it widen its own permission. … Naming exact paths (for example `docs/cli.md`) leaves the agent nothing to stretch.
+> 2. **The test condition is on its own bullet, separate from the action it controls** (Rule 1). Line 3: `- If the tests fail, stop.` When to run the tests, which tests, what "stop" means (stop before editing, leave the changes, or undo them), and what to do if the tests can't run at all are left open.
+> 3. **No instruction gives a reason** (Rule 3). … Without reasons it can't apply them to cases the text doesn't name. For example, should it fix a test that was already failing?
+> 4. **"The new flag" may be something the agent can't find.** If the agent can't tell which flag is new from the repo or a diff, it may guess or invent one. Give the flag's name and say where it's defined.
+> There's no Rule 4 problem: each thing has only one name. **Advice (not a fault):** the text never says when the job is finished …
+> *(Recorded on 5.1.0, Claude Opus 5.5 at effort medium.)*
 
 **Tips**
 
@@ -688,10 +692,10 @@ dia Our churn dropped after we added onboarding emails, so the emails reduced ch
 
 **What you get** (real runs on Claude Code, shortened):
 
-> `dia` → the menu, a table of the thirteen skills from "dia-skopos | Restate the goal, assumptions and open decisions before work starts" to "dia-techne | Deepen a one-off request as a field's top practitioners would, then run it", then "`dia <name> <request>` runs that skill, for example `dia reductio …`."
-> `dia reductio …` → `dia-reductio` starts at once: "**Target:** user (inferred). **Direction:** refute. **Thesis T:** "every prime is odd." … **Contradiction:** Lines 3 and 5 are Q ("2 is odd") and not-Q. **Where it breaks:** T fails at the single instance 2, the only even prime. …"
-> `dia Our churn dropped …` → `dia-warrant` starts: "**Target:** an argument you state (inferred; …). … **Claim (C):** "the emails reduced churn" (stated). … **Weakest link: warrant, because "How strong is the causal generalization?" is left open.** …"
-> *(The first two recorded on 2.13.0, the third on 2.1.0.)*
+> `dia` → the menu, a table of the thirteen skills from "dia-skopos | Before work: your request as read and the result it is for; you choose which to do" to "dia-techne | Deepen a one-off request as a field's top practitioners would, then run it", then "`dia <name> <request>` runs that skill, for example `dia reductio …`."
+> `dia reductio …` → `dia-reductio` starts at once: "**Judgment:** "Every prime is odd" is false. Its own definitions refute it with the counterexample **2**. … 4. So 2 is odd. *(3, C1)* … 6. So 2 is not odd. *(5, C3)* 7. Steps 4 and 6 say "2 is odd" and "2 is not odd". That is a strict contradiction. … **I'd take A** [narrow the claim to every prime other than 2]. It is the smallest change, it is proved above …"
+> `dia Our churn dropped …` → "→ dia-warrant: the request asks how well the reasons given support the conclusion." Then: "Your reasons show that churn fell after the emails launched. That makes the emails a plausible cause. They don't yet show the emails caused the drop. … The argument has only one step, and it's the weak kind: "it happened after, so it was caused by". … You probably have a built-in comparison: customers who signed up just before launch never got the emails. …"
+> *(Recorded on 5.1.0, Claude Opus 5.5 at effort medium.)*
 
 **Tips**
 
