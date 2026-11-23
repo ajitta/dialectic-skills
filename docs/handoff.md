@@ -7,14 +7,14 @@ The current state and what is open, for the next session. Each fact is stated on
 - Plugin `dia` 5.0.0: tag `v5.0.0` on `main` at `694f159` (pull request #115). Release assets match the committed zips.
 - Skill versions: dia-adjudicate, dia-conjecture, dia-counterplan, dia-reductio, dia-warrant 4.0.0; dia-skopos 4.2.0; dia-techne 4.2.1; dia-elenchus, dia-quaestio 3.1.0; dia-negative 3.1.1; dia-emend, dia-ratchet, dia-router 3.0.1; dia-regula 3.0.0.
 - Companion `dia-panel` 0.5.0: tag `dia-panel--v0.5.0` on the same commit.
-- Last decision row D119, last probes part CB. **Next free: D120 and Part CC.**
+- Last decision row D120 (on branch `regula-router-5.1.0`), last probes part CC. **Next free: D121 and Part CD.**
 - OpenAI zip on chatgpt.com: the last upload recorded is 4.1.0; later zips are the owner's to upload.
 
 ## Open
 
 Each waits for the owner's approval of a plan before any run or edit.
 
-- **dia 5.0.1 (approved 2026-11-23, in progress):** the ChatGPT listing's sample prompts (`packaging/openai/interface.json`) start no skill under the gated descriptions; dia-router's menu line for dia-skopos describes the behaviour removed in 4.2.0 (D116); dia-regula's rule of two labelled outcome lines conflicts with the dia-skopos and dia-techne design of D114.
+- **dia 5.1.0 (D120, branch `regula-router-5.1.0`, not released):** dia-regula 3.1.0 no longer requires two labelled outcome lines; dia-router 3.0.2's menu line for dia-skopos; the ChatGPT listing's sample prompts start with a skill's name, and its long description's dia-skopos line matches 4.2.0. Checked (probes Part CC, both targets 2 of 2); waits for the owner's approval to release.
 - **claude-fable-5-2 on the five 4.0.0 texts:** one cell each on a task that exists, 5 runs, when the owner says Fable is available.
 - **What "for the result" means for dia-elenchus and dia-quaestio**, the two skills that only ask: not yet planned.
 - **Reported and left in the repository:** the README's example sessions for dia-elenchus, dia-quaestio, dia-negative, dia-emend and dia-ratchet predate the 3.x rewrites, and its dia-router subsection and review-panel figures quote 2.x outputs (all labelled with their version); the dia-conjecture example repeats the run's own mismatch (89 phone bookings against 66 + 26); `dia-warrant/references/theory.md` places Walton's cause-to-effect questions under the body's step from a change back to its cause; dia-adjudicate once made decisive a doubt the material already answered (D119 (4), seen in one run of two); dia-panel was not run on 5.0.0, and its dia-reductio lens has no clause for a run where no user will reply.
