@@ -7,15 +7,17 @@ The current state and what is open, for the next session. Each fact is stated on
 - Plugin `dia` 5.2.0: tag `v5.2.0` on `main` at `2d7c634` (pull request #128, spec D122, probes Part CF). Release assets match the committed zips (sha256). The tag message says "ahead of 3.0-series dia-elenchus" where it means 3.1.0; the GitHub release notes were corrected, the tag was left. 5.1.1 (`v5.1.1`, #124, D121) is the release before it.
 - Skill versions: dia-adjudicate, dia-conjecture, dia-counterplan, dia-reductio 4.0.0; dia-warrant 4.0.1; dia-skopos 4.2.0; dia-techne 4.2.1; dia-elenchus 3.2.0; dia-quaestio, dia-regula 3.1.0; dia-negative 3.1.1; dia-router 3.0.2; dia-emend, dia-ratchet 3.0.1.
 - Companion `dia-panel` 0.5.0: tag `dia-panel--v0.5.0` at `694f159` (unchanged since).
-- Last decision row D122, last probes part CF. **Next free: D123 and Part CG.**
+- Last decision row D123, last probes part CG. **Next free: D124 and Part CH.**
 - OpenAI zip on chatgpt.com: the last upload recorded is 4.1.0; the 5.2.0 zip (which carries 5.1.0's new sample prompts) is the owner's to upload.
 
 ## Open
 
 Each waits for the owner's approval of a plan before any run or edit.
 
-- **claude-fable-5-2 on the five 4.0.0 texts:** one cell each on a task that exists, 5 runs, when the owner says Fable is available.
-- **dia-elenchus 3.2.0 (D122):** released on the owner's word as an improvement on 3.1.0; it takes the user's own cases in about half the runs. Worth a plan of its own if real use shows the made-up-case runs: a structural change (the first premise question to each definition is a case from the user's situation) rather than another sentence. dia-quaestio stays (ahead of the plain model 2 of 2, Part CE).
+- **Faults the runs of 5.3.0 showed and its text does not remove (D123, Part CG):** dia-warrant writes a concession of what the evidence did not show into text for the user to send ("I accept ...") in 2 of 5 runs, after four wordings, cause not found; dia-negative edited the file two turns after an option was picked in 1 of 2 runs and inferred `user` for a text the user was about to announce in 1 of 2; dia-quaestio joined two asks in 2 of 9 messages of one run. Each needs a plan of its own.
+- **Not shown for 5.3.0:** whether dia-skopos and dia-techne work as well as 4.2.x on the floor case (a blind reader put the floor reply first, 2 of 5 new replies close and 2 clearly below, and no 4.2.x run was read beside them: three runs of the released 5.2.0 on `floor`, read with these, would settle it); the changes listed in D123 as not run or not reached; `companions/dia-panel`, which the audit did not review. Held for a later change: moving the not-known limit in the four siblings of dia-warrant.
+- **claude-fable-5-2 on the five texts remade in 5.0.0:** one cell each on a task that exists, 5 runs. The owner said on 2026-11-24 that Fable is available again, so only his approval of the plan is open; run it on the texts of 5.3.0.
+- **dia-elenchus (D122; 3.2.1 since D123):** 3.2.0 was released on the owner's word as an improvement on 3.1.0; it takes the user's own cases in about half the runs, and both runs of 3.2.1 in Part CG asked about made-up cases after the first test. Worth a plan of its own if real use shows the made-up-case runs: a structural change (the first premise question to each definition is a case from the user's situation) rather than another sentence. dia-quaestio stays (ahead of the plain model 2 of 2, Part CE).
 - **Reported and left in the repository:** none since D121, which ruled the list D119 left (README examples recorded again, the dia-conjecture figures, dia-warrant's theory source fixed, dia-adjudicate's doubt closed with no change, the review-panel figures kept, dia-panel run whole once).
 - **Held back:** one run of the pilot's A/B request with the end stated and no skill, beside the floor reply (`outcome-pilot-2026-11-19/out/e-abtest-chain-run1-turn2.md`).
 - **Directory listings (owner's):** the account steps in `docs/directory-submission.md` § Owner steps.

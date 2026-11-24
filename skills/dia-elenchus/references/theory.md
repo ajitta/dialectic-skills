@@ -9,7 +9,7 @@ The rules are in SKILL.md; this file only says where they come from and where th
 - A definition, not examples: Socrates asks what all the cases share (Euthyphro 6d-e, Meno 72a-c).
 - Too narrow: in Laches 190e-191c, courage was defined as standing your ground, yet the Scythians fight while retreating.
 - Cases from the respondent's field: Socrates tests Laches, a general, on battle cases he supplies himself (Laches 191a-c); this skill asks the user for cases from their own situation first (SKILL.md, Step 3).
-- The hypothesis move in the patterns file follows Meno 86e-87b. The model definition of quickness is Laches 192b.
+- The model definition of quickness in the patterns file is Laches 192b.
 
 ## 2. The stance, and where it departs from Plato's Socrates
 

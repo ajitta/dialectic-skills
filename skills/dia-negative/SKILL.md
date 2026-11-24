@@ -4,7 +4,7 @@ description: Critique a claim or practice against its own stated standard. Use o
 license: MIT
 metadata:
   author: ajitta
-  version: "3.1.1"
+  version: "3.1.2"
   lineage: "negative-dialectics (installed copy, unversioned)"
   source: "https://github.com/ajitta/dialectic-skills"
 ---
@@ -19,7 +19,7 @@ The output opens with a Target line, which says when the target was inferred and
 
 ## Parameters
 
-`--target=user|claude|text|all` sets what is examined, and a natural-language equivalent of the flag counts as the flag; with neither, infer the target, which is `text` for a pasted text, `claude` for "your answer" or "what you said" (or the same in any language) and `user` otherwise, and state the inferred target in the first line so the user can correct it.
+`--target=user|claude|text|all` sets what is examined, and a natural-language equivalent of the flag counts as the flag; with neither, infer the target, which is `text` for a pasted text unless the user has said they wrote it, `claude` for "your answer" or "what you said" (or the same in any language) and `user` otherwise, and state the inferred target in the first line so the user can correct it.
 
 - **user:** a claim, concept, plan or self-description the user states.
 - **claude:** your own earlier answer in this conversation (the most recent one unless the user names another; the value is `claude` on every assistant): quote it, examine it with the same strictness, and say in one line that this is a self-examination and not independent; neither defend the answer nor concede a gap that fails Rule 2.
@@ -101,7 +101,7 @@ When the request comes from another agent or a script that fixes the output form
 
 ## Follow-up turns
 
-- **The user picks an option:** apply it, then examine the new claim the same way, since a revision is a new identification and has its own remainder, and add the decision to the record's history.
+- **The user picks an option:** carry it out in your response, examining a revised claim the same way, since a revision is a new identification and has its own remainder, and add the decision to the record's history; a change to a file or a practice waits for the user's request, because picking an option is not a request to change anything outside the response.
 - **The user disputes a finding:** recheck it against Rules 2–4, taking the user's clarified reading of C as the target's own terms for target user and testing a proposed reading under Rule 3 for claude and text. Withdraw it only if you can name what fails (C misquoted or misread, D not a real case, the argument does not show that both cannot hold, or a wrong evidence class), because disagreement alone is not a defect; if you withdraw it, recheck each other finding on its own and say which stand; if the disputed finding holds, give the reason in one line and keep it.
 - **The user says a standard is not theirs:** remove every finding that used it and rerun.
 - **The user asks about the method:** answer briefly from references/theory.md.

@@ -4,7 +4,7 @@ description: Confirm the user's goal, assumptions and open decisions before work
 license: MIT
 metadata:
   author: ajitta
-  version: "4.2.0"
+  version: "4.2.1"
   lineage: "confirm-intent (installed copy, unversioned); named dia-intent until plugin 1.0.0, dia-confirm from plugin 1.1.0 to 1.4.0 and dia-intent again until 2.0.0"
   source: "https://github.com/ajitta/dialectic-skills"
 ---
@@ -25,9 +25,9 @@ Write the review to be answered in one reading, and leave out any part that has 
 4. **What only the user can decide:** a preference, a trade-off, an authority, a fact no source holds, each with what it changes and the answer you would give.
 5. **The choice,** last. There are two requests the user can give you:
    - **As asked:** the thing the request names, made as its best practitioner would make it. Say anything it would send or spend, and any step that cannot be undone with its safeguard.
-   - **For the result:** the result becomes the request. Write it as one sentence the user could have sent. The work is then whatever gets them furthest toward that result from here, so say that the thing asked for becomes one way to it among others and may be changed or replaced. Do not design that work or say what form it will take: it is planned when it is approved, and it stops for the user's word before anything is sent or spent or anything that exists is changed.
+   - **For the result:** the result becomes the request. Write it as one sentence the user could have sent. The work is then whatever gets them furthest toward that result from here, so say that the thing asked for becomes one way to it among others and may be changed or replaced. Do not design that work or say what form it will take: it is planned when it is approved, and it stops for the user's word before anything is sent or spent and before any other step you could not undo yourself from what you hold.
 
-   Propose the second, unless it would spend the user's money or change something that already exists and that the request does not point to; where the result needs nothing but the thing asked for, say so and offer the one. Then ask for the user's word, and first for the result in their own sentence if yours is not it, because a result they state carries what you cannot know. Say that a bare proceed takes your sentence and that "as asked" keeps to the thing named.
+   Propose the second, unless it would spend the user's money or change something that already exists and that the request does not point to; where the result needs nothing but the thing asked for, say so and offer the one. Then ask for the user's word, and first for the result in their own sentence if yours is not it, because a result they state carries what you cannot know. Say that a bare proceed takes the request you proposed, and that "as asked" or "for the result" takes the one it names.
 
 ## Their word
 

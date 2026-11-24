@@ -1,6 +1,6 @@
 # Verification method assignment
 
-Which methods count as "external verification" for each type of content. One criterion governs: information or execution results that differ from what the model used while drafting. A search snippet alone, or several pages that repeat one origin, is a single source for every content type: open the primary source before writing "confirmed" or "refuted", or class the defect unverifiable.
+Which methods count as "external verification" for each type of content. One criterion governs: information or execution results that differ from what the model used while drafting.
 
 | Content type | Accepted external method | When no method exists |
 |---|---|---|
