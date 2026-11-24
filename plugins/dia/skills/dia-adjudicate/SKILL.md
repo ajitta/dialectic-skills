@@ -4,7 +4,7 @@ description: Rule on reports about a target using evidence. Use only when the me
 license: MIT
 metadata:
   author: ajitta
-  version: "4.0.0"
+  version: "4.0.1"
   lineage: "new in plugin 1.5.0 (spec D40); rules drawn from adjudication trials, docs/research/dia-adjudicate.md"
   source: "https://github.com/ajitta/dialectic-skills"
 ---
@@ -27,7 +27,7 @@ Check calculations first (by a tool if one is available, saying what ran; a sum 
 
 Overturning a report needs the source's own words on the same point, read this session and quoted with their place, or the recomputation shown. A ruling that rests on your recall is conditional and overturns nothing. Before you overturn, search the source for the report's key terms and weigh every place where it speaks to the point. That a claim is not in the sources you opened never makes it wrong, and a claim about what a person or a body holds may rest on their other statements, so look there. Where a tool returns a summary of a page and not the page, put the report's claim to it as a direct question; absence from a summary contradicts nothing. What cannot be verified is not false: it keeps its content, with where you looked and what would settle it.
 
-Weigh each point by what it does to the conclusion and not by the label its report gave it: the conclusion fails unless this is fixed; a supporting claim fails, or the conclusion has to be narrowed or qualified; or neither. A slip that changes no figure that matters, no ruling and not the conclusion is not listed, except where a report misstates what a source says.
+Weigh each point by what it does to the conclusion and not by the label its report gave it: the conclusion fails unless this is fixed; a supporting claim fails, or the conclusion has to be narrowed or qualified; or neither. A report's own slip that changes no figure that matters, no ruling and not the conclusion is not listed, except where it misstates what a source says.
 
 ## Where the ruling may be wrong
 

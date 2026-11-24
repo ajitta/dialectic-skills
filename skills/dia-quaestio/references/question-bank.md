@@ -5,8 +5,8 @@ Shapes, not scripts. Adapt each to the user's own words and the last answer.
 ## Six types
 
 **Clarification**
-- "When you say 'better', better for whom, measured how?"
-- "Who is the very first person to use this, and what are they doing a minute before?"
+- "When you say 'better', measured how?"
+- "Who is the very first person to use this?"
 - "What is explicitly *not* part of this?"
 
 **Assumptions**
@@ -26,7 +26,7 @@ Shapes, not scripts. Adapt each to the user's own words and the last answer.
 
 **Implications**
 - "If this works exactly as hoped, what does it displace or break?"
-- "What happens at ten times the scale? At a tenth?"
+- "What happens at ten times the scale?"
 - "What's hard to undo once you start?"
 
 **The question itself**
@@ -47,9 +47,9 @@ Shapes, not scripts. Adapt each to the user's own words and the last answer.
 
 - **Premortem** (risky or irreversible bets): "It's a year later and this failed. What's the most likely story?"
 - **Expert lens**, asked as a question in that person's spirit:
-  - Peter Drucker: "Who is the customer, and what do they consider value?"
+  - Peter Drucker: "What does the customer consider value?"
   - Clayton Christensen: "What job is this hired to do?"
-  - Nassim Taleb: "What breaks first under stress, and do you gain or lose from volatility?"
+  - Nassim Taleb: "What breaks first under stress?"
   - Michael Nygard: "What happens when this fails at 3 a.m.?"
   - Rich Hickey: "What's left after removing the incidental complexity?"
   - Kent Beck: "What's the first test that would tell you it works?"

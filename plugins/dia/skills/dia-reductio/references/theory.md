@@ -25,7 +25,7 @@ Two directions:
 - **Refutation:** assume A, derive a contradiction, conclude not-A. This is valid in classical and intuitionistic logic alike.
 - **Indirect proof:** assume not-A, derive a contradiction, conclude A. This is valid in classical logic but not in intuitionistic logic (Encyclopedia of Mathematics), where reductio proves only negative statements because not-not-A does not imply A in general (SEP, "Intuitionistic Logic"); it does when A is itself a negation. The intuitionist objection bites hardest on existence claims: refuting "nothing is F" does not, for them, show that something is F unless an instance is produced (IEP).
 
-So when the skill proves T by refuting not-T and T is not itself a negation, note that the conclusion relies on classical logic, above all when T says something exists.
+So when the skill proves T by refuting not-T and T is not itself a negation, the conclusion relies on classical logic, above all when T says something exists.
 
 ## 3. Which premise goes
 
@@ -48,7 +48,7 @@ The incommensurability of a square's diagonal with its side: assume d/s = n/m in
 
 ## 6. Reductio and per impossibile reasoning
 
-Both start from a supposition that conflicts with known facts. Reductio aims to reject the supposition. *Per impossibile* reasoning keeps the impossible supposition in order to study what follows from it, as in "if, per impossibile, there were finitely many primes, there would be a largest prime" (IEP). The difference is in the goal, not the inference. If the user is exploring consequences rather than testing a claim, say that this is per impossibile reasoning and that no refutation is being claimed.
+Both start from a supposition that conflicts with known facts. Reductio aims to reject the supposition. *Per impossibile* reasoning keeps the impossible supposition in order to study what follows from it, as in "if, per impossibile, there were finitely many primes, there would be a largest prime" (IEP). The difference is in the goal, not the inference.
 
 ## 7. History in dialogue
 

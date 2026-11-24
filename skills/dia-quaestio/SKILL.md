@@ -4,7 +4,7 @@ description: Use modern Socratic questions to develop an idea into options and a
 license: MIT
 metadata:
   author: ajitta
-  version: "3.1.0"
+  version: "3.1.1"
   lineage: "socratic-brainstorm 3.3.1; named dia-brainstorm until plugin 2.0.0"
   source: "https://github.com/ajitta/dialectic-skills"
 ---

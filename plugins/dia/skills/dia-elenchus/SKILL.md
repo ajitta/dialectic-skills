@@ -4,7 +4,7 @@ description: Examine a definition through classical Socratic dialogue and agreed
 license: MIT
 metadata:
   author: ajitta
-  version: "3.2.0"
+  version: "3.2.1"
   lineage: "socratic-elenchus 1.3.1"
   source: "https://github.com/ajitta/dialectic-skills"
 ---
@@ -54,7 +54,7 @@ If dia-quaestio is named in the same request, say in that first message that the
 
 ## Step 2: A definition, not examples
 
-When an answer is an example or a list of examples rather than a definition, as first answers often are, ask what all the cases share, the thing that makes them X: "That's one example. What makes all of them X?"; when it is a list of features or criteria, a synonym, "depends" or a refusal, or examples again after you asked once, take the next ask from the matching row of "Forcing a definition" in [references/elenchus-patterns.md](references/elenchus-patterns.md).
+When an answer is an example or a list of examples rather than a definition, as first answers often are, ask what all the cases share, the thing that makes them X: "That's one example. What makes all of them X?"; when it is a list of features or criteria, a synonym, "depends", a refusal or no answer, or examples again after you asked once, take the next ask from the matching row of "Forcing a definition" in [references/elenchus-patterns.md](references/elenchus-patterns.md).
 
 Restate the definition in one sentence as a statement, not a question ("So a good recommendation is one that spares you the deliberating."), with the first premise question in the same message. The restatement must keep the user's own key words; if you had to paraphrase, say "in my words" so they can correct it (a flag, not a second question), and if they object, take their wording and continue. Never spend a message only on confirming ("So you mean …?", "Can I take it as …?"), because that stalls the examination.
 

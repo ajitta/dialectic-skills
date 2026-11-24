@@ -55,7 +55,7 @@ The tools are stdlib-only; the tests use PyYAML when it is installed. CI (`.gith
 - Runs per cell: 1 to confirm unchanged or expected behaviour, 2 for a changed behaviour. Raise to 5 only when results disagree with the expectation or between arms; use 10 or more only for an arm-against-arm figure the release notes will quote.
 - Read results while the batch runs and stop it once the answer is clear.
 - The engine is claude-opus-5-5 at effort medium (or low), on Claude Code only. No Sonnet, Haiku, Codex, ChatGPT or claude.ai run, and a record does not list them among what was not run; a released text is unverified on those surfaces unless a record says otherwise.
-- Sub-agents (readers, reviewers, task writers, auditors) run `model: opus` at effort high. No claude-fable-5-2, for runs or sub-agents, until the owner says it is available again (temporary, owner 2026-11-23).
+- Sub-agents (readers, reviewers, task writers, auditors) run at effort high on `model: opus`; claude-fable-5-2 may be used for them again and is not required (owner, 2026-11-24).
 - Rerun a baseline arm only when the record will compare arms; otherwise check the changed build against its expected behaviour and reuse earlier results. The baseline is the plain model given the same request without the skill; read what that arm was actually sent.
 - The simulated user writes every first message, file tasks included; the session gives it the persona and does not write the request itself. Keep each task inside the skill's category.
 - In a comparison whose arms hold a dialogue with a simulated user: the protocol fixes when a dialogue ends and applies it the same way in every arm; every skill arm loads its skill through the same mechanism; an answer key that rests on a named theory is checked against a primary source before the runs.
@@ -64,6 +64,7 @@ The tools are stdlib-only; the tests use PyYAML when it is installed. CI (`.gith
 ## Review findings (owner, 2026-11-13)
 
 - Fix only a finding under which a model would act wrongly in an ordinary case; report the others with the change and leave their text as it is.
+- Three things are not grounds for leaving a fault (owner, 2026-11-24): that its harm is low or it shows only in some runs; that the behaviour was never run and no wrong act was seen; and that an earlier decision made the text deliberate. Judge that decision on its merits, and where it is wrong, or rested on something that has since changed, fix the text and record the correcting decision.
 - A fix that adds words names the words it removes, or says that it removes none and why the addition is still needed.
 - Ask a reviewer for what would harm the user or defeat the skill's purpose, a few findings at most, not for every condition lost.
 

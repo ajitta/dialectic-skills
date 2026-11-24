@@ -4,7 +4,7 @@ description: Test a universal claim using counterexamples and repairs. Use only 
 license: MIT
 metadata:
   author: ajitta
-  version: "4.0.0"
+  version: "4.0.1"
   lineage: "new in plugin 1.3.0 (docs/research/candidates/modern-dialectic.md)"
   source: "https://github.com/ajitta/dialectic-skills"
 ---
@@ -21,7 +21,7 @@ Say in one line the claim as "every A is B", in the key words of its source, say
 
 Set out why the claim is held, and how it is taken to carry what it is for, as a few numbered steps: the source's own reasons quoted, and each step you supply because the argument needs it marked as yours. Mark the step you trust least. Where no reason was given, reconstruct one, and say that you are then testing an argument you wrote. For a claim about the world, say before the cases what observation would count against it, so that a case is not explained away once it is found.
 
-Bring cases, those most likely to count first: from the source's own material (its records, its code, its examples), then cases that follow from its definitions, then facts from outside. Where a tool can produce or check a case (running the code on an input, computing from the records), use it if such a tool is available and say what ran. Each case shows its check, condition by condition: that it is an A under the reading in force, and what it breaks: the claim (it is not B), a step of the argument, or what is built on the claim. A check that rests on arithmetic or on how something behaves states every condition its result needs. A case whose check you cannot write is not raised. Each case says what it rests on (a definition, the user's material, a run, one source, your recall), and what follows from a case that rests on recall is conditional on it.
+Bring cases, those most likely to count first: from the source's own material (its records, its code, its examples), then cases that follow from its definitions, then facts from outside. Where a tool can produce or check a case (running the code on an input, computing from the records), use it if such a tool is available, on a copy wherever the run would change anything of the user's, because a check leaves what it checks as it found it, and say what ran. Each case shows its check, condition by condition: that it is an A under the reading in force, and what it breaks: the claim (it is not B), a step of the argument, or what is built on the claim. A check that rests on arithmetic or on how something behaves states every condition its result needs. A case whose check you cannot write is not raised. Each case says what it rests on (a definition, the user's material, a run, one source, your recall), and what follows from a case that rests on recall is conditional on it.
 
 A case can leave the claim standing as worded and still break a step, or break what is built on the claim: say exactly that, and do not count it against the claim.
 
@@ -33,13 +33,13 @@ Two ways out are not repairs, and you name them when they appear. Listing the ca
 
 ## The exchange
 
-An answer that names a defect in a case (a condition of its check that fails, a term read wider than the claim reads it, a fact you lacked) is checked, and where it holds you give way exactly as far as it reaches: the case is withdrawn, or it stands against a step and not against the claim, and you say what is left. "That is not a real A", or "by A I meant ...", said after a case that met the claim as read, changes the claim: say the old wording and the new, and what the new one no longer covers, and test the new one. A wider reading the user adopts is a changed claim too, and the case is checked again under it. Disagreement alone, repetition or someone's standing moves nothing: say so and why.
+An answer that names a defect in a case (a condition of its check that fails, a term read wider than the claim reads it, a fact you lacked) is checked, and where it holds you give way exactly as far as it reaches: the case is withdrawn, or it stands against a step and not against the claim, and you say what is left. "That is not a real A", or "by A I meant ...", where it narrows the source's own words and not wording you added or changed, changes the claim: say the old wording and the new, and what the new one no longer covers, and test the new one. A wider reading the user adopts is a changed claim too, and the case is checked again under it. Disagreement alone, repetition or someone's standing moves nothing: say so and why.
 
 ## Your judgment
 
 Say whether the claim stands: fallen by the case that counted, repaired and holding against the cases tried, holding as stated against the cases tried, or following from the source's own definitions or lines, which you show. Whether a case counts is yours to say wherever its check settles it. Surviving cases are not proof: say which cases and which kinds of case were tried, which were not, and where a counterexample would most likely be found, because a claim nobody pressed has not held.
 
-Then say what becomes of what the claim was for. The decision that rested on "every" is judged again, and where it changes, say what to do instead; where the user needs the thing itself to act on, make it and put it to the same test.
+Then say what becomes of what the claim was for. The decision that rested on "every" is judged again, and where it changes, say what to do instead; where the user needs the thing itself to act on, make it in the reply and put it to the same test.
 
 Hand back only what is the user's alone: what they meant by a term, a preference, an authority, a fact no source holds. Put it as a question they can answer or carry to whoever holds it.
 

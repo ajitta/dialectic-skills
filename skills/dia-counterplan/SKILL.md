@@ -4,7 +4,7 @@ description: Construct a counterplan from contrary assumptions using the same ev
 license: MIT
 metadata:
   author: ajitta
-  version: "4.0.0"
+  version: "4.0.1"
   lineage: "new in plugin 1.3.0 (docs/research/candidates/argumentation.md)"
   source: "https://github.com/ajitta/dialectic-skills"
 ---
@@ -29,13 +29,13 @@ For each pair, say what observation would show which of the two is true, one the
 
 ## The counterplan
 
-From the contraries that are still standing, build the course of action they call for, on the same facts: a course a competent advocate would choose and defend, not the plan with a part removed and not a list of the plan's faults. Waiting, or doing nothing, counts where that is what follows. Give it the plan's own level of detail: where the plan names steps, costs and dates, so does the counterplan, and where it would need a figure nobody has, it says which. Say whether it is another way to what the plan is for or aims at something else. Where the contraries still standing no longer call for a different course (the evidence went the plan's way, or the plan holds under them), say that, build nothing, and go to your judgment.
+Where a pair turns on something only the user holds, wait for the answer; then, from the contraries that are still standing, build the course of action they call for, on the same facts: a course a competent advocate would choose and defend, not the plan with a part removed and not a list of the plan's faults. Waiting, or doing nothing, counts where that is what follows. Give it the plan's own level of detail: where the plan names steps, costs and dates, so does the counterplan, and where it would need a figure nobody has, it says which. Say whether it is another way to what the plan is for or aims at something else. Where the contraries still standing no longer call for a different course (the evidence went the plan's way, or the plan holds under them), say that, build nothing, and go to your judgment.
 
 You wrote both sides, and you say so: a counterplan built by the plan's examiner is not an independent test of the plan, and that both sides were heard is not evidence that the plan was tested.
 
 ## The exchange
 
-A fact or a reason from the user that settles a pair settles it as far as it reaches, for either side, and what rested on the assumption that fell is built again. A contrary the user rejects for a defect in how it is put (it misstates a fact, it cannot hold with another contrary) is checked, and rewritten where the defect holds. Rejection alone, repetition or someone's standing leaves the pair open: say so, and what would settle it. The user's own account of their plan replaces your reading of it, but an assumption the plan cannot do without stays, and you show where the plan needs it; a plan they change is a new plan, examined again, with what the change gives up.
+A fact or a reason from the user that settles a pair settles it as far as it reaches, for either side, and what rested on the assumption that fell is built again. A contrary the user rejects for a defect in how it is put (it misstates a fact, it cannot hold with another contrary) is checked, and rewritten where the defect holds. Rejection alone, repetition or someone's standing leaves the pair as it stood: say so, and what would change it. The user's own account of their plan replaces your reading of it, but an assumption the plan cannot do without stays, and you show where the plan needs it; a plan they change is a new plan, examined again, with what the change gives up.
 
 ## Your judgment
 
@@ -45,7 +45,7 @@ Hand back only what is the user's alone: what they meant, a preference, an autho
 
 ## The reply
 
-Lead with the judgment in a few lines, as far as the evidence in hand settles it; what it settles is said now. Where the rest turns on something only the user holds, give each key assumption with its contrary in a line and the question whose answer would settle the pair, with what each answer decides, all at once; the counterplan waits for the answers, no courses of action are laid out by case meanwhile, and nothing is recommended that an answer could overturn. Otherwise go through the pairs once (the assumption, said by the target or supplied by you; its contrary; how the pair was settled, or what would decide it), then the counterplan where one was built, and what came to the surface and what did not: what the user or the material held that the plan did not use, what you could not know or check, and what was not examined at all (courses other than these two, whether the shared facts are accurate). Every fact carries how it is known: a tool ran this session, the user supplied it, one source, or your recall. A later reply gives what changed and the judgment as it now stands. Write in lines that read on a phone.
+Lead with the judgment in a few lines, as far as the evidence in hand settles it; what it settles is said now. Where the rest turns on something only the user holds, give each key assumption with its contrary in a line and the question whose answer would settle the pair, with what each answer decides, all at once; the counterplan waits for the answers, no courses of action are laid out by case meanwhile, and nothing is recommended that an answer could overturn. Otherwise, and in the reply to those answers, go through the pairs once (the assumption, said by the target or supplied by you; its contrary; how the pair was settled, or what would decide it), then the counterplan where one was built, and what came to the surface and what did not: what the user or the material held that the plan did not use, what you could not know or check, and what was not examined at all (courses other than these two, whether the shared facts are accurate). Every fact carries how it is known: a tool ran this session, the user supplied it, one source, or your recall. A reply after that gives what changed and the judgment as it now stands. Write in lines that read on a phone.
 
 A user who asks only what the plan rests on gets the key assumptions with their questions, and the offer of the rest in a line.
 
