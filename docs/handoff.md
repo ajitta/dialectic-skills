@@ -4,11 +4,11 @@ The current state and what is open, for the next session. Each fact is stated on
 
 ## Released (2026-11-24)
 
-- Plugin `dia` 5.2.0: tag `v5.2.0` on `main` at `2d7c634` (pull request #128, spec D122, probes Part CF). Release assets match the committed zips (sha256). The tag message says "ahead of 3.0-series dia-elenchus" where it means 3.1.0; the GitHub release notes were corrected, the tag was left. 5.1.1 (`v5.1.1`, #124, D121) is the release before it.
-- Skill versions: dia-adjudicate, dia-conjecture, dia-counterplan, dia-reductio 4.0.0; dia-warrant 4.0.1; dia-skopos 4.2.0; dia-techne 4.2.1; dia-elenchus 3.2.0; dia-quaestio, dia-regula 3.1.0; dia-negative 3.1.1; dia-router 3.0.2; dia-emend, dia-ratchet 3.0.1.
+- Plugin `dia` 5.3.0: tag `v5.3.0` on `main` at `b621ac5` (pull request #130, spec D123, probes Part CG). Release assets match the committed zips (sha256). 5.2.0 (`v5.2.0`, #128, D122) is the release before it.
+- Skill versions: dia-adjudicate, dia-conjecture, dia-counterplan, dia-reductio 4.0.1; dia-warrant 4.0.2; dia-skopos 4.2.1; dia-techne 4.2.2; dia-elenchus 3.2.1; dia-negative 3.1.2; dia-quaestio, dia-regula 3.1.1; dia-router 3.0.3; dia-emend, dia-ratchet 3.0.2.
 - Companion `dia-panel` 0.5.0: tag `dia-panel--v0.5.0` at `694f159` (unchanged since).
 - Last decision row D123, last probes part CG. **Next free: D124 and Part CH.**
-- OpenAI zip on chatgpt.com: the last upload recorded is 4.1.0; the 5.2.0 zip (which carries 5.1.0's new sample prompts) is the owner's to upload.
+- OpenAI zip on chatgpt.com: the last upload recorded is 4.1.0; the 5.3.0 zip (which carries 5.1.0's new sample prompts) is the owner's to upload.
 
 ## Open
 
@@ -24,7 +24,7 @@ Each waits for the owner's approval of a plan before any run or edit.
 
 ## Where the work is
 
-- Probe batches and their records are on the owner's PC under `C:/Users/ajitta/work/dia-probes/`. The latest is `verify-six-2026-11-20/` (`REMAKE.md`; `run_six.py`; the task method in `newtasks/`; `gen_requests.py` has the simulated user write first messages).
+- Probe batches and their records are on the owner's PC under `C:/Users/ajitta/work/dia-probes/`. The latest is `regula-audit-2026-11-24/` (`PLAN.md`; `run_audit.py`, one arm on a copy of the build, with a check that the new text is in the events; `mk_tasks2.py` and `gen.py` for tasks written by sub-agents and first messages written by the simulated user; `trace_agents.py` for runs that start sub-agents). Before it, `verify-six-2026-11-20/` (`REMAKE.md`; `run_six.py`; the task method in `newtasks/`; `gen_requests.py` has the simulated user write first messages).
 - `run_six.py` loads `plugins/dia` from the main checkout `C:/Users/ajitta/Repos/ajitta/dialectic-skills` and stops unless it is on `main` with no changes under `plugins/`, so a run on `main` tests the released build. To check a branch build, stay on the branch and set `DIA_ALLOW_BRANCH=1` (or point `--plugin-dir` at that branch's `plugins/dia`), and confirm in the run's events which text loaded.
 
 ## How a run is set up (Claude Code)
