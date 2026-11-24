@@ -8,7 +8,7 @@ The current state and what is open, for the next session. Each fact is stated on
 - Skill versions: dia-adjudicate, dia-conjecture, dia-counterplan, dia-reductio 4.0.1; dia-warrant 4.0.2; dia-skopos 4.2.1; dia-techne 4.2.2; dia-elenchus 3.2.1; dia-negative 3.1.2; dia-quaestio, dia-regula 3.1.1; dia-router 3.0.3; dia-emend, dia-ratchet 3.0.2.
 - Companion `dia-panel` 0.5.0: tag `dia-panel--v0.5.0` at `694f159` (unchanged since).
 - Last decision row D123, last probes part CG. **Next free: D124 and Part CH.**
-- OpenAI zip on chatgpt.com: the last upload recorded is 4.1.0; the 5.3.0 zip (which carries 5.1.0's new sample prompts) is the owner's to upload.
+- OpenAI zip on chatgpt.com: 5.3.0, uploaded by the owner (his word, 2026-11-24); it carries 5.1.0's new sample prompts. The upload recorded before it is 4.1.0.
 
 ## Open
 
