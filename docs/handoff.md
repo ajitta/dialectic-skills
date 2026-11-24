@@ -4,9 +4,9 @@ The current state and what is open, for the next session. Each fact is stated on
 
 ## Released (2026-11-24)
 
-- Plugin `dia` 5.4.0: tag `v5.4.0` on `main` (pull request #139, spec D125, probes Part CI). 5.3.0 (`v5.3.0` at `b621ac5`, #130, D123) is the release before it.
+- Plugin `dia` 5.4.0: tag `v5.4.0` on `main` at `3e9643f` (pull request #139, spec D125, probes Part CI). Release assets match the committed zips (sha256). 5.3.0 (`v5.3.0` at `b621ac5`, #130, D123) is the release before it.
 - Skill versions: dia-adjudicate, dia-conjecture, dia-counterplan, dia-reductio 4.0.2; dia-warrant 4.0.3; dia-skopos 4.2.1; dia-techne 4.2.2; dia-elenchus 3.2.1; dia-negative 3.1.2; dia-quaestio, dia-regula 3.1.1; dia-router 3.0.4; dia-emend, dia-ratchet 3.0.2.
-- Companion `dia-panel` 0.6.0: tag `dia-panel--v0.6.0` on the same commit as `v5.4.0`. 0.5.0 (`dia-panel--v0.5.0` at `694f159`) is the release before it.
+- Companion `dia-panel` 0.6.0: tag `dia-panel--v0.6.0` at `3e9643f`. 0.5.0 (`dia-panel--v0.5.0` at `694f159`) is the release before it.
 - Last decision row D125, last probes part CI. **Next free: D126 and Part CJ.**
 - OpenAI zip on chatgpt.com: 5.3.0, uploaded by the owner (his word, 2026-11-24). 5.4.0 is not uploaded; an uploaded zip does not update itself.
 
@@ -14,7 +14,7 @@ The current state and what is open, for the next session. Each fact is stated on
 
 Each waits for the owner's approval of a plan before any run or edit.
 
-**Start here (end of the session of 2026-11-24, after the release of 5.4.0).** Nothing is running. One thing was put to the owner at the end of that session and waits for his word: whether dia-skopos 4.2.2 is released as it was run (the first item below). A session that starts fresh does not have his answer; ask him before any edit outside `docs/`.
+**Start here (end of the session of 2026-11-24, after the release of 5.4.0).** Nothing is running and nothing in the repository is uncommitted. One thing was put to the owner at the end of that session and waits for his word: whether dia-skopos 4.2.2 is released as it was run (the first item below). A session that starts fresh does not have his answer; ask him before any edit outside `docs/`.
 
 - **dia-skopos, item 5: the fault of the released text is open, and a text run against it is not released.** On `s-asked` the released review proposes the request for the result, and after a bare "Go ahead." the work changes existing files the user did not name (4 of 5 runs). The cause (Part CI, D125): D123 (3) replaced the stop for work for the result with dia-techne's "any other step you could not undo yourself from what you hold", so a change passes once a copy is kept. The wording of `PLAN-stage3b.md` puts the condition into the stop and has the review say it (the two dia-skopos entries of `EDITS` in `build_cand.py`: 15 words removed, 26 added; reviewed in `stage3-review-5.json` and `stage3-review-6.json`). In its 5 runs the review said the stop and no existing file but the named one changed (5 of 5). The work's list of places left was whole in 4 of 5, and in the one floor run the figures were worse than in two of five earlier floor runs. The rule the owner approved was every line in 5 of 5, so the wording was not released.
   - The session's recommendation to him: release it unchanged as dia-skopos 4.2.2 in plugin 5.4.1, with no further run. The behaviour the sentence is for held in 5 of 5 (other files changed in 0 of 5 against the released text's 4 of 5; Fisher exact, two-sided, 0.048). Both shortfalls are in dia-techne's reply and were seen before this wording: the list of places left missed the deposit line of the FAQ in 3 of the 4 earlier candidate runs that left the other pages alone and in the one released run that did, so under this wording the list is whole more often (4 of 5 against 1 of 5). Against it stands what the released text does in its other 4 of 5 runs: it changes her other files without her word, the deposit line among them. This departs from the rule he approved, so it is his to decide.
