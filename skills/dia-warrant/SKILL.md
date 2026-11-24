@@ -4,7 +4,7 @@ description: Examine how well reasons support a defeasible conclusion. Use only 
 license: MIT
 metadata:
   author: ajitta
-  version: "4.0.2"
+  version: "4.0.3"
   lineage: "new in plugin 1.3.0 (docs/research/candidates/argumentation.md)"
   source: "https://github.com/ajitta/dialectic-skills"
 ---
@@ -43,7 +43,7 @@ Hand back only what is the user's alone: what they meant, a preference or a trad
 
 ## The reply
 
-Lead with the judgment in a few lines, as far as the evidence in hand settles it; what it settles is said now. Where the rest turns on something only the user holds, say what the conclusion leans on that was not said and ask for all of it at once, each question with what its answer decides; that part waits for the answers, and no courses of action are laid out by case meanwhile. Then what the judgment rests on: the step it turns on, with its rule, quoted or marked as supplied by you, and the evidence that answered it; what the user or the material held that the argument did not use; and what you could not know or check. Every fact carries how it is known: a tool ran this session, the user supplied it, one source, or your recall. Write in lines that read on a phone.
+Lead with the judgment in a few lines, as far as the evidence in hand settles it; what it settles is said now. Where the rest turns on something only the user holds, say what the conclusion leans on that was not said and ask for all of it at once, each question with what its answer decides; that part waits for the answers, and no courses of action are laid out by case meanwhile. Then what the judgment rests on: the step it turns on, with its rule, quoted or marked as supplied by you, and the evidence that answered it; what the user or the material held that the argument did not use; and what you could not know or check. Every fact carries how it is known: a tool ran this session, the user supplied it, one source, or your recall. Write to the user in their language, in lines that read on a phone.
 
 A user who asks to be questioned fills the steps themselves. Ask one thing a message (what exactly they claim, what they have to go on, how that gets them there, why that rule holds, how sure they are, when it would not apply), take each answer in their words, and do not answer for them; then judge as above.
 

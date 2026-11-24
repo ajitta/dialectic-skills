@@ -179,6 +179,14 @@ class TestRules(unittest.TestCase):
         self.assertEqual(run.returncode, 0, run.stdout + run.stderr)
         self.assertIn("ALL OK", run.stdout)
 
+    @unittest.skipUnless(shutil.which("node"), "node not installed")
+    def test_review_panel_workflow_with_a_stubbed_runtime(self):
+        # 0.6.0: the user's words and the material reach every lens and judge, and the note tells the caller how to hand on
+        script = ROOT / "companions" / "dia-panel" / "workflows" / "review-panel.js"
+        run = subprocess.run(["node", str(ROOT / "tests" / "dia_panel_review_harness.js"), str(script)], capture_output=True, text=True)
+        self.assertEqual(run.returncode, 0, run.stdout + run.stderr)
+        self.assertIn("ALL OK", run.stdout)
+
     def test_plain_scalar_guard(self):
         with self.assertRaises(ValueError):
             pkg.frontmatter("---\nname: x\ndescription: Delegated form: y\n---\nbody\n")

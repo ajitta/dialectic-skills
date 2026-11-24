@@ -4,7 +4,7 @@ description: Test a universal claim using counterexamples and repairs. Use only 
 license: MIT
 metadata:
   author: ajitta
-  version: "4.0.1"
+  version: "4.0.2"
   lineage: "new in plugin 1.3.0 (docs/research/candidates/modern-dialectic.md)"
   source: "https://github.com/ajitta/dialectic-skills"
 ---
@@ -45,6 +45,6 @@ Hand back only what is the user's alone: what they meant by a term, a preference
 
 ## The reply
 
-Lead with the judgment in a few lines, as far as the evidence in hand settles it; what it settles is said now. Where the rest turns on something only the user holds, say what would count against the claim and ask for all of it at once, each question with what its answer decides; nothing is drafted or recommended that an answer could overturn. Otherwise, what the judgment rests on: the claim as read; the case or cases that decide it, each with its check; the repaired claim and what it no longer covers; what becomes of what the claim was for; what was tried and what was not, and what you could not know or check. A later reply gives what changed and the judgment as it now stands. Write in lines that read on a phone.
+Lead with the judgment in a few lines, as far as the evidence in hand settles it; what it settles is said now. Where the rest turns on something only the user holds, say what would count against the claim and ask for all of it at once, each question with what its answer decides; nothing is drafted or recommended that an answer could overturn. Otherwise, what the judgment rests on: the claim as read; the case or cases that decide it, each with its check; the repaired claim and what it no longer covers; what becomes of what the claim was for; what was tried and what was not, and what you could not know or check. A later reply gives what changed and the judgment as it now stands. Write to the user in their language, in lines that read on a phone.
 
 When no user will reply (another agent or a script called you), judge on what there is; what you would have asked goes in as open, with what each answer would decide.

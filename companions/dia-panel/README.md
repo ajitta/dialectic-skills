@@ -29,6 +29,8 @@ Run /dia-panel:review-panel on docs/design.md
 
 To name the central claim the lenses should examine, add it: `... with the claim "the pilot needs 30 runs"`.
 
+The lenses and judges see nothing of your conversation. An agent that calls the workflow passes `{target, claim, context, material}`: `context` is what the user has said about the document (what it is for, the facts they gave), copied as they wrote it, with anything the caller adds marked as its own, and `material` is a list of paths of files the document points to. Every lens and judge gets both, and takes a fact the user states in `context` as supplied by the user. The result's `given` says whether `context` and which `material` reached the panel. Its `note` tells the caller to give the user the lens reports and the judge runs whole, or in a file it names, to say which conclusions are the panel's and which are its own, and to put to the user the questions the reports leave open.
+
 To judge reports that are already written, name the document and the report files:
 
 ```

@@ -4,7 +4,7 @@ description: Rule on reports about a target using evidence. Use only when the me
 license: MIT
 metadata:
   author: ajitta
-  version: "4.0.1"
+  version: "4.0.2"
   lineage: "new in plugin 1.5.0 (spec D40); rules drawn from adjudication trials, docs/research/dia-adjudicate.md"
   source: "https://github.com/ajitta/dialectic-skills"
 ---
@@ -33,7 +33,7 @@ Weigh each point by what it does to the conclusion and not by the label its repo
 
 A judge's errors gather in a few places, and you list them for the user to check, the one that matters most to the conclusion first: every ruling that overturns a report, every "cannot be verified" on something the conclusion depends on, and every ruling that rests on a summary or on your recall.
 
-Where you overturn a report on your reading of a source, and a separate agent can be started, have the same input, sent with this skill's name in front, judged a second time apart from your run: it is told that it is the second of two, starts none of its own and sees nothing of yours. Compare the two by report and point. The rulings that differ are the ones to put to the source again, and the ruling in the minority is not thereby the wrong one. A recomputation shown in full needs no second run. Say whether one run was made or two; a run told that it is one of two starts none.
+Where you overturn a report on your reading of a source, and a separate agent can be started, have the same input, unchanged and with this skill's name in front, judged a second time apart from your run: it is told that it is the second of two, that no user will reply and that it starts none of its own, and it sees nothing of yours. Compare the two by report and point. The rulings that differ are the ones to put to the source again, and the ruling in the minority is not thereby the wrong one. A recomputation shown in full needs no second run. Say whether one run was made or two; a run told that it is one of two starts none.
 
 ## The exchange
 
@@ -49,6 +49,6 @@ Hand back only what is the user's alone: what they meant, a preference, an autho
 
 ## The reply
 
-Lead with the judgment in a few lines, as far as the evidence in hand settles it; what it settles is said now. Where the rest turns on something only the user holds, ask for all of it at once, each question with what its answer decides; nothing is drafted or recommended that an answer could overturn. Then, what the judgment rests on: the rulings, each point once with its basis; what was checked and held, so that silence is not read as not looked at; what could not be verified; and where the ruling may be wrong. Every fact carries how it is known: a tool ran this session, the source read in full or through a summary, the user supplied it, one source, worked by hand, or your recall. A later reply gives what changed and the judgment as it now stands. Write in lines that read on a phone.
+Lead with the judgment in a few lines, as far as the evidence in hand settles it; what it settles is said now. Where the rest turns on something only the user holds, ask for all of it at once, each question with what its answer decides; nothing is drafted or recommended that an answer could overturn. Then, what the judgment rests on: the rulings, each point once with its basis; what was checked and held, so that silence is not read as not looked at; what could not be verified; and where the ruling may be wrong. Every fact carries how it is known: a tool ran this session, the source read in full or through a summary, the user supplied it, one source, worked by hand, or your recall. A later reply gives what changed and the judgment as it now stands. Write to the user in their language, in lines that read on a phone.
 
 When no user will reply (another agent or a script called you), judge on what there is; what you would have asked goes in as open, with what each answer would decide.

@@ -4,7 +4,7 @@ description: Construct a counterplan from contrary assumptions using the same ev
 license: MIT
 metadata:
   author: ajitta
-  version: "4.0.1"
+  version: "4.0.2"
   lineage: "new in plugin 1.3.0 (docs/research/candidates/argumentation.md)"
   source: "https://github.com/ajitta/dialectic-skills"
 ---
@@ -45,7 +45,7 @@ Hand back only what is the user's alone: what they meant, a preference, an autho
 
 ## The reply
 
-Lead with the judgment in a few lines, as far as the evidence in hand settles it; what it settles is said now. Where the rest turns on something only the user holds, give each key assumption with its contrary in a line and the question whose answer would settle the pair, with what each answer decides, all at once; the counterplan waits for the answers, no courses of action are laid out by case meanwhile, and nothing is recommended that an answer could overturn. Otherwise, and in the reply to those answers, go through the pairs once (the assumption, said by the target or supplied by you; its contrary; how the pair was settled, or what would decide it), then the counterplan where one was built, and what came to the surface and what did not: what the user or the material held that the plan did not use, what you could not know or check, and what was not examined at all (courses other than these two, whether the shared facts are accurate). Every fact carries how it is known: a tool ran this session, the user supplied it, one source, or your recall. A reply after that gives what changed and the judgment as it now stands. Write in lines that read on a phone.
+Lead with the judgment in a few lines, as far as the evidence in hand settles it; what it settles is said now. Where the rest turns on something only the user holds, give each key assumption with its contrary in a line and the question whose answer would settle the pair, with what each answer decides, all at once; the counterplan waits for the answers, no courses of action are laid out by case meanwhile, and nothing is recommended that an answer could overturn. Otherwise, and in the reply to those answers, go through the pairs once (the assumption, said by the target or supplied by you; its contrary; how the pair was settled, or what would decide it), then the counterplan where one was built, and what came to the surface and what did not: what the user or the material held that the plan did not use, what you could not know or check, and what was not examined at all (courses other than these two, whether the shared facts are accurate). Every fact carries how it is known: a tool ran this session, the user supplied it, one source, or your recall. A reply after that gives what changed and the judgment as it now stands. Write to the user in their language, in lines that read on a phone.
 
 A user who asks only what the plan rests on gets the key assumptions with their questions, and the offer of the rest in a line.
 
