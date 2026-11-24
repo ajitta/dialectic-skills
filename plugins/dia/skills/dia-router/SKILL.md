@@ -4,7 +4,7 @@ description: Short entry point to the dia skills. Shows a menu, runs the skill p
 license: MIT
 metadata:
   author: ajitta
-  version: "3.0.3"
+  version: "3.0.4"
   lineage: "new in plugin 1.4.0 (spec D38); named dia-menu until plugin 2.0.0"
   source: "https://github.com/ajitta/dialectic-skills"
 ---
@@ -58,7 +58,12 @@ Choose the one dia skill whose description in your skill list fits what the user
 Then:
 
 - **dia-skopos, dia-ratchet, dia-adjudicate and dia-techne** never start from a request: reply in one line with the form to send (`dia <name> <request>`) and stop.
-- **A request for review by several dia skills, or for reviewers (agents) that use dia skills:** choose one review skill per reviewer whose description fits the text under review (dia-counterplan, dia-negative, dia-warrant or dia-reductio), say in one line which, have each reviewer start its skill by its skill name (`dia:dia-negative`, or a message starting with `dia-negative`), because a reviewer that is only told to review uses no dia method, and tell each that it is one reviewer and starts no other reviewer, that no user will reply and that it returns its result in one response, because a reviewer handed a request for reviewers starts its own and a skill that expects a reply holds part of its result back for that reply, and pass each reviewer's result on unchanged, one after another; if you cannot start reviewers, give one `dia <name> <request>` line per skill and stop.
+- **A request for review by several dia skills, or for reviewers (agents) that use dia skills:** choose one review skill per reviewer whose description fits the text under review (dia-counterplan, dia-negative, dia-warrant or dia-reductio) and say in one line which; if you cannot start reviewers, give one `dia <name> <request>` line per skill and stop. Otherwise each reviewer is
+  - started by its skill's name (`dia:dia-negative`, or a message starting with `dia-negative`), because a reviewer that is only told to review uses no dia method;
+  - told that it is one reviewer and starts no other reviewer, that no user will reply and that it returns its result in one response, because a reviewer handed a request for reviewers starts its own and a skill that expects a reply holds part of its result back for that reply;
+  - given the text under review, whole or by its path, and what the user has said about it (what it is for, such as the question it answers, and the facts they gave), copied as the user wrote it and marked as theirs, because the reviewer sees nothing of this conversation; what you add of your own is marked as yours, because a reviewer cannot tell your reading from the user's word.
+
+  Pass each reviewer's result on unchanged, one after another.
 - **One fits:** say in one line which skill you are running and why (for example `→ dia-counterplan: the request asks for the case against the plan`), then run it.
 - **Two fit about equally:** name both and the difference in one line each, ask which, and stop.
 - **None fits:** say so in one line and answer without a dia skill.
