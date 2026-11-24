@@ -2,9 +2,9 @@
 
 The current state and what is open, for the next session. Each fact is stated once and is true as of the date in its heading; replace a fact when it changes, do not stack dated entries. Rules are in `AGENTS.md`; what each skill does is in its `SKILL.md`. Earlier handoff entries, including the numbered items that older records cite ("handoff item 27"), are in `docs/history/handoff-to-2026-11-23.md`, which is a record and not instructions.
 
-## Released (2026-11-24)
+## Released (2026-11-25)
 
-- Plugin `dia` 5.4.1: branch `skopos-4.2.2-5.4.1` (spec D126, probes Part CJ, the runs in Part CI); the tag `v5.4.1`, its commit and the check of the release assets are written here after the merge. 5.4.0 (`v5.4.0` at `3e9643f`, #139, D125) is the release before it.
+- Plugin `dia` 5.4.1: tag `v5.4.1` on `main` at `feb7bb5` (tagged 2026-11-25 00:05 +0900 on the owner's word of 2026-11-24; pull request #141, spec D126, probes Part CJ, the runs in Part CI). Release assets match the committed zips (sha256). 5.4.0 (`v5.4.0` at `3e9643f`, #139, D125) is the release before it.
 - Skill versions: dia-adjudicate, dia-conjecture, dia-counterplan, dia-reductio 4.0.2; dia-warrant 4.0.3; dia-skopos 4.2.2; dia-techne 4.2.2; dia-elenchus 3.2.1; dia-negative 3.1.2; dia-quaestio, dia-regula 3.1.1; dia-router 3.0.4; dia-emend, dia-ratchet 3.0.2.
 - Companion `dia-panel` 0.6.0: tag `dia-panel--v0.6.0` at `3e9643f`. 0.5.0 (`dia-panel--v0.5.0` at `694f159`) is the release before it.
 - Last decision row D126, last probes part CJ (a trace of records and the release of 5.4.1, no run). **Next free: D127 and Part CK.**
@@ -14,7 +14,7 @@ The current state and what is open, for the next session. Each fact is stated on
 
 Each waits for the owner's approval of a plan before any run or edit.
 
-**Start here (end of the session of 2026-11-24, after the release of 5.4.1).** Nothing is running and nothing waits for the owner's word. The release of 5.4.1 closed the fault of dia-skopos item 5; what that release carries is the first item below, and the item after dia-techne's (the places a change touches) is the one with a named cause and no plan.
+**Start here (end of the session of 2026-11-24, which closed just after midnight with the release of 5.4.1).** Nothing is running and nothing waits for the owner's word. The release of 5.4.1 closed the fault of dia-skopos item 5; what that release carries is the first item below, and the item after dia-techne's (the places a change touches) is the one with a named cause and no plan.
 
 - **dia-skopos 4.2.2, item 5, released in 5.4.1 (D126): what it carries.** The review may propose the request for the result; it says that the work stops for the user's word before it changes anything that exists and that her words do not point to; a bare proceed then changes what she pointed to, lists the rest with what it would change there (with prepared copies in 2 of the 5 runs) and asks. On `s-asked` no other file changed in 5 of 5 runs (4.2.1: changed in 4 of 5), and over the 11 runs of the task that took the request for the result, what the review says about her other files decided what the work did with them (a stop stated: none changed, 6 of 6; none stated: all changed, 5 of 5). Part CJ has the trace.
   - No sentence of either text tells the review to hand over the stops it named. In the six runs the stop stood in the arguments of the skill call, in the resumed conversation and under dia-techne's "What the user has not allowed stays undone", and none was passed. If a later run shows a review that says the stop and a work that passes it, the remedy two reviewers proposed is a clause in the hand-over of Their word ("the stops the review named"), not another wording of this sentence.
