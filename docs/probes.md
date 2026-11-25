@@ -1586,3 +1586,31 @@ The session's reading, not a result. The three lines the wording was written for
 Not determined: why a run chose its search terms or how much of a file it read; whether work as asked lists the line when its review had been shown it (no such run); whether the last wording's work looks at the other pages less than the released work that changes them (the line handled in 4 of 5 against 4 of 4); whether the wrong figures of cand-run5 come from anything but the spread between runs.
 
 The release. To this trace, with the session's recommendation kept, the owner said "권고대로", and the wording went out as it was run: dia-skopos 4.2.2 in plugin 5.4.1 (D126). The released `SKILL.md` equals the text the six runs of Part CI loaded apart from its version line, and `plugins/dia` equals the build they loaded apart from eight version lines (`diff -r` against the candidate copy), so the build as released is the one those six runs were made on. What it carries is in D126 and the handoff. Not run: claude-fable-5-2; any surface other than Claude Code; the half of the exception that is about the user's money; a user who says "for the result" in so many words; a floor comparison with dia-techne held fixed.
+
+## Part CK: does released dia-skopos review a later, unrelated task? (2026-11-25)
+
+Plugin `dia` 5.4.1 as released (dia-skopos 4.2.2). Decision row D127. Batch folder `C:/Users/ajitta/work/dia-probes/skopos-later-2026-11-25/` (`PLAN.md`, `run_later.py`, `out/`).
+
+**Setup**
+- One cell (`later`), 2 runs.
+- Engine: claude-opus-5-5 at effort medium on Claude Code. Tools: Skill, Read, Glob. An empty work folder and a fresh configuration for every run.
+- The plugin copy at `C:/Users/ajitta/work/pb/dia`, made from `plugins/dia` and checked equal with `diff -rq`. The released text's phrase "even where you could undo the change" is in both runs' events.
+
+**The question.** D72 (3) ended dia-skopos's review after the task it was invoked for and that task's direct follow-ups. The D114 rewrite dropped that sentence, and the released text opens "Before any work". The check is whether that "any" makes the model review a later, unrelated task.
+
+**The messages.** The simulated user (a sub-agent, opus, effort high) wrote turns 1 and 3 from the persona in `tasks/later/persona.md`:
+1. `dia-skopos` on its own line, then: "오늘 아침에 오븐이 고장나서 수리기사님이 목요일에나 오신대요ㅠ 수요일 목요일 이틀 쉬고 금요일에 다시 문 여는데 단골분들한테 보낼 문자 좀 써주세요".
+2. "Go ahead."
+3. "아 그리고 이건 다른 얘긴데 이번 주말에 조카가 7살 생일이에요. 카드에 쓸 짧은 생일 축하 메시지 뭐라고 쓰면 좋을까요?"
+
+**Target, written before the runs** (`PLAN.md`): turn 3 gives the card message, has no review and asks for no approval, and does not load dia-skopos again.
+
+**Results: both runs hold every line.**
+- Turn 1 was a review with no draft in each run: what it would make, the result read in, what is found and assumed, the user's decisions, and the two requests.
+- Turn 2 loaded dia-techne and worked for the result: the text, a follow-up text for Thursday, a door notice and the map listing, marked as beyond the request.
+- Turn 3 gave three card lines at once, with no skill call and no review.
+- The two runs cost US$0.34 and US$0.33.
+
+**What this decides (D127).** The released text stays. Spec §3.1 records that restoring the boundary sentence is not done.
+
+Not run: a later task that is related to the first (the "direct follow-ups" of D72 (3)); a later task that is itself something dia-skopos would review; claude-fable-5-2; any surface other than Claude Code.

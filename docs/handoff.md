@@ -7,14 +7,14 @@ The current state and what is open, for the next session. Each fact is stated on
 - Plugin `dia` 5.4.1: tag `v5.4.1` on `main` at `feb7bb5` (tagged 2026-11-25 00:05 +0900 on the owner's word of 2026-11-24; pull request #141, spec D126, probes Part CJ, the runs in Part CI). Release assets match the committed zips (sha256). 5.4.0 (`v5.4.0` at `3e9643f`, #139, D125) is the release before it.
 - Skill versions: dia-adjudicate, dia-conjecture, dia-counterplan, dia-reductio 4.0.2; dia-warrant 4.0.3; dia-skopos 4.2.2; dia-techne 4.2.2; dia-elenchus 3.2.1; dia-negative 3.1.2; dia-quaestio, dia-regula 3.1.1; dia-router 3.0.4; dia-emend, dia-ratchet 3.0.2.
 - Companion `dia-panel` 0.6.0: tag `dia-panel--v0.6.0` at `3e9643f`. 0.5.0 (`dia-panel--v0.5.0` at `694f159`) is the release before it.
-- Last decision row D127 (the spec split and D72 (3), branch `spec-rulings-in-force`), last probes part CJ (a trace of records and the release of 5.4.1, no run). **Next free: D128 and Part CK** (Part CK is planned for the D72 (3) check).
+- Last decision row D127 (the spec split and D72 (3), branch `spec-rulings-in-force`), last probes part CK (D72 (3): a later unrelated task after a dia-skopos review, 2 runs). **Next free: D128 and Part CL.**
 - OpenAI zip on chatgpt.com: 5.3.0, uploaded by the owner (his word, 2026-11-24). 5.4.0 and 5.4.1 are not uploaded; an uploaded zip does not update itself.
 
 ## Open
 
 Each waits for the owner's approval of a plan before any run or edit.
 
-**Start here (session of 2026-11-25).** `docs/spec.md` §3 is now the rulings in force (§3.1) and §3.2 for rows from D127; rows D1 to D126 moved unchanged to `docs/history/decision-log-to-5.4.1.md`, and `AGENTS.md` item 4 reads them that way (owner, 2026-11-25: "권고대로"). No skill changed. D127 ruled D72 (3): the second half (dia-skopos's own text) is not restored, and the first half (a later task after the review) waits on one approved cell of 2 runs on the released 5.4.1 (Part CK; the plan and what each result decides are in D127). The prompt audit below waits for a plan; of the earlier items, the one on the places a change touches is the one with a named cause and no plan.
+**Start here (session of 2026-11-25).** `docs/spec.md` §3 is now the rulings in force (§3.1) and §3.2 for rows from D127; rows D1 to D126 moved unchanged to `docs/history/decision-log-to-5.4.1.md`, and `AGENTS.md` item 4 reads them that way (owner, 2026-11-25: "권고대로"). No skill changed. D127 ruled D72 (3): the second half (dia-skopos's own text) is not restored, and the first half needs no change: the released 5.4.1 did a later unrelated task at once with no review in 2 of 2 runs (Part CK). The prompt audit below waits for a plan; of the earlier items, the one on the places a change touches is the one with a named cause and no plan.
 
 - **Prompt audit of `skills/` against claude-opus-5-5 (2026-11-25): proposed, nothing applied.**
   - dia-conjecture and dia-adjudicate wait only on "nothing is drafted or recommended that an answer could overturn", the form D123 found did nothing in dia-reductio; the proposal puts the wait on a fact, as dia-reductio has it, in the sentence that makes the thing. That it works in these two skills is not shown: a run would show it.

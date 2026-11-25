@@ -150,6 +150,7 @@ dia-skopos
 - Not done: rewording the exception in dia-skopos's proposal sentence to keep the work off the user's other files, because two rewordings did not differ from the released text; the cause was the missing stop. (D126)
 - Not done: removing "and say what would most limit it" from the review's result item, because in recorded reviews that line carried the user's choice. (D123)
 - Not done: a sentence exempting a task about dia-skopos's own text from the review, because an exception for maintaining the skill is not its purpose, and this repository's text is edited by sessions under `AGENTS.md`, not through dia-skopos. (D127)
+- Not done: restoring D72 (3)'s sentence that ends dia-skopos's review after the task it was invoked for, because the released text, with no such sentence, did a later unrelated task at once with no review in 2 of 2 runs (probes Part CK). (D127)
 
 dia-techne
 - dia-techne names the mechanism for ending a process (only one the run started, by its id, never by name), because a sentence of principle did not stop runs from ending processes by image name. (D114)
