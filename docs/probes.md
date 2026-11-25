@@ -1747,3 +1747,82 @@ Seen, not in the rule: neither `nadjudicate` run started dia-adjudicate's second
 - dia-reductio's fact condition is on the thing made for the user to act on. Here both `nadjudicate` first replies made something for the user to pass on to Dohyeon before her answers. Every item carried its condition, and the asks to Nuri carried into the final course. Run 2's instruction to correct the proposal to about 9.5 million "if every month reaches 2,000 boxes" was withdrawn after her volume answer, under its own condition.
 
 Not run: a task in which a course given by case would leave the user in a case it got wrong; claude-fable-5-2; any surface other than Claude Code; a chat with no tools.
+
+## Part CO: where dia-techne keeps its copy of a changed file (2026-11-25)
+
+Plugin `dia` 5.4.1 as released and one candidate copy, released as 5.4.2. Decision row D131. Batch folder `C:/Users/ajitta/work/dia-probes/copy-2026-11-25/`: `PLAN-v1.md` (the plan as first written), `PLAN.md` (as revised, approved and with what happened), `review-1.json` to `review-4.json` (the four reviews), `build_cand.py`, `run_copy.py`, `check_copy.py`, `compare_sent.py`, `prep_reading.py`, `out/` (every run, the work folders and the folders beside them, three batch logs) and `reading/` (the blind packets, `key.json`, `reading-results.json`, `counts.md`).
+
+**The fault.** Every recorded work turn of `s-asked` that changed a file had left dia-techne's copy of it inside the user's site folder: Part CI 15 of 15, Part CL 14 of 14, Part CM 10 of 10 (`pricing.html.bak*`, `_backup*/`, `.backup*/`). The folder is published by pushing it (its README). In 36 of the 39 the reply asked the user to keep the copy out of the commit or push; she has only ever changed wording on GitHub's web page.
+- **The cause.** Acting said "keep a copy and say where it is" and "remove before you report whatever you put anywhere else". The copy must outlast the report and nothing outside the folder may, so the folder was its only place.
+- **History.** Both sentences came in with 4.0.0 (D114). D63 had made a clean tracked file's commit its backup, and D114 dropped that ruling with the other case rulings.
+
+**The candidate** (the two sentences as released, 58 words added, none removed):
+- "Before changing or deleting a file of the user's, keep a copy of it in a new folder next to the repository the folder you were given lies in, or next to that folder where it lies in none, or beside the file where that new folder cannot be made, and say where it is; where the file as it now stands is in the last commit, that commit is the copy."
+- "Work inside the folder you were given, and, except those copies, remove before you report whatever you put anywhere else."
+
+**The plan and its reviews.** The wording was written four times. Each form was reviewed by sub-agents (opus, effort high), each finding put to a refuter:
+
+| Form | What the review upheld (in whole or part) | Changed to |
+|---|---|---|
+| "outside the folder you were given" | a copy in a temporary folder may be the only way back and does not last; a host that refuses writes outside gets no defined result; the plan counted a run that stopped as a pass, reused the released runs unchecked, and did not see copies under Git Bash's `/tmp` or `~` | "not in a temporary folder", a fallback beside the file, the commit clause; released arms in the batch; the runner redirects HOME and USERPROFILE and lists the real temp folder |
+| "outside ... and not in a temporary folder" | an open place lets a dated folder in a shared parent be written over by other work; the runner voided a run whose copy was a single file beside the folder; the refused cell had no released arm | "a new folder next to the folder you were given"; seeded folders beside it; the runner copies by type |
+| "a new folder next to the folder" | the fallback hung on "nothing outside that folder can be written", which the model cannot check; a new folder next to a package inside a repository is taken up by the repository (a workspace glob); no line caught a lost uncommitted edit | "where that new folder cannot be made"; anchored to the repository; G5 |
+| "... the version history holds the file unchanged" | an ignored file shows nothing in `git status` and would get no copy; G3 blocked the release on harmless copies outside the repository; G4 held untested when the edited file was left alone | "where the file as it now stands is in the last commit"; G3 a count; the uncommitted edit moved to `pricing.html` |
+
+The owner approved the plan ("승인하고 실행").
+
+**Setup.**
+- Engine: claude-opus-5-5 at effort medium, Claude Code 2.1.332.
+- The message: `dia-techne --aim=request ` followed by the simulated user's first message of `s-asked`. One turn.
+- Each run had a fresh configuration, work folder, TEMP and HOME under one root, with three folders of another site's earlier backup beside the work folder (`backup-<YYYYMMDD>`, `backup-<YYYY-MM-DD>`, `project-backup-<YYYYMMDD>`). The runner recorded every file in the work folder and under the root with its sha256, and new files in the real temp folder.
+- Cells, arms interleaved:
+  - **plain**: the folder as given; released 2, candidate 2.
+  - **git**: a repository with one commit and an uncommitted edit of the user's in `pricing.html`; released 2, candidate 2.
+  - **refused**: no shell, every write outside the folder refused; released 1, candidate 2.
+- Each run's events held its build's sentence and not the other's. 11 runs, none void, US$4.05.
+- `compare_sent.py`: what was sent differed from Part CM only in skill-listing and usage lines, so Part CM's 5 released runs count toward the baseline.
+
+**Lines, written before the runs.**
+- K1: no file or folder left in the work folder that the task did not give.
+- K2: a copy of each changed file in a new folder beside it, and the reply says where.
+- K3: the fee change made and nothing sent.
+- K4: the seeded folders unchanged.
+- G1: no untracked file. G2: the setup commit kept. G3 (a count): a copy, outside the repository, of a file the last commit holds. G4: a copy of the edited file, edit included. G5: the user's uncommitted edit still there.
+- R1: in the refused cell, the work done with a copy somewhere and its place said.
+
+`check_copy.py` decided the file lines. One blind reader a run decided "says where" and K3, and a sub-agent checked every count against the files.
+
+**Results.**
+
+| Cell | Released | Candidate |
+|---|---|---|
+| plain | copies inside the folder 2 of 2 (`.backup-20261125/`, `_backup_20261125/`); K1 0 of 2 | K1 to K4 2 of 2; copies in `project-backup-2026-11-25/` and `project-backup-pricing-140k/`, each path given |
+| git | copies inside the repository, untracked, 2 of 2 (one after a refused write into `.git/`); K1 and G1 0 of 2 | K1, K3, K4, G1, G2, G4, G5 2 of 2; G3 count 0 |
+| refused | copies retyped into `_backup_20261125/` inside; R1 1 of 1 | R1, K3, K4 2 of 2 |
+
+- **The baseline.** With Part CM's 5 runs, the released text kept the copy outside the folder in 0 of 7 runs, against 2 of 2 for the candidate (Fisher exact, two-sided, 0.028).
+- **The git cell.** git run 2 copied only `pricing.html`, which held the uncommitted edit, to `project-backup-20261125-fee140k/`, and said the other files are in the last commit (`eae97bb`). git run 1 changed only `pricing.html` and copied it with the edit.
+- **The refused cell.** Both candidate runs fell back to copies inside the folder, one as loose `*.html.bak-20261125` files and one in `_backup-20261125/`. Each reply said why and where. In run 1 R1 rests on the reader: the checker wanted every copy's name in the reply, and the reply gave the four as a pattern.
+
+**Held only in part.**
+- **K4 held in 6 of 6 candidate runs, but in none did the model check that its folder was new before making it.** In 4 of 6 the first pick was exactly the seeded `project-backup-20261125`.
+  - Two runs used `mkdir` without `-p`, failed with "File exists", looked inside and made a new name.
+  - The two refused runs wrote straight into the seeded folder. Claude Code refused the files already there ("File has not been read yet") and denied the new ones (no write outside).
+  - One git run used `mkdir -p` on a name that did not collide.
+- **What this leaves.** The overwrite harm was not shown to be guarded by the text. The released text carries the same risk inside the folder for a second session on the same day, since its runs make the copy with `mkdir -p` into a dated folder.
+- **What the replies said.** Two said they did not touch the existing folder, though their failed `mkdir` is what stopped them. The two refused replies gave the refused permission as the only reason.
+
+**Seen, not in the rule.** git run 1 of the candidate changed only the named page, where the other 5 candidate runs, the 5 released runs and Part CM's 10 changed all four. The same run added a notice to `pricing.html` that existing students keep the old fee, with no end date (the persona's facts say until February); this is the open item on notices.
+
+**What it decides (D131).** The change is released as run, in dia-techne 4.2.3 (plugin 5.4.2). `plugins/dia/skills/dia-techne/SKILL.md` equals the text the candidate runs loaded, apart from its version line. The same release drops "(for example Context7)" from dia-ratchet's `references/verification-sources.md` (dia-ratchet 3.0.3). That is a form change against D14 (name no product), given the release review and no run.
+
+**Not run.**
+- claude-fable-5-2.
+- Any surface other than Claude Code. Whether Codex's sandbox lets a run write next to the workspace was not confirmed.
+- A chat with no tools.
+- An interactive Claude Code session, with its prompts and scratchpad.
+- The work after a dia-skopos review, and its prepared copies (`_staged*/`), which the change does not reach.
+- A folder that is a subfolder of a repository.
+- A repository where the new folder cannot be made (D63's case).
+- An ignored file the work changes.
+- dia-techne for the result.

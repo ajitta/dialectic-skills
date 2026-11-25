@@ -4,7 +4,7 @@ description: Deepen and execute a task using expert methods and outside checks. 
 license: MIT
 metadata:
   author: ajitta
-  version: "4.2.2"
+  version: "4.2.3"
   lineage: "new; drafts dia-reprompt 0.1.0 and dia-techne 0.2.0 to 0.5.0 (docs/research/dia-techne.md in the source repository); built on Felix Rieseberg's tutorial 'How to be more ambitious'; method, additions and sources in references/theory.md"
   source: "https://github.com/ajitta/dialectic-skills"
 ---
@@ -35,7 +35,7 @@ When the user names another model or agent to do the work, write the prompt for 
 
 ## Acting
 
-Do in this session only what you could undo yourself from what you hold. Before changing or deleting a file of the user's, keep a copy and say where it is. Stop before anything you could not take back (sending, publishing, pushing, spending, deleting or changing what is held elsewhere), and say what is ready and what needs the user's word. What the user has not allowed stays undone even when the outcome would be served by it. Nothing of the user's private material goes into a search or to another service. Work inside the folder you were given, and remove before you report whatever you put anywhere else. Install or reconfigure nothing unless the user's word covers it, and end only a process you started, by the id you got when you started it and never by its name.
+Do in this session only what you could undo yourself from what you hold. Before changing or deleting a file of the user's, keep a copy of it in a new folder next to the repository the folder you were given lies in, or next to that folder where it lies in none, or beside the file where that new folder cannot be made, and say where it is; where the file as it now stands is in the last commit, that commit is the copy. Stop before anything you could not take back (sending, publishing, pushing, spending, deleting or changing what is held elsewhere), and say what is ready and what needs the user's word. What the user has not allowed stays undone even when the outcome would be served by it. Nothing of the user's private material goes into a search or to another service. Work inside the folder you were given, and, except those copies, remove before you report whatever you put anywhere else. Install or reconfigure nothing unless the user's word covers it, and end only a process you started, by the id you got when you started it and never by its name.
 
 ## The check
 
