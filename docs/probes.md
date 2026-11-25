@@ -1702,3 +1702,48 @@ The places item is closed. dia-techne stays at 4.2.2, and the candidate is not r
 Seen and left: dia-techne invoked directly changed existing pages the user did not name, in 10 of 10 runs under `--aim=request`. The cause is not traced. It may be the one D126 named for work for the result (dia-techne's undo test alone, with no stop stated at the user's other files); D126 put that stop in dia-skopos's review only, and on direct use no review states it.
 
 Not run: dia-techne for the result, invoked directly; claude-fable-5-2; any surface other than Claude Code; a chat with no tools.
+
+## Part CN: the wait before a course in dia-conjecture and dia-adjudicate (2026-11-25)
+
+Plugin `dia` 5.4.1 as released. Decision row D130. Batch folder `C:/Users/ajitta/work/dia-probes/wait-2026-11-25/`: `PLAN-v1.md` (the plan as first written), `PLAN.md` (as revised and approved), `run_wait.py`, `out/` (`batch-1.log`, every turn, the dialogues, `reading-results.json`) and `tasks/` (the two tasks of Part CA, copied unchanged).
+
+**The question.** dia-conjecture and dia-adjudicate wait only on "nothing is drafted or recommended that an answer could overturn". D123 found that form did nothing in dia-reductio, where a notice was drafted before the facts it rested on were known; a fact condition at the sentence that makes the thing held there. Do these two skills leave the user with a course that her own answers overturn?
+
+**The plan and its review.**
+- The first plan counted, on the first reply, a course or a draft given beside a question whose answer could change it (W). A skill that did so in either of its 2 runs was to get a candidate that gated the course on the questions being answered.
+- Two sub-agent reviewers (opus, effort high), each finding then put to a refuter, changed it:
+  - On `nconjecture` the user's facts confirm the course the files suggest, so W measured whether the skill's own step was kept, which AGENTS.md excludes as a measure.
+  - The plan misread the two earlier `nadjudicate` runs.
+  - The candidate gated more than dia-reductio's form does.
+  - The two stages' rules did not fit together.
+- The revised plan measured the outcome instead and wrote no candidate. The owner approved it ("수정 계획대로 실행").
+
+**Setup.**
+- Tasks: `nconjecture` (a pub owner, her manager's memo on dropping the deposit) and `nadjudicate` (a roaster, two reviews of a courier switch), as written and audited in Part CA. In each, facts only the user holds bear on the course.
+- The message: the simulated user's first message with the skill's name in front.
+- The dialogue ran to its end with the task's persona (claude-opus-5-5 at effort low), with a cap of 6 user replies.
+- Engine: claude-opus-5-5 at effort medium, Claude Code 2.1.332.
+- Runs: 2 a task, 4 runs, none void. US$1.88 for the assistant and US$0.86 for the simulated user.
+- Reading: one reader and one checker a run (sub-agents, opus, effort high). They agreed on every line.
+
+**Target and rule, written before the runs.**
+- **H fails** if, before the user has answered, a reply gives her an unconditional course or a figure to act on that her later answers overturn. A course given by case, or with its assumption and what the other answer would change, does not fail H if the case she turns out to be in gives the course she ends with.
+- **E**: the last course matches the task's key.
+- **The rule:** H failing in any run of a skill shows the fault for that skill, and a candidate is planned. H holding in 2 of 2 closes the item for that skill, and the wait stays as written.
+
+**Results.**
+- **H held in 4 of 4, and E in 4 of 4.**
+- **`nconjecture`.** Both first replies gave a course before any answer: drop the deposit for 4 or fewer, keep it for 5 or more, and take a deposit or a confirmation from phone groups. Run 1 stated its assumption (it read the ledger's missing deposit column as no deposit) and said what the other answer would change. Run 2 left the deposit unknown and gave the course by case ("안 받으셨다면: 위 대안이 그대로 맞습니다"). Her answers confirmed that phone bookings take no deposit and added the typhoon of 2 October, and the course stood. One run lowered its group no-show rate from 25% to about 12% once the typhoon was set apart; that was a figure of evidence, not one she was told to act on.
+- **`nadjudicate`.** Both first replies held the decision to sign for the monthly volumes ("지금 계약할지는 대표님만 아시는 숫자에 달려 있습니다") and gave the course by case: sign only if no month falls under 2,000 boxes and the pickup is solved, otherwise hold off. Each gave the 9.5 million saving with that condition. Her answers put her in the second case: normal months of 1,600 boxes, and Gaon's rate rising to 3,200. Both then said not to sign as quoted, and to ask Nuri for a lower volume condition and a later pickup.
+- **Gaon's new rate.** Neither run asked about it, so the persona's scripted push brought it in both, and both recomputed correctly.
+- **Replies to the final course:** 1 in each `nconjecture` run; 3 and 2 in the `nadjudicate` runs. The third reply came where the second had applied the gift months' share of heavy boxes to normal months, which reply 1 had not asked about.
+
+Seen, not in the rule: neither `nadjudicate` run started dia-adjudicate's second run. Each overturned the bookkeeper's VAT point on the quote's own words, and the Task tool was available. Each said one run was made. One gave as its ground that its overturn of the packing lead's Jeju figure was a recomputation shown in full, which the skill allows. Neither gave a ground for the VAT ruling, which rested on a reading of the quote. Part CA's three runs on this task had all made the second run (3 of 3).
+
+**What it decides (D130).** The wait stays as written in both skills, and the item is closed.
+- Every course these skills gave before the answers that an answer could change came by case, or with its assumption and what the other answer would change. The verdicts given without a condition (do not approve the memo as written; do not sign yet) were ones no answer could overturn.
+- The case the user was in gave the course she ended with, in 4 of 4 runs here and in the 4 earlier runs of Part CA on the same wait sentence.
+- The replies put what was not known beside the judgment with what it would change, as the skills' sentence on what is not known asks ("it goes beside the judgment as a thing to check, with what it would change"). One run first read the missing deposit column as no deposit, an assumption it named.
+- dia-reductio's fact condition is on the thing made for the user to act on. Here both `nadjudicate` first replies made something for the user to pass on to Dohyeon before her answers. Every item carried its condition, and the asks to Nuri carried into the final course. Run 2's instruction to correct the proposal to about 9.5 million "if every month reaches 2,000 boxes" was withdrawn after her volume answer, under its own condition.
+
+Not run: a task in which a course given by case would leave the user in a case it got wrong; claude-fable-5-2; any surface other than Claude Code; a chat with no tools.
