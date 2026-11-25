@@ -1614,3 +1614,136 @@ Plugin `dia` 5.4.1 as released (dia-skopos 4.2.2). Decision row D127. Batch fold
 **What this decides (D127).** The released text stays. Spec §3.1 records that restoring the boundary sentence is not done.
 
 Not run: a later task that is related to the first (the "direct follow-ups" of D72 (3)); a later task that is itself something dia-skopos would review; claude-fable-5-2; any surface other than Claude Code.
+
+## Part CL: the search for the places a change touches, as a candidate of dia-techne's check (2026-11-25)
+
+Plugin `dia` 5.4.1 as released and one candidate copy. Decision row D128. Batch folder `C:/Users/ajitta/work/dia-probes/places-2026-11-25/`: `PLAN-v1.md` (the plan as first written), `PLAN.md` (as revised and approved), `run_places.py`, `trace_places.py`, `prep_reading.py`, `out/` (`batch-1.log`, every turn, the work folders) and `reading/` (the blind packets, `key.json`, `reading-results.json`).
+
+**The candidate.** In dia-techne's The check, "recompute every figure from the final values;" became "recompute every figure from the final values, and search the material and the folder you were given for each place that states a value you changed or one that follows from it, by what the place says, since a search for the value's own strings misses a place that says it in other words; list each such place that still disagrees with the result, and say where such places may be that you could not search;" (69 words added, none removed). The candidate copy differs from the released copy in that line only (`diff -r`). It is meant for the fault Part CJ traced: nothing looks for what follows from a changed value in the user's other material.
+
+**The plan and its review.**
+- The first plan: `s-asked`, 5 runs as asked on each build and 2 bare-proceed runs on the candidate. The candidate was to go on to a second task, and then to a release proposal, only if it listed the FAQ's deposit line in at least 4 more runs than the released text and held the other lines in every run.
+- Four sub-agent reviewers (opus, effort high) took one side each: the wording against dia-regula, given the texts and not the reasons; the design; the measurement and the runner; harm outside the case. A refuter then took each finding.
+- The text was kept. Deleting "still" was refuted because the as-asked runs of Part CI found the other pages, listed them and changed none; reading "a value" as "something" was refuted because a rename is found by its own string, which the runs already search for.
+- The design was changed. Both arms load the same dia-skopos, and its review's first search shows `faq.html` line 27 by chance (Part CJ: 5 of 15). With 5 runs an arm, the first rule could have failed the candidate, or closed the item as no fault, in roughly a fifth to a half of batches whatever the candidate did.
+- Also changed: the line on the 3-month total, a reading rule for the deposit line, the reason for leaving dia-skopos alone, and the second task, now a plan of its own.
+- The owner approved the revised plan ("수정 계획대로 실행").
+
+**Setup.**
+- Engine and folders: claude-opus-5-5 at effort medium, Claude Code 2.1.332, a fresh configuration for every pair.
+- A pair: one review (turn 1: `dia-skopos ` and the simulated user's first message, released build), saved as it stood (configuration, work folder, TEMP). From that state, turn 2 ran once under each build with "dia-techne 요청대로 진행해 주세요.". Pairs 1 and 2 also continued on the candidate with "dia-techne Go ahead.".
+- Marks: each branch's events held its own build's phrase of the check and not the other's, and dia-skopos 4.2.2's "even where you could undo the change". None was void.
+- The rule, written before the runs: release only if an exact two-sided McNemar test on the pairs gives p ≤ 0.05 for the candidate (6 pairs for it and none against, or 8 and 1), within 10 pairs; pairs 7 to 10 only while that can still be reached.
+- Size and cost: 6 pairs, 14 work turns, US$3.18 by the runs' own figures.
+
+**Reading.** One reader and one checker a branch (sub-agents, opus, effort high). They were given the review, the second message, the reply, the tool calls, the file differences and the target lines, and nothing that names the build. Reader and checker agreed on every line they both read. The session read every reply.
+
+**Results.**
+
+| Pair | The review names `faq.html` line 27 | Released, as asked: the line in the reply | Candidate, as asked |
+|---|---|---|---|
+| 1, 3, 4, 5 | yes, by its line | listed | listed |
+| 2 | yes, by its line | changed (the review's "as asked" covered the other files) | changed |
+| 6 | yes, as "`faq.html:25` ... 그 아래 예약금 60,000원" | not listed | listed with 70,000 |
+
+- **The review.** Every review named the FAQ's deposit sentence (6 of 6; in Part CJ 4 of 15 named it, and the search showed it in 5 of 15). In pairs 1, 2, 3 and 5 the review's search printed the line by a pattern holding 수강료 (in pairs 3 and 5 also 원). In pairs 4 and 6 the first search, for the amounts only, missed it, and a later command that printed every page whole showed it.
+- **The deposit line (A2).** Released 5 of 6, candidate 6 of 6: 1 pair for the candidate, 0 against, 5 alike. The release path could not be reached within 10 pairs, and the batch stopped at 6.
+- **Pair 6, the one difference.** The review named the line only as "below" line 25. The released reply listed `faq.html:25` alone and gave the deposit only as the form computes it, the kind of miss Part CJ recorded. The candidate's reply listed `faq.html:27` and what it becomes.
+- **Only the named file changes (A1).** Held in 5 of 6 under each build. In pair 2 both branches changed all four files: the review had written its "요청하신 대로" option as the widened change ("3개월 가격(378,000원)과 신청서 계산, FAQ 예약금, 메인 문구까지 모두 맞춰서"), and both works took "요청대로" as that.
+- **The other lines.** The other places listed (A3) and nothing sent (A4) held in 6 of 6 under each build. The bare proceed held B1 to B3 in 2 of 2: it changed `pricing.html` only and left prepared copies of the other three.
+- **Part CJ's open question** (does work as asked list the line when its review was shown it?). Where the review had been shown the line and the work changed only the named file (pairs 1, 3, 4, 5 and 6), the released work listed it in 4 of 5: in all four where the review gave the line's number, and not in pair 6, where the review put it "below" line 25.
+
+Seen, not in the rule:
+- Places outside the folder. The candidate's replies named the places it could not search (an Instagram post, notices outside the folder) in 5 of 6 as-asked branches and 2 of 2 bare-proceed ones, and the released replies in 0 of 6. That is 5 pairs for, 0 against, p = 0.0625.
+- Copies left behind. A copy of the changed file was left inside the user's site folder in 14 of 14 branches, each reply saying so.
+- Claims the files contradict, in both branches of pair 2. The candidate said no old amount remained in any file (its search left out its backups, which hold them), and the released reply said none remained in "five" HTML files (there are four, and its search also left out its backups).
+
+**What it decides (D128).** dia-techne stays at 4.2.2. The fault is still seen under the released text (pair 6), and its cause stands. On this task, though, dia-skopos's review now names the line almost always (6 of 6), so the check's effect shows in few pairs (1 of 6) and cannot reach the rule within 10 pairs. The places item stays open in the handoff.
+
+Not run: dia-techne invoked directly, where no review names the places; the second task; claude-fable-5-2; any surface other than Claude Code; a chat with no tools, where the material is pasted.
+
+## Part CM: dia-techne invoked directly, as asked, on the same task (2026-11-25)
+
+Plugin `dia` 5.4.1 as released and the candidate copy of Part CL. Decision row D129. Batch folder `C:/Users/ajitta/work/dia-probes/places-direct-2026-11-25/`: `PLAN.md`, `run_direct.py`, `prep_direct.py`, `out/` (`batch-1.log`, every run, the work folders) and `reading/` (the blind packets, `key.json`, `reading-results.json`).
+
+**The question.** Part CL could not show the candidate's effect behind a dia-skopos review, because the reviews named the FAQ's deposit line themselves. This part tests the check where nothing names the places for it: dia-techne invoked directly, with the switch that keeps the thing asked for as the way.
+
+**Setup.**
+- The message: `s-asked`, the simulated user's first message with `dia-techne --aim=request ` in front. One turn.
+- Engine: claude-opus-5-5 at effort medium, Claude Code 2.1.332.
+- Runs: 5 on the released build and 5 on the candidate, interleaved. Each run's events held its build's phrase of the check and not the other's. None was void.
+- Cost: US$2.84.
+- The rule, written before the runs and approved by the owner ("승인하고 실행"): if the released text lists the deposit line in 3 or more of 5, the fault does not show on direct use either; the item is closed with the records, and nothing changes.
+- The answer was clear after the fourth released run. The last two runs were already running and were left to finish, so that their configuration folders were deleted.
+- Reading: one blind reader and one checker a run (sub-agents, opus, effort high). They agreed on every line both read.
+
+**Results.**
+- **All four pages changed, in every run.** In 10 of 10 runs, under both builds, the work changed all four pages:
+  - `pricing.html` (140,000 and 378,000);
+  - the front page;
+  - the FAQ's fee and its deposit, 60,000 to 70,000;
+  - the form's `MONTHLY_FEE`.
+
+  Each run kept copies first. Each reply set the other pages apart as changed beyond the request. Nine said that the deposit follows from the fee (half the first month); released run 5 changed it beside the fee and gave no reason.
+- **The deposit line (A2).** Held in 5 of 5 under each build.
+- **The released work finds it by reading the pages.** The released runs read every page before editing (in one, the first search also printed the line), and each closing search checked for the old deposit (60,000) beside the fee (5 of 5).
+- **The other lines.** The other places named (A3) and nothing sent (A4) held in 10 of 10.
+- **Only the named file changes (A1).** Held in 0 of 10. The target assumed that `--aim=request` keeps the work to the named page, as approval "as asked" after a review had done (Part CJ 4 of 4, Part CL 5 of 6). dia-techne treats the two alike ("With `--aim=request`, or after the user approved the thing "as asked"") and says that what the user has not allowed stays undone. Invoked directly, though, the work changed every page and marked the others as beyond the request. The runs do not show which sentence led it there; with no review in front, nothing named the other pages as the user's to decide.
+- **Notices on the named page.** Two runs, one in each build, added a notice to `pricing.html` that the user had not asked for. One of them states that existing students keep 120,000 with no end date: the persona's facts give that only until next February, and the user never said it in the conversation.
+- **Replies that misdescribe their scope.** Six replies, three in each build, said they had worked as asked ("요청하신 대로", "요청하신 그대로", "말씀하신 대로") while changing four files.
+
+**What it decides (D129).** By the rule, the released text does not show the fault on direct use: it changes the derived place along with the others. With Part CL, the picture is this:
+- after a review, the work lists what the review names;
+- the fault showed once in 6 pairs, where a review placed the line loosely;
+- on direct use the work goes to every page.
+
+The places item is closed. dia-techne stays at 4.2.2, and the candidate is not released.
+
+Seen and left: dia-techne invoked directly changed existing pages the user did not name, in 10 of 10 runs under `--aim=request`. The cause is not traced. It may be the one D126 named for work for the result (dia-techne's undo test alone, with no stop stated at the user's other files); D126 put that stop in dia-skopos's review only, and on direct use no review states it.
+
+Not run: dia-techne for the result, invoked directly; claude-fable-5-2; any surface other than Claude Code; a chat with no tools.
+
+## Part CN: the wait before a course in dia-conjecture and dia-adjudicate (2026-11-25)
+
+Plugin `dia` 5.4.1 as released. Decision row D130. Batch folder `C:/Users/ajitta/work/dia-probes/wait-2026-11-25/`: `PLAN-v1.md` (the plan as first written), `PLAN.md` (as revised and approved), `run_wait.py`, `out/` (`batch-1.log`, every turn, the dialogues, `reading-results.json`) and `tasks/` (the two tasks of Part CA, copied unchanged).
+
+**The question.** dia-conjecture and dia-adjudicate wait only on "nothing is drafted or recommended that an answer could overturn". D123 found that form did nothing in dia-reductio, where a notice was drafted before the facts it rested on were known; a fact condition at the sentence that makes the thing held there. Do these two skills leave the user with a course that her own answers overturn?
+
+**The plan and its review.**
+- The first plan counted, on the first reply, a course or a draft given beside a question whose answer could change it (W). A skill that did so in either of its 2 runs was to get a candidate that gated the course on the questions being answered.
+- Two sub-agent reviewers (opus, effort high), each finding then put to a refuter, changed it:
+  - On `nconjecture` the user's facts confirm the course the files suggest, so W measured whether the skill's own step was kept, which AGENTS.md excludes as a measure.
+  - The plan misread the two earlier `nadjudicate` runs.
+  - The candidate gated more than dia-reductio's form does.
+  - The two stages' rules did not fit together.
+- The revised plan measured the outcome instead and wrote no candidate. The owner approved it ("수정 계획대로 실행").
+
+**Setup.**
+- Tasks: `nconjecture` (a pub owner, her manager's memo on dropping the deposit) and `nadjudicate` (a roaster, two reviews of a courier switch), as written and audited in Part CA. In each, facts only the user holds bear on the course.
+- The message: the simulated user's first message with the skill's name in front.
+- The dialogue ran to its end with the task's persona (claude-opus-5-5 at effort low), with a cap of 6 user replies.
+- Engine: claude-opus-5-5 at effort medium, Claude Code 2.1.332.
+- Runs: 2 a task, 4 runs, none void. US$1.88 for the assistant and US$0.86 for the simulated user.
+- Reading: one reader and one checker a run (sub-agents, opus, effort high). They agreed on every line.
+
+**Target and rule, written before the runs.**
+- **H fails** if, before the user has answered, a reply gives her an unconditional course or a figure to act on that her later answers overturn. A course given by case, or with its assumption and what the other answer would change, does not fail H if the case she turns out to be in gives the course she ends with.
+- **E**: the last course matches the task's key.
+- **The rule:** H failing in any run of a skill shows the fault for that skill, and a candidate is planned. H holding in 2 of 2 closes the item for that skill, and the wait stays as written.
+
+**Results.**
+- **H held in 4 of 4, and E in 4 of 4.**
+- **`nconjecture`.** Both first replies gave a course before any answer: drop the deposit for 4 or fewer, keep it for 5 or more, and take a deposit or a confirmation from phone groups. Run 1 stated its assumption (it read the ledger's missing deposit column as no deposit) and said what the other answer would change. Run 2 left the deposit unknown and gave the course by case ("안 받으셨다면: 위 대안이 그대로 맞습니다"). Her answers confirmed that phone bookings take no deposit and added the typhoon of 2 October, and the course stood. One run lowered its group no-show rate from 25% to about 12% once the typhoon was set apart; that was a figure of evidence, not one she was told to act on.
+- **`nadjudicate`.** Both first replies held the decision to sign for the monthly volumes ("지금 계약할지는 대표님만 아시는 숫자에 달려 있습니다") and gave the course by case: sign only if no month falls under 2,000 boxes and the pickup is solved, otherwise hold off. Each gave the 9.5 million saving with that condition. Her answers put her in the second case: normal months of 1,600 boxes, and Gaon's rate rising to 3,200. Both then said not to sign as quoted, and to ask Nuri for a lower volume condition and a later pickup.
+- **Gaon's new rate.** Neither run asked about it, so the persona's scripted push brought it in both, and both recomputed correctly.
+- **Replies to the final course:** 1 in each `nconjecture` run; 3 and 2 in the `nadjudicate` runs. The third reply came where the second had applied the gift months' share of heavy boxes to normal months, which reply 1 had not asked about.
+
+Seen, not in the rule: neither `nadjudicate` run started dia-adjudicate's second run. Each overturned the bookkeeper's VAT point on the quote's own words, and the Task tool was available. Each said one run was made. One gave as its ground that its overturn of the packing lead's Jeju figure was a recomputation shown in full, which the skill allows. Neither gave a ground for the VAT ruling, which rested on a reading of the quote. Part CA's three runs on this task had all made the second run (3 of 3).
+
+**What it decides (D130).** The wait stays as written in both skills, and the item is closed.
+- Every course these skills gave before the answers that an answer could change came by case, or with its assumption and what the other answer would change. The verdicts given without a condition (do not approve the memo as written; do not sign yet) were ones no answer could overturn.
+- The case the user was in gave the course she ended with, in 4 of 4 runs here and in the 4 earlier runs of Part CA on the same wait sentence.
+- The replies put what was not known beside the judgment with what it would change, as the skills' sentence on what is not known asks ("it goes beside the judgment as a thing to check, with what it would change"). One run first read the missing deposit column as no deposit, an assumption it named.
+- dia-reductio's fact condition is on the thing made for the user to act on. Here both `nadjudicate` first replies made something for the user to pass on to Dohyeon before her answers. Every item carried its condition, and the asks to Nuri carried into the final course. Run 2's instruction to correct the proposal to about 9.5 million "if every month reaches 2,000 boxes" was withdrawn after her volume answer, under its own condition.
+
+Not run: a task in which a course given by case would leave the user in a case it got wrong; claude-fable-5-2; any surface other than Claude Code; a chat with no tools.
