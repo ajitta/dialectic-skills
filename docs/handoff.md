@@ -15,7 +15,14 @@ The current state and what is open, for the next session. Each fact is stated on
 Each waits for the owner's approval of a plan before any run or edit.
 
 **Start here (for the session after 2026-11-25).** 5.4.2 is released (D131, Part CO), and no release is pending.
-- **Next, the owner's order (2026-11-25, "릴리스 뒤 계획").** A plan for dia-techne invoked directly, which changes existing files the user did not name. He judged this a fault ("결함이다"); the item below has the diagnosis. Have the plan reviewed by sub-agents (design; wording given the texts and not the reasons; harm outside the case), each finding put to a refuter, before the approval question. In this session every form of the copy wording had a fault a review caught, four rounds in all.
+- **Next: run the approved plan for dia-techne invoked directly**, which changes existing files the user did not name. The owner approved it on 2026-11-25 and asked that it run in the next session ("다음 세션에서 실행").
+  - **The plan:** `C:/Users/ajitta/work/dia-probes/scope-direct-2026-11-25/PLAN.md`. It was reviewed three times (`review-1.json` to `review-3.json`), and `PLAN-v1.md` is the first draft.
+  - **The candidate:** `C:/Users/ajitta/work/pg/dia`, which is the released 5.4.2 (`pf/dia`) with two Acting sentences changed, 74 words added. A change beyond the request that the session would make to a file or other thing of the user's that the request does not point to waits for the user's word. It is prepared in a new folder of its own next to the repository or folder, or in the reply, and the reply says where it is and what it would change. The removal rule spares copies and prepared changes.
+  - **First steps.**
+    - Write the new code task with a task writer and an auditor (sub-agents). The user names one file. The change also needs an untested caller that the named module's changed interface breaks, and a file generated from the named source that only the README's check finds stale. The task is built on the plan's ground: "the requested edit itself makes it wrong", not "a second place holding the same value".
+    - Draw its first message from the simulated user by the plan's rule.
+    - Adapt `copy-2026-11-25/run_copy.py` for cells A, B, E, C, C' and D. D is one review continued under each build, as `places-2026-11-25/run_places.py` does.
+  - **Runs:** 24, about US$9. Read run by run, and stop once the answer is clear.
 
 - **Prompt audit of `skills/` against claude-opus-5-5 (2026-11-25), as reviewed with the owner the same day.**
   - Closed by D130, no change: the wait in dia-conjecture and dia-adjudicate. Their courses given before the answers that an answer could change came by case or with the assumption stated, and the user's case gave the course she ended with (4 of 4, Part CN).
@@ -44,7 +51,7 @@ Each waits for the owner's approval of a plan before any run or edit.
     - On direct use nothing supplies one. The outcome is the model's own, site-wide reading, and "make it as well as the outcome needs" and the permission to make and mark work beyond the request let it change her other files. "What the user has not allowed stays undone" draws no line where her message said nothing of them.
     - The undo test with a copy was refuted as the driver: the copies followed the scope already chosen.
     - Every thinking block was empty, so which sentence decided is not determined.
-  - **The direction to plan.** Put D126's stop (no change to an existing file the user's words do not point to, before her word) where dia-techne acts. Check the after-review path and the work for the result under it.
+  - **The plan, approved 2026-11-25 and not yet run.** It puts the stop where dia-techne acts. The wording is keyed to changes beyond the request and to things the request does not point to, so a fix the request needs is not stopped. The plan's cells check the after-review path, work for the result, a clean repository, and a code task where the request's own change spans files. See "Start here".
 - **dia-panel 0.6.0, seen and left:** the questions the reports leave open reach the user in part (the main ones from the judges' lists; others, of the lenses and of the judges, stay in the file; 4 of 4). Arguments given as text with single-quoted values are refused when a value holds an apostrophe, a line break or a comma, a word and a colon; the error shows the form that works, and a path given in quotes keeps its quotes (found by the release review, `release-review-5.4.0.json`, and left: the first is loud, and no caller in the runs passed text). The caller wrote the report file into the project folder with what the user had said in confidence (4 of 4, with a warning), and in one run said it had checked the differing verdicts itself with no call behind that.
 - **dia-adjudicate's second run, seen and left (Part CN):** neither `nadjudicate` run started it after overturning the bookkeeper's VAT point on the quote's own words, with the Task tool available (0 of 2; Part CA's runs on the task made it, 3 of 3). Each said one run was made; one gave as its ground a recomputation shown in full, which the skill allows, for another ruling, and neither gave one for the VAT ruling, a reading. No cause named.
 - **dia-router, seen and left:** the line that says which skills were chosen named them by role only (1 run); two reviews' verdicts conflicted and nothing reconciles them, since the router only selects (1 run); one of five callers reworded two sentences of a review it printed.
@@ -74,6 +81,7 @@ Each waits for the owner's approval of a plan before any run or edit.
   - `pb/dia`: 5.4.1, the released arm of Parts CL to CO.
   - `pc/dia`: 5.4.1 with only dia-techne's check line replaced by the places candidate of Part CL, not released.
   - `pe/dia`: 5.4.1 with only dia-techne's two Acting sentences of D131. Its dia-techne text is the one 5.4.2 releases, apart from the version line.
+  - `pg/dia`: 5.4.2 with only the two Acting sentences of the approved scope plan changed. Not released.
   - `pd/dia`: 5.3.0 with one sentence of dia-warrant changed, the diagnostic of Part CH.
   - `pp/dia-panel`: 0.5.0.
   - `pq/dia-panel`: the 0.6.0 text apart from its version line.
