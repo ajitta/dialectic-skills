@@ -4,19 +4,17 @@ The current state and what is open, for the next session. Each fact is stated on
 
 ## Released (2026-11-25)
 
-- Plugin `dia` 5.4.1: tag `v5.4.1` on `main` at `feb7bb5` (tagged 2026-11-25 00:05 +0900 on the owner's word of 2026-11-24; pull request #141, spec D126, probes Part CJ, the runs in Part CI). Release assets match the committed zips (sha256). 5.4.0 (`v5.4.0` at `3e9643f`, #139, D125) is the release before it.
-- Skill versions: dia-adjudicate, dia-conjecture, dia-counterplan, dia-reductio 4.0.2; dia-warrant 4.0.3; dia-skopos 4.2.2; dia-techne 4.2.2; dia-elenchus 3.2.1; dia-negative 3.1.2; dia-quaestio, dia-regula 3.1.1; dia-router 3.0.4; dia-emend, dia-ratchet 3.0.2.
+- Plugin `dia` 5.4.2: tag `v5.4.2` on `main` at `883df44` (tagged 2026-11-25 23:02 +0900 on the owner's word that day, "병합하고 태그"; pull request #147, spec D131, probes Part CO). Release assets match the committed zips (sha256). 5.4.1 (`v5.4.1` at `feb7bb5`, #141, D126) is the release before it.
+- Skill versions: dia-adjudicate, dia-conjecture, dia-counterplan, dia-reductio 4.0.2; dia-warrant 4.0.3; dia-skopos 4.2.2; dia-techne 4.2.3; dia-elenchus 3.2.1; dia-negative 3.1.2; dia-quaestio, dia-regula 3.1.1; dia-router 3.0.4; dia-ratchet 3.0.3; dia-emend 3.0.2.
 - Companion `dia-panel` 0.6.0: tag `dia-panel--v0.6.0` at `3e9643f`. 0.5.0 (`dia-panel--v0.5.0` at `694f159`) is the release before it.
-- Pending, not released: plugin 5.4.2 (dia-techne 4.2.3, the copy kept outside the user's folder; dia-ratchet 3.0.3, no product named), branch `techne-copy-5.4.2`, decision row D131, probes Part CO. It waits for the owner's word to merge and tag, after its review is reported.
 - Last decision row D131, last probes part CO (11 runs). **Next free: D132 and Part CP.**
-- OpenAI zip on chatgpt.com: 5.3.0, uploaded by the owner (his word, 2026-11-24). 5.4.0 and 5.4.1 are not uploaded; an uploaded zip does not update itself.
+- OpenAI zip on chatgpt.com: 5.3.0, uploaded by the owner (his word, 2026-11-24). 5.4.0, 5.4.1 and 5.4.2 are not uploaded; an uploaded zip does not update itself.
 
 ## Open
 
 Each waits for the owner's approval of a plan before any run or edit.
 
-**Start here (for the session after 2026-11-25).**
-- **5.4.2.** The release on branch `techne-copy-5.4.2` (D131, Part CO) waits for the owner's word to merge and tag. He approved the release work up to the pull request ("권고대로 진행") and asked that its review be reported first. After the tag, check the release assets against the committed zips. Then make the plugin copy that runs load again from `main`.
+**Start here (for the session after 2026-11-25).** 5.4.2 is released (D131, Part CO), and no release is pending.
 - **Next, the owner's order (2026-11-25, "릴리스 뒤 계획").** A plan for dia-techne invoked directly, which changes existing files the user did not name. He judged this a fault ("결함이다"); the item below has the diagnosis. Have the plan reviewed by sub-agents (design; wording given the texts and not the reasons; harm outside the case), each finding put to a refuter, before the approval question. In this session every form of the copy wording had a fault a review caught, four rounds in all.
 
 - **Prompt audit of `skills/` against claude-opus-5-5 (2026-11-25), as reviewed with the owner the same day.**
@@ -72,7 +70,8 @@ Each waits for the owner's approval of a plan before any run or edit.
   - `wait-2026-11-25/` (Part CN): `run_wait.py` runs the dialogue to its end with the task's persona, with a cap.
 - Before them, `source-2026-11-24/`: `PLAN.md` with what happened in stage 2 (Part CH); for Part CI, `PLAN-stage3.md`, `RERUN-stage3.md` and `PLAN-stage3b.md`, `out/batch-3.log` to `out/batch-6.log`, `out/reading-stage3.json` (one reader and one checker a run, read with `python show_stage3.py show <run>`), `stage3-diagnosis.json`, `stage3-review-1.json` to `stage3-review-6.json`, for Part CJ `trace-422-diagnosis.json` (read with `python show_trace.py <key>`) and the scripts that read the events (`trace_s_asked.py`, `rd7.py`, `dep.py`, `techne_loaded.py`, `thinking.py`, `fisher.py`) the check of the record (`review-part-cj.json`, `show_review_cj.py`) and the review of the release of 5.4.1 (`release-review-5.4.1.json`), `cand-form2/` and `cand-form3/` (the builds the first 20 and the next 8 runs loaded) and the reader and review scripts in `workflows/`. Its tools: `run_source.py` (arms `rel`, `diag`, `plain`, `panel`, `cand` and `candpanel`, fixed second messages, pushes sent when the persona has its answer, runs numbered on from the existing ones, and the marks of `c-s-asked` and `c-floor-notool` set to a phrase of the unreleased dia-skopos wording); `build_cand.py`, which holds every change as old and new text and builds the candidate copies; `verify_stage3.py`, which checks that script against `skills/` as they stood at 5.3.0 and writes nothing; `apply_release.py` and `apply_release_541.py`, which applied the released changes to the checkout; `mk_tasks.py`, whose keys name the deciding source, the act that secures it and the target course; `gen.py` for first messages and the persona dry check; `show_reading.py` for stage 2; `panel_prompts.js`, which rebuilds with no model the prompts a `review-panel` call gave its agents. Before it, `regula-audit-2026-11-24/` (`PLAN.md`; `run_audit.py`, one arm on a copy of the build, with a check that the new text is in the events; `mk_tasks2.py` and `gen.py` for tasks written by sub-agents and first messages written by the simulated user; `trace_agents.py` for runs that start sub-agents). Before it, `verify-six-2026-11-20/` (`REMAKE.md`; `run_six.py`; the task method in `newtasks/`; `gen_requests.py` has the simulated user write first messages).
 - Copies of the plugin that the runs load, each in a path that names nothing:
-  - `C:/Users/ajitta/work/pb/dia`: the released 5.4.1, equal to `plugins/dia` on `main` (`diff -rq`, 2026-11-25).
+  - `C:/Users/ajitta/work/pf/dia`: the released 5.4.2, equal to `plugins/dia` on `main` (`diff -rq`, 2026-11-25).
+  - `pb/dia`: 5.4.1, the released arm of Parts CL to CO.
   - `pc/dia`: 5.4.1 with only dia-techne's check line replaced by the places candidate of Part CL, not released.
   - `pe/dia`: 5.4.1 with only dia-techne's two Acting sentences of D131. Its dia-techne text is the one 5.4.2 releases, apart from the version line.
   - `pd/dia`: 5.3.0 with one sentence of dia-warrant changed, the diagnostic of Part CH.
