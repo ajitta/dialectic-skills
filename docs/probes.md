@@ -1614,3 +1614,50 @@ Plugin `dia` 5.4.1 as released (dia-skopos 4.2.2). Decision row D127. Batch fold
 **What this decides (D127).** The released text stays. Spec §3.1 records that restoring the boundary sentence is not done.
 
 Not run: a later task that is related to the first (the "direct follow-ups" of D72 (3)); a later task that is itself something dia-skopos would review; claude-fable-5-2; any surface other than Claude Code.
+
+## Part CL: the search for the places a change touches, as a candidate of dia-techne's check (2026-11-25)
+
+Plugin `dia` 5.4.1 as released and one candidate copy. Decision row D128. Batch folder `C:/Users/ajitta/work/dia-probes/places-2026-11-25/`: `PLAN-v1.md` (the plan as first written), `PLAN.md` (as revised and approved), `run_places.py`, `trace_places.py`, `prep_reading.py`, `out/` (`batch-1.log`, every turn, the work folders) and `reading/` (the blind packets, `key.json`, `reading-results.json`).
+
+**The candidate.** In dia-techne's The check, "recompute every figure from the final values;" became "recompute every figure from the final values, and search the material and the folder you were given for each place that states a value you changed or one that follows from it, by what the place says, since a search for the value's own strings misses a place that says it in other words; list each such place that still disagrees with the result, and say where such places may be that you could not search;" (69 words added, none removed). The candidate copy differs from the released copy in that line only (`diff -r`). It is meant for the fault Part CJ traced: nothing looks for what follows from a changed value in the user's other material.
+
+**The plan and its review.**
+- The first plan: `s-asked`, 5 runs as asked on each build and 2 bare-proceed runs on the candidate. The candidate was to go on to a second task, and then to a release proposal, only if it listed the FAQ's deposit line in at least 4 more runs than the released text and held the other lines in every run.
+- Four sub-agent reviewers (opus, effort high) took one side each: the wording against dia-regula, given the texts and not the reasons; the design; the measurement and the runner; harm outside the case. A refuter then took each finding.
+- The text was kept. Deleting "still" was refuted because the as-asked runs of Part CI found the other pages, listed them and changed none; reading "a value" as "something" was refuted because a rename is found by its own string, which the runs already search for.
+- The design was changed. Both arms load the same dia-skopos, and its review's first search shows `faq.html` line 27 by chance (Part CJ: 5 of 15). With 5 runs an arm, the first rule could have failed the candidate, or closed the item as no fault, in roughly a fifth to a half of batches whatever the candidate did.
+- Also changed: the line on the 3-month total, a reading rule for the deposit line, the reason for leaving dia-skopos alone, and the second task, now a plan of its own.
+- The owner approved the revised plan ("수정 계획대로 실행").
+
+**Setup.**
+- Engine and folders: claude-opus-5-5 at effort medium, Claude Code 2.1.332, a fresh configuration for every pair.
+- A pair: one review (turn 1: `dia-skopos ` and the simulated user's first message, released build), saved as it stood (configuration, work folder, TEMP). From that state, turn 2 ran once under each build with "dia-techne 요청대로 진행해 주세요.". Pairs 1 and 2 also continued on the candidate with "dia-techne Go ahead.".
+- Marks: each branch's events held its own build's phrase of the check and not the other's, and dia-skopos 4.2.2's "even where you could undo the change". None was void.
+- The rule, written before the runs: release only if an exact two-sided McNemar test on the pairs gives p ≤ 0.05 for the candidate (6 pairs for it and none against, or 8 and 1), within 10 pairs; pairs 7 to 10 only while that can still be reached.
+- Size and cost: 6 pairs, 14 work turns, US$3.18 by the runs' own figures.
+
+**Reading.** One reader and one checker a branch (sub-agents, opus, effort high). They were given the review, the second message, the reply, the tool calls, the file differences and the target lines, and nothing that names the build. Reader and checker agreed on every line they both read. The session read every reply.
+
+**Results.**
+
+| Pair | The review names `faq.html` line 27 | Released, as asked: the line in the reply | Candidate, as asked |
+|---|---|---|---|
+| 1, 3, 4, 5 | yes, by its line | listed | listed |
+| 2 | yes, by its line | changed (the review's "as asked" covered the other files) | changed |
+| 6 | yes, as "`faq.html:25` ... 그 아래 예약금 60,000원" | not listed | listed with 70,000 |
+
+- **The review.** Every review named the FAQ's deposit sentence (6 of 6; in Part CJ 4 of 15 named it, and the search showed it in 5 of 15). In pairs 1, 2, 3 and 5 the review's search printed the line by a pattern holding 수강료 (in pairs 3 and 5 also 원). In pairs 4 and 6 the first search, for the amounts only, missed it, and a later command that printed every page whole showed it.
+- **The deposit line (A2).** Released 5 of 6, candidate 6 of 6: 1 pair for the candidate, 0 against, 5 alike. The release path could not be reached within 10 pairs, and the batch stopped at 6.
+- **Pair 6, the one difference.** The review named the line only as "below" line 25. The released reply listed `faq.html:25` alone and gave the deposit only as the form computes it, the kind of miss Part CJ recorded. The candidate's reply listed `faq.html:27` and what it becomes.
+- **Only the named file changes (A1).** Held in 5 of 6 under each build. In pair 2 both branches changed all four files: the review had written its "요청하신 대로" option as the widened change ("3개월 가격(378,000원)과 신청서 계산, FAQ 예약금, 메인 문구까지 모두 맞춰서"), and both works took "요청대로" as that.
+- **The other lines.** The other places listed (A3) and nothing sent (A4) held in 6 of 6 under each build. The bare proceed held B1 to B3 in 2 of 2: it changed `pricing.html` only and left prepared copies of the other three.
+- **Part CJ's open question** (does work as asked list the line when its review was shown it?). Where the review had been shown the line and the work changed only the named file (pairs 1, 3, 4, 5 and 6), the released work listed it in 4 of 5: in all four where the review gave the line's number, and not in pair 6, where the review put it "below" line 25.
+
+Seen, not in the rule:
+- Places outside the folder. The candidate's replies named the places it could not search (an Instagram post, notices outside the folder) in 5 of 6 as-asked branches and 2 of 2 bare-proceed ones, and the released replies in 0 of 6. That is 5 pairs for, 0 against, p = 0.0625.
+- Copies left behind. A copy of the changed file was left inside the user's site folder in 14 of 14 branches, each reply saying so.
+- Claims the files contradict, in both branches of pair 2. The candidate said no old amount remained in any file (its search left out its backups, which hold them), and the released reply said none remained in "five" HTML files (there are four, and its search also left out its backups).
+
+**What it decides (D128).** dia-techne stays at 4.2.2. The fault is still seen under the released text (pair 6), and its cause stands. On this task, though, dia-skopos's review now names the line almost always (6 of 6), so the check's effect shows in few pairs (1 of 6) and cannot reach the rule within 10 pairs. The places item stays open in the handoff.
+
+Not run: dia-techne invoked directly, where no review names the places; the second task; claude-fable-5-2; any surface other than Claude Code; a chat with no tools, where the material is pasted.
