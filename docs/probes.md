@@ -1661,3 +1661,44 @@ Seen, not in the rule:
 **What it decides (D128).** dia-techne stays at 4.2.2. The fault is still seen under the released text (pair 6), and its cause stands. On this task, though, dia-skopos's review now names the line almost always (6 of 6), so the check's effect shows in few pairs (1 of 6) and cannot reach the rule within 10 pairs. The places item stays open in the handoff.
 
 Not run: dia-techne invoked directly, where no review names the places; the second task; claude-fable-5-2; any surface other than Claude Code; a chat with no tools, where the material is pasted.
+
+## Part CM: dia-techne invoked directly, as asked, on the same task (2026-11-25)
+
+Plugin `dia` 5.4.1 as released and the candidate copy of Part CL. Decision row D129. Batch folder `C:/Users/ajitta/work/dia-probes/places-direct-2026-11-25/`: `PLAN.md`, `run_direct.py`, `prep_direct.py`, `out/` (`batch-1.log`, every run, the work folders) and `reading/` (the blind packets, `key.json`, `reading-results.json`).
+
+**The question.** Part CL could not show the candidate's effect behind a dia-skopos review, because the reviews named the FAQ's deposit line themselves. This part tests the check where nothing names the places for it: dia-techne invoked directly, with the switch that keeps the thing asked for as the way.
+
+**Setup.**
+- The message: `s-asked`, the simulated user's first message with `dia-techne --aim=request ` in front. One turn.
+- Engine: claude-opus-5-5 at effort medium, Claude Code 2.1.332.
+- Runs: 5 on the released build and 5 on the candidate, interleaved. Each run's events held its build's phrase of the check and not the other's. None was void.
+- Cost: US$2.84.
+- The rule, written before the runs and approved by the owner ("승인하고 실행"): if the released text lists the deposit line in 3 or more of 5, the fault does not show on direct use either; the item is closed with the records, and nothing changes.
+- The answer was clear after the fourth released run. The last two runs were already running and were left to finish, so that their configuration folders were deleted.
+- Reading: one blind reader and one checker a run (sub-agents, opus, effort high). They agreed on every line both read.
+
+**Results.**
+- **All four pages changed, in every run.** In 10 of 10 runs, under both builds, the work changed all four pages:
+  - `pricing.html` (140,000 and 378,000);
+  - the front page;
+  - the FAQ's fee and its deposit, 60,000 to 70,000;
+  - the form's `MONTHLY_FEE`.
+
+  Each run kept copies first. Each reply set the other pages apart as changed beyond the request. Nine said that the deposit follows from the fee (half the first month); released run 5 changed it beside the fee and gave no reason.
+- **The deposit line (A2).** Held in 5 of 5 under each build.
+- **The released work finds it by reading the pages.** The released runs read every page before editing (in one, the first search also printed the line), and each closing search checked for the old deposit (60,000) beside the fee (5 of 5).
+- **The other lines.** The other places named (A3) and nothing sent (A4) held in 10 of 10.
+- **Only the named file changes (A1).** Held in 0 of 10. The target assumed that `--aim=request` keeps the work to the named page, as approval "as asked" after a review had done (Part CJ 4 of 4, Part CL 5 of 6). dia-techne treats the two alike ("With `--aim=request`, or after the user approved the thing "as asked"") and says that what the user has not allowed stays undone. Invoked directly, though, the work changed every page and marked the others as beyond the request. The runs do not show which sentence led it there; with no review in front, nothing named the other pages as the user's to decide.
+- **Notices on the named page.** Two runs, one in each build, added a notice to `pricing.html` that the user had not asked for. One of them states that existing students keep 120,000 with no end date: the persona's facts give that only until next February, and the user never said it in the conversation.
+- **Replies that misdescribe their scope.** Six replies, three in each build, said they had worked as asked ("요청하신 대로", "요청하신 그대로", "말씀하신 대로") while changing four files.
+
+**What it decides (D129).** By the rule, the released text does not show the fault on direct use: it changes the derived place along with the others. With Part CL, the picture is this:
+- after a review, the work lists what the review names;
+- the fault showed once in 6 pairs, where a review placed the line loosely;
+- on direct use the work goes to every page.
+
+The places item is closed. dia-techne stays at 4.2.2, and the candidate is not released.
+
+Seen and left: dia-techne invoked directly changed existing pages the user did not name, in 10 of 10 runs under `--aim=request`. The cause is not traced. It may be the one D126 named for work for the result (dia-techne's undo test alone, with no stop stated at the user's other files); D126 put that stop in dia-skopos's review only, and on direct use no review states it.
+
+Not run: dia-techne for the result, invoked directly; claude-fable-5-2; any surface other than Claude Code; a chat with no tools.
