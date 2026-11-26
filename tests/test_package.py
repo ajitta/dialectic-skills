@@ -1,4 +1,4 @@
-"""Developer-only checks for tools/package.py and the shipped output (docs/spec.md §12.1).
+"""Developer-only checks for tools/package.py and the shipped output.
 
 Run: python -m unittest discover -s tests -v   (stdlib only; PyYAML is used when installed)
 """
@@ -8,8 +8,6 @@ from __future__ import annotations
 import importlib.util
 import io
 import re
-import shutil
-import subprocess
 import unittest
 import zipfile
 from pathlib import Path
@@ -78,6 +76,21 @@ class TestRules(unittest.TestCase):
     def test_prefix_rule(self):
         errs = pkg.validate_names(["dia-emend", "dia-emend-loop"])
         self.assertTrue(any("prefix" in e for e in errs))
+        # the caller is a first word of its own, so it is not a prefix of the thirteen
+        self.assertFalse([e for e in pkg.validate_names(sorted(pkg.EXPECTED_IMPLICIT)) if "prefix" in e])
+
+    def test_metadata_holds_the_version_only(self):
+        import shutil, tempfile
+        with tempfile.TemporaryDirectory() as d:
+            s = Path(d) / "dia-emend"
+            shutil.copytree(ROOT / "skills" / "dia-emend", s)
+            self.assertFalse([e for e in pkg.validate_skill(s) if "metadata" in e])
+            f = s / "SKILL.md"
+            f.write_text(f.read_text(encoding="utf-8").replace("metadata:\n", "metadata:\n  author: x\n", 1), encoding="utf-8", newline="\n")
+            self.assertTrue(any("metadata" in e for e in pkg.validate_skill(s)))
+
+    def test_caller_name_is_admitted(self):
+        self.assertFalse([e for e in pkg.validate_skill(ROOT / "skills" / "dia") if "prefix" in e or "name" in e])
 
     def test_hangul_boundary(self):
         bad = {"skills/dia-x/SKILL.md": "설명".encode()}
@@ -97,54 +110,68 @@ class TestRules(unittest.TestCase):
             self.assertTrue(pkg.shipped_violations({rel: b"x"}), rel)
 
     def test_crossrefs(self):
-        files = {"skills/dia-a/SKILL.md": b"use dia-b, then self-refine\n  lineage: \"self-refine\"\nsee https://x/negative-dialectics"}
+        files = {"skills/dia-a/SKILL.md": b"use dia-b, then self-refine\nsee https://x/negative-dialectics"}
         errs = pkg.crossref_violations(files, ["dia-a"])
-        self.assertEqual(len(errs), 2, errs)  # unknown dia-b; old name on line 1 only
+        self.assertEqual(len(errs), 2, errs)  # unknown dia-b; the old name on line 1; a URL is no reference
 
-    def test_renamed_dia_confirm(self):
-        files = {"skills/dia-a/SKILL.md": b"run dia-confirm first\n  lineage: \"confirm-intent; named dia-confirm from 1.1.0 to 1.4.0\""}
-        errs = pkg.crossref_violations(files, ["dia-a"])
-        self.assertTrue(any("old skill name 'dia-confirm'" in e for e in errs), errs)
-        self.assertFalse([e for e in errs if ":2:" in e], errs)  # lineage line is exempt
-
-    def test_renamed_2_0_0(self):
-        for old in ("dia-intent", "dia-brainstorm", "dia-refine", "dia-instruct", "dia-menu"):
+    def test_retired_names(self):
+        for old in ("dia-confirm", "dia-intent", "dia-brainstorm", "dia-refine", "dia-instruct", "dia-menu", "dia-router", "dia-panel"):
             errs = pkg.crossref_violations({"skills/dia-a/SKILL.md": f"run {old} first".encode()}, ["dia-a"])
-            self.assertTrue(any(f"old skill name {old!r}" in e for e in errs), errs)
-
-    def test_former_names_rejected_in_router(self):
-        # the 2.0.0 former-name aliases ended in 2.1.0 (spec D57)
-        errs = pkg.crossref_violations({"skills/dia-router/SKILL.md": b"- Former names: a first word dia-refine reaches this skill"}, ["dia-router"])
-        self.assertTrue(any("old skill name 'dia-refine'" in e for e in errs), errs)
+            self.assertEqual(errs, [f"skills/dia-a/SKILL.md:1: old skill name {old!r}"])
 
     def test_every_description_is_gated(self):
         for s in pkg.skill_dirs():
             fm, _, _ = pkg.frontmatter((s / "SKILL.md").read_text(encoding="utf-8"))
-            if s.name == "dia-router":
-                self.assertIn("first word of the message is dia on its own", fm["description"])
+            if s.name == pkg.CALLER:
+                self.assertIn("Use only when the first word of the message is dia on its own, or when this skill is invoked by name;", fm["description"])
             else:
-                self.assertIn(f"Use only when the message starts with {s.name},", fm["description"])
-                self.assertIn("when dia-router selects it", fm["description"])
+                self.assertTrue(fm["description"].endswith(
+                    f" Use only when the message starts with {s.name}, or when the skill is invoked by name;"
+                    " a request that only sounds like this is not an invocation."), s.name)
 
-    def test_router_menu(self):
-        body = (ROOT / "skills" / "dia-router" / "SKILL.md").read_text(encoding="utf-8")
-        rows = re.findall(r"^\| (dia-[a-z]+) \| [^`|]+\|$", body, re.M)
-        self.assertEqual(len(rows), 13)
-        self.assertEqual(set(rows), set(pkg.EXPECTED_IMPLICIT) - {"dia-router"})
-        self.assertNotRegex(body, r"three-letter|\bcode\b")  # no codes (spec D57)
-        self.assertNotRegex(body, pkg.MENU_NUMBER_RE)  # the router picks by name only
+    TABLE_HEAD = "| Skill | What it is for | Hand it | It returns | Someone to answer |"
+
+    def _contract_table(self, text):
+        lines = text.split("\n")
+        start = lines.index(self.TABLE_HEAD)
+        rows = []
+        for line in lines[start:]:
+            if not line.startswith("|"):
+                break
+            rows.append(line)
+        return rows
+
+    def test_contract_table_in_two_places(self):
+        # the model reads the table in `dia`; a person reads it in the plugin README; they are one table
+        body = (ROOT / "skills" / "dia" / "SKILL.md").read_text(encoding="utf-8")
+        readme = (ROOT / "packaging" / "plugin-README.md").read_text(encoding="utf-8")
+        rows = self._contract_table(body)
+        self.assertEqual(rows, self._contract_table(readme))
+        names = [r.split("|")[1].strip() for r in rows[2:]]
+        self.assertEqual(sorted(names), sorted(set(pkg.EXPECTED_IMPLICIT) - {pkg.CALLER}))
+        self.assertNotRegex(body, pkg.MENU_NUMBER_RE)
+
+    def test_no_skill_names_another(self):
+        # a skill is a function: only the caller knows the others
+        for s in pkg.skill_dirs():
+            if s.name == pkg.CALLER:
+                continue
+            for f in sorted(s.rglob("*")):
+                if f.is_file():
+                    others = set(pkg.SKILL_REF_RE.findall(f.read_text(encoding="utf-8"))) - {s.name}
+                    self.assertFalse(others, f"{f.relative_to(ROOT).as_posix()} names {sorted(others)}")
 
     def test_no_menu_numbers_in_skills(self):
-        errs = pkg.selector_violations({"skills/dia-x/SKILL.md": "picked by `dia 11 \u2026` here".encode(), "skills/dia-y/SKILL.md": b"the form `dia <number> <request>`", "skills/dia-z/SKILL.md": b"send dia 10 --max 2 <draft>", "skills/dia-w/agents/openai.yaml": b"or dia 11 <reports>", "skills/dia-router/SKILL.md": "`dia 4 \u2026` runs it".encode()})
+        errs = pkg.selector_violations({"skills/dia-x/SKILL.md": "picked by `dia 11 \u2026` here".encode(), "skills/dia-y/SKILL.md": b"the form `dia <number> <request>`", "skills/dia-z/SKILL.md": b"send dia 10 --max 2 <draft>", "skills/dia-w/agents/openai.yaml": b"or dia 11 <reports>", "skills/dia/SKILL.md": "`dia 4 \u2026` runs it".encode()})
         self.assertEqual(len(errs), 5)
-        ok = {"skills/dia-router/SKILL.md": "a number (`3 reasons \u2026`) is a request".encode(), "skills/dia-skopos/SKILL.md": "as in `dia 1 thing I keep forgetting: \u2026`".encode(), "docs/probes.md": "`dia 4 \u2026`".encode()}
+        ok = {"skills/dia/SKILL.md": "a number (`3 reasons \u2026`) is a request".encode(), "skills/dia-skopos/SKILL.md": "as in `dia 1 thing I keep forgetting: \u2026`".encode(), "docs/probes.md": "`dia 4 \u2026`".encode()}
         self.assertEqual(pkg.selector_violations(ok), [])
 
     def test_docs_name_only_working_forms(self):
-        self.assertEqual(pkg.docs_violations(pkg.doc_files()), [])  # spec D77
+        self.assertEqual(pkg.docs_violations(pkg.doc_files()), [])
         self.assertEqual(set(pkg.doc_files()), set(pkg.DOC_PATHS))
         bad = ["`dia-intent` is now `dia-skopos`", "send `dia refine \u2026`", "a code (`dia red \u2026`)", "`dia 3 reasons \u2026`",
-               "the form `dia <number> <request>`", "Short codes were removed", "menu numbers stopped in 2.13.0", "\uc9e7\uc740 \ucf54\ub4dc", "\uba54\ub274 \ubc88\ud638", "\u77ed\u3044\u30b3\u30fc\u30c9", "\u30e1\u30cb\u30e5\u30fc\u756a\u53f7", "\u7b80\u77ed\u4ee3\u7801", "\u83dc\u5355\u7f16\u53f7", "a three-letter code", "the code `dia int \u2026`", "dia-refine\uc744 \uc4f0\uba74", "dia-instruct\u306e\u30eb\u30fc\u30eb", "dia 3", "dia 12 items"]
+               "the form `dia <number> <request>`", "Short codes were removed", "menu numbers stopped in 2.13.0", "\uc9e7\uc740 \ucf54\ub4dc", "\uba54\ub274 \ubc88\ud638", "\u77ed\u3044\u30b3\u30fc\u30c9", "\u30e1\u30cb\u30e5\u30fc\u756a\u53f7", "\u7b80\u77ed\u4ee3\u7801", "\u83dc\u5355\u7f16\u53f7", "a three-letter code", "the code `dia int \u2026`", "dia-refine\uc744 \uc4f0\uba74", "dia-instruct\u306e\u30eb\u30fc\u30eb", "dia 3", "dia 12 items", "`dia-router` picks one"]
         for line in bad:
             self.assertEqual(len(pkg.docs_violations({"README.md": line.encode()})), 1, line)
             self.assertEqual(len(pkg.docs_violations({"site/index.html": line.encode()})), 1, line)
@@ -152,40 +179,6 @@ class TestRules(unittest.TestCase):
               "three letters, no hyphen", "> \"against the dia-instruct rules\"", "`dia-regula` reads a prompt", "media consumption", "`dia redo the outline`", "dia 2.16.0 adds a skill", "dia 12.5 is not a release", "`dia interview notes into themes`"]
         self.assertEqual(pkg.docs_violations({"README.md": "\n".join(ok).encode()}), [])
         self.assertEqual(len(pkg.docs_violations({"site/index.html": b"> dia-instruct"})), 1)  # the quote exemption is for Markdown
-
-    def test_companion_workflows(self):
-        folder = ROOT / "companions" / "dia-panel" / "workflows"
-        names = {}
-        for path in sorted(folder.glob("*.js")):
-            text = path.read_text(encoding="utf-8")
-            self.assertTrue(text.startswith("export const meta = {"), path.name)  # the runtime drops a workflow whose meta is not first
-            names[path.name] = re.search(r"^  name: '([a-z-]+)',$", text, re.M).group(1)
-            self.assertNotRegex(text, r"\bimport\b|\brequire\(|Date\.now|Math\.random\(|new Date\(\)", path.name)  # not available in workflows
-            titles = set(re.findall(r"\{ title: '([^']+)' \}", text))
-            self.assertEqual(titles, set(re.findall(r"^phase\('([^']+)'\)", text, re.M)), path.name)
-            # every judge is told it is one of two runs, and the comparison never rules on the items itself
-            for part in ("of two separate runs on the same input;", "the caller compares the two, so start no run of your own."):
-                self.assertIn(part, text, path.name)
-            self.assertIn("Do not judge the items yourself.", text, path.name)
-            # 0.4.0: the comparison also gives each run's line on what its verdicts leave of C
-            # 0.5.0 (dia-adjudicate 4.0.0, which prints no fixed sections): each run's statement, word for word
-            self.assertIn("statement of what its rulings leave of the target's conclusion, word for word", text, path.name)
-        self.assertEqual(names, {"judge.js": "judge", "review-panel.js": "review-panel"})
-
-    @unittest.skipUnless(shutil.which("node"), "node not installed")
-    def test_judge_workflow_with_a_stubbed_runtime(self):
-        script = ROOT / "companions" / "dia-panel" / "workflows" / "judge.js"
-        run = subprocess.run(["node", str(ROOT / "tests" / "dia_panel_judge_harness.js"), str(script)], capture_output=True, text=True)
-        self.assertEqual(run.returncode, 0, run.stdout + run.stderr)
-        self.assertIn("ALL OK", run.stdout)
-
-    @unittest.skipUnless(shutil.which("node"), "node not installed")
-    def test_review_panel_workflow_with_a_stubbed_runtime(self):
-        # 0.6.0: the user's words and the material reach every lens and judge, and the note tells the caller how to hand on
-        script = ROOT / "companions" / "dia-panel" / "workflows" / "review-panel.js"
-        run = subprocess.run(["node", str(ROOT / "tests" / "dia_panel_review_harness.js"), str(script)], capture_output=True, text=True)
-        self.assertEqual(run.returncode, 0, run.stdout + run.stderr)
-        self.assertIn("ALL OK", run.stdout)
 
     def test_plain_scalar_guard(self):
         with self.assertRaises(ValueError):
@@ -210,9 +203,9 @@ if __name__ == "__main__":
 
 
 class TestReadmeTranslations(unittest.TestCase):
-    """README.<lang>.md files mirror README.md's structure (spec D31)."""
+    """README.ko.md mirrors README.md's structure."""
 
-    LANGS = ("ko", "ja", "zh-CN")
+    LANGS = ("ko",)
     VERBATIM_PREFIXES = ("/plugin", "codex ", "python ", "skills/", "ajitta/")
 
     @staticmethod
@@ -260,7 +253,7 @@ class TestReadmeTranslations(unittest.TestCase):
                 if a.startswith(self.VERBATIM_PREFIXES):
                     self.assertEqual(a, b, f"{path.name}: command block changed")
             switcher = text.split("\n")[2]
-            for target in ("README.md", "README.ko.md", "README.ja.md", "README.zh-CN.md"):
+            for target in ("README.md", "README.ko.md"):
                 if not target.endswith(f".{lang}.md"):
                     self.assertIn(f"]({target})", switcher, f"{path.name}: switcher misses {target}")
             anchors = {self._slug(h) for h in re.findall(r"^#{2,6} (.+)$", text, re.M)}
@@ -269,7 +262,7 @@ class TestReadmeTranslations(unittest.TestCase):
 
 
 class TestDirectoryPackages(unittest.TestCase):
-    """Directory listing requirements (spec D32, docs/directory-submission.md)."""
+    """What a directory listing needs of the two packages."""
 
     def setUp(self):
         self.files = pkg.plugin_files(pkg.skill_dirs())

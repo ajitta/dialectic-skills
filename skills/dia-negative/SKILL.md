@@ -1,111 +1,47 @@
 ---
 name: dia-negative
-description: Critique a claim or practice against its own stated standard. Use only when the message starts with dia-negative, when the skill is invoked by name, or when dia-router selects it; a request that only sounds like this is not an invocation.
+description: Examine a claim, plan or text against the standard it states for itself, and show where it fails that standard by its own terms. Use only when the message starts with dia-negative, or when the skill is invoked by name; a request that only sounds like this is not an invocation.
 license: MIT
 metadata:
-  author: ajitta
-  version: "3.1.2"
-  lineage: "negative-dialectics (installed copy, unversioned)"
-  source: "https://github.com/ajitta/dialectic-skills"
+  version: "4.0.0"
 ---
 
-# Negative Dialectics
+No concept captures its object without a remainder. Show where a claim leaves one, only through a strict gap between what the claim says and what it delivers by its own terms, and look first where the claim's own stated purpose is at stake, so that the user can decide what to do about the claim and not only learn that it leaks.
 
-No concept captures its object without a remainder; this skill shows a remainder only through a strict gap (Rules 2 and 5), and looks for it first where the claim's own stated purpose is at stake, so that the user can decide what to do about the claim and not only learn that it leaks.
+## What it works from
 
-This skill is a practical adaptation of Adorno's method, not his own procedure: it runs internal critique, narrower than immanent critique, so its standard is only what the target itself states and it does not reconstruct norms a practice implies without stating them. Theory, sources and the limits of the adaptation are in [references/theory.md](references/theory.md); read it when the user asks about the method or when you are unsure whether a finding is strict or whether a standard is the target's own.
+A target in its own words: a claim, plan or self-description the user states, a text by someone else, or an earlier answer of yours. Its standard is only what those words commit to (what it promises, what it says it measures or covers, what it says it is for), and each standard you use is quoted from the place where the target commits to it. A purpose the target states, or one the user has stated for their own claim, is its stated purpose; where none is stated, none is read in.
 
-The output opens with a Target line, which says when the target was inferred and from what and asks to be corrected, and has the headings Claim, Result, Its own standard, Findings (with Conditional findings under it), Function and purpose, Options, Recommendation and Record. Claim also holds the reading tested, with any other reading named and said to be tested separately or not tested, and what was not examined. Result comes right after Claim, because the reader should meet first what the examination found: work the findings through and check each against Rules 2 and 4 before you write Result, and give there the status Step 8 fixes with the number of firm and of conditional findings in one line and, in one more, each firm finding in a few words (what C claims against what it delivers); with no firm finding, the conditional ones in a few words each, named as conditional; and with no finding at all, the particulars C held against. The rest follows in the order of Steps 2–8; Function and purpose and Recommendation give each of their points on a line of its own under its label (Stated purpose, Operative function, Evidence, Would be falsified by; Rests on, Would change if, You can decide now, Not settled); and with `--target=all` each target has its own parts up to Recommendation, before the one combined record. Translate every heading and label into the user's language, and use numbered items and short lines so that it reads on a phone.
+What can be found is therefore bounded by the words you hold. Where you have a target only through an account of it (a policy the user describes and has not shown), the account is what you quote, and whatever turns on the wording of the text itself is conditional on that wording and names the passage that would settle it.
 
-## Parameters
+Cases come from the target's own material first, then from what follows by logic or definition, then from facts. A fact is given with where it comes from: read or run in this conversation, supplied by the user, a single source, or your recall, which is never verified.
 
-`--target=user|claude|text|all` sets what is examined, and a natural-language equivalent of the flag counts as the flag; with neither, infer the target, which is `text` for a pasted text unless the user has said they wrote it, `claude` for "your answer" or "what you said" (or the same in any language) and `user` otherwise, and state the inferred target in the first line so the user can correct it.
+## What it does
 
-- **user:** a claim, concept, plan or self-description the user states.
-- **claude:** your own earlier answer in this conversation (the most recent one unless the user names another; the value is `claude` on every assistant): quote it, examine it with the same strictness, and say in one line that this is a self-examination and not independent; neither defend the answer nor concede a gap that fails Rule 2.
-- **text:** a pasted or attached text by someone else (a policy, mission statement, essay, argument): quote with location.
-- **all:** run the procedure separately for each target present, in the order user, claude, text, skip absent targets with one line, then give one combined record.
+Fix the claim C: the place where the target identifies something as something ("this policy is fair", "the goal is G", "this measures Z"). Where there are several, take the one the rest lean on and name the others as not examined. Fix its reading before testing it: where C has more than one live reading, test the one the target most plausibly means, or each under its own label. Ambiguity alone is not a finding.
 
-## Hard rules
+Check the cases C claims to cover against what it commits to, starting with those its stated purpose depends on most, because a gap there tells the user more than one at the margin. A finding has three parts, and nothing short of them is one: the commitment, quoted; a particular case or consequence; and the argument that, by C's own terms, the two cannot both hold as stated. It says exactly which part of C fails and what specific content C leaves out. A value the target never claimed, a tension that cannot be stated as such an argument, an outcome that is merely unwelcome, and "it is more complex than that" are not findings.
 
-1. **The target's own standard only.** Judge the target only by its own claims, definitions, promises or stated goals, quote where it commits to each standard you use, and never bring in an outside value the target does not hold ("this is unfair" when it never claimed fairness).
-2. **Strict gaps only.** A finding counts only when it has three parts: (a) the claim C in the target's own terms; (b) a particular case or consequence D; (c) a demonstration that, by C's own terms, D and C cannot both hold as stated. Vague tension, "it's reductive", "it feels incomplete", or an outcome that is merely undesirable are not findings.
-3. **One reading at a time.** Fix the reading of C before testing it: when C has several live readings, test the one the target most plausibly means, or test each separately under its own label. Ambiguity alone is not a finding, so report it in one line and count a finding only where the gap is strict *within* a single reading; likewise, when a finding's argument splits into cases, it counts only for the branches where the gap is strict, and the other branches go into the conditional findings.
-4. **Where cases come from.** Take D from the target's own material first, then from logical or definitional cases, then from facts, and label every fact with its evidence class (verified this session / supplied by the user / single source / unverified recall), where your own recall is never "verified". A finding is **conditional** when it rests on a fact that is single source or unverified recall, on one contested reading, or on one branch of a case split; a fact supplied by the user does not make a finding conditional, but is labelled "supplied by the user". List the firm findings (those that are not conditional) first, then the conditional ones under their own label.
-5. **Determinate, not abstract, negation.** Each finding states exactly which part of C fails and what specific content C fails to capture; "It's more complex than that" negates nothing in particular and is not allowed.
-6. **Purpose is an inference with evidence.** When you say what function or purpose an identification serves, ground it in the pattern of what C includes and excludes, label it as an inference, name the observation that would falsify it, and speak about what the claim or text does, not about anyone's hidden motives.
-7. **No forced synthesis.** Do not end with a new master definition that claims to settle everything; a revised claim may be offered as an option, and it must state its own remainder: what it still does not capture.
-8. **The user decides.** Recommend one option and do not decide for the user.
-9. **Quote the target in its original language.** Use plain words, with Adorno's terms in parentheses at most.
-10. **Whole analysis in one response.** Do not ask questions one at a time, because the skill runs in one pass.
+A finding is firm when it rests on the target's words, on logic, on facts read or run here or on facts the user supplied. It is conditional when it rests on a single source or on recall, on one contested reading, on one branch of a case split, or on wording you have not seen, and it says which.
 
-## Procedure
+Then say what the identification does, its operative function: what it makes visible, what it hides, and what the pattern of what C takes in and leaves out serves, set against the stated purpose. This is an inference about the claim and not about anyone's motives: give the pattern it rests on, and an observation the user could actually make that would show the stated purpose explains the pattern as well. Where the findings support nothing beyond the stated purpose, say so.
 
-### Step 1: Fix the target and the identifying claim
+Offer the responses that fit: narrow C to the scope where it holds, with the narrower claim stated exactly; keep C and state the remainder openly; change the practice so that it delivers what is claimed; withdraw C, or own the operative function as the purpose; examine one case further. Each comes with what it keeps, what remainder it leaves, and whether the stated purpose is still met. Do not close with a new definition that claims to settle the matter, since a revised claim is a new identification with a remainder of its own. Recommend one option, with the weakest finding it rests on and the observation that would change the recommendation. The decision is the user's.
 
-State C, the place where something is identified as something, and quote it; typical forms are "X is Y", "this policy is fair", "we are a merit-based company", "the goal is G", "this measures Z". If there are several such places, pick the one the rest lean on and list the others in one line as not examined.
+The whole examination is one reply, and nothing is asked on the way.
 
-### Step 2: State its own standard
+## What it returns
 
-List what C commits to, C1 … Cn, each with a quote: what it promises, what it says it measures or includes, what it says it is for. A purpose the target states is the **stated purpose**; when the target is the user's own claim, an outcome the user stated or approved for this claim earlier in this conversation counts as stated. With none stated, write "none stated" and read none in, because Rule 1 allows only the target's own standard.
+The judgment first: C is open when at least one finding, firm or conditional, stands, and holds against the cases tested when none does; with it, how many findings are firm and how many conditional and each in a few words, so that the judgment and the findings under it cannot disagree.
 
-### Step 3: Gather particulars
+Then what the judgment rests on: what was taken as the target, and from what where the user did not name it; C quoted, with the reading tested and what was not examined; the standards, each quoted; each finding in its three parts, with its evidence and the content that escapes; the operative function; the options; and the recommendation, with what the findings let the user decide now and what they leave unsettled. Where no strict gap appears, the cases C held against and where a gap would most likely show. A part with nothing to say says so and is not filled. Quotations stay in the target's language.
 
-Collect the cases C claims to cover, and check each against C1 … Cn, starting, when a purpose is stated, with the cases it depends on most, because a gap there tells the user more than one at the margin.
+An examination of your own earlier answer is not an independent one: say so in a line, and neither defend the answer nor concede a gap that is not strict.
 
-### Step 4: Findings (determinate negations)
+## When the user answers
 
-For each strict gap, write:
+- Picks an option: carry it out in the reply, and examine a revised claim the same way.
+- Disputes a finding: recheck it, and withdraw it only where you can name what fails (C misquoted or misread, the case not a real one, the argument not showing that both cannot hold, a standard the quoted words do not commit to). Disagreement alone is not a defect. After a withdrawal, recheck the other findings and say which stand.
+- Supplies the text or a fact a conditional finding waited on: settle that finding against it, quoting it.
 
-- **Claims:** Ck, quoted
-- **Delivers:** what happens in case D
-- **Why both can't hold:** the short argument, by C's own terms
-- **Evidence:** source and class
-- **What escapes:** the specific content C leaves out (the nonidentical remainder)
-- **Conditional on:** for a conditional finding only (Rule 4), what it rests on
-
-If no strict gap appears, say that C holds against the particulars tested, list them, and say where a gap would most likely show up if there is one.
-
-### Step 5: Function and purpose
-
-Say what the identification does, its **operative function**: what it makes visible, what it hides, and what process it serves, or whose interests the pattern favors (as a function, not an intention); contrast it with the stated purpose from Step 2. Give as evidence the inclusion and exclusion pattern from Step 4, mark the result as an inference, and name as its falsifier (Rule 6) an observation the user could actually make (a document, a practice, a case) that would show the stated purpose (or, with none stated, another cause you name) explains the pattern as well, which a restatement of the stated purpose never is. If the findings do not support any reading beyond the stated purpose, say so.
-
-Optionally, set C beside two or three concepts it depends on (for example "merit" depends on "measurement") when that shows where the gap comes from, and skip it when it explains nothing.
-
-### Step 6: Options
-
-Offer only the responses below that fit, lettered A, B, … in the order given, each with what it keeps, what remainder it leaves and, when a purpose is stated, whether it is still met (yes, no or in part); if no strict gap was found, the options are keeping C as it is or examining the most likely gap next.
-
-- narrow C to the scope where it holds (state C′ exactly; if the gap comes from how the practice works rather than from how C is worded, say that narrowing moves the gap rather than closing it)
-- keep C and state the remainder openly
-- change the practice so that what is delivered meets what is claimed
-- withdraw C, or replace the stated purpose with the operative function and own it
-- keep the tension open and examine a particular case further
-
-### Step 7: Recommend
-
-Pick one option and give: the reason; the evidence class of the weakest finding it rests on (with no strict finding: "no strict finding; rests on the tested particulars"), saying so when every finding it rests on is conditional; the observation that would change the recommendation. Then say in one line what the findings let the user decide now and what they do not settle (a conditional finding, a particular not tested; with no strict finding, only that C held against the particulars tested), and end with a sentence that the decision is the user's.
-
-### Step 8: Record
-
-Close with the record: target and C; stated purpose; findings (n firm, m conditional, one line each: what C claims against what it delivers); remainder (what C does not capture); operative function (marked as an inference, with its evidence class); the options offered and the recommended one; decision (pending until the user chooses); status; history (one line per follow-up turn). Its status is exactly one of: **open** when at least one finding, firm or conditional, is listed (by design nothing is closed), or **holding against the tested particulars** when none is, because a status that says C held beside a listed finding contradicts the list.
-
-## When another agent fixes the output format
-
-When the request comes from another agent or a script that fixes the output format (a schema or a set of fields) and no user will reply, carry out every step as usual and fit the result into that format as below, because such a caller may pass on only its list of items.
-
-1. Give each strict gap (Step 4) as one of the caller's items, with its proof in the item's evidence field: Ck quoted, case D, why both can't hold, the evidence class, and firm or conditional (Rule 4).
-2. End the list with one item labelled as this method's result, not a finding, that holds the Step 8 record, with C, the options and the recommendation; when no strict gap appears, this item says that C holds against the particulars tested and lists them.
-3. In a severity or fix field, write that this method does not give it; the options and the recommendation are in the method result. If a field takes only fixed values, use the one that claims least, and say at the start of the item's text that the format forced that value and that this method does not give it.
-4. Give nothing outside this method unless the caller names it in its request, and put what it names in a separate list after these items, labelled as outside this method; if the format has a free-text field, put the whole output there as well.
-
-## Follow-up turns
-
-- **The user picks an option:** carry it out in your response, examining a revised claim the same way, since a revision is a new identification and has its own remainder, and add the decision to the record's history; a change to a file or a practice waits for the user's request, because picking an option is not a request to change anything outside the response.
-- **The user disputes a finding:** recheck it against Rules 2–4, taking the user's clarified reading of C as the target's own terms for target user and testing a proposed reading under Rule 3 for claude and text. Withdraw it only if you can name what fails (C misquoted or misread, D not a real case, the argument does not show that both cannot hold, or a wrong evidence class), because disagreement alone is not a defect; if you withdraw it, recheck each other finding on its own and say which stand; if the disputed finding holds, give the reason in one line and keep it.
-- **The user says a standard is not theirs:** remove every finding that used it and rerun.
-- **The user asks about the method:** answer briefly from references/theory.md.
-
-## Pitfalls
-
-- Filling the layout: an empty section is a result, not a gap to fill.
+The method adapts Adorno's negative dialectics as internal critique, narrower than immanent critique: it does not reconstruct norms a practice implies without stating them. The theory and the limits of the adaptation are in `references/theory.md`; read it when the user asks about the method, or when you cannot tell whether a finding is strict or a standard the target's own.

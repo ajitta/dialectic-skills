@@ -1,7 +1,7 @@
 {
   "$schema": "https://code.claude.com/schemas/marketplace.json",
   "name": "dialectic-skills",
-  "description": "Marketplace for the dia plugin (thirteen instruction-only reasoning-and-review skills and the dia router) and dia-panel, Claude Code workflows that run the dia review lenses as a panel and judge reports twice.",
+  "description": "Marketplace for the dia plugin: thirteen instruction-only reasoning-and-review skills and dia, the one skill that calls them.",
   "owner": {
     "name": "ajitta",
     "url": "https://github.com/ajitta"
@@ -10,18 +10,12 @@
     {
       "name": "dia",
       "source": "./plugins/dia",
-      "description": "Thirteen reasoning-and-review skills: goal confirmation before work (skopos), Socratic elenchus and inquiry (quaestio), reductio ad absurdum, negative dialectics, argument warrants, Lakatosian counterexamples, dialectical-inquiry counterplans, a single review pass (emend), review rounds gated by outside evidence (ratchet), rulings on others' reports about a text, rules for text a model follows (regula), and deepening a request by a field's best practice before running it, plus dia-router, a short entry point. A skill starts when the message begins with dia or the skill's name.",
+      "description": "Thirteen reasoning-and-review skills, each a function with one purpose: showing what is asked and the result it is for before work (skopos), doing a task for its outcome with an outside check (techne), a single review pass (emend), review rounds that move only on outside evidence (ratchet), rules for text a model follows (regula), internal critique (negative), reductio, argument warrants, counterexamples to a universal claim (conjecture), counterplans, rulings on reports about a target (adjudicate), and two questioning dialogues (elenchus, quaestio); plus dia, which calls them and has a target criticised by three independent agents and judged by a fourth. A skill starts when its name starts the message.",
       "category": "productivity"
-    },
-    {
-      "name": "dia-panel",
-      "source": "./companions/dia-panel",
-      "description": "Claude Code only: two workflows. review-panel runs the four dia review lenses on one document in parallel and has dia-adjudicate judge their whole reports twice, in two orders; judge makes the same two judgments on reports written elsewhere. Needs the dia plugin.",
-      "version": "0.6.0",
-      "category": "productivity",
-      "dependencies": [
-        "dia"
-      ]
     }
-  ]
+  ],
+  "renames": {
+    "dia-panel": null
+  },
+  "forceRemoveDeletedPlugins": true
 }

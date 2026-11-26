@@ -1,6 +1,6 @@
 # Question bank
 
-Shapes, not scripts. Adapt each to the user's own words and the last answer.
+Shapes, not scripts. Adapt each to the respondent's own words and the last answer.
 
 ## Six types
 
@@ -43,7 +43,7 @@ Shapes, not scripts. Adapt each to the user's own words and the last answer.
 - Falsification pull: "What would you need to see to drop this? A number or an event?"
 - Necessity check: "What breaks if we leave this out?"
 
-## Optional lenses (pick at most two, only when the idea calls for one)
+## Optional lenses
 
 - **Premortem** (risky or irreversible bets): "It's a year later and this failed. What's the most likely story?"
 - **Expert lens**, asked as a question in that person's spirit:
@@ -53,8 +53,8 @@ Shapes, not scripts. Adapt each to the user's own words and the last answer.
   - Michael Nygard: "What happens when this fails at 3 a.m.?"
   - Rich Hickey: "What's left after removing the incidental complexity?"
   - Kent Beck: "What's the first test that would tell you it works?"
-- **SCAMPER** (product or feature ideas, in Step 3 only): substitute, combine, adapt, modify, put to other use, eliminate, reverse. Ask about one letter at a time.
+- **SCAMPER** (product or feature ideas, when asking for options): substitute, combine, adapt, modify, put to other use, eliminate, reverse. Ask about one letter at a time.
 
 ## When answers stop moving the thesis
 
-Switch along this ring: clarification → assumptions → evidence → viewpoints → implications → the question itself. After two dry switches, say "I think we've hit the edge of what questioning can show right now" and move to Step 3.
+Switch along this ring: clarification → assumptions → evidence → viewpoints → implications → the question itself. Where the switch does not move it either, say "I think we've hit the edge of what questioning can show right now" and go to options.

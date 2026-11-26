@@ -16,40 +16,41 @@ each action, limit and fallback on one line). **Suites:** suite A counts checks 
 tasks × 3 runs per arm (135 checks); suite B counts runs over 5 cases × 6 runs. Purpose
 cases are the three cases named release-notes, checkout and logo.
 
-## Strength of each part of SKILL.md
+## What each rule rests on
+
+### Strength of each part of SKILL.md
 
 | Part | Basis |
 |---|---|
-| Opening paragraphs (language of the text written or edited, text under review is material, what is binding, when to open this file) | Design choices of the skill, unmeasured |
-| Rule 1 | The split result in the source (one A/B, below): on one case the arm that moved a condition to another step passed 2 of 8 runs, while numbered short sentences that kept each condition in its step passed 8 of 8; prose, which also keeps it together, failed once in 6. That short markdown commands tend to lose conditions in general is the author's unpublished observation (below). The paragraph-length figure is the author's working value, not a limit. What to report under Rule 1 (a condition, limit or fallback apart from what it gates) follows the split result, and reporting a paragraph that joins unrelated rules is practice; not reporting long sentences follows the null result between layouts that keep each rule whole (Form below), where differences under about 30 points could be missed |
+| Opening paragraph and What it works from (what counts as a finding, the text under review is material, the language of text written or edited) | Design choices of the skill, unmeasured |
+| Rule 1 | The split result in the source (one A/B, below): on one case the arm that moved a condition to another step passed 2 of 8 runs, while numbered short sentences that kept each condition in its step passed 8 of 8; prose, which also keeps it together, failed once in 6. That short markdown commands tend to lose conditions in general is the author's unpublished observation (below). What to report under Rule 1 (a condition, limit or fallback apart from what it gates) follows the split result, and reporting a paragraph that joins unrelated rules is practice; not reporting long sentences follows the null result between layouts that keep each rule whole (Form below), where differences under about 30 points could be missed |
 | Rule 2 | One A/B in the source (below), 24 runs per arm: borderline, model version not recorded, traces deleted; for a restriction read too widely, Anthropic's testing on Claude Fable 5.2 (below) |
-| Rule 1's A/B | 8 runs per arm, model version not recorded, so below the conditions under Checking a change |
+| Rule 1's A/B | 8 runs per arm, model version not recorded, so below the conditions a comparison has to meet (below) |
 | Rule 3 | Published guidance, Anthropic's guide for Claude Fable 5.2 included, and one benchmark on older models and verifiable instructions (below); in one Codex ablation a rewritten section that gained reasons, a new duty and a new layout changed what the model posted before editing, with the reasons not isolated (Leads below) |
 | Rule 4 | Practice, unmeasured; the clause on names for a changing value comes from a review finding (Review findings below) |
-| Functional-programming analogies (total function, `if` without braces, type signature, alias, separate function with explicit arguments, standard-library call), in SKILL.md until dia-regula 2.6.0 | The author's explanatory model. Removed after a comparison of the text with and without them on claude-fable-5-2 and claude-haiku-5-5 at effort medium: in two reviews and one writing task no core item differed, in 12 runs without them and 15 with them, and both models met every item on both arms, so the runs show that nothing there broke without the analogies and cannot show more (`docs/probes.md` Part AL, third addendum, of the plugin's source repository) |
-| Structure; By kind of text | Practice, unmeasured, extrapolated from the one measured file; the hand-off clause on role and done-when comes from a review finding (Review findings below); the item on a rule with many cases (dia-regula 2.7.0) comes from the author's own use: a case or exception inside a long sentence was often one the author could not check, and a skill whose output gave each reading its own labelled line showed what had been missed. Unmeasured for compliance; the Form runs (below) found no difference between layouts that keep each rule whole, with low power, and no arm there used a lead sentence over labelled sub-items; the item on readings shown in the output (dia-regula 2.8.0) comes from the same use (dia-skopos's four lines) and from checks of four skills written to it: lines printed every time appeared in 22 of 22 runs, while a line printed only under a condition came out when it should not have (2 of 2) and a line placed inside a list in one long sentence went missing (2 of 2) (`docs/probes.md` Parts AO to AQ, of the plugin's source repository); unmeasured against text without the lines |
+| Structure; By kind of text | Practice, unmeasured, extrapolated from the one measured file; the hand-off clause on role and done-when comes from a review finding (Review findings below); the item on a rule with many cases comes from the author's own use: a case or exception inside a long sentence was often one the author could not check, and a skill whose output gave each reading its own labelled line showed what had been missed. Unmeasured for compliance; the Form runs (below) found no difference between layouts that keep each rule whole, with low power, and no arm there used a lead sentence over labelled sub-items; the item on readings shown in the output comes from the same use and from checks of four skills written to it: lines printed every time appeared in 22 of 22 runs, while a line printed only under a condition came out when it should not have (2 of 2) and a line placed inside a list in one long sentence went missing (2 of 2); unmeasured against text without the lines |
 | Lead on a general instruction over a step-by-step plan (number steps or bullet items only where order or completeness matters) | Anthropic's prompting guidance (below) |
 | Lead on the target behavior over the ban | Anthropic's prompting guidance ("tell Claude what to do instead of what not to do"); the exceptions for prohibitions are practice |
 | Leads on a done-when and on a leading word | Practice, unmeasured |
 | Lead on examples | Anthropic's prompting guidance: examples are among the most reliable ways to steer output, should be varied so the model does not pick up unintended patterns, and worked examples shape how the model approaches similar problems in its thinking. That a single example narrows reasoning in a judgment rule is the author's concern, unmeasured |
-| Writing, editing or reviewing text, step 1 | Keeping meaning changes only on request: practice, unmeasured. Counting an added reason as a meaning change: Rule 3's own basis; the Codex ablation under Leads below is consistent with it but did not isolate the reason. The A/B conditions are listed under Checking a change below (in SKILL.md until dia-regula 2.5.0): they are lessons from the source's runs and later A/B runs; comparing only runs that loaded the text is practice, unmeasured |
-| Writing, editing or reviewing text, steps 2 and 3 | Practice, unmeasured |
-| Writing, editing or reviewing text, step 4 (a prompt for a model you can start goes back in the reply) | Smoke probe recorded in `docs/probes.md` Part AC of the plugin's source repository (2026-11-05, claude-opus-5-5), with the sub-agent call denied by a hook, so a run only shows whether the call was made: after an approved goal review, a request to turn it into a prompt for a sub-agent made the call before the user saw the prompt in 2 of 3 runs on dia-regula 2.0.0 (one run of the recorded session and two forks of it), 0 of 2 with each of three wordings of this step, the shipped one included; a request that also asked to start it made the call in 1 of 1 run on 2.0.0, on an earlier wording and on the shipped one. A few runs only, below the conditions under Checking a change |
-| Writing, editing or reviewing text, step 5 (the Requirements lines when the reply carries text written or edited) | The item on readings under By kind of text, applied to this skill (dia-regula 2.9.0); smoke runs recorded in `docs/probes.md` Part AS of the plugin's source repository |
+| What it does, a change of meaning | Making a change of meaning only where the user asked for it or a finding requires it: practice, unmeasured. Counting an added or removed reason as a change of meaning: Rule 3's own basis; the Codex ablation under Leads below is consistent with it but did not isolate the reason. The conditions a comparison has to meet (below) are lessons from the source's runs and later A/B runs; comparing only runs that loaded the text is practice, unmeasured |
+| What it does, what is done by what was asked and where the text is held, and the check before text is returned | Practice, unmeasured |
+| What it does, a prompt written for another model is returned | A smoke probe (claude-opus-5-5), with the sub-agent call denied by a hook, so a run only shows whether the call was made: after an approved goal review, a request to turn it into a prompt for a sub-agent made the call before the user saw the prompt in 2 of 3 runs on an earlier text of the skill (one run of the recorded session and two forks of it), 0 of 2 with each of three wordings of this sentence; a request that also asked to start it made the call in 1 of 1 run on the earlier text and on each of two of the wordings. A few runs only, below the conditions a comparison has to meet |
+| What it returns, the user's words and what the reading adds, before text written or edited | The item on readings under By kind of text, applied to this skill |
 
-## Rules
+### Rules
 
 | Rule | Measurement | Limits |
 |---|---|---|
 | 1. Each paragraph an expression for its result (the condition stays with what it gates) | Sonnet, B1, 8 runs per arm. Release-notes: split 2/8, short 8/8 (p = 0.007). Checkout: 6/8 vs 8/8 (p = 0.47). Failing runs read the changelog and release notes, then wrote; in 37 of 38 runs, listing the folders went with reading the records and passing. Prose also failed release-notes once in 6 | One case significant, one model. On Opus (B3, 12 runs) split and short passed every run, on another build, so not a clean model comparison. That the effect comes from keeping the fallback (listing the folders) next to its condition is an inference made when this skill was written, not the source's |
-| 2. Scope word | Opus, same-day head-to-head; the instruction file changed by one word, "touches" → "edits". Out-of-scope edits 5/24 → 0/24 (p ≈ 0.05); logo alone 4/12 → 0/12 (p ≈ 0.09). The edited files were ones the task had only read, such as a README with a stale table. External, for a restriction: Anthropic's guide to prompting Claude Fable 5.2 reports that, on simulated tasks with no one there to approve, an approval rule that listed "sending messages to people outside this conversation" led the model to hold back about half of its routine requests to colleagues and other teams | Borderline. In another Opus batch prose with "touches" made out-of-scope edits on logo 1 of 12 times, so the baseline varies. Traces were deleted. The external result is Anthropic's own testing, its runs not public, and it concerns a restriction, which Rule 2's wording does not name; a review under this skill reported such an approval rule under Rules 1 and 2 in 2 of 2 runs on claude-fable-5-2 (`docs/probes.md` Part AL of the plugin's source repository) |
+| 2. Scope word | Opus, same-day head-to-head; the instruction file changed by one word, "touches" → "edits". Out-of-scope edits 5/24 → 0/24 (p ≈ 0.05); logo alone 4/12 → 0/12 (p ≈ 0.09). The edited files were ones the task had only read, such as a README with a stale table. External, for a restriction: Anthropic's guide to prompting Claude Fable 5.2 reports that, on simulated tasks with no one there to approve, an approval rule that listed "sending messages to people outside this conversation" led the model to hold back about half of its routine requests to colleagues and other teams | Borderline. In another Opus batch prose with "touches" made out-of-scope edits on logo 1 of 12 times, so the baseline varies. Traces were deleted. The external result is Anthropic's own testing, its runs not public, and it concerns a restriction, which Rule 2's wording does not name; a review under this skill reported such an approval rule under Rules 1 and 2 in 2 of 2 runs on claude-fable-5-2 |
 | 3. Fewer instructions, with reasons | External. Anthropic's prompting best practices: context or motivation behind an instruction helps, and Claude can generalize from the explanation. Harada et al., "When Instructions Multiply" (Findings of EMNLP 2025, arXiv 2509.21051): with ManyIFEval, accuracy falls as instructions per prompt rise to ten (objectively verifiable instructions such as keyword, length and formatting constraints). Anthropic's guide to prompting Claude Fable 5.2: in its testing some instructions written for earlier models raised cost, caused side effects or no longer had an effect, and it says to delete cautions whose reason no longer holds and to rewrite absolute rules with their scope and reason | Older models, verifiable instructions; applying it to judgment rules is an extrapolation. The Fable 5.2 guide gives no figures for these two points |
 | 4. One name per thing | None; a review finding for the changing-value clause | Practice |
 
 The agent-prompt item's reason (a demand for facts its tools cannot read makes the model
 invent them) is the author's unmeasured observation.
 
-## Form
+### Form
 
 Opus, B2: suite A prose 134, short 132, v1 134, v2 135 of 135; suite B 24, 27, 26, 27 of
 30. Haiku, B3: suite A 131, 130, 131, 132; suite B 18, 16, 19, 20 (18 vs 20: p = 0.79).
@@ -58,23 +59,21 @@ None significant. Power, simulated when this skill was written: at 30 runs per a
 about 40%; 80% needs about a 30-point rise. Opus passed nearly every purpose case, so it
 cannot show a form effect there.
 
-## Leads
+### Leads
 
-- Reading depth on Haiku, purpose cases (the basis of a lead, numbered short sentences may make a model read
-  fewer files before acting, that SKILL.md carried until dia-regula 2.5.0 and dropped as too weak to keep):
-  mean files read before the first successful
+- Reading depth on Haiku, purpose cases: mean files read before the first successful
   write, short 4.83, prose 5.50, v2 5.73, v1 6.24 (30 runs per arm, 18 for logo).
   Permutation within case: short vs v1 p = 0.008 (0.04 counting the run that never wrote
   as 0), vs v2 0.06, vs prose 0.15. Metric chosen after the runs. Within logo, failing runs
   read 1.4–2.2 fewer files than passing ones.
-- Bullets in a text written under the skill, claude-fable-5-2 at effort medium, one writing task
-  (`docs/probes.md` Part AL of the plugin's source repository): with the lead on numbered short
-  sentences in SKILL.md, 0 of 5 texts had a bullet list; with it deleted, 3 of 5 had one (the parts of
+- Bullets in a text written under the skill, claude-fable-5-2 at effort medium, one writing task:
+  with a lead, since removed, that numbered short sentences may make a model read fewer files before
+  acting, 0 of 5 texts had a bullet list; with it deleted, 3 of 5 had one (the parts of
   a report in all three, and in one of them the branches of a condition as well, one bullet carrying
   on from the bullet before it); with it deleted and the lead on numbering reading "number steps or
   bullet items only where their order or completeness matters", 1 of 5 had one (the parts of a report)
-  and none put a condition's branches on bullets. The 3 of 5 arm also carried the move of the A/B
-  conditions out of SKILL.md, so the deletion's share was not isolated.
+  and none put a condition's branches on bullets. The 3 of 5 arm also differed in another part of
+  SKILL.md, so the deletion's share was not isolated.
 - Reply style: a stock customer-service phrase (thanking the customer for their patience)
   in Opus replies, prose 17/36 vs short 6/35 (p = 0.01) pooled across two builds; each
   batch alone p = 0.06 and 0.19. No arm mentions stock phrases.
@@ -86,31 +85,43 @@ cannot show a form effect there.
 - Messages before the first edit, Codex (gpt-6.1-sol, effort high): a public coding skill
   of bullets and slogans, rewritten under these Rules (Rule 1 paragraphs, Rule 3 reasons,
   2.2 KB to 2.6 KB), passed the same functional checks as the original, both at the
-  ceiling (`docs/research/karpathy-regula-2026-11-08/` in the plugin's source
-  repository). The rewrite more often posted, between reading the task files and its
+  ceiling. The rewrite more often posted, between reading the task files and its
   first edit, a message naming the edit and usually what it would leave alone and how it
-  would check: on a cleanup task 0/3 against 3/3 in that record (a measure chosen after
+  would check: on a cleanup task 0/3 against 3/3 in a first run (a measure chosen after
   the runs) and 0/4 against 4/4 in a later run with the measure fixed before the runs
-  (Codex CLI 0.166.0; the record used 0.167.0), where the original with only the rewritten
-  first section gave 4/4 and the rewrite with the original first section 1/4
-  (`docs/probes.md` Part AF). That section also changed meaning: a slogan became a duty
+  (Codex CLI 0.166.0; the first run used 0.167.0), where the original with only the rewritten
+  first section gave 4/4 and the rewrite with the original first section 1/4. That section
+  also changed meaning: a slogan became a duty
   before implementing, and both its paragraphs gained reasons, one that the user needs to
   see these choices first. So the effect came with a section whose meaning had changed,
   not with the layout of the other sections; which part of the section carries it (the
   new duty, the added reasons or the layout) was not isolated. In the later run two other
-  differences the record reported (on a mean-bug task, and which files the cleanup runs
+  differences the first run reported (on a mean-bug task, and which files the cleanup runs
   read and ran) did not recur; the others were not re-run.
 
-## Author's observations (unpublished)
+### Author's observations (unpublished)
 
 The author's own experiments with Claude and Codex at high effort, separate from the source, are unpublished and were not quantified; they found that a skill written as short markdown commands loses its conditions, the way a list of command lines does, while flowing sentences that read like pseudo-code in natural language, each paragraph a self-contained unit of a few hundred characters between line breaks, work better and draw deeper reasoning, and that declarative sentences shaped like expressions, which define the result the model must produce, work better than bare imperative statements that list the actions. The paragraph length is a working value that may differ by model and effort, not a limit. In the source, v2 (each action, limit and fallback on one line, every line under about 315 characters) is the arm closest to this form; it had the best or tied-best pooled counts on both models without a significant difference, and on Haiku's logo case it passed 8 of 18 runs against prose 9, v1 10 and short 4.
 
 Anthropic's prompting guidance supports a related point: a general instruction often produces better reasoning than a hand-written step-by-step plan. It also says to use numbered lists or bullets when the order or completeness of steps matters, and it does not say that prose prompts deepen thinking.
 
-## Checking a change
+### Review findings (unmeasured)
 
-An A/B that step 1 of Writing, editing or reviewing text in SKILL.md calls for meets every condition in this
-list.
+- A name built from a step number kept being read as that step's value after the text
+  had made the value change.
+- A prompt handing a task to an independent sub-agent run gave its inputs but not its
+  role or done-when; review judged it likely to let that run decline the task, report
+  itself as the only run, or start another.
+
+### Not measured
+
+Long files, examples, emphasis words, file size, other models, and skill or agent
+descriptions.
+
+## What a comparison of the old text with the new has to meet
+
+A comparison of the old text with the new shows nothing about a change of meaning unless it
+meets every condition in this list.
 
 - Compare the old text with the new on the same build, with everything else the model loads unchanged,
   the same day. Pooling a batch from another session turned the scope-word result from p ≈ 0.05 into
@@ -137,7 +148,7 @@ Lessons from later runs, not conditions:
 
 - Name the process measures (what the model posts, reads or runs before it edits) before
   the runs, apart from the outcome checks; one chosen after the runs is a lead. Of the
-  three process differences from the Codex record under Leads that were re-run, two did
+  three process differences from the Codex runs under Leads that were re-run, two did
   not recur in a later run.
 - Later A/B runs on other skills (Sonnet and Haiku chosen by alias, version not recorded,
   so below these conditions; 12 runs per arm, every run loaded the skill in
@@ -146,19 +157,6 @@ Lessons from later runs, not conditions:
   (8/12 → 5/12, then 4/12 and 4/12; 7/12 → 10/12, then 8/12 and 7/12; 7/12 → 4/12, then
   10/12 and 10/12). Haiku loaded the skill under test in 1 of 4 runs of a baseline check
   and in 7 of 12 runs of each arm of another task.
-
-## Review findings (unmeasured)
-
-- A name built from a step number kept being read as that step's value after the text
-  had made the value change.
-- A prompt handing a task to an independent sub-agent run gave its inputs but not its
-  role or done-when; review judged it likely to let that run decline the task, report
-  itself as the only run, or start another.
-
-## Not measured
-
-Long files, examples, emphasis words, file size, other models, and skill or agent
-descriptions.
 
 ## Sources
 

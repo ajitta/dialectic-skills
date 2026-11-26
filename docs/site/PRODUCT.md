@@ -26,9 +26,8 @@ web
 
 `dia` (Dialectic Skills) is one plugin of reasoning-and-review skills: `dia-skopos`,
 `dia-elenchus`, `dia-quaestio`, `dia-reductio`, `dia-negative`, `dia-warrant`, `dia-conjecture`,
-`dia-counterplan`, `dia-emend`, `dia-ratchet`, `dia-adjudicate`, `dia-regula`, `dia-techne`, plus the
-`dia-router` entry point (warrant, conjecture and counterplan added in 1.3.0; adjudicate and regula in
-1.6.0; techne in 1.13.0). Each
+`dia-counterplan`, `dia-emend`, `dia-ratchet`, `dia-adjudicate`, `dia-regula`, `dia-techne`, and `dia`,
+the one skill that calls them. Each of the thirteen
 turns an old way of thinking (Socratic questioning, proof by contradiction, internal critique,
 Toulmin's argument layout, Lakatos's proofs and refutations, Mason's dialectical inquiry, an editor's
 review pass) into a routine the assistant follows step by step. Success for the page is an
@@ -36,12 +35,11 @@ install on the visitor's surface and a first skill started. **(success definitio
 
 ## Positioning
 
-- Instructions only: Markdown, YAML and JSON, no scripts, hooks or servers. Every skill therefore also
-  works in a chat with no tools, and the same files run unchanged on Claude (web, desktop, mobile,
-  Claude Code), Codex and ChatGPT.
+- Instructions only: Markdown, YAML and JSON, no scripts, hooks or servers. The plugin installs on
+  Claude (web, desktop, mobile, Claude Code), Codex and ChatGPT.
+- Each skill is a function: one purpose, worked from what it is handed, one thing returned.
 - Each skill leaves the decision with the user ("The decision is yours"); `dia-elenchus` gives no
   advice and often ends in aporia, which the README treats as a result, not a failure.
-- Skill files are in English; each skill replies in the language of the user's message.
 
 ## Operating Context
 
@@ -52,24 +50,18 @@ install on the visitor's surface and a first skill started. **(success definitio
   (zip upload on the web, marketplace in the desktop app).
 - Where you install decides where dia shows up: web installs follow the account to mobile; desktop
   installs stay on that computer.
-- Three ways to start a skill: `dia` as the first word (the router: a menu, a skill by its
-  full name, or `dia <request>`, which picks the fitting skill by its description and never
-  starts `dia-skopos`, `dia-ratchet`, `dia-adjudicate` or `dia-techne`), the skill's full name as the
-  first word, or explicit selection (`/dia:dia-<x>`, `/dia-<x>` on Claude mobile, `$dia:dia-<x>` on Codex, `@dia-<x>`
-  on ChatGPT). Since 2.0.0 a request in plain words starts no skill.
+- A skill starts on its full name as the first word of a message, or by explicit selection
+  (`/dia:dia-<x>`, `/dia-<x>` on Claude mobile, `$dia:dia-<x>` on Codex, `@dia-<x>` on ChatGPT). `dia` alone
+  loads what each skill needs and returns; `dia` with a target has it criticised by three independent
+  agents and judged by a fourth. A request in plain words starts no skill.
 
 ## Capabilities and Constraints
 
-- Plugin version 2.1.0
-  (`plugin-manifest.json`). License MIT. The page is published only from `main`.
-- Renamed in 2.0.0: `dia-intent` → `dia-skopos`, `dia-brainstorm` → `dia-quaestio`, `dia-refine` →
-  `dia-emend`, `dia-instruct` → `dia-regula`, `dia-menu` → `dia-router`; the former names stopped
-  working in 2.1.0. Earlier: `dia-iterate` became `dia-ratchet` in 1.6.0, and the
-  confirm-first skill was `dia-confirm` from 1.1.0 to 1.4.0.
+- Plugin version 6.0.0 (`plugin-manifest.json`). License MIT. The page is published only from `main`.
 - The project page lives at `https://ajitta.github.io/dialectic-skills/` and is plain static
   HTML/CSS/JS in `site/`; all asset URLs must be relative. **(stack observed in the repository)**
-- Undecided: whether the page should ever carry translated versions (the README has Korean, Japanese
-  and Simplified Chinese translations; the page is English only and links to them). **(open)**
+- Undecided: whether the page should ever carry translated versions (the README has a Korean
+  translation; the page is English only and links to it). **(open)**
 
 ## Brand Commitments
 
@@ -81,13 +73,8 @@ install on the visitor's surface and a first skill started. **(success definitio
 
 ## Evidence on Hand
 
-- Real sessions from the README, shortened, one per skill (the wedding speech, "a good teacher", the
-  weekend money, "the customer is always right", the open-door policy, the trainer and the knees,
-  buying in bulk, the move to the suburbs, the Great Wall, the first iPhone, Moore's law and two
-  reviews, an instruction for a coding agent). The dialogue examples
-  used a simulated user, which the README states.
-- `docs/probes.md` records which install routes were verified and how. `docs/skill-effect.md` and
-  `docs/token-cost.md` hold measurements, not marketing claims.
+- No session recorded on the current skill texts is on the page: the sessions recorded on earlier
+  texts were taken out with 6.0.0.
 - Public-domain pictures and footage with credits in `site/assets/img/credits.json`.
 - Absent, and not to be fabricated: users, testimonials, quotes, ratings, star or download counts,
   customer logos, statistics.

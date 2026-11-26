@@ -16,15 +16,15 @@ Theodor W. Adorno (1903–1969) published *Negative Dialektik* in 1966 (SEP). Pl
 
 **Contradiction as a category of reflection.** For Adorno, contradiction is "nonidentity under the aspect of identity" (ND 5). It belongs neither neatly to thought nor to reality; it is where concept and subject matter confront each other (SEP). Dialectics is "the consistent sense of nonidentity" (ND 5).
 
-**Immanent critique.** Under conditions where no standpoint outside the system is available, critique has to work from inside. Adorno says one can attack the system only where it is inconsistent with itself (SEP, quoting his 1969 text on late capitalism). This is the basis of this skill's rule 1.
+**Immanent critique.** Under conditions where no standpoint outside the system is available, critique has to work from inside. Adorno says one can attack the system only where it is inconsistent with itself (SEP, quoting his 1969 text on late capitalism). This is the basis of the skill's taking its standard only from what the target's own words commit to.
 
 **No final synthesis.** Negative dialectics rejects a reconciling synthesis and keeps the tension between contradictory elements open (Wikipedia). Moving between concept and instance has no natural stopping point and yields no detachable positive conclusion (REP).
 
-**Constellation.** Instead of defining a thing by one master concept, Adorno arranges several concepts around a subject matter, so that the history stored in the object can show (SEP). The skill's optional "depends on" step is a light version of this.
+**Constellation.** Instead of defining a thing by one master concept, Adorno arranges several concepts around a subject matter, so that the history stored in the object can show (SEP). The skill does not attempt this.
 
 **Priority of the object.** The aim of thought is to honor objects in their difference from what a restricted rationality declares them to be (SEP).
 
-**Function and interest.** For Adorno the pressure to impose identity is not only conceptual. It is tied to a society organized around exchange, which treats what is unequal as equivalent (SEP). The skill's Step 5, the operative function of an identification, draws on this: a concept that fits poorly often persists because of what it does for someone.
+**Function and interest.** For Adorno the pressure to impose identity is not only conceptual. It is tied to a society organized around exchange, which treats what is unequal as equivalent (SEP). The skill's account of the operative function of an identification draws on this: a concept that fits poorly often persists because of what it does for someone.
 
 ## 3. How this skill adapts the method
 
@@ -33,16 +33,16 @@ Adorno resisted summary. He wrote that philosophy cannot be given in a digest (S
 - **Kept:** judging by the target's own standards (internal critique; see §4), determinate (not abstract) negation, attention to the remainder, no forced synthesis, attention to function.
 - **Changed:** "contradiction" is narrowed to a checkable gap between what a claim says and what it delivers, and a finding must be strict. Adorno did ask ideology critique for concrete proof, not mere mistrust (Positivist Dispute, p. 115), and held that expression and stringency "need each other" (ND 18). But he also held that thought has "an element of exaggeration" and founders when it tries to prove its literal correctness (*Minima Moralia* §82); he placed the rhetorical element of dialectics on the side of content (ND 41, cited in SEP §2), and Honneth reads *Dialectic of Enlightenment* as using rhetorical means such as exaggeration (SEP §3). The strictness rule keeps the demand for proof and drops the exaggeration, a choice made for this skill so that its findings can be checked and disputed.
 - **Changed:** particulars are used as test cases (counterexamples). The models in ND's third part are extended interpretations of one subject matter, and the Preface says they are not examples; this skill does not attempt them.
-- **Changed:** the falsifier on the operative-function inference (rule 6, Step 5) is a falsifiability check in Popper's sense, a figure Adorno disputed ("Not all theorems are hypotheses", Positivist Dispute, p. 112). It is not Adorno's device; it is kept because an inference about what a claim does needs a check the user can run.
+- **Changed:** the observation that would show the stated purpose explains the pattern as well, set beside the operative-function inference, is a falsifiability check in Popper's sense, a figure Adorno disputed ("Not all theorems are hypotheses", Positivist Dispute, p. 112). It is not Adorno's device; it is kept because an inference about what a claim does needs a check the user can run.
 - **Changed:** the skill offers options and a recommendation. Adorno did not end in advice. The options here never include a synthesis without a stated remainder, which keeps the spirit of the original.
 
 ## 4. Known objections
 
-- **Performative contradiction (Habermas).** A critique that turns reason against itself seems to undercut its own standards; Habermas argued that Adorno was aware of this and that his critique lacks normative foundations (SEP). The skill's rule 1 narrows this in practice by never using a standard the target does not hold. It does not remove it: the demand that a finding be strict (rule 2) is the skill's own norm. That demand also has a cost: Stahl writes that "a mere demand for consistency seems to only enable a very weak form of critique" (Stahl 2013).
+- **Performative contradiction (Habermas).** A critique that turns reason against itself seems to undercut its own standards; Habermas argued that Adorno was aware of this and that his critique lacks normative foundations (SEP). The skill narrows this in practice by never using a standard the target does not hold. It does not remove it: the demand that a finding be strict is the skill's own norm. That demand also has a cost: Stahl writes that "a mere demand for consistency seems to only enable a very weak form of critique" (Stahl 2013).
 - **No dynamic force (Rosen).** Michael Rosen argued that once Adorno rejects Hegel's positive determinate negation, his dialectic has no engine to move forward (Stopford 2012 summarizes and answers the claim). In this skill the movement comes from the user: each revision is a new claim that is examined again.
-- **Internal versus immanent critique (Jaeggi, Stahl).** Internal critique holds the target's norms fixed and checks compliance; immanent critique also draws on norms implicit in a practice and can change the norms themselves (SEP *Adorno* §7.2; SEP *Critical Theory* §2.1; Stahl 2013). This skill does internal critique: its standard is what the target states. Step 5 and the options to change the practice or own the operative function point towards immanent critique, but the skill does not reconstruct implicit norms.
+- **Internal versus immanent critique (Jaeggi, Stahl).** Internal critique holds the target's norms fixed and checks compliance; immanent critique also draws on norms implicit in a practice and can change the norms themselves (SEP *Adorno* §7.2; SEP *Critical Theory* §2.1; Stahl 2013). This skill does internal critique: its standard is what the target states. The operative function and the options to change the practice or own the operative function point towards immanent critique, but the skill does not reconstruct implicit norms.
 
-## 5. Relation to reductio (dia-reductio)
+## 5. Relation to reductio
 
 Reductio shows that a set of statements is logically inconsistent. Negative dialectics shows that a concept or claim does not match the things it claims to cover, and asks what the mismatch is for. A reductio can serve inside a finding (to show that C and D cannot both hold), but the target here is the fit between concept and thing, not only consistency among statements.
 

@@ -2,7 +2,7 @@
 """Validate the dia skills and build the shipped plugin (developer-only, stdlib only).
 
 Source: skills/<skill>/ are plain Agent Skills (SKILL.md, references/, agents/openai.yaml)
-with no manifest inside. The one manifest lives in plugin-manifest.json and is injected
+with no manifest inside: the thirteen dia-<name> skills and `dia`, the one skill that calls them. The one manifest lives in plugin-manifest.json and is injected
 only into the generated output (docs/spec.md §7.5):
 
     plugins/dia/                       marketplaces point here (committed)
@@ -11,7 +11,7 @@ only into the generated output (docs/spec.md §7.5):
       skills/<skill>/...               copied from skills/
     releases/dialectic-skills.zip      the same under one top-level dia/ folder (committed)
     releases/dialectic-skills-openai.zip
-                                       OpenAI directory upload (spec D32): the same files, but
+                                       OpenAI directory upload: the same files, but
                                        .codex-plugin/plugin.json (manifest + packaging/openai/
                                        interface.json) instead of .claude-plugin/, plus assets/
 
@@ -60,9 +60,10 @@ MARKETPLACE = ROOT / ".claude-plugin" / "marketplace.json"
 RELEASE = ROOT / "plugin-release.json"
 
 ALLOWED_KEYS = {"name", "description", "license", "compatibility", "metadata", "allowed-tools"}
-REQUIRED_META = ("author", "version", "lineage", "source")
+META_KEYS = {"version"}  # metadata holds the version and nothing else
 NAME_RE = re.compile(r"^[a-z0-9]+(-[a-z0-9]+)*$")
 SKILL_PREFIX = "dia-"
+CALLER = "dia"  # the one skill without the prefix: it calls the thirteen
 MAX_BODY_LINES = 200
 SHORT_DESC_MIN, SHORT_DESC_MAX = 25, 64  # interface.short_description, openai/skills openai_yaml.md
 # A source folder stays a plain skill (spec §7.5).
@@ -75,28 +76,29 @@ HANGUL_RE = re.compile("[\u1100-\u11ff\u3130-\u318f\ua960-\ua97f\uac00-\ud7ff]")
 KO_DIR = "/references/ko/"
 KO_HEADER = ("Scope:", "Source:", "As of:", "Use when:")
 SKILL_REF_RE = re.compile(r"\bdia-[a-z]+(?:-[a-z]+)*\b")
-# dia-router picks a skill by name only (spec D72): no skill file names a `dia <n> …` selector.
+# A skill is named by its name only: no skill file names a `dia <n> …` selector.
 # A number followed by a word is a counting example (`dia 3 reasons …`) and passes.
 MENU_NUMBER_RE = re.compile(r"\bdia \d+(?![ ]+[^\W\d_])|dia <n(?:umber)?>", re.I)
-# Names of the skills dia was rebuilt from; they may appear only in metadata.lineage.
+# Names of the skills dia was rebuilt from, and of what 6.0.0 retired; no shipped file names them.
 OLD_NAMES_RE = re.compile(
     r"\b(socratic-brainstorm|socratic-elenchus|confirm-intent|dia-confirm|dia-iterate|negative-dialectics|self-refine|recursive-refine"
-    r"|dia-intent|dia-brainstorm|dia-refine|dia-instruct|dia-menu)\b"
+    r"|dia-intent|dia-brainstorm|dia-refine|dia-instruct|dia-menu|dia-router|dia-panel)\b"
 )
-# User-facing docs name only the forms that work (spec D77): no former dia skill name, no three-letter
+# User-facing docs name only the forms that work: no former dia skill name, no three-letter
 # code or number after dia, and no wording about codes or menu numbers. The escaped terms are "short code"
-# and "menu number" in Korean, Japanese and Chinese, as the README translations wrote them.
-DOC_PATHS = ("README.md", "README.ko.md", "README.ja.md", "README.zh-CN.md", "site/index.html",
+# and "menu number" in Korean, Japanese and Chinese, as earlier README translations wrote them.
+DOC_PATHS = ("README.md", "README.ko.md", "site/index.html",
              "plugin-manifest.json", ".claude-plugin/marketplace.json", "packaging/plugin-README.md")
 DOC_RETIRED = (
     # Lookarounds, not \b: a CJK character after a name counts as a word character.
-    (re.compile(r"(?<![\w-])dia-(?:confirm|iterate|intent|brainstorm|refine|instruct|menu)(?![a-z-])|\bdia (?:confirm|iterate|intent|brainstorm|refine|instruct)(?![a-z-])"), "former skill name"),
-    # The thirteen codes of 2.0.0 (spec D56) and the two that dia-menu 1.x read for skills since renamed.
+    (re.compile(r"(?<![\w-])dia-(?:confirm|iterate|intent|brainstorm|refine|instruct|menu|router)(?![a-z-])|\bdia (?:confirm|iterate|intent|brainstorm|refine|instruct)(?![a-z-])"), "former skill name"),
+    # The thirteen codes of 2.0.0 and the two that dia-menu 1.x read for skills since renamed.
     (re.compile(r"\bdia (?:sko|qua|ele|red|neg|war|con|cou|eme|rat|adj|reg|tec|int|ins)(?![a-z-])"), "three-letter code"),
     (re.compile(r"\bdia \d+(?!\d|\.\d)|dia <n(?:umber)?>", re.I), "number after dia"),  # a version such as dia 2.16.0 passes
     (re.compile("short codes?|three-letter codes?|menu numbers?|\uc9e7\uc740 \ucf54\ub4dc|\uba54\ub274 \ubc88\ud638|\u77ed\u3044\u30b3\u30fc\u30c9|\u30e1\u30cb\u30e5\u30fc\u756a\u53f7|\u7b80\u77ed\u4ee3\u7801|\u83dc\u5355\u7f16\u53f7", re.I), "wording about a removed form"),
 )
 EXPECTED_IMPLICIT = {
+    "dia": True,
     "dia-skopos": True,
     "dia-elenchus": True,
     "dia-quaestio": True,
@@ -107,7 +109,6 @@ EXPECTED_IMPLICIT = {
     "dia-warrant": True,
     "dia-conjecture": True,
     "dia-counterplan": True,
-    "dia-router": True,
     "dia-adjudicate": True,
     "dia-regula": True,
     "dia-techne": True,
@@ -183,8 +184,8 @@ def validate_skill(skill_dir: Path) -> list[str]:
         errors.append(f"invalid name {name!r}")
     if name != skill_dir.name:
         errors.append(f"name {name!r} != folder {skill_dir.name!r}")
-    if not name.startswith(SKILL_PREFIX):
-        errors.append(f"name {name!r} lacks the {SKILL_PREFIX!r} prefix (spec D9)")
+    if name != CALLER and not name.startswith(SKILL_PREFIX):
+        errors.append(f"name {name!r} is neither {CALLER!r} nor prefixed {SKILL_PREFIX!r} (spec §4)")
     desc = data.get("description", "")
     if not 1 <= len(desc) <= 1024:
         errors.append(f"description length {len(desc)} not in 1..1024")
@@ -194,9 +195,8 @@ def validate_skill(skill_dir: Path) -> list[str]:
         errors.append("compatibility > 500 chars")
     if data.get("license") != "MIT":
         errors.append("license must be MIT")
-    for key in REQUIRED_META:
-        if not meta.get(key):
-            errors.append(f"metadata.{key} missing")
+    if set(meta) != META_KEYS or not meta.get("version"):
+        errors.append(f"metadata must hold version and nothing else, found {sorted(meta)}")
     for d in FORBIDDEN_SOURCE_DIRS:
         if (skill_dir / d).exists():
             errors.append(f"{d}/ must not be in a source skill folder (spec §7.5)")
@@ -224,11 +224,12 @@ def validate_skill(skill_dir: Path) -> list[str]:
 
 
 def validate_names(names: list[str]) -> list[str]:
-    """No skill name is a prefix of another (first-word invocation, spec §4)."""
+    """No skill name is a prefix of another (first-word invocation, spec §4). The caller's name is a
+    first word of its own (`dia`, then a space or nothing), so it is not held to the rule."""
     errors = []
     for a in names:
         for b in names:
-            if a != b and b.startswith(a):
+            if a != b and a != CALLER and b.startswith(a):
                 errors.append(f"skill name {a!r} is a prefix of {b!r}")
     if set(names) != set(EXPECTED_IMPLICIT):
         errors.append(f"skill set {sorted(names)} != spec §4 {sorted(EXPECTED_IMPLICIT)}")
@@ -265,32 +266,12 @@ def validate_marketplace() -> list[str]:
         errors.append("name must be 'dialectic-skills'")
     plugins = data.get("plugins", [])
     pairs = [(p.get("name"), p.get("source")) for p in plugins]
-    if pairs[:1] != [("dia", "./plugins/dia")]:
-        errors.append("first plugin must be dia -> ./plugins/dia")
-    for name, source in pairs[1:]:
-        # Companion plugins (spec D69) are hand-maintained under companions/, Claude Code only.
-        if source != f"./companions/{name}":
-            errors.append(f"{name}: a companion's source must be ./companions/{name}")
-            continue
-        manifest = ROOT / "companions" / name / ".claude-plugin" / "plugin.json"
-        try:
-            cdata = json.loads(manifest.read_text(encoding="utf-8"))
-        except (OSError, json.JSONDecodeError) as e:
-            errors.append(f"{name}: {e}")
-            continue
-        if cdata.get("name") != name:
-            errors.append(f"{name}: plugin.json name is {cdata.get('name')!r}")
-        entry = next(p for p in plugins if p.get("name") == name)
-        if entry.get("version") != cdata.get("version"):
-            errors.append(f"{name}: marketplace version {entry.get('version')!r} differs from plugin.json {cdata.get('version')!r}")
-        def dep_names(deps):
-            return [d if isinstance(d, str) else (d or {}).get("name") for d in deps or []]
-        for where, deps in (("plugin.json", cdata.get("dependencies")), ("marketplace entry", entry.get("dependencies"))):
-            if "dia" not in dep_names(deps):
-                errors.append(f"{name}: the {where} must list the dependency dia")
-    names = [n for n, _ in pairs]
-    if len(set(names)) != len(names):
-        errors.append("a plugin is listed twice")
+    if pairs != [("dia", "./plugins/dia")]:
+        errors.append("the marketplace lists one plugin: dia -> ./plugins/dia")
+    # The companion plugin retired in 6.0.0 is taken off users' machines the documented way:
+    # its name mapped to null in `renames`, and removed plugins uninstalled.
+    if data.get("renames") != {"dia-panel": None} or data.get("forceRemoveDeletedPlugins") is not True:
+        errors.append("renames must map dia-panel to null, with forceRemoveDeletedPlugins true")
     return [f".claude-plugin/marketplace.json: {e}" for e in errors]
 
 
@@ -357,7 +338,7 @@ def openai_parts() -> tuple[dict, dict[str, bytes]]:
 
 
 def openai_files(files: dict[str, bytes]) -> dict[str, bytes]:
-    """The OpenAI directory upload: Codex manifest with interface, plus image assets (spec D32)."""
+    """The OpenAI directory upload: Codex manifest with interface, plus image assets."""
     interface, assets = openai_parts()
     manifest = json.loads(MANIFEST.read_text(encoding="utf-8"))
     manifest.pop("displayName", None)  # interface.displayName carries it in the Codex manifest
@@ -393,7 +374,7 @@ def shipped_violations(files: dict[str, bytes]) -> list[str]:
 
 
 def crossref_violations(files: dict[str, bytes], names: list[str]) -> list[str]:
-    """Every dia-* name mentioned exists; old skill names appear only in metadata.lineage."""
+    """Every dia-* name mentioned exists, and no old skill name appears."""
     errors = []
     known = set(names)
     for rel, data in sorted(files.items()):
@@ -401,19 +382,18 @@ def crossref_violations(files: dict[str, bytes], names: list[str]) -> list[str]:
             continue
         for lineno, line in enumerate(data.decode("utf-8").split("\n"), 1):
             line = re.sub(r"https?://\S+", "", line)  # URLs are not skill references
-            if line.lstrip().startswith("lineage:"):
-                continue  # lineage records former names, including dia-confirm and dia-iterate
-            for ref in SKILL_REF_RE.findall(line):
-                if ref not in known:
-                    errors.append(f"{rel}:{lineno}: unknown skill {ref!r}")
             old = OLD_NAMES_RE.search(line)
             if old:
                 errors.append(f"{rel}:{lineno}: old skill name {old.group(0)!r}")
+                line = OLD_NAMES_RE.sub("", line)
+            for ref in SKILL_REF_RE.findall(line):
+                if ref not in known:
+                    errors.append(f"{rel}:{lineno}: unknown skill {ref!r}")
     return errors
 
 
 def selector_violations(files: dict[str, bytes]) -> list[str]:
-    """No skill file offers a menu number after dia (spec D72)."""
+    """No skill file offers a menu number after dia."""
     errors = []
     for rel, data in sorted(files.items()):
         if not rel.startswith("skills/"):
@@ -421,7 +401,7 @@ def selector_violations(files: dict[str, bytes]) -> list[str]:
         for lineno, line in enumerate(data.decode("utf-8").split("\n"), 1):
             m = MENU_NUMBER_RE.search(line)
             if m:
-                errors.append(f"{rel}:{lineno}: menu number {m.group(0)!r} (dia-router picks by name only)")
+                errors.append(f"{rel}:{lineno}: menu number {m.group(0)!r} (a skill is named by its name only)")
     return errors
 
 
@@ -430,7 +410,7 @@ def doc_files() -> dict[str, bytes]:
 
 
 def docs_violations(files: dict[str, bytes]) -> list[str]:
-    """The READMEs and the site show no removed way to name a skill (spec D77)."""
+    """The READMEs and the site show no removed way to name a skill."""
     errors = []
     for rel, data in sorted(files.items()):
         for lineno, line in enumerate(data.decode("utf-8").split("\n"), 1):
@@ -564,7 +544,7 @@ def collect_errors(skills: list[Path], files: dict[str, bytes]) -> list[str]:
         + crossref_violations(files, names)
         + selector_violations(files)
         + docs_violations(doc_files())
-        + [f"{rel}: missing, so the docs check (spec D77) cannot read it" for rel in DOC_PATHS if not (ROOT / rel).is_file()]
+        + [f"{rel}: missing, so the docs check cannot read it" for rel in DOC_PATHS if not (ROOT / rel).is_file()]
         + validate_plugin_readme(files)
         + validate_openai_interface(*openai_parts())
         + [f"openai zip: {e}" for e in shipped_violations({k: v for k, v in openai_files(files).items() if not k.startswith("assets/")})]
