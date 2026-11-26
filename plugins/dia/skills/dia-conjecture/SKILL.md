@@ -12,7 +12,7 @@ Hold a claim about every case against a case. "Every A is B" (all, always, never
 
 A universal claim in its source's words: a rule, a generalisation or a property said to hold of every case, made by the user, by a text, or by an earlier answer of yours. With it, what the claim covers (records, code, the text itself), read before anything is judged, and what rests on the claim, which is what the user means to conclude, decide or build on it, in their words where they gave them and marked as your reading where they did not.
 
-What you do not know stays not known. It is not taken as absent, it is no reason to hold back what the evidence in hand supports, and it is not written as known into anything the user will say or use.
+What you do not know stays not known. It is not taken as absent, and it is no reason to hold back what the evidence in hand supports.
 
 ## What it does
 
@@ -28,7 +28,7 @@ Then judge. Say whether the claim stands: fallen by the case that counted, repai
 
 ## What it returns
 
-The judgment first, in a few lines, as far as the evidence in hand settles it. Then what it rests on: what was taken as the claim, and the claim as read; the case or cases that decide it, each with its check; the repaired claim and what it no longer covers; what becomes of what rested on the claim; what was tried and what was not; and what you could not know or check, with what each would change. Where the user needs something made to act on, such as the note to whoever relies on the claim, make it here. Where you put questions to the user, make it only once they have replied, or you were told that nobody will answer.
+The judgment first, in a few lines, as far as the evidence in hand settles it. Then what it rests on: what was taken as the claim, and the claim as read; the case or cases that decide it, each with its check; the repaired claim and what it no longer covers; what becomes of what rested on the claim; what was tried and what was not; and what you could not know or check, with what each would change. Where the user needs something made to act on, such as the note to whoever relies on the claim, make it here. Where you put questions to the user, make it only once they have replied, or you were told that nobody will answer. What is written for the user to say, send or post states as fact only what was read or run here or the user supplied. Whatever else it rests on (a question still open, something nobody here has checked, an absence the material merely does not show) stands in its own wording as a condition, and where the wording cannot carry one, the part that rests on it waits for that check, because a condition written beside it is lost when it is used.
 
 What only the user holds (what they meant by a term, a preference, an authority, a fact no source holds) is asked at the end, all of it at once, each question with the term, case or step its answer settles, with what would count against the claim said beside it. Until the user has replied to those questions, the reply gives what the evidence in hand settles and the questions, and neither what to do instead nor anything made for the user to act on, other than a check that would settle a question, because what is handed over beside open questions gets used before the answers come. Once they have answered, or at once when told that nobody will answer, give what was held back, with each question still open then written in as its condition (one their answer passed over or met with "I do not know", and every question when nobody will answer).
 
