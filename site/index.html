@@ -88,9 +88,9 @@
       old ways of thinking, turned into routines your assistant follows step by step.
     </p>
     <div class="facts">
-      <p class="fact" data-reveal style="--i:1"><strong class="fact__title">Instructions only.</strong> The package is Markdown, YAML and JSON, with no scripts, so every skill also works in a chat with no tools. You need no background in philosophy to use it.</p>
-      <p class="fact" data-reveal style="--i:2"><strong class="fact__title">In your language.</strong> Skill files are in English; each skill replies in the language of your message. Every prompt on this page works in any language.</p>
-      <p class="fact" data-reveal style="--i:3"><strong class="fact__title">One plugin, everywhere.</strong> The same skills are written to run unchanged on Claude (web, desktop, mobile, Claude Code), Codex and ChatGPT. Free under the MIT License.</p>
+      <p class="fact" data-reveal style="--i:1"><strong class="fact__title">Instructions only.</strong> The package is Markdown, YAML and JSON, with no scripts. The skills use the tools your session already has. You need no background in philosophy to use it.</p>
+      <p class="fact" data-reveal style="--i:2"><strong class="fact__title">Each skill is a function.</strong> One purpose, worked from what you hand it, one thing returned. A skill starts only when its name starts your message, and none of them knows the others.</p>
+      <p class="fact" data-reveal style="--i:3"><strong class="fact__title">One skill calls the rest.</strong> <code>dia</code> with a target has it criticised by three independent agents and judged by a fourth. The plugin installs on Claude (web, desktop, mobile, Claude Code), Codex and ChatGPT. Free under the MIT License.</p>
     </div>
   </div>
 </section>
@@ -99,7 +99,7 @@
   <div class="wrap skills__head">
     <div class="skills__intro">
       <h2 class="head mask" id="skills-title" data-reveal><span>The skills</span></h2>
-      <p data-reveal style="--i:1">Each is a way of thinking people have used for a long time, turned into a routine the assistant follows. Pick one by what you want to do. The sessions are from the project’s README, run on Claude Code with this plugin and shortened; in the dialogues the user’s replies came from a simulated user. All were recorded on Claude Opus 5.5: those for dia-reductio, dia-warrant, dia-conjecture, dia-counterplan and dia-adjudicate in Korean with the 5.0.0 texts, and translated; dia-skopos on 4.2.0, dia-techne on 4.0.0, and the rest on 5.1.0. The wording you get will differ from run to run.</p>
+      <p data-reveal style="--i:1">Each is a way of thinking people have used for a long time, turned into a routine the assistant follows. Each is a function: it has one purpose, works from what you hand it and returns one thing. Pick one by what you want to do.</p>
     </div>
     <ul class="wants" aria-label="Pick a skill by what you want to do">
       <li data-reveal style="--i:0"><a href="#dia-skopos"><span class="dot"></span><span class="wants__goal">Make sure the assistant understood the task before it starts</span><code>dia-skopos</code></a></li>
@@ -146,22 +146,12 @@
       <h3 class="head plate__name mask" data-reveal style="--i:1"><span>dia-skopos</span></h3>
       <p class="lead" data-reveal style="--i:2">Agree on the task before work starts.</p>
       <p data-reveal style="--i:3">Like a good contractor walking you through the job: here is what I understood, here is what I think it is for, here is what only you can decide. Then it asks one thing: should it make what you asked for, or work for the result you are after? It waits for your word instead of guessing.</p>
-      <p class="start" data-reveal style="--i:4"><span class="start__how">Starts with <code>dia-skopos</code> or <code>dia skopos</code> at the start of the message; <code>dia</code> never picks it from a plain request.</span> <span class="start__line">Start it with <code class="start__code">/dia:dia-skopos</code></span> <span class="start__note"></span></p>
+      <p class="start" data-reveal style="--i:4"><span class="start__how">Starts when <code>dia-skopos</code> is the first word of the message.</span> <span class="start__line">Start it with <code class="start__code">/dia:dia-skopos</code></span> <span class="start__note"></span></p>
       <div class="try" data-reveal style="--i:5">
         <p class="try__label">Try this prompt</p>
         <pre><code>dia-skopos Write a short speech for my brother’s wedding.</code></pre>
       </div>
-      <p class="plate__actions" data-reveal style="--i:6"><button class="button button--ink" type="button" data-copy="dia-skopos Write a short speech for my brother’s wedding.">Copy the prompt</button> <a class="button button--tone" href="https://github.com/ajitta/dialectic-skills#dia-skopos-agree-on-the-task-before-work-starts">Full guide</a></p>
-      <details class="session" data-reveal style="--i:7">
-        <summary>See the session</summary>
-        <div class="session__body">
-          <ol class="talk" aria-label="A session, shortened">
-            <li class="talk__turn is-assistant"><b>Assistant</b> <span><b>What I’d make:</b> a toast you can deliver in about 2–3 minutes … <b>The result (my reading):</b> your brother and his partner feel truly seen and celebrated by you, the room warms to them as a couple, and you stand up feeling confident rather than dreading it. … <b>The choice.</b> As asked: a short wedding speech, as polished as I can make it with what I have. For the result (proposed): “Help me give a toast at my brother’s wedding that makes him and his partner feel truly celebrated and that I can deliver with confidence.” …</span></li>
-            <li class="talk__turn is-you"><b>You</b> <span>dia-techne Go ahead. My brother is Minho, marrying Sara; I’m the best man. He taught me to ride a bike, even though he’s younger. Warm, one light joke, about 3 minutes. What I’m after is that the room laughs once and Minho is moved.</span></li>
-            <li class="talk__turn is-assistant"><b>Assistant</b> <span>Outcome I worked toward (yours): the room laughs once and Minho is moved. … I compared a full script with speaking from bullet-point cue cards … So I wrote the full script. … Whether the room laughs once and Minho is moved can’t be known until the wedding; the read-aloud test above is the best check before then. <i>(Recorded on 4.2.0.)</i></span></li>
-          </ol>
-        </div>
-      </details>
+      <p class="plate__actions" data-reveal style="--i:6"><button class="button button--ink" type="button" data-copy="dia-skopos Write a short speech for my brother’s wedding.">Copy the prompt</button></p>
     </div>
   </article>
 
@@ -184,25 +174,12 @@
       <h3 class="head plate__name mask" data-reveal style="--i:1"><span>dia-elenchus</span></h3>
       <p class="lead" data-reveal style="--i:2">Find out what you really mean.</p>
       <p data-reveal style="--i:3">The method Socrates uses in Plato’s dialogues. You say what you think something is; the assistant asks about one concrete case at a time until your own answers pull against your definition. Often you end up stuck, in <i>aporia</i>, and that is a result: you now know exactly which part you don’t know. It gives no advice during the dialogue.</p>
-      <p class="start" data-reveal style="--i:4"><span class="start__how">Starts with <code>dia-elenchus</code> or <code>dia elenchus</code> at the start of the message, or when <code>dia</code> picks it for your request.</span> <span class="start__line">Start it with <code class="start__code">/dia:dia-elenchus</code></span> <span class="start__note"></span></p>
+      <p class="start" data-reveal style="--i:4"><span class="start__how">Starts when <code>dia-elenchus</code> is the first word of the message.</span> <span class="start__line">Start it with <code class="start__code">/dia:dia-elenchus</code></span> <span class="start__note"></span></p>
       <div class="try" data-reveal style="--i:5">
         <p class="try__label">Try this prompt</p>
-        <pre><code>dia elenchus I think a good teacher is one whose students get high test scores.</code></pre>
+        <pre><code>dia-elenchus I think a good teacher is one whose students get high test scores.</code></pre>
       </div>
-      <p class="plate__actions" data-reveal style="--i:6"><button class="button button--ink" type="button" data-copy="dia elenchus I think a good teacher is one whose students get high test scores.">Copy the prompt</button> <a class="button button--tone" href="https://github.com/ajitta/dialectic-skills#dia-elenchus-find-out-what-you-really-mean">Full guide</a></p>
-      <details class="session" data-reveal style="--i:7">
-        <summary>See the session</summary>
-        <div class="session__body">
-          <ol class="talk" aria-label="A real session, shortened">
-            <li class="talk__turn is-assistant"><b>Assistant</b> <span>We’re looking at good teacher. … Suppose a teacher gets a class of students who already scored at the top before the year began. The teacher does very little, and the students score just as high at the end of the year. Is that a good teacher?</span></li>
-            <li class="talk__turn is-you"><b>You</b> <span>Hmm, not really, they’d have scored high anyway. I guess it’s more about whether the scores go up because of the teacher?</span></li>
-            <li class="talk__turn is-assistant"><b>Assistant</b> <span>① A good teacher is one whose students get high test scores (definition) ② A teacher who does little, with students who would have scored high anyway, is not a good teacher (agreed). So ① and ② can’t both stand. You’ve chosen to change ①. …</span></li>
-            <li class="talk__turn is-gap"><span></span><i>…six more definitions, each in your own words, and the cases they fell on…</i></li>
-            <li class="talk__turn is-you"><b>You</b> <span>No, that’s wrong, that teacher is good, those three are exactly the kids who needed a teacher. So “most of the students” doesn’t work either, it’s more like the ones who actually depended on them, and now I’m stuck again.</span></li>
-            <li class="talk__turn is-assistant"><b>Assistant</b> <span>Result: aporia. You no longer hold any definition of a good teacher, and the question you take away is which students’ difference counts, and why. <i>(then the record; recorded on 5.1.0)</i></span></li>
-          </ol>
-        </div>
-      </details>
+      <p class="plate__actions" data-reveal style="--i:6"><button class="button button--ink" type="button" data-copy="dia-elenchus I think a good teacher is one whose students get high test scores.">Copy the prompt</button></p>
     </div>
   </article>
 
@@ -225,23 +202,12 @@
       <h3 class="head plate__name mask" data-reveal style="--i:1"><span>dia-quaestio</span></h3>
       <p class="lead" data-reveal style="--i:2">Grow a rough idea, then decide.</p>
       <p data-reveal style="--i:3">A coach who asks good questions, one at a time, before handing you options. Then you list options, it adds up to three of its own, you choose what matters, and it ends with a verdict and a short brief you can act on. It never builds the thing.</p>
-      <p class="start" data-reveal style="--i:4"><span class="start__how">Starts with <code>dia-quaestio</code> or <code>dia quaestio</code> at the start of the message, or when <code>dia</code> picks it for your request.</span> <span class="start__line">Start it with <code class="start__code">/dia:dia-quaestio</code></span> <span class="start__note"></span></p>
+      <p class="start" data-reveal style="--i:4"><span class="start__how">Starts when <code>dia-quaestio</code> is the first word of the message.</span> <span class="start__line">Start it with <code class="start__code">/dia:dia-quaestio</code></span> <span class="start__note"></span></p>
       <div class="try" data-reveal style="--i:5">
         <p class="try__label">Try this prompt</p>
-        <pre><code>dia quaestio keep it quick: I want to earn some extra money on weekends.</code></pre>
+        <pre><code>dia-quaestio keep it quick: I want to earn some extra money on weekends.</code></pre>
       </div>
-      <p class="plate__actions" data-reveal style="--i:6"><button class="button button--ink" type="button" data-copy="dia quaestio keep it quick: I want to earn some extra money on weekends.">Copy the prompt</button> <a class="button button--tone" href="https://github.com/ajitta/dialectic-skills#dia-quaestio-grow-a-rough-idea-then-decide">Full guide</a></p>
-      <details class="session" data-reveal style="--i:7">
-        <summary>See the session</summary>
-        <div class="session__body">
-          <ol class="talk" aria-label="A real session, shortened">
-            <li class="talk__turn is-assistant"><b>Assistant</b> <span>This will be a quick session of about 4 questions. … Here’s how I understand your idea: you want to earn extra income using your weekends, alongside what you already do. … Is that right, or did I assume something you didn’t mean?</span></li>
-            <li class="talk__turn is-you"><b>You</b> <span>Yes, that’s right, I work full time in an office on weekdays. The money is for a trip next summer so I don’t have to touch my savings.</span></li>
-            <li class="talk__turn is-gap"><span></span><i>…$300 a month, 8 weekend hours, photography; your options, the assistant’s three, your three criteria…</i></li>
-            <li class="talk__turn is-assistant"><b>Assistant</b> <span>Verdict: Open. You’re ready to decide which of your top two to try first: photos for local shops or second-shooting. Settle one thing first: will the bakery or florist actually pay for photos? … Next step: Next Saturday, give the bakery or florist a few free photos as you planned. When you hand them over, ask whether they would pay for photos like these every month, and roughly how much. <i>(Recorded on 5.1.0.)</i></span></li>
-          </ol>
-        </div>
-      </details>
+      <p class="plate__actions" data-reveal style="--i:6"><button class="button button--ink" type="button" data-copy="dia-quaestio keep it quick: I want to earn some extra money on weekends.">Copy the prompt</button></p>
     </div>
   </article>
 
@@ -264,24 +230,12 @@
       <h3 class="head plate__name mask" data-reveal style="--i:1"><span>dia-reductio</span></h3>
       <p class="lead" data-reveal style="--i:2">Check whether a claim holds together.</p>
       <p data-reveal style="--i:3">Reductio ad absurdum, or proof by contradiction: take a position at its word, list everything it relies on, and see whether all of it can be true together. The assistant marks each premise it added itself, and a contradiction counts only when it is strict: a statement and its exact denial. Then it tests each way out the same way, says what each costs, and says which it would take.</p>
-      <p class="start" data-reveal style="--i:4"><span class="start__how">Starts with <code>dia-reductio</code> or <code>dia reductio</code> at the start of the message, or when <code>dia</code> picks it for your request.</span> <span class="start__line">Start it with <code class="start__code">/dia:dia-reductio</code></span> <span class="start__note"></span></p>
+      <p class="start" data-reveal style="--i:4"><span class="start__how">Starts when <code>dia-reductio</code> is the first word of the message.</span> <span class="start__line">Start it with <code class="start__code">/dia:dia-reductio</code></span> <span class="start__note"></span></p>
       <div class="try" data-reveal style="--i:5">
         <p class="try__label">Try this prompt</p>
-        <pre><code>dia reductio Please take a look before I post this in the group chat for the December cup. Like in the league, it says that kids who came to every November practice will play at least half of every match. 16 kids, 8 on the field, two 20-minute halves, so it fits exactly and I don't think there's a problem. The parents are sensitive about playing time, so tell me whether I can post it as is, or what I should change.</code></pre>
+        <pre><code>dia-reductio Please take a look before I post this in the group chat for the December cup. Like in the league, it says that kids who came to every November practice will play at least half of every match. 16 kids, 8 on the field, two 20-minute halves, so it fits exactly and I don't think there's a problem. The parents are sensitive about playing time, so tell me whether I can post it as is, or what I should change.</code></pre>
       </div>
-      <p class="plate__actions" data-reveal style="--i:6"><button class="button button--ink" type="button" data-copy="dia reductio Please take a look before I post this in the group chat for the December cup. Like in the league, it says that kids who came to every November practice will play at least half of every match. 16 kids, 8 on the field, two 20-minute halves, so it fits exactly and I don't think there's a problem. The parents are sensitive about playing time, so tell me whether I can post it as is, or what I should change.">Copy the prompt</button> <a class="button button--tone" href="https://github.com/ajitta/dialectic-skills#dia-reductio-check-whether-a-claim-holds-together">Full guide</a></p>
-      <details class="session" data-reveal style="--i:7">
-        <summary>See what you get</summary>
-        <div class="session__body">
-          <dl class="output" aria-label="What you get, shortened">
-            <dt>What the notice assumes</dt><dd>Minutes available: 8 places × 40 minutes = 320 (computed). Minutes promised: 16 × 20 minutes = 320 (computed). Premise I added ①: all 16 came to every November practice. Needs checking. Premise I added ②: the number on the field can drop during a match.</dd>
-            <dt>The contradiction</dt><dd>at least 320 minutes are needed; if one child is sent off and the team plays 10 minutes with 7, the minutes played are 310, so the promise can’t be kept. … This contradiction holds only if ① and ② are both true.</dd>
-            <dt>After the coach’s facts</dt><dd><i>(14 children came to all 9 practices; a match squad is at most 13)</i> In every match at least 1 covered child doesn’t make the squad and plays 0 minutes. I don’t doubt that you have never broken a playing-time promise in 8 years. But that record doesn’t change these numbers.</dd>
-            <dt>The way out it takes</dt><dd>a promise over Saturday’s two group matches together, which holds even if all 14 come: all 14 play 40 minutes or more over the two matches, half of the 80. I checked this assignment by computing it. … then the notice wording.</dd>
-          </dl>
-          <p class="small output__legend">① and ② are premises the assistant added because the chain needs them. A contradiction that goes through one holds only as far as that premise is true.</p>
-        </div>
-      </details>
+      <p class="plate__actions" data-reveal style="--i:6"><button class="button button--ink" type="button" data-copy="dia-reductio Please take a look before I post this in the group chat for the December cup. Like in the league, it says that kids who came to every November practice will play at least half of every match. 16 kids, 8 on the field, two 20-minute halves, so it fits exactly and I don't think there's a problem. The parents are sensitive about playing time, so tell me whether I can post it as is, or what I should change.">Copy the prompt</button></p>
     </div>
   </article>
 
@@ -304,23 +258,12 @@
       <h3 class="head plate__name mask" data-reveal style="--i:1"><span>dia-negative</span></h3>
       <p class="lead" data-reveal style="--i:2">Hold a claim to its own standard.</p>
       <p data-reveal style="--i:3">Judge a claim by its own words, not by your values: take what it promises and look for real cases where it doesn’t deliver, then ask what it actually does, as a guess you could check. Named after Adorno’s “negative dialectics”. His immanent critique also draws on norms a practice implies without stating them; this skill does the narrower part, called internal critique: it holds a claim to the standard the claim itself states.</p>
-      <p class="start" data-reveal style="--i:4"><span class="start__how">Starts with <code>dia-negative</code> or <code>dia negative</code> at the start of the message, or when <code>dia</code> picks it for your request.</span> <span class="start__line">Start it with <code class="start__code">/dia:dia-negative</code></span> <span class="start__note"></span></p>
+      <p class="start" data-reveal style="--i:4"><span class="start__how">Starts when <code>dia-negative</code> is the first word of the message.</span> <span class="start__line">Start it with <code class="start__code">/dia:dia-negative</code></span> <span class="start__note"></span></p>
       <div class="try" data-reveal style="--i:5">
         <p class="try__label">Try this prompt</p>
-        <pre><code>dia negative "We have an open-door policy, so anyone in the company can raise a problem with management at any time."</code></pre>
+        <pre><code>dia-negative "We have an open-door policy, so anyone in the company can raise a problem with management at any time."</code></pre>
       </div>
-      <p class="plate__actions" data-reveal style="--i:6"><button class="button button--ink" type="button" data-copy='dia negative "We have an open-door policy, so anyone in the company can raise a problem with management at any time."'>Copy the prompt</button> <a class="button button--tone" href="https://github.com/ajitta/dialectic-skills#dia-negative-hold-a-claim-to-its-own-standard">Full guide</a></p>
-      <details class="session" data-reveal style="--i:7">
-        <summary>See what you get</summary>
-        <div class="session__body">
-          <dl class="output" aria-label="What you get, shortened">
-            <dt>Result: open</dt><dd>1 firm finding, 1 conditional. Firm: the claim says anyone can raise a problem at any time, but the open-door policy only gives access while a manager is actually there.</dd>
-            <dt>F2 (conditional): “anyone” and the door</dt><dd>remote or off-site staff, or people on other shifts: the only route the claim names is a door. Conditional on whether such staff exist and whether “open-door” also covers email, chat or calls.</dd>
-            <dt>What it does in practice (an inference)</dt><dd>it turns “you’re allowed to” into “you’re able to”, and makes a problem never raised look like the employee’s choice. Would be falsified by a named deputy, set hours or a written channel that someone checks.</dd>
-            <dt>Recommended</dt><dd>change the practice: a route that doesn’t depend on someone being present. The decision is yours. <i>(Recorded on 5.1.0.)</i></dd>
-          </dl>
-        </div>
-      </details>
+      <p class="plate__actions" data-reveal style="--i:6"><button class="button button--ink" type="button" data-copy='dia negative "We have an open-door policy, so anyone in the company can raise a problem with management at any time."'>Copy the prompt</button></p>
     </div>
   </article>
 
@@ -343,24 +286,12 @@
       <h3 class="head plate__name mask" data-reveal style="--i:1"><span>dia-warrant</span></h3>
       <p class="lead" data-reveal style="--i:2">See how well the reasons support a conclusion.</p>
       <p data-reveal style="--i:3">Most everyday arguments make a conclusion likely rather than prove it: a trial went well, an expert said so, it worked for someone else. Reasons reach a conclusion only through a rule, usually unsaid, which Stephen Toulmin called the warrant. The assistant lays out the steps, states the rule each one runs on (marked as its own reading where you left it unsaid), and asks what that kind of step is open to. A question is closed only by evidence (the argument’s words, your files, your answers, a cited source), never by the assistant’s memory. Then it judges: what the reasons support, which step is weakest, and whether it would act on the conclusion as things stand. Weak support is kept apart from false.</p>
-      <p class="start" data-reveal style="--i:4"><span class="start__how">Starts with <code>dia-warrant</code> or <code>dia warrant</code> at the start of the message, or when <code>dia</code> picks it for your request.</span> <span class="start__line">Start it with <code class="start__code">/dia:dia-warrant</code></span> <span class="start__note"></span></p>
+      <p class="start" data-reveal style="--i:4"><span class="start__how">Starts when <code>dia-warrant</code> is the first word of the message.</span> <span class="start__line">Start it with <code class="start__code">/dia:dia-warrant</code></span> <span class="start__note"></span></p>
       <div class="try" data-reveal style="--i:5">
         <p class="try__label">Try this prompt</p>
-        <pre><code>dia warrant Mr Park in purchasing ran a 12-week trial and wrote a memo (memo.md) proposing we switch all our packaging film from supplier A to supplier B from 4 January 2027: seal defects fell from 0.92% to 0.34%, and it saves about 55 million won a year. I have to sign and reply by Friday the 27th for the Q1 order to go in. Please look at it together with the trial data (trial_weekly.csv) and tell me whether I can sign as is, or what I should reply to purchasing.</code></pre>
+        <pre><code>dia-warrant Mr Park in purchasing ran a 12-week trial and wrote a memo (memo.md) proposing we switch all our packaging film from supplier A to supplier B from 4 January 2027: seal defects fell from 0.92% to 0.34%, and it saves about 55 million won a year. I have to sign and reply by Friday the 27th for the Q1 order to go in. Please look at it together with the trial data (trial_weekly.csv) and tell me whether I can sign as is, or what I should reply to purchasing.</code></pre>
       </div>
-      <p class="plate__actions" data-reveal style="--i:6"><button class="button button--ink" type="button" data-copy='dia warrant Mr Park in purchasing ran a 12-week trial and wrote a memo (memo.md) proposing we switch all our packaging film from supplier A to supplier B from 4 January 2027: seal defects fell from 0.92% to 0.34%, and it saves about 55 million won a year. I have to sign and reply by Friday the 27th for the Q1 order to go in. Please look at it together with the trial data (trial_weekly.csv) and tell me whether I can sign as is, or what I should reply to purchasing.'>Copy the prompt</button> <a class="button button--tone" href="https://github.com/ajitta/dialectic-skills#dia-warrant-see-how-well-the-reasons-support-a-conclusion">Full guide</a></p>
-      <details class="session" data-reveal style="--i:7">
-        <summary>See what you get</summary>
-        <div class="session__body">
-          <dl class="output" aria-label="What you get, shortened">
-            <dt>First reply</dt><dd>I’d not sign now for switching lines 1, 2 and 3 as the memo says. … On line 2, the case for B’s film is fairly solid. The baseline is inflated: the trial ran only on line 2, but it was compared with A’s average over three lines (0.92%); A’s figure on line 2 is 0.81%. Whether B does the same on lines 1 and 3 was never tested. This is what the decision leans on most.</dd>
-            <dt>Recomputed from the CSV</dt><dd>weeks 2–12, 2,883 defects in 847,800 packs, 0.340%, the same as the memo. … Comparing line 2 with line 2, the net saving is about 41.4 million won.</dd>
-            <dt>After a fact from you</dt><dd><i>(week 1 on line 3 was the first time anyone had loaded B’s film)</i> That’s a fair point. Week 1’s 1.60% can’t be used as evidence that B’s film is bad at 145 ℃. I withdraw what I said last time. … For lines 1 and 3 the judgment moves from “the evidence points the other way” to “there is no evidence at all”.</dd>
-            <dt>Judgment</dt><dd>switch line 2; there is still no basis to sign for lines 1 and 3, and the remedy is a short trial. … then a draft reply to purchasing.</dd>
-          </dl>
-          <p class="small output__legend">A rule the assistant supplies is marked as its reading. To build the argument yourself, ask to be questioned: the assistant asks one thing a message, then judges.</p>
-        </div>
-      </details>
+      <p class="plate__actions" data-reveal style="--i:6"><button class="button button--ink" type="button" data-copy='dia warrant Mr Park in purchasing ran a 12-week trial and wrote a memo (memo.md) proposing we switch all our packaging film from supplier A to supplier B from 4 January 2027: seal defects fell from 0.92% to 0.34%, and it saves about 55 million won a year. I have to sign and reply by Friday the 27th for the Q1 order to go in. Please look at it together with the trial data (trial_weekly.csv) and tell me whether I can sign as is, or what I should reply to purchasing.'>Copy the prompt</button></p>
     </div>
   </article>
 
@@ -383,25 +314,12 @@
       <h3 class="head plate__name mask" data-reveal style="--i:1"><span>dia-conjecture</span></h3>
       <p class="lead" data-reveal style="--i:2">Test an “always” rule against counterexamples.</p>
       <p data-reveal style="--i:3">A rule with “always”, “every” or “never” in it can be knocked down by one case that doesn’t fit. Following Imre Lakatos’s <i>Proofs and Refutations</i>, the assistant sets out why the rule is held as numbered steps, then brings the cases most likely to count, from your own records first, each with its check. Whether a case counts is the assistant’s to say wherever the check settles it. A repair builds the missing condition into the rule instead of listing an exception, and is put to the cases again. Then it judges whether “every” stands, what can be said in its place, and what becomes of the decision that rested on it.</p>
-      <p class="start" data-reveal style="--i:4"><span class="start__how">Starts with <code>dia-conjecture</code> or <code>dia conjecture</code> at the start of the message, or when <code>dia</code> picks it for your request.</span> <span class="start__line">Start it with <code class="start__code">/dia:dia-conjecture</code></span> <span class="start__note"></span></p>
+      <p class="start" data-reveal style="--i:4"><span class="start__how">Starts when <code>dia-conjecture</code> is the first word of the message.</span> <span class="start__line">Start it with <code class="start__code">/dia:dia-conjecture</code></span> <span class="start__note"></span></p>
       <div class="try" data-reveal style="--i:5">
         <p class="try__label">Try this prompt</p>
-        <pre><code>dia conjecture Minsu wrote memo_minsu_deposit.txt proposing we drop the booking deposit (10,000 won a person) from 1 December. He says that since we started reminder texts in September, not one booking that got a text was a no-show. I've also put in online_bookings_0901-1121.csv and my phone booking ledger, phone_ledger_0901-1121.csv. Is Minsu really right? Can I approve it as is, or should I do something different?</code></pre>
+        <pre><code>dia-conjecture Minsu wrote memo_minsu_deposit.txt proposing we drop the booking deposit (10,000 won a person) from 1 December. He says that since we started reminder texts in September, not one booking that got a text was a no-show. I've also put in online_bookings_0901-1121.csv and my phone booking ledger, phone_ledger_0901-1121.csv. Is Minsu really right? Can I approve it as is, or should I do something different?</code></pre>
       </div>
-      <p class="plate__actions" data-reveal style="--i:6"><button class="button button--ink" type="button" data-copy="dia conjecture Minsu wrote memo_minsu_deposit.txt proposing we drop the booking deposit (10,000 won a person) from 1 December. He says that since we started reminder texts in September, not one booking that got a text was a no-show. I've also put in online_bookings_0901-1121.csv and my phone booking ledger, phone_ledger_0901-1121.csv. Is Minsu really right? Can I approve it as is, or should I do something different?">Copy the prompt</button> <a class="button button--tone" href="https://github.com/ajitta/dialectic-skills#dia-conjecture-test-an-always-rule-against-counterexamples">Full guide</a></p>
-      <details class="session" data-reveal style="--i:7">
-        <summary>See the session</summary>
-        <div class="session__body">
-          <ol class="talk" aria-label="A real session, shortened">
-            <li class="talk__turn is-assistant"><b>Assistant</b> <span>Conclusion: your own ledger already shows Minsu’s claim is false. I’d not approve the plan as it stands. … But the phone ledger has 5 bookings, 36 people, that got the text the day before and were no-shows. Minsu got 0 because he looked only at online bookings, and all 313 online bookings had paid a deposit. … I tallied both CSVs in Python.</span></li>
-            <li class="talk__turn is-gap"><span></span><i>…the five cases, each with its check, and an option: keep the deposit only for bookings of 5 or more…</i></li>
-            <li class="talk__turn is-assistant"><b>Assistant</b> <span>What only you know (the judgment changes with the answers): 1. Did you take deposits on phone bookings? If not, the phone ledger is the actual result of “reminders only”, and the option above fits best. … 2. Is the ledger’s “text the day before” the 3 pm automatic text, or one you sent yourself?</span></li>
-            <li class="talk__turn is-you"><b>You</b> <span>I don’t take deposits on phone bookings. … But three of those five teams were on 2 October. There was a typhoon that day… And Minsu looked at three months of booking records before he wrote it, so he can’t be wrong.</span></li>
-            <li class="talk__turn is-assistant"><b>Assistant</b> <span>The conclusion stands. … Even if those three are put down to the weather and left out, Minsu’s claim doesn’t hold. Two remain. … “Not one” is false if there is one. … Minsu’s figures aren’t wrong; I checked, and they match the online file. But going by the memo’s attachment, he looked only at online bookings. … The recommendation stands: drop the deposit for bookings of 2–4 from 1 December … Keep it for 5 or more … Keep sending reminders.</span></li>
-            <li class="talk__turn is-you"><b>You</b> <span>Then I’ll do as you said: drop it only for 4 or fewer and keep it for 5 or more.</span></li>
-          </ol>
-        </div>
-      </details>
+      <p class="plate__actions" data-reveal style="--i:6"><button class="button button--ink" type="button" data-copy="dia-conjecture Minsu wrote memo_minsu_deposit.txt proposing we drop the booking deposit (10,000 won a person) from 1 December. He says that since we started reminder texts in September, not one booking that got a text was a no-show. I've also put in online_bookings_0901-1121.csv and my phone booking ledger, phone_ledger_0901-1121.csv. Is Minsu really right? Can I approve it as is, or should I do something different?">Copy the prompt</button></p>
     </div>
   </article>
 
@@ -424,22 +342,12 @@
       <h3 class="head plate__name mask" data-reveal style="--i:1"><span>dia-counterplan</span></h3>
       <p class="lead" data-reveal style="--i:2">Hear the case for a different plan.</p>
       <p data-reveal style="--i:3">Dialectical inquiry, a planning method from management research (Richard Mason, 1969). The assistant lists what your plan needs to be true, keeps the few the decision turns on, gives each a contrary that could well be true, and names the cheapest observation that would show which is true. It settles what your data and answers settle, builds the course the remaining contraries call for, and says which course it would take now and what would change its mind. It says openly that it wrote both sides, so this is not an independent test of your plan.</p>
-      <p class="start" data-reveal style="--i:4"><span class="start__how">Starts with <code>dia-counterplan</code> or <code>dia counterplan</code> at the start of the message, or when <code>dia</code> picks it for your request.</span> <span class="start__line">Start it with <code class="start__code">/dia:dia-counterplan</code></span> <span class="start__note"></span></p>
+      <p class="start" data-reveal style="--i:4"><span class="start__how">Starts when <code>dia-counterplan</code> is the first word of the message.</span> <span class="start__line">Start it with <code class="start__code">/dia:dia-counterplan</code></span> <span class="start__note"></span></p>
       <div class="try" data-reveal style="--i:5">
         <p class="try__label">Try this prompt</p>
-        <pre><code>dia counterplan Since a cheap coffee chain opened by the station on 2 September, our weekday morning sales have dropped a lot. So from 1 December I'm going to take 1,500 won off every drink before 10 am on weekdays, and since customers hate it when you put prices back up soon after, I plan to keep it for at least 3 months. I have to order the banner and the menu boards by Friday (the 27th). Can you look at pos_summary_jul-oct_2026.csv and tell me whether this has any holes, or what I should do differently?</code></pre>
+        <pre><code>dia-counterplan Since a cheap coffee chain opened by the station on 2 September, our weekday morning sales have dropped a lot. So from 1 December I'm going to take 1,500 won off every drink before 10 am on weekdays, and since customers hate it when you put prices back up soon after, I plan to keep it for at least 3 months. I have to order the banner and the menu boards by Friday (the 27th). Can you look at pos_summary_jul-oct_2026.csv and tell me whether this has any holes, or what I should do differently?</code></pre>
       </div>
-      <p class="plate__actions" data-reveal style="--i:6"><button class="button button--ink" type="button" data-copy="dia counterplan Since a cheap coffee chain opened by the station on 2 September, our weekday morning sales have dropped a lot. So from 1 December I'm going to take 1,500 won off every drink before 10 am on weekdays, and since customers hate it when you put prices back up soon after, I plan to keep it for at least 3 months. I have to order the banner and the menu boards by Friday (the 27th). Can you look at pos_summary_jul-oct_2026.csv and tell me whether this has any holes, or what I should do differently?">Copy the prompt</button> <a class="button button--tone" href="https://github.com/ajitta/dialectic-skills#dia-counterplan-hear-the-case-for-a-different-plan">Full guide</a></p>
-      <details class="session" data-reveal style="--i:7">
-        <summary>See the session</summary>
-        <div class="session__body">
-          <ol class="talk" aria-label="A real session, shortened">
-            <li class="talk__turn is-assistant"><b>Assistant</b> <span>Conclusion: I’d hold you back from ordering the banner for this plan now. The data says the customers the discount aims at are not the ones who left. Average daily receipts, weekdays 07:30–10:00, July–August against September–October (computed from the CSV in Python): bread + drink −44%; bread only −44%; drink only −14%. … ① The customers who left are drink customers (my reading). Contrary: the ones who left bought bread. Settled: on the data, the contrary is true. ② The cause is the chain’s cheap coffee (yours). Contrary: the chain also sells breakfast bread or sandwiches, or our own morning bread (time, kinds) changed in September. Still open. … <i>(four in all)</i> Note: I built the opposing side myself too, so this is not an independent check of your original plan.</span></li>
-            <li class="talk__turn is-you"><b>You</b> <span>That chain is mostly coffee and doesn’t sell bread, just cookies. And since late August my husband can’t do the early-morning work because of his back, so since September the weekday morning bread comes out around 10 (it used to be 7:30). … On Saturdays it comes out at 7:30 as before.</span></li>
-            <li class="talk__turn is-assistant"><b>Assistant</b> <span>Don’t order the drink-discount banner. The cause is more likely the late morning bread than the coffee price. … On Saturdays the bread came out at 7:30 as before, and Saturday mornings fell only 1–4%. … What I’d do instead (a plan I built): 1. Restore the 7:30 bread on weekdays. … A 3-hour early-morning part-timer is about 30,000 won a day. I took the 2026 minimum wage as 10,320 won, a figure from my memory that needs checking.</span></li>
-          </ol>
-        </div>
-      </details>
+      <p class="plate__actions" data-reveal style="--i:6"><button class="button button--ink" type="button" data-copy="dia-counterplan Since a cheap coffee chain opened by the station on 2 September, our weekday morning sales have dropped a lot. So from 1 December I'm going to take 1,500 won off every drink before 10 am on weekdays, and since customers hate it when you put prices back up soon after, I plan to keep it for at least 3 months. I have to order the banner and the menu boards by Friday (the 27th). Can you look at pos_summary_jul-oct_2026.csv and tell me whether this has any holes, or what I should do differently?">Copy the prompt</button></p>
     </div>
   </article>
 
@@ -462,22 +370,12 @@
       <h3 class="head plate__name mask" data-reveal style="--i:1"><span>dia-emend</span></h3>
       <p class="lead" data-reveal style="--i:2">One careful review of an answer or a draft.</p>
       <p data-reveal style="--i:3">A careful editor’s single pass: factual errors, logical leaps, missing requirements, repetition. It fixes only the errors it could confirm; the ones it suspects but couldn’t confirm are listed separately with the likely correction, so nothing changes silently.</p>
-      <p class="start" data-reveal style="--i:4"><span class="start__how">Starts with <code>dia-emend</code> or <code>dia emend</code> at the start of the message, or when <code>dia</code> picks it for your request.</span> <span class="start__line">Start it with <code class="start__code">/dia:dia-emend</code></span> <span class="start__note"></span></p>
+      <p class="start" data-reveal style="--i:4"><span class="start__how">Starts when <code>dia-emend</code> is the first word of the message.</span> <span class="start__line">Start it with <code class="start__code">/dia:dia-emend</code></span> <span class="start__note"></span></p>
       <div class="try" data-reveal style="--i:5">
         <p class="try__label">Try this prompt</p>
         <pre><code>dia-emend check the facts: The Great Wall of China is the only man-made structure visible from the Moon with the naked eye, and it was built entirely during the Ming dynasty.</code></pre>
       </div>
-      <p class="plate__actions" data-reveal style="--i:6"><button class="button button--ink" type="button" data-copy="dia-emend check the facts: The Great Wall of China is the only man-made structure visible from the Moon with the naked eye, and it was built entirely during the Ming dynasty.">Copy the prompt</button> <a class="button button--tone" href="https://github.com/ajitta/dialectic-skills#dia-emend-one-careful-review-of-an-answer-or-a-draft">Full guide</a></p>
-      <details class="session" data-reveal style="--i:7">
-        <summary>See what you get</summary>
-        <div class="session__body">
-          <dl class="output" aria-label="What you get, with web search, shortened">
-            <dt>Requirements, as read</dt><dd>“Check the facts” is the criterion. You didn’t say what the sentence is for, so I assumed it is meant to leave a reader with accurate facts about the Great Wall.</dd>
-            <dt>Confirmed errors</dt><dd>“visible from the Moon” is false (search): NASA calls this a myth. “Built entirely during the Ming dynasty” is false (search): around 220 BC, Qin Shi Huang joined the existing northern walls into one system; the Ming rebuilt much of it in brick and stone.</dd>
-            <dt>Remaining uncertainty</dt><dd>sources give different lengths for the Han walls, so the revision gives no figure. <i>(Recorded on 5.1.0.)</i></dd>
-          </dl>
-        </div>
-      </details>
+      <p class="plate__actions" data-reveal style="--i:6"><button class="button button--ink" type="button" data-copy="dia-emend check the facts: The Great Wall of China is the only man-made structure visible from the Moon with the naked eye, and it was built entirely during the Ming dynasty.">Copy the prompt</button></p>
     </div>
   </article>
 
@@ -500,22 +398,12 @@
       <h3 class="head plate__name mask" data-reveal style="--i:1"><span>dia-ratchet</span></h3>
       <p class="lead" data-reveal style="--i:2">Check and fix in rounds.</p>
       <p data-reveal style="--i:3">Like <code>dia-emend</code>, but in rounds, and only outside checks count as evidence: a search, a tool run or a source you supplied, never the assistant’s own re-derivation. What passes is locked, as in a ratchet, so later rounds can’t undo it. It stops by itself on zero defects, when a round makes things worse, when nothing changes any more, when it can’t verify anything more, or at the round limit (<code>--max N</code>, default 3).</p>
-      <p class="start" data-reveal style="--i:4"><span class="start__how">Starts with <code>dia-ratchet</code> or <code>dia ratchet</code> at the start of the message; <code>dia</code> never picks it from a plain request.</span> <span class="start__line">Start it with <code class="start__code">/dia:dia-ratchet</code></span> <span class="start__note"></span></p>
+      <p class="start" data-reveal style="--i:4"><span class="start__how">Starts when <code>dia-ratchet</code> is the first word of the message.</span> <span class="start__line">Start it with <code class="start__code">/dia:dia-ratchet</code></span> <span class="start__note"></span></p>
       <div class="try" data-reveal style="--i:5">
         <p class="try__label">Try this prompt</p>
         <pre><code>dia-ratchet --max 2 check the dates and facts in this paragraph: "The first iPhone went on sale in 2008, and the App Store opened the same day with 500 apps."</code></pre>
       </div>
-      <p class="plate__actions" data-reveal style="--i:6"><button class="button button--ink" type="button" data-copy='dia-ratchet --max 2 check the dates and facts in this paragraph: "The first iPhone went on sale in 2008, and the App Store opened the same day with 500 apps."'>Copy the prompt</button> <a class="button button--tone" href="https://github.com/ajitta/dialectic-skills#dia-ratchet-check-and-fix-in-rounds">Full guide</a></p>
-      <details class="session" data-reveal style="--i:7">
-        <summary>See what you get</summary>
-        <div class="session__body">
-          <dl class="output" aria-label="What you get, with web search, shortened">
-            <dt>Changes</dt><dd>“went on sale in 2008” → “2007”; “opened the same day” → “opened on July 10, 2008”; “with 500 apps” → “with more than 500 apps”, each from Apple’s own press releases.</dd>
-            <dt>Round summary</dt><dd>round 1: 3 named, 3 confirmed. Round 2: none. Locked: 3 items. Stopped because: zero defects in round 2, before the 2-round cap.</dd>
-            <dt>Corrected paragraph</dt><dd>“The first iPhone went on sale in 2007, and the App Store opened on July 10, 2008 with more than 500 apps.” <i>(Recorded on 5.1.0.)</i></dd>
-          </dl>
-        </div>
-      </details>
+      <p class="plate__actions" data-reveal style="--i:6"><button class="button button--ink" type="button" data-copy='dia-ratchet --max 2 check the dates and facts in this paragraph: "The first iPhone went on sale in 2008, and the App Store opened the same day with 500 apps."'>Copy the prompt</button></p>
     </div>
   </article>
 
@@ -538,23 +426,12 @@
       <h3 class="head plate__name mask" data-reveal style="--i:1"><span>dia-adjudicate</span></h3>
       <p class="lead" data-reveal style="--i:2">Decide which review points hold.</p>
       <p data-reveal style="--i:3">A referee for reviews. You give it a text and one or more reviews of it, written by people or by other assistants. It first lists what the text itself claims that can be checked, then rules on each review point once, against the source: holds, holds in part, overstated, wrong, or cannot be verified. How many reviews say a thing, and who wrote them, count for nothing. Then it says what is left of the text’s conclusion and what no review raised, and ends with where its own ruling is likeliest to be wrong.</p>
-      <p class="start" data-reveal style="--i:4"><span class="start__how">Starts with <code>dia-adjudicate</code> or <code>dia adjudicate</code> at the start of the message; <code>dia</code> never picks it from a plain request.</span> <span class="start__line">Start it with <code class="start__code">/dia:dia-adjudicate</code></span> <span class="start__note"></span></p>
+      <p class="start" data-reveal style="--i:4"><span class="start__how">Starts when <code>dia-adjudicate</code> is the first word of the message.</span> <span class="start__line">Start it with <code class="start__code">/dia:dia-adjudicate</code></span> <span class="start__note"></span></p>
       <div class="try" data-reveal style="--i:5">
         <p class="try__label">Try this prompt</p>
-        <pre><code>dia adjudicate Dohyun, our manager, put up proposal.md to switch couriers from Gaon to Nuri from January (he says it saves 14.4 million won a year), but Park the tax accountant's review-bookkeeper.md and Subin's review-packing.md say completely opposite things, and I can't tell which is right. Look at quote-nuri.md too, and tell me which of the two reviews is right and whether the saving is real. Nuri's quote is good until 30 November, so I have to tell Dohyun before then whether to sign.</code></pre>
+        <pre><code>dia-adjudicate Dohyun, our manager, put up proposal.md to switch couriers from Gaon to Nuri from January (he says it saves 14.4 million won a year), but Park the tax accountant's review-bookkeeper.md and Subin's review-packing.md say completely opposite things, and I can't tell which is right. Look at quote-nuri.md too, and tell me which of the two reviews is right and whether the saving is real. Nuri's quote is good until 30 November, so I have to tell Dohyun before then whether to sign.</code></pre>
       </div>
-      <p class="plate__actions" data-reveal style="--i:6"><button class="button button--ink" type="button" data-copy="dia adjudicate Dohyun, our manager, put up proposal.md to switch couriers from Gaon to Nuri from January (he says it saves 14.4 million won a year), but Park the tax accountant&#x27;s review-bookkeeper.md and Subin&#x27;s review-packing.md say completely opposite things, and I can&#x27;t tell which is right. Look at quote-nuri.md too, and tell me which of the two reviews is right and whether the saving is real. Nuri&#x27;s quote is good until 30 November, so I have to tell Dohyun before then whether to sign.">Copy the prompt</button> <a class="button button--tone" href="https://github.com/ajitta/dialectic-skills#dia-adjudicate-decide-which-review-points-hold">Full guide</a></p>
-      <details class="session" data-reveal style="--i:7">
-        <summary>See what you get</summary>
-        <div class="session__body">
-          <dl class="output" aria-label="What you get, shortened">
-            <dt>Judgment</dt><dd>The 14.4 million won a year saving won’t happen. Recomputed with the proposal’s own figures, it comes to about 9.53 million won a year, and only if you ship 2,000 boxes or more in every one of the twelve months of 2027. That condition is the biggest risk, and neither review covers it.</dd>
-            <dt>Rulings</dt><dd>Tax accountant: error of using the average weight → holds (recomputed in Python). VAT may be extra → does not apply: line 9 of the quote says “per box, VAT included”. Subin: 2 pm pickup → holds (quote line 34). Jeju adds 360,000 won a month → overstated: the real increase is 60,000 won a month. Nuri damages a lot → cannot be verified; the only basis is talk in a group chat.</dd>
-            <dt>What both reviews missed</dt><dd>the volume condition is per month, and all or nothing (lines 21–22): in a month under 2,000 boxes, every box gets the base rate. … an early termination penalty and automatic renewal.</dd>
-            <dt>Where I may be wrong</dt><dd>I had a separate agent judge the same input a second time; the conclusion was the same on every item. … Monthly volume in 2027 is unknown. It matters most to the conclusion.</dd>
-          </dl>
-        </div>
-      </details>
+      <p class="plate__actions" data-reveal style="--i:6"><button class="button button--ink" type="button" data-copy="dia-adjudicate Dohyun, our manager, put up proposal.md to switch couriers from Gaon to Nuri from January (he says it saves 14.4 million won a year), but Park the tax accountant&#x27;s review-bookkeeper.md and Subin&#x27;s review-packing.md say completely opposite things, and I can&#x27;t tell which is right. Look at quote-nuri.md too, and tell me which of the two reviews is right and whether the saving is real. Nuri&#x27;s quote is good until 30 November, so I have to tell Dohyun before then whether to sign.">Copy the prompt</button></p>
     </div>
   </article>
 
@@ -577,28 +454,18 @@
       <h3 class="head plate__name mask" data-reveal style="--i:1"><span>dia-regula</span></h3>
       <p class="lead" data-reveal style="--i:2">Write text a model will follow.</p>
       <p data-reveal style="--i:3">A style check for instructions you give an AI: a skill file, a prompt for an agent, a project’s agent file, a rules file. It holds the text to four rules. Each paragraph says what result it wants, with its conditions and fallback in the same sentence. A word that sets a limit is as narrow as you meant it. There are fewer instructions, each with its reason. Each thing has one name. Asked only for a review, it lists what breaks a rule, most serious first, and changes nothing until you pick.</p>
-      <p class="start" data-reveal style="--i:4"><span class="start__how">Starts with <code>dia-regula</code> or <code>dia regula</code> at the start of the message, or when <code>dia</code> picks it for your request.</span> <span class="start__line">Start it with <code class="start__code">/dia:dia-regula</code></span> <span class="start__note"></span></p>
+      <p class="start" data-reveal style="--i:4"><span class="start__how">Starts when <code>dia-regula</code> is the first word of the message.</span> <span class="start__line">Start it with <code class="start__code">/dia:dia-regula</code></span> <span class="start__note"></span></p>
       <div class="try" data-reveal style="--i:5">
         <p class="try__label">Try this prompt</p>
-        <pre><code>dia regula Review this instruction I wrote for a coding agent:
+        <pre><code>dia-regula Review this instruction I wrote for a coding agent:
 Update the docs for the new flag.
 Only touch files the task needs.
 - If the tests fail, stop.</code></pre>
       </div>
-      <p class="plate__actions" data-reveal style="--i:6"><button class="button button--ink" type="button" data-copy="dia regula Review this instruction I wrote for a coding agent:
+      <p class="plate__actions" data-reveal style="--i:6"><button class="button button--ink" type="button" data-copy="dia-regula Review this instruction I wrote for a coding agent:
 Update the docs for the new flag.
 Only touch files the task needs.
-- If the tests fail, stop.">Copy the prompt</button> <a class="button button--tone" href="https://github.com/ajitta/dialectic-skills#dia-regula-write-text-a-model-will-follow">Full guide</a></p>
-      <details class="session" data-reveal style="--i:7">
-        <summary>See what you get</summary>
-        <div class="session__body">
-          <dl class="output" aria-label="What you get, real run, shortened">
-            <dt>1. The edit limit depends on the agent’s own judgment</dt><dd>Rule 2. Line 2, “Only touch files the task needs”: the agent decides what the task “needs,” so this sentence lets it widen its own permission.</dd>
-            <dt>2. The test condition is on its own bullet</dt><dd>Rule 1. Line 3, “If the tests fail, stop”: when to run the tests, which tests, and what “stop” means are left open.</dd>
-            <dt>3 and 4</dt><dd>no instruction gives a reason (Rule 3); “the new flag” may be something the agent can’t find. “You asked only for a review, so I haven’t rewritten anything.” <i>(Recorded on 5.1.0.)</i></dd>
-          </dl>
-        </div>
-      </details>
+- If the tests fail, stop.">Copy the prompt</button></p>
     </div>
   </article>
 
@@ -621,23 +488,12 @@ Only touch files the task needs.
       <h3 class="head plate__name mask" data-reveal style="--i:1"><span>dia-techne</span></h3>
       <p class="lead" data-reveal style="--i:2">Do a task the way the field’s best would.</p>
       <p data-reveal style="--i:3">Named after <i lang="grc-Latn">technē</i>, the Greek word for craft. A request is often narrower than what it is for. The assistant first says what it takes the request to be for, then treats the thing you asked for as one way of getting there: it sets it beside at least one other way, compares them by the result’s own measure, and takes the one that comes out best. It does the work as a top practitioner of the field would, makes now what can be made now, and has the result checked by something other than itself. It never changes your data or a limit you set, and stops before anything it could not take back, such as sending, publishing or spending.</p>
-      <p class="start" data-reveal style="--i:4"><span class="start__how">Starts with <code>dia-techne</code> or <code>dia techne</code> at the start of the message; <code>dia</code> never picks it from a plain request.</span> <span class="start__line">Start it with <code class="start__code">/dia:dia-techne</code></span> <span class="start__note"></span></p>
+      <p class="start" data-reveal style="--i:4"><span class="start__how">Starts when <code>dia-techne</code> is the first word of the message.</span> <span class="start__line">Start it with <code class="start__code">/dia:dia-techne</code></span> <span class="start__note"></span></p>
       <div class="try" data-reveal style="--i:5">
         <p class="try__label">Try this prompt</p>
         <pre><code>dia-techne Our mobile puzzle game's D30 retention is 12%. Can I tell investors next week that it's above the industry average?</code></pre>
       </div>
-      <p class="plate__actions" data-reveal style="--i:6"><button class="button button--ink" type="button" data-copy="dia-techne Our mobile puzzle game's D30 retention is 12%. Can I tell investors next week that it's above the industry average?">Copy the prompt</button> <a class="button button--tone" href="https://github.com/ajitta/dialectic-skills#dia-techne-do-a-task-the-way-the-fields-best-would">Full guide</a></p>
-      <details class="session" data-reveal style="--i:7">
-        <summary>See what you get</summary>
-        <div class="session__body">
-          <dl class="output" aria-label="What you get, real run with web search, shortened">
-            <dt>The outcome it takes</dt><dd>“investors leave convinced your retention is a real strength, and the claim still holds when they check it in diligence. Correct me if it’s something else.”</dd>
-            <dt>Recommendation</dt><dd>If your 12% is classic D30, it is well above average, and “above average” is too weak a way to say it. Two ways compared: “above industry average” (vague, breaks if your definition differs from the benchmark’s) against a specific number with its definition and source (concrete, holds in diligence).</dd>
-            <dt>The comparison, each ratio recomputed</dt><dd>all mobile genres, median 0.69–0.79%, so 12% is about 15–17×; puzzle genre about 5.35%, about 2.2×, each marked secondary.</dd>
-            <dt>Check these before you say it</dt><dd>the definition (classic or rolling), the cohort mix, the sample size, consistency across cohorts, mature cohorts only. <i>(Recorded on 4.0.0.)</i></dd>
-          </dl>
-        </div>
-      </details>
+      <p class="plate__actions" data-reveal style="--i:6"><button class="button button--ink" type="button" data-copy="dia-techne Our mobile puzzle game's D30 retention is 12%. Can I tell investors next week that it's above the industry average?">Copy the prompt</button></p>
     </div>
   </article>
 </section>
@@ -693,7 +549,7 @@ Only touch files the task needs.
               <div class="code"><pre><code>ajitta/dialectic-skills</code></pre></div>
               Copy the name rather than typing it: a misspelling such as <code>dialectric</code> fails with “Repository not found”. The Git URL <code>https://<wbr>github.com/<wbr>ajitta/<wbr><span class="nobr">dialectic-skills.git</span></code> works too.</li>
             <li><strong>Add the plugin.</strong> Adding the marketplace installs nothing yet. In Customize › Plugins, open Discover, select <code>dia</code> (Dialectic Skills), and select Add.</li>
-            <li><strong>Check.</strong> Type <code>/dia</code> in the message box. The <code>dia</code> skills and <code>dia:dia-router</code> should appear. Updates arrive through the marketplace.</li>
+            <li><strong>Check.</strong> Type <code>/dia</code> in the message box. Fourteen entries should appear: the thirteen skills and <code>dia:dia</code>. Updates arrive through the marketplace.</li>
           </ol>
           <ul class="notes">
             <li>Instead of steps 2 and 3 you can upload <a class="link-plain" href="https://github.com/ajitta/dialectic-skills/releases/latest/download/dialectic-skills.zip">dialectic-skills.zip</a> from the latest release: Customize › Plugins › Add › Upload plugin (not Customize › Skills). An upload does not update itself.</li>
@@ -707,9 +563,9 @@ Only touch files the task needs.
         <div class="stage__body" id="stage-mobile">
           <ol class="steps">
             <li>Add dia on claude.ai (the web), as in the claude.ai steps. There is no install step on the phone: a plugin added on the web is saved to your account and reaches the mobile app by itself. One added in Claude desktop does not.</li>
-            <li>Start the message with <code>dia</code>, for example:
-              <div class="code"><pre><code>dia reductio Every prime is odd.</code></pre></div>
-              <code>dia</code> alone lists the skills; a skill’s name after it (<code>dia reductio …</code>) starts that skill, and <code>dia</code> followed by your request picks the skill that fits. The mobile <code>/</code> menu does not list plugin skills, but starting the message with the full name (<code>dia-quaestio …</code>) or typing <code>/dia-quaestio</code> works too. A request in plain words starts no skill.</li>
+            <li>Start the message with a skill’s full name, for example:
+              <div class="code"><pre><code>dia-reductio Every prime is odd.</code></pre></div>
+              The mobile <code>/</code> menu does not list plugin skills, but typing <code>/dia-quaestio</code> in full works too. A request in plain words starts no skill.</li>
           </ol>
         </div>
       </section>
@@ -737,20 +593,19 @@ Only touch files the task needs.
   <div class="wrap invoke__grid">
     <div class="invoke__list">
       <h2 class="head mask" id="invoke-title" data-reveal><span>Start a skill</span></h2>
-      <p data-reveal style="--i:1">There are three ways, and a request in plain words is none of them: since 2.0.0 it starts no skill. The quickest, also on a phone, is to start the message with <code>dia</code>.</p>
-
-      <h3 class="rows__group" data-reveal>With dia, as the first word</h3>
-      <ul class="rows">
-        <li data-reveal style="--i:0"><span class="dot"></span><span class="rows__name">The menu of the thirteen skills</span><span class="rows__value"><code>dia</code></span></li>
-        <li data-reveal style="--i:1"><span class="dot"></span><span class="rows__name">A skill by its full name, with or without <code>dia-</code></span><span class="rows__value"><code>dia reductio …</code> <code>dia dia-reductio …</code></span></li>
-        <li data-reveal style="--i:2"><span class="dot"></span><span class="rows__name">Your request: <code>dia</code> picks the skill that fits and names it in one line</span><span class="rows__value"><code>dia &lt;request&gt;</code></span></li>
-        <li data-reveal style="--i:3"><span class="dot"></span><span class="rows__name">A name that is part of your sentence is read as a request</span><span class="rows__value"><code>dia negative feedback on my draft?</code></span></li>
-      </ul>
+      <p data-reveal style="--i:1">Start the message with the skill’s name. A request in plain words starts no skill.</p>
 
       <h3 class="rows__group" data-reveal>By name, as the first word</h3>
       <ul class="rows">
         <li data-reveal style="--i:0"><span class="dot"></span><span class="rows__name">Works for every skill</span><span class="rows__value"><code>dia-quaestio …</code></span></li>
-        <li data-reveal style="--i:1"><span class="dot"></span><span class="rows__name">Never picked by <code>dia</code> from a plain request; start them by name</span><span class="rows__value"><code>dia-skopos …</code> <code>dia-ratchet …</code> <code>dia-adjudicate …</code> <code>dia-techne …</code></span></li>
+      </ul>
+
+      <h3 class="rows__group" data-reveal>With dia, the skill that calls the others</h3>
+      <ul class="rows">
+        <li data-reveal style="--i:0"><span class="dot"></span><span class="rows__name">What each skill needs and returns, and the rules for handing work to an agent</span><span class="rows__value"><code>dia</code></span></li>
+        <li data-reveal style="--i:1"><span class="dot"></span><span class="rows__name">A request for work that one skill’s row describes: it runs that skill and says which</span><span class="rows__value"><code>dia &lt;request&gt;</code></span></li>
+        <li data-reveal style="--i:2"><span class="dot"></span><span class="rows__name">A target and no skill asked for: criticised by three independent agents and judged by a fourth</span><span class="rows__value"><code>dia docs/plan.md</code></span></li>
+        <li data-reveal style="--i:3"><span class="dot"></span><span class="rows__name">The same, with the critics you name</span><span class="rows__value"><code>dia docs/plan.md with dia-counterplan, dia-warrant and a security reviewer</code></span></li>
       </ul>
 
       <h3 class="rows__group" data-reveal>Selected, per surface</h3>
@@ -758,20 +613,16 @@ Only touch files the task needs.
         <li data-reveal style="--i:0"><span class="dot"></span><span class="rows__name">claude.ai, Claude desktop, Claude Code</span><span class="rows__value"><code>/dia:dia-reductio</code></span></li>
         <li data-reveal style="--i:1"><span class="dot"></span><span class="rows__name">Claude mobile, typed in full</span><span class="rows__value"><code>/dia-quaestio</code></span></li>
         <li data-reveal style="--i:2"><span class="dot"></span><span class="rows__name">Codex plugin, then a space</span><span class="rows__value"><code>$dia:dia-skopos write a backup script</code></span></li>
-        <li data-reveal style="--i:3"><span class="dot"></span><span class="rows__name">Codex, copied folder</span><span class="rows__value"><code>$dia-emend</code></span></li>
         <li data-reveal style="--i:4"><span class="dot"></span><span class="rows__name">ChatGPT: type @, then pick</span><span class="rows__value"><code>@dia-negative</code></span></li>
       </ul>
 
       <h3 class="rows__group" data-reveal>Options, as flags or plain words</h3>
       <ul class="rows">
-        <li data-reveal style="--i:0"><span class="dot"></span><span class="rows__name">What <code>dia-negative</code> examines: your claim, the assistant’s answer, a pasted text, or all</span><span class="rows__value"><code>--target=user|claude|text|all</code></span></li>
-        <li data-reveal style="--i:1"><span class="dot"></span><span class="rows__name">No flags for <code>dia-reductio</code>, <code>dia-warrant</code>, <code>dia-conjecture</code> or <code>dia-counterplan</code>: each says in its first line what it took as the target. To have the assistant’s own answer examined, say so in words</span><span class="rows__value"><code>dia reductio check your last answer</code></span></li>
-        <li data-reveal style="--i:2"><span class="dot"></span><span class="rows__name">For <code>dia-warrant</code>, ask to be questioned: you fill in each part yourself, one question per message, and the assistant judges at the end</span><span class="rows__value"><code>question me</code></span></li>
-        <li data-reveal style="--i:3"><span class="dot"></span><span class="rows__name">Round cap for <code>dia-ratchet</code>, default 3</span><span class="rows__value"><code>--max N</code></span></li>
-        <li data-reveal style="--i:4"><span class="dot"></span><span class="rows__name">Mode and depth for <code>dia-quaestio</code>: <code>develop</code> (default) or <code>stress</code>; <code>quick</code>, <code>standard</code> (default) or <code>deep</code></span><span class="rows__value"><code>stress</code> <code>quick</code> <code>deep</code></span></li>
-        <li data-reveal style="--i:5"><span class="dot"></span><span class="rows__name">Criteria for <code>dia-emend</code> and <code>dia-ratchet</code>: anything after the name</span><span class="rows__value"><code>dia-emend for tone</code></span></li>
+        <li data-reveal style="--i:0"><span class="dot"></span><span class="rows__name">For <code>dia-techne</code>: keep to the thing asked for instead of working for the outcome behind it</span><span class="rows__value"><code>--aim=request</code></span></li>
+        <li data-reveal style="--i:1"><span class="dot"></span><span class="rows__name">Round cap for <code>dia-ratchet</code>, three where none is given</span><span class="rows__value"><code>--max N</code></span></li>
+        <li data-reveal style="--i:2"><span class="dot"></span><span class="rows__name">For <code>dia-quaestio</code>: test the idea harder, or set the length of the dialogue</span><span class="rows__value"><code>stress</code> <code>quick</code> <code>deep</code></span></li>
+        <li data-reveal style="--i:3"><span class="dot"></span><span class="rows__name">Criteria for <code>dia-emend</code> and <code>dia-ratchet</code>: anything after the name</span><span class="rows__value"><code>dia-emend for tone</code></span></li>
       </ul>
-      <p class="invoke__note" data-reveal>Starting with the name was tested for 1.2.0 on Codex and in the ChatGPT mobile app. Since 5.0.0, <code>--target</code> applies to <code>dia-negative</code> only.</p>
     </div>
 
     <figure class="invoke__film pair" data-reveal>
@@ -792,28 +643,12 @@ Only touch files the task needs.
   <div class="wrap faq__grid">
     <div class="faq__head">
       <h2 class="head mask" id="faq-title" data-reveal><span>Questions</span></h2>
-      <p data-reveal style="--i:1">Using several skills together, and common problems. The rest is in <a class="link-plain" href="https://github.com/ajitta/dialectic-skills#troubleshooting">Troubleshooting on GitHub</a>.</p>
+      <p data-reveal style="--i:1">Common problems. The rest is in <a class="link-plain" href="https://github.com/ajitta/dialectic-skills#troubleshooting">Troubleshooting on GitHub</a>.</p>
     </div>
     <div class="faq__list">
       <details class="tile" name="faq" data-reveal style="--i:0">
-        <summary><span>Can I ask for <code>dia-elenchus</code> and <code>dia-quaestio</code> at once?</span></summary>
-        <div class="tile__body"><p>Yes. The definition dialogue comes first and the first message says so; brainstorming starts when you ask for options or the dialogue ends. The two are never interleaved.</p></div>
-      </details>
-      <details class="tile" name="faq" data-reveal style="--i:1">
-        <summary><span>And <code>dia-emend</code> with <code>dia-ratchet</code>?</span></summary>
-        <div class="tile__body"><p>They run as two separate passes with separate outputs. The emend pass’s own re-derivation does not count as verification for a ratchet round.</p></div>
-      </details>
-      <details class="tile" name="faq" data-reveal style="--i:2">
-        <summary><span>And <code>dia-reductio</code> with <code>dia-negative</code>?</span></summary>
-        <div class="tile__body"><p>Both run, which makes for long output. On a phone, ask for one at a time.</p></div>
-      </details>
-      <details class="tile" name="faq" data-reveal style="--i:3">
-        <summary><span><code>dia-warrant</code>, <code>dia-conjecture</code> or <code>dia-counterplan</code> said my request is another method’s work</span></summary>
-        <div class="tile__body"><p>These three check what you gave them first and say so in one line: <code>dia-warrant</code> for a strict contradiction or for counterexamples to a claim about every case, <code>dia-conjecture</code> for a rule put as “usually” or “most”, <code>dia-counterplan</code> for a question whether one claim is true, with no course of action in it. The line need not name the skill to use; ask again, starting the message with the one that fits.</p></div>
-      </details>
-      <details class="tile" name="faq" data-reveal style="--i:4">
-        <summary><span>Can I get advice after <code>dia-elenchus</code>?</span></summary>
-        <div class="tile__body"><p>Ask, and the assistant says the Socratic part is over and labels each suggestion as its own. For a full options-and-plan session, start a message with <code>dia-quaestio</code> and it takes the record from there.</p></div>
+        <summary><span>What does <code>dia</code> with a target do?</span></summary>
+        <div class="tile__body"><p>The session gathers the target, the sources it points to and what you said about it, picks three critics by the kinds of fault this target could have, and starts each as an independent agent. Their whole reports then go to <code>dia-adjudicate</code> in an agent of its own, and you get the judge’s reply as the judge gave it. Where agents cannot be started, it says so.</p></div>
       </details>
       <details class="tile" name="faq" data-reveal style="--i:5">
         <summary><span>“Repository not found” when I add the marketplace</span></summary>
@@ -821,11 +656,11 @@ Only touch files the task needs.
       </details>
       <details class="tile" name="faq" data-reveal style="--i:6">
         <summary><span>A skill did not start from my request</span></summary>
-        <div class="tile__body"><p>Since 2.0.0 a request in plain words starts no dia skill. Start the message with <code>dia</code> (<code>dia &lt;request&gt;</code>, or <code>dia &lt;name&gt; &lt;request&gt;</code> such as <code>dia reductio …</code> for a chosen skill) or with the skill’s full name (<code>dia-reductio …</code>).</p></div>
+        <div class="tile__body"><p>A request in plain words starts no dia skill. Start the message with the skill’s full name (<code>dia-reductio …</code>).</p></div>
       </details>
       <details class="tile" name="faq" data-reveal style="--i:7">
         <summary><span>No dia skills under <code>/</code> on Claude mobile</span></summary>
-        <div class="tile__body"><p>Expected: the mobile menu does not list plugin skills. Start the message with <code>dia</code> or with the skill’s full name, or type the full selection (such as <code>/dia-quaestio</code>).</p></div>
+        <div class="tile__body"><p>Expected: the mobile menu does not list plugin skills. Start the message with the skill’s full name, or type the full selection (such as <code>/dia-quaestio</code>).</p></div>
       </details>
       <details class="tile" name="faq" data-reveal style="--i:8">
         <summary><span>It works on one device but not another</span></summary>
@@ -833,19 +668,11 @@ Only touch files the task needs.
       </details>
       <details class="tile" name="faq" data-reveal style="--i:9">
         <summary><span>Every skill appears twice</span></summary>
-        <div class="tile__body"><p>The plugin is installed through two routes (for example <code>dia@dialectic-skills</code> and <code>dia@ajitta</code>, or an upload and a marketplace). Remove one.</p></div>
+        <div class="tile__body"><p>The plugin is installed through two routes (for example an upload and a marketplace). Remove one.</p></div>
       </details>
       <details class="tile" name="faq" data-reveal style="--i:10">
         <summary><span>claude.ai keeps an old version</span></summary>
         <div class="tile__body"><p>If Check for updates leaves an old version, remove <code>dia</code> in Customize › Plugins and install it again from the <code>dialectic-skills</code> marketplace. Turn on Sync automatically for later releases.</p></div>
-      </details>
-      <details class="tile" name="faq" data-reveal style="--i:11">
-        <summary><span>On ChatGPT, a skill starts only from <code>@</code></span></summary>
-        <div class="tile__body"><p>Most likely your upload is older than 1.2.0, where four skills were hidden from the model. Upload the latest <code>dialectic-skills-openai.zip</code> again; uploads do not update themselves.</p></div>
-      </details>
-      <details class="tile" name="faq" data-reveal style="--i:12">
-        <summary><span><code>dia-ratchet</code>, <code>dia-adjudicate</code> or <code>dia-techne</code> does not start</span></summary>
-        <div class="tile__body"><p>Each starts only when its name is the first word of the message or when it is selected explicitly (<code>/dia:dia-ratchet</code>, <code>$dia:dia-ratchet</code>, <code>@dia-ratchet</code>, <code>dia ratchet</code>; for <code>dia-adjudicate</code> and <code>dia-techne</code> the same forms and <code>dia adjudicate</code> or <code>dia techne</code>). <code>dia</code> with a plain request never picks them; it replies with the form to send.</p></div>
       </details>
     </div>
   </div>
@@ -871,10 +698,8 @@ Only touch files the task needs.
         <li><a class="link" href="https://github.com/ajitta/dialectic-skills/releases/latest/download/dialectic-skills.zip">dialectic-skills.zip (Claude)</a></li>
         <li><a class="link" href="https://github.com/ajitta/dialectic-skills/releases/latest/download/dialectic-skills-openai.zip">dialectic-skills-openai.zip (ChatGPT)</a></li>
       </ul>
-      <ul class="footer__links" aria-label="README in other languages">
+      <ul class="footer__links" aria-label="README in Korean">
         <li><a class="link" href="https://github.com/ajitta/dialectic-skills/blob/main/README.ko.md" hreflang="ko">README in Korean</a></li>
-        <li><a class="link" href="https://github.com/ajitta/dialectic-skills/blob/main/README.ja.md" hreflang="ja">README in Japanese</a></li>
-        <li><a class="link" href="https://github.com/ajitta/dialectic-skills/blob/main/README.zh-CN.md" hreflang="zh-CN">README in Simplified Chinese</a></li>
       </ul>
       <p class="footer__credits">Pictures and footage, all public domain: <a href="https://commons.wikimedia.org/wiki/File:Bust_Socrates_Musei_Capitolini_MC1163.jpg">herm of Socrates</a>, Capitoline Museums, via Wikimedia Commons; François-André Vincent, <a href="https://commons.wikimedia.org/wiki/File:Alcibades_being_taught_by_Socrates,_Fran%C3%A7ois-Andr%C3%A9_Vincent.jpg">Alcibiades Being Taught by Socrates</a>, via Wikimedia Commons; Jacques-Louis David, <a href="https://www.metmuseum.org/art/collection/search/436105">The Death of Socrates</a>, The Met (CC0); Agostino Veneziano, <a href="https://www.metmuseum.org/art/collection/search/342969">The Group, from Raphael’s School of Athens</a>, The Met (CC0); <a href="https://commons.wikimedia.org/wiki/File:Euclid3a.gif">Euclid’s Elements, Ratdolt, 1482</a>, via Wikimedia Commons; <a href="https://www.metmuseum.org/art/collection/search/650907">Diogenes holding a lantern</a>, after Ribera, The Met (CC0); Honoré Daumier, <a href="https://www.metmuseum.org/art/collection/search/625297"><span lang="fr">Une péroraison à la Démosthène</span>, from <span lang="fr">Les Gens de Justice</span></a>, The Met (CC0); attributed to Jacopo de’ Barbari, <a href="https://commons.wikimedia.org/wiki/File:Jacopo_de%27_Barbari_(attributed_to)_Portrait_of_Luca_Pacioli_(1445_1517)_with_a_student_(Guidobaldo_da_Montefeltro)_(2).jpg">Portrait of Luca Pacioli</a>, via Wikimedia Commons; Annibale Carracci, <a href="https://commons.wikimedia.org/wiki/File:Annibale_Carracci,_Hercules_at_the_Crossroads,_brighter.jpg">The Choice of Hercules</a>, via Wikimedia Commons; <a href="https://commons.wikimedia.org/wiki/File:Euthyphron_beginning._Clarke_Plato.jpg">Clarke Plato, Euthyphro</a>, via Wikimedia Commons; Jan Collaert I, <a href="https://www.metmuseum.org/art/collection/search/659683">The Invention of Book Printing</a>, The Met (CC0); Nicolas Poussin, <a href="https://commons.wikimedia.org/wiki/File:Poussin_-_Le_Jugement_de_Salomon,_1649,_INV_7277_;_MR_2316.jpg">The Judgment of Solomon</a>, Louvre, via Wikimedia Commons; Laurentius de Voltolina, <a href="https://commons.wikimedia.org/wiki/File:Laurentius_de_Voltolina_001.jpg">Henricus de Alemannia lecturing to students</a>, via Wikimedia Commons; Diego Velázquez, <a href="https://commons.wikimedia.org/wiki/File:Vel%C3%A1zquez_-_La_Fragua_de_Vulcano_(Museo_del_Prado,_1630).jpg">Apollo in the Forge of Vulcan</a>, Museo del Prado, via Wikimedia Commons; <a href="https://commons.wikimedia.org/wiki/File:Acropolis_(1921).webm">Acropolis (1921)</a>, via Wikimedia Commons. Type: Libre Franklin and Source Serif 4, SIL Open Font License.</p>
     </div>
