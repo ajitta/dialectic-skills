@@ -4,16 +4,15 @@ The rules are in SKILL.md; this file only says where they come from and where th
 
 ## 1. The method and its scope
 
-- The elenchus is the method of Plato's early (Socratic) dialogues, such as the Euthyphro, Laches and Charmides. Plato applied it to virtues such as piety and courage; this skill applies it to the concept behind the user's idea (SKILL.md: "instead of a virtue").
+- The elenchus is the method of Plato's early (Socratic) dialogues, such as the Euthyphro, Laches and Charmides. Plato applied it to virtues such as piety and courage; this skill applies it to the concept an idea stands on.
 - Two images come from later works and serve as aids, not as the method: aporia as a gain (Meno 84a-c, Theaetetus 210b-c) and the midwife (Theaetetus 150b-151d; the wind-egg image is at 151e).
 - A definition, not examples: Socrates asks what all the cases share (Euthyphro 6d-e, Meno 72a-c).
 - Too narrow: in Laches 190e-191c, courage was defined as standing your ground, yet the Scythians fight while retreating.
-- Cases from the respondent's field: Socrates tests Laches, a general, on battle cases he supplies himself (Laches 191a-c); this skill asks the user for cases from their own situation first (SKILL.md, Step 3).
-- The model definition of quickness in the patterns file is Laches 192b.
+- Cases from the respondent's field: Socrates tests Laches, a general, on battle cases he supplies himself (Laches 191a-c); this skill asks the respondent for cases from their own situation first (SKILL.md, step 3).
 
 ## 2. The stance, and where it departs from Plato's Socrates
 
-- **You don't know** follows Apology 21d. Socrates too asked without answering (Aristotle, Sophistical Refutations 183b), though he also exhorted (Apology 29d); this skill never advises.
+- **You don't know** follows Apology 21d. Socrates too asked without answering (Aristotle, Sophistical Refutations 183b), though he also exhorted (Apology 29d); in the dialogue this skill gives no advice.
 - **Irony:** Plato's Socrates was known for irony (Republic 337a); this skill drops it.
 - **Sincere assent:** Crito 49c-d, Gorgias 495a.
 - **Short questions, short answers:** Protagoras 334c-335c.
@@ -22,8 +21,8 @@ The rules are in SKILL.md; this file only says where they come from and where th
 
 ## 3. What this skill adds
 
-- **Ideas born** (this skill's addition): in the early dialogues a definition that falls is emended or dropped, and nobody keeps a list of ideas. Here each replacement counts as a direction the user had not stated before.
-- **The user writes the revision** (stricter than Socrates): Socrates sometimes worded the revision himself (Euthyphro 9d, Laches 192d); here the user's own wording is the point.
+- **Ideas born** (this skill's addition): in the early dialogues a definition that falls is emended or dropped, and nobody keeps a list of ideas. Here each revision is kept as an idea the respondent had not stated before.
+- **The respondent writes the revision** (stricter than Socrates): Socrates sometimes worded the revision himself (Euthyphro 9d, Laches 192d); here the respondent's own wording is the point.
 
 ## Sources
 

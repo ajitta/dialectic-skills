@@ -1,0 +1,7 @@
+interface:
+  display_name: "Dia"
+  short_description: "Calls the dia skills; has a target criticised and judged"
+  default_prompt: "Use $dia:dia to have this criticised by three critics and judged: "
+
+policy:
+  allow_implicit_invocation: true
